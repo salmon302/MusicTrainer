@@ -1,0 +1,2 @@
+2025-02-14 15:31:51 [ERROR] [Correlation: correlation1, Count: 1] C:/Users/salmo/CLionProjects/MusicTrainerV3/include/domain/errors/ErrorBase.h:16 top level - C:/Users/salmo/CLionProjects/MusicTrainerV3/include/domain/errors/ErrorBase.h:16 [top level] - Test error 1
+2025-02-14 15:31:51 [ERROR] [Correlation: correlation1, Count: 2] C:/Users/salmo/CLionProjects/MusicTrainerV3/include/domain/errors/ErrorBase.h:16 top level - C:/Users/salmo/CLionProjects/MusicTrainerV3/include/domain/errors/ErrorBase.h:16 [top level] - Test error 2

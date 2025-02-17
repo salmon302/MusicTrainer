@@ -1,0 +1,25 @@
+#include "domain/events/EventStore.h"
+#include "domain/events/Snapshot.h"
+
+namespace music::events {
+
+void EventStore::createSnapshot(const Score& score) {
+	std::unique_lock<std::shared_mutex> lock(mutex_);
+	auto snapshot = Snapshot::create(score);
+	snapshot->setVersion(events.size());  // Set version to current event count
+	snapshots.push_back(std::move(snapshot));
+}
+
+const Snapshot* EventStore::findNearestSnapshot(size_t eventIndex) const {
+	const Snapshot* nearest = nullptr;
+	for (const auto& snapshot : snapshots) {
+		if (snapshot->getVersion() <= eventIndex) {  // Use getter instead of direct access
+			nearest = snapshot.get();
+		} else {
+			break;
+		}
+	}
+	return nearest;
+}
+
+} // namespace music::events

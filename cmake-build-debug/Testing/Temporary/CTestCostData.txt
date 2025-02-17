@@ -1,0 +1,23 @@
+ValidationPipelineTests 147 0
+ExerciseGenerationTests 212 0
+MidiSystemTests 216 0.00153502
+apinames 261 3.5236e-05
+RepositoryTests 144 0
+ProgressionSystemTests 224 4.23496e-05
+PluginSystemTests 30 0
+ErrorHandlingTests 32 0
+SystemIntegrationTests 4 0
+PerformanceMonitoringTests 84 0.000187725
+CrossDomainValidatorTests 0 0
+StateSynchronizationManagerTests 0 0
+LockingTests 0 0
+---
+ValidationPipelineTests
+ExerciseGenerationTests
+RepositoryTests
+SystemIntegrationTests
+PluginSystemTests
+ErrorHandlingTests
+CrossDomainValidatorTests
+StateSynchronizationManagerTests
+LockingTests

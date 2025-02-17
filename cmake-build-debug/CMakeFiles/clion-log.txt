@@ -1,0 +1,6 @@
+"C:\Users\salmo\OneDrive - Florida Gulf Coast University\cmake-3.24.0-rc1-windows-x86_64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Users/salmo/AppData/Local/JetBrains/CLion 2022.2.1/bin/ninja/win/ninja.exe" -G Ninja -S C:\Users\salmo\CLionProjects\MusicTrainerV3 -B C:\Users\salmo\CLionProjects\MusicTrainerV3\cmake-build-debug
+-- Could NOT find PkgConfig (missing: PKG_CONFIG_EXECUTABLE) 
+-- Compiling with support for: winmm
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug

@@ -1,0 +1,21 @@
+# ninja log v5
+1298	1341	7605109825370128	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-build	db90489f2656d696
+0	52	7605109812481320	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-mkdir	e3dfa59f3b1ad6da
+1164	1208	7605109824051312	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-update	25d56e43a8317a4
+0	52	7605109812481320	C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-mkdir	e3dfa59f3b1ad6da
+53	1163	7605109823599866	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-download	348dd8a6a8de16c7
+53	1163	7605109823599866	C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-download	348dd8a6a8de16c7
+1164	1208	7605109824051312	C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-update	25d56e43a8317a4
+1209	1253	7605109824493996	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-patch	bf667b1e48973f84
+1209	1253	7605109824493996	C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-patch	bf667b1e48973f84
+1253	1297	7605109824943252	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-configure	dd80b269763885fc
+1430	1490	7605109826867895	CMakeFiles/googletest-populate-complete	248ca8358917f2c1
+1253	1297	7605109824943252	C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-configure	dd80b269763885fc
+1298	1341	7605109825370128	C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-build	db90489f2656d696
+1341	1386	7605109825833698	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-install	ce5d676db52422da
+1341	1386	7605109825833698	C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-install	ce5d676db52422da
+1386	1430	7605109826254206	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-test	561a5b15922d6676
+1386	1430	7605109826254206	C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-test	561a5b15922d6676
+1430	1490	7605109826867895	C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-done	248ca8358917f2c1
+1430	1490	7605109826867895	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-done	248ca8358917f2c1
+1430	1490	7605109826867895	C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/googletest-subbuild/CMakeFiles/googletest-populate-complete	248ca8358917f2c1

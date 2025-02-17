@@ -1,0 +1,82 @@
+#ifndef MUSICTRAINERV3_MOCKMIDIADAPTER_H
+#define MUSICTRAINERV3_MOCKMIDIADAPTER_H
+
+#include <memory>
+#include <mutex>
+#include <atomic>
+#include <vector>
+#include <queue>
+#include <chrono>
+#include "domain/ports/MidiPort.h"
+
+namespace music::adapters {
+
+class MidiError : public std::runtime_error {
+public:
+	explicit MidiError(const std::string& message) : std::runtime_error(message) {}
+};
+
+class MockMidiAdapter : public ports::MidiPort {
+public:
+	static std::unique_ptr<MockMidiAdapter> create();
+	~MockMidiAdapter() override = default;
+	
+	bool open() override;
+	void close() override;
+	bool isOpen() const override;
+	void sendEvent(const ports::MidiEvent& event) override;
+	void setEventCallback(std::function<void(const ports::MidiEvent&)> callback) override;
+	ports::MidiPortMetrics getMetrics() const override;
+	void resetMetrics() override;
+	
+	// Test control methods
+	void setSimulateErrors(bool simulate) { simulateErrors = simulate; }
+	void clearEvents() { 
+		std::lock_guard<std::mutex> lock(callbackMutex);
+		while (!eventQueue.empty()) eventQueue.pop();
+	}
+	
+private:
+	MockMidiAdapter() = default;
+	
+	struct EventWithPriority {
+		ports::MidiEvent event;
+		int priority;
+		size_t sequence;
+		
+		EventWithPriority(ports::MidiEvent e, int p, size_t s) 
+			: event(std::move(e)), priority(p), sequence(s) {}
+		
+		// For priority queue, lower values have lower priority and come later
+		bool operator<(const EventWithPriority& other) const {
+			// Return true if this.priority is less than other.priority
+			if (priority != other.priority) {
+				return priority < other.priority;  // Higher priority (3) will come before lower priority (1)
+			}
+			return sequence > other.sequence;  // Earlier sequence comes first for same priority
+		}
+	};
+	
+	std::atomic<bool> isRunning{false};
+	std::atomic<bool> simulateErrors{false};
+	std::priority_queue<EventWithPriority> eventQueue;
+	std::function<void(const ports::MidiEvent&)> eventCallback;
+	std::mutex callbackMutex;
+	size_t sequenceNumber{0};
+	
+	struct {
+		std::atomic<size_t> totalEvents{0};
+		std::atomic<size_t> errorCount{0};
+		std::atomic<size_t> recoveredErrors{0};
+		std::atomic<double> maxLatencyUs{0.0};
+		std::chrono::system_clock::time_point lastEventTime;
+	} metrics;
+	
+	void simulateError();
+	void processEvents();
+	int getPriority(const ports::MidiEvent& event) const;
+};
+
+} // namespace music::adapters
+
+#endif // MUSICTRAINERV3_MOCKMIDIADAPTER_H
