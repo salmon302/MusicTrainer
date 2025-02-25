@@ -7,7 +7,7 @@ if(CMAKE_VERSION VERSION_LESS "2.8.3")
    message(FATAL_ERROR "CMake >= 2.8.3 required")
 endif()
 cmake_policy(PUSH)
-cmake_policy(VERSION 2.8.3...3.22)
+cmake_policy(VERSION 2.8.3...3.26)
 #----------------------------------------------------------------
 # Generated CMake target import file.
 #----------------------------------------------------------------
@@ -50,14 +50,15 @@ unset(_cmake_expected_targets)
 add_library(RtMidi::rtmidi SHARED IMPORTED)
 
 set_target_properties(RtMidi::rtmidi PROPERTIES
-  INTERFACE_INCLUDE_DIRECTORIES "C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/rtmidi-src"
+  INTERFACE_INCLUDE_DIRECTORIES "/home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/rtmidi-src"
+  INTERFACE_LINK_LIBRARIES "Threads::Threads"
 )
 
-# Import target "RtMidi::rtmidi" for configuration "Debug"
-set_property(TARGET RtMidi::rtmidi APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)
+# Import target "RtMidi::rtmidi" for configuration ""
+set_property(TARGET RtMidi::rtmidi APPEND PROPERTY IMPORTED_CONFIGURATIONS NOCONFIG)
 set_target_properties(RtMidi::rtmidi PROPERTIES
-  IMPORTED_IMPLIB_DEBUG "C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/rtmidi-build/librtmidi.dll.a"
-  IMPORTED_LOCATION_DEBUG "C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/bin/librtmidi.dll"
+  IMPORTED_LOCATION_NOCONFIG "/home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/rtmidi-build/librtmidi.so.6.0.0"
+  IMPORTED_SONAME_NOCONFIG "librtmidi.so.6"
   )
 
 # This file does not depend on other imported targets which have

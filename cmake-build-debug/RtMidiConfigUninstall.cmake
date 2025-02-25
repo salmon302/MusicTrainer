@@ -1,14 +1,14 @@
-if(NOT EXISTS "C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/rtmidi-build/install_manifest.txt")
-  message(FATAL_ERROR "Cannot find install manifest: \"C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/rtmidi-build/install_manifest.txt\"")
-endif(NOT EXISTS "C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/rtmidi-build/install_manifest.txt")
+if(NOT EXISTS "/home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/rtmidi-build/install_manifest.txt")
+  message(FATAL_ERROR "Cannot find install manifest: \"/home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/rtmidi-build/install_manifest.txt\"")
+endif(NOT EXISTS "/home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/rtmidi-build/install_manifest.txt")
 
-file(READ "C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/rtmidi-build/install_manifest.txt" files)
+file(READ "/home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/rtmidi-build/install_manifest.txt" files)
 string(REGEX REPLACE "\n" ";" files "${files}")
 foreach(file ${files})
   message(STATUS "Uninstalling \"$ENV{DESTDIR}${file}\"")
   if(EXISTS "$ENV{DESTDIR}${file}")
     exec_program(
-      "C:/Users/salmo/OneDrive - Florida Gulf Coast University/cmake-3.24.0-rc1-windows-x86_64/bin/cmake.exe" ARGS "-E remove \"$ENV{DESTDIR}${file}\""
+      "/usr/bin/cmake" ARGS "-E remove \"$ENV{DESTDIR}${file}\""
       OUTPUT_VARIABLE rm_out
       RETURN_VALUE rm_retval
       )

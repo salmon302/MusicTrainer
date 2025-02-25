@@ -2,7 +2,7 @@
 #define MUSICTRAINERV3_INMEMORYSCOREREPOSITORY_H
 
 #include <unordered_map>
-#include <shared_mutex>
+#include <functional>
 #include "domain/ports/ScoreRepository.h"
 
 namespace music::adapters {
@@ -18,8 +18,20 @@ public:
 
 private:
 	InMemoryScoreRepository() = default;
+	
+	void updateScores(const std::string& name, const std::function<void(std::unordered_map<std::string, std::unique_ptr<Score>>&)>& updateFn) {
+		auto newScores = std::unordered_map<std::string, std::unique_ptr<Score>>();
+		for (const auto& [key, value] : scores) {
+			if (value) {
+				newScores[key] = std::unique_ptr<Score>(new Score(*value));
+			}
+		}
+		updateFn(newScores);
+		scores = std::move(newScores);
+	}
+
+	
 	std::unordered_map<std::string, std::unique_ptr<Score>> scores;
-	mutable std::shared_mutex mutex_;  // Mutex for thread safety
 };
 
 } // namespace music::adapters

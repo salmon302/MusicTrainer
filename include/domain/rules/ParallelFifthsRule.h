@@ -2,10 +2,13 @@
 #define MUSICTRAINERV3_PARALLELFIFTHSRULE_H
 
 #include "IncrementalRule.h"
-#include "../music/Score.h"
-#include <mutex>
+#include <string>
+#include <memory>
 
-namespace music::rules {
+namespace music {
+class Score;
+
+namespace rules {
 
 class ParallelFifthsRule : public IncrementalRule {
 public:
@@ -19,10 +22,21 @@ public:
 
 private:
 	ParallelFifthsRule() = default;
+	
+	void setViolationDescription(const std::string& desc) const {
+		violationDescription = desc;
+	}
+	
+	void clearViolationDescription() const {
+		violationDescription.clear();
+	}
+	
 	mutable std::string violationDescription;
 };
 
-} // namespace music::rules
+} // namespace rules
+} // namespace music
 
 #endif // MUSICTRAINERV3_PARALLELFIFTHSRULE_H
+
 

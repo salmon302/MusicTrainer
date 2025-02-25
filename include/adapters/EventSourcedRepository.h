@@ -5,7 +5,8 @@
 #include <vector>
 #include <memory>
 #include <optional>
-#include <shared_mutex>
+#include <atomic>
+#include <functional>
 #include "domain/ports/ScoreRepository.h"
 #include "domain/events/Event.h"
 #include "domain/events/Snapshot.h"
@@ -21,14 +22,9 @@ public:
 	std::vector<std::string> listScores() override;
 	void remove(const std::string& name) override;
 	
-	// Event sourcing specific methods
 	void appendEvents(const std::string& name, const std::vector<std::unique_ptr<events::Event>>& events);
 	void createSnapshot(const std::string& name);
 	std::vector<std::unique_ptr<events::Event>> getEvents(const std::string& name, size_t fromVersion = 0);
-
-#ifdef TESTING
-	std::shared_mutex& getMutexForTesting() const { return mutex_; }
-#endif
 
 private:
 	EventSourcedRepository() = default;
@@ -37,13 +33,37 @@ private:
 		std::vector<std::unique_ptr<events::Event>> events;
 		std::unique_ptr<events::Snapshot> snapshot;
 		size_t version{0};
+		
+		ScoreState() = default;
+		ScoreState(const ScoreState& other) = delete;
+		ScoreState& operator=(const ScoreState& other) = delete;
+		ScoreState(ScoreState&& other) = default;
+		ScoreState& operator=(ScoreState&& other) = default;
 	};
 	
-	std::unordered_map<std::string, ScoreState> scoreStates;
-	mutable std::shared_mutex mutex_;  // Level 4 (REPOSITORY) - Must be acquired after VALIDATION/METRICS locks
+	void updateState(const std::string& name, const std::function<void(ScoreState&)>& updateFn) {
+		auto it = scoreStates.find(name);
+		if (it != scoreStates.end()) {
+			auto newState = ScoreState{};
+			newState.events.reserve(it->second.events.size());
+			for (const auto& event : it->second.events) {
+				newState.events.push_back(event->clone());
+			}
+			if (it->second.snapshot) {
+				newState.snapshot = std::unique_ptr<events::Snapshot>(it->second.snapshot->clone());
+			}
+			newState.version = it->second.version;
+			
+			updateFn(newState);
+			scoreStates[name] = std::move(newState);
+		} else {
+			ScoreState newState;
+			updateFn(newState);
+			scoreStates[name] = std::move(newState);
+		}
+	}
 	
-	// Helper method to reconstruct score from events
-	// Lock ordering: Acquires REPOSITORY lock (level 4) after any needed VALIDATION (2) or METRICS (3) locks
+	std::unordered_map<std::string, ScoreState> scoreStates;
 	std::unique_ptr<Score> reconstructScore(const ScoreState& state);
 };
 

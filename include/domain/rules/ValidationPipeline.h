@@ -1,17 +1,12 @@
 #ifndef MUSICTRAINERV3_VALIDATIONPIPELINE_H
 #define MUSICTRAINERV3_VALIDATIONPIPELINE_H
 
-#include <iostream>
-#include <ostream>
 #include <vector>
 #include <memory>
 #include <string>
 #include <unordered_map>
 #include <chrono>
-#include <mutex>
-#include <shared_mutex>
-#include <future>
-#include "../../utils/TrackedLock.h"
+#include <atomic>
 #include "Rule.h"
 #include "IncrementalRule.h"
 #include "../music/Score.h"
@@ -38,16 +33,14 @@ public:
 		std::vector<std::string> dependencies;
 		int priority;
 		bool incremental;
-		std::chrono::microseconds lastExecutionTime{0};
+		std::chrono::microseconds::rep lastExecutionTime{0};
 		size_t lastValidatedMeasure{0};
-		
-		// Constructor
+
 		RuleMetadata(std::unique_ptr<Rule> r, std::vector<std::string> deps = {}, int p = 0)
 			: rule(std::move(r)), dependencies(std::move(deps)), priority(p) {
 			incremental = dynamic_cast<IncrementalRule*>(rule.get()) != nullptr;
 		}
 		
-		// Copy constructor
 		RuleMetadata(const RuleMetadata& other)
 			: dependencies(other.dependencies)
 			, priority(other.priority)
@@ -59,7 +52,6 @@ public:
 			}
 		}
 		
-		// Copy assignment
 		RuleMetadata& operator=(const RuleMetadata& other) {
 			if (this != &other) {
 				dependencies = other.dependencies;
@@ -76,32 +68,15 @@ public:
 			return *this;
 		}
 		
-		// Move constructor and assignment
-		RuleMetadata(RuleMetadata&& other) noexcept
-			: rule(std::move(other.rule))
-			, dependencies(std::move(other.dependencies))
-			, priority(other.priority)
-			, incremental(other.incremental)
-			, lastExecutionTime(other.lastExecutionTime)
-			, lastValidatedMeasure(other.lastValidatedMeasure) {}
-		
-		RuleMetadata& operator=(RuleMetadata&& other) noexcept {
-			if (this != &other) {
-				rule = std::move(other.rule);
-				dependencies = std::move(other.dependencies);
-				priority = other.priority;
-				incremental = other.incremental;
-				lastExecutionTime = other.lastExecutionTime;
-				lastValidatedMeasure = other.lastValidatedMeasure;
-			}
-			return *this;
-		}
+		RuleMetadata(RuleMetadata&& other) noexcept = default;
+		RuleMetadata& operator=(RuleMetadata&& other) noexcept = default;
+
 	};
 	
 	struct ValidationMetrics {
-		std::chrono::microseconds totalExecutionTime{0};
-		std::chrono::microseconds maxExecutionTime{0};
-		std::chrono::microseconds avgExecutionTime{0};
+		std::chrono::microseconds::rep totalExecutionTime{0};
+		std::chrono::microseconds::rep maxExecutionTime{0};
+		std::chrono::microseconds::rep avgExecutionTime{0};
 		size_t ruleExecutions{0};
 		size_t cacheHits{0};
 		size_t cacheMisses{0};
@@ -134,42 +109,24 @@ public:
 	
 	// Results and metrics
 	std::vector<std::string> getViolations() const;
-	const ValidationMetrics& getMetrics() const { 
-		::utils::TrackedSharedMutexLock lock(metrics_mutex_, "ValidationPipeline::metrics_mutex_", ::utils::LockLevel::METRICS);
-		return metrics; 
-	}
+	const ValidationMetrics& getMetrics() const { return metrics; }
 	void clearViolations();
-	const std::vector<ValidationFeedback>& getFeedback() const { 
-		::utils::TrackedSharedMutexLock lock(mutex_, "ValidationPipeline::mutex_", ::utils::LockLevel::VALIDATION);
-		return feedbackItems; 
-	}
-	void clearFeedback() { 
-		::utils::TrackedUniqueLock lock(mutex_, "ValidationPipeline::mutex_", ::utils::LockLevel::VALIDATION);
-		feedbackItems.clear(); 
-	}
+	
+	const std::vector<ValidationFeedback>& getFeedback() const { return feedbackItems; }
+	void clearFeedback() { feedbackItems.clear(); }
 
-#ifdef TESTING
-	std::shared_mutex& getMutexForTesting() const { return mutex_; }
-#endif
 
 private:
 	std::vector<ValidationFeedback> feedbackItems;
-	ValidationPipeline() = default;
+	ValidationPipeline();
 	std::vector<RuleMetadata> rules;
 	std::vector<size_t> evaluationOrder;
 	std::vector<std::string> violations;
 	ValidationMetrics metrics;
-	bool compiled = false;
-	// Lock ordering (lower number = lower level, must be acquired first):
-	// Level 4: mutex_ (VALIDATION) - Main validation pipeline lock
-	//         Used for rule compilation, feedback, and validation control
-	// Level 5: metrics_mutex_ (METRICS) - Metrics and cache lock
-	//         Used for updating metrics, cache access, and rule timings
-	//         Must be acquired after VALIDATION lock if both needed
-	mutable std::shared_mutex mutex_;        // VALIDATION level lock (Level 4)
-	mutable std::shared_mutex metrics_mutex_; // METRICS level lock (Level 5)
+	std::atomic<bool> compiled{false};
 	
 	// Timeout settings
+
 	static constexpr std::chrono::milliseconds DEFAULT_RULE_TIMEOUT{5000}; // 5 second timeout for rules
 	std::chrono::milliseconds ruleTimeout{DEFAULT_RULE_TIMEOUT};
 	

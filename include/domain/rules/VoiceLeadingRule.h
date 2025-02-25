@@ -2,9 +2,13 @@
 #define MUSICTRAINERV3_VOICELEADINGRULE_H
 
 #include "IncrementalRule.h"
-#include "../music/Score.h"
+#include <string>
+#include <memory>
 
-namespace music::rules {
+namespace music {
+class Score;
+
+namespace rules {
 
 class VoiceLeadingRule : public IncrementalRule {
 public:
@@ -18,11 +22,22 @@ public:
 
 private:
 	explicit VoiceLeadingRule(int maxLeapSize);
+	
+	void setViolationDescription(const std::string& desc) const {
+		violationDescription = desc;
+	}
+	
+	void clearViolationDescription() const {
+		violationDescription.clear();
+	}
+	
 	mutable std::string violationDescription;
-	int maxLeapSize; // Maximum allowed leap size in semitones
+	const int maxLeapSize; // Maximum allowed leap size in semitones
 };
 
-} // namespace music::rules
+} // namespace rules
+} // namespace music
 
 #endif // MUSICTRAINERV3_VOICELEADINGRULE_H
+
 

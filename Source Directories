@@ -1,3 +1,5 @@
+(does not apply on linux enviorment)
+
 set(CMAKE_C_COMPILER "C:/Users/salmo/Qt/Tools/mingw1120_64/bin/gcc.exe")
 set(CMAKE_CXX_COMPILER "C:/Users/salmo/Qt/Tools/mingw1120_64/bin/g++.exe")
 RTMIDI_SOURCE_DIR "C:/Users/salmo/CLionProjects/rtmidi"

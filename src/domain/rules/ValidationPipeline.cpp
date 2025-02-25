@@ -1,25 +1,9 @@
 #include "domain/rules/ValidationPipeline.h"
-#include "domain/errors/DomainErrors.h"
-#include "domain/errors/ErrorHandler.h"
-#include "utils/TrackedLock.h"
 #include <algorithm>
-#include <functional>
-#include <iostream>
-#include <thread>
 #include <future>
+#include <iostream>
 
-namespace {
-	void updateMetrics(music::rules::ValidationPipeline::ValidationMetrics& metrics, bool isHit) {
-		if (isHit) {
-			metrics.cacheHits++;
-		} else {
-			metrics.cacheMisses++;
-		}
-		metrics.ruleExecutions++;
-		metrics.cacheHitRate = static_cast<double>(metrics.cacheHits) / 
-			(metrics.cacheHits + metrics.cacheMisses);
-	}
-}
+using namespace std;
 
 namespace music::rules {
 
@@ -28,252 +12,208 @@ std::unique_ptr<ValidationPipeline> ValidationPipeline::create() {
 }
 
 void ValidationPipeline::addRule(std::unique_ptr<Rule> rule, std::vector<std::string> dependencies, int priority) {
-	::utils::TrackedUniqueLock lock(mutex_, "ValidationPipeline::mutex_", ::utils::LockLevel::VALIDATION);
 	rules.emplace_back(std::move(rule), std::move(dependencies), priority);
 	compiled = false;
 }
 
-void ValidationPipeline::clearRuleCache() {
-	::utils::TrackedUniqueLock lock(mutex_, "ValidationPipeline::mutex_", ::utils::LockLevel::VALIDATION);
-	ruleCache.clear();
-	for (auto& metadata : rules) {
-		metadata.lastExecutionTime = std::chrono::microseconds{0};
-		metadata.lastValidatedMeasure = 0;
+void ValidationPipeline::compileRules() {
+	if (compiled) return;
+	sortRulesByDependencies();
+	compiled = true;
+}
+
+ValidationPipeline::ValidationPipeline() : metrics{} {
+	// Initialize metrics with zero values
+	metrics.totalExecutionTime = 0;
+	metrics.maxExecutionTime = 0;
+	metrics.avgExecutionTime = 0;
+	metrics.ruleExecutions = 0;
+	metrics.cacheHits = 0;
+	metrics.cacheMisses = 0;
+	metrics.cacheHitRate = 0.0;
+	metrics.violationsCount = 0;
+}
+
+bool ValidationPipeline::validate(const Score& score) {
+	if (!compiled) {
+		std::cout << "[ValidationPipeline] Rules not compiled, compiling now..." << std::endl;
+		compileRules();
 	}
-	metrics = ValidationMetrics{};
+	violations.clear();
+	bool allValid = true;
+	
+	std::cout << "[ValidationPipeline] Starting validation with " << rules.size() << " rules" << std::endl;
+	for (auto& metadata : rules) {
+		std::cout << "[ValidationPipeline] Evaluating rule: " << metadata.rule->getName() << std::endl;
+		bool ruleResult = evaluateRule(metadata, score, 0);
+		std::cout << "[ValidationPipeline] Rule result: " << (ruleResult ? "valid" : "invalid") << std::endl;
+		if (!ruleResult) {
+			std::cout << "[ValidationPipeline] Rule " << metadata.rule->getName() << " failed with violations:" << std::endl;
+			for (const auto& violation : violations) {
+				std::cout << "  - " << violation << std::endl;
+			}
+			allValid = false;
+		}
+	}
+	
+	std::cout << "[ValidationPipeline] Final result: " << (allValid ? "valid" : "invalid") << std::endl;
+	std::cout << "[ValidationPipeline] Total violations: " << violations.size() << std::endl;
+	std::cout << "[ValidationPipeline] Returning: " << (allValid ? "valid" : "invalid") << std::endl;
+	return allValid;  // true = all rules passed, false = at least one rule failed
+}
+
+bool ValidationPipeline::validateIncremental(const Score& score, size_t startMeasure) {
+	if (!compiled) {
+		std::cout << "[ValidationPipeline::validateIncremental] Rules not compiled, compiling now..." << std::endl;
+		compileRules();
+	}
+	bool valid = true;
+	
+	std::cout << "[ValidationPipeline::validateIncremental] Starting validation from measure " << startMeasure << std::endl;
+	for (auto& metadata : rules) {
+		// All rules should be evaluated in incremental validation
+		std::cout << "[ValidationPipeline::validateIncremental] Evaluating rule: " << metadata.rule->getName() << std::endl;
+		bool ruleResult = evaluateRule(metadata, score, startMeasure);
+		std::cout << "[ValidationPipeline::validateIncremental] Rule result: " << (ruleResult ? "valid" : "invalid") << std::endl;
+		if (!ruleResult) {
+			std::cout << "[ValidationPipeline::validateIncremental] Rule " << metadata.rule->getName() << " failed with violations:" << std::endl;
+			for (const auto& violation : violations) {
+				std::cout << "  - " << violation << std::endl;
+			}
+			valid = false;
+		}
+	}
+	
+	std::cout << "[ValidationPipeline::validateIncremental] Final result: " << (valid ? "valid" : "invalid") << std::endl;
+	std::cout << "[ValidationPipeline::validateIncremental] Total violations: " << violations.size() << std::endl;
+	return valid;  // true = all rules passed, false = at least one rule failed
 }
 
 bool ValidationPipeline::evaluateRule(RuleMetadata& metadata, const Score& score, size_t measureIndex) {
-	try {
-		// Get snapshot without holding locks
-		auto scoreSnapshot = score.createSnapshot();
-		
-		// Execute rule without locks
-		auto future = std::async(std::launch::async, [&metadata, scoreSnapshot, measureIndex]() {
-			Score tempScore(scoreSnapshot);
-			return metadata.incremental ? 
-				static_cast<IncrementalRule*>(metadata.rule.get())->evaluateIncremental(tempScore, measureIndex, measureIndex + 1) :
-				metadata.rule->evaluate(tempScore);
-		});
-		
-		// Wait for result with timeout
-		if (future.wait_for(ruleTimeout) == std::future_status::timeout) {
-			return false;
+	std::cout << "\n[ValidationPipeline::evaluateRule] Starting evaluation of " << metadata.rule->getName() << std::endl;
+	
+	// Create cache key
+	CacheKey key{
+		metadata.rule->getName(),
+		measureIndex,
+		score.getHash()
+	};
+	std::cout << "[ValidationPipeline::evaluateRule] Cache key: name=" << key.ruleName
+			  << ", measure=" << key.measureIndex
+			  << ", hash=" << key.scoreHash << std::endl;
+	
+	// Check cache first
+	auto cacheIt = ruleCache.find(key);
+	if (cacheIt != ruleCache.end()) {
+		metrics.cacheHits++;
+		metrics.ruleExecutions++;  // Count both cache hits and misses
+		std::cout << "[ValidationPipeline::evaluateRule] Cache hit! Result: "
+				  << (cacheIt->second ? "valid" : "invalid") << std::endl;
+		if (!cacheIt->second) {
+			std::string violation = metadata.rule->getName() + ": " + metadata.rule->getViolationDescription();
+			violations.push_back(violation);
+			std::cout << "[ValidationPipeline::evaluateRule] Restored cached violation: " << violation << std::endl;
 		}
-		bool ruleResult = future.get();
-		
-		// Update metrics under single lock
-		{
-			::utils::TrackedUniqueLock metricsLock(metrics_mutex_, "ValidationPipeline::metrics_mutex_", ::utils::LockLevel::METRICS);
-			metadata.lastExecutionTime = std::chrono::duration_cast<std::chrono::microseconds>(
-				std::chrono::high_resolution_clock::now().time_since_epoch());
-			metadata.lastValidatedMeasure = measureIndex;
-			metrics.ruleExecutions++;
-			metrics.totalExecutionTime += metadata.lastExecutionTime;
-			metrics.maxExecutionTime = std::max(metrics.maxExecutionTime, metadata.lastExecutionTime);
-			metrics.avgExecutionTime = metrics.totalExecutionTime / metrics.ruleExecutions;
-			metrics.ruleTimings.push_back({metadata.rule->getName(), metadata.lastExecutionTime});
-		}
-		
-		return ruleResult;
-	} catch (const std::exception& e) {
-		std::cerr << "[Pipeline::evaluateRule] Error: " << e.what() << std::endl;
-		throw;
+		return cacheIt->second;
 	}
+	metrics.cacheMisses++;
+	metrics.ruleExecutions++;  // Count both cache hits and misses
+	std::cout << "[ValidationPipeline::evaluateRule] Cache miss, executing rule..." << std::endl;
+	
+	auto start = std::chrono::high_resolution_clock::now();
+	
+	// Try to execute the rule with timeout
+	auto future = std::async(std::launch::async, [&]() {
+		return metadata.rule->evaluate(score);
+	});
+	
+	bool result = false;
+	if (future.wait_for(ruleTimeout) == std::future_status::ready) {
+		result = future.get();
+		std::cout << "[ValidationPipeline::evaluateRule] Raw rule result: " << (result ? "true" : "false") << std::endl;
+		if (!result) {
+			std::string violation = metadata.rule->getName() + ": " + metadata.rule->getViolationDescription();
+			violations.push_back(violation);
+			metrics.violationsCount++;
+			std::cout << "[ValidationPipeline::evaluateRule] Added violation: " << violation << std::endl;
+		}
+	} else {
+		std::string violation = "Rule timed out: " + metadata.rule->getName();
+		violations.push_back(violation);
+		std::cout << "[ValidationPipeline::evaluateRule] Rule timed out" << std::endl;
+		result = false;
+	}
+	
+	auto end = std::chrono::high_resolution_clock::now();
+	auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+	
+	// Update metrics
+	metadata.lastExecutionTime = duration.count();
+	metadata.lastValidatedMeasure = measureIndex;
+	metrics.totalExecutionTime += duration.count();
+	metrics.maxExecutionTime = std::max(metrics.maxExecutionTime, duration.count());
+	metrics.avgExecutionTime = metrics.totalExecutionTime / metrics.ruleExecutions;
+	metrics.cacheHitRate = metrics.ruleExecutions > 0
+		? static_cast<double>(metrics.cacheHits) / static_cast<double>(metrics.ruleExecutions)
+		: 0.0;
+	
+	std::cout << "[ValidationPipeline::evaluateRule] Updated metrics:" << std::endl
+			  << "  Total executions: " << metrics.ruleExecutions << std::endl
+			  << "  Cache hits: " << metrics.cacheHits << std::endl
+			  << "  Cache misses: " << metrics.cacheMisses << std::endl
+			  << "  Cache hit rate: " << metrics.cacheHitRate << std::endl;
+	
+	// Cache the result
+	std::cout << "[ValidationPipeline::evaluateRule] Caching result: " << (result ? "true" : "false") << std::endl;
+	ruleCache[key] = result;
+	
+	// Return the result directly (true = rule satisfied, false = rule violated)
+	std::cout << "[ValidationPipeline::evaluateRule] Returning: " << (result ? "satisfied" : "violated") << std::endl;
+	return result;
 }
 
-
-
-bool ValidationPipeline::validate(const Score& score) {
-	try {
-		// Get snapshot and rules without holding locks
-		auto scoreSnapshot = score.createSnapshot();
-		std::vector<std::reference_wrapper<RuleMetadata>> ruleRefs;
-		bool needsCompilation = false;
-		
-		{
-			::utils::TrackedSharedMutexLock validationLock(mutex_, "ValidationPipeline::mutex_", ::utils::LockLevel::VALIDATION);
-			needsCompilation = !compiled;
-			if (!needsCompilation) {
-				ruleRefs.reserve(rules.size());
-				for (auto& rule : rules) {
-					ruleRefs.emplace_back(std::ref(rule));
-				}
-			}
-		}
-		
-		if (needsCompilation) {
-			compileRules();
-			::utils::TrackedSharedMutexLock validationLock(mutex_, "ValidationPipeline::mutex_", ::utils::LockLevel::VALIDATION);
-			ruleRefs.reserve(rules.size());
-			for (auto& rule : rules) {
-				ruleRefs.emplace_back(std::ref(rule));
-			}
-		}
-		
-		// Evaluate rules without holding locks
-		bool allValid = true;
-		std::vector<std::string> pendingViolations;
-		
-		for (auto& metadataRef : ruleRefs) {
-			if (!evaluateRule(metadataRef.get(), score, 0)) {
-				allValid = false;
-				pendingViolations.push_back(metadataRef.get().rule->getViolationDescription());
-			}
-		}
-		
-		// Update state under single lock
-		if (!pendingViolations.empty()) {
-			::utils::TrackedUniqueLock validationLock(mutex_, "ValidationPipeline::mutex_", ::utils::LockLevel::VALIDATION);
-			violations = std::move(pendingViolations);
-			metrics.violationsCount += violations.size();
-		}
-		
-		return allValid;
-	} catch (const std::exception& e) {
-		std::cerr << "[Pipeline::validate] Error: " << e.what() << std::endl;
-		throw;
-	}
-}
-
-
-
-
-
-bool ValidationPipeline::validateIncremental(const Score& score, size_t startMeasure) {
-	std::cout << "[Pipeline] Starting incremental validation from measure " << startMeasure << "..." << std::endl;
+void ValidationPipeline::sortRulesByDependencies() {
+	evaluationOrder.clear();
+	std::vector<bool> visited(rules.size(), false);
+	std::vector<bool> inStack(rules.size(), false);
 	
-	// Get snapshot before acquiring any locks
-	auto scoreSnapshot = score.createSnapshot();
-	
-	std::vector<std::reference_wrapper<RuleMetadata>> ruleRefs;
-	bool needsCompilation = false;
-	{
-		::utils::TrackedSharedMutexLock validationLock(mutex_, "ValidationPipeline::mutex_", ::utils::LockLevel::VALIDATION);
-		needsCompilation = !compiled;
-		if (!needsCompilation) {
-			ruleRefs.reserve(rules.size());
-			for (auto& rule : rules) {
-				ruleRefs.push_back(std::ref(rule));
-			}
-		}
-	}
-	
-	// Compile rules if needed
-	if (needsCompilation) {
-		compileRules();
-		::utils::TrackedSharedMutexLock validationLock(mutex_, "ValidationPipeline::mutex_", ::utils::LockLevel::VALIDATION);
-		ruleRefs.reserve(rules.size());
-		for (auto& rule : rules) {
-			ruleRefs.push_back(std::ref(rule));
-		}
-	}
-	
-	bool isValid = true;
-	std::vector<std::pair<std::string, size_t>> pendingViolations;
-	
-	// Evaluate rules without holding any locks
-	for (auto& metadataRef : ruleRefs) {
-		auto& metadata = metadataRef.get();
-		bool ruleResult = evaluateRule(metadata, score, startMeasure);
-		if (!ruleResult) {
-			auto violation = metadata.rule->getViolationDescription();
-			if (!violation.empty()) {
-				pendingViolations.emplace_back(violation, metadata.priority);
-				isValid = false;
-			}
-		}
-	}
-
-	if (!pendingViolations.empty()) {
-		// Update metrics first (level 5)
-		{
-			::utils::TrackedUniqueLock metricsLock(metrics_mutex_, "ValidationPipeline::metrics_mutex_", ::utils::LockLevel::METRICS);
-			metrics.violationsCount += pendingViolations.size();
-		}
-		
-		// Then update validation state (level 4)
-		{
-			::utils::TrackedUniqueLock validationLock(mutex_, "ValidationPipeline::mutex_", ::utils::LockLevel::VALIDATION);
-			violations.clear();
-			feedbackItems.clear();
-			for (const auto& [violation, priority] : pendingViolations) {
-				violations.push_back(violation);
-				FeedbackLevel level = priority > 5 ? FeedbackLevel::ERROR : FeedbackLevel::WARNING;
-				ValidationFeedback feedback{violation, level, startMeasure, priority};
-				feedbackItems.push_back(feedback);
-			}
-		}
-	}
-	
-	std::cout << "[Pipeline] Incremental validation complete. Result: " << (isValid ? "true" : "false") << std::endl;
-	return isValid;
-}
-
-
-
-void ValidationPipeline::sortRulesByDependencies(std::vector<RuleMetadata>& rulesCopy, std::vector<size_t>& order) {
-	std::vector<bool> visited(rulesCopy.size(), false);
-	std::vector<bool> inStack(rulesCopy.size(), false);
-	order.clear();
-	
-	std::function<void(size_t)> visit = [&](size_t i) {
-		if (inStack[i]) {
+	std::function<void(size_t)> visit = [&](size_t index) {
+		if (inStack[index]) {
 			throw std::runtime_error("Circular dependency detected in rules");
 		}
-		if (visited[i]) return;
+		if (visited[index]) return;
 		
-		inStack[i] = true;
-		visited[i] = true;
-		
-		for (const auto& dep : rulesCopy[i].dependencies) {
-			for (size_t j = 0; j < rulesCopy.size(); ++j) {
-				if (rulesCopy[j].rule->getName() == dep) {
-					visit(j);
-					break;
-				}
+		inStack[index] = true;
+		for (const auto& dep : rules[index].dependencies) {
+			auto it = std::find_if(rules.begin(), rules.end(),
+								 [&dep](const RuleMetadata& r) { return r.rule->getName() == dep; });
+			if (it != rules.end()) {
+				visit(std::distance(rules.begin(), it));
 			}
 		}
-		
-		inStack[i] = false;
-		order.push_back(i);
+		inStack[index] = false;
+		visited[index] = true;
+		evaluationOrder.push_back(index);
 	};
 	
-	for (size_t i = 0; i < rulesCopy.size(); ++i) {
+	for (size_t i = 0; i < rules.size(); ++i) {
 		if (!visited[i]) {
 			visit(i);
 		}
 	}
 	
-	std::reverse(order.begin(), order.end());
+	std::reverse(evaluationOrder.begin(), evaluationOrder.end());
 }
 
-void ValidationPipeline::compileRules() {
-	std::vector<RuleMetadata> rulesCopy;
-	{
-		::utils::TrackedSharedMutexLock lock(mutex_, "ValidationPipeline::mutex_", ::utils::LockLevel::VALIDATION);
-		rulesCopy = rules;
-	}
-	
-	if (rulesCopy.empty()) {
-		::utils::TrackedUniqueLock lock(mutex_, "ValidationPipeline::mutex_", ::utils::LockLevel::VALIDATION);
-		compiled = true;
-		return;
-	}
-	
-	// Sort rules without holding locks
-	std::vector<size_t> newOrder;
-	sortRulesByDependencies(rulesCopy, newOrder);
-	
-	// Update state under single lock
-	{
-		::utils::TrackedUniqueLock lock(mutex_, "ValidationPipeline::mutex_", ::utils::LockLevel::VALIDATION);
-		evaluationOrder = std::move(newOrder);
-		rules = std::move(rulesCopy);
-		compiled = true;
-	}
+void ValidationPipeline::clearRuleCache() {
+	ruleCache.clear();
+	// Don't reset metrics here since we want to track them across multiple validations
+	std::cout << "[ValidationPipeline::clearRuleCache] Cache cleared. Current metrics:" << std::endl
+			  << "  Total executions: " << metrics.ruleExecutions << std::endl
+			  << "  Cache hits: " << metrics.cacheHits << std::endl
+			  << "  Cache misses: " << metrics.cacheMisses << std::endl
+			  << "  Cache hit rate: " << metrics.cacheHitRate << std::endl;
 }
-
 
 std::vector<std::string> ValidationPipeline::getViolations() const {
 	return violations;
@@ -281,6 +221,7 @@ std::vector<std::string> ValidationPipeline::getViolations() const {
 
 void ValidationPipeline::clearViolations() {
 	violations.clear();
+	metrics.violationsCount = 0;
 }
 
 } // namespace music::rules

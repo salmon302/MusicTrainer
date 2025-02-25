@@ -6,7 +6,7 @@
 #include <vector>
 #include <chrono>
 #include <unordered_map>
-#include <shared_mutex>
+#include <memory>
 
 namespace music::events {
 
@@ -16,22 +16,21 @@ public:
 	
 	void handle(const Event& event) override;
 	bool canHandle(const std::string& eventType) const override;
-	int getPriority() const override { return 10; }  // High priority for note events
+	int getPriority() const override { return 10; }
 	
-	// Get all notes added within a time window
 	std::vector<const NoteAddedEvent*> getRecentNotes(std::chrono::milliseconds window) const;
-	
-	// Get correlated notes by ID
 	std::vector<const NoteAddedEvent*> getCorrelatedNotes(const std::string& correlationId) const;
-	
-	// Clear event history
-	void clear();
+	void clear() {
+		noteHistory.clear();
+		correlatedNotes.clear();
+	}
 
 private:
 	NoteEventHandler() = default;
+	
 	std::vector<std::unique_ptr<NoteAddedEvent>> noteHistory;
 	std::unordered_map<std::string, std::vector<const NoteAddedEvent*>> correlatedNotes;
-	mutable std::shared_mutex mutex_;  // Mutex for thread safety
 };
 
 } // namespace music::events
+

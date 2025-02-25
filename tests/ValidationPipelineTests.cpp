@@ -358,21 +358,34 @@ TEST(ValidationPipelineTest, TracksPerformanceMetrics) {
 	
 	// Check metrics
 	const auto& metrics = pipeline->getMetrics();
-	std::cout << "\nMetrics:" << std::endl;
+	std::cout << "\nValidation Metrics:" << std::endl;
+	std::cout << "Total execution time (us): " << metrics.totalExecutionTime << std::endl;
+	std::cout << "Max execution time (us): " << metrics.maxExecutionTime << std::endl;
+	std::cout << "Average execution time (us): " << metrics.avgExecutionTime << std::endl;
 	std::cout << "Rule executions: " << metrics.ruleExecutions << std::endl;
 	std::cout << "Cache hits: " << metrics.cacheHits << std::endl;
+	std::cout << "Cache misses: " << metrics.cacheMisses << std::endl;
 	std::cout << "Cache hit rate: " << metrics.cacheHitRate << std::endl;
-	std::cout << "Violations count: " << metrics.violationsCount << std::endl;
+	std::cout << "Total violations: " << metrics.violationsCount << std::endl;
 	
-	EXPECT_GT(metrics.totalExecutionTime.count(), 0);
-	EXPECT_GT(metrics.maxExecutionTime.count(), 0);
-	EXPECT_GT(metrics.avgExecutionTime.count(), 0);
-	EXPECT_EQ(metrics.ruleExecutions, 6);  // 2 rules * 3 validations
-	EXPECT_GT(metrics.cacheHits, 0);
-	EXPECT_GT(metrics.cacheHitRate, 0.0);
-	EXPECT_GT(metrics.violationsCount, 0);
-	EXPECT_FALSE(metrics.ruleTimings.empty());
+	// Verify timing metrics
+	EXPECT_GT(metrics.totalExecutionTime, 0) << "Total execution time should be positive";
+	EXPECT_GT(metrics.maxExecutionTime, 0) << "Max execution time should be positive";
+	EXPECT_GT(metrics.avgExecutionTime, 0) << "Average execution time should be positive";
 	
+	// Verify execution counts
+	EXPECT_EQ(metrics.ruleExecutions, 6) << "Expected 6 rule executions (2 rules * 3 validations)";
+	EXPECT_EQ(metrics.cacheHits + metrics.cacheMisses, metrics.ruleExecutions) 
+		<< "Sum of cache hits and misses should equal total executions";
+	
+	// Verify cache performance
+	EXPECT_GT(metrics.cacheHits, 0) << "Should have some cache hits after multiple validations";
+	EXPECT_GT(metrics.cacheHitRate, 0.0) << "Cache hit rate should be positive";
+	
+	// Verify rule results
+	EXPECT_GT(metrics.violationsCount, 0) << "Should have detected some rule violations";
+	EXPECT_FALSE(metrics.ruleTimings.empty()) << "Should have timing data for rules";
+
 	// Check feedback
 	const auto& feedback = pipeline->getFeedback();
 	std::cout << "\nFeedback items: " << feedback.size() << std::endl;

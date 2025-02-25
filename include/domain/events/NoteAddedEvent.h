@@ -5,7 +5,7 @@
 #include "../music/Pitch.h"
 #include "../music/Duration.h"
 #include "../music/Score.h"
-#include "../../utils/TrackedLock.h"
+#include <atomic>
 
 namespace music::events {
 
@@ -32,8 +32,11 @@ public:
 	// Event interface implementation
 	void apply(Score& score) const override;
 	std::chrono::system_clock::time_point getTimestamp() const override { 
-		::utils::TrackedSharedMutexLock lock(mutex_, "NoteAddedEvent::mutex_", ::utils::LockLevel::REPOSITORY);
-		return timestamp; 
+		return std::chrono::system_clock::time_point(
+			std::chrono::system_clock::duration(
+				timestamp.load(std::memory_order_acquire)
+			)
+		);
 	}
 	std::string getDescription() const override;
 	std::unique_ptr<Event> clone() const override;
@@ -41,20 +44,16 @@ public:
 	
 	// Event-specific accessors
 	size_t getVoiceIndex() const { 
-		::utils::TrackedSharedMutexLock lock(mutex_, "NoteAddedEvent::mutex_", ::utils::LockLevel::REPOSITORY);
-		return voiceIndex; 
+		return voiceIndex.load(std::memory_order_acquire);
 	}
 	const Pitch& getPitch() const { 
-		::utils::TrackedSharedMutexLock lock(mutex_, "NoteAddedEvent::mutex_", ::utils::LockLevel::REPOSITORY);
-		return pitch; 
+		return pitch;  // Pitch is immutable
 	}
 	const Duration& getDuration() const { 
-		::utils::TrackedSharedMutexLock lock(mutex_, "NoteAddedEvent::mutex_", ::utils::LockLevel::REPOSITORY);
-		return duration; 
+		return duration;  // Duration is immutable
 	}
 	const Voice::TimeSignature& getTimeSignature() const { 
-		::utils::TrackedSharedMutexLock lock(mutex_, "NoteAddedEvent::mutex_", ::utils::LockLevel::REPOSITORY);
-		return timeSignature; 
+		return timeSignature;  // TimeSignature is immutable
 	}
 
 private:
@@ -66,11 +65,13 @@ private:
 		const std::string& correlationId
 	);
 	
-	std::chrono::system_clock::time_point timestamp;
-	size_t voiceIndex;
-	Pitch pitch;
-	Duration duration;
-	Voice::TimeSignature timeSignature;
+	std::atomic<std::chrono::system_clock::time_point::rep> timestamp{
+		std::chrono::system_clock::now().time_since_epoch().count()
+	};
+	std::atomic<size_t> voiceIndex;
+	const Pitch pitch;  // Immutable after construction
+	const Duration duration;  // Immutable after construction
+	const Voice::TimeSignature timeSignature;  // Immutable after construction
 };
 
 } // namespace music::events

@@ -1,7 +1,6 @@
 #include "domain/errors/ErrorHandler.h"
 #include "domain/errors/ErrorBase.h"
 #include "domain/errors/RecoveryStrategy.h"
-#include "utils/TrackedLock.h"
 #include <iostream>
 #include <future>
 
@@ -14,9 +13,14 @@ ErrorHandler& ErrorHandler::getInstance() {
 
 void ErrorHandler::registerRecoveryStrategy(const std::string& errorType,
 										  RecoveryCallback strategy) {
-	::utils::TrackedUniqueLock lock(mutex_, "ErrorHandler::mutex_", ::utils::LockLevel::ERROR_HANDLER);
-	auto& config = handlers_[errorType];
-	config.recoveryStrategies.push_back(std::move(strategy));
+	auto it = handlers.find(errorType);
+	if (it == handlers.end()) {
+		auto config = std::make_shared<ErrorConfig>();
+		config->recoveryStrategies.push_back(std::move(strategy));
+		handlers[errorType] = config;
+	} else {
+		it->second->recoveryStrategies.push_back(std::move(strategy));
+	}
 }
 
 std::future<void> ErrorHandler::handleError(const MusicTrainerError& error) {
@@ -24,19 +28,20 @@ std::future<void> ErrorHandler::handleError(const MusicTrainerError& error) {
 	auto promise = std::make_shared<std::promise<void>>();
 	
 	try {
-		// First get the handler (ERROR_HANDLER level 9)
+		// Find the appropriate handler
 		ErrorCallback handler;
-		{
-			::utils::TrackedUniqueLock errorLock(mutex_, "ErrorHandler::mutex_", ::utils::LockLevel::ERROR_HANDLER);
-			auto it = handlers_.find(errorType);
-			handler = (it != handlers_.end()) ? it->second.handler : globalHandler_;
+		auto it = handlers.find(errorType);
+		if (it != handlers.end() && it->second->handler) {
+			handler = it->second->handler;
+		} else if (globalHandler) {
+			handler = globalHandler;
 		}
 		
-		// Then attempt recovery (RECOVERY level 10)
+		// Attempt recovery
 		auto& recovery = RecoveryStrategy::getInstance();
 		auto result = recovery.attemptRecovery(error);
 		
-		// If recovery failed and we have a handler, use it
+		// Handle the error if recovery failed
 		if (!result.successful && handler) {
 			handler(error);
 		} else if (!result.successful) {
@@ -49,20 +54,8 @@ std::future<void> ErrorHandler::handleError(const MusicTrainerError& error) {
 	}
 	
 	return promise->get_future();
-
-
-}
-
-void ErrorHandler::setGlobalHandler(ErrorCallback handler) {
-	::utils::TrackedUniqueLock lock(mutex_, "ErrorHandler::mutex_", ::utils::LockLevel::ERROR_HANDLER);
-	globalHandler_ = std::move(handler);
-}
-
-void ErrorHandler::clearHandlers() {
-	::utils::TrackedUniqueLock lock(mutex_, "ErrorHandler::mutex_", ::utils::LockLevel::ERROR_HANDLER);
-	handlers_.clear();
-	globalHandler_ = nullptr;
 }
 
 } // namespace MusicTrainer
+
 

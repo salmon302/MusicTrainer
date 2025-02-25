@@ -5,8 +5,8 @@ cmake_minimum_required(VERSION 3.5)
 
 # Make file names absolute:
 #
-get_filename_component(filename "C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/rtmidi-subbuild/rtmidi-populate-prefix/src/5.0.0.zip" ABSOLUTE)
-get_filename_component(directory "C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/rtmidi-src" ABSOLUTE)
+get_filename_component(filename "/home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/rtmidi-subbuild/rtmidi-populate-prefix/src/5.0.0.zip" ABSOLUTE)
+get_filename_component(directory "/home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/rtmidi-src" ABSOLUTE)
 
 message(STATUS "extracting...
      src='${filename}'

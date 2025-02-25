@@ -1,14 +1,14 @@
 # Target labels
  rtmidi-populate
 # Source files and their labels
-C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/rtmidi-subbuild/CMakeFiles/rtmidi-populate
-C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/rtmidi-subbuild/CMakeFiles/rtmidi-populate.rule
-C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/rtmidi-subbuild/CMakeFiles/rtmidi-populate-complete.rule
-C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/rtmidi-subbuild/rtmidi-populate-prefix/src/rtmidi-populate-stamp/rtmidi-populate-build.rule
-C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/rtmidi-subbuild/rtmidi-populate-prefix/src/rtmidi-populate-stamp/rtmidi-populate-configure.rule
-C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/rtmidi-subbuild/rtmidi-populate-prefix/src/rtmidi-populate-stamp/rtmidi-populate-download.rule
-C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/rtmidi-subbuild/rtmidi-populate-prefix/src/rtmidi-populate-stamp/rtmidi-populate-install.rule
-C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/rtmidi-subbuild/rtmidi-populate-prefix/src/rtmidi-populate-stamp/rtmidi-populate-mkdir.rule
-C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/rtmidi-subbuild/rtmidi-populate-prefix/src/rtmidi-populate-stamp/rtmidi-populate-patch.rule
-C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/rtmidi-subbuild/rtmidi-populate-prefix/src/rtmidi-populate-stamp/rtmidi-populate-test.rule
-C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/rtmidi-subbuild/rtmidi-populate-prefix/src/rtmidi-populate-stamp/rtmidi-populate-update.rule
+/home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/rtmidi-subbuild/CMakeFiles/rtmidi-populate
+/home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/rtmidi-subbuild/CMakeFiles/rtmidi-populate.rule
+/home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/rtmidi-subbuild/CMakeFiles/rtmidi-populate-complete.rule
+/home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/rtmidi-subbuild/rtmidi-populate-prefix/src/rtmidi-populate-stamp/rtmidi-populate-build.rule
+/home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/rtmidi-subbuild/rtmidi-populate-prefix/src/rtmidi-populate-stamp/rtmidi-populate-configure.rule
+/home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/rtmidi-subbuild/rtmidi-populate-prefix/src/rtmidi-populate-stamp/rtmidi-populate-download.rule
+/home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/rtmidi-subbuild/rtmidi-populate-prefix/src/rtmidi-populate-stamp/rtmidi-populate-install.rule
+/home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/rtmidi-subbuild/rtmidi-populate-prefix/src/rtmidi-populate-stamp/rtmidi-populate-mkdir.rule
+/home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/rtmidi-subbuild/rtmidi-populate-prefix/src/rtmidi-populate-stamp/rtmidi-populate-patch.rule
+/home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/rtmidi-subbuild/rtmidi-populate-prefix/src/rtmidi-populate-stamp/rtmidi-populate-test.rule
+/home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/rtmidi-subbuild/rtmidi-populate-prefix/src/rtmidi-populate-stamp/rtmidi-populate-update.rule

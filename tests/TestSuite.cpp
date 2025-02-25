@@ -16,13 +16,5 @@ public:
 	}
 };
 
-int main(int argc, char **argv) {
-	testing::InitGoogleTest(&argc, argv);
-	testing::AddGlobalTestEnvironment(new TestEnvironment);
-	
-	// Set test filter to run tests sequentially
-	testing::FLAGS_gtest_filter = "*";
-	testing::FLAGS_gtest_break_on_failure = true;
-	
-	return RUN_ALL_TESTS();
-}
+// Register the test environment
+testing::Environment* const env = testing::AddGlobalTestEnvironment(new TestEnvironment);

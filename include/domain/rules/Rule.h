@@ -3,9 +3,11 @@
 
 #include <string>
 #include <memory>
-#include "../music/Score.h"
 
-namespace music::rules {
+namespace music {
+class Score;
+
+namespace rules {
 
 class Rule {
 public:
@@ -13,13 +15,6 @@ public:
 	
 	// Evaluate if the rule is satisfied for the given score
 	virtual bool evaluate(const Score& score) const = 0;
-	
-	// Evaluate using score snapshot
-	virtual bool evaluate(const Score::ScoreSnapshot& snapshot) const {
-		// Default implementation forwards to score-based evaluate
-		Score tempScore(snapshot);
-		return evaluate(tempScore);
-	}
 	
 	// Get a description of why the rule failed (if it did)
 	virtual std::string getViolationDescription() const = 0;
@@ -31,6 +26,7 @@ public:
 	virtual std::unique_ptr<Rule> clone() const = 0;
 };
 
-} // namespace music::rules
+} // namespace rules
+} // namespace music
 
 #endif // MUSICTRAINERV3_RULE_H

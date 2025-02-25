@@ -4,17 +4,17 @@
 
 
 # Configuration directories and files
-SourceDirectory: C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/rtmidi-src
-BuildDirectory: C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/rtmidi-build
+SourceDirectory: /home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/rtmidi-src
+BuildDirectory: /home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/rtmidi-build
 
 # Where to place the cost data store
 CostDataFile: 
 
 # Site is something like machine.domain, i.e. pragmatic.crd
-Site: Shwal
+Site: seth-n-ThinkPad-X250
 
 # Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
-BuildName: Win32-ninja
+BuildName: Linux-c++
 
 # Subprojects
 LabelsForSubprojects: 
@@ -27,8 +27,8 @@ SubmitInactivityTimeout:
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "C:/Users/salmo/OneDrive - Florida Gulf Coast University/cmake-3.24.0-rc1-windows-x86_64/bin/cmake.exe" "C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/rtmidi-src"
-MakeCommand: "C:\Users\salmo\OneDrive - Florida Gulf Coast University\cmake-3.24.0-rc1-windows-x86_64\bin\cmake.exe" --build . --config "${CTEST_CONFIGURATION_TYPE}"
+ConfigureCommand: "/usr/bin/cmake" "/home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/rtmidi-src"
+MakeCommand: /usr/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
 DefaultCTestConfigurationType: Release
 
 # version control
@@ -45,7 +45,7 @@ SVNOptions:
 SVNUpdateOptions: 
 
 # Git options
-GITCommand: C:/Program Files/Git/cmd/git.exe
+GITCommand: 
 GITInitSubmodules: 
 GITUpdateOptions: 
 GITUpdateCustom: 
@@ -63,8 +63,8 @@ UpdateOptions:
 UpdateType: 
 
 # Compiler info
-Compiler: C:/Users/salmo/AppData/Local/JetBrains/CLion 2022.2.1/bin/mingw/bin/g++.exe
-CompilerVersion: 11.2.0
+Compiler: /usr/bin/c++
+CompilerVersion: 13.3.0
 
 # Dynamic analysis (MemCheck)
 PurifyCommand: 
@@ -76,12 +76,12 @@ CudaSanitizerCommand:
 CudaSanitizerCommandOptions: 
 MemoryCheckType: 
 MemoryCheckSanitizerOptions: 
-MemoryCheckCommand: C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.8/bin/cuda-memcheck.exe
+MemoryCheckCommand: /usr/bin/valgrind
 MemoryCheckCommandOptions: 
 MemoryCheckSuppressionFile: 
 
 # Coverage
-CoverageCommand: C:/Users/salmo/AppData/Local/JetBrains/CLion 2022.2.1/bin/mingw/bin/gcov.exe
+CoverageCommand: /usr/bin/gcov
 CoverageExtraFlags: -l
 
 # Testing options

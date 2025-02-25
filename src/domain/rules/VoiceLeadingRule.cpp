@@ -1,13 +1,15 @@
 #include "domain/rules/VoiceLeadingRule.h"
 #include "domain/music/Interval.h"
+#include "domain/music/Score.h"
+#include "domain/music/Voice.h"
 #include <sstream>
 #include <cstdlib>
 #include <iostream>
+#include <vector>
 
 namespace music::rules {
 
 std::unique_ptr<VoiceLeadingRule> VoiceLeadingRule::create(int maxLeapSize) {
-
 	return std::unique_ptr<VoiceLeadingRule>(new VoiceLeadingRule(maxLeapSize));
 }
 
@@ -19,18 +21,17 @@ bool VoiceLeadingRule::evaluate(const Score& score) const {
 
 bool VoiceLeadingRule::evaluateIncremental(const Score& score, size_t startMeasure, size_t endMeasure) const {
 	try {
-		// Add maximum iteration limit
 		const size_t MAX_ITERATIONS = 1000;
 		size_t iterationCount = 0;
 		
-		// Get score snapshot (this handles Voice and Score locks internally with correct ordering)
-		auto snapshot = score.createSnapshot();
-		const auto& voiceNotes = snapshot.voiceNotes;
+		size_t voiceCount = score.getVoiceCount();
 
-		
 		// Check for large leaps in each voice
-		for (size_t i = 0; i < voiceNotes.size() && iterationCount < MAX_ITERATIONS; ++i) {
-			const auto& notes = voiceNotes[i];
+		for (size_t i = 0; i < voiceCount && iterationCount < MAX_ITERATIONS; ++i) {
+			const Voice* voice = score.getVoice(i);
+			if (!voice) continue;
+			
+			auto notes = voice->getNotesInRange(startMeasure, endMeasure);
 			if (notes.size() < 2) continue;
 			
 			// Check consecutive notes for large leaps
@@ -43,17 +44,21 @@ bool VoiceLeadingRule::evaluateIncremental(const Score& score, size_t startMeasu
 					   << " semitones detected between " << notes[j].pitch.toString() 
 					   << " and " << notes[j+1].pitch.toString()
 					   << " (max allowed: " << maxLeapSize << ")";
-					violationDescription = ss.str();
+					setViolationDescription(ss.str());
 					return false;
 				}
 			}
 		}
 		
 		// Check for voice crossing if we have at least 2 voices
-		if (voiceNotes.size() >= 2) {
-			for (size_t i = 0; i < voiceNotes.size() - 1 && iterationCount < MAX_ITERATIONS; ++i) {
-				const auto& upperNotes = voiceNotes[i];
-				const auto& lowerNotes = voiceNotes[i + 1];
+		if (voiceCount >= 2) {
+			for (size_t i = 0; i < voiceCount - 1 && iterationCount < MAX_ITERATIONS; ++i) {
+				const Voice* upperVoice = score.getVoice(i);
+				const Voice* lowerVoice = score.getVoice(i + 1);
+				if (!upperVoice || !lowerVoice) continue;
+				
+				auto upperNotes = upperVoice->getNotesInRange(startMeasure, endMeasure);
+				auto lowerNotes = lowerVoice->getNotesInRange(startMeasure, endMeasure);
 				
 				// Check each pair of notes for voice crossing
 				for (size_t j = 0; j < std::min(upperNotes.size(), lowerNotes.size()) && iterationCount < MAX_ITERATIONS; ++j) {
@@ -63,7 +68,7 @@ bool VoiceLeadingRule::evaluateIncremental(const Score& score, size_t startMeasu
 						ss << "voice crossing detected at measure " << startMeasure 
 						   << ": " << upperNotes[j].pitch.toString() 
 						   << " is below " << lowerNotes[j].pitch.toString();
-						violationDescription = ss.str();
+						setViolationDescription(ss.str());
 						return false;
 					}
 				}
@@ -72,15 +77,15 @@ bool VoiceLeadingRule::evaluateIncremental(const Score& score, size_t startMeasu
 		
 		// Safety exit
 		if (iterationCount >= MAX_ITERATIONS) {
-			violationDescription = "Maximum iteration limit reached during voice leading check";
+			setViolationDescription("Maximum iteration limit reached during voice leading check");
 			return false;
 		}
 		
-		violationDescription.clear();
+		clearViolationDescription();
 		return true;
 	} catch (const std::exception& e) {
 		std::cerr << "[VoiceLeadingRule] Error during evaluation: " << e.what() << std::endl;
-		violationDescription = "Error during voice leading check: " + std::string(e.what());
+		setViolationDescription("Error during voice leading check: " + std::string(e.what()));
 		return false;
 	}
 }
@@ -99,3 +104,4 @@ std::unique_ptr<Rule> VoiceLeadingRule::clone() const {
 }
 
 } // namespace music::rules
+

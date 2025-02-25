@@ -4,16 +4,19 @@
 cmake_minimum_required(VERSION 3.5)
 
 file(MAKE_DIRECTORY
-  "C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/googletest-src"
-  "C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/googletest-build"
-  "C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix"
-  "C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/tmp"
-  "C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp"
-  "C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src"
-  "C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp"
+  "/home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/googletest-src"
+  "/home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/googletest-build"
+  "/home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix"
+  "/home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/tmp"
+  "/home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp"
+  "/home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src"
+  "/home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp"
 )
 
 set(configSubDirs )
 foreach(subDir IN LISTS configSubDirs)
-    file(MAKE_DIRECTORY "C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/${subDir}")
+    file(MAKE_DIRECTORY "/home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/${subDir}")
 endforeach()
+if(cfgdir)
+  file(MAKE_DIRECTORY "/home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp${cfgdir}") # cfgdir has leading slash
+endif()

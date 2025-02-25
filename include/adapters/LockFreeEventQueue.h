@@ -9,7 +9,7 @@
 
 namespace music::adapters {
 
-template<size_t QueueSize = 1024>
+template<typename EventType = ports::MidiEvent, size_t QueueSize = 1024>
 class LockFreeEventQueue {
 public:
 	struct QueueMetrics {
@@ -26,13 +26,13 @@ public:
 	};
 
 	struct Entry {
-		std::optional<ports::MidiEvent> event;
+		std::optional<EventType> event;
 		std::chrono::system_clock::time_point timestamp{std::chrono::system_clock::now()};
 		int priority{0};
 		uint64_t sequence{0};
 
 		Entry() = default;
-		Entry(ports::MidiEvent e, int p, uint64_t s) 
+		Entry(EventType e, int p, uint64_t s) 
 			: event(std::move(e)), priority(p), sequence(s) {}
 
 		bool operator<(const Entry& other) const {
@@ -43,7 +43,7 @@ public:
 
 	LockFreeEventQueue() : nextSequence(0) {}
 
-	bool push(ports::MidiEvent event, int priority = 0) {
+	bool push(EventType event, int priority = 0) {
 		size_t current_tail = tail.load(std::memory_order_relaxed);
 		size_t next_tail = (current_tail + 1) % QueueSize;
 		
@@ -63,7 +63,7 @@ public:
 
 	}
 	
-	std::optional<ports::MidiEvent> pop() {
+	std::optional<EventType> pop() {
 		size_t current_head = head.load(std::memory_order_relaxed);
 		if (current_head == tail.load(std::memory_order_acquire)) {
 			return std::nullopt;
@@ -101,8 +101,22 @@ public:
 			   tail.load(std::memory_order_acquire);
 	}
 
+	void clear() {
+		// Reset head and tail atomically
+		head.store(0, std::memory_order_release);
+		tail.store(0, std::memory_order_release);
+		nextSequence.store(0, std::memory_order_release);
+		resetMetrics();
+	}
+
 	const QueueMetrics& getMetrics() const { return metrics; }
-	void resetMetrics() { metrics = QueueMetrics{}; }
+	void resetMetrics() {
+		metrics.totalPushes.store(0, std::memory_order_release);
+		metrics.totalPops.store(0, std::memory_order_release);
+		metrics.pushFailures.store(0, std::memory_order_release);
+		metrics.maxQueueSize.store(0, std::memory_order_release);
+		metrics.totalLatencyUs.store(0, std::memory_order_release);
+	}
 
 private:
 	std::array<Entry, QueueSize> buffer;

@@ -1,12 +1,14 @@
 #include "domain/rules/ParallelOctavesRule.h"
 #include "domain/music/Interval.h"
+#include "domain/music/Score.h"
+#include "domain/music/Voice.h"
 #include <sstream>
 #include <iostream>
+#include <vector>
 
 namespace music::rules {
 
 std::unique_ptr<ParallelOctavesRule> ParallelOctavesRule::create() {
-
 	return std::unique_ptr<ParallelOctavesRule>(new ParallelOctavesRule());
 }
 
@@ -16,27 +18,25 @@ bool ParallelOctavesRule::evaluate(const Score& score) const {
 
 bool ParallelOctavesRule::evaluateIncremental(const Score& score, size_t startMeasure, size_t endMeasure) const {
 	try {
-		// Get score snapshot with shorter timeout
-		Score::ScoreSnapshot snapshot;
-		{
-			snapshot = score.createSnapshot();
-		}
-		
-		// Process snapshot data without holding any locks
-		if (snapshot.voiceNotes.size() < 2) {
+		size_t voiceCount = score.getVoiceCount();
+		if (voiceCount < 2) {
 			clearViolationDescription();
 			return true;
 		}
 
-		// Compare voices without holding locks
-		for (size_t i = 0; i < snapshot.voiceNotes.size() - 1; ++i) {
-			for (size_t j = i + 1; j < snapshot.voiceNotes.size(); ++j) {
-				const auto& notes1 = snapshot.voiceNotes[i];
-				const auto& notes2 = snapshot.voiceNotes[j];
+		// Compare each pair of voices
+		for (size_t i = 0; i < voiceCount - 1; ++i) {
+			for (size_t j = i + 1; j < voiceCount; ++j) {
+				const Voice* voice1 = score.getVoice(i);
+				const Voice* voice2 = score.getVoice(j);
+				if (!voice1 || !voice2) continue;
+				
+				auto notes1 = voice1->getNotesInRange(startMeasure, endMeasure);
+				auto notes2 = voice2->getNotesInRange(startMeasure, endMeasure);
 
 				if (notes1.size() < 2 || notes2.size() < 2) continue;
 
-				// Check consecutive notes
+				// Check consecutive notes for parallel octaves
 				for (size_t k = 0; k < std::min(notes1.size(), notes2.size()) - 1; ++k) {
 					Interval curr = Interval::fromPitches(notes1[k].pitch, notes2[k].pitch);
 					Interval next = Interval::fromPitches(notes1[k+1].pitch, notes2[k+1].pitch);
@@ -71,20 +71,8 @@ bool ParallelOctavesRule::evaluateIncremental(const Score& score, size_t startMe
 	}
 }
 
-
 std::string ParallelOctavesRule::getViolationDescription() const {
-	::utils::TrackedSharedMutexLock lock(mutex_, "ParallelOctavesRule::mutex_", ::utils::LockLevel::VALIDATION);
 	return violationDescription;
-}
-
-void ParallelOctavesRule::setViolationDescription(const std::string& desc) const {
-	::utils::TrackedUniqueLock lock(mutex_, "ParallelOctavesRule::mutex_", ::utils::LockLevel::VALIDATION);
-	violationDescription = desc;
-}
-
-void ParallelOctavesRule::clearViolationDescription() const {
-	::utils::TrackedUniqueLock lock(mutex_, "ParallelOctavesRule::mutex_", ::utils::LockLevel::VALIDATION);
-	violationDescription.clear();
 }
 
 std::string ParallelOctavesRule::getName() const {
@@ -96,4 +84,3 @@ std::unique_ptr<Rule> ParallelOctavesRule::clone() const {
 }
 
 } // namespace music::rules
-

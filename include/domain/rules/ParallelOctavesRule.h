@@ -2,12 +2,13 @@
 #define MUSICTRAINERV3_PARALLELOCTAVESRULE_H
 
 #include "IncrementalRule.h"
-#include "../music/Score.h"
-#include "../../utils/TrackedLock.h"
-#include <shared_mutex>
 #include <string>
+#include <memory>
 
-namespace music::rules {
+namespace music {
+class Score;
+
+namespace rules {
 
 class ParallelOctavesRule : public IncrementalRule {
 public:
@@ -21,14 +22,21 @@ public:
 
 private:
 	ParallelOctavesRule() = default;
-	mutable std::shared_mutex mutex_;
-	mutable std::string violationDescription;
 	
-	void setViolationDescription(const std::string& desc) const;
-	void clearViolationDescription() const;
+	void setViolationDescription(const std::string& desc) const {
+		violationDescription = desc;
+	}
+	
+	void clearViolationDescription() const {
+		violationDescription.clear();
+	}
+	
+	mutable std::string violationDescription;
 };
 
-} // namespace music::rules
+} // namespace rules
+} // namespace music
 
 #endif // MUSICTRAINERV3_PARALLELOCTAVESRULE_H
+
 

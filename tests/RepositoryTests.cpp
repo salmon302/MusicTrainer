@@ -15,6 +15,7 @@
 using namespace music;
 using namespace music::adapters;
 using namespace std::chrono_literals;
+using namespace MusicTrainer;
 
 class RepositoryTest : public ::testing::Test {
 protected:
@@ -37,7 +38,9 @@ TEST_F(RepositoryTest, HandlesEventsAndSnapshots) {
 	
 	std::cout << "[Voice] Adding note C4 with quarter duration\n";
 	{
-		::utils::TrackedUniqueLock voiceLock(voice->getMutexForTesting(), "Voice::mutex_", ::utils::LockLevel::VOICE);
+#ifdef TESTING
+		MusicTrainer::Debug::DebugLockGuard<std::mutex> voiceLock(voice->getMutexForTesting(), "Voice::mutex_");
+#endif
 		voice->addNote(c4, Duration::createQuarter());
 	}
 	

@@ -1,13 +1,12 @@
 #include "adapters/RtMidiAdapter.h"
 #include "domain/errors/DomainErrors.h"
 #include "domain/errors/ErrorHandler.h"
-#include "utils/TrackedLock.h"
 #include <sstream>
 #include <iostream>
 #include <future>
 
 using namespace MusicTrainer;
-using namespace utils;
+
 
 namespace music::adapters {
 
@@ -17,12 +16,33 @@ std::unique_ptr<RtMidiAdapter> RtMidiAdapter::create(size_t portNumber) {
 
 RtMidiAdapter::RtMidiAdapter(size_t portNumber) : portNumber(portNumber) {
 	try {
-		midiIn = std::make_unique<RtMidiIn>();
-		midiOut = std::make_unique<RtMidiOut>();
+		// Try to create MIDI objects with specific API
+		#ifdef __linux__
+			// Try ALSA first as it's required
+			midiIn = std::make_unique<RtMidiIn>(RtMidi::LINUX_ALSA);
+			midiOut = std::make_unique<RtMidiOut>(RtMidi::LINUX_ALSA);
+			
+			#ifndef RTMIDI_NO_JACK
+			// Only try JACK if it's available
+			try {
+				auto jackIn = std::make_unique<RtMidiIn>(RtMidi::UNIX_JACK);
+				auto jackOut = std::make_unique<RtMidiOut>(RtMidi::UNIX_JACK);
+				// If JACK initialization succeeded, use it instead
+				midiIn = std::move(jackIn);
+				midiOut = std::move(jackOut);
+			} catch (RtMidiError& e) {
+				// JACK not available, stick with ALSA
+			}
+			#endif
+		#else
+			midiIn = std::make_unique<RtMidiIn>();
+			midiOut = std::make_unique<RtMidiOut>();
+		#endif
 	} catch (RtMidiError& error) {
 		handleError(error.getType(), error.getMessage(), this);
 	}
 }
+
 
 
 RtMidiAdapter::~RtMidiAdapter() {
@@ -86,21 +106,19 @@ void RtMidiAdapter::stopProcessing() {
 }
 
 void RtMidiAdapter::processEvents() {
-	while (isRunning) {
-		if (auto entry = eventQueue.pop()) {
-			::utils::TrackedUniqueLock lock(callbackMutex, "RtMidiAdapter::callbackMutex", ::utils::LockLevel::REPOSITORY);
-			if (eventCallback) {
-				eventCallback(*entry);
-			}
-		} else {
-			std::this_thread::sleep_for(std::chrono::milliseconds(1));
+	while (isRunning.load(std::memory_order_acquire)) {
+		auto event = eventQueue.pop();
+		if (event && eventCallback) {
+			eventCallback(*event);
 		}
+		std::this_thread::sleep_for(std::chrono::milliseconds(1));
 	}
 }
 
 
+
 bool RtMidiAdapter::isOpen() const {
-	return isRunning && midiIn && midiOut;
+	return isRunning.load(std::memory_order_acquire) && midiIn && midiOut;
 }
 
 void RtMidiAdapter::sendEvent(const ports::MidiEvent& event) {
@@ -115,9 +133,9 @@ void RtMidiAdapter::sendEvent(const ports::MidiEvent& event) {
 
 
 void RtMidiAdapter::setEventCallback(std::function<void(const ports::MidiEvent&)> callback) {
-	::utils::TrackedUniqueLock lock(callbackMutex, "RtMidiAdapter::callbackMutex", ::utils::LockLevel::REPOSITORY);
 	eventCallback = std::move(callback);
 }
+
 
 void RtMidiAdapter::handleError(RtMidiError::Type type, const std::string& errorText, void* userData) {
 	auto* adapter = static_cast<RtMidiAdapter*>(userData);
@@ -125,10 +143,11 @@ void RtMidiAdapter::handleError(RtMidiError::Type type, const std::string& error
 	
 	adapter->metrics.errorCount++;
 	
-	// Create error message with timestamp
+	// Create error message with timestamp and backend info
 	std::stringstream ss;
 	ss << "[" << std::chrono::system_clock::to_time_t(std::chrono::system_clock::now()) 
-	   << "] MIDI Error: " << errorText;
+	   << "] MIDI Error (" << (adapter->midiIn ? RtMidi::getApiName(adapter->midiIn->getCurrentApi()) : "unknown") 
+	   << "): " << errorText;
 	
 	// Attempt recovery based on error type
 	if (type == RtMidiError::Type::INVALID_DEVICE || 
@@ -136,6 +155,15 @@ void RtMidiAdapter::handleError(RtMidiError::Type type, const std::string& error
 		try {
 			adapter->close();
 			std::this_thread::sleep_for(std::chrono::milliseconds(100));
+			
+			#ifdef __linux__
+			// On Linux, try falling back to ALSA if using JACK
+			if (adapter->midiIn && RtMidi::getApiName(adapter->midiIn->getCurrentApi()) == "UNIX_JACK") {
+				adapter->midiIn = std::make_unique<RtMidiIn>(RtMidi::LINUX_ALSA);
+				adapter->midiOut = std::make_unique<RtMidiOut>(RtMidi::LINUX_ALSA);
+			}
+			#endif
+			
 			if (adapter->open()) {
 				adapter->metrics.recoveredErrors++;
 				return;
@@ -162,35 +190,38 @@ void RtMidiAdapter::staticCallback(double timestamp, std::vector<unsigned char>*
 void RtMidiAdapter::processMessage(double timestamp, std::vector<unsigned char>* message) {
 	if (!message) return;
 	
-	// Create MidiEvent from raw message
 	ports::MidiEvent event(*message);
 	event.timestamp = timestamp;
+	eventQueue.push(std::move(event));
 	
-	{
-		::utils::TrackedUniqueLock lock(callbackMutex, "RtMidiAdapter::callbackMutex", ::utils::LockLevel::REPOSITORY);
-		if (eventCallback) {
-			eventCallback(event);
-		}
-	}
+	metrics.totalEvents++;
+	metrics.lastEventTime.store(
+		std::chrono::system_clock::now().time_since_epoch().count(),
+		std::memory_order_release);
 }
+
 
 
 ports::MidiPortMetrics RtMidiAdapter::getMetrics() const {
-    ports::MidiPortMetrics result;
-    result.totalEvents = metrics.totalEvents;
-    result.errorCount = metrics.errorCount;
-    result.recoveredErrors = metrics.recoveredErrors;
-    result.maxLatencyUs = metrics.maxLatencyUs;
-    result.lastEventTime = metrics.lastEventTime;
-    return result;
+	ports::MidiPortMetrics result;
+	result.totalEvents = metrics.totalEvents.load(std::memory_order_acquire);
+	result.errorCount = metrics.errorCount.load(std::memory_order_acquire);
+	result.recoveredErrors = metrics.recoveredErrors.load(std::memory_order_acquire);
+	result.maxLatencyUs = metrics.maxLatencyUs.load(std::memory_order_acquire);
+	result.lastEventTime = std::chrono::system_clock::time_point(
+		std::chrono::system_clock::duration(
+			metrics.lastEventTime.load(std::memory_order_acquire)));
+	return result;
 }
 
 void RtMidiAdapter::resetMetrics() {
-    metrics.totalEvents = 0;
-    metrics.errorCount = 0;
-    metrics.recoveredErrors = 0;
-    metrics.maxLatencyUs = 0.0;
-    metrics.lastEventTime = std::chrono::system_clock::now();
+	metrics.totalEvents.store(0, std::memory_order_release);
+	metrics.errorCount.store(0, std::memory_order_release);
+	metrics.recoveredErrors.store(0, std::memory_order_release);
+	metrics.maxLatencyUs.store(0.0, std::memory_order_release);
+	metrics.lastEventTime.store(
+		std::chrono::system_clock::now().time_since_epoch().count(),
+		std::memory_order_release);
 }
 
 } // namespace music::adapters

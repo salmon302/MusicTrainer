@@ -3,35 +3,29 @@
 #include <functional>
 #include <vector>
 #include <memory>
-#include <shared_mutex>
-#include "../../utils/TrackedLock.h"
+#include <atomic>
 #include <chrono>
 #include <unordered_map>
 #include <cmath>
 
 namespace MusicTrainer {
 
-// Recovery strategy class with lock level 10 (RECOVERY)
-// Must be acquired after ERROR_HANDLER (level 9)
 class RecoveryStrategy {
 public:
-	// Recovery result with context
 	struct RecoveryResult {
 		bool successful{false};
 		std::string message;
 		std::chrono::microseconds duration{0};
 	};
 
-	// Strategy types
 	enum class StrategyType {
-		RETRY,              // Simple retry
-		EXPONENTIAL_BACKOFF,// Retry with increasing delays
-		CIRCUIT_BREAKER,    // Prevent cascading failures
-		FALLBACK,          // Use alternative approach
-		COMPENSATION       // Compensating action
+		RETRY,
+		EXPONENTIAL_BACKOFF,
+		CIRCUIT_BREAKER,
+		FALLBACK,
+		COMPENSATION
 	};
 
-	// Strategy configuration
 	struct StrategyConfig {
 		size_t maxAttempts{3};
 		std::chrono::milliseconds timeout{1000};
@@ -44,18 +38,20 @@ public:
 	using FallbackAction = std::function<bool(const MusicTrainerError&)>;
 
 	static RecoveryStrategy& getInstance();
-	void setConfig(const StrategyConfig& config);
-	const StrategyConfig& getConfig() const;
+	void setConfig(const StrategyConfig& config) {
+		config_ = config;
+	}
+	const StrategyConfig& getConfig() const {
+		return config_;
+	}
 	void registerStrategy(const std::string& errorType, 
 						 StrategyType type,
 						 RecoveryAction action,
 						 FallbackAction fallback = nullptr);
 	RecoveryResult attemptRecovery(const MusicTrainerError& error);
-
-	void clearStrategies();
-
-	// Mutex access for ErrorHandler
-	std::shared_mutex& getMutex() { return mutex_; }
+	void clearStrategies() {
+		strategies.clear();
+	}
 
 private:
 	RecoveryStrategy() = default;
@@ -64,19 +60,21 @@ private:
 		StrategyType type;
 		RecoveryAction action;
 		FallbackAction fallback;
-		size_t failureCount{0};
-		std::chrono::system_clock::time_point lastAttempt;
-		bool circuitOpen{false};
+		std::atomic<size_t> failureCount{0};
+		std::atomic<std::chrono::system_clock::time_point::rep> lastAttempt{
+			std::chrono::system_clock::now().time_since_epoch().count()
+		};
+		std::atomic<bool> circuitOpen{false};
 	};
 
 	RecoveryResult executeStrategy(const Strategy& strategy, const MusicTrainerError& error);
 	bool shouldAttemptRecovery(const Strategy& strategy) const;
 	void updateStrategyState(Strategy& strategy, bool success);
 
-	mutable std::shared_mutex mutex_; // Level 10 (RECOVERY) - Must be acquired after ERROR_HANDLER
-	std::unordered_map<std::string, Strategy> strategies_;
 	StrategyConfig config_;
+	std::unordered_map<std::string, std::unique_ptr<Strategy>> strategies;
 };
 
 } // namespace MusicTrainer
+
 

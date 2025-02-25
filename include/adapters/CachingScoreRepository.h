@@ -4,8 +4,8 @@
 #include <unordered_map>
 #include <memory>
 #include <chrono>
-#include <shared_mutex>
 #include <atomic>
+#include <functional>
 #include "domain/ports/ScoreRepository.h"
 #include "domain/music/Score.h"
 
@@ -20,15 +20,10 @@ public:
 	std::vector<std::string> listScores() override;
 	void remove(const std::string& name) override;
 	
-	// Cache management
 	void clearCache();
 	void setCacheTimeout(std::chrono::seconds timeout);
 	size_t getCacheSize() const;
 	double getCacheHitRate() const;
-
-#ifdef TESTING
-	std::shared_mutex& getMutexForTesting() const { return cacheMutex; }
-#endif
 
 private:
 	CachingScoreRepository(std::unique_ptr<ScoreRepository> baseRepository);
@@ -36,18 +31,32 @@ private:
 	struct CacheEntry {
 		std::unique_ptr<Score> score;
 		std::chrono::system_clock::time_point lastAccess;
+		std::atomic<bool> valid{true};
 		
 		CacheEntry() : lastAccess(std::chrono::system_clock::now()) {}
 		CacheEntry(std::unique_ptr<Score> s, std::chrono::system_clock::time_point t)
-			: score(std::move(s)), lastAccess(t) {}
+			: score(std::move(s)), lastAccess(t), valid(true) {}
 	};
+	
+	void updateCache(const std::string& name, const std::function<void(std::unordered_map<std::string, CacheEntry>&)>& updateFn) {
+		auto newCache = std::unordered_map<std::string, CacheEntry>();
+		for (const auto& [key, entry] : cache) {
+			if (entry.score && entry.valid.load()) {
+				auto& newEntry = newCache[key];
+				newEntry.score = std::make_unique<Score>(*entry.score);
+				newEntry.lastAccess = entry.lastAccess;
+				newEntry.valid.store(true);
+			}
+		}
+		updateFn(newCache);
+		cache = std::move(newCache);
+	}
+
 	
 	std::unique_ptr<ScoreRepository> baseRepository;
 	std::unordered_map<std::string, CacheEntry> cache;
-	std::chrono::seconds cacheTimeout{300}; // 5 minutes default
-	mutable std::shared_mutex cacheMutex;  // Mutex for thread safety
+	std::atomic<std::chrono::seconds::rep> cacheTimeout{300}; // 5 minutes default
 	
-	// Use atomic for thread-safe counters
 	std::atomic<size_t> cacheHits{0};
 	std::atomic<size_t> totalAccesses{0};
 	

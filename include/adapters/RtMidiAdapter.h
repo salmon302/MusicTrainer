@@ -2,8 +2,6 @@
 #define MUSICTRAINERV3_RTMIDIADAPTER_H
 
 #include <memory>
-#include <mutex>
-#include <shared_mutex>
 #include <atomic>
 #include <thread>
 #include <chrono>
@@ -24,7 +22,6 @@ public:
 	void setEventCallback(std::function<void(const ports::MidiEvent&)> callback) override;
 	
 	ports::MidiPortMetrics getMetrics() const override;
-
 	void resetMetrics() override;
 	
 	~RtMidiAdapter() override;
@@ -39,9 +36,8 @@ private:
 	std::atomic<bool> isRunning{false};
 	
 	// Event processing
-	LockFreeEventQueue<1024> eventQueue;
+	LockFreeEventQueue<ports::MidiEvent, 1024> eventQueue;
 	std::thread processingThread;
-	std::shared_mutex callbackMutex;
 	std::function<void(const ports::MidiEvent&)> eventCallback;
 	
 	// Metrics
@@ -50,7 +46,9 @@ private:
 		std::atomic<size_t> errorCount{0};
 		std::atomic<size_t> recoveredErrors{0};
 		std::atomic<double> maxLatencyUs{0.0};
-		std::chrono::system_clock::time_point lastEventTime;
+		std::atomic<std::chrono::system_clock::time_point::rep> lastEventTime{
+			std::chrono::system_clock::now().time_since_epoch().count()
+		};
 	} metrics;
 
 	// Enhanced error tracking
@@ -58,8 +56,12 @@ private:
 		std::atomic<bool> inErrorState{false};
 		std::atomic<size_t> consecutiveErrors{0};
 		std::atomic<size_t> errorWindowCount{0};
-		std::chrono::system_clock::time_point lastErrorTime;
-		std::chrono::system_clock::time_point errorWindowStart;
+		std::atomic<std::chrono::system_clock::time_point::rep> lastErrorTime{
+			std::chrono::system_clock::now().time_since_epoch().count()
+		};
+		std::atomic<std::chrono::system_clock::time_point::rep> errorWindowStart{
+			std::chrono::system_clock::now().time_since_epoch().count()
+		};
 		static constexpr size_t MAX_CONSECUTIVE_ERRORS = 3;
 		static constexpr size_t ERROR_WINDOW_THRESHOLD = 5;
 		static constexpr auto ERROR_WINDOW_DURATION = std::chrono::seconds(60);

@@ -9,7 +9,7 @@ std::unique_ptr<Snapshot> Snapshot::create(const Score& score) {
 
 Snapshot::Snapshot(Score score)
 	: score(std::move(score))
-	, timestamp(std::chrono::system_clock::now())
+	, timestamp(std::chrono::system_clock::now().time_since_epoch().count())
 	, version(0)
 {}
 
@@ -22,10 +22,10 @@ std::unique_ptr<Score> Snapshot::reconstruct() const {
 }
 
 std::unique_ptr<Snapshot> Snapshot::clone() const {
-	::utils::TrackedUniqueLock lock(mutex_, "Snapshot::mutex_", ::utils::LockLevel::REPOSITORY);
 	auto cloned = std::make_unique<Snapshot>(score);
-	cloned->setVersion(version);
+	cloned->setVersion(getVersion());
 	return cloned;
 }
 
 } // namespace music::events
+

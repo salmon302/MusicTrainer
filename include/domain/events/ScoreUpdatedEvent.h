@@ -6,84 +6,73 @@
 #include <string>
 #include <chrono>
 #include <memory>
+#include <atomic>
 
 namespace music::events {
 
 class ScoreUpdatedEvent : public Event {
 public:
 	ScoreUpdatedEvent(const Score::ScoreSnapshot& snapshot, uint64_t version)
-		: version(version)
-		, snapshot(snapshot)
-		, timestamp(std::chrono::system_clock::now()) {}
+		: version_(version)
+		, snapshot_(snapshot)
+		, timestamp_(std::chrono::system_clock::now().time_since_epoch().count()) {}
 		
 	~ScoreUpdatedEvent() override = default;
 
-	Score::ScoreSnapshot getSnapshot() const {
-		::utils::TrackedSharedMutexLock lock(mutex_, "Event::mutex_", ::utils::LockLevel::REPOSITORY);
-		return snapshot;
+	const Score::ScoreSnapshot& getSnapshot() const {
+		return snapshot_;
 	}
 	
 	uint64_t getVersion() const {
-		::utils::TrackedSharedMutexLock lock(mutex_, "Event::mutex_", ::utils::LockLevel::REPOSITORY);
-		return version;
+		return version_.load(std::memory_order_acquire);
 	}
 
 	// Event interface implementation
 	std::string getType() const override { return "ScoreUpdated"; }
 	
 	void apply(Score& target) const override {
-		// Get snapshot data under our lock
-		Score::ScoreSnapshot snapshotCopy;
-		uint64_t versionCopy;
-		{
-			::utils::TrackedSharedMutexLock lock(mutex_, "Event::mutex_", ::utils::LockLevel::REPOSITORY);
-			snapshotCopy = snapshot;
-			versionCopy = version;
-		}
-		
-		// Apply snapshot data to target score (Score handles its own locking)
-		target.setTimeSignature(snapshotCopy.timeSignature);
-		target.setVersion(versionCopy);
+		// Apply snapshot data to target score
+		target.setTimeSignature(snapshot_.timeSignature);
+		target.setVersion(version_.load(std::memory_order_acquire));
 		
 		// Create and prepare voices before adding them to score
 		std::vector<std::unique_ptr<Voice>> voices;
-		for (const auto& notes : snapshotCopy.voiceNotes) {
-			auto voice = Voice::create(snapshotCopy.timeSignature);
+		for (const auto& notes : snapshot_.voiceNotes) {
+			auto voice = Voice::create(snapshot_.timeSignature);
 			for (const auto& note : notes) {
 				voice->addNote(note.pitch, note.duration);
 			}
 			voices.push_back(std::move(voice));
 		}
 		
-		// Add voices to score (Score::addVoice handles proper lock ordering)
+		// Add voices to score
 		for (auto& voice : voices) {
 			target.addVoice(std::move(voice));
 		}
 	}
 	
 	std::chrono::system_clock::time_point getTimestamp() const override {
-		::utils::TrackedSharedMutexLock lock(mutex_, "Event::mutex_", ::utils::LockLevel::REPOSITORY);
-		return timestamp;
+		return std::chrono::system_clock::time_point(
+			std::chrono::system_clock::duration(
+				timestamp_.load(std::memory_order_acquire)
+			)
+		);
 	}
 	
 	std::string getDescription() const override {
-		::utils::TrackedSharedMutexLock lock(mutex_, "Event::mutex_", ::utils::LockLevel::REPOSITORY);
-		return "Score updated to version " + std::to_string(version);
+		return "Score updated to version " + std::to_string(version_.load(std::memory_order_acquire));
 	}
 	
 	std::unique_ptr<Event> clone() const override {
-		Score::ScoreSnapshot snapshotCopy;
-		{
-			::utils::TrackedSharedMutexLock lock(mutex_, "Event::mutex_", ::utils::LockLevel::REPOSITORY);
-			snapshotCopy = snapshot;
-		}
-		return std::make_unique<ScoreUpdatedEvent>(snapshotCopy, version);
+		return std::make_unique<ScoreUpdatedEvent>(snapshot_, version_.load(std::memory_order_acquire));
 	}
 
 private:
-	uint64_t version;
-	Score::ScoreSnapshot snapshot;
-	std::chrono::system_clock::time_point timestamp;
+	std::atomic<uint64_t> version_;
+	const Score::ScoreSnapshot snapshot_;  // Immutable after construction
+	std::atomic<std::chrono::system_clock::time_point::rep> timestamp_;
 };
 
 } // namespace music::events
+
+

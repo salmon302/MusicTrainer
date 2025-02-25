@@ -1,0 +1,11 @@
+# Hashes of file build rules.
+0330fb6f64edf693e9c0327a052482e4 CMakeFiles/rtmidi-populate
+8eb797606cd87e50859beb603b924cda CMakeFiles/rtmidi-populate-complete
+711e51af7bbaf07fda339a43b664f0d4 rtmidi-populate-prefix/src/rtmidi-populate-stamp/rtmidi-populate-build
+e1cc11382d6661551993118f44d38d40 rtmidi-populate-prefix/src/rtmidi-populate-stamp/rtmidi-populate-configure
+5db45e102bc82926bacc928f834d7afe rtmidi-populate-prefix/src/rtmidi-populate-stamp/rtmidi-populate-download
+cabfb5d35fb4fb2ca946b873c82da750 rtmidi-populate-prefix/src/rtmidi-populate-stamp/rtmidi-populate-install
+57c01f440e8a80afe69b02e427cb2cc4 rtmidi-populate-prefix/src/rtmidi-populate-stamp/rtmidi-populate-mkdir
+031496c888113ded52731c92e0267f91 rtmidi-populate-prefix/src/rtmidi-populate-stamp/rtmidi-populate-patch
+9743f28e622cf0ce3d7f05e5039ef04f rtmidi-populate-prefix/src/rtmidi-populate-stamp/rtmidi-populate-test
+e161dc80877bbde0474391d7a85bdfde rtmidi-populate-prefix/src/rtmidi-populate-stamp/rtmidi-populate-update

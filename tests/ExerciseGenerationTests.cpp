@@ -104,38 +104,35 @@ TEST(ExerciseGeneratorTest, GeneratesConstrainedMelodies) {
 	// Test soprano voice constraints
 	auto soprano = score->getVoice(0);
 	ASSERT_NE(soprano, nullptr);
-	{
-		::utils::TrackedUniqueLock sopranoLock(soprano->getMutexForTesting(), "Voice::mutex_", ::utils::LockLevel::VOICE);
-		for (size_t i = 0; i < soprano->getNoteCount(); ++i) {
-			auto note = soprano->getNote(i);
-			ASSERT_GE(note->pitch.getMidiNote(), 60);  // C4
-			ASSERT_LE(note->pitch.getMidiNote(), 79);  // G5
-			
-			if (i > 0) {
-				auto prevNote = soprano->getNote(i-1);
-				int interval = std::abs(note->pitch.getMidiNote() - prevNote->pitch.getMidiNote());
-				ASSERT_LE(interval, 8); // Max leap of perfect fifth
-			}
+	
+	for (size_t i = 0; i < soprano->getNoteCount(); ++i) {
+		auto note = soprano->getNote(i);
+		ASSERT_GE(note->pitch.getMidiNote(), 60);  // C4
+		ASSERT_LE(note->pitch.getMidiNote(), 79);  // G5
+		
+		if (i > 0) {
+			auto prevNote = soprano->getNote(i-1);
+			int interval = std::abs(note->pitch.getMidiNote() - prevNote->pitch.getMidiNote());
+			ASSERT_LE(interval, 8); // Max leap of perfect fifth
 		}
 	}
 	
 	// Test bass voice constraints
 	auto bass = score->getVoice(3);
 	ASSERT_NE(bass, nullptr);
-	{
-		::utils::TrackedUniqueLock bassLock(bass->getMutexForTesting(), "Voice::mutex_", ::utils::LockLevel::VOICE);
-		for (size_t i = 0; i < bass->getNoteCount(); ++i) {
-			auto note = bass->getNote(i);
-			ASSERT_GE(note->pitch.getMidiNote(), 36);  // C2
-			ASSERT_LE(note->pitch.getMidiNote(), 55);  // G3
-			
-			if (i > 0) {
-				auto prevNote = bass->getNote(i-1);
-				int interval = std::abs(note->pitch.getMidiNote() - prevNote->pitch.getMidiNote());
-				ASSERT_LE(interval, 12); // Max leap of octave
-			}
+	
+	for (size_t i = 0; i < bass->getNoteCount(); ++i) {
+		auto note = bass->getNote(i);
+		ASSERT_GE(note->pitch.getMidiNote(), 36);  // C2
+		ASSERT_LE(note->pitch.getMidiNote(), 55);  // G3
+		
+		if (i > 0) {
+			auto prevNote = bass->getNote(i-1);
+			int interval = std::abs(note->pitch.getMidiNote() - prevNote->pitch.getMidiNote());
+			ASSERT_LE(interval, 12); // Max leap of octave
 		}
 	}
+
 }
 
 TEST(MelodicTemplateTest, GeneratesWithHarmonicContext) {
@@ -247,14 +244,13 @@ TEST(ExerciseGeneratorTest, GeneratesWithVoiceLeadingRules) {
 	// Test soprano voice for augmented second avoidance
 	auto soprano = score->getVoice(0);
 	ASSERT_NE(soprano, nullptr);
-	{
-		::utils::TrackedUniqueLock sopranoLock(soprano->getMutexForTesting(), "Voice::mutex_", ::utils::LockLevel::VOICE);
-		for (size_t i = 1; i < soprano->getNoteCount(); ++i) {
-			auto prevNote = soprano->getNote(i-1);
-			auto currNote = soprano->getNote(i);
-			int interval = std::abs(currNote->pitch.getMidiNote() - prevNote->pitch.getMidiNote());
-			ASSERT_NE(interval, 3); // No augmented seconds (3 semitones)
-		}
+	
+	for (size_t i = 1; i < soprano->getNoteCount(); ++i) {
+		auto prevNote = soprano->getNote(i-1);
+		auto currNote = soprano->getNote(i);
+		int interval = std::abs(currNote->pitch.getMidiNote() - prevNote->pitch.getMidiNote());
+		ASSERT_NE(interval, 3); // No augmented seconds (3 semitones)
 	}
 }
+
 

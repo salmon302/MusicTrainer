@@ -4,16 +4,19 @@
 cmake_minimum_required(VERSION 3.5)
 
 file(MAKE_DIRECTORY
-  "C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/rtmidi-src"
-  "C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/rtmidi-build"
-  "C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/rtmidi-subbuild/rtmidi-populate-prefix"
-  "C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/rtmidi-subbuild/rtmidi-populate-prefix/tmp"
-  "C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/rtmidi-subbuild/rtmidi-populate-prefix/src/rtmidi-populate-stamp"
-  "C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/rtmidi-subbuild/rtmidi-populate-prefix/src"
-  "C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/rtmidi-subbuild/rtmidi-populate-prefix/src/rtmidi-populate-stamp"
+  "/home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/rtmidi-src"
+  "/home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/rtmidi-build"
+  "/home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/rtmidi-subbuild/rtmidi-populate-prefix"
+  "/home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/rtmidi-subbuild/rtmidi-populate-prefix/tmp"
+  "/home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/rtmidi-subbuild/rtmidi-populate-prefix/src/rtmidi-populate-stamp"
+  "/home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/rtmidi-subbuild/rtmidi-populate-prefix/src"
+  "/home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/rtmidi-subbuild/rtmidi-populate-prefix/src/rtmidi-populate-stamp"
 )
 
 set(configSubDirs )
 foreach(subDir IN LISTS configSubDirs)
-    file(MAKE_DIRECTORY "C:/Users/salmo/CLionProjects/MusicTrainerV3/cmake-build-debug/_deps/rtmidi-subbuild/rtmidi-populate-prefix/src/rtmidi-populate-stamp/${subDir}")
+    file(MAKE_DIRECTORY "/home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/rtmidi-subbuild/rtmidi-populate-prefix/src/rtmidi-populate-stamp/${subDir}")
 endforeach()
+if(cfgdir)
+  file(MAKE_DIRECTORY "/home/seth-n/Documents/GitHub/MusicTrainer/cmake-build-debug/_deps/rtmidi-subbuild/rtmidi-populate-prefix/src/rtmidi-populate-stamp${cfgdir}") # cfgdir has leading slash
+endif()

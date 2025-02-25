@@ -3,11 +3,28 @@ project(MusicTrainerV3)
 
 set(CMAKE_CXX_STANDARD 17)
 
-if(MINGW)
-	# Memory optimization during compilation
-	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0 -fno-inline -fno-elide-constructors")
-	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O0 -fno-inline -fno-elide-constructors")
+# Linux-specific configuration
+if(UNIX AND NOT APPLE)
+	# ALSA is required for Linux
+	find_package(ALSA REQUIRED)
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
+	
+	# JACK is optional
+	find_package(PkgConfig QUIET)
+	if(PKG_CONFIG_FOUND)
+		pkg_check_modules(JACK jack)
+	endif()
+	
+	# Configure RtMidi based on available backends
+	set(RTMIDI_API_ALSA ON CACHE BOOL "Enable ALSA API" FORCE)
+	if(JACK_FOUND)
+		set(RTMIDI_API_JACK ON CACHE BOOL "Enable JACK API" FORCE)
+	else()
+		set(RTMIDI_API_JACK OFF CACHE BOOL "Disable JACK API" FORCE)
+		add_definitions(-DRTMIDI_NO_JACK)
+	endif()
 endif()
+
 
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
@@ -22,12 +39,13 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(googletest)
 
-# Add RtMidi
+# Add RtMidi with Linux-specific options
 FetchContent_Declare(
-    rtmidi
-    URL https://github.com/thestk/rtmidi/archive/refs/tags/5.0.0.zip
+	rtmidi
+	URL https://github.com/thestk/rtmidi/archive/refs/tags/5.0.0.zip
 )
 FetchContent_MakeAvailable(rtmidi)
+
 
 # Library sources (excluding main.cpp and test-only files)
 set(LIB_SOURCES
@@ -63,8 +81,8 @@ set(LIB_SOURCES
 	src/domain/plugins/PluginManager.cpp
 	src/domain/crossdomain/CrossDomainValidator.cpp
 	src/domain/statesync/StateSynchronizationManager.cpp
-	src/utils/DebugUtils.cpp
-	src/utils/LockTracker.cpp)
+	src/utils/DebugUtils.cpp)
+
 
 # Header files
 set(HEADERS
@@ -102,11 +120,23 @@ set(HEADERS
 	include/adapters/RtMidiAdapter.h
 	include/domain/plugins/PluginInterface.h
 	include/domain/plugins/PluginManager.h
-	include/utils/DebugUtils.h
-	include/utils/LockTracker.h)
+	include/utils/DebugUtils.h)
+
 
 # Test-only sources
 set(TEST_SOURCES
+    tests/ValidationPipelineTests.cpp
+    tests/ExerciseGenerationTests.cpp
+    tests/MidiSystemTests.cpp
+    tests/RepositoryTests.cpp
+    tests/ProgressionSystemTests.cpp
+    tests/ErrorHandlingTests.cpp
+    tests/PerformanceMonitoringTests.cpp
+    tests/integration/SystemIntegrationTests.cpp
+    tests/plugins/PluginSystemTests.cpp
+    tests/plugins/TestPlugin.cpp
+    tests/crossdomain/CrossDomainValidatorTests.cpp
+    tests/statesync/StateSynchronizationManagerTests.cpp
 )
 
 
@@ -115,15 +145,17 @@ include_directories(${PROJECT_SOURCE_DIR}/include)
 
 # Main executable
 add_executable(${PROJECT_NAME} src/main.cpp ${LIB_SOURCES} ${HEADERS})
-target_link_libraries(${PROJECT_NAME} PRIVATE rtmidi)
+target_link_libraries(${PROJECT_NAME} PRIVATE rtmidi ${ALSA_LIBRARIES})
 
 # Add main test suite
-add_executable(TestSuite 
+add_executable(TestSuite
+	tests/main.cpp
 	tests/TestSuite.cpp
 	${TEST_SOURCES}
 	${LIB_SOURCES})
 target_include_directories(TestSuite PRIVATE ${PROJECT_SOURCE_DIR}/include)
-target_link_libraries(TestSuite PRIVATE gtest rtmidi)
+target_link_libraries(TestSuite PRIVATE gtest gtest_main rtmidi ${ALSA_LIBRARIES})
+target_compile_definitions(TestSuite PRIVATE TESTING)
 
 # Define test targets
 set(TEST_TARGETS
@@ -137,8 +169,8 @@ set(TEST_TARGETS
 	ErrorHandlingTests
 	PerformanceMonitoringTests
 	CrossDomainValidatorTests
-	StateSynchronizationManagerTests
-	LockingTests)
+	StateSynchronizationManagerTests)
+
 
 # Configure test executables
 foreach(TEST_TARGET ${TEST_TARGETS})
@@ -172,7 +204,7 @@ foreach(TEST_TARGET ${TEST_TARGETS})
 	
 	target_include_directories(${TEST_TARGET} PRIVATE ${PROJECT_SOURCE_DIR}/include)
 	target_compile_definitions(${TEST_TARGET} PRIVATE TESTING)
-	target_link_libraries(${TEST_TARGET} PRIVATE gtest gtest_main rtmidi)
+	target_link_libraries(${TEST_TARGET} PRIVATE gtest gtest_main rtmidi ${ALSA_LIBRARIES})
 	add_test(NAME ${TEST_TARGET} 
 			 COMMAND ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${TEST_TARGET}
 			 WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})

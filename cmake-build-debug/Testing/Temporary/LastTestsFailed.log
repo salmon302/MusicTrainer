@@ -1,9 +1,0 @@
-1:ValidationPipelineTests
-2:ExerciseGenerationTests
-4:RepositoryTests
-6:SystemIntegrationTests
-7:PluginSystemTests
-8:ErrorHandlingTests
-10:CrossDomainValidatorTests
-11:StateSynchronizationManagerTests
-12:LockingTests

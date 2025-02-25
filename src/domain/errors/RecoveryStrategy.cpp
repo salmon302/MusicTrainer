@@ -12,50 +12,35 @@ RecoveryStrategy& RecoveryStrategy::getInstance() {
 	return instance;
 }
 
-void RecoveryStrategy::setConfig(const StrategyConfig& config) {
-	::utils::TrackedUniqueLock lock(mutex_, "RecoveryStrategy::mutex_", ::utils::LockLevel::RECOVERY);
-	config_ = config;
-}
-
-const RecoveryStrategy::StrategyConfig& RecoveryStrategy::getConfig() const {
-	::utils::TrackedSharedMutexLock lock(mutex_, "RecoveryStrategy::mutex_", ::utils::LockLevel::RECOVERY);
-	return config_;
-}
-
 void RecoveryStrategy::registerStrategy(const std::string& errorType,
 									  StrategyType type,
 									  RecoveryAction action,
 									  FallbackAction fallback) {
-	::utils::TrackedUniqueLock lock(mutex_, "RecoveryStrategy::mutex_", ::utils::LockLevel::RECOVERY);
-	Strategy strategy{
-		type,
-		std::move(action),
-		std::move(fallback),
-		0,
-		std::chrono::system_clock::now(),
-		false
-	};
-	strategies_[errorType] = std::move(strategy);
+	auto strategy = std::make_unique<Strategy>();
+	strategy->type = type;
+	strategy->action = std::move(action);
+	strategy->fallback = std::move(fallback);
+	strategy->failureCount.store(0, std::memory_order_release);
+	strategy->lastAttempt.store(
+		std::chrono::system_clock::now().time_since_epoch().count(),
+		std::memory_order_release);
+	strategy->circuitOpen.store(false, std::memory_order_release);
+	
+	strategies[errorType] = std::move(strategy);
 }
 
 RecoveryStrategy::RecoveryResult RecoveryStrategy::attemptRecovery(const MusicTrainerError& error) {
-	// Get strategy with write lock since we'll be modifying its state
-	::utils::TrackedUniqueLock lock(mutex_, "RecoveryStrategy::mutex_", ::utils::LockLevel::RECOVERY);
-	auto it = strategies_.find(error.getType());
-	if (it == strategies_.end()) {
+	auto it = strategies.find(error.getType());
+	if (it == strategies.end()) {
 		return {false, "No recovery strategy registered", std::chrono::microseconds(0)};
 	}
 	
-	// Execute strategy with direct reference to map entry
 	auto& strategy = it->second;
-	auto result = executeStrategy(strategy, error);
-	
-	// Update strategy state based on result
-	updateStrategyState(strategy, result.successful);
+	auto result = executeStrategy(*strategy, error);
+	updateStrategyState(*strategy, result.successful);
 	
 	return result;
 }
-
 
 RecoveryStrategy::RecoveryResult RecoveryStrategy::executeStrategy(
 	const Strategy& strategy,
@@ -81,40 +66,30 @@ RecoveryStrategy::RecoveryResult RecoveryStrategy::executeStrategy(
 		}
 	};
 
-	// Handle validation errors immediately without retries
 	if (error.getType() == "ValidationError") {
 		return attempt(false);
 	}
 
 	switch (strategy.type) {
 		case StrategyType::RETRY: {
-			// Store error type and config before releasing lock
 			auto errorType = error.getType();
 			auto maxAttempts = config_.maxAttempts;
 			
 			RecoveryResult result;
 			for (size_t i = 0; i < maxAttempts; ++i) {
-				// Release lock before logging and attempting recovery
-				{
-					::utils::TrackedUniqueLock lock(mutex_, "RecoveryStrategy::mutex_", ::utils::LockLevel::RECOVERY);
-					ErrorLogger::getInstance().logRecoveryAttempt(
-						errorType, 
-						"Attempt " + std::to_string(i + 1) + " of " + std::to_string(maxAttempts),
-						"", ErrorLogger::LogLevel::INFO);
-				}
+				ErrorLogger::getInstance().logRecoveryAttempt(
+					errorType, 
+					"Attempt " + std::to_string(i + 1) + " of " + std::to_string(maxAttempts),
+					"", ErrorLogger::LogLevel::INFO);
 				
 				result = attempt(false);
 				
-				// Reacquire lock for logging result
-				{
-					::utils::TrackedUniqueLock lock(mutex_, "RecoveryStrategy::mutex_", ::utils::LockLevel::RECOVERY);
-					if (result.successful) {
-						ErrorLogger::getInstance().logRecoveryResult(
-							errorType, true,
-							"Retry successful on attempt " + std::to_string(i + 1),
-							ErrorLogger::LogLevel::INFO);
-						return result;
-					}
+				if (result.successful) {
+					ErrorLogger::getInstance().logRecoveryResult(
+						errorType, true,
+						"Retry successful on attempt " + std::to_string(i + 1),
+						ErrorLogger::LogLevel::INFO);
+					return result;
 				}
 				
 				if (i < maxAttempts - 1) {
@@ -122,19 +97,13 @@ RecoveryStrategy::RecoveryResult RecoveryStrategy::executeStrategy(
 				}
 			}
 			
-			// Log failure and try fallback
-			{
-				::utils::TrackedUniqueLock lock(mutex_, "RecoveryStrategy::mutex_", ::utils::LockLevel::RECOVERY);
-				ErrorLogger::getInstance().logRecoveryResult(
-					errorType, false, 
-					"All retry attempts failed, trying fallback",
-					ErrorLogger::LogLevel::WARNING);
-			}
+			ErrorLogger::getInstance().logRecoveryResult(
+				errorType, false, 
+				"All retry attempts failed, trying fallback",
+				ErrorLogger::LogLevel::WARNING);
 			
 			return attempt(true);
 		}
-
-
 
 		case StrategyType::EXPONENTIAL_BACKOFF: {
 			auto delay = config_.backoffInitial;
@@ -144,11 +113,11 @@ RecoveryStrategy::RecoveryResult RecoveryStrategy::executeStrategy(
 				std::this_thread::sleep_for(delay);
 				delay *= config_.backoffMultiplier;
 			}
-			return attempt(true);  // Try fallback
+			return attempt(true);
 		}
 
 		case StrategyType::CIRCUIT_BREAKER:
-			if (strategy.circuitOpen) {
+			if (strategy.circuitOpen.load(std::memory_order_acquire)) {
 				return RecoveryResult{
 					.successful = false,
 					.message = "Circuit breaker open"
@@ -171,12 +140,14 @@ RecoveryStrategy::RecoveryResult RecoveryStrategy::executeStrategy(
 }
 
 bool RecoveryStrategy::shouldAttemptRecovery(const Strategy& strategy) const {
-	if (strategy.circuitOpen) {
+	if (strategy.circuitOpen.load(std::memory_order_acquire)) {
 		auto now = std::chrono::system_clock::now();
-		auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(
-			now - strategy.lastAttempt);
+		auto lastAttemptTime = std::chrono::system_clock::time_point(
+			std::chrono::system_clock::duration(
+				strategy.lastAttempt.load(std::memory_order_acquire)));
+		auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(now - lastAttemptTime);
 		if (elapsed > config_.timeout) {
-			return true;  // Allow a single test request
+			return true;
 		}
 		return false;
 	}
@@ -184,22 +155,21 @@ bool RecoveryStrategy::shouldAttemptRecovery(const Strategy& strategy) const {
 }
 
 void RecoveryStrategy::updateStrategyState(Strategy& strategy, bool success) {
-	strategy.lastAttempt = std::chrono::system_clock::now();
+	strategy.lastAttempt.store(
+		std::chrono::system_clock::now().time_since_epoch().count(),
+		std::memory_order_release);
 	
 	if (success) {
-		strategy.failureCount = 0;
-		strategy.circuitOpen = false;
+		strategy.failureCount.store(0, std::memory_order_release);
+		strategy.circuitOpen.store(false, std::memory_order_release);
 	} else {
-		strategy.failureCount++;
-		if (strategy.failureCount >= config_.circuitBreakerThreshold) {
-			strategy.circuitOpen = true;
+		auto currentFailures = strategy.failureCount.fetch_add(1, std::memory_order_acq_rel) + 1;
+		if (currentFailures >= config_.circuitBreakerThreshold) {
+			strategy.circuitOpen.store(true, std::memory_order_release);
 		}
 	}
 }
 
-void RecoveryStrategy::clearStrategies() {
-	::utils::TrackedUniqueLock lock(mutex_, "RecoveryStrategy::mutex_", ::utils::LockLevel::RECOVERY);
-	strategies_.clear();
-}
-
 } // namespace MusicTrainer
+
+

@@ -10,6 +10,9 @@
 namespace music::ports {
 
 struct MidiEvent {
+	// Default constructor
+	MidiEvent() : type(Type::NOTE_OFF), channel(0), note(0), velocity(0), timestamp(0.0) {}
+
 	enum class Type {
 		NOTE_ON,
 		NOTE_OFF,

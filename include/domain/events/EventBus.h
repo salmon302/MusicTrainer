@@ -1,10 +1,10 @@
 #pragma once
 
 #include "Event.h"
-#include "utils/TrackedLock.h"
+#include "adapters/LockFreeEventQueue.h"
 #include <functional>
 #include <memory>
-#include <shared_mutex>
+#include <atomic>
 #include <unordered_map>
 #include <vector>
 
@@ -15,39 +15,29 @@ public:
 	static std::unique_ptr<EventBus> create();
 	
 	void publish(std::unique_ptr<Event> event) {
-		std::vector<std::function<void(const Event&)>> handlersCopy;
-		const Event* eventPtr = nullptr;
-		std::string eventType;
+		std::string eventType = event->getType();
 		
-		// Acquire EVENT_BUS lock (level 2)
-		{
-			::utils::TrackedUniqueLock lock(mutex_, "EventBus::mutex_", ::utils::LockLevel::EVENT_BUS);
-			eventType = event->getType();
-			events.push_back(std::move(event));
-			eventPtr = events.back().get();
-			
-			// Get handlers for event type
-			auto handlersIt = handlers.find(eventType);
-			if (handlersIt != handlers.end()) {
-				handlersCopy = handlersIt->second;
-			}
-		}
+		// Store event and get handlers
+		events.push_back(std::move(event));
+		const Event* eventPtr = events.back().get();
 		
-		// Call handlers outside of lock to prevent deadlocks
-		if (eventPtr) {
-			for (const auto& handler : handlersCopy) {
+		// Get handlers atomically
+		auto handlersIt = handlers.find(eventType);
+		if (handlersIt != handlers.end()) {
+			for (const auto& handler : handlersIt->second) {
 				handler(*eventPtr);
 			}
 		}
+		
+		incrementVersion();
 	}
 
 	void subscribe(const std::string& eventType, std::function<void(const Event&)> handler) {
-		::utils::TrackedUniqueLock lock(mutex_, "EventBus::mutex_", ::utils::LockLevel::EVENT_BUS);
 		handlers[eventType].push_back(std::move(handler));
+		incrementVersion();
 	}
 
 	std::vector<std::unique_ptr<Event>> getEvents() const {
-		::utils::TrackedSharedMutexLock lock(mutex_, "EventBus::mutex_", ::utils::LockLevel::EVENT_BUS);
 		std::vector<std::unique_ptr<Event>> eventsCopy;
 		eventsCopy.reserve(events.size());
 		for (const auto& event : events) {
@@ -57,21 +47,26 @@ public:
 	}
 
 	void clear() {
-		::utils::TrackedUniqueLock lock(mutex_, "EventBus::mutex_", ::utils::LockLevel::EVENT_BUS);
 		events.clear();
 		handlers.clear();
+		incrementVersion();
 	}
 
-#ifdef TESTING
-	std::shared_mutex& getMutexForTesting() const { return mutex_; }
-#endif
-
 private:
-	EventBus() = default;
-	mutable std::shared_mutex mutex_;  // Level EVENT_BUS
+	EventBus() : version(0) {}
+	
+	// Version control for concurrent access
+	std::atomic<uint64_t> version{0};
+	void incrementVersion() { version.fetch_add(1, std::memory_order_acq_rel); }
+	uint64_t getCurrentVersion() const { return version.load(std::memory_order_acquire); }
+	
+	// Event storage
 	std::vector<std::unique_ptr<Event>> events;
 	std::unordered_map<std::string, std::vector<std::function<void(const Event&)>>> handlers;
 };
 
 } // namespace music::events
+
+
+
 

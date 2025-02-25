@@ -7,7 +7,7 @@ if(CMAKE_VERSION VERSION_LESS "2.8.3")
    message(FATAL_ERROR "CMake >= 2.8.3 required")
 endif()
 cmake_policy(PUSH)
-cmake_policy(VERSION 2.8.3...3.22)
+cmake_policy(VERSION 2.8.3...3.26)
 #----------------------------------------------------------------
 # Generated CMake target import file.
 #----------------------------------------------------------------
@@ -62,6 +62,7 @@ set_target_properties(GTest::gtest PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "GTEST_LINKED_AS_SHARED_LIBRARY=1"
   INTERFACE_COMPILE_FEATURES "cxx_std_14"
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
+  INTERFACE_LINK_LIBRARIES "Threads::Threads"
   INTERFACE_SYSTEM_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
 )
 
@@ -72,7 +73,7 @@ set_target_properties(GTest::gtest_main PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "GTEST_LINKED_AS_SHARED_LIBRARY=1"
   INTERFACE_COMPILE_FEATURES "cxx_std_14"
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
-  INTERFACE_LINK_LIBRARIES "GTest::gtest"
+  INTERFACE_LINK_LIBRARIES "Threads::Threads;GTest::gtest"
   INTERFACE_SYSTEM_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
 )
 
@@ -83,7 +84,7 @@ set_target_properties(GTest::gmock PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "GTEST_LINKED_AS_SHARED_LIBRARY=1"
   INTERFACE_COMPILE_FEATURES "cxx_std_14"
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
-  INTERFACE_LINK_LIBRARIES "GTest::gtest"
+  INTERFACE_LINK_LIBRARIES "Threads::Threads;GTest::gtest"
   INTERFACE_SYSTEM_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
 )
 
@@ -94,7 +95,7 @@ set_target_properties(GTest::gmock_main PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "GTEST_LINKED_AS_SHARED_LIBRARY=1"
   INTERFACE_COMPILE_FEATURES "cxx_std_14"
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
-  INTERFACE_LINK_LIBRARIES "GTest::gmock"
+  INTERFACE_LINK_LIBRARIES "Threads::Threads;GTest::gmock"
   INTERFACE_SYSTEM_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
 )
 

@@ -3,7 +3,10 @@
 
 #include "Rule.h"
 
-namespace music::rules {
+namespace music {
+class Score;
+
+namespace rules {
 
 class IncrementalRule : public Rule {
 public:
@@ -13,6 +16,7 @@ public:
 	virtual bool evaluateIncremental(const Score& score, size_t startMeasure, size_t endMeasure) const = 0;
 };
 
-} // namespace music::rules
+} // namespace rules
+} // namespace music
 
 #endif // MUSICTRAINERV3_INCREMENTALRULE_H
