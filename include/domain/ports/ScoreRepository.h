@@ -13,10 +13,10 @@ public:
 	virtual ~ScoreRepository() = default;
 	
 	// Save a score with the given name
-	virtual void save(const std::string& name, const Score& score) = 0;
+	virtual void save(const std::string& name, const MusicTrainer::music::Score& score) = 0;
 	
 	// Load a score by name
-	virtual std::unique_ptr<Score> load(const std::string& name) = 0;
+	virtual std::unique_ptr<MusicTrainer::music::Score> load(const std::string& name) = 0;
 	
 	// List all available scores
 	virtual std::vector<std::string> listScores() = 0;

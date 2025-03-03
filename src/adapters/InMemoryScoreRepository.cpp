@@ -11,12 +11,12 @@ std::unique_ptr<InMemoryScoreRepository> InMemoryScoreRepository::create() {
 	return std::unique_ptr<InMemoryScoreRepository>(new InMemoryScoreRepository());
 }
 
-void InMemoryScoreRepository::save(const std::string& name, const Score& score) {
+void InMemoryScoreRepository::save(const std::string& name, const MusicTrainer::music::Score& score) {
 	std::cout << "[Repo] Saving score: " << name << std::endl;
 	std::cout << "[Repo] Creating initial snapshot" << std::endl;
 	
 	auto snapshot = score.createSnapshot();
-	auto newScore = std::make_unique<Score>(snapshot);
+	auto newScore = std::make_unique<MusicTrainer::music::Score>(snapshot);
 	
 	updateScores(name, [&](auto& scores) {
 		scores[name] = std::move(newScore);
@@ -25,7 +25,7 @@ void InMemoryScoreRepository::save(const std::string& name, const Score& score) 
 	std::cout << "[Repo] Score saved successfully" << std::endl;
 }
 
-std::unique_ptr<Score> InMemoryScoreRepository::load(const std::string& name) {
+std::unique_ptr<MusicTrainer::music::Score> InMemoryScoreRepository::load(const std::string& name) {
 	auto it = scores.find(name);
 	if (it == scores.end()) {
 		MusicTrainer::ErrorContext context(__FILE__, __LINE__, __FUNCTION__,
@@ -34,7 +34,7 @@ std::unique_ptr<Score> InMemoryScoreRepository::load(const std::string& name) {
 	}
 	
 	auto snapshot = it->second->createSnapshot();
-	return std::make_unique<Score>(snapshot);
+	return std::make_unique<MusicTrainer::music::Score>(snapshot);
 }
 
 std::vector<std::string> InMemoryScoreRepository::listScores() {

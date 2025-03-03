@@ -14,10 +14,10 @@ public:
 	virtual ~ExercisePort() = default;
 	
 	// Generate a new exercise based on parameters
-	virtual std::unique_ptr<Score> generateExercise(const ExerciseParameters& params) = 0;
+	virtual std::unique_ptr<MusicTrainer::music::Score> generateExercise(const ExerciseParameters& params) = 0;
 	
 	// Validate a score against exercise rules
-	virtual bool validateExercise(const Score& score, const std::vector<std::unique_ptr<rules::Rule>>& rules) = 0;
+	virtual bool validateExercise(const MusicTrainer::music::Score& score, const std::vector<std::unique_ptr<MusicTrainer::music::rules::Rule>>& rules) = 0;
 	
 	// Get feedback on why validation failed
 	virtual std::vector<std::string> getValidationErrors() const = 0;

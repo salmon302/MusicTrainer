@@ -80,7 +80,8 @@ void NoteAddedEvent::apply(MusicTrainer::music::Score& score) const {
 			if (!voice) {
 				throw MusicTrainer::RepositoryError("Failed to create voice");
 			}
-			voice->addNote(pitch, duration);
+			// Convert Duration to double using getTotalBeats()
+			voice->addNote(pitch, duration.getTotalBeats());
 			score.addVoice(std::move(voice));
 		} else {
 			std::cout << "[NoteAddedEvent::apply] Adding note to existing voice" << std::endl;
@@ -88,7 +89,8 @@ void NoteAddedEvent::apply(MusicTrainer::music::Score& score) const {
 			if (!voice) {
 				throw MusicTrainer::RepositoryError("Voice not found at index " + std::to_string(currentVoiceIndex));
 			}
-			voice->addNote(pitch, duration);
+			// Convert Duration to double using getTotalBeats()
+			voice->addNote(pitch, duration.getTotalBeats());
 		}
 		std::cout << "[NoteAddedEvent::apply] Successfully applied event" << std::endl;
 	} catch (const std::exception& e) {
