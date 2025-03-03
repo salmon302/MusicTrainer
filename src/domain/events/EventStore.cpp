@@ -18,7 +18,7 @@ EventStore::EventStore()
 	: version(0)
 	, eventCount(0)
 	, snapshotInterval(100)
-	, reconstructedScore(*Score::create()) {}
+	, reconstructedScore(*MusicTrainer::music::Score::create()) {}
 
 
 void EventStore::addEvent(std::unique_ptr<Event> event) {
@@ -107,11 +107,11 @@ void EventStore::clear() {
 	correlationIndex.clear();
 	metadataIndex.clear();
 	typeIndex.clear();
-	reconstructedScore = *Score::create();
+	reconstructedScore = *MusicTrainer::music::Score::create();
 	incrementVersion();
 }
 
-void EventStore::createSnapshot(const Score& score) {
+void EventStore::createSnapshot(const MusicTrainer::music::Score& score) {
 	auto snapshot = Snapshot::create(score);
 	snapshot->setVersion(eventCount.load(std::memory_order_acquire));
 	snapshots.push_back(std::move(snapshot));
@@ -125,7 +125,7 @@ std::optional<const Snapshot*> EventStore::getLatestSnapshot() const {
 	return snapshots.back().get();
 }
 
-const Score& EventStore::reconstructState(size_t toEventIndex) const {
+const MusicTrainer::music::Score& EventStore::reconstructState(size_t toEventIndex) const {
 	auto currentCount = eventCount.load(std::memory_order_acquire);
 	if (toEventIndex > currentCount) {
 		throw MusicTrainer::StateError("Event index out of range");
@@ -133,10 +133,10 @@ const Score& EventStore::reconstructState(size_t toEventIndex) const {
 	
 	// Find nearest snapshot
 	auto snapshot = findNearestSnapshot(toEventIndex);
-	auto baseScore = snapshot ? snapshot->reconstruct() : Score::create();
+	auto baseScore = snapshot ? snapshot->reconstruct() : MusicTrainer::music::Score::create();
 	
 	// Apply events
-	auto result = std::make_unique<Score>(*baseScore);
+	auto result = std::make_unique<MusicTrainer::music::Score>(*baseScore);
 	for (size_t i = 0; i < toEventIndex && i < events.size(); ++i) {
 		if (events[i]) {
 			events[i]->apply(*result);
@@ -147,7 +147,7 @@ const Score& EventStore::reconstructState(size_t toEventIndex) const {
 	return reconstructedScore;
 }
 
-void EventStore::checkSnapshotNeeded(const Score& score) {
+void EventStore::checkSnapshotNeeded(const MusicTrainer::music::Score& score) {
 	auto interval = snapshotInterval.load(std::memory_order_acquire);
 	auto count = eventCount.load(std::memory_order_acquire);
 	if (count >= interval && count % (interval * 10) == 0) {
@@ -165,6 +165,19 @@ const Snapshot* EventStore::findNearestSnapshot(size_t eventIndex) const {
 		}
 	}
 	return nearest;
+}
+
+MusicTrainer::music::Score EventStore::applyEvents(
+    const MusicTrainer::music::Score& baseScore,
+    size_t fromEventIndex,
+    size_t toEventIndex) const {
+	MusicTrainer::music::Score result = baseScore;
+	for (size_t i = fromEventIndex; i < toEventIndex && i < events.size(); ++i) {
+		if (events[i]) {
+			events[i]->apply(result);
+		}
+	}
+	return result;
 }
 
 } // namespace music::events

@@ -11,11 +11,11 @@ namespace music::events {
 
 class Snapshot {
 public:
-	static std::unique_ptr<Snapshot> create(const Score& score);
-	Snapshot(Score score);
+	static std::unique_ptr<Snapshot> create(const MusicTrainer::music::Score& score);
+	Snapshot(MusicTrainer::music::Score score);
 	
 	// Reconstruct score from snapshot
-	std::unique_ptr<Score> reconstruct() const;
+	std::unique_ptr<MusicTrainer::music::Score> reconstruct() const;
 	
 	// Clone this snapshot
 	std::unique_ptr<Snapshot> clone() const;
@@ -31,7 +31,7 @@ public:
 	}
 	
 	// Get the score snapshot
-	Score::ScoreSnapshot getSnapshot() const {
+	MusicTrainer::music::Score::ScoreSnapshot getSnapshot() const {
 		return score.createSnapshot();
 	}
 	
@@ -45,7 +45,7 @@ public:
 	}
 
 private:
-	Score score;
+	MusicTrainer::music::Score score;
 	std::atomic<std::chrono::system_clock::time_point::rep> timestamp{
 		std::chrono::system_clock::now().time_since_epoch().count()
 	};

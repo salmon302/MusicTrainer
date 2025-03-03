@@ -128,40 +128,9 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/events/Snapshot.cpp.o: \
  /usr/include/c++/13/bits/uses_allocator_args.h \
  /usr/include/c++/13/atomic \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/events/../music/Score.h \
- /usr/include/c++/13/algorithm /usr/include/c++/13/bits/stl_algo.h \
- /usr/include/c++/13/bits/algorithmfwd.h \
- /usr/include/c++/13/bits/stl_heap.h \
- /usr/include/c++/13/bits/uniform_int_dist.h /usr/include/c++/13/cstdlib \
- /usr/include/stdlib.h /usr/include/x86_64-linux-gnu/bits/waitflags.h \
- /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
- /usr/include/x86_64-linux-gnu/sys/types.h /usr/include/endian.h \
- /usr/include/x86_64-linux-gnu/bits/byteswap.h \
- /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
- /usr/include/x86_64-linux-gnu/sys/select.h \
- /usr/include/x86_64-linux-gnu/bits/select.h \
- /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
- /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
- /usr/include/c++/13/bits/std_abs.h \
- /usr/include/c++/13/pstl/glue_algorithm_defs.h \
- /usr/include/c++/13/optional \
- /usr/include/c++/13/bits/enable_special_members.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/events/../music/Voice.h \
- /usr/include/c++/13/thread /usr/include/c++/13/bits/std_thread.h \
- /usr/include/c++/13/bits/this_thread_sleep.h /usr/include/c++/13/cerrno \
- /usr/include/errno.h /usr/include/x86_64-linux-gnu/bits/errno.h \
- /usr/include/linux/errno.h /usr/include/x86_64-linux-gnu/asm/errno.h \
- /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
- /usr/include/c++/13/mutex \
- /usr/include/x86_64-linux-gnu/c++/13/bits/error_constants.h \
- /usr/include/c++/13/bits/std_mutex.h \
- /usr/include/c++/13/bits/unique_lock.h /usr/include/c++/13/map \
- /usr/include/c++/13/bits/stl_tree.h \
- /usr/include/c++/13/bits/node_handle.h \
- /usr/include/c++/13/bits/stl_map.h \
- /usr/include/c++/13/bits/stl_multimap.h \
- /usr/include/c++/13/bits/erase_if.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/events/../music/Pitch.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Voice.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Note.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Pitch.h \
  /usr/include/c++/13/string /usr/include/c++/13/bits/char_traits.h \
  /usr/include/c++/13/bits/localefwd.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h \
@@ -171,16 +140,32 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/events/Snapshot.cpp.o: \
  /usr/include/c++/13/bits/cxxabi_forced.h \
  /usr/include/c++/13/bits/basic_string.h /usr/include/c++/13/string_view \
  /usr/include/c++/13/bits/string_view.tcc \
- /usr/include/c++/13/ext/string_conversions.h /usr/include/c++/13/cstdio \
+ /usr/include/c++/13/ext/string_conversions.h /usr/include/c++/13/cstdlib \
+ /usr/include/stdlib.h /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+ /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+ /usr/include/x86_64-linux-gnu/sys/types.h /usr/include/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+ /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+ /usr/include/x86_64-linux-gnu/sys/select.h \
+ /usr/include/x86_64-linux-gnu/bits/select.h \
+ /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
+ /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+ /usr/include/c++/13/bits/std_abs.h /usr/include/c++/13/cstdio \
  /usr/include/stdio.h /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
  /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+ /usr/include/c++/13/cerrno /usr/include/errno.h \
+ /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
+ /usr/include/x86_64-linux-gnu/asm/errno.h \
+ /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
+ /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
  /usr/include/c++/13/bits/charconv.h \
  /usr/include/c++/13/bits/basic_string.tcc \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/events/../music/Duration.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/events/../music/Note.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Duration.h \
+ /usr/include/c++/13/optional \
+ /usr/include/c++/13/bits/enable_special_members.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/errors/DomainErrors.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/errors/ErrorBase.h \
  /usr/include/c++/13/stdexcept

@@ -29,7 +29,7 @@ public:
     virtual ~Event() = default;
     
     virtual std::string getType() const = 0;
-    virtual void apply(Score& target) const = 0;
+    virtual void apply(MusicTrainer::music::Score& target) const = 0;
     virtual std::chrono::system_clock::time_point getTimestamp() const = 0;
     virtual std::string getDescription() const = 0;
     virtual std::unique_ptr<Event> clone() const = 0;
@@ -53,7 +53,7 @@ protected:
 class EmptyEvent : public Event {
 public:
     std::string getType() const override { return "Empty"; }
-    void apply(Score& target) const override {}
+    void apply(MusicTrainer::music::Score& target) const override {}
     std::chrono::system_clock::time_point getTimestamp() const override { return std::chrono::system_clock::time_point{}; }
     std::string getDescription() const override { return "Empty Event"; }
     std::unique_ptr<Event> clone() const override { return std::make_unique<EmptyEvent>(); }

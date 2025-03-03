@@ -66,9 +66,9 @@ include _deps/googletest-build/googletest/CMakeFiles/gtest_main_autogen_timestam
 # Include the progress variables for this target.
 include _deps/googletest-build/googletest/CMakeFiles/gtest_main_autogen_timestamp_deps.dir/progress.make
 
+_deps/googletest-build/googletest/CMakeFiles/gtest_main_autogen_timestamp_deps: lib/libgtest.a
 _deps/googletest-build/googletest/CMakeFiles/gtest_main_autogen_timestamp_deps: /usr/lib/qt6/libexec/moc
 _deps/googletest-build/googletest/CMakeFiles/gtest_main_autogen_timestamp_deps: /usr/lib/qt6/libexec/uic
-_deps/googletest-build/googletest/CMakeFiles/gtest_main_autogen_timestamp_deps: lib/libgtest.a
 
 gtest_main_autogen_timestamp_deps: _deps/googletest-build/googletest/CMakeFiles/gtest_main_autogen_timestamp_deps
 gtest_main_autogen_timestamp_deps: _deps/googletest-build/googletest/CMakeFiles/gtest_main_autogen_timestamp_deps.dir/build.make

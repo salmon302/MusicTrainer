@@ -66,9 +66,9 @@ include _deps/rtmidi-build/CMakeFiles/cmidiin_autogen_timestamp_deps.dir/compile
 # Include the progress variables for this target.
 include _deps/rtmidi-build/CMakeFiles/cmidiin_autogen_timestamp_deps.dir/progress.make
 
+_deps/rtmidi-build/CMakeFiles/cmidiin_autogen_timestamp_deps: _deps/rtmidi-build/librtmidi.so.6.0.0
 _deps/rtmidi-build/CMakeFiles/cmidiin_autogen_timestamp_deps: /usr/lib/qt6/libexec/moc
 _deps/rtmidi-build/CMakeFiles/cmidiin_autogen_timestamp_deps: /usr/lib/qt6/libexec/uic
-_deps/rtmidi-build/CMakeFiles/cmidiin_autogen_timestamp_deps: _deps/rtmidi-build/librtmidi.so.6.0.0
 
 cmidiin_autogen_timestamp_deps: _deps/rtmidi-build/CMakeFiles/cmidiin_autogen_timestamp_deps
 cmidiin_autogen_timestamp_deps: _deps/rtmidi-build/CMakeFiles/cmidiin_autogen_timestamp_deps.dir/build.make

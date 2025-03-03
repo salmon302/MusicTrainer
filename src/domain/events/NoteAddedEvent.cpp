@@ -7,9 +7,9 @@ namespace music::events {
 
 std::unique_ptr<NoteAddedEvent> NoteAddedEvent::create(
 	size_t voiceIndex,
-	const Pitch& pitch,
-	const Duration& duration,
-	const Voice::TimeSignature& timeSignature,
+	const MusicTrainer::music::Pitch& pitch,
+	const MusicTrainer::music::Duration& duration,
+	const MusicTrainer::music::Voice::TimeSignature& timeSignature,
 	const std::string& correlationId
 ) {
 	return std::unique_ptr<NoteAddedEvent>(
@@ -19,9 +19,9 @@ std::unique_ptr<NoteAddedEvent> NoteAddedEvent::create(
 
 NoteAddedEvent::NoteAddedEvent(
 	size_t voiceIndex,
-	const Pitch& pitch,
-	const Duration& duration,
-	const Voice::TimeSignature& timeSignature,
+	const MusicTrainer::music::Pitch& pitch,
+	const MusicTrainer::music::Duration& duration,
+	const MusicTrainer::music::Voice::TimeSignature& timeSignature,
 	const std::string& correlationId
 )
 	: voiceIndex(voiceIndex)
@@ -60,15 +60,15 @@ NoteAddedEvent& NoteAddedEvent::operator=(const NoteAddedEvent& other) {
 			std::memory_order_release
 		);
 		// These are immutable, so direct assignment is safe
-		const_cast<Pitch&>(pitch) = other.pitch;
-		const_cast<Duration&>(duration) = other.duration;
-		const_cast<Voice::TimeSignature&>(timeSignature) = other.timeSignature;
+		const_cast<MusicTrainer::music::Pitch&>(pitch) = other.pitch;
+		const_cast<MusicTrainer::music::Duration&>(duration) = other.duration;
+		const_cast<MusicTrainer::music::Voice::TimeSignature&>(timeSignature) = other.timeSignature;
 		setCorrelationId(other.getCorrelationId());
 	}
 	return *this;
 }
 
-void NoteAddedEvent::apply(Score& score) const {
+void NoteAddedEvent::apply(MusicTrainer::music::Score& score) const {
 	auto currentVoiceIndex = voiceIndex.load(std::memory_order_acquire);
 	
 	std::cout << "[NoteAddedEvent::apply] Starting to apply event to score. Voice index: " << currentVoiceIndex << std::endl;
@@ -76,7 +76,7 @@ void NoteAddedEvent::apply(Score& score) const {
 	try {
 		if (currentVoiceIndex >= score.getVoiceCount()) {
 			std::cout << "[NoteAddedEvent::apply] Creating new voice" << std::endl;
-			auto voice = Voice::create(timeSignature);
+			auto voice = MusicTrainer::music::Voice::create(timeSignature);
 			if (!voice) {
 				throw MusicTrainer::RepositoryError("Failed to create voice");
 			}

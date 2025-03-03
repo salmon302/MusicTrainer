@@ -3063,7 +3063,6 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/events/EventBus.cpp.o: /home/seth-n/Do
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
   /usr/include/c++/13/bits/std_mutex.h \
-  /usr/include/c++/13/bits/std_thread.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -3073,19 +3072,15 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/events/EventBus.cpp.o: /home/seth-n/Do
   /usr/include/c++/13/bits/stl_iterator.h \
   /usr/include/c++/13/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/13/bits/stl_iterator_base_types.h \
-  /usr/include/c++/13/bits/stl_map.h \
-  /usr/include/c++/13/bits/stl_multimap.h \
   /usr/include/c++/13/bits/stl_pair.h \
   /usr/include/c++/13/bits/stl_raw_storage_iter.h \
   /usr/include/c++/13/bits/stl_tempbuf.h \
-  /usr/include/c++/13/bits/stl_tree.h \
   /usr/include/c++/13/bits/stl_uninitialized.h \
   /usr/include/c++/13/bits/stl_vector.h \
   /usr/include/c++/13/bits/streambuf.tcc \
   /usr/include/c++/13/bits/streambuf_iterator.h \
   /usr/include/c++/13/bits/string_view.tcc \
   /usr/include/c++/13/bits/stringfwd.h \
-  /usr/include/c++/13/bits/this_thread_sleep.h \
   /usr/include/c++/13/bits/uniform_int_dist.h \
   /usr/include/c++/13/bits/unique_lock.h \
   /usr/include/c++/13/bits/unique_ptr.h \
@@ -3122,7 +3117,6 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/events/EventBus.cpp.o: /home/seth-n/Do
   /usr/include/c++/13/iosfwd \
   /usr/include/c++/13/istream \
   /usr/include/c++/13/limits \
-  /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/mutex \
   /usr/include/c++/13/new \
@@ -3139,7 +3133,6 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/events/EventBus.cpp.o: /home/seth-n/Do
   /usr/include/c++/13/string \
   /usr/include/c++/13/string_view \
   /usr/include/c++/13/system_error \
-  /usr/include/c++/13/thread \
   /usr/include/c++/13/tuple \
   /usr/include/c++/13/type_traits \
   /usr/include/c++/13/typeinfo \
@@ -3252,7 +3245,6 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/events/EventStore.cpp.o: /home/seth-n/
   /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/errors/RecoveryStrategy.h \
   /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Duration.h \
   /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Pitch.h \
-  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Score.h \
   /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/events/Event.h \
   /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/events/EventStore.h \
   /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/events/NoteAddedEvent.h \
@@ -3342,19 +3334,15 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/events/EventStore.cpp.o: /home/seth-n/
   /usr/include/c++/13/bits/stl_iterator.h \
   /usr/include/c++/13/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/13/bits/stl_iterator_base_types.h \
-  /usr/include/c++/13/bits/stl_map.h \
-  /usr/include/c++/13/bits/stl_multimap.h \
   /usr/include/c++/13/bits/stl_pair.h \
   /usr/include/c++/13/bits/stl_raw_storage_iter.h \
   /usr/include/c++/13/bits/stl_tempbuf.h \
-  /usr/include/c++/13/bits/stl_tree.h \
   /usr/include/c++/13/bits/stl_uninitialized.h \
   /usr/include/c++/13/bits/stl_vector.h \
   /usr/include/c++/13/bits/streambuf.tcc \
   /usr/include/c++/13/bits/streambuf_iterator.h \
   /usr/include/c++/13/bits/string_view.tcc \
   /usr/include/c++/13/bits/stringfwd.h \
-  /usr/include/c++/13/bits/this_thread_sleep.h \
   /usr/include/c++/13/bits/uniform_int_dist.h \
   /usr/include/c++/13/bits/unique_lock.h \
   /usr/include/c++/13/bits/unique_ptr.h \
@@ -3395,7 +3383,6 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/events/EventStore.cpp.o: /home/seth-n/
   /usr/include/c++/13/iostream \
   /usr/include/c++/13/istream \
   /usr/include/c++/13/limits \
-  /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/mutex \
   /usr/include/c++/13/new \
@@ -3412,7 +3399,6 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/events/EventStore.cpp.o: /home/seth-n/
   /usr/include/c++/13/string \
   /usr/include/c++/13/string_view \
   /usr/include/c++/13/system_error \
-  /usr/include/c++/13/thread \
   /usr/include/c++/13/tr1/bessel_function.tcc \
   /usr/include/c++/13/tr1/beta_function.tcc \
   /usr/include/c++/13/tr1/ell_integral.tcc \
@@ -3784,7 +3770,6 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/events/NoteEventHandler.cpp.o: /home/s
   /home/seth-n/Documents/GitHub/MusicTrainer/include/adapters/LockFreeEventQueue.h \
   /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Duration.h \
   /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Pitch.h \
-  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Score.h \
   /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/events/Event.h \
   /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/events/EventBus.h \
   /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/events/EventHandler.h \
@@ -3863,7 +3848,6 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/events/NoteEventHandler.cpp.o: /home/s
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
   /usr/include/c++/13/bits/std_mutex.h \
-  /usr/include/c++/13/bits/std_thread.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -3873,19 +3857,15 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/events/NoteEventHandler.cpp.o: /home/s
   /usr/include/c++/13/bits/stl_iterator.h \
   /usr/include/c++/13/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/13/bits/stl_iterator_base_types.h \
-  /usr/include/c++/13/bits/stl_map.h \
-  /usr/include/c++/13/bits/stl_multimap.h \
   /usr/include/c++/13/bits/stl_pair.h \
   /usr/include/c++/13/bits/stl_raw_storage_iter.h \
   /usr/include/c++/13/bits/stl_tempbuf.h \
-  /usr/include/c++/13/bits/stl_tree.h \
   /usr/include/c++/13/bits/stl_uninitialized.h \
   /usr/include/c++/13/bits/stl_vector.h \
   /usr/include/c++/13/bits/streambuf.tcc \
   /usr/include/c++/13/bits/streambuf_iterator.h \
   /usr/include/c++/13/bits/string_view.tcc \
   /usr/include/c++/13/bits/stringfwd.h \
-  /usr/include/c++/13/bits/this_thread_sleep.h \
   /usr/include/c++/13/bits/uniform_int_dist.h \
   /usr/include/c++/13/bits/unique_lock.h \
   /usr/include/c++/13/bits/unique_ptr.h \
@@ -3922,7 +3902,6 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/events/NoteEventHandler.cpp.o: /home/s
   /usr/include/c++/13/iosfwd \
   /usr/include/c++/13/istream \
   /usr/include/c++/13/limits \
-  /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/mutex \
   /usr/include/c++/13/new \
@@ -3939,7 +3918,6 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/events/NoteEventHandler.cpp.o: /home/s
   /usr/include/c++/13/string \
   /usr/include/c++/13/string_view \
   /usr/include/c++/13/system_error \
-  /usr/include/c++/13/thread \
   /usr/include/c++/13/tuple \
   /usr/include/c++/13/type_traits \
   /usr/include/c++/13/typeinfo \
