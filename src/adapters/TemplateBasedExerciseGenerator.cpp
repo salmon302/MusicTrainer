@@ -3,6 +3,10 @@
 #include "domain/music/MelodicTemplate.h"
 #include <stdexcept>
 #include <random>
+#include "domain/music/Duration.h"
+#include "domain/music/HarmonicContext.h"
+#include "domain/music/Pitch.h"
+#include "domain/music/Score.h"
 
 namespace music::adapters {
 

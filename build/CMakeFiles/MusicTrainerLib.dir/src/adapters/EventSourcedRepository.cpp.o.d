@@ -169,27 +169,17 @@ CMakeFiles/MusicTrainerLib.dir/src/adapters/EventSourcedRepository.cpp.o: \
  /usr/include/c++/13/bits/charconv.h \
  /usr/include/c++/13/bits/basic_string.tcc \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/ports/../music/Score.h \
- /usr/include/c++/13/algorithm \
- /usr/include/c++/13/pstl/glue_algorithm_defs.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/ports/../music/Voice.h \
- /usr/include/c++/13/thread /usr/include/c++/13/bits/std_thread.h \
- /usr/include/c++/13/bits/this_thread_sleep.h \
- /usr/include/c++/13/bits/chrono.h /usr/include/c++/13/ratio \
- /usr/include/c++/13/cstdint /usr/include/c++/13/limits \
- /usr/include/c++/13/ctime /usr/include/c++/13/bits/parse_numbers.h \
- /usr/include/c++/13/chrono /usr/include/c++/13/mutex \
- /usr/include/x86_64-linux-gnu/c++/13/bits/error_constants.h \
- /usr/include/c++/13/bits/std_mutex.h \
- /usr/include/c++/13/bits/unique_lock.h /usr/include/c++/13/map \
- /usr/include/c++/13/bits/stl_tree.h /usr/include/c++/13/bits/stl_map.h \
- /usr/include/c++/13/bits/stl_multimap.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/ports/../music/Pitch.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/ports/../music/Duration.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/ports/../music/Note.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Voice.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Note.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Pitch.h \
+ /usr/include/c++/13/cstdint \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Duration.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/events/Event.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Score.h \
+ /usr/include/c++/13/chrono /usr/include/c++/13/bits/chrono.h \
+ /usr/include/c++/13/ratio /usr/include/c++/13/limits \
+ /usr/include/c++/13/ctime /usr/include/c++/13/bits/parse_numbers.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/events/Snapshot.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/events/../music/Score.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/errors/DomainErrors.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/errors/ErrorBase.h \
- /usr/include/c++/13/stdexcept
+ /usr/include/c++/13/stdexcept /usr/include/c++/13/algorithm \
+ /usr/include/c++/13/pstl/glue_algorithm_defs.h

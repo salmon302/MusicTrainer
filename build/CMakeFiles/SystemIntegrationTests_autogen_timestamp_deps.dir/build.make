@@ -67,10 +67,10 @@ include CMakeFiles/SystemIntegrationTests_autogen_timestamp_deps.dir/compiler_de
 include CMakeFiles/SystemIntegrationTests_autogen_timestamp_deps.dir/progress.make
 
 CMakeFiles/SystemIntegrationTests_autogen_timestamp_deps: _deps/rtmidi-build/librtmidi.so.6.0.0
-CMakeFiles/SystemIntegrationTests_autogen_timestamp_deps: lib/libgtest.a
-CMakeFiles/SystemIntegrationTests_autogen_timestamp_deps: lib/libgtest_main.a
 CMakeFiles/SystemIntegrationTests_autogen_timestamp_deps: /usr/lib/qt6/libexec/moc
 CMakeFiles/SystemIntegrationTests_autogen_timestamp_deps: /usr/lib/qt6/libexec/uic
+CMakeFiles/SystemIntegrationTests_autogen_timestamp_deps: lib/libgtest_main.a
+CMakeFiles/SystemIntegrationTests_autogen_timestamp_deps: lib/libgtest.a
 CMakeFiles/SystemIntegrationTests_autogen_timestamp_deps: libMusicTrainerLib.a
 
 SystemIntegrationTests_autogen_timestamp_deps: CMakeFiles/SystemIntegrationTests_autogen_timestamp_deps

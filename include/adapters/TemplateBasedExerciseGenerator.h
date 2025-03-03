@@ -7,6 +7,7 @@
 #include "domain/music/Interval.h"
 #include "domain/music/Pitch.h"
 #include "domain/music/Duration.h"
+#include "domain/music/HarmonicContext.h"
 #include <vector>
 #include <string>
 #include <memory>
@@ -26,13 +27,13 @@ struct VoiceConstraints {
 	int maxPitch{72};  // Default to C5
 	double stepwiseMotionProbability{0.7};
 	int maxLeap{12};  // Default to octave
-	std::vector<Interval> preferredIntervals{};
-	std::map<music::HarmonicContext, double> harmonicWeights{};
+	std::vector<MusicTrainer::music::Interval> preferredIntervals{};
+	std::map<MusicTrainer::music::HarmonicContext, double> harmonicWeights{};
 
 	VoiceConstraints() = default;
 	VoiceConstraints(int min, int max, double prob, int leap, 
-					std::vector<Interval> intervals,
-					std::map<music::HarmonicContext, double> weights = {})
+					std::vector<MusicTrainer::music::Interval> intervals,
+					std::map<MusicTrainer::music::HarmonicContext, double> weights = {})
 		: minPitch(min), maxPitch(max), stepwiseMotionProbability(prob), 
 		  maxLeap(leap), preferredIntervals(std::move(intervals)),
 		  harmonicWeights(std::move(weights)) {}
@@ -44,8 +45,8 @@ public:
 	static std::unique_ptr<TemplateBasedExerciseGenerator> create();
 	
 	// ExercisePort interface implementation
-	std::unique_ptr<Score> generateExercise(const ports::ExerciseParameters& params) override;
-	bool validateExercise(const Score& score, const std::vector<std::unique_ptr<rules::Rule>>& rules) override;
+	std::unique_ptr<MusicTrainer::music::Score> generateExercise(const ports::ExerciseParameters& params) override;
+	bool validateExercise(const MusicTrainer::music::Score& score, const std::vector<std::unique_ptr<MusicTrainer::music::rules::Rule>>& rules) override;
 	std::vector<std::string> getValidationErrors() const override;
 
 private:
@@ -53,29 +54,29 @@ private:
 	std::vector<std::string> validationErrors;
 	
 	// Template management
-	std::unique_ptr<MelodicTemplate> createVoiceTemplate(VoiceType type);
-	const MelodicTemplate* getTemplateForVoice(size_t voiceIndex, size_t totalVoices);
+	std::unique_ptr<MusicTrainer::music::MelodicTemplate> createVoiceTemplate(VoiceType type);
+	const MusicTrainer::music::MelodicTemplate* getTemplateForVoice(size_t voiceIndex, size_t totalVoices);
 	
 	// Voice templates
-	std::unique_ptr<MelodicTemplate> sopranoTemplate;
-	std::unique_ptr<MelodicTemplate> altoTemplate;
-	std::unique_ptr<MelodicTemplate> tenorTemplate;
-	std::unique_ptr<MelodicTemplate> bassTemplate;
+	std::unique_ptr<MusicTrainer::music::MelodicTemplate> sopranoTemplate;
+	std::unique_ptr<MusicTrainer::music::MelodicTemplate> altoTemplate;
+	std::unique_ptr<MusicTrainer::music::MelodicTemplate> tenorTemplate;
+	std::unique_ptr<MusicTrainer::music::MelodicTemplate> bassTemplate;
 
     // Constraint management
     std::map<VoiceType, VoiceConstraints> voiceConstraints;
     void initializeVoiceConstraints();
-    void applyConstraintsToTemplate(MelodicTemplate& tmpl, const VoiceConstraints& constraints);
+    void applyConstraintsToTemplate(MusicTrainer::music::MelodicTemplate& tmpl, const VoiceConstraints& constraints);
 
 // Pattern management
 struct PatternBank {
 	struct PatternEntry {
-		std::vector<Pitch> pitches;
-		std::vector<Duration> durations;
-		music::HarmonicContext context;
+		std::vector<MusicTrainer::music::Pitch> pitches;
+		std::vector<MusicTrainer::music::Duration> durations;
+		MusicTrainer::music::HarmonicContext context;
 
 		PatternEntry() = default;
-		PatternEntry(std::vector<Pitch> p, std::vector<Duration> d, music::HarmonicContext c = music::HarmonicContext::TONIC)
+		PatternEntry(std::vector<MusicTrainer::music::Pitch> p, std::vector<MusicTrainer::music::Duration> d, MusicTrainer::music::HarmonicContext c = MusicTrainer::music::HarmonicContext::TONIC)
 			: pitches(std::move(p)), durations(std::move(d)), context(c) {}
 	};
 	std::vector<PatternEntry> openingPatterns;
@@ -84,7 +85,7 @@ struct PatternBank {
 };
     std::map<VoiceType, PatternBank> patternBanks;
     void initializePatternBanks();
-    void applyPatternsToTemplate(MelodicTemplate& tmpl, const PatternBank& patterns);
+    void applyPatternsToTemplate(MusicTrainer::music::MelodicTemplate& tmpl, const PatternBank& patterns);
 };
 
 } // namespace music::adapters

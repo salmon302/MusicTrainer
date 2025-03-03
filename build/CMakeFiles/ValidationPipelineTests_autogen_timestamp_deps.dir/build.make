@@ -67,10 +67,10 @@ include CMakeFiles/ValidationPipelineTests_autogen_timestamp_deps.dir/compiler_d
 include CMakeFiles/ValidationPipelineTests_autogen_timestamp_deps.dir/progress.make
 
 CMakeFiles/ValidationPipelineTests_autogen_timestamp_deps: _deps/rtmidi-build/librtmidi.so.6.0.0
-CMakeFiles/ValidationPipelineTests_autogen_timestamp_deps: lib/libgtest.a
-CMakeFiles/ValidationPipelineTests_autogen_timestamp_deps: lib/libgtest_main.a
 CMakeFiles/ValidationPipelineTests_autogen_timestamp_deps: /usr/lib/qt6/libexec/moc
 CMakeFiles/ValidationPipelineTests_autogen_timestamp_deps: /usr/lib/qt6/libexec/uic
+CMakeFiles/ValidationPipelineTests_autogen_timestamp_deps: lib/libgtest_main.a
+CMakeFiles/ValidationPipelineTests_autogen_timestamp_deps: lib/libgtest.a
 CMakeFiles/ValidationPipelineTests_autogen_timestamp_deps: libMusicTrainerLib.a
 
 ValidationPipelineTests_autogen_timestamp_deps: CMakeFiles/ValidationPipelineTests_autogen_timestamp_deps
