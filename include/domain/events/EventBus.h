@@ -7,6 +7,7 @@
 #include <atomic>
 #include <unordered_map>
 #include <vector>
+#include <mutex> // For thread safety
 
 namespace music::events {
 
@@ -16,28 +17,42 @@ public:
 	
 	void publish(std::unique_ptr<Event> event) {
 		std::string eventType = event->getType();
+		const Event* eventPtr;
 		
-		// Store event and get handlers
-		events.push_back(std::move(event));
-		const Event* eventPtr = events.back().get();
+		// Create a copy of the handlers to avoid holding the lock during callback execution
+		std::vector<std::function<void(const Event&)>> handlersCopy;
 		
-		// Get handlers atomically
-		auto handlersIt = handlers.find(eventType);
-		if (handlersIt != handlers.end()) {
-			for (const auto& handler : handlersIt->second) {
-				handler(*eventPtr);
+		{
+			// Use lock to protect concurrent access to events vector - scope limited
+			std::lock_guard<std::mutex> lock(mutex);
+			
+			// Store event
+			events.push_back(std::move(event));
+			eventPtr = events.back().get();
+			
+			// Get handlers
+			auto handlersIt = handlers.find(eventType);
+			if (handlersIt != handlers.end()) {
+				handlersCopy = handlersIt->second;
 			}
+			
+			incrementVersion();
 		}
 		
-		incrementVersion();
+		// Execute handlers outside of the lock
+		for (const auto& handler : handlersCopy) {
+			handler(*eventPtr);
+		}
 	}
 
 	void subscribe(const std::string& eventType, std::function<void(const Event&)> handler) {
+		std::lock_guard<std::mutex> lock(mutex);
 		handlers[eventType].push_back(std::move(handler));
 		incrementVersion();
 	}
 
 	std::vector<std::unique_ptr<Event>> getEvents() const {
+		std::lock_guard<std::mutex> lock(mutex);
 		std::vector<std::unique_ptr<Event>> eventsCopy;
 		eventsCopy.reserve(events.size());
 		for (const auto& event : events) {
@@ -47,6 +62,7 @@ public:
 	}
 
 	void clear() {
+		std::lock_guard<std::mutex> lock(mutex);
 		events.clear();
 		handlers.clear();
 		incrementVersion();
@@ -61,6 +77,7 @@ private:
 	uint64_t getCurrentVersion() const { return version.load(std::memory_order_acquire); }
 	
 	// Event storage
+	mutable std::mutex mutex; // Mutex to protect concurrent access
 	std::vector<std::unique_ptr<Event>> events;
 	std::unordered_map<std::string, std::vector<std::function<void(const Event&)>>> handlers;
 };

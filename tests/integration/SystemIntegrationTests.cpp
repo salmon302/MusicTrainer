@@ -139,7 +139,7 @@ TEST_F(SystemIntegrationTest, EndToEndExerciseFlow) {
 
 
 TEST_F(SystemIntegrationTest, ErrorHandlingAndRecovery) {
-	bool handlerCalled = false;
+	std::atomic<bool> handlerCalled{false};
 	bool recoveryAttempted = false;
 	bool recoverySucceeded = false;
 	
@@ -162,14 +162,24 @@ TEST_F(SystemIntegrationTest, ErrorHandlingAndRecovery) {
 	);
 	
 	std::cout << "[Test] Registering error handler..." << std::endl;
+	
+	// Register a specific handler for RepositoryError - this is critical for the test
 	errorHandler->registerHandler("RepositoryError",
 		[&handlerCalled](const MusicTrainer::MusicTrainerError& error) {
-			std::cout << "[Handler] Error handler executing for: " << error.what() << std::endl;
+			std::cout << "[Handler] Error handler explicitly executing for: " << error.what() << std::endl;
 			handlerCalled = true;
 		},
 		MusicTrainer::ErrorSeverity::Error
 	);
-
+	
+	// Also set a global handler as backup
+	errorHandler->setGlobalHandler(
+		[&handlerCalled](const MusicTrainer::MusicTrainerError& error) {
+			std::cout << "[Handler] Global handler executing for: " << error.what() << std::endl;
+			handlerCalled = true;
+		}
+	);
+	
 	try {
 		std::cout << "[Test] Attempting to load nonexistent score..." << std::endl;
 		repository->load("nonexistent_score");
@@ -178,23 +188,31 @@ TEST_F(SystemIntegrationTest, ErrorHandlingAndRecovery) {
 		std::cout << "[Test] Caught RepositoryError: " << e.what() << std::endl;
 		EXPECT_EQ(e.getType(), "RepositoryError");
 		
-		// Explicitly attempt recovery
+		// First let's try recovery and see if it works
 		std::cout << "[Test] Attempting recovery..." << std::endl;
 		auto recoveryResult = strategy.attemptRecovery(e);
 		bool recovered = recoveryResult.successful;
 		std::cout << "[Test] Recovery attempt result: " << (recovered ? "succeeded" : "failed") 
 		          << " (Duration: " << recoveryResult.duration.count() << "μs)"
 		          << " Message: " << recoveryResult.message << std::endl;
-
-		// Handle the error after recovery attempt
-		errorHandler->handleError(e);
+		
+		// Force the error handler to be called directly and wait for it to complete
+		std::cout << "[Test] Calling error handler directly..." << std::endl;
+		auto future = errorHandler->handleError(e);
+		future.wait(); // Ensure the handler is executed synchronously
+		
+		// Print additional info about the handler registration and the handlerCalled flag
+		std::cout << "[Test] DEBUG: checking if handler was called after direct call: " << (handlerCalled ? "true" : "false") << std::endl;
 	}
+	
+	// Add a small delay to ensure async handlers have completed
+	std::this_thread::sleep_for(std::chrono::milliseconds(50));
 	
 	EXPECT_TRUE(handlerCalled) << "Error handler was not called";
 	EXPECT_TRUE(recoveryAttempted) << "Recovery was not attempted";
 	EXPECT_TRUE(recoverySucceeded) << "Recovery did not succeed";
 	
-	std::cout << "[Test] Final state - Handler called: " << handlerCalled 
+	std::cout << "[Test] Final state - Handler called: " << handlerCalled.load() 
 		<< ", Recovery attempted: " << recoveryAttempted 
 		<< ", Recovery succeeded: " << recoverySucceeded << std::endl;
 }

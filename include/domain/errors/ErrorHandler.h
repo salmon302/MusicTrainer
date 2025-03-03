@@ -23,7 +23,10 @@ public:
 	using ErrorCallback = std::function<void(const MusicTrainerError&)>;
 	using RecoveryCallback = std::function<bool(const MusicTrainerError&)>;
 	
-	static ErrorHandler& getInstance();
+	static ErrorHandler& getInstance() {
+		static ErrorHandler instance;
+		return instance;
+	}
 	
 	void registerHandler(const std::string& errorType, 
 						ErrorCallback handler,

@@ -703,6 +703,258 @@ uninstall/fast:
 	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/uninstall.dir/build.make _deps/rtmidi-build/CMakeFiles/uninstall.dir/build
 .PHONY : uninstall/fast
 
+# Convenience name for target.
+_deps/rtmidi-build/CMakeFiles/rtmidi_autogen_timestamp_deps.dir/rule:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/rtmidi-build/CMakeFiles/rtmidi_autogen_timestamp_deps.dir/rule
+.PHONY : _deps/rtmidi-build/CMakeFiles/rtmidi_autogen_timestamp_deps.dir/rule
+
+# Convenience name for target.
+rtmidi_autogen_timestamp_deps: _deps/rtmidi-build/CMakeFiles/rtmidi_autogen_timestamp_deps.dir/rule
+.PHONY : rtmidi_autogen_timestamp_deps
+
+# fast build rule for target.
+rtmidi_autogen_timestamp_deps/fast:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/rtmidi_autogen_timestamp_deps.dir/build.make _deps/rtmidi-build/CMakeFiles/rtmidi_autogen_timestamp_deps.dir/build
+.PHONY : rtmidi_autogen_timestamp_deps/fast
+
+# Convenience name for target.
+_deps/rtmidi-build/CMakeFiles/rtmidi_autogen.dir/rule:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/rtmidi-build/CMakeFiles/rtmidi_autogen.dir/rule
+.PHONY : _deps/rtmidi-build/CMakeFiles/rtmidi_autogen.dir/rule
+
+# Convenience name for target.
+rtmidi_autogen: _deps/rtmidi-build/CMakeFiles/rtmidi_autogen.dir/rule
+.PHONY : rtmidi_autogen
+
+# fast build rule for target.
+rtmidi_autogen/fast:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/rtmidi_autogen.dir/build.make _deps/rtmidi-build/CMakeFiles/rtmidi_autogen.dir/build
+.PHONY : rtmidi_autogen/fast
+
+# Convenience name for target.
+_deps/rtmidi-build/CMakeFiles/cmidiin_autogen_timestamp_deps.dir/rule:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/rtmidi-build/CMakeFiles/cmidiin_autogen_timestamp_deps.dir/rule
+.PHONY : _deps/rtmidi-build/CMakeFiles/cmidiin_autogen_timestamp_deps.dir/rule
+
+# Convenience name for target.
+cmidiin_autogen_timestamp_deps: _deps/rtmidi-build/CMakeFiles/cmidiin_autogen_timestamp_deps.dir/rule
+.PHONY : cmidiin_autogen_timestamp_deps
+
+# fast build rule for target.
+cmidiin_autogen_timestamp_deps/fast:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/cmidiin_autogen_timestamp_deps.dir/build.make _deps/rtmidi-build/CMakeFiles/cmidiin_autogen_timestamp_deps.dir/build
+.PHONY : cmidiin_autogen_timestamp_deps/fast
+
+# Convenience name for target.
+_deps/rtmidi-build/CMakeFiles/cmidiin_autogen.dir/rule:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/rtmidi-build/CMakeFiles/cmidiin_autogen.dir/rule
+.PHONY : _deps/rtmidi-build/CMakeFiles/cmidiin_autogen.dir/rule
+
+# Convenience name for target.
+cmidiin_autogen: _deps/rtmidi-build/CMakeFiles/cmidiin_autogen.dir/rule
+.PHONY : cmidiin_autogen
+
+# fast build rule for target.
+cmidiin_autogen/fast:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/cmidiin_autogen.dir/build.make _deps/rtmidi-build/CMakeFiles/cmidiin_autogen.dir/build
+.PHONY : cmidiin_autogen/fast
+
+# Convenience name for target.
+_deps/rtmidi-build/CMakeFiles/midiclock_autogen_timestamp_deps.dir/rule:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/rtmidi-build/CMakeFiles/midiclock_autogen_timestamp_deps.dir/rule
+.PHONY : _deps/rtmidi-build/CMakeFiles/midiclock_autogen_timestamp_deps.dir/rule
+
+# Convenience name for target.
+midiclock_autogen_timestamp_deps: _deps/rtmidi-build/CMakeFiles/midiclock_autogen_timestamp_deps.dir/rule
+.PHONY : midiclock_autogen_timestamp_deps
+
+# fast build rule for target.
+midiclock_autogen_timestamp_deps/fast:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/midiclock_autogen_timestamp_deps.dir/build.make _deps/rtmidi-build/CMakeFiles/midiclock_autogen_timestamp_deps.dir/build
+.PHONY : midiclock_autogen_timestamp_deps/fast
+
+# Convenience name for target.
+_deps/rtmidi-build/CMakeFiles/midiclock_autogen.dir/rule:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/rtmidi-build/CMakeFiles/midiclock_autogen.dir/rule
+.PHONY : _deps/rtmidi-build/CMakeFiles/midiclock_autogen.dir/rule
+
+# Convenience name for target.
+midiclock_autogen: _deps/rtmidi-build/CMakeFiles/midiclock_autogen.dir/rule
+.PHONY : midiclock_autogen
+
+# fast build rule for target.
+midiclock_autogen/fast:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/midiclock_autogen.dir/build.make _deps/rtmidi-build/CMakeFiles/midiclock_autogen.dir/build
+.PHONY : midiclock_autogen/fast
+
+# Convenience name for target.
+_deps/rtmidi-build/CMakeFiles/midiout_autogen_timestamp_deps.dir/rule:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/rtmidi-build/CMakeFiles/midiout_autogen_timestamp_deps.dir/rule
+.PHONY : _deps/rtmidi-build/CMakeFiles/midiout_autogen_timestamp_deps.dir/rule
+
+# Convenience name for target.
+midiout_autogen_timestamp_deps: _deps/rtmidi-build/CMakeFiles/midiout_autogen_timestamp_deps.dir/rule
+.PHONY : midiout_autogen_timestamp_deps
+
+# fast build rule for target.
+midiout_autogen_timestamp_deps/fast:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/midiout_autogen_timestamp_deps.dir/build.make _deps/rtmidi-build/CMakeFiles/midiout_autogen_timestamp_deps.dir/build
+.PHONY : midiout_autogen_timestamp_deps/fast
+
+# Convenience name for target.
+_deps/rtmidi-build/CMakeFiles/midiout_autogen.dir/rule:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/rtmidi-build/CMakeFiles/midiout_autogen.dir/rule
+.PHONY : _deps/rtmidi-build/CMakeFiles/midiout_autogen.dir/rule
+
+# Convenience name for target.
+midiout_autogen: _deps/rtmidi-build/CMakeFiles/midiout_autogen.dir/rule
+.PHONY : midiout_autogen
+
+# fast build rule for target.
+midiout_autogen/fast:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/midiout_autogen.dir/build.make _deps/rtmidi-build/CMakeFiles/midiout_autogen.dir/build
+.PHONY : midiout_autogen/fast
+
+# Convenience name for target.
+_deps/rtmidi-build/CMakeFiles/midiprobe_autogen_timestamp_deps.dir/rule:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/rtmidi-build/CMakeFiles/midiprobe_autogen_timestamp_deps.dir/rule
+.PHONY : _deps/rtmidi-build/CMakeFiles/midiprobe_autogen_timestamp_deps.dir/rule
+
+# Convenience name for target.
+midiprobe_autogen_timestamp_deps: _deps/rtmidi-build/CMakeFiles/midiprobe_autogen_timestamp_deps.dir/rule
+.PHONY : midiprobe_autogen_timestamp_deps
+
+# fast build rule for target.
+midiprobe_autogen_timestamp_deps/fast:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/midiprobe_autogen_timestamp_deps.dir/build.make _deps/rtmidi-build/CMakeFiles/midiprobe_autogen_timestamp_deps.dir/build
+.PHONY : midiprobe_autogen_timestamp_deps/fast
+
+# Convenience name for target.
+_deps/rtmidi-build/CMakeFiles/midiprobe_autogen.dir/rule:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/rtmidi-build/CMakeFiles/midiprobe_autogen.dir/rule
+.PHONY : _deps/rtmidi-build/CMakeFiles/midiprobe_autogen.dir/rule
+
+# Convenience name for target.
+midiprobe_autogen: _deps/rtmidi-build/CMakeFiles/midiprobe_autogen.dir/rule
+.PHONY : midiprobe_autogen
+
+# fast build rule for target.
+midiprobe_autogen/fast:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/midiprobe_autogen.dir/build.make _deps/rtmidi-build/CMakeFiles/midiprobe_autogen.dir/build
+.PHONY : midiprobe_autogen/fast
+
+# Convenience name for target.
+_deps/rtmidi-build/CMakeFiles/qmidiin_autogen_timestamp_deps.dir/rule:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/rtmidi-build/CMakeFiles/qmidiin_autogen_timestamp_deps.dir/rule
+.PHONY : _deps/rtmidi-build/CMakeFiles/qmidiin_autogen_timestamp_deps.dir/rule
+
+# Convenience name for target.
+qmidiin_autogen_timestamp_deps: _deps/rtmidi-build/CMakeFiles/qmidiin_autogen_timestamp_deps.dir/rule
+.PHONY : qmidiin_autogen_timestamp_deps
+
+# fast build rule for target.
+qmidiin_autogen_timestamp_deps/fast:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/qmidiin_autogen_timestamp_deps.dir/build.make _deps/rtmidi-build/CMakeFiles/qmidiin_autogen_timestamp_deps.dir/build
+.PHONY : qmidiin_autogen_timestamp_deps/fast
+
+# Convenience name for target.
+_deps/rtmidi-build/CMakeFiles/qmidiin_autogen.dir/rule:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/rtmidi-build/CMakeFiles/qmidiin_autogen.dir/rule
+.PHONY : _deps/rtmidi-build/CMakeFiles/qmidiin_autogen.dir/rule
+
+# Convenience name for target.
+qmidiin_autogen: _deps/rtmidi-build/CMakeFiles/qmidiin_autogen.dir/rule
+.PHONY : qmidiin_autogen
+
+# fast build rule for target.
+qmidiin_autogen/fast:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/qmidiin_autogen.dir/build.make _deps/rtmidi-build/CMakeFiles/qmidiin_autogen.dir/build
+.PHONY : qmidiin_autogen/fast
+
+# Convenience name for target.
+_deps/rtmidi-build/CMakeFiles/sysextest_autogen_timestamp_deps.dir/rule:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/rtmidi-build/CMakeFiles/sysextest_autogen_timestamp_deps.dir/rule
+.PHONY : _deps/rtmidi-build/CMakeFiles/sysextest_autogen_timestamp_deps.dir/rule
+
+# Convenience name for target.
+sysextest_autogen_timestamp_deps: _deps/rtmidi-build/CMakeFiles/sysextest_autogen_timestamp_deps.dir/rule
+.PHONY : sysextest_autogen_timestamp_deps
+
+# fast build rule for target.
+sysextest_autogen_timestamp_deps/fast:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/sysextest_autogen_timestamp_deps.dir/build.make _deps/rtmidi-build/CMakeFiles/sysextest_autogen_timestamp_deps.dir/build
+.PHONY : sysextest_autogen_timestamp_deps/fast
+
+# Convenience name for target.
+_deps/rtmidi-build/CMakeFiles/sysextest_autogen.dir/rule:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/rtmidi-build/CMakeFiles/sysextest_autogen.dir/rule
+.PHONY : _deps/rtmidi-build/CMakeFiles/sysextest_autogen.dir/rule
+
+# Convenience name for target.
+sysextest_autogen: _deps/rtmidi-build/CMakeFiles/sysextest_autogen.dir/rule
+.PHONY : sysextest_autogen
+
+# fast build rule for target.
+sysextest_autogen/fast:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/sysextest_autogen.dir/build.make _deps/rtmidi-build/CMakeFiles/sysextest_autogen.dir/build
+.PHONY : sysextest_autogen/fast
+
+# Convenience name for target.
+_deps/rtmidi-build/CMakeFiles/apinames_autogen_timestamp_deps.dir/rule:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/rtmidi-build/CMakeFiles/apinames_autogen_timestamp_deps.dir/rule
+.PHONY : _deps/rtmidi-build/CMakeFiles/apinames_autogen_timestamp_deps.dir/rule
+
+# Convenience name for target.
+apinames_autogen_timestamp_deps: _deps/rtmidi-build/CMakeFiles/apinames_autogen_timestamp_deps.dir/rule
+.PHONY : apinames_autogen_timestamp_deps
+
+# fast build rule for target.
+apinames_autogen_timestamp_deps/fast:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/apinames_autogen_timestamp_deps.dir/build.make _deps/rtmidi-build/CMakeFiles/apinames_autogen_timestamp_deps.dir/build
+.PHONY : apinames_autogen_timestamp_deps/fast
+
+# Convenience name for target.
+_deps/rtmidi-build/CMakeFiles/apinames_autogen.dir/rule:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/rtmidi-build/CMakeFiles/apinames_autogen.dir/rule
+.PHONY : _deps/rtmidi-build/CMakeFiles/apinames_autogen.dir/rule
+
+# Convenience name for target.
+apinames_autogen: _deps/rtmidi-build/CMakeFiles/apinames_autogen.dir/rule
+.PHONY : apinames_autogen
+
+# fast build rule for target.
+apinames_autogen/fast:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/apinames_autogen.dir/build.make _deps/rtmidi-build/CMakeFiles/apinames_autogen.dir/build
+.PHONY : apinames_autogen/fast
+
+# Convenience name for target.
+_deps/rtmidi-build/CMakeFiles/testcapi_autogen_timestamp_deps.dir/rule:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/rtmidi-build/CMakeFiles/testcapi_autogen_timestamp_deps.dir/rule
+.PHONY : _deps/rtmidi-build/CMakeFiles/testcapi_autogen_timestamp_deps.dir/rule
+
+# Convenience name for target.
+testcapi_autogen_timestamp_deps: _deps/rtmidi-build/CMakeFiles/testcapi_autogen_timestamp_deps.dir/rule
+.PHONY : testcapi_autogen_timestamp_deps
+
+# fast build rule for target.
+testcapi_autogen_timestamp_deps/fast:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/testcapi_autogen_timestamp_deps.dir/build.make _deps/rtmidi-build/CMakeFiles/testcapi_autogen_timestamp_deps.dir/build
+.PHONY : testcapi_autogen_timestamp_deps/fast
+
+# Convenience name for target.
+_deps/rtmidi-build/CMakeFiles/testcapi_autogen.dir/rule:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/rtmidi-build/CMakeFiles/testcapi_autogen.dir/rule
+.PHONY : _deps/rtmidi-build/CMakeFiles/testcapi_autogen.dir/rule
+
+# Convenience name for target.
+testcapi_autogen: _deps/rtmidi-build/CMakeFiles/testcapi_autogen.dir/rule
+.PHONY : testcapi_autogen
+
+# fast build rule for target.
+testcapi_autogen/fast:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/testcapi_autogen.dir/build.make _deps/rtmidi-build/CMakeFiles/testcapi_autogen.dir/build
+.PHONY : testcapi_autogen/fast
+
 RtMidi.o: RtMidi.cpp.o
 .PHONY : RtMidi.o
 
@@ -727,6 +979,174 @@ RtMidi.cpp.s:
 	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/rtmidi.dir/build.make _deps/rtmidi-build/CMakeFiles/rtmidi.dir/RtMidi.cpp.s
 .PHONY : RtMidi.cpp.s
 
+apinames_autogen/mocs_compilation.o: apinames_autogen/mocs_compilation.cpp.o
+.PHONY : apinames_autogen/mocs_compilation.o
+
+# target to build an object file
+apinames_autogen/mocs_compilation.cpp.o:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/apinames.dir/build.make _deps/rtmidi-build/CMakeFiles/apinames.dir/apinames_autogen/mocs_compilation.cpp.o
+.PHONY : apinames_autogen/mocs_compilation.cpp.o
+
+apinames_autogen/mocs_compilation.i: apinames_autogen/mocs_compilation.cpp.i
+.PHONY : apinames_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+apinames_autogen/mocs_compilation.cpp.i:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/apinames.dir/build.make _deps/rtmidi-build/CMakeFiles/apinames.dir/apinames_autogen/mocs_compilation.cpp.i
+.PHONY : apinames_autogen/mocs_compilation.cpp.i
+
+apinames_autogen/mocs_compilation.s: apinames_autogen/mocs_compilation.cpp.s
+.PHONY : apinames_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+apinames_autogen/mocs_compilation.cpp.s:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/apinames.dir/build.make _deps/rtmidi-build/CMakeFiles/apinames.dir/apinames_autogen/mocs_compilation.cpp.s
+.PHONY : apinames_autogen/mocs_compilation.cpp.s
+
+cmidiin_autogen/mocs_compilation.o: cmidiin_autogen/mocs_compilation.cpp.o
+.PHONY : cmidiin_autogen/mocs_compilation.o
+
+# target to build an object file
+cmidiin_autogen/mocs_compilation.cpp.o:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/cmidiin.dir/build.make _deps/rtmidi-build/CMakeFiles/cmidiin.dir/cmidiin_autogen/mocs_compilation.cpp.o
+.PHONY : cmidiin_autogen/mocs_compilation.cpp.o
+
+cmidiin_autogen/mocs_compilation.i: cmidiin_autogen/mocs_compilation.cpp.i
+.PHONY : cmidiin_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+cmidiin_autogen/mocs_compilation.cpp.i:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/cmidiin.dir/build.make _deps/rtmidi-build/CMakeFiles/cmidiin.dir/cmidiin_autogen/mocs_compilation.cpp.i
+.PHONY : cmidiin_autogen/mocs_compilation.cpp.i
+
+cmidiin_autogen/mocs_compilation.s: cmidiin_autogen/mocs_compilation.cpp.s
+.PHONY : cmidiin_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+cmidiin_autogen/mocs_compilation.cpp.s:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/cmidiin.dir/build.make _deps/rtmidi-build/CMakeFiles/cmidiin.dir/cmidiin_autogen/mocs_compilation.cpp.s
+.PHONY : cmidiin_autogen/mocs_compilation.cpp.s
+
+midiclock_autogen/mocs_compilation.o: midiclock_autogen/mocs_compilation.cpp.o
+.PHONY : midiclock_autogen/mocs_compilation.o
+
+# target to build an object file
+midiclock_autogen/mocs_compilation.cpp.o:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/midiclock.dir/build.make _deps/rtmidi-build/CMakeFiles/midiclock.dir/midiclock_autogen/mocs_compilation.cpp.o
+.PHONY : midiclock_autogen/mocs_compilation.cpp.o
+
+midiclock_autogen/mocs_compilation.i: midiclock_autogen/mocs_compilation.cpp.i
+.PHONY : midiclock_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+midiclock_autogen/mocs_compilation.cpp.i:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/midiclock.dir/build.make _deps/rtmidi-build/CMakeFiles/midiclock.dir/midiclock_autogen/mocs_compilation.cpp.i
+.PHONY : midiclock_autogen/mocs_compilation.cpp.i
+
+midiclock_autogen/mocs_compilation.s: midiclock_autogen/mocs_compilation.cpp.s
+.PHONY : midiclock_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+midiclock_autogen/mocs_compilation.cpp.s:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/midiclock.dir/build.make _deps/rtmidi-build/CMakeFiles/midiclock.dir/midiclock_autogen/mocs_compilation.cpp.s
+.PHONY : midiclock_autogen/mocs_compilation.cpp.s
+
+midiout_autogen/mocs_compilation.o: midiout_autogen/mocs_compilation.cpp.o
+.PHONY : midiout_autogen/mocs_compilation.o
+
+# target to build an object file
+midiout_autogen/mocs_compilation.cpp.o:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/midiout.dir/build.make _deps/rtmidi-build/CMakeFiles/midiout.dir/midiout_autogen/mocs_compilation.cpp.o
+.PHONY : midiout_autogen/mocs_compilation.cpp.o
+
+midiout_autogen/mocs_compilation.i: midiout_autogen/mocs_compilation.cpp.i
+.PHONY : midiout_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+midiout_autogen/mocs_compilation.cpp.i:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/midiout.dir/build.make _deps/rtmidi-build/CMakeFiles/midiout.dir/midiout_autogen/mocs_compilation.cpp.i
+.PHONY : midiout_autogen/mocs_compilation.cpp.i
+
+midiout_autogen/mocs_compilation.s: midiout_autogen/mocs_compilation.cpp.s
+.PHONY : midiout_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+midiout_autogen/mocs_compilation.cpp.s:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/midiout.dir/build.make _deps/rtmidi-build/CMakeFiles/midiout.dir/midiout_autogen/mocs_compilation.cpp.s
+.PHONY : midiout_autogen/mocs_compilation.cpp.s
+
+midiprobe_autogen/mocs_compilation.o: midiprobe_autogen/mocs_compilation.cpp.o
+.PHONY : midiprobe_autogen/mocs_compilation.o
+
+# target to build an object file
+midiprobe_autogen/mocs_compilation.cpp.o:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/midiprobe.dir/build.make _deps/rtmidi-build/CMakeFiles/midiprobe.dir/midiprobe_autogen/mocs_compilation.cpp.o
+.PHONY : midiprobe_autogen/mocs_compilation.cpp.o
+
+midiprobe_autogen/mocs_compilation.i: midiprobe_autogen/mocs_compilation.cpp.i
+.PHONY : midiprobe_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+midiprobe_autogen/mocs_compilation.cpp.i:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/midiprobe.dir/build.make _deps/rtmidi-build/CMakeFiles/midiprobe.dir/midiprobe_autogen/mocs_compilation.cpp.i
+.PHONY : midiprobe_autogen/mocs_compilation.cpp.i
+
+midiprobe_autogen/mocs_compilation.s: midiprobe_autogen/mocs_compilation.cpp.s
+.PHONY : midiprobe_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+midiprobe_autogen/mocs_compilation.cpp.s:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/midiprobe.dir/build.make _deps/rtmidi-build/CMakeFiles/midiprobe.dir/midiprobe_autogen/mocs_compilation.cpp.s
+.PHONY : midiprobe_autogen/mocs_compilation.cpp.s
+
+qmidiin_autogen/mocs_compilation.o: qmidiin_autogen/mocs_compilation.cpp.o
+.PHONY : qmidiin_autogen/mocs_compilation.o
+
+# target to build an object file
+qmidiin_autogen/mocs_compilation.cpp.o:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/qmidiin.dir/build.make _deps/rtmidi-build/CMakeFiles/qmidiin.dir/qmidiin_autogen/mocs_compilation.cpp.o
+.PHONY : qmidiin_autogen/mocs_compilation.cpp.o
+
+qmidiin_autogen/mocs_compilation.i: qmidiin_autogen/mocs_compilation.cpp.i
+.PHONY : qmidiin_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+qmidiin_autogen/mocs_compilation.cpp.i:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/qmidiin.dir/build.make _deps/rtmidi-build/CMakeFiles/qmidiin.dir/qmidiin_autogen/mocs_compilation.cpp.i
+.PHONY : qmidiin_autogen/mocs_compilation.cpp.i
+
+qmidiin_autogen/mocs_compilation.s: qmidiin_autogen/mocs_compilation.cpp.s
+.PHONY : qmidiin_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+qmidiin_autogen/mocs_compilation.cpp.s:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/qmidiin.dir/build.make _deps/rtmidi-build/CMakeFiles/qmidiin.dir/qmidiin_autogen/mocs_compilation.cpp.s
+.PHONY : qmidiin_autogen/mocs_compilation.cpp.s
+
+rtmidi_autogen/mocs_compilation.o: rtmidi_autogen/mocs_compilation.cpp.o
+.PHONY : rtmidi_autogen/mocs_compilation.o
+
+# target to build an object file
+rtmidi_autogen/mocs_compilation.cpp.o:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/rtmidi.dir/build.make _deps/rtmidi-build/CMakeFiles/rtmidi.dir/rtmidi_autogen/mocs_compilation.cpp.o
+.PHONY : rtmidi_autogen/mocs_compilation.cpp.o
+
+rtmidi_autogen/mocs_compilation.i: rtmidi_autogen/mocs_compilation.cpp.i
+.PHONY : rtmidi_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+rtmidi_autogen/mocs_compilation.cpp.i:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/rtmidi.dir/build.make _deps/rtmidi-build/CMakeFiles/rtmidi.dir/rtmidi_autogen/mocs_compilation.cpp.i
+.PHONY : rtmidi_autogen/mocs_compilation.cpp.i
+
+rtmidi_autogen/mocs_compilation.s: rtmidi_autogen/mocs_compilation.cpp.s
+.PHONY : rtmidi_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+rtmidi_autogen/mocs_compilation.cpp.s:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/rtmidi.dir/build.make _deps/rtmidi-build/CMakeFiles/rtmidi.dir/rtmidi_autogen/mocs_compilation.cpp.s
+.PHONY : rtmidi_autogen/mocs_compilation.cpp.s
+
 rtmidi_c.o: rtmidi_c.cpp.o
 .PHONY : rtmidi_c.o
 
@@ -750,6 +1170,54 @@ rtmidi_c.s: rtmidi_c.cpp.s
 rtmidi_c.cpp.s:
 	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/rtmidi.dir/build.make _deps/rtmidi-build/CMakeFiles/rtmidi.dir/rtmidi_c.cpp.s
 .PHONY : rtmidi_c.cpp.s
+
+sysextest_autogen/mocs_compilation.o: sysextest_autogen/mocs_compilation.cpp.o
+.PHONY : sysextest_autogen/mocs_compilation.o
+
+# target to build an object file
+sysextest_autogen/mocs_compilation.cpp.o:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/sysextest.dir/build.make _deps/rtmidi-build/CMakeFiles/sysextest.dir/sysextest_autogen/mocs_compilation.cpp.o
+.PHONY : sysextest_autogen/mocs_compilation.cpp.o
+
+sysextest_autogen/mocs_compilation.i: sysextest_autogen/mocs_compilation.cpp.i
+.PHONY : sysextest_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+sysextest_autogen/mocs_compilation.cpp.i:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/sysextest.dir/build.make _deps/rtmidi-build/CMakeFiles/sysextest.dir/sysextest_autogen/mocs_compilation.cpp.i
+.PHONY : sysextest_autogen/mocs_compilation.cpp.i
+
+sysextest_autogen/mocs_compilation.s: sysextest_autogen/mocs_compilation.cpp.s
+.PHONY : sysextest_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+sysextest_autogen/mocs_compilation.cpp.s:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/sysextest.dir/build.make _deps/rtmidi-build/CMakeFiles/sysextest.dir/sysextest_autogen/mocs_compilation.cpp.s
+.PHONY : sysextest_autogen/mocs_compilation.cpp.s
+
+testcapi_autogen/mocs_compilation.o: testcapi_autogen/mocs_compilation.cpp.o
+.PHONY : testcapi_autogen/mocs_compilation.o
+
+# target to build an object file
+testcapi_autogen/mocs_compilation.cpp.o:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/testcapi.dir/build.make _deps/rtmidi-build/CMakeFiles/testcapi.dir/testcapi_autogen/mocs_compilation.cpp.o
+.PHONY : testcapi_autogen/mocs_compilation.cpp.o
+
+testcapi_autogen/mocs_compilation.i: testcapi_autogen/mocs_compilation.cpp.i
+.PHONY : testcapi_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+testcapi_autogen/mocs_compilation.cpp.i:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/testcapi.dir/build.make _deps/rtmidi-build/CMakeFiles/testcapi.dir/testcapi_autogen/mocs_compilation.cpp.i
+.PHONY : testcapi_autogen/mocs_compilation.cpp.i
+
+testcapi_autogen/mocs_compilation.s: testcapi_autogen/mocs_compilation.cpp.s
+.PHONY : testcapi_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+testcapi_autogen/mocs_compilation.cpp.s:
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/testcapi.dir/build.make _deps/rtmidi-build/CMakeFiles/testcapi.dir/testcapi_autogen/mocs_compilation.cpp.s
+.PHONY : testcapi_autogen/mocs_compilation.cpp.s
 
 tests/apinames.o: tests/apinames.cpp.o
 .PHONY : tests/apinames.o
@@ -984,6 +1452,24 @@ help:
 	@echo "... NightlySubmit"
 	@echo "... NightlyTest"
 	@echo "... NightlyUpdate"
+	@echo "... apinames_autogen"
+	@echo "... apinames_autogen_timestamp_deps"
+	@echo "... cmidiin_autogen"
+	@echo "... cmidiin_autogen_timestamp_deps"
+	@echo "... midiclock_autogen"
+	@echo "... midiclock_autogen_timestamp_deps"
+	@echo "... midiout_autogen"
+	@echo "... midiout_autogen_timestamp_deps"
+	@echo "... midiprobe_autogen"
+	@echo "... midiprobe_autogen_timestamp_deps"
+	@echo "... qmidiin_autogen"
+	@echo "... qmidiin_autogen_timestamp_deps"
+	@echo "... rtmidi_autogen"
+	@echo "... rtmidi_autogen_timestamp_deps"
+	@echo "... sysextest_autogen"
+	@echo "... sysextest_autogen_timestamp_deps"
+	@echo "... testcapi_autogen"
+	@echo "... testcapi_autogen_timestamp_deps"
 	@echo "... uninstall"
 	@echo "... apinames"
 	@echo "... cmidiin"
@@ -997,9 +1483,36 @@ help:
 	@echo "... RtMidi.o"
 	@echo "... RtMidi.i"
 	@echo "... RtMidi.s"
+	@echo "... apinames_autogen/mocs_compilation.o"
+	@echo "... apinames_autogen/mocs_compilation.i"
+	@echo "... apinames_autogen/mocs_compilation.s"
+	@echo "... cmidiin_autogen/mocs_compilation.o"
+	@echo "... cmidiin_autogen/mocs_compilation.i"
+	@echo "... cmidiin_autogen/mocs_compilation.s"
+	@echo "... midiclock_autogen/mocs_compilation.o"
+	@echo "... midiclock_autogen/mocs_compilation.i"
+	@echo "... midiclock_autogen/mocs_compilation.s"
+	@echo "... midiout_autogen/mocs_compilation.o"
+	@echo "... midiout_autogen/mocs_compilation.i"
+	@echo "... midiout_autogen/mocs_compilation.s"
+	@echo "... midiprobe_autogen/mocs_compilation.o"
+	@echo "... midiprobe_autogen/mocs_compilation.i"
+	@echo "... midiprobe_autogen/mocs_compilation.s"
+	@echo "... qmidiin_autogen/mocs_compilation.o"
+	@echo "... qmidiin_autogen/mocs_compilation.i"
+	@echo "... qmidiin_autogen/mocs_compilation.s"
+	@echo "... rtmidi_autogen/mocs_compilation.o"
+	@echo "... rtmidi_autogen/mocs_compilation.i"
+	@echo "... rtmidi_autogen/mocs_compilation.s"
 	@echo "... rtmidi_c.o"
 	@echo "... rtmidi_c.i"
 	@echo "... rtmidi_c.s"
+	@echo "... sysextest_autogen/mocs_compilation.o"
+	@echo "... sysextest_autogen/mocs_compilation.i"
+	@echo "... sysextest_autogen/mocs_compilation.s"
+	@echo "... testcapi_autogen/mocs_compilation.o"
+	@echo "... testcapi_autogen/mocs_compilation.i"
+	@echo "... testcapi_autogen/mocs_compilation.s"
 	@echo "... tests/apinames.o"
 	@echo "... tests/apinames.i"
 	@echo "... tests/apinames.s"

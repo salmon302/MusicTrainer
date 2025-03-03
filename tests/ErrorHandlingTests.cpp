@@ -105,11 +105,18 @@ TEST_F(ErrorHandlingTestFixture, ErrorHandling) {
 	auto& handler = ErrorHandler::getInstance();
 	bool handlerCalled = false;
 	
+	// Register a handler for TestError
 	handler.registerHandler("TestError",
 		[&handlerCalled](const MusicTrainerError&) {
 			handlerCalled = true;
 		},
 		ErrorSeverity::Error);
+	
+	// Register a recovery strategy that will fail, ensuring the handler is called
+	auto& strategy = RecoveryStrategy::getInstance();
+	strategy.registerStrategy("TestError", 
+							RecoveryStrategy::StrategyType::RETRY,
+							[](const MusicTrainerError&) { return false; });  // Always fail
 	
 	DomainError error("Test error", "TestError");
 	auto future = handler.handleError(error);

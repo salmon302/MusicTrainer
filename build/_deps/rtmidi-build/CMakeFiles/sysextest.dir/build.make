@@ -69,10 +69,31 @@ include _deps/rtmidi-build/CMakeFiles/sysextest.dir/progress.make
 # Include the compile flags for this target's objects.
 include _deps/rtmidi-build/CMakeFiles/sysextest.dir/flags.make
 
+_deps/rtmidi-build/sysextest_autogen/timestamp: /usr/lib/qt6/libexec/moc
+_deps/rtmidi-build/sysextest_autogen/timestamp: /usr/lib/qt6/libexec/uic
+_deps/rtmidi-build/sysextest_autogen/timestamp: _deps/rtmidi-build/CMakeFiles/sysextest.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target sysextest"
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build && /usr/bin/cmake -E cmake_autogen /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build/CMakeFiles/sysextest_autogen.dir/AutogenInfo.json ""
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build && /usr/bin/cmake -E touch /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build/sysextest_autogen/timestamp
+
+_deps/rtmidi-build/CMakeFiles/sysextest.dir/sysextest_autogen/mocs_compilation.cpp.o: _deps/rtmidi-build/CMakeFiles/sysextest.dir/flags.make
+_deps/rtmidi-build/CMakeFiles/sysextest.dir/sysextest_autogen/mocs_compilation.cpp.o: _deps/rtmidi-build/sysextest_autogen/mocs_compilation.cpp
+_deps/rtmidi-build/CMakeFiles/sysextest.dir/sysextest_autogen/mocs_compilation.cpp.o: _deps/rtmidi-build/CMakeFiles/sysextest.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object _deps/rtmidi-build/CMakeFiles/sysextest.dir/sysextest_autogen/mocs_compilation.cpp.o"
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT _deps/rtmidi-build/CMakeFiles/sysextest.dir/sysextest_autogen/mocs_compilation.cpp.o -MF CMakeFiles/sysextest.dir/sysextest_autogen/mocs_compilation.cpp.o.d -o CMakeFiles/sysextest.dir/sysextest_autogen/mocs_compilation.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build/sysextest_autogen/mocs_compilation.cpp
+
+_deps/rtmidi-build/CMakeFiles/sysextest.dir/sysextest_autogen/mocs_compilation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sysextest.dir/sysextest_autogen/mocs_compilation.cpp.i"
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build/sysextest_autogen/mocs_compilation.cpp > CMakeFiles/sysextest.dir/sysextest_autogen/mocs_compilation.cpp.i
+
+_deps/rtmidi-build/CMakeFiles/sysextest.dir/sysextest_autogen/mocs_compilation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sysextest.dir/sysextest_autogen/mocs_compilation.cpp.s"
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build/sysextest_autogen/mocs_compilation.cpp -o CMakeFiles/sysextest.dir/sysextest_autogen/mocs_compilation.cpp.s
+
 _deps/rtmidi-build/CMakeFiles/sysextest.dir/tests/sysextest.cpp.o: _deps/rtmidi-build/CMakeFiles/sysextest.dir/flags.make
 _deps/rtmidi-build/CMakeFiles/sysextest.dir/tests/sysextest.cpp.o: _deps/rtmidi-src/tests/sysextest.cpp
 _deps/rtmidi-build/CMakeFiles/sysextest.dir/tests/sysextest.cpp.o: _deps/rtmidi-build/CMakeFiles/sysextest.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object _deps/rtmidi-build/CMakeFiles/sysextest.dir/tests/sysextest.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object _deps/rtmidi-build/CMakeFiles/sysextest.dir/tests/sysextest.cpp.o"
 	cd /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT _deps/rtmidi-build/CMakeFiles/sysextest.dir/tests/sysextest.cpp.o -MF CMakeFiles/sysextest.dir/tests/sysextest.cpp.o.d -o CMakeFiles/sysextest.dir/tests/sysextest.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-src/tests/sysextest.cpp
 
 _deps/rtmidi-build/CMakeFiles/sysextest.dir/tests/sysextest.cpp.i: cmake_force
@@ -85,16 +106,18 @@ _deps/rtmidi-build/CMakeFiles/sysextest.dir/tests/sysextest.cpp.s: cmake_force
 
 # Object files for target sysextest
 sysextest_OBJECTS = \
+"CMakeFiles/sysextest.dir/sysextest_autogen/mocs_compilation.cpp.o" \
 "CMakeFiles/sysextest.dir/tests/sysextest.cpp.o"
 
 # External object files for target sysextest
 sysextest_EXTERNAL_OBJECTS =
 
+_deps/rtmidi-build/tests/sysextest: _deps/rtmidi-build/CMakeFiles/sysextest.dir/sysextest_autogen/mocs_compilation.cpp.o
 _deps/rtmidi-build/tests/sysextest: _deps/rtmidi-build/CMakeFiles/sysextest.dir/tests/sysextest.cpp.o
 _deps/rtmidi-build/tests/sysextest: _deps/rtmidi-build/CMakeFiles/sysextest.dir/build.make
 _deps/rtmidi-build/tests/sysextest: _deps/rtmidi-build/librtmidi.so.6.0.0
 _deps/rtmidi-build/tests/sysextest: _deps/rtmidi-build/CMakeFiles/sysextest.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable tests/sysextest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable tests/sysextest"
 	cd /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/sysextest.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -105,7 +128,7 @@ _deps/rtmidi-build/CMakeFiles/sysextest.dir/clean:
 	cd /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build && $(CMAKE_COMMAND) -P CMakeFiles/sysextest.dir/cmake_clean.cmake
 .PHONY : _deps/rtmidi-build/CMakeFiles/sysextest.dir/clean
 
-_deps/rtmidi-build/CMakeFiles/sysextest.dir/depend:
+_deps/rtmidi-build/CMakeFiles/sysextest.dir/depend: _deps/rtmidi-build/sysextest_autogen/timestamp
 	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/seth-n/Documents/GitHub/MusicTrainer /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-src /home/seth-n/Documents/GitHub/MusicTrainer/build /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build/CMakeFiles/sysextest.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : _deps/rtmidi-build/CMakeFiles/sysextest.dir/depend
 

@@ -109,11 +109,9 @@ TEST(ValidationPipelineTest, DetectsParallelOctavesBasic) {
 	EXPECT_FALSE(result);
 	auto violations = pipeline->getViolations();
 	EXPECT_FALSE(violations.empty());
-	
-	// Verify violation message
-	if (!violations.empty()) {
-		EXPECT_TRUE(violations[0].find("parallel octaves") != std::string::npos);
-	}
+
+	   // Verify violation message immediately after validation
+	   EXPECT_TRUE(violations[0].find("parallel octaves") != std::string::npos);
 }
 
 TEST(ValidationPipelineTest, DetectsParallelOctavesComplex) {

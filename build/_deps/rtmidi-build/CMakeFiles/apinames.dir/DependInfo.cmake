@@ -8,6 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "" "_deps/rtmidi-build/apinames_autogen/timestamp" "custom" "_deps/rtmidi-build/apinames_autogen/deps"
+  "/home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build/apinames_autogen/mocs_compilation.cpp" "_deps/rtmidi-build/CMakeFiles/apinames.dir/apinames_autogen/mocs_compilation.cpp.o" "gcc" "_deps/rtmidi-build/CMakeFiles/apinames.dir/apinames_autogen/mocs_compilation.cpp.o.d"
   "/home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-src/tests/apinames.cpp" "_deps/rtmidi-build/CMakeFiles/apinames.dir/tests/apinames.cpp.o" "gcc" "_deps/rtmidi-build/CMakeFiles/apinames.dir/tests/apinames.cpp.o.d"
   )
 

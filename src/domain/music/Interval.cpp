@@ -1,140 +1,197 @@
 #include "domain/music/Interval.h"
 #include <iostream>
+#include <cmath>
+#include <stdexcept>
 
+namespace MusicTrainer {
 namespace music {
 
-Interval Interval::create(Number number, Quality quality) {
-	return Interval(number, quality);
+Interval::Interval(Quality quality, Number number, int semitones)
+    : m_quality(quality), m_number(number), m_semitones(semitones) {}
+
+Interval Interval::fromPitches(const MusicTrainer::music::Pitch& lower, const MusicTrainer::music::Pitch& higher) {
+    std::cout << "[fromPitches] Lower pitch: " << lower.toString() 
+              << " (MIDI: " << lower.getMidiNote() << "), Upper pitch: "
+              << higher.toString() << " (MIDI: " << higher.getMidiNote() << ")\n";
+
+    // Calculate semitones between pitches
+    int semitones = std::abs(higher.getMidiNote() - lower.getMidiNote());
+    
+    // Convert semitones to interval
+    Interval result = fromSemitones(semitones);
+
+    // Determine if interval direction matches pitch direction
+    int lowerNote = static_cast<int>(lower.getNoteName());
+    int upperNote = static_cast<int>(higher.getNoteName());
+    
+    // Normalize interval based on direction
+    if (higher.getMidiNote() >= lower.getMidiNote()) {
+        // Ascending interval
+        if (upperNote < lowerNote) {
+            // Crossed octave boundary
+            int octaveDiff = higher.getOctave() - lower.getOctave();
+            if (octaveDiff > 1) {
+                // Compound interval
+                return fromQualityAndNumber(result.getQuality(), 
+                    static_cast<Number>(static_cast<int>(result.getNumber()) + 7));
+            }
+        }
+    }
+    return result;
 }
 
-Interval Interval::fromPitches(const Pitch& lower, const Pitch& upper) {
-	std::cout << "[Interval::fromPitches] Lower pitch: " << lower.toString() 
-			  << " (MIDI: " << lower.getMidiNote() << "), Upper pitch: " 
-			  << upper.toString() << " (MIDI: " << upper.getMidiNote() << ")\n";
-	
-	// Calculate absolute semitone difference
-	int semitones = std::abs(upper.getMidiNote() - lower.getMidiNote());
-	std::cout << "[Interval::fromPitches] Semitone difference: " << semitones << "\n";
-	
-	// Check for octave directly
-	if (semitones == 12 || (semitones % 12 == 0 && semitones > 0)) {
-		std::cout << "[Interval::fromPitches] Detected octave interval\n";
-		return create(IntervalNumber::OCTAVE, IntervalQuality::PERFECT);
-	}
-	
-	// Calculate diatonic steps between notes
-	int lowerNote = static_cast<int>(lower.getNoteName());
-	int upperNote = static_cast<int>(upper.getNoteName());
-	int steps = upperNote - lowerNote;
-	if (steps < 0) steps += 7;  // Normalize negative steps
-	
-	std::cout << "[Interval::fromPitches] Diatonic steps before octave adjustment: " << steps << "\n";
-	
-	// Add octave steps
-	int octaveDiff = upper.getOctave() - lower.getOctave();
-	if (upperNote < lowerNote) octaveDiff--;  // Adjust for wrapping around
-	steps += octaveDiff * 7;
-	
-	std::cout << "[Interval::fromPitches] Octave difference: " << octaveDiff << "\n";
-	std::cout << "[Interval::fromPitches] Total diatonic steps: " << steps << "\n";
-	
-	// Convert steps to interval number (1-based)
-	IntervalNumber number = static_cast<IntervalNumber>((steps % 7) + 1);
-	
-	// Perfect/Major reference intervals in semitones
-	static const int perfectMajorSemitones[] = {0, 2, 4, 5, 7, 9, 11, 12};  // Include octave
-	int expectedSemitones = perfectMajorSemitones[steps % 7];
-	expectedSemitones += (octaveDiff * 12);  // Add octave semitones
-	
-	std::cout << "[Interval::fromPitches] Expected semitones: " << expectedSemitones << "\n";
-	
-	// Determine quality based on difference from perfect/major
-	IntervalQuality quality;
-	int diff = semitones - expectedSemitones;
-	
-	std::cout << "[Interval::fromPitches] Difference from expected: " << diff << "\n";
-	std::cout << "[Interval::fromPitches] Is perfect number: " << (isPerfectNumber(number) ? "yes" : "no") << "\n";
-	
-	if (isPerfectNumber(number)) {
-		switch (diff) {
-			case 0: quality = IntervalQuality::PERFECT; break;
-			case -1: quality = IntervalQuality::DIMINISHED; break;
-			case 1: quality = IntervalQuality::AUGMENTED; break;
-			default: quality = IntervalQuality::DIMINISHED; break;
-		}
-	} else {
-		switch (diff) {
-			case 0: quality = IntervalQuality::MAJOR; break;
-			case -1: quality = IntervalQuality::MINOR; break;
-			case -2: quality = IntervalQuality::DIMINISHED; break;
-			case 1: quality = IntervalQuality::AUGMENTED; break;
-			default: quality = IntervalQuality::DIMINISHED; break;
-		}
-	}
-	
-	auto result = create(number, quality);
-	std::cout << "[Interval::fromPitches] Calculated interval: " << result.toString() 
-			  << " (number=" << static_cast<int>(number) << ", quality=" << static_cast<int>(quality) << ")\n";
-	return result;
+Interval Interval::fromSemitones(int semitones) {
+    // Map semitones to quality and number
+    Quality quality;
+    Number number;
+    
+    switch (semitones) {
+        case 0:  // Perfect unison
+            quality = Quality::Perfect;
+            number = Number::Unison;
+            break;
+        case 1:  // Minor second
+            quality = Quality::Minor;
+            number = Number::Second;
+            break;
+        case 2:  // Major second
+            quality = Quality::Major;
+            number = Number::Second;
+            break;
+        case 3:  // Minor third
+            quality = Quality::Minor;
+            number = Number::Third;
+            break;
+        case 4:  // Major third
+            quality = Quality::Major;
+            number = Number::Third;
+            break;
+        case 5:  // Perfect fourth
+            quality = Quality::Perfect;
+            number = Number::Fourth;
+            break;
+        case 7:  // Perfect fifth
+            quality = Quality::Perfect;
+            number = Number::Fifth;
+            break;
+        case 8:  // Minor sixth
+            quality = Quality::Minor;
+            number = Number::Sixth;
+            break;
+        case 9:  // Major sixth
+            quality = Quality::Major;
+            number = Number::Sixth;
+            break;
+        case 10: // Minor seventh
+            quality = Quality::Minor;
+            number = Number::Seventh;
+            break;
+        case 11: // Major seventh
+            quality = Quality::Major;
+            number = Number::Seventh;
+            break;
+        case 12: // Perfect octave
+            quality = Quality::Perfect;
+            number = Number::Octave;
+            break;
+        default:
+            throw std::invalid_argument("Unsupported interval size");
+    }
+    
+    return Interval(quality, number, semitones);
 }
 
-bool Interval::isPerfectNumber(IntervalNumber num) {
-	return num == IntervalNumber::UNISON || num == IntervalNumber::FOURTH || 
-		   num == IntervalNumber::FIFTH || num == IntervalNumber::OCTAVE;
-}
-
-Interval::Interval(IntervalNumber number, IntervalQuality quality) 
-	: number(number), quality(quality) {}
-
-int8_t Interval::getSemitones() const {
-	static const int8_t perfectIntervals[] = {0, 2, 4, 5, 7, 9, 11, 12};
-	int8_t base = perfectIntervals[static_cast<int>(number) - 1];
-	
-	switch (quality) {
-		case IntervalQuality::DIMINISHED: return base - 1;
-		case IntervalQuality::MINOR: return base - 1;
-		case IntervalQuality::PERFECT: return base;
-		case IntervalQuality::MAJOR: return base;
-		case IntervalQuality::AUGMENTED: return base + 1;
-		default: return base;
-	}
-}
-
-bool Interval::isPerfect() const {
-	switch (number) {
-		case IntervalNumber::UNISON:
-		case IntervalNumber::FOURTH:
-		case IntervalNumber::FIFTH:
-		case IntervalNumber::OCTAVE:
-			return true;
-		default:
-			return false;
-	}
+Interval Interval::fromQualityAndNumber(Quality quality, Number number) {
+    int semitones;
+    
+    // Base intervals in semitones for perfect/major intervals
+    switch (number) {
+        case Number::Unison:
+            semitones = 0;
+            break;
+        case Number::Second:
+            semitones = 2;
+            break;
+        case Number::Third:
+            semitones = 4;
+            break;
+        case Number::Fourth:
+            semitones = 5;
+            break;
+        case Number::Fifth:
+            semitones = 7;
+            break;
+        case Number::Sixth:
+            semitones = 9;
+            break;
+        case Number::Seventh:
+            semitones = 11;
+            break;
+        case Number::Octave:
+            semitones = 12;
+            break;
+        default:
+            throw std::invalid_argument("Invalid interval number");
+    }
+    
+    // Adjust semitones based on quality
+    switch (quality) {
+        case Quality::Perfect:
+            // No adjustment needed for perfect intervals
+            break;
+        case Quality::Major:
+            // No adjustment needed for major intervals
+            break;
+        case Quality::Minor:
+            semitones--;
+            break;
+        case Quality::Augmented:
+            semitones++;
+            break;
+        case Quality::Diminished:
+            semitones--;
+            break;
+    }
+    
+    return Interval(quality, number, semitones);
 }
 
 std::string Interval::toString() const {
-	std::string result;
-	switch (quality) {
-		case IntervalQuality::DIMINISHED: result = "d"; break;
-		case IntervalQuality::MINOR: result = "m"; break;
-		case IntervalQuality::PERFECT: result = "P"; break;
-		case IntervalQuality::MAJOR: result = "M"; break;
-		case IntervalQuality::AUGMENTED: result = "A"; break;
-	}
-	result += std::to_string(static_cast<int>(number));
-	return result;
+    std::string qualityStr;
+    switch (m_quality) {
+        case Quality::Perfect:
+            qualityStr = "P";
+            break;
+        case Quality::Major:
+            qualityStr = "M";
+            break;
+        case Quality::Minor:
+            qualityStr = "m";
+            break;
+        case Quality::Augmented:
+            qualityStr = "A";
+            break;
+        case Quality::Diminished:
+            qualityStr = "d";
+            break;
+    }
+    
+    return qualityStr + std::to_string(static_cast<int>(m_number));
 }
 
 bool Interval::operator==(const Interval& other) const {
-	return number == other.number && quality == other.quality;
+    return m_quality == other.m_quality && 
+           m_number == other.m_number && 
+           m_semitones == other.m_semitones;
 }
 
 bool Interval::operator!=(const Interval& other) const {
-	return !(*this == other);
+    return !(*this == other);
 }
 
 bool Interval::operator<(const Interval& other) const {
-	return getSemitones() < other.getSemitones();
+    return m_semitones < other.m_semitones;
 }
 
 } // namespace music
+} // namespace MusicTrainer

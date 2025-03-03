@@ -7,43 +7,75 @@
 
 using namespace MusicTrainer;
 
-
 namespace music::adapters {
 
 std::unique_ptr<RtMidiAdapter> RtMidiAdapter::create(size_t portNumber) {
-	return std::unique_ptr<RtMidiAdapter>(new RtMidiAdapter(portNumber));
+    try {
+        return std::unique_ptr<RtMidiAdapter>(new RtMidiAdapter(portNumber));
+    } catch (const std::exception& e) {
+        std::cerr << "Failed to create RtMidiAdapter: " << e.what() << std::endl;
+        return nullptr;
+    }
 }
 
 RtMidiAdapter::RtMidiAdapter(size_t portNumber) : portNumber(portNumber) {
-	try {
-		// Try to create MIDI objects with specific API
-		#ifdef __linux__
-			// Try ALSA first as it's required
-			midiIn = std::make_unique<RtMidiIn>(RtMidi::LINUX_ALSA);
-			midiOut = std::make_unique<RtMidiOut>(RtMidi::LINUX_ALSA);
-			
-			#ifndef RTMIDI_NO_JACK
-			// Only try JACK if it's available
-			try {
-				auto jackIn = std::make_unique<RtMidiIn>(RtMidi::UNIX_JACK);
-				auto jackOut = std::make_unique<RtMidiOut>(RtMidi::UNIX_JACK);
-				// If JACK initialization succeeded, use it instead
-				midiIn = std::move(jackIn);
-				midiOut = std::move(jackOut);
-			} catch (RtMidiError& e) {
-				// JACK not available, stick with ALSA
-			}
-			#endif
-		#else
-			midiIn = std::make_unique<RtMidiIn>();
-			midiOut = std::make_unique<RtMidiOut>();
-		#endif
-	} catch (RtMidiError& error) {
-		handleError(error.getType(), error.getMessage(), this);
-	}
+    bool initSuccess = false;
+    std::string errorMsg;
+
+    try {
+        #ifdef __linux__
+            // Try ALSA first as it's required
+            try {
+                midiIn = std::make_unique<RtMidiIn>(RtMidi::LINUX_ALSA);
+                midiOut = std::make_unique<RtMidiOut>(RtMidi::LINUX_ALSA);
+                initSuccess = true;
+            } catch (RtMidiError& e) {
+                errorMsg = "ALSA initialization failed: " + e.getMessage();
+            }
+
+            #ifndef RTMIDI_NO_JACK
+            // Only try JACK if ALSA failed or if we want to prefer JACK
+            if (!initSuccess || getenv("MUSICTRAINER_PREFER_JACK")) {
+                try {
+                    auto jackIn = std::make_unique<RtMidiIn>(RtMidi::UNIX_JACK);
+                    auto jackOut = std::make_unique<RtMidiOut>(RtMidi::UNIX_JACK);
+                    // If JACK initialization succeeded, use it
+                    midiIn = std::move(jackIn);
+                    midiOut = std::move(jackOut);
+                    initSuccess = true;
+                    errorMsg.clear();
+                } catch (RtMidiError& e) {
+                    if (!initSuccess) {
+                        errorMsg += "\nJACK initialization failed: " + e.getMessage();
+                    }
+                }
+            }
+            #endif
+        #else
+            try {
+                midiIn = std::make_unique<RtMidiIn>();
+                midiOut = std::make_unique<RtMidiOut>();
+                initSuccess = true;
+            } catch (RtMidiError& e) {
+                errorMsg = "MIDI initialization failed: " + e.getMessage();
+            }
+        #endif
+
+        if (!initSuccess) {
+            throw std::runtime_error("Failed to initialize MIDI: " + errorMsg);
+        }
+
+        // Set initial error callbacks
+        if (midiIn) midiIn->setErrorCallback(&RtMidiAdapter::handleError, this);
+        if (midiOut) midiOut->setErrorCallback(&RtMidiAdapter::handleError, this);
+
+    } catch (const std::exception& e) {
+        // Clean up on failure
+        midiIn.reset();
+        midiOut.reset();
+        throw;
+    }
 }
-
-
 
 RtMidiAdapter::~RtMidiAdapter() {
 	close();
@@ -86,7 +118,6 @@ bool RtMidiAdapter::open() {
 	return false;
 }
 
-
 void RtMidiAdapter::close() {
 	stopProcessing();
 	if (midiIn) midiIn->closePort();
@@ -115,8 +146,6 @@ void RtMidiAdapter::processEvents() {
 	}
 }
 
-
-
 bool RtMidiAdapter::isOpen() const {
 	return isRunning.load(std::memory_order_acquire) && midiIn && midiOut;
 }
@@ -131,11 +160,9 @@ void RtMidiAdapter::sendEvent(const ports::MidiEvent& event) {
 	}
 }
 
-
 void RtMidiAdapter::setEventCallback(std::function<void(const ports::MidiEvent&)> callback) {
 	eventCallback = std::move(callback);
 }
-
 
 void RtMidiAdapter::handleError(RtMidiError::Type type, const std::string& errorText, void* userData) {
 	auto* adapter = static_cast<RtMidiAdapter*>(userData);
@@ -179,7 +206,6 @@ void RtMidiAdapter::handleError(RtMidiError::Type type, const std::string& error
 	HANDLE_ERROR(error);
 }
 
-
 void RtMidiAdapter::staticCallback(double timestamp, std::vector<unsigned char>* message, void* userData) {
 	auto* adapter = static_cast<RtMidiAdapter*>(userData);
 	if (adapter) {
@@ -199,8 +225,6 @@ void RtMidiAdapter::processMessage(double timestamp, std::vector<unsigned char>*
 		std::chrono::system_clock::now().time_since_epoch().count(),
 		std::memory_order_release);
 }
-
-
 
 ports::MidiPortMetrics RtMidiAdapter::getMetrics() const {
 	ports::MidiPortMetrics result;
@@ -222,6 +246,22 @@ void RtMidiAdapter::resetMetrics() {
 	metrics.lastEventTime.store(
 		std::chrono::system_clock::now().time_since_epoch().count(),
 		std::memory_order_release);
+}
+
+std::vector<std::string> RtMidiAdapter::getAvailableOutputs() const {
+    std::vector<std::string> outputs;
+    if (!midiOut) return outputs;
+    
+    try {
+        unsigned int portCount = midiOut->getPortCount();
+        for (unsigned int i = 0; i < portCount; ++i) {
+            outputs.push_back(midiOut->getPortName(i));
+        }
+    } catch (RtMidiError& error) {
+        handleError(error.getType(), error.getMessage(), const_cast<RtMidiAdapter*>(this));
+    }
+    
+    return outputs;
 }
 
 } // namespace music::adapters

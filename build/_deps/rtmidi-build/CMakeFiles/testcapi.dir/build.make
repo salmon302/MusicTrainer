@@ -69,10 +69,31 @@ include _deps/rtmidi-build/CMakeFiles/testcapi.dir/progress.make
 # Include the compile flags for this target's objects.
 include _deps/rtmidi-build/CMakeFiles/testcapi.dir/flags.make
 
+_deps/rtmidi-build/testcapi_autogen/timestamp: /usr/lib/qt6/libexec/moc
+_deps/rtmidi-build/testcapi_autogen/timestamp: /usr/lib/qt6/libexec/uic
+_deps/rtmidi-build/testcapi_autogen/timestamp: _deps/rtmidi-build/CMakeFiles/testcapi.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target testcapi"
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build && /usr/bin/cmake -E cmake_autogen /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build/CMakeFiles/testcapi_autogen.dir/AutogenInfo.json ""
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build && /usr/bin/cmake -E touch /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build/testcapi_autogen/timestamp
+
+_deps/rtmidi-build/CMakeFiles/testcapi.dir/testcapi_autogen/mocs_compilation.cpp.o: _deps/rtmidi-build/CMakeFiles/testcapi.dir/flags.make
+_deps/rtmidi-build/CMakeFiles/testcapi.dir/testcapi_autogen/mocs_compilation.cpp.o: _deps/rtmidi-build/testcapi_autogen/mocs_compilation.cpp
+_deps/rtmidi-build/CMakeFiles/testcapi.dir/testcapi_autogen/mocs_compilation.cpp.o: _deps/rtmidi-build/CMakeFiles/testcapi.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object _deps/rtmidi-build/CMakeFiles/testcapi.dir/testcapi_autogen/mocs_compilation.cpp.o"
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT _deps/rtmidi-build/CMakeFiles/testcapi.dir/testcapi_autogen/mocs_compilation.cpp.o -MF CMakeFiles/testcapi.dir/testcapi_autogen/mocs_compilation.cpp.o.d -o CMakeFiles/testcapi.dir/testcapi_autogen/mocs_compilation.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build/testcapi_autogen/mocs_compilation.cpp
+
+_deps/rtmidi-build/CMakeFiles/testcapi.dir/testcapi_autogen/mocs_compilation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/testcapi.dir/testcapi_autogen/mocs_compilation.cpp.i"
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build/testcapi_autogen/mocs_compilation.cpp > CMakeFiles/testcapi.dir/testcapi_autogen/mocs_compilation.cpp.i
+
+_deps/rtmidi-build/CMakeFiles/testcapi.dir/testcapi_autogen/mocs_compilation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/testcapi.dir/testcapi_autogen/mocs_compilation.cpp.s"
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build/testcapi_autogen/mocs_compilation.cpp -o CMakeFiles/testcapi.dir/testcapi_autogen/mocs_compilation.cpp.s
+
 _deps/rtmidi-build/CMakeFiles/testcapi.dir/tests/testcapi.c.o: _deps/rtmidi-build/CMakeFiles/testcapi.dir/flags.make
 _deps/rtmidi-build/CMakeFiles/testcapi.dir/tests/testcapi.c.o: _deps/rtmidi-src/tests/testcapi.c
 _deps/rtmidi-build/CMakeFiles/testcapi.dir/tests/testcapi.c.o: _deps/rtmidi-build/CMakeFiles/testcapi.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object _deps/rtmidi-build/CMakeFiles/testcapi.dir/tests/testcapi.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object _deps/rtmidi-build/CMakeFiles/testcapi.dir/tests/testcapi.c.o"
 	cd /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT _deps/rtmidi-build/CMakeFiles/testcapi.dir/tests/testcapi.c.o -MF CMakeFiles/testcapi.dir/tests/testcapi.c.o.d -o CMakeFiles/testcapi.dir/tests/testcapi.c.o -c /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-src/tests/testcapi.c
 
 _deps/rtmidi-build/CMakeFiles/testcapi.dir/tests/testcapi.c.i: cmake_force
@@ -85,16 +106,18 @@ _deps/rtmidi-build/CMakeFiles/testcapi.dir/tests/testcapi.c.s: cmake_force
 
 # Object files for target testcapi
 testcapi_OBJECTS = \
+"CMakeFiles/testcapi.dir/testcapi_autogen/mocs_compilation.cpp.o" \
 "CMakeFiles/testcapi.dir/tests/testcapi.c.o"
 
 # External object files for target testcapi
 testcapi_EXTERNAL_OBJECTS =
 
+_deps/rtmidi-build/tests/testcapi: _deps/rtmidi-build/CMakeFiles/testcapi.dir/testcapi_autogen/mocs_compilation.cpp.o
 _deps/rtmidi-build/tests/testcapi: _deps/rtmidi-build/CMakeFiles/testcapi.dir/tests/testcapi.c.o
 _deps/rtmidi-build/tests/testcapi: _deps/rtmidi-build/CMakeFiles/testcapi.dir/build.make
 _deps/rtmidi-build/tests/testcapi: _deps/rtmidi-build/librtmidi.so.6.0.0
 _deps/rtmidi-build/tests/testcapi: _deps/rtmidi-build/CMakeFiles/testcapi.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable tests/testcapi"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable tests/testcapi"
 	cd /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/testcapi.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -105,7 +128,7 @@ _deps/rtmidi-build/CMakeFiles/testcapi.dir/clean:
 	cd /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build && $(CMAKE_COMMAND) -P CMakeFiles/testcapi.dir/cmake_clean.cmake
 .PHONY : _deps/rtmidi-build/CMakeFiles/testcapi.dir/clean
 
-_deps/rtmidi-build/CMakeFiles/testcapi.dir/depend:
+_deps/rtmidi-build/CMakeFiles/testcapi.dir/depend: _deps/rtmidi-build/testcapi_autogen/timestamp
 	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/seth-n/Documents/GitHub/MusicTrainer /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-src /home/seth-n/Documents/GitHub/MusicTrainer/build /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build/CMakeFiles/testcapi.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : _deps/rtmidi-build/CMakeFiles/testcapi.dir/depend
 

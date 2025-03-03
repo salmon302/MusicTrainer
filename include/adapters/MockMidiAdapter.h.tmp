@@ -47,13 +47,13 @@ private:
 		EventWithPriority(ports::MidiEvent e, int p, size_t s) 
 			: event(std::move(e)), priority(p), sequence(s) {}
 		
-		// For priority queue, lower values have lower priority and come later
+		 // Updated ordering: lower numeric priority => higher processing priority;
+		 // For equal priority, earlier sequence is higher priority.
 		bool operator<(const EventWithPriority& other) const {
-			// Return true if this.priority is less than other.priority
 			if (priority != other.priority) {
-				return priority < other.priority;  // Higher priority (3) will come before lower priority (1)
+				return priority > other.priority; // Lower numeric priority (e.g., 0 for NOTE_ON) is now considered higher priority
 			}
-			return sequence > other.sequence;  // Earlier sequence comes first for same priority
+			return sequence > other.sequence;
 		}
 	};
 	

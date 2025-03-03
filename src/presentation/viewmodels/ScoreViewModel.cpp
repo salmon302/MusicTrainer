@@ -1,0 +1,161 @@
+#include "presentation/viewmodels/ScoreViewModel.h"
+#include "domain/music/Score.h"
+#include "domain/music/Voice.h"
+#include "domain/music/Note.h"
+#include "domain/music/Pitch.h"
+#include "domain/music/Duration.h"
+#include <QDebug>
+
+// Import the music namespace to match the header
+using music::Voice;
+using music::Note;
+using music::Score;
+using music::Pitch;
+using music::Duration;
+
+namespace MusicTrainer::presentation::viewmodels {
+
+ScoreViewModel::ScoreViewModel(QObject* parent)
+    : QObject(parent)
+    , m_score(nullptr)
+    , m_isDirty(false)
+{
+}
+
+ScoreViewModel::~ScoreViewModel() = default;
+
+void ScoreViewModel::setScore(std::shared_ptr<Score> score)
+{
+    if (m_score == score) {
+        return;
+    }
+    
+    // Disconnect from old score if it exists
+    if (m_score) {
+        // In a complete implementation, we would disconnect signal/slot connections
+        // to the old score here
+    }
+    
+    m_score = score;
+    m_isDirty = false;
+    
+    // Connect to new score
+    if (m_score) {
+        // In a complete implementation, we would connect to the score's events
+        // (e.g., note added, note removed) to update the UI
+    }
+    
+    // Notify that the score has changed
+    emit scoreChanged();
+}
+
+std::shared_ptr<Score> ScoreViewModel::getScore() const
+{
+    return m_score;
+}
+
+void ScoreViewModel::addNote(int voiceIndex, int pitch, double duration, int position)
+{
+    if (!m_score) {
+        return;
+    }
+    
+    // Make sure we have enough voices
+    while (getVoiceCount() <= voiceIndex) {
+        addVoice();
+    }
+    
+    try {
+        // Create the note directly with int pitch and double duration
+        Note note(pitch, duration);
+        
+        // Add the note to the voice in the future implementation
+        // m_score->getVoice(voiceIndex)->addNote(note);
+        
+        m_isDirty = true;
+        
+        // Emit signal that a note was added
+        emit noteAdded(voiceIndex, note);
+    } catch (const std::exception& e) {
+        // Handle exceptions from domain model
+        qWarning("Failed to add note: %s", e.what());
+    }
+}
+
+void ScoreViewModel::removeNote(int voiceIndex, int position)
+{
+    if (!m_score || voiceIndex >= getVoiceCount()) {
+        return;
+    }
+    
+    try {
+        // Remove the note from the voice in the future implementation
+        // m_score->getVoice(voiceIndex)->removeNote(position);
+        
+        m_isDirty = true;
+        
+        // Emit signal that a note was removed
+        emit noteRemoved(voiceIndex, position);
+    } catch (const std::exception& e) {
+        // Handle exceptions from domain model
+        qWarning("Failed to remove note: %s", e.what());
+    }
+}
+
+void ScoreViewModel::addVoice()
+{
+    if (!m_score) {
+        return;
+    }
+    
+    try {
+        // Create and add a voice to the score in the future implementation
+        // auto voice = Voice::create(m_score->getTimeSignature());
+        // m_score->addVoice(std::move(voice));
+        
+        m_isDirty = true;
+        
+        // Emit signal that a voice was added
+        // emit voiceAdded(*voice);
+    } catch (const std::exception& e) {
+        // Handle exceptions from domain model
+        qWarning("Failed to add voice: %s", e.what());
+    }
+}
+
+void ScoreViewModel::removeVoice(int voiceIndex)
+{
+    if (!m_score || voiceIndex >= getVoiceCount()) {
+        return;
+    }
+    
+    try {
+        // Remove the voice from the score in the future implementation
+        // m_score->removeVoice(voiceIndex);
+        
+        m_isDirty = true;
+        
+        // Emit signal that a voice was removed
+        emit voiceRemoved(voiceIndex);
+    } catch (const std::exception& e) {
+        // Handle exceptions from domain model
+        qWarning("Failed to remove voice: %s", e.what());
+    }
+}
+
+int ScoreViewModel::getVoiceCount() const
+{
+    if (!m_score) {
+        return 0;
+    }
+    
+    // Return the number of voices in the score
+    return m_score->getVoiceCount();
+}
+
+bool ScoreViewModel::isDirty() const
+{
+    return m_isDirty;
+}
+
+} // namespace MusicTrainer::presentation::viewmodels

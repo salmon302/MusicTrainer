@@ -1,107 +1,114 @@
 #include "domain/rules/VoiceLeadingRule.h"
-#include "domain/music/Interval.h"
 #include "domain/music/Score.h"
 #include "domain/music/Voice.h"
-#include <sstream>
-#include <cstdlib>
+#include "domain/music/Interval.h"
+#include "domain/music/Pitch.h"
 #include <iostream>
-#include <vector>
 
-namespace music::rules {
+namespace MusicTrainer {
+namespace music {
+namespace rules {
 
-std::unique_ptr<VoiceLeadingRule> VoiceLeadingRule::create(int maxLeapSize) {
-	return std::unique_ptr<VoiceLeadingRule>(new VoiceLeadingRule(maxLeapSize));
+std::unique_ptr<VoiceLeadingRule> VoiceLeadingRule::create() {
+    return std::unique_ptr<VoiceLeadingRule>(new VoiceLeadingRule());
 }
 
-VoiceLeadingRule::VoiceLeadingRule(int maxLeapSize) : maxLeapSize(maxLeapSize) {}
+VoiceLeadingRule::VoiceLeadingRule() : violationDescription() {}
 
-bool VoiceLeadingRule::evaluate(const Score& score) const {
-	return evaluateIncremental(score, 0, score.getMeasureCount());
+VoiceLeadingRule::VoiceLeadingRule(const std::string& initialViolation)
+    : violationDescription(initialViolation) {}
+
+bool VoiceLeadingRule::evaluate(const Score& score) {
+    return evaluateIncremental(score, 0, score.getMeasureCount());
 }
 
-bool VoiceLeadingRule::evaluateIncremental(const Score& score, size_t startMeasure, size_t endMeasure) const {
-	try {
-		const size_t MAX_ITERATIONS = 1000;
-		size_t iterationCount = 0;
-		
-		size_t voiceCount = score.getVoiceCount();
+bool VoiceLeadingRule::evaluateIncremental(
+    const Score& score,
+    size_t startMeasure,
+    size_t endMeasure) const {
+    
+    clearViolationDescription();
+    
+    size_t voiceCount = score.getVoiceCount();
+    if (voiceCount < 1) {
+        return true; // No voice leading issues possible with less than 1 voice
+    }
 
-		// Check for large leaps in each voice
-		for (size_t i = 0; i < voiceCount && iterationCount < MAX_ITERATIONS; ++i) {
-			const Voice* voice = score.getVoice(i);
-			if (!voice) continue;
-			
-			auto notes = voice->getNotesInRange(startMeasure, endMeasure);
-			if (notes.size() < 2) continue;
-			
-			// Check consecutive notes for large leaps
-			for (size_t j = 0; j < notes.size() - 1 && iterationCount < MAX_ITERATIONS; ++j) {
-				iterationCount++;
-				int leap = std::abs(notes[j+1].pitch.getMidiNote() - notes[j].pitch.getMidiNote());
-				if (leap > maxLeapSize) {
-					std::stringstream ss;
-					ss << "voice leading warning: large leap of " << leap 
-					   << " semitones detected between " << notes[j].pitch.toString() 
-					   << " and " << notes[j+1].pitch.toString()
-					   << " (max allowed: " << maxLeapSize << ")";
-					setViolationDescription(ss.str());
-					return false;
-				}
-			}
-		}
-		
-		// Check for voice crossing if we have at least 2 voices
-		if (voiceCount >= 2) {
-			for (size_t i = 0; i < voiceCount - 1 && iterationCount < MAX_ITERATIONS; ++i) {
-				const Voice* upperVoice = score.getVoice(i);
-				const Voice* lowerVoice = score.getVoice(i + 1);
-				if (!upperVoice || !lowerVoice) continue;
-				
-				auto upperNotes = upperVoice->getNotesInRange(startMeasure, endMeasure);
-				auto lowerNotes = lowerVoice->getNotesInRange(startMeasure, endMeasure);
-				
-				// Check each pair of notes for voice crossing
-				for (size_t j = 0; j < std::min(upperNotes.size(), lowerNotes.size()) && iterationCount < MAX_ITERATIONS; ++j) {
-					iterationCount++;
-					if (upperNotes[j].pitch.getMidiNote() < lowerNotes[j].pitch.getMidiNote()) {
-						std::stringstream ss;
-						ss << "voice crossing detected at measure " << startMeasure 
-						   << ": " << upperNotes[j].pitch.toString() 
-						   << " is below " << lowerNotes[j].pitch.toString();
-						setViolationDescription(ss.str());
-						return false;
-					}
-				}
-			}
-		}
-		
-		// Safety exit
-		if (iterationCount >= MAX_ITERATIONS) {
-			setViolationDescription("Maximum iteration limit reached during voice leading check");
-			return false;
-		}
-		
-		clearViolationDescription();
-		return true;
-	} catch (const std::exception& e) {
-		std::cerr << "[VoiceLeadingRule] Error during evaluation: " << e.what() << std::endl;
-		setViolationDescription("Error during voice leading check: " + std::string(e.what()));
-		return false;
-	}
+    // Check each voice for voice leading within itself
+    for (size_t i = 0; i < voiceCount; ++i) {
+        const Voice* voice = score.getVoice(i);
+        if (!voice) continue;
+
+        auto notes = voice->getNotesInRange(startMeasure, endMeasure);
+        if (notes.size() < 2) continue;
+
+        // Check for melodic intervals larger than an octave
+        for (size_t k = 0; k < notes.size() - 1; ++k) {
+            // Skip if notes don't immediately follow each other
+            if (notes[k].getPosition() + notes[k].getDuration() != notes[k+1].getPosition()) {
+                continue;
+            }
+
+            Interval interval = Interval::fromPitches(notes[k].getPitch(), notes[k+1].getPitch());
+            int semitones = std::abs(interval.getSemitones());
+
+            if (semitones > 12) { // More than an octave
+                std::string desc = "Voice " + std::to_string(i) + 
+                                 " has a melodic interval larger than an octave at measure " +
+                                 std::to_string(startMeasure + k);
+                setViolationDescription(desc);
+                return false;
+            }
+        }
+    }
+
+    // Check voice crossing between pairs of voices
+    for (size_t i = 0; i < voiceCount - 1; ++i) {
+        const Voice* upperVoice = score.getVoice(i);
+        if (!upperVoice) continue;
+
+        auto upperNotes = upperVoice->getNotesInRange(startMeasure, endMeasure);
+        if (upperNotes.empty()) continue;
+
+        for (size_t j = i + 1; j < voiceCount; ++j) {
+            const Voice* lowerVoice = score.getVoice(j);
+            if (!lowerVoice) continue;
+
+            auto lowerNotes = lowerVoice->getNotesInRange(startMeasure, endMeasure);
+            if (lowerNotes.empty()) continue;
+
+            // Check for voice crossing at each position where both voices have notes
+            for (size_t k = 0; k < std::min(upperNotes.size(), lowerNotes.size()); ++k) {
+                if (upperNotes[k].getPosition() != lowerNotes[k].getPosition()) continue;
+
+                // Compare pitches - lower voice should not be higher than upper voice
+                if (lowerNotes[k].getPitch() > upperNotes[k].getPitch()) {
+                    std::string desc = "Voice crossing detected between voices " +
+                                     std::to_string(i) + " and " + std::to_string(j) +
+                                     " at measure " + std::to_string(startMeasure + k);
+                    setViolationDescription(desc);
+                    return false;
+                }
+            }
+        }
+    }
+    
+    return true;
 }
 
 std::string VoiceLeadingRule::getViolationDescription() const {
-	return violationDescription;
+    return violationDescription;
 }
 
-
 std::string VoiceLeadingRule::getName() const {
-	return "Voice Leading Rule";
+    return "Voice Leading Rule";
 }
 
 std::unique_ptr<Rule> VoiceLeadingRule::clone() const {
-	return create(maxLeapSize);
+    return std::unique_ptr<Rule>(new VoiceLeadingRule(violationDescription));
 }
 
-} // namespace music::rules
+} // namespace rules
+} // namespace music
+} // namespace MusicTrainer
 

@@ -1,0 +1,1 @@
+/usr/bin/c++  -pthread -Wall -Werror -g CMakeFiles/sysextest.dir/sysextest_autogen/mocs_compilation.cpp.o CMakeFiles/sysextest.dir/tests/sysextest.cpp.o -o tests/sysextest  -Wl,-rpath,/home/seth-n/Documents/GitHub/MusicTrainer/_deps/rtmidi-build librtmidi.so.6.0.0 

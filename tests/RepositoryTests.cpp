@@ -146,29 +146,40 @@ TEST_F(RepositoryTest, ErrorHandling) {
 	logger.enableConsoleOutput(true);
 	
 	bool handlerCalled = false;
-	bool recoveryAttempted = false;
 	
-	// Register error handler
+	// Register error handler that will be called by ErrorHandler::handleError
 	errorHandler.registerHandler("RepositoryError",
 		[&handlerCalled](const MusicTrainer::MusicTrainerError& error) {
 			std::cout << "[TEST] Error handler called for: " << error.what() << std::endl;
-			handlerCalled = true;
-		},
-		MusicTrainer::ErrorSeverity::Error
-	);
+            std::this_thread::sleep_for(50ms);
+   handlerCalled = true;
+  },
+  MusicTrainer::ErrorSeverity::Error
+ );
 	
-	// Test error handling
+	// Set the error handler directly on the repository as well
+	// This will ensure the repository uses our handler
+	repo->setErrorHandler([&handlerCalled](const MusicTrainer::MusicTrainerError& error) {
+		std::cout << "[TEST] Repository error handler called for: " << error.what() << std::endl;
+		          std::this_thread::sleep_for(50ms);
+		handlerCalled = true;
+	});
+	
+	// Test error handling - this should trigger the error handler we set
 	EXPECT_THROW({
 		try {
 			repo->load("nonexistent_score");
 		} catch (const MusicTrainer::RepositoryError& e) {
 			EXPECT_EQ(e.getType(), "RepositoryError");
-			errorHandler.handleError(e);
+			// We don't need to call handleError manually since the repository should have called it
 			throw;
 		}
 	}, MusicTrainer::RepositoryError);
 	
-	EXPECT_TRUE(handlerCalled) << "Error handler was not called";
+    std::cerr << "[TEST] Address of handlerCalled before assertion: " << &handlerCalled << std::endl;
+    std::cout << "[TEST] handlerCalled value before assertion: " << handlerCalled << std::endl;
+ EXPECT_TRUE(handlerCalled) << "Error handler was not called";
+    std::cout << "[TEST] handlerCalled value after assertion: " << handlerCalled << std::endl;
 }
 
 

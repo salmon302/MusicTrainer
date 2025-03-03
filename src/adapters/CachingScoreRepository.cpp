@@ -43,6 +43,7 @@ std::unique_ptr<Score> CachingScoreRepository::load(const std::string& name) {
 	
 	try {
 		std::cout << "[Cache] Loading from base repository" << std::endl;
+        std::cerr << "[Cache] setErrorHandler called. Address of errorHandler: " << &errorHandler << std::endl;
 		auto result = baseRepository->load(name);
 		if (result) {
 			updateCache(name, [&](auto& cache) {
@@ -58,7 +59,27 @@ std::unique_ptr<Score> CachingScoreRepository::load(const std::string& name) {
 		std::cerr << "[Cache] Error loading from base repository: " << e.what() << std::endl;
 		MusicTrainer::ErrorContext context(__FILE__, __LINE__, __FUNCTION__,
 										  "name: " + name + ", operation: load");
-		throw MusicTrainer::RepositoryError("Failed to load score from repository: " + std::string(e.what()), context);
+		// Attempt recovery if strategy exists
+        if (recoveryStrategy) {
+            std::cout << "[Cache] Calling recovery strategy" << std::endl;
+
+            auto result = recoveryStrategy(e);
+            if (result.success()) {
+                // Call the registered error handler if available to notify about the error that was recovered
+                if (errorHandler) {
+                    std::cout << "[Cache] Calling error handler after successful recovery" << std::endl;
+                    errorHandler(e);
+                }
+                return std::move(result.score);
+            }
+        }
+        // If recovery fails, also notify the error handler before rethrowing
+        if (errorHandler) {
+            std::cout << "[Cache] Calling error handler after failed recovery/no strategy" << std::endl;
+            std::cerr << "[Cache] Error handler called. Address of errorHandler: " << &errorHandler << std::endl;
+            errorHandler(e);
+        }
+        throw MusicTrainer::RepositoryError("Failed to load score from repository: " + std::string(e.what()), context);
 	}
 }
 
@@ -113,6 +134,6 @@ bool CachingScoreRepository::isExpired(const CacheEntry& entry) const {
 	return age.count() > cacheTimeout.load(std::memory_order_acquire);
 }
 
+CachingScoreRepository::~CachingScoreRepository() = default;
+
 } // namespace music::adapters
-
-

@@ -1,1 +1,1 @@
-/usr/bin/c++  -pthread -Wall CMakeFiles/apinames.dir/tests/apinames.cpp.o -o tests/apinames  -Wl,-rpath,/home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build librtmidi.so.6.0.0 
+/usr/bin/c++  -pthread -Wall CMakeFiles/apinames.dir/apinames_autogen/mocs_compilation.cpp.o CMakeFiles/apinames.dir/tests/apinames.cpp.o -o tests/apinames  -Wl,-rpath,/home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build librtmidi.so.6.0.0 

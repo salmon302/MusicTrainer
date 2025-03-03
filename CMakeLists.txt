@@ -3,6 +3,31 @@ project(MusicTrainerV3)
 
 set(CMAKE_CXX_STANDARD 17)
 
+# Add a global compile definition to fix RtMidi namespace conflicts
+# These need to be set before any targets are defined
+add_definitions(-DRTMIDI_DO_NOT_ENSURE_UNIQUE_PORTNAMES)
+
+# Add Qt6 support
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_AUTOUIC ON)
+
+# Make Qt6 optional - first try Qt6, then fall back to Qt5 if needed
+find_package(Qt6 COMPONENTS Core Widgets Charts QUIET)
+if(NOT Qt6_FOUND)
+    message(STATUS "Qt6 not found, trying Qt5...")
+    find_package(Qt5 COMPONENTS Core Widgets Charts QUIET)
+    if(Qt5_FOUND)
+        message(STATUS "Qt5 found, using as fallback.")
+        set(QT_VERSION_MAJOR 5)
+    else()
+        message(WARNING "Neither Qt6 nor Qt5 found. GUI applications will not be built.")
+    endif()
+else()
+    message(STATUS "Qt6 found.")
+    set(QT_VERSION_MAJOR 6)
+endif()
+
 # Linux-specific configuration
 if(UNIX AND NOT APPLE)
 	# ALSA is required for Linux
@@ -25,8 +50,6 @@ if(UNIX AND NOT APPLE)
 	endif()
 endif()
 
-
-
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
@@ -46,6 +69,39 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(rtmidi)
 
+# Apply patch to RtMidi if patch file exists
+#if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/patches/rtmidi_fix.patch")
+#    message(STATUS "Applying rt-midi fix patch...")
+#    # Modify to apply patch with the correct path to RtMidi.cpp
+#    execute_process(
+#        COMMAND patch -p0 -i "${CMAKE_CURRENT_SOURCE_DIR}/patches/rtmidi_fix.patch"
+#        WORKING_DIRECTORY ${rtmidi_SOURCE_DIR}
+#        RESULT_VARIABLE patch_result
+#        ERROR_VARIABLE patch_error
+#        OUTPUT_VARIABLE patch_output
+#    )
+#    if(NOT patch_result EQUAL 0)
+#        message(STATUS "Patch output: ${patch_output}")
+#        message(STATUS "Patch error: ${patch_error}")
+#        message(STATUS "Trying alternative patch location...")
+#        # Try to find the file and patch it directly
+#        file(GLOB_RECURSE rtmidi_files ${rtmidi_SOURCE_DIR}/RtMidi.cpp)
+#        if(rtmidi_files)
+#            list(GET rtmidi_files 0 rtmidi_file)
+#            get_filename_component(rtmidi_dir ${rtmidi_file} DIRECTORY)
+#            execute_process(
+#                COMMAND patch -p0 -i "${CMAKE_CURRENT_SOURCE_DIR}/patches/rtmidi_fix.patch"
+#                WORKING_DIRECTORY ${rtmidi_dir}
+#                RESULT_VARIABLE patch_result
+#            )
+#            if(NOT patch_result EQUAL 0)
+#                message(WARNING "Failed to apply rt-midi patch, continuing without the patch")
+#            endif()
+#        else()
+#            message(WARNING "RtMidi.cpp not found, continuing without the patch")
+#        endif()
+#    endif()
+#endif()
 
 # Library sources (excluding main.cpp and test-only files)
 set(LIB_SOURCES
@@ -61,6 +117,7 @@ set(LIB_SOURCES
 	src/domain/music/Interval.cpp
 	src/domain/music/Voice.cpp
 	src/domain/music/Score.cpp
+	src/domain/music/Note.cpp
 	src/domain/music/MelodicTemplate.cpp
 	src/domain/rules/ParallelFifthsRule.cpp
 	src/domain/rules/ParallelOctavesRule.cpp
@@ -122,6 +179,31 @@ set(HEADERS
 	include/domain/plugins/PluginManager.h
 	include/utils/DebugUtils.h)
 
+# GUI sources
+set(GUI_SOURCES
+    src/presentation/MainWindow.cpp
+    src/presentation/ScoreView.cpp
+    src/presentation/ViewportManager.cpp
+    src/presentation/NoteGrid.cpp
+    src/presentation/GridCell.cpp
+    src/presentation/TransportControls.cpp
+    src/presentation/ExercisePanel.cpp
+    src/presentation/FeedbackArea.cpp
+    src/presentation/viewmodels/ScoreViewModel.cpp
+)
+
+# GUI headers
+set(GUI_HEADERS
+    include/presentation/MainWindow.h
+    include/presentation/ScoreView.h
+    include/presentation/ViewportManager.h
+    include/presentation/NoteGrid.h
+    include/presentation/GridCell.h
+    include/presentation/TransportControls.h
+    include/presentation/ExercisePanel.h
+    include/presentation/FeedbackArea.h
+    include/presentation/viewmodels/ScoreViewModel.h
+)
 
 # Test-only sources
 set(TEST_SOURCES
@@ -139,22 +221,108 @@ set(TEST_SOURCES
     tests/statesync/StateSynchronizationManagerTests.cpp
 )
 
+set(MUSICTRAINERGUI_SOURCES
+    src/presentation/MainWindow.cpp
+    src/presentation/ScoreView.cpp
+    src/presentation/ViewportManager.cpp
+    src/presentation/NoteGrid.cpp
+    src/presentation/GridCell.cpp
+    src/presentation/TransportControls.cpp
+    src/presentation/ExercisePanel.cpp
+    src/presentation/FeedbackArea.cpp
+    src/presentation/viewmodels/ScoreViewModel.cpp
+    src/domain/analysis/VoiceAnalyzer.cpp
+    src/presentation/VoiceChart.cpp
+)
+
+set(MUSICTRAINERGUI_HEADERS
+    include/presentation/MainWindow.h
+    include/presentation/ScoreView.h
+    include/presentation/ViewportManager.h
+    include/presentation/NoteGrid.h
+    include/presentation/GridCell.h
+    include/presentation/TransportControls.h
+    include/presentation/ExercisePanel.h
+    include/presentation/FeedbackArea.h
+    include/presentation/viewmodels/ScoreViewModel.h
+    include/domain/analysis/VoiceAnalyzer.h
+    include/presentation/VoiceChart.h
+)
 
 # Include directories
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
+# Main library target (not executable)
+add_library(MusicTrainerLib STATIC ${LIB_SOURCES} ${HEADERS})
+target_link_libraries(MusicTrainerLib PRIVATE rtmidi ${ALSA_LIBRARIES})
+
 # Main executable
-add_executable(${PROJECT_NAME} src/main.cpp ${LIB_SOURCES} ${HEADERS})
-target_link_libraries(${PROJECT_NAME} PRIVATE rtmidi ${ALSA_LIBRARIES})
+add_executable(${PROJECT_NAME} src/main.cpp)
+target_link_libraries(${PROJECT_NAME} PRIVATE MusicTrainerLib)
+
+# Check if Qt is available and create GUI applications
+if(Qt${QT_VERSION_MAJOR}_FOUND)
+    message(STATUS "Qt${QT_VERSION_MAJOR} found. Building GUI applications.")
+    
+    # Add Qt include directories
+    include_directories(
+        ${Qt${QT_VERSION_MAJOR}Core_INCLUDE_DIRS}
+        ${Qt${QT_VERSION_MAJOR}Widgets_INCLUDE_DIRS}
+        ${Qt${QT_VERSION_MAJOR}Charts_INCLUDE_DIRS}
+    )
+    
+    # Add the full GUI application
+    add_executable(MusicTrainerGUI src/presentation/main_gui.cpp ${GUI_SOURCES} ${GUI_HEADERS})
+    target_link_libraries(MusicTrainerGUI PRIVATE 
+        MusicTrainerLib 
+        Qt${QT_VERSION_MAJOR}::Core 
+        Qt${QT_VERSION_MAJOR}::Widgets 
+        Qt${QT_VERSION_MAJOR}::Charts 
+        rtmidi 
+        ${ALSA_LIBRARIES}
+    )
+    target_include_directories(MusicTrainerGUI PRIVATE
+        ${PROJECT_SOURCE_DIR}/include
+        ${Qt${QT_VERSION_MAJOR}Core_INCLUDE_DIRS}
+        ${Qt${QT_VERSION_MAJOR}Widgets_INCLUDE_DIRS}
+        ${Qt${QT_VERSION_MAJOR}Charts_INCLUDE_DIRS}
+    )
+    set_target_properties(MusicTrainerGUI PROPERTIES
+        WIN32_EXECUTABLE TRUE
+        MACOSX_BUNDLE TRUE
+    )
+    
+    # Add the test GUI application
+    add_executable(TestGUI src/presentation/test_gui.cpp ${GUI_SOURCES} ${GUI_HEADERS})
+    target_link_libraries(TestGUI PRIVATE 
+        MusicTrainerLib 
+        Qt${QT_VERSION_MAJOR}::Core 
+        Qt${QT_VERSION_MAJOR}::Widgets 
+        Qt${QT_VERSION_MAJOR}::Charts 
+        rtmidi 
+        ${ALSA_LIBRARIES}
+    )
+    target_include_directories(TestGUI PRIVATE
+        ${PROJECT_SOURCE_DIR}/include
+        ${Qt${QT_VERSION_MAJOR}Core_INCLUDE_DIRS}
+        ${Qt${QT_VERSION_MAJOR}Widgets_INCLUDE_DIRS}
+        ${Qt${QT_VERSION_MAJOR}Charts_INCLUDE_DIRS}
+    )
+    set_target_properties(TestGUI PROPERTIES
+        WIN32_EXECUTABLE FALSE
+        MACOSX_BUNDLE FALSE
+    )
+else()
+    message(WARNING "Qt not found. GUI applications will not be built.")
+endif()
 
 # Add main test suite
 add_executable(TestSuite
 	tests/main.cpp
 	tests/TestSuite.cpp
-	${TEST_SOURCES}
-	${LIB_SOURCES})
+	${TEST_SOURCES})
 target_include_directories(TestSuite PRIVATE ${PROJECT_SOURCE_DIR}/include)
-target_link_libraries(TestSuite PRIVATE gtest gtest_main rtmidi ${ALSA_LIBRARIES})
+target_link_libraries(TestSuite PRIVATE gtest gtest_main MusicTrainerLib rtmidi ${ALSA_LIBRARIES})
 target_compile_definitions(TestSuite PRIVATE TESTING)
 
 # Define test targets
@@ -176,39 +344,38 @@ set(TEST_TARGETS
 foreach(TEST_TARGET ${TEST_TARGETS})
 	if(${TEST_TARGET} STREQUAL "SystemIntegrationTests")
 		add_executable(${TEST_TARGET} 
-			tests/integration/${TEST_TARGET}.cpp 
-			${TEST_SOURCES}
-			${LIB_SOURCES})
+			tests/main.cpp
+			tests/integration/${TEST_TARGET}.cpp)
 	elseif(${TEST_TARGET} STREQUAL "PluginSystemTests")
 		add_executable(${TEST_TARGET} 
+			tests/main.cpp
 			tests/plugins/${TEST_TARGET}.cpp 
-			tests/plugins/TestPlugin.cpp
-			${TEST_SOURCES}
-			${LIB_SOURCES})
+			tests/plugins/TestPlugin.cpp)
 	elseif(${TEST_TARGET} STREQUAL "CrossDomainValidatorTests")
 		add_executable(${TEST_TARGET} 
-			tests/crossdomain/${TEST_TARGET}.cpp 
-			${TEST_SOURCES}
-			${LIB_SOURCES})
+			tests/main.cpp
+			tests/crossdomain/${TEST_TARGET}.cpp)
 	elseif(${TEST_TARGET} STREQUAL "StateSynchronizationManagerTests")
 		add_executable(${TEST_TARGET} 
-			tests/statesync/${TEST_TARGET}.cpp 
-			${TEST_SOURCES}
-			${LIB_SOURCES})
+			tests/main.cpp
+			tests/statesync/${TEST_TARGET}.cpp)
 	else()
 		add_executable(${TEST_TARGET} 
-			tests/${TEST_TARGET}.cpp 
-			${TEST_SOURCES}
-			${LIB_SOURCES})
+			tests/main.cpp
+			tests/${TEST_TARGET}.cpp)
 	endif()
 	
 	target_include_directories(${TEST_TARGET} PRIVATE ${PROJECT_SOURCE_DIR}/include)
 	target_compile_definitions(${TEST_TARGET} PRIVATE TESTING)
-	target_link_libraries(${TEST_TARGET} PRIVATE gtest gtest_main rtmidi ${ALSA_LIBRARIES})
-	add_test(NAME ${TEST_TARGET} 
+	target_link_libraries(${TEST_TARGET} PRIVATE gtest gtest_main MusicTrainerLib rtmidi ${ALSA_LIBRARIES})
+	add_test(NAME ${TEST_TARGET}
 			 COMMAND ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${TEST_TARGET}
 			 WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
 endforeach()
+
+if(CLEAR_CACHE)
+	 add_definitions(-DCLEAR_CACHE)
+endif()
 
 # Enable testing
 enable_testing()
@@ -216,7 +383,7 @@ enable_testing()
 # Set test properties for timeout and environment
 set_tests_properties(${TEST_TARGETS} PROPERTIES
 	TIMEOUT 30
-	ENVIRONMENT "GTEST_BREAK_ON_FAILURE=1;GTEST_FILTER=*")
+	ENVIRONMENT "GTEST_FILTER=*")
 
 
 

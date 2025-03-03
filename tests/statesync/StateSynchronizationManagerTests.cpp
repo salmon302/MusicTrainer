@@ -51,14 +51,15 @@ TEST_F(StateSynchronizationManagerTest, BasicStateSynchronization) {
 
 TEST_F(StateSynchronizationManagerTest, ConcurrentStateUpdates) {
 	const int NUM_THREADS = 4;
-	auto score = Score::create();
 	std::atomic<int> updateCount{0};
 	std::atomic<int> errorCount{0};
 	std::vector<std::thread> threads;
 	
 	for (int i = 0; i < NUM_THREADS; i++) {
-		threads.emplace_back([this, &score, &updateCount, &errorCount, i]() {
+		threads.emplace_back([this, &updateCount, &errorCount, i]() {
 			try {
+				// Each thread creates its own score
+				auto score = Score::create();
 				auto voice = Voice::create();
 				voice->addNote(Pitch::create(Pitch::NoteName::C, 4), Duration::createQuarter());
 				score->addVoice(std::move(voice));

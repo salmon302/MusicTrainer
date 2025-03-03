@@ -3,6 +3,9 @@
 
 namespace MusicTrainer {
 
+// Remove the redefinition of DomainError and use the one from ErrorBase.h
+// Using more specific error types that derive from DomainError
+
 // MIDI-related errors
 class MidiError : public SystemError {
 public:

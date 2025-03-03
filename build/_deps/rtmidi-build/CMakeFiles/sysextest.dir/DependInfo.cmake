@@ -8,6 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "" "_deps/rtmidi-build/sysextest_autogen/timestamp" "custom" "_deps/rtmidi-build/sysextest_autogen/deps"
+  "/home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build/sysextest_autogen/mocs_compilation.cpp" "_deps/rtmidi-build/CMakeFiles/sysextest.dir/sysextest_autogen/mocs_compilation.cpp.o" "gcc" "_deps/rtmidi-build/CMakeFiles/sysextest.dir/sysextest_autogen/mocs_compilation.cpp.o.d"
   "/home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-src/tests/sysextest.cpp" "_deps/rtmidi-build/CMakeFiles/sysextest.dir/tests/sysextest.cpp.o" "gcc" "_deps/rtmidi-build/CMakeFiles/sysextest.dir/tests/sysextest.cpp.o.d"
   )
 

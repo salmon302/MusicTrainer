@@ -69,10 +69,31 @@ include _deps/rtmidi-build/CMakeFiles/rtmidi.dir/progress.make
 # Include the compile flags for this target's objects.
 include _deps/rtmidi-build/CMakeFiles/rtmidi.dir/flags.make
 
+_deps/rtmidi-build/rtmidi_autogen/timestamp: /usr/lib/qt6/libexec/moc
+_deps/rtmidi-build/rtmidi_autogen/timestamp: /usr/lib/qt6/libexec/uic
+_deps/rtmidi-build/rtmidi_autogen/timestamp: _deps/rtmidi-build/CMakeFiles/rtmidi.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target rtmidi"
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build && /usr/bin/cmake -E cmake_autogen /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build/CMakeFiles/rtmidi_autogen.dir/AutogenInfo.json ""
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build && /usr/bin/cmake -E touch /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build/rtmidi_autogen/timestamp
+
+_deps/rtmidi-build/CMakeFiles/rtmidi.dir/rtmidi_autogen/mocs_compilation.cpp.o: _deps/rtmidi-build/CMakeFiles/rtmidi.dir/flags.make
+_deps/rtmidi-build/CMakeFiles/rtmidi.dir/rtmidi_autogen/mocs_compilation.cpp.o: _deps/rtmidi-build/rtmidi_autogen/mocs_compilation.cpp
+_deps/rtmidi-build/CMakeFiles/rtmidi.dir/rtmidi_autogen/mocs_compilation.cpp.o: _deps/rtmidi-build/CMakeFiles/rtmidi.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object _deps/rtmidi-build/CMakeFiles/rtmidi.dir/rtmidi_autogen/mocs_compilation.cpp.o"
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT _deps/rtmidi-build/CMakeFiles/rtmidi.dir/rtmidi_autogen/mocs_compilation.cpp.o -MF CMakeFiles/rtmidi.dir/rtmidi_autogen/mocs_compilation.cpp.o.d -o CMakeFiles/rtmidi.dir/rtmidi_autogen/mocs_compilation.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build/rtmidi_autogen/mocs_compilation.cpp
+
+_deps/rtmidi-build/CMakeFiles/rtmidi.dir/rtmidi_autogen/mocs_compilation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/rtmidi.dir/rtmidi_autogen/mocs_compilation.cpp.i"
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build/rtmidi_autogen/mocs_compilation.cpp > CMakeFiles/rtmidi.dir/rtmidi_autogen/mocs_compilation.cpp.i
+
+_deps/rtmidi-build/CMakeFiles/rtmidi.dir/rtmidi_autogen/mocs_compilation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/rtmidi.dir/rtmidi_autogen/mocs_compilation.cpp.s"
+	cd /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build/rtmidi_autogen/mocs_compilation.cpp -o CMakeFiles/rtmidi.dir/rtmidi_autogen/mocs_compilation.cpp.s
+
 _deps/rtmidi-build/CMakeFiles/rtmidi.dir/RtMidi.cpp.o: _deps/rtmidi-build/CMakeFiles/rtmidi.dir/flags.make
 _deps/rtmidi-build/CMakeFiles/rtmidi.dir/RtMidi.cpp.o: _deps/rtmidi-src/RtMidi.cpp
 _deps/rtmidi-build/CMakeFiles/rtmidi.dir/RtMidi.cpp.o: _deps/rtmidi-build/CMakeFiles/rtmidi.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object _deps/rtmidi-build/CMakeFiles/rtmidi.dir/RtMidi.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object _deps/rtmidi-build/CMakeFiles/rtmidi.dir/RtMidi.cpp.o"
 	cd /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT _deps/rtmidi-build/CMakeFiles/rtmidi.dir/RtMidi.cpp.o -MF CMakeFiles/rtmidi.dir/RtMidi.cpp.o.d -o CMakeFiles/rtmidi.dir/RtMidi.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-src/RtMidi.cpp
 
 _deps/rtmidi-build/CMakeFiles/rtmidi.dir/RtMidi.cpp.i: cmake_force
@@ -86,7 +107,7 @@ _deps/rtmidi-build/CMakeFiles/rtmidi.dir/RtMidi.cpp.s: cmake_force
 _deps/rtmidi-build/CMakeFiles/rtmidi.dir/rtmidi_c.cpp.o: _deps/rtmidi-build/CMakeFiles/rtmidi.dir/flags.make
 _deps/rtmidi-build/CMakeFiles/rtmidi.dir/rtmidi_c.cpp.o: _deps/rtmidi-src/rtmidi_c.cpp
 _deps/rtmidi-build/CMakeFiles/rtmidi.dir/rtmidi_c.cpp.o: _deps/rtmidi-build/CMakeFiles/rtmidi.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object _deps/rtmidi-build/CMakeFiles/rtmidi.dir/rtmidi_c.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object _deps/rtmidi-build/CMakeFiles/rtmidi.dir/rtmidi_c.cpp.o"
 	cd /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT _deps/rtmidi-build/CMakeFiles/rtmidi.dir/rtmidi_c.cpp.o -MF CMakeFiles/rtmidi.dir/rtmidi_c.cpp.o.d -o CMakeFiles/rtmidi.dir/rtmidi_c.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-src/rtmidi_c.cpp
 
 _deps/rtmidi-build/CMakeFiles/rtmidi.dir/rtmidi_c.cpp.i: cmake_force
@@ -99,18 +120,20 @@ _deps/rtmidi-build/CMakeFiles/rtmidi.dir/rtmidi_c.cpp.s: cmake_force
 
 # Object files for target rtmidi
 rtmidi_OBJECTS = \
+"CMakeFiles/rtmidi.dir/rtmidi_autogen/mocs_compilation.cpp.o" \
 "CMakeFiles/rtmidi.dir/RtMidi.cpp.o" \
 "CMakeFiles/rtmidi.dir/rtmidi_c.cpp.o"
 
 # External object files for target rtmidi
 rtmidi_EXTERNAL_OBJECTS =
 
+_deps/rtmidi-build/librtmidi.so.6.0.0: _deps/rtmidi-build/CMakeFiles/rtmidi.dir/rtmidi_autogen/mocs_compilation.cpp.o
 _deps/rtmidi-build/librtmidi.so.6.0.0: _deps/rtmidi-build/CMakeFiles/rtmidi.dir/RtMidi.cpp.o
 _deps/rtmidi-build/librtmidi.so.6.0.0: _deps/rtmidi-build/CMakeFiles/rtmidi.dir/rtmidi_c.cpp.o
 _deps/rtmidi-build/librtmidi.so.6.0.0: _deps/rtmidi-build/CMakeFiles/rtmidi.dir/build.make
 _deps/rtmidi-build/librtmidi.so.6.0.0: /usr/lib/x86_64-linux-gnu/libasound.so
 _deps/rtmidi-build/librtmidi.so.6.0.0: _deps/rtmidi-build/CMakeFiles/rtmidi.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX shared library librtmidi.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX shared library librtmidi.so"
 	cd /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/rtmidi.dir/link.txt --verbose=$(VERBOSE)
 	cd /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build && $(CMAKE_COMMAND) -E cmake_symlink_library librtmidi.so.6.0.0 librtmidi.so.6 librtmidi.so
 
@@ -128,7 +151,7 @@ _deps/rtmidi-build/CMakeFiles/rtmidi.dir/clean:
 	cd /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build && $(CMAKE_COMMAND) -P CMakeFiles/rtmidi.dir/cmake_clean.cmake
 .PHONY : _deps/rtmidi-build/CMakeFiles/rtmidi.dir/clean
 
-_deps/rtmidi-build/CMakeFiles/rtmidi.dir/depend:
+_deps/rtmidi-build/CMakeFiles/rtmidi.dir/depend: _deps/rtmidi-build/rtmidi_autogen/timestamp
 	cd /home/seth-n/Documents/GitHub/MusicTrainer/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/seth-n/Documents/GitHub/MusicTrainer /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-src /home/seth-n/Documents/GitHub/MusicTrainer/build /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build/CMakeFiles/rtmidi.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : _deps/rtmidi-build/CMakeFiles/rtmidi.dir/depend
 

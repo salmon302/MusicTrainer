@@ -4,12 +4,13 @@
 #include <memory>
 #include <atomic>
 #include <vector>
-#include <queue>
+#include <deque>
 #include <chrono>
 #include <thread>
+#include <mutex>
+#include <condition_variable>
 #include "domain/ports/MidiPort.h"
 #include "domain/errors/ErrorBase.h"
-#include "adapters/LockFreeEventQueue.h"
 
 namespace music::adapters {
 
@@ -22,8 +23,8 @@ public:
 class MockMidiAdapter : public ports::MidiPort {
 public:
 	static std::unique_ptr<MockMidiAdapter> create();
-	~MockMidiAdapter() override { 
-		if (isRunning) {
+	~MockMidiAdapter() override {
+		if (isRunning.load()) {
 			close();
 		}
 	}
@@ -37,27 +38,22 @@ public:
 	void resetMetrics() override;
 	
 	void setSimulateErrors(bool simulate) { simulateErrors.store(simulate, std::memory_order_release); }
-	void clearEvents() { eventQueue.clear(); }
+	void clearEvents() { 
+	    std::lock_guard<std::mutex> lock(queueMutex);
+	    eventQueue.clear(); 
+	}
 	
 private:
 	MockMidiAdapter();
 	
-	struct EventWithPriority {
-		ports::MidiEvent event;
-		size_t sequence;
-		
-		EventWithPriority() : sequence(0) {}
-		EventWithPriority(ports::MidiEvent e, size_t s) 
-			: event(std::move(e)), sequence(s) {}
-	};
-	
 	std::atomic<bool> isRunning{false};
 	std::atomic<bool> simulateErrors{false};
-	LockFreeEventQueue<ports::MidiEvent, 1024> eventQueue;
-	std::atomic<size_t> sequenceNumber{0};
+	std::deque<ports::MidiEvent> eventQueue;
+	std::mutex queueMutex;
+	std::condition_variable eventsAvailable;
+	std::mutex callbackMutex;
 	std::function<void(const ports::MidiEvent&)> eventCallback;
 	std::thread processingThread;
-	std::vector<EventWithPriority> pendingEvents;
 	
 	struct {
 		std::atomic<size_t> totalEvents{0};
@@ -66,7 +62,6 @@ private:
 		std::atomic<double> maxLatencyUs{0.0};
 		std::atomic<long long> lastEventTime{0};
 	} metrics;
-
 	
 	void simulateError();
 	void processEvents();

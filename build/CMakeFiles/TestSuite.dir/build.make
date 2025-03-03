@@ -69,10 +69,24 @@ include CMakeFiles/TestSuite.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/TestSuite.dir/flags.make
 
+CMakeFiles/TestSuite.dir/TestSuite_autogen/mocs_compilation.cpp.o: CMakeFiles/TestSuite.dir/flags.make
+CMakeFiles/TestSuite.dir/TestSuite_autogen/mocs_compilation.cpp.o: TestSuite_autogen/mocs_compilation.cpp
+CMakeFiles/TestSuite.dir/TestSuite_autogen/mocs_compilation.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TestSuite.dir/TestSuite_autogen/mocs_compilation.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/TestSuite_autogen/mocs_compilation.cpp.o -MF CMakeFiles/TestSuite.dir/TestSuite_autogen/mocs_compilation.cpp.o.d -o CMakeFiles/TestSuite.dir/TestSuite_autogen/mocs_compilation.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/build/TestSuite_autogen/mocs_compilation.cpp
+
+CMakeFiles/TestSuite.dir/TestSuite_autogen/mocs_compilation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestSuite.dir/TestSuite_autogen/mocs_compilation.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/build/TestSuite_autogen/mocs_compilation.cpp > CMakeFiles/TestSuite.dir/TestSuite_autogen/mocs_compilation.cpp.i
+
+CMakeFiles/TestSuite.dir/TestSuite_autogen/mocs_compilation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestSuite.dir/TestSuite_autogen/mocs_compilation.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/build/TestSuite_autogen/mocs_compilation.cpp -o CMakeFiles/TestSuite.dir/TestSuite_autogen/mocs_compilation.cpp.s
+
 CMakeFiles/TestSuite.dir/tests/main.cpp.o: CMakeFiles/TestSuite.dir/flags.make
 CMakeFiles/TestSuite.dir/tests/main.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/tests/main.cpp
 CMakeFiles/TestSuite.dir/tests/main.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TestSuite.dir/tests/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/TestSuite.dir/tests/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/tests/main.cpp.o -MF CMakeFiles/TestSuite.dir/tests/main.cpp.o.d -o CMakeFiles/TestSuite.dir/tests/main.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/tests/main.cpp
 
 CMakeFiles/TestSuite.dir/tests/main.cpp.i: cmake_force
@@ -86,7 +100,7 @@ CMakeFiles/TestSuite.dir/tests/main.cpp.s: cmake_force
 CMakeFiles/TestSuite.dir/tests/TestSuite.cpp.o: CMakeFiles/TestSuite.dir/flags.make
 CMakeFiles/TestSuite.dir/tests/TestSuite.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/tests/TestSuite.cpp
 CMakeFiles/TestSuite.dir/tests/TestSuite.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/TestSuite.dir/tests/TestSuite.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/TestSuite.dir/tests/TestSuite.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/tests/TestSuite.cpp.o -MF CMakeFiles/TestSuite.dir/tests/TestSuite.cpp.o.d -o CMakeFiles/TestSuite.dir/tests/TestSuite.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/tests/TestSuite.cpp
 
 CMakeFiles/TestSuite.dir/tests/TestSuite.cpp.i: cmake_force
@@ -100,7 +114,7 @@ CMakeFiles/TestSuite.dir/tests/TestSuite.cpp.s: cmake_force
 CMakeFiles/TestSuite.dir/tests/ValidationPipelineTests.cpp.o: CMakeFiles/TestSuite.dir/flags.make
 CMakeFiles/TestSuite.dir/tests/ValidationPipelineTests.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/tests/ValidationPipelineTests.cpp
 CMakeFiles/TestSuite.dir/tests/ValidationPipelineTests.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/TestSuite.dir/tests/ValidationPipelineTests.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/TestSuite.dir/tests/ValidationPipelineTests.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/tests/ValidationPipelineTests.cpp.o -MF CMakeFiles/TestSuite.dir/tests/ValidationPipelineTests.cpp.o.d -o CMakeFiles/TestSuite.dir/tests/ValidationPipelineTests.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/tests/ValidationPipelineTests.cpp
 
 CMakeFiles/TestSuite.dir/tests/ValidationPipelineTests.cpp.i: cmake_force
@@ -114,7 +128,7 @@ CMakeFiles/TestSuite.dir/tests/ValidationPipelineTests.cpp.s: cmake_force
 CMakeFiles/TestSuite.dir/tests/ExerciseGenerationTests.cpp.o: CMakeFiles/TestSuite.dir/flags.make
 CMakeFiles/TestSuite.dir/tests/ExerciseGenerationTests.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/tests/ExerciseGenerationTests.cpp
 CMakeFiles/TestSuite.dir/tests/ExerciseGenerationTests.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/TestSuite.dir/tests/ExerciseGenerationTests.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/TestSuite.dir/tests/ExerciseGenerationTests.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/tests/ExerciseGenerationTests.cpp.o -MF CMakeFiles/TestSuite.dir/tests/ExerciseGenerationTests.cpp.o.d -o CMakeFiles/TestSuite.dir/tests/ExerciseGenerationTests.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/tests/ExerciseGenerationTests.cpp
 
 CMakeFiles/TestSuite.dir/tests/ExerciseGenerationTests.cpp.i: cmake_force
@@ -128,7 +142,7 @@ CMakeFiles/TestSuite.dir/tests/ExerciseGenerationTests.cpp.s: cmake_force
 CMakeFiles/TestSuite.dir/tests/MidiSystemTests.cpp.o: CMakeFiles/TestSuite.dir/flags.make
 CMakeFiles/TestSuite.dir/tests/MidiSystemTests.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/tests/MidiSystemTests.cpp
 CMakeFiles/TestSuite.dir/tests/MidiSystemTests.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/TestSuite.dir/tests/MidiSystemTests.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/TestSuite.dir/tests/MidiSystemTests.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/tests/MidiSystemTests.cpp.o -MF CMakeFiles/TestSuite.dir/tests/MidiSystemTests.cpp.o.d -o CMakeFiles/TestSuite.dir/tests/MidiSystemTests.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/tests/MidiSystemTests.cpp
 
 CMakeFiles/TestSuite.dir/tests/MidiSystemTests.cpp.i: cmake_force
@@ -142,7 +156,7 @@ CMakeFiles/TestSuite.dir/tests/MidiSystemTests.cpp.s: cmake_force
 CMakeFiles/TestSuite.dir/tests/RepositoryTests.cpp.o: CMakeFiles/TestSuite.dir/flags.make
 CMakeFiles/TestSuite.dir/tests/RepositoryTests.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/tests/RepositoryTests.cpp
 CMakeFiles/TestSuite.dir/tests/RepositoryTests.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/TestSuite.dir/tests/RepositoryTests.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/TestSuite.dir/tests/RepositoryTests.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/tests/RepositoryTests.cpp.o -MF CMakeFiles/TestSuite.dir/tests/RepositoryTests.cpp.o.d -o CMakeFiles/TestSuite.dir/tests/RepositoryTests.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/tests/RepositoryTests.cpp
 
 CMakeFiles/TestSuite.dir/tests/RepositoryTests.cpp.i: cmake_force
@@ -156,7 +170,7 @@ CMakeFiles/TestSuite.dir/tests/RepositoryTests.cpp.s: cmake_force
 CMakeFiles/TestSuite.dir/tests/ProgressionSystemTests.cpp.o: CMakeFiles/TestSuite.dir/flags.make
 CMakeFiles/TestSuite.dir/tests/ProgressionSystemTests.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/tests/ProgressionSystemTests.cpp
 CMakeFiles/TestSuite.dir/tests/ProgressionSystemTests.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/TestSuite.dir/tests/ProgressionSystemTests.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/TestSuite.dir/tests/ProgressionSystemTests.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/tests/ProgressionSystemTests.cpp.o -MF CMakeFiles/TestSuite.dir/tests/ProgressionSystemTests.cpp.o.d -o CMakeFiles/TestSuite.dir/tests/ProgressionSystemTests.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/tests/ProgressionSystemTests.cpp
 
 CMakeFiles/TestSuite.dir/tests/ProgressionSystemTests.cpp.i: cmake_force
@@ -170,7 +184,7 @@ CMakeFiles/TestSuite.dir/tests/ProgressionSystemTests.cpp.s: cmake_force
 CMakeFiles/TestSuite.dir/tests/ErrorHandlingTests.cpp.o: CMakeFiles/TestSuite.dir/flags.make
 CMakeFiles/TestSuite.dir/tests/ErrorHandlingTests.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/tests/ErrorHandlingTests.cpp
 CMakeFiles/TestSuite.dir/tests/ErrorHandlingTests.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/TestSuite.dir/tests/ErrorHandlingTests.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/TestSuite.dir/tests/ErrorHandlingTests.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/tests/ErrorHandlingTests.cpp.o -MF CMakeFiles/TestSuite.dir/tests/ErrorHandlingTests.cpp.o.d -o CMakeFiles/TestSuite.dir/tests/ErrorHandlingTests.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/tests/ErrorHandlingTests.cpp
 
 CMakeFiles/TestSuite.dir/tests/ErrorHandlingTests.cpp.i: cmake_force
@@ -184,7 +198,7 @@ CMakeFiles/TestSuite.dir/tests/ErrorHandlingTests.cpp.s: cmake_force
 CMakeFiles/TestSuite.dir/tests/PerformanceMonitoringTests.cpp.o: CMakeFiles/TestSuite.dir/flags.make
 CMakeFiles/TestSuite.dir/tests/PerformanceMonitoringTests.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/tests/PerformanceMonitoringTests.cpp
 CMakeFiles/TestSuite.dir/tests/PerformanceMonitoringTests.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/TestSuite.dir/tests/PerformanceMonitoringTests.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/TestSuite.dir/tests/PerformanceMonitoringTests.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/tests/PerformanceMonitoringTests.cpp.o -MF CMakeFiles/TestSuite.dir/tests/PerformanceMonitoringTests.cpp.o.d -o CMakeFiles/TestSuite.dir/tests/PerformanceMonitoringTests.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/tests/PerformanceMonitoringTests.cpp
 
 CMakeFiles/TestSuite.dir/tests/PerformanceMonitoringTests.cpp.i: cmake_force
@@ -198,7 +212,7 @@ CMakeFiles/TestSuite.dir/tests/PerformanceMonitoringTests.cpp.s: cmake_force
 CMakeFiles/TestSuite.dir/tests/integration/SystemIntegrationTests.cpp.o: CMakeFiles/TestSuite.dir/flags.make
 CMakeFiles/TestSuite.dir/tests/integration/SystemIntegrationTests.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/tests/integration/SystemIntegrationTests.cpp
 CMakeFiles/TestSuite.dir/tests/integration/SystemIntegrationTests.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/TestSuite.dir/tests/integration/SystemIntegrationTests.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/TestSuite.dir/tests/integration/SystemIntegrationTests.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/tests/integration/SystemIntegrationTests.cpp.o -MF CMakeFiles/TestSuite.dir/tests/integration/SystemIntegrationTests.cpp.o.d -o CMakeFiles/TestSuite.dir/tests/integration/SystemIntegrationTests.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/tests/integration/SystemIntegrationTests.cpp
 
 CMakeFiles/TestSuite.dir/tests/integration/SystemIntegrationTests.cpp.i: cmake_force
@@ -212,7 +226,7 @@ CMakeFiles/TestSuite.dir/tests/integration/SystemIntegrationTests.cpp.s: cmake_f
 CMakeFiles/TestSuite.dir/tests/plugins/PluginSystemTests.cpp.o: CMakeFiles/TestSuite.dir/flags.make
 CMakeFiles/TestSuite.dir/tests/plugins/PluginSystemTests.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/tests/plugins/PluginSystemTests.cpp
 CMakeFiles/TestSuite.dir/tests/plugins/PluginSystemTests.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/TestSuite.dir/tests/plugins/PluginSystemTests.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/TestSuite.dir/tests/plugins/PluginSystemTests.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/tests/plugins/PluginSystemTests.cpp.o -MF CMakeFiles/TestSuite.dir/tests/plugins/PluginSystemTests.cpp.o.d -o CMakeFiles/TestSuite.dir/tests/plugins/PluginSystemTests.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/tests/plugins/PluginSystemTests.cpp
 
 CMakeFiles/TestSuite.dir/tests/plugins/PluginSystemTests.cpp.i: cmake_force
@@ -226,7 +240,7 @@ CMakeFiles/TestSuite.dir/tests/plugins/PluginSystemTests.cpp.s: cmake_force
 CMakeFiles/TestSuite.dir/tests/plugins/TestPlugin.cpp.o: CMakeFiles/TestSuite.dir/flags.make
 CMakeFiles/TestSuite.dir/tests/plugins/TestPlugin.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/tests/plugins/TestPlugin.cpp
 CMakeFiles/TestSuite.dir/tests/plugins/TestPlugin.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/TestSuite.dir/tests/plugins/TestPlugin.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/TestSuite.dir/tests/plugins/TestPlugin.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/tests/plugins/TestPlugin.cpp.o -MF CMakeFiles/TestSuite.dir/tests/plugins/TestPlugin.cpp.o.d -o CMakeFiles/TestSuite.dir/tests/plugins/TestPlugin.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/tests/plugins/TestPlugin.cpp
 
 CMakeFiles/TestSuite.dir/tests/plugins/TestPlugin.cpp.i: cmake_force
@@ -240,7 +254,7 @@ CMakeFiles/TestSuite.dir/tests/plugins/TestPlugin.cpp.s: cmake_force
 CMakeFiles/TestSuite.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.o: CMakeFiles/TestSuite.dir/flags.make
 CMakeFiles/TestSuite.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/tests/crossdomain/CrossDomainValidatorTests.cpp
 CMakeFiles/TestSuite.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/TestSuite.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/TestSuite.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.o -MF CMakeFiles/TestSuite.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.o.d -o CMakeFiles/TestSuite.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/tests/crossdomain/CrossDomainValidatorTests.cpp
 
 CMakeFiles/TestSuite.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.i: cmake_force
@@ -254,7 +268,7 @@ CMakeFiles/TestSuite.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.s: cmak
 CMakeFiles/TestSuite.dir/tests/statesync/StateSynchronizationManagerTests.cpp.o: CMakeFiles/TestSuite.dir/flags.make
 CMakeFiles/TestSuite.dir/tests/statesync/StateSynchronizationManagerTests.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/tests/statesync/StateSynchronizationManagerTests.cpp
 CMakeFiles/TestSuite.dir/tests/statesync/StateSynchronizationManagerTests.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/TestSuite.dir/tests/statesync/StateSynchronizationManagerTests.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/TestSuite.dir/tests/statesync/StateSynchronizationManagerTests.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/tests/statesync/StateSynchronizationManagerTests.cpp.o -MF CMakeFiles/TestSuite.dir/tests/statesync/StateSynchronizationManagerTests.cpp.o.d -o CMakeFiles/TestSuite.dir/tests/statesync/StateSynchronizationManagerTests.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/tests/statesync/StateSynchronizationManagerTests.cpp
 
 CMakeFiles/TestSuite.dir/tests/statesync/StateSynchronizationManagerTests.cpp.i: cmake_force
@@ -265,442 +279,9 @@ CMakeFiles/TestSuite.dir/tests/statesync/StateSynchronizationManagerTests.cpp.s:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestSuite.dir/tests/statesync/StateSynchronizationManagerTests.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/tests/statesync/StateSynchronizationManagerTests.cpp -o CMakeFiles/TestSuite.dir/tests/statesync/StateSynchronizationManagerTests.cpp.s
 
-CMakeFiles/TestSuite.dir/src/domain/monitoring/PerformanceMonitor.cpp.o: CMakeFiles/TestSuite.dir/flags.make
-CMakeFiles/TestSuite.dir/src/domain/monitoring/PerformanceMonitor.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/monitoring/PerformanceMonitor.cpp
-CMakeFiles/TestSuite.dir/src/domain/monitoring/PerformanceMonitor.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/TestSuite.dir/src/domain/monitoring/PerformanceMonitor.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/src/domain/monitoring/PerformanceMonitor.cpp.o -MF CMakeFiles/TestSuite.dir/src/domain/monitoring/PerformanceMonitor.cpp.o.d -o CMakeFiles/TestSuite.dir/src/domain/monitoring/PerformanceMonitor.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/monitoring/PerformanceMonitor.cpp
-
-CMakeFiles/TestSuite.dir/src/domain/monitoring/PerformanceMonitor.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestSuite.dir/src/domain/monitoring/PerformanceMonitor.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/monitoring/PerformanceMonitor.cpp > CMakeFiles/TestSuite.dir/src/domain/monitoring/PerformanceMonitor.cpp.i
-
-CMakeFiles/TestSuite.dir/src/domain/monitoring/PerformanceMonitor.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestSuite.dir/src/domain/monitoring/PerformanceMonitor.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/monitoring/PerformanceMonitor.cpp -o CMakeFiles/TestSuite.dir/src/domain/monitoring/PerformanceMonitor.cpp.s
-
-CMakeFiles/TestSuite.dir/src/domain/errors/DefaultErrorHandlers.cpp.o: CMakeFiles/TestSuite.dir/flags.make
-CMakeFiles/TestSuite.dir/src/domain/errors/DefaultErrorHandlers.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/errors/DefaultErrorHandlers.cpp
-CMakeFiles/TestSuite.dir/src/domain/errors/DefaultErrorHandlers.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/TestSuite.dir/src/domain/errors/DefaultErrorHandlers.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/src/domain/errors/DefaultErrorHandlers.cpp.o -MF CMakeFiles/TestSuite.dir/src/domain/errors/DefaultErrorHandlers.cpp.o.d -o CMakeFiles/TestSuite.dir/src/domain/errors/DefaultErrorHandlers.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/errors/DefaultErrorHandlers.cpp
-
-CMakeFiles/TestSuite.dir/src/domain/errors/DefaultErrorHandlers.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestSuite.dir/src/domain/errors/DefaultErrorHandlers.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/errors/DefaultErrorHandlers.cpp > CMakeFiles/TestSuite.dir/src/domain/errors/DefaultErrorHandlers.cpp.i
-
-CMakeFiles/TestSuite.dir/src/domain/errors/DefaultErrorHandlers.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestSuite.dir/src/domain/errors/DefaultErrorHandlers.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/errors/DefaultErrorHandlers.cpp -o CMakeFiles/TestSuite.dir/src/domain/errors/DefaultErrorHandlers.cpp.s
-
-CMakeFiles/TestSuite.dir/src/domain/errors/ErrorHandler.cpp.o: CMakeFiles/TestSuite.dir/flags.make
-CMakeFiles/TestSuite.dir/src/domain/errors/ErrorHandler.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/errors/ErrorHandler.cpp
-CMakeFiles/TestSuite.dir/src/domain/errors/ErrorHandler.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/TestSuite.dir/src/domain/errors/ErrorHandler.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/src/domain/errors/ErrorHandler.cpp.o -MF CMakeFiles/TestSuite.dir/src/domain/errors/ErrorHandler.cpp.o.d -o CMakeFiles/TestSuite.dir/src/domain/errors/ErrorHandler.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/errors/ErrorHandler.cpp
-
-CMakeFiles/TestSuite.dir/src/domain/errors/ErrorHandler.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestSuite.dir/src/domain/errors/ErrorHandler.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/errors/ErrorHandler.cpp > CMakeFiles/TestSuite.dir/src/domain/errors/ErrorHandler.cpp.i
-
-CMakeFiles/TestSuite.dir/src/domain/errors/ErrorHandler.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestSuite.dir/src/domain/errors/ErrorHandler.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/errors/ErrorHandler.cpp -o CMakeFiles/TestSuite.dir/src/domain/errors/ErrorHandler.cpp.s
-
-CMakeFiles/TestSuite.dir/src/domain/errors/ErrorLogger.cpp.o: CMakeFiles/TestSuite.dir/flags.make
-CMakeFiles/TestSuite.dir/src/domain/errors/ErrorLogger.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/errors/ErrorLogger.cpp
-CMakeFiles/TestSuite.dir/src/domain/errors/ErrorLogger.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/TestSuite.dir/src/domain/errors/ErrorLogger.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/src/domain/errors/ErrorLogger.cpp.o -MF CMakeFiles/TestSuite.dir/src/domain/errors/ErrorLogger.cpp.o.d -o CMakeFiles/TestSuite.dir/src/domain/errors/ErrorLogger.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/errors/ErrorLogger.cpp
-
-CMakeFiles/TestSuite.dir/src/domain/errors/ErrorLogger.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestSuite.dir/src/domain/errors/ErrorLogger.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/errors/ErrorLogger.cpp > CMakeFiles/TestSuite.dir/src/domain/errors/ErrorLogger.cpp.i
-
-CMakeFiles/TestSuite.dir/src/domain/errors/ErrorLogger.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestSuite.dir/src/domain/errors/ErrorLogger.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/errors/ErrorLogger.cpp -o CMakeFiles/TestSuite.dir/src/domain/errors/ErrorLogger.cpp.s
-
-CMakeFiles/TestSuite.dir/src/domain/errors/RecoveryStrategy.cpp.o: CMakeFiles/TestSuite.dir/flags.make
-CMakeFiles/TestSuite.dir/src/domain/errors/RecoveryStrategy.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/errors/RecoveryStrategy.cpp
-CMakeFiles/TestSuite.dir/src/domain/errors/RecoveryStrategy.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/TestSuite.dir/src/domain/errors/RecoveryStrategy.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/src/domain/errors/RecoveryStrategy.cpp.o -MF CMakeFiles/TestSuite.dir/src/domain/errors/RecoveryStrategy.cpp.o.d -o CMakeFiles/TestSuite.dir/src/domain/errors/RecoveryStrategy.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/errors/RecoveryStrategy.cpp
-
-CMakeFiles/TestSuite.dir/src/domain/errors/RecoveryStrategy.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestSuite.dir/src/domain/errors/RecoveryStrategy.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/errors/RecoveryStrategy.cpp > CMakeFiles/TestSuite.dir/src/domain/errors/RecoveryStrategy.cpp.i
-
-CMakeFiles/TestSuite.dir/src/domain/errors/RecoveryStrategy.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestSuite.dir/src/domain/errors/RecoveryStrategy.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/errors/RecoveryStrategy.cpp -o CMakeFiles/TestSuite.dir/src/domain/errors/RecoveryStrategy.cpp.s
-
-CMakeFiles/TestSuite.dir/src/domain/music/Pitch.cpp.o: CMakeFiles/TestSuite.dir/flags.make
-CMakeFiles/TestSuite.dir/src/domain/music/Pitch.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Pitch.cpp
-CMakeFiles/TestSuite.dir/src/domain/music/Pitch.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/TestSuite.dir/src/domain/music/Pitch.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/src/domain/music/Pitch.cpp.o -MF CMakeFiles/TestSuite.dir/src/domain/music/Pitch.cpp.o.d -o CMakeFiles/TestSuite.dir/src/domain/music/Pitch.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Pitch.cpp
-
-CMakeFiles/TestSuite.dir/src/domain/music/Pitch.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestSuite.dir/src/domain/music/Pitch.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Pitch.cpp > CMakeFiles/TestSuite.dir/src/domain/music/Pitch.cpp.i
-
-CMakeFiles/TestSuite.dir/src/domain/music/Pitch.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestSuite.dir/src/domain/music/Pitch.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Pitch.cpp -o CMakeFiles/TestSuite.dir/src/domain/music/Pitch.cpp.s
-
-CMakeFiles/TestSuite.dir/src/domain/music/Duration.cpp.o: CMakeFiles/TestSuite.dir/flags.make
-CMakeFiles/TestSuite.dir/src/domain/music/Duration.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Duration.cpp
-CMakeFiles/TestSuite.dir/src/domain/music/Duration.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/TestSuite.dir/src/domain/music/Duration.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/src/domain/music/Duration.cpp.o -MF CMakeFiles/TestSuite.dir/src/domain/music/Duration.cpp.o.d -o CMakeFiles/TestSuite.dir/src/domain/music/Duration.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Duration.cpp
-
-CMakeFiles/TestSuite.dir/src/domain/music/Duration.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestSuite.dir/src/domain/music/Duration.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Duration.cpp > CMakeFiles/TestSuite.dir/src/domain/music/Duration.cpp.i
-
-CMakeFiles/TestSuite.dir/src/domain/music/Duration.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestSuite.dir/src/domain/music/Duration.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Duration.cpp -o CMakeFiles/TestSuite.dir/src/domain/music/Duration.cpp.s
-
-CMakeFiles/TestSuite.dir/src/domain/music/Interval.cpp.o: CMakeFiles/TestSuite.dir/flags.make
-CMakeFiles/TestSuite.dir/src/domain/music/Interval.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Interval.cpp
-CMakeFiles/TestSuite.dir/src/domain/music/Interval.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/TestSuite.dir/src/domain/music/Interval.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/src/domain/music/Interval.cpp.o -MF CMakeFiles/TestSuite.dir/src/domain/music/Interval.cpp.o.d -o CMakeFiles/TestSuite.dir/src/domain/music/Interval.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Interval.cpp
-
-CMakeFiles/TestSuite.dir/src/domain/music/Interval.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestSuite.dir/src/domain/music/Interval.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Interval.cpp > CMakeFiles/TestSuite.dir/src/domain/music/Interval.cpp.i
-
-CMakeFiles/TestSuite.dir/src/domain/music/Interval.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestSuite.dir/src/domain/music/Interval.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Interval.cpp -o CMakeFiles/TestSuite.dir/src/domain/music/Interval.cpp.s
-
-CMakeFiles/TestSuite.dir/src/domain/music/Voice.cpp.o: CMakeFiles/TestSuite.dir/flags.make
-CMakeFiles/TestSuite.dir/src/domain/music/Voice.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Voice.cpp
-CMakeFiles/TestSuite.dir/src/domain/music/Voice.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/TestSuite.dir/src/domain/music/Voice.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/src/domain/music/Voice.cpp.o -MF CMakeFiles/TestSuite.dir/src/domain/music/Voice.cpp.o.d -o CMakeFiles/TestSuite.dir/src/domain/music/Voice.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Voice.cpp
-
-CMakeFiles/TestSuite.dir/src/domain/music/Voice.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestSuite.dir/src/domain/music/Voice.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Voice.cpp > CMakeFiles/TestSuite.dir/src/domain/music/Voice.cpp.i
-
-CMakeFiles/TestSuite.dir/src/domain/music/Voice.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestSuite.dir/src/domain/music/Voice.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Voice.cpp -o CMakeFiles/TestSuite.dir/src/domain/music/Voice.cpp.s
-
-CMakeFiles/TestSuite.dir/src/domain/music/Score.cpp.o: CMakeFiles/TestSuite.dir/flags.make
-CMakeFiles/TestSuite.dir/src/domain/music/Score.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Score.cpp
-CMakeFiles/TestSuite.dir/src/domain/music/Score.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/TestSuite.dir/src/domain/music/Score.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/src/domain/music/Score.cpp.o -MF CMakeFiles/TestSuite.dir/src/domain/music/Score.cpp.o.d -o CMakeFiles/TestSuite.dir/src/domain/music/Score.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Score.cpp
-
-CMakeFiles/TestSuite.dir/src/domain/music/Score.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestSuite.dir/src/domain/music/Score.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Score.cpp > CMakeFiles/TestSuite.dir/src/domain/music/Score.cpp.i
-
-CMakeFiles/TestSuite.dir/src/domain/music/Score.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestSuite.dir/src/domain/music/Score.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Score.cpp -o CMakeFiles/TestSuite.dir/src/domain/music/Score.cpp.s
-
-CMakeFiles/TestSuite.dir/src/domain/music/MelodicTemplate.cpp.o: CMakeFiles/TestSuite.dir/flags.make
-CMakeFiles/TestSuite.dir/src/domain/music/MelodicTemplate.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/MelodicTemplate.cpp
-CMakeFiles/TestSuite.dir/src/domain/music/MelodicTemplate.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/TestSuite.dir/src/domain/music/MelodicTemplate.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/src/domain/music/MelodicTemplate.cpp.o -MF CMakeFiles/TestSuite.dir/src/domain/music/MelodicTemplate.cpp.o.d -o CMakeFiles/TestSuite.dir/src/domain/music/MelodicTemplate.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/MelodicTemplate.cpp
-
-CMakeFiles/TestSuite.dir/src/domain/music/MelodicTemplate.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestSuite.dir/src/domain/music/MelodicTemplate.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/MelodicTemplate.cpp > CMakeFiles/TestSuite.dir/src/domain/music/MelodicTemplate.cpp.i
-
-CMakeFiles/TestSuite.dir/src/domain/music/MelodicTemplate.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestSuite.dir/src/domain/music/MelodicTemplate.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/MelodicTemplate.cpp -o CMakeFiles/TestSuite.dir/src/domain/music/MelodicTemplate.cpp.s
-
-CMakeFiles/TestSuite.dir/src/domain/rules/ParallelFifthsRule.cpp.o: CMakeFiles/TestSuite.dir/flags.make
-CMakeFiles/TestSuite.dir/src/domain/rules/ParallelFifthsRule.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/rules/ParallelFifthsRule.cpp
-CMakeFiles/TestSuite.dir/src/domain/rules/ParallelFifthsRule.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/TestSuite.dir/src/domain/rules/ParallelFifthsRule.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/src/domain/rules/ParallelFifthsRule.cpp.o -MF CMakeFiles/TestSuite.dir/src/domain/rules/ParallelFifthsRule.cpp.o.d -o CMakeFiles/TestSuite.dir/src/domain/rules/ParallelFifthsRule.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/rules/ParallelFifthsRule.cpp
-
-CMakeFiles/TestSuite.dir/src/domain/rules/ParallelFifthsRule.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestSuite.dir/src/domain/rules/ParallelFifthsRule.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/rules/ParallelFifthsRule.cpp > CMakeFiles/TestSuite.dir/src/domain/rules/ParallelFifthsRule.cpp.i
-
-CMakeFiles/TestSuite.dir/src/domain/rules/ParallelFifthsRule.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestSuite.dir/src/domain/rules/ParallelFifthsRule.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/rules/ParallelFifthsRule.cpp -o CMakeFiles/TestSuite.dir/src/domain/rules/ParallelFifthsRule.cpp.s
-
-CMakeFiles/TestSuite.dir/src/domain/rules/ParallelOctavesRule.cpp.o: CMakeFiles/TestSuite.dir/flags.make
-CMakeFiles/TestSuite.dir/src/domain/rules/ParallelOctavesRule.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/rules/ParallelOctavesRule.cpp
-CMakeFiles/TestSuite.dir/src/domain/rules/ParallelOctavesRule.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/TestSuite.dir/src/domain/rules/ParallelOctavesRule.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/src/domain/rules/ParallelOctavesRule.cpp.o -MF CMakeFiles/TestSuite.dir/src/domain/rules/ParallelOctavesRule.cpp.o.d -o CMakeFiles/TestSuite.dir/src/domain/rules/ParallelOctavesRule.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/rules/ParallelOctavesRule.cpp
-
-CMakeFiles/TestSuite.dir/src/domain/rules/ParallelOctavesRule.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestSuite.dir/src/domain/rules/ParallelOctavesRule.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/rules/ParallelOctavesRule.cpp > CMakeFiles/TestSuite.dir/src/domain/rules/ParallelOctavesRule.cpp.i
-
-CMakeFiles/TestSuite.dir/src/domain/rules/ParallelOctavesRule.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestSuite.dir/src/domain/rules/ParallelOctavesRule.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/rules/ParallelOctavesRule.cpp -o CMakeFiles/TestSuite.dir/src/domain/rules/ParallelOctavesRule.cpp.s
-
-CMakeFiles/TestSuite.dir/src/domain/rules/VoiceLeadingRule.cpp.o: CMakeFiles/TestSuite.dir/flags.make
-CMakeFiles/TestSuite.dir/src/domain/rules/VoiceLeadingRule.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/rules/VoiceLeadingRule.cpp
-CMakeFiles/TestSuite.dir/src/domain/rules/VoiceLeadingRule.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/TestSuite.dir/src/domain/rules/VoiceLeadingRule.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/src/domain/rules/VoiceLeadingRule.cpp.o -MF CMakeFiles/TestSuite.dir/src/domain/rules/VoiceLeadingRule.cpp.o.d -o CMakeFiles/TestSuite.dir/src/domain/rules/VoiceLeadingRule.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/rules/VoiceLeadingRule.cpp
-
-CMakeFiles/TestSuite.dir/src/domain/rules/VoiceLeadingRule.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestSuite.dir/src/domain/rules/VoiceLeadingRule.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/rules/VoiceLeadingRule.cpp > CMakeFiles/TestSuite.dir/src/domain/rules/VoiceLeadingRule.cpp.i
-
-CMakeFiles/TestSuite.dir/src/domain/rules/VoiceLeadingRule.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestSuite.dir/src/domain/rules/VoiceLeadingRule.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/rules/VoiceLeadingRule.cpp -o CMakeFiles/TestSuite.dir/src/domain/rules/VoiceLeadingRule.cpp.s
-
-CMakeFiles/TestSuite.dir/src/domain/rules/ValidationPipeline.cpp.o: CMakeFiles/TestSuite.dir/flags.make
-CMakeFiles/TestSuite.dir/src/domain/rules/ValidationPipeline.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/rules/ValidationPipeline.cpp
-CMakeFiles/TestSuite.dir/src/domain/rules/ValidationPipeline.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/TestSuite.dir/src/domain/rules/ValidationPipeline.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/src/domain/rules/ValidationPipeline.cpp.o -MF CMakeFiles/TestSuite.dir/src/domain/rules/ValidationPipeline.cpp.o.d -o CMakeFiles/TestSuite.dir/src/domain/rules/ValidationPipeline.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/rules/ValidationPipeline.cpp
-
-CMakeFiles/TestSuite.dir/src/domain/rules/ValidationPipeline.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestSuite.dir/src/domain/rules/ValidationPipeline.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/rules/ValidationPipeline.cpp > CMakeFiles/TestSuite.dir/src/domain/rules/ValidationPipeline.cpp.i
-
-CMakeFiles/TestSuite.dir/src/domain/rules/ValidationPipeline.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestSuite.dir/src/domain/rules/ValidationPipeline.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/rules/ValidationPipeline.cpp -o CMakeFiles/TestSuite.dir/src/domain/rules/ValidationPipeline.cpp.s
-
-CMakeFiles/TestSuite.dir/src/domain/events/NoteAddedEvent.cpp.o: CMakeFiles/TestSuite.dir/flags.make
-CMakeFiles/TestSuite.dir/src/domain/events/NoteAddedEvent.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/NoteAddedEvent.cpp
-CMakeFiles/TestSuite.dir/src/domain/events/NoteAddedEvent.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/TestSuite.dir/src/domain/events/NoteAddedEvent.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/src/domain/events/NoteAddedEvent.cpp.o -MF CMakeFiles/TestSuite.dir/src/domain/events/NoteAddedEvent.cpp.o.d -o CMakeFiles/TestSuite.dir/src/domain/events/NoteAddedEvent.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/NoteAddedEvent.cpp
-
-CMakeFiles/TestSuite.dir/src/domain/events/NoteAddedEvent.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestSuite.dir/src/domain/events/NoteAddedEvent.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/NoteAddedEvent.cpp > CMakeFiles/TestSuite.dir/src/domain/events/NoteAddedEvent.cpp.i
-
-CMakeFiles/TestSuite.dir/src/domain/events/NoteAddedEvent.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestSuite.dir/src/domain/events/NoteAddedEvent.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/NoteAddedEvent.cpp -o CMakeFiles/TestSuite.dir/src/domain/events/NoteAddedEvent.cpp.s
-
-CMakeFiles/TestSuite.dir/src/domain/events/EventStore.cpp.o: CMakeFiles/TestSuite.dir/flags.make
-CMakeFiles/TestSuite.dir/src/domain/events/EventStore.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/EventStore.cpp
-CMakeFiles/TestSuite.dir/src/domain/events/EventStore.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/TestSuite.dir/src/domain/events/EventStore.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/src/domain/events/EventStore.cpp.o -MF CMakeFiles/TestSuite.dir/src/domain/events/EventStore.cpp.o.d -o CMakeFiles/TestSuite.dir/src/domain/events/EventStore.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/EventStore.cpp
-
-CMakeFiles/TestSuite.dir/src/domain/events/EventStore.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestSuite.dir/src/domain/events/EventStore.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/EventStore.cpp > CMakeFiles/TestSuite.dir/src/domain/events/EventStore.cpp.i
-
-CMakeFiles/TestSuite.dir/src/domain/events/EventStore.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestSuite.dir/src/domain/events/EventStore.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/EventStore.cpp -o CMakeFiles/TestSuite.dir/src/domain/events/EventStore.cpp.s
-
-CMakeFiles/TestSuite.dir/src/domain/events/EventBus.cpp.o: CMakeFiles/TestSuite.dir/flags.make
-CMakeFiles/TestSuite.dir/src/domain/events/EventBus.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/EventBus.cpp
-CMakeFiles/TestSuite.dir/src/domain/events/EventBus.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/TestSuite.dir/src/domain/events/EventBus.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/src/domain/events/EventBus.cpp.o -MF CMakeFiles/TestSuite.dir/src/domain/events/EventBus.cpp.o.d -o CMakeFiles/TestSuite.dir/src/domain/events/EventBus.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/EventBus.cpp
-
-CMakeFiles/TestSuite.dir/src/domain/events/EventBus.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestSuite.dir/src/domain/events/EventBus.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/EventBus.cpp > CMakeFiles/TestSuite.dir/src/domain/events/EventBus.cpp.i
-
-CMakeFiles/TestSuite.dir/src/domain/events/EventBus.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestSuite.dir/src/domain/events/EventBus.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/EventBus.cpp -o CMakeFiles/TestSuite.dir/src/domain/events/EventBus.cpp.s
-
-CMakeFiles/TestSuite.dir/src/domain/events/NoteEventHandler.cpp.o: CMakeFiles/TestSuite.dir/flags.make
-CMakeFiles/TestSuite.dir/src/domain/events/NoteEventHandler.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/NoteEventHandler.cpp
-CMakeFiles/TestSuite.dir/src/domain/events/NoteEventHandler.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/TestSuite.dir/src/domain/events/NoteEventHandler.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/src/domain/events/NoteEventHandler.cpp.o -MF CMakeFiles/TestSuite.dir/src/domain/events/NoteEventHandler.cpp.o.d -o CMakeFiles/TestSuite.dir/src/domain/events/NoteEventHandler.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/NoteEventHandler.cpp
-
-CMakeFiles/TestSuite.dir/src/domain/events/NoteEventHandler.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestSuite.dir/src/domain/events/NoteEventHandler.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/NoteEventHandler.cpp > CMakeFiles/TestSuite.dir/src/domain/events/NoteEventHandler.cpp.i
-
-CMakeFiles/TestSuite.dir/src/domain/events/NoteEventHandler.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestSuite.dir/src/domain/events/NoteEventHandler.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/NoteEventHandler.cpp -o CMakeFiles/TestSuite.dir/src/domain/events/NoteEventHandler.cpp.s
-
-CMakeFiles/TestSuite.dir/src/domain/events/Snapshot.cpp.o: CMakeFiles/TestSuite.dir/flags.make
-CMakeFiles/TestSuite.dir/src/domain/events/Snapshot.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/Snapshot.cpp
-CMakeFiles/TestSuite.dir/src/domain/events/Snapshot.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/TestSuite.dir/src/domain/events/Snapshot.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/src/domain/events/Snapshot.cpp.o -MF CMakeFiles/TestSuite.dir/src/domain/events/Snapshot.cpp.o.d -o CMakeFiles/TestSuite.dir/src/domain/events/Snapshot.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/Snapshot.cpp
-
-CMakeFiles/TestSuite.dir/src/domain/events/Snapshot.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestSuite.dir/src/domain/events/Snapshot.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/Snapshot.cpp > CMakeFiles/TestSuite.dir/src/domain/events/Snapshot.cpp.i
-
-CMakeFiles/TestSuite.dir/src/domain/events/Snapshot.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestSuite.dir/src/domain/events/Snapshot.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/Snapshot.cpp -o CMakeFiles/TestSuite.dir/src/domain/events/Snapshot.cpp.s
-
-CMakeFiles/TestSuite.dir/src/adapters/InMemoryScoreRepository.cpp.o: CMakeFiles/TestSuite.dir/flags.make
-CMakeFiles/TestSuite.dir/src/adapters/InMemoryScoreRepository.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/InMemoryScoreRepository.cpp
-CMakeFiles/TestSuite.dir/src/adapters/InMemoryScoreRepository.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/TestSuite.dir/src/adapters/InMemoryScoreRepository.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/src/adapters/InMemoryScoreRepository.cpp.o -MF CMakeFiles/TestSuite.dir/src/adapters/InMemoryScoreRepository.cpp.o.d -o CMakeFiles/TestSuite.dir/src/adapters/InMemoryScoreRepository.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/InMemoryScoreRepository.cpp
-
-CMakeFiles/TestSuite.dir/src/adapters/InMemoryScoreRepository.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestSuite.dir/src/adapters/InMemoryScoreRepository.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/InMemoryScoreRepository.cpp > CMakeFiles/TestSuite.dir/src/adapters/InMemoryScoreRepository.cpp.i
-
-CMakeFiles/TestSuite.dir/src/adapters/InMemoryScoreRepository.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestSuite.dir/src/adapters/InMemoryScoreRepository.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/InMemoryScoreRepository.cpp -o CMakeFiles/TestSuite.dir/src/adapters/InMemoryScoreRepository.cpp.s
-
-CMakeFiles/TestSuite.dir/src/adapters/MockMidiAdapter.cpp.o: CMakeFiles/TestSuite.dir/flags.make
-CMakeFiles/TestSuite.dir/src/adapters/MockMidiAdapter.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/MockMidiAdapter.cpp
-CMakeFiles/TestSuite.dir/src/adapters/MockMidiAdapter.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/TestSuite.dir/src/adapters/MockMidiAdapter.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/src/adapters/MockMidiAdapter.cpp.o -MF CMakeFiles/TestSuite.dir/src/adapters/MockMidiAdapter.cpp.o.d -o CMakeFiles/TestSuite.dir/src/adapters/MockMidiAdapter.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/MockMidiAdapter.cpp
-
-CMakeFiles/TestSuite.dir/src/adapters/MockMidiAdapter.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestSuite.dir/src/adapters/MockMidiAdapter.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/MockMidiAdapter.cpp > CMakeFiles/TestSuite.dir/src/adapters/MockMidiAdapter.cpp.i
-
-CMakeFiles/TestSuite.dir/src/adapters/MockMidiAdapter.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestSuite.dir/src/adapters/MockMidiAdapter.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/MockMidiAdapter.cpp -o CMakeFiles/TestSuite.dir/src/adapters/MockMidiAdapter.cpp.s
-
-CMakeFiles/TestSuite.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o: CMakeFiles/TestSuite.dir/flags.make
-CMakeFiles/TestSuite.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/TemplateBasedExerciseGenerator.cpp
-CMakeFiles/TestSuite.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object CMakeFiles/TestSuite.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o -MF CMakeFiles/TestSuite.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o.d -o CMakeFiles/TestSuite.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/TemplateBasedExerciseGenerator.cpp
-
-CMakeFiles/TestSuite.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestSuite.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/TemplateBasedExerciseGenerator.cpp > CMakeFiles/TestSuite.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.i
-
-CMakeFiles/TestSuite.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestSuite.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/TemplateBasedExerciseGenerator.cpp -o CMakeFiles/TestSuite.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.s
-
-CMakeFiles/TestSuite.dir/src/adapters/EventSourcedRepository.cpp.o: CMakeFiles/TestSuite.dir/flags.make
-CMakeFiles/TestSuite.dir/src/adapters/EventSourcedRepository.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/EventSourcedRepository.cpp
-CMakeFiles/TestSuite.dir/src/adapters/EventSourcedRepository.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object CMakeFiles/TestSuite.dir/src/adapters/EventSourcedRepository.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/src/adapters/EventSourcedRepository.cpp.o -MF CMakeFiles/TestSuite.dir/src/adapters/EventSourcedRepository.cpp.o.d -o CMakeFiles/TestSuite.dir/src/adapters/EventSourcedRepository.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/EventSourcedRepository.cpp
-
-CMakeFiles/TestSuite.dir/src/adapters/EventSourcedRepository.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestSuite.dir/src/adapters/EventSourcedRepository.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/EventSourcedRepository.cpp > CMakeFiles/TestSuite.dir/src/adapters/EventSourcedRepository.cpp.i
-
-CMakeFiles/TestSuite.dir/src/adapters/EventSourcedRepository.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestSuite.dir/src/adapters/EventSourcedRepository.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/EventSourcedRepository.cpp -o CMakeFiles/TestSuite.dir/src/adapters/EventSourcedRepository.cpp.s
-
-CMakeFiles/TestSuite.dir/src/adapters/CachingScoreRepository.cpp.o: CMakeFiles/TestSuite.dir/flags.make
-CMakeFiles/TestSuite.dir/src/adapters/CachingScoreRepository.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/CachingScoreRepository.cpp
-CMakeFiles/TestSuite.dir/src/adapters/CachingScoreRepository.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object CMakeFiles/TestSuite.dir/src/adapters/CachingScoreRepository.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/src/adapters/CachingScoreRepository.cpp.o -MF CMakeFiles/TestSuite.dir/src/adapters/CachingScoreRepository.cpp.o.d -o CMakeFiles/TestSuite.dir/src/adapters/CachingScoreRepository.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/CachingScoreRepository.cpp
-
-CMakeFiles/TestSuite.dir/src/adapters/CachingScoreRepository.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestSuite.dir/src/adapters/CachingScoreRepository.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/CachingScoreRepository.cpp > CMakeFiles/TestSuite.dir/src/adapters/CachingScoreRepository.cpp.i
-
-CMakeFiles/TestSuite.dir/src/adapters/CachingScoreRepository.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestSuite.dir/src/adapters/CachingScoreRepository.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/CachingScoreRepository.cpp -o CMakeFiles/TestSuite.dir/src/adapters/CachingScoreRepository.cpp.s
-
-CMakeFiles/TestSuite.dir/src/adapters/RtMidiAdapter.cpp.o: CMakeFiles/TestSuite.dir/flags.make
-CMakeFiles/TestSuite.dir/src/adapters/RtMidiAdapter.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/RtMidiAdapter.cpp
-CMakeFiles/TestSuite.dir/src/adapters/RtMidiAdapter.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building CXX object CMakeFiles/TestSuite.dir/src/adapters/RtMidiAdapter.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/src/adapters/RtMidiAdapter.cpp.o -MF CMakeFiles/TestSuite.dir/src/adapters/RtMidiAdapter.cpp.o.d -o CMakeFiles/TestSuite.dir/src/adapters/RtMidiAdapter.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/RtMidiAdapter.cpp
-
-CMakeFiles/TestSuite.dir/src/adapters/RtMidiAdapter.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestSuite.dir/src/adapters/RtMidiAdapter.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/RtMidiAdapter.cpp > CMakeFiles/TestSuite.dir/src/adapters/RtMidiAdapter.cpp.i
-
-CMakeFiles/TestSuite.dir/src/adapters/RtMidiAdapter.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestSuite.dir/src/adapters/RtMidiAdapter.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/RtMidiAdapter.cpp -o CMakeFiles/TestSuite.dir/src/adapters/RtMidiAdapter.cpp.s
-
-CMakeFiles/TestSuite.dir/src/domain/progression/ProgressionSystem.cpp.o: CMakeFiles/TestSuite.dir/flags.make
-CMakeFiles/TestSuite.dir/src/domain/progression/ProgressionSystem.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/progression/ProgressionSystem.cpp
-CMakeFiles/TestSuite.dir/src/domain/progression/ProgressionSystem.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building CXX object CMakeFiles/TestSuite.dir/src/domain/progression/ProgressionSystem.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/src/domain/progression/ProgressionSystem.cpp.o -MF CMakeFiles/TestSuite.dir/src/domain/progression/ProgressionSystem.cpp.o.d -o CMakeFiles/TestSuite.dir/src/domain/progression/ProgressionSystem.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/progression/ProgressionSystem.cpp
-
-CMakeFiles/TestSuite.dir/src/domain/progression/ProgressionSystem.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestSuite.dir/src/domain/progression/ProgressionSystem.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/progression/ProgressionSystem.cpp > CMakeFiles/TestSuite.dir/src/domain/progression/ProgressionSystem.cpp.i
-
-CMakeFiles/TestSuite.dir/src/domain/progression/ProgressionSystem.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestSuite.dir/src/domain/progression/ProgressionSystem.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/progression/ProgressionSystem.cpp -o CMakeFiles/TestSuite.dir/src/domain/progression/ProgressionSystem.cpp.s
-
-CMakeFiles/TestSuite.dir/src/domain/plugins/PluginManager.cpp.o: CMakeFiles/TestSuite.dir/flags.make
-CMakeFiles/TestSuite.dir/src/domain/plugins/PluginManager.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/plugins/PluginManager.cpp
-CMakeFiles/TestSuite.dir/src/domain/plugins/PluginManager.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building CXX object CMakeFiles/TestSuite.dir/src/domain/plugins/PluginManager.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/src/domain/plugins/PluginManager.cpp.o -MF CMakeFiles/TestSuite.dir/src/domain/plugins/PluginManager.cpp.o.d -o CMakeFiles/TestSuite.dir/src/domain/plugins/PluginManager.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/plugins/PluginManager.cpp
-
-CMakeFiles/TestSuite.dir/src/domain/plugins/PluginManager.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestSuite.dir/src/domain/plugins/PluginManager.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/plugins/PluginManager.cpp > CMakeFiles/TestSuite.dir/src/domain/plugins/PluginManager.cpp.i
-
-CMakeFiles/TestSuite.dir/src/domain/plugins/PluginManager.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestSuite.dir/src/domain/plugins/PluginManager.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/plugins/PluginManager.cpp -o CMakeFiles/TestSuite.dir/src/domain/plugins/PluginManager.cpp.s
-
-CMakeFiles/TestSuite.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o: CMakeFiles/TestSuite.dir/flags.make
-CMakeFiles/TestSuite.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/crossdomain/CrossDomainValidator.cpp
-CMakeFiles/TestSuite.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object CMakeFiles/TestSuite.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o -MF CMakeFiles/TestSuite.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o.d -o CMakeFiles/TestSuite.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/crossdomain/CrossDomainValidator.cpp
-
-CMakeFiles/TestSuite.dir/src/domain/crossdomain/CrossDomainValidator.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestSuite.dir/src/domain/crossdomain/CrossDomainValidator.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/crossdomain/CrossDomainValidator.cpp > CMakeFiles/TestSuite.dir/src/domain/crossdomain/CrossDomainValidator.cpp.i
-
-CMakeFiles/TestSuite.dir/src/domain/crossdomain/CrossDomainValidator.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestSuite.dir/src/domain/crossdomain/CrossDomainValidator.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/crossdomain/CrossDomainValidator.cpp -o CMakeFiles/TestSuite.dir/src/domain/crossdomain/CrossDomainValidator.cpp.s
-
-CMakeFiles/TestSuite.dir/src/domain/statesync/StateSynchronizationManager.cpp.o: CMakeFiles/TestSuite.dir/flags.make
-CMakeFiles/TestSuite.dir/src/domain/statesync/StateSynchronizationManager.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/statesync/StateSynchronizationManager.cpp
-CMakeFiles/TestSuite.dir/src/domain/statesync/StateSynchronizationManager.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object CMakeFiles/TestSuite.dir/src/domain/statesync/StateSynchronizationManager.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/src/domain/statesync/StateSynchronizationManager.cpp.o -MF CMakeFiles/TestSuite.dir/src/domain/statesync/StateSynchronizationManager.cpp.o.d -o CMakeFiles/TestSuite.dir/src/domain/statesync/StateSynchronizationManager.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/statesync/StateSynchronizationManager.cpp
-
-CMakeFiles/TestSuite.dir/src/domain/statesync/StateSynchronizationManager.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestSuite.dir/src/domain/statesync/StateSynchronizationManager.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/statesync/StateSynchronizationManager.cpp > CMakeFiles/TestSuite.dir/src/domain/statesync/StateSynchronizationManager.cpp.i
-
-CMakeFiles/TestSuite.dir/src/domain/statesync/StateSynchronizationManager.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestSuite.dir/src/domain/statesync/StateSynchronizationManager.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/statesync/StateSynchronizationManager.cpp -o CMakeFiles/TestSuite.dir/src/domain/statesync/StateSynchronizationManager.cpp.s
-
-CMakeFiles/TestSuite.dir/src/utils/DebugUtils.cpp.o: CMakeFiles/TestSuite.dir/flags.make
-CMakeFiles/TestSuite.dir/src/utils/DebugUtils.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/utils/DebugUtils.cpp
-CMakeFiles/TestSuite.dir/src/utils/DebugUtils.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object CMakeFiles/TestSuite.dir/src/utils/DebugUtils.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/src/utils/DebugUtils.cpp.o -MF CMakeFiles/TestSuite.dir/src/utils/DebugUtils.cpp.o.d -o CMakeFiles/TestSuite.dir/src/utils/DebugUtils.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/utils/DebugUtils.cpp
-
-CMakeFiles/TestSuite.dir/src/utils/DebugUtils.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestSuite.dir/src/utils/DebugUtils.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/utils/DebugUtils.cpp > CMakeFiles/TestSuite.dir/src/utils/DebugUtils.cpp.i
-
-CMakeFiles/TestSuite.dir/src/utils/DebugUtils.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestSuite.dir/src/utils/DebugUtils.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/utils/DebugUtils.cpp -o CMakeFiles/TestSuite.dir/src/utils/DebugUtils.cpp.s
-
 # Object files for target TestSuite
 TestSuite_OBJECTS = \
+"CMakeFiles/TestSuite.dir/TestSuite_autogen/mocs_compilation.cpp.o" \
 "CMakeFiles/TestSuite.dir/tests/main.cpp.o" \
 "CMakeFiles/TestSuite.dir/tests/TestSuite.cpp.o" \
 "CMakeFiles/TestSuite.dir/tests/ValidationPipelineTests.cpp.o" \
@@ -714,42 +295,12 @@ TestSuite_OBJECTS = \
 "CMakeFiles/TestSuite.dir/tests/plugins/PluginSystemTests.cpp.o" \
 "CMakeFiles/TestSuite.dir/tests/plugins/TestPlugin.cpp.o" \
 "CMakeFiles/TestSuite.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.o" \
-"CMakeFiles/TestSuite.dir/tests/statesync/StateSynchronizationManagerTests.cpp.o" \
-"CMakeFiles/TestSuite.dir/src/domain/monitoring/PerformanceMonitor.cpp.o" \
-"CMakeFiles/TestSuite.dir/src/domain/errors/DefaultErrorHandlers.cpp.o" \
-"CMakeFiles/TestSuite.dir/src/domain/errors/ErrorHandler.cpp.o" \
-"CMakeFiles/TestSuite.dir/src/domain/errors/ErrorLogger.cpp.o" \
-"CMakeFiles/TestSuite.dir/src/domain/errors/RecoveryStrategy.cpp.o" \
-"CMakeFiles/TestSuite.dir/src/domain/music/Pitch.cpp.o" \
-"CMakeFiles/TestSuite.dir/src/domain/music/Duration.cpp.o" \
-"CMakeFiles/TestSuite.dir/src/domain/music/Interval.cpp.o" \
-"CMakeFiles/TestSuite.dir/src/domain/music/Voice.cpp.o" \
-"CMakeFiles/TestSuite.dir/src/domain/music/Score.cpp.o" \
-"CMakeFiles/TestSuite.dir/src/domain/music/MelodicTemplate.cpp.o" \
-"CMakeFiles/TestSuite.dir/src/domain/rules/ParallelFifthsRule.cpp.o" \
-"CMakeFiles/TestSuite.dir/src/domain/rules/ParallelOctavesRule.cpp.o" \
-"CMakeFiles/TestSuite.dir/src/domain/rules/VoiceLeadingRule.cpp.o" \
-"CMakeFiles/TestSuite.dir/src/domain/rules/ValidationPipeline.cpp.o" \
-"CMakeFiles/TestSuite.dir/src/domain/events/NoteAddedEvent.cpp.o" \
-"CMakeFiles/TestSuite.dir/src/domain/events/EventStore.cpp.o" \
-"CMakeFiles/TestSuite.dir/src/domain/events/EventBus.cpp.o" \
-"CMakeFiles/TestSuite.dir/src/domain/events/NoteEventHandler.cpp.o" \
-"CMakeFiles/TestSuite.dir/src/domain/events/Snapshot.cpp.o" \
-"CMakeFiles/TestSuite.dir/src/adapters/InMemoryScoreRepository.cpp.o" \
-"CMakeFiles/TestSuite.dir/src/adapters/MockMidiAdapter.cpp.o" \
-"CMakeFiles/TestSuite.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o" \
-"CMakeFiles/TestSuite.dir/src/adapters/EventSourcedRepository.cpp.o" \
-"CMakeFiles/TestSuite.dir/src/adapters/CachingScoreRepository.cpp.o" \
-"CMakeFiles/TestSuite.dir/src/adapters/RtMidiAdapter.cpp.o" \
-"CMakeFiles/TestSuite.dir/src/domain/progression/ProgressionSystem.cpp.o" \
-"CMakeFiles/TestSuite.dir/src/domain/plugins/PluginManager.cpp.o" \
-"CMakeFiles/TestSuite.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o" \
-"CMakeFiles/TestSuite.dir/src/domain/statesync/StateSynchronizationManager.cpp.o" \
-"CMakeFiles/TestSuite.dir/src/utils/DebugUtils.cpp.o"
+"CMakeFiles/TestSuite.dir/tests/statesync/StateSynchronizationManagerTests.cpp.o"
 
 # External object files for target TestSuite
 TestSuite_EXTERNAL_OBJECTS =
 
+bin/TestSuite: CMakeFiles/TestSuite.dir/TestSuite_autogen/mocs_compilation.cpp.o
 bin/TestSuite: CMakeFiles/TestSuite.dir/tests/main.cpp.o
 bin/TestSuite: CMakeFiles/TestSuite.dir/tests/TestSuite.cpp.o
 bin/TestSuite: CMakeFiles/TestSuite.dir/tests/ValidationPipelineTests.cpp.o
@@ -764,45 +315,15 @@ bin/TestSuite: CMakeFiles/TestSuite.dir/tests/plugins/PluginSystemTests.cpp.o
 bin/TestSuite: CMakeFiles/TestSuite.dir/tests/plugins/TestPlugin.cpp.o
 bin/TestSuite: CMakeFiles/TestSuite.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.o
 bin/TestSuite: CMakeFiles/TestSuite.dir/tests/statesync/StateSynchronizationManagerTests.cpp.o
-bin/TestSuite: CMakeFiles/TestSuite.dir/src/domain/monitoring/PerformanceMonitor.cpp.o
-bin/TestSuite: CMakeFiles/TestSuite.dir/src/domain/errors/DefaultErrorHandlers.cpp.o
-bin/TestSuite: CMakeFiles/TestSuite.dir/src/domain/errors/ErrorHandler.cpp.o
-bin/TestSuite: CMakeFiles/TestSuite.dir/src/domain/errors/ErrorLogger.cpp.o
-bin/TestSuite: CMakeFiles/TestSuite.dir/src/domain/errors/RecoveryStrategy.cpp.o
-bin/TestSuite: CMakeFiles/TestSuite.dir/src/domain/music/Pitch.cpp.o
-bin/TestSuite: CMakeFiles/TestSuite.dir/src/domain/music/Duration.cpp.o
-bin/TestSuite: CMakeFiles/TestSuite.dir/src/domain/music/Interval.cpp.o
-bin/TestSuite: CMakeFiles/TestSuite.dir/src/domain/music/Voice.cpp.o
-bin/TestSuite: CMakeFiles/TestSuite.dir/src/domain/music/Score.cpp.o
-bin/TestSuite: CMakeFiles/TestSuite.dir/src/domain/music/MelodicTemplate.cpp.o
-bin/TestSuite: CMakeFiles/TestSuite.dir/src/domain/rules/ParallelFifthsRule.cpp.o
-bin/TestSuite: CMakeFiles/TestSuite.dir/src/domain/rules/ParallelOctavesRule.cpp.o
-bin/TestSuite: CMakeFiles/TestSuite.dir/src/domain/rules/VoiceLeadingRule.cpp.o
-bin/TestSuite: CMakeFiles/TestSuite.dir/src/domain/rules/ValidationPipeline.cpp.o
-bin/TestSuite: CMakeFiles/TestSuite.dir/src/domain/events/NoteAddedEvent.cpp.o
-bin/TestSuite: CMakeFiles/TestSuite.dir/src/domain/events/EventStore.cpp.o
-bin/TestSuite: CMakeFiles/TestSuite.dir/src/domain/events/EventBus.cpp.o
-bin/TestSuite: CMakeFiles/TestSuite.dir/src/domain/events/NoteEventHandler.cpp.o
-bin/TestSuite: CMakeFiles/TestSuite.dir/src/domain/events/Snapshot.cpp.o
-bin/TestSuite: CMakeFiles/TestSuite.dir/src/adapters/InMemoryScoreRepository.cpp.o
-bin/TestSuite: CMakeFiles/TestSuite.dir/src/adapters/MockMidiAdapter.cpp.o
-bin/TestSuite: CMakeFiles/TestSuite.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o
-bin/TestSuite: CMakeFiles/TestSuite.dir/src/adapters/EventSourcedRepository.cpp.o
-bin/TestSuite: CMakeFiles/TestSuite.dir/src/adapters/CachingScoreRepository.cpp.o
-bin/TestSuite: CMakeFiles/TestSuite.dir/src/adapters/RtMidiAdapter.cpp.o
-bin/TestSuite: CMakeFiles/TestSuite.dir/src/domain/progression/ProgressionSystem.cpp.o
-bin/TestSuite: CMakeFiles/TestSuite.dir/src/domain/plugins/PluginManager.cpp.o
-bin/TestSuite: CMakeFiles/TestSuite.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o
-bin/TestSuite: CMakeFiles/TestSuite.dir/src/domain/statesync/StateSynchronizationManager.cpp.o
-bin/TestSuite: CMakeFiles/TestSuite.dir/src/utils/DebugUtils.cpp.o
 bin/TestSuite: CMakeFiles/TestSuite.dir/build.make
 bin/TestSuite: lib/libgtest.a
 bin/TestSuite: lib/libgtest_main.a
+bin/TestSuite: libMusicTrainerLib.a
 bin/TestSuite: _deps/rtmidi-build/librtmidi.so.6.0.0
 bin/TestSuite: /usr/lib/x86_64-linux-gnu/libasound.so
 bin/TestSuite: lib/libgtest.a
 bin/TestSuite: CMakeFiles/TestSuite.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Linking CXX executable bin/TestSuite"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable bin/TestSuite"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/TestSuite.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

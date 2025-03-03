@@ -6,11 +6,6 @@
 
 namespace MusicTrainer {
 
-ErrorHandler& ErrorHandler::getInstance() {
-	static ErrorHandler instance;
-	return instance;
-}
-
 void ErrorHandler::registerRecoveryStrategy(const std::string& errorType,
 										  RecoveryCallback strategy) {
 	auto it = handlers.find(errorType);
@@ -28,28 +23,47 @@ std::future<void> ErrorHandler::handleError(const MusicTrainerError& error) {
 	auto promise = std::make_shared<std::promise<void>>();
 	
 	try {
+		 // First try to handle the error using registered handlers
+		bool handled = false;
+		
 		// Find the appropriate handler
 		ErrorCallback handler;
 		auto it = handlers.find(errorType);
+		
 		if (it != handlers.end() && it->second->handler) {
+			std::cout << "Found specific handler for error type: " << errorType << std::endl;
 			handler = it->second->handler;
+			handled = true;
 		} else if (globalHandler) {
+			std::cout << "Using global handler for error type: " << errorType << std::endl;
 			handler = globalHandler;
+			handled = true;
 		}
 		
-		// Attempt recovery
-		auto& recovery = RecoveryStrategy::getInstance();
-		auto result = recovery.attemptRecovery(error);
+		// Try recovery strategies before calling the handler
+		auto& strategy = RecoveryStrategy::getInstance();
+		bool recovered = strategy.attemptRecovery(error).successful;
 		
-		// Handle the error if recovery failed
-		if (!result.successful && handler) {
-			handler(error);
-		} else if (!result.successful) {
-			std::cerr << "Unhandled error: " << error.what() << std::endl;
+		// Call the handler even if recovery succeeded
+		if (handled) {
+			// Call the handler in a separate thread
+			std::thread([=]() {
+				try {
+					std::cout << "Calling error handler for: " << errorType << std::endl;
+					handler(error);
+					std::cout << "Handler completed for: " << errorType << std::endl;
+					promise->set_value();
+				} catch (const std::exception& e) {
+					std::cerr << "Error in handler: " << e.what() << std::endl;
+					promise->set_exception(std::current_exception());
+				}
+			}).detach();
+		} else {
+			std::cerr << "No handler found for error type: " << errorType << std::endl;
+			promise->set_value();
 		}
-		
-		promise->set_value();
 	} catch (const std::exception& e) {
+		std::cerr << "Exception in handleError: " << e.what() << std::endl;
 		promise->set_exception(std::current_exception());
 	}
 	

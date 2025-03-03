@@ -1,1 +1,1 @@
-/usr/bin/c++  -pthread -Wall CMakeFiles/midiout.dir/tests/midiout.cpp.o -o tests/midiout  -Wl,-rpath,/home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build librtmidi.so.6.0.0 
+/usr/bin/c++  -pthread -Wall CMakeFiles/midiout.dir/midiout_autogen/mocs_compilation.cpp.o CMakeFiles/midiout.dir/tests/midiout.cpp.o -o tests/midiout  -Wl,-rpath,/home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build librtmidi.so.6.0.0 

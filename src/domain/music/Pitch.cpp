@@ -1,69 +1,69 @@
 #include "domain/music/Pitch.h"
+#include <array>
 
+namespace MusicTrainer {
 namespace music {
 
+namespace {
+    constexpr std::array<uint8_t, 7> noteToMidi = {60, 62, 64, 65, 67, 69, 71}; // C4 to B4
+    constexpr std::array<const char*, 7> noteNames = {"C", "D", "E", "F", "G", "A", "B"};
+}
+
 Pitch Pitch::create(NoteName note, int8_t octave, int8_t accidental) {
-	return Pitch(note, octave, accidental);
+    return Pitch(note, octave, accidental);
 }
 
 Pitch Pitch::fromMidiNote(uint8_t midiNote) {
-	static const NoteName midiToNote[] = {
-		NoteName::C,  // 0
-		NoteName::C,  // 1
-		NoteName::D,  // 2
-		NoteName::D,  // 3
-		NoteName::E,  // 4
-		NoteName::F,  // 5
-		NoteName::F,  // 6
-		NoteName::G,  // 7
-		NoteName::G,  // 8
-		NoteName::A,  // 9
-		NoteName::A,  // 10
-		NoteName::B   // 11
-	};
-	
-	int8_t octave = (midiNote / 12) - 1;
-	uint8_t noteIndex = midiNote % 12;
-	NoteName noteName = midiToNote[noteIndex];
-	
-	// Calculate accidental based on note position
-	static const int8_t naturalPositions[] = {0, 2, 4, 5, 7, 9, 11}; // C, D, E, F, G, A, B positions
-	int8_t accidental = 0;
-	
-	int naturalPosition = naturalPositions[static_cast<int>(noteName)];
-	accidental = noteIndex - naturalPosition;
-	
-	return create(noteName, octave, accidental);
+    int octave = (midiNote / 12) - 1;
+    int noteInOctave = midiNote % 12;
+    
+    // Map MIDI note numbers back to note names and accidentals
+    static const std::array<std::pair<NoteName, int8_t>, 12> midiToNote = {
+        std::make_pair(NoteName::C, 0),    // C
+        std::make_pair(NoteName::C, 1),    // C#
+        std::make_pair(NoteName::D, 0),    // D
+        std::make_pair(NoteName::D, 1),    // D#
+        std::make_pair(NoteName::E, 0),    // E
+        std::make_pair(NoteName::F, 0),    // F
+        std::make_pair(NoteName::F, 1),    // F#
+        std::make_pair(NoteName::G, 0),    // G
+        std::make_pair(NoteName::G, 1),    // G#
+        std::make_pair(NoteName::A, 0),    // A
+        std::make_pair(NoteName::A, 1),    // A#
+        std::make_pair(NoteName::B, 0)     // B
+    };
+    
+    return Pitch(midiToNote[noteInOctave].first, octave, midiToNote[noteInOctave].second);
 }
 
 Pitch::Pitch(NoteName note, int8_t octave, int8_t accidental)
-	: noteName(note), octave(octave), accidental(accidental) {}
+    : noteName(note), octave(octave), accidental(accidental) {}
 
 uint8_t Pitch::getMidiNote() const {
-	static const uint8_t noteToMidi[] = {0, 2, 4, 5, 7, 9, 11}; // C=0, D=2, E=4, F=5, G=7, A=9, B=11
-	uint8_t base = noteToMidi[static_cast<int>(noteName)];
-	return ((octave + 1) * 12) + base + accidental;
+    uint8_t base = noteToMidi[static_cast<int>(noteName)];
+    return ((octave + 1) * 12) + base + accidental;
 }
 
 std::string Pitch::toString() const {
-	static const char* noteNames[] = {"C", "D", "E", "F", "G", "A", "B"};
-	std::string result = noteNames[static_cast<int>(noteName)];
-	
-	for (int i = 0; i < accidental; ++i) result += "#";
-	for (int i = 0; i > accidental; --i) result += "b";
-	
-	result += std::to_string(octave);
-	return result;
+    std::string result;
+    result = noteNames[static_cast<int>(noteName)];
+    
+    for (int i = 0; i < accidental; ++i) result += "#";
+    for (int i = 0; i > accidental; --i) result += "b";
+    
+    result += std::to_string(octave);
+    return result;
 }
 
 bool Pitch::operator==(const Pitch& other) const {
-	return getMidiNote() == other.getMidiNote();
+    return noteName == other.noteName && octave == other.octave && accidental == other.accidental;
 }
 
 bool Pitch::operator!=(const Pitch& other) const {
-	return !(*this == other);
+    return !(*this == other);
 }
 
 } // namespace music
+} // namespace MusicTrainer
 
 

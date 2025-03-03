@@ -69,10 +69,38 @@ include CMakeFiles/PluginSystemTests.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/PluginSystemTests.dir/flags.make
 
+CMakeFiles/PluginSystemTests.dir/PluginSystemTests_autogen/mocs_compilation.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
+CMakeFiles/PluginSystemTests.dir/PluginSystemTests_autogen/mocs_compilation.cpp.o: PluginSystemTests_autogen/mocs_compilation.cpp
+CMakeFiles/PluginSystemTests.dir/PluginSystemTests_autogen/mocs_compilation.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/PluginSystemTests.dir/PluginSystemTests_autogen/mocs_compilation.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/PluginSystemTests_autogen/mocs_compilation.cpp.o -MF CMakeFiles/PluginSystemTests.dir/PluginSystemTests_autogen/mocs_compilation.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/PluginSystemTests_autogen/mocs_compilation.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/build/PluginSystemTests_autogen/mocs_compilation.cpp
+
+CMakeFiles/PluginSystemTests.dir/PluginSystemTests_autogen/mocs_compilation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/PluginSystemTests_autogen/mocs_compilation.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/build/PluginSystemTests_autogen/mocs_compilation.cpp > CMakeFiles/PluginSystemTests.dir/PluginSystemTests_autogen/mocs_compilation.cpp.i
+
+CMakeFiles/PluginSystemTests.dir/PluginSystemTests_autogen/mocs_compilation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/PluginSystemTests_autogen/mocs_compilation.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/build/PluginSystemTests_autogen/mocs_compilation.cpp -o CMakeFiles/PluginSystemTests.dir/PluginSystemTests_autogen/mocs_compilation.cpp.s
+
+CMakeFiles/PluginSystemTests.dir/tests/main.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
+CMakeFiles/PluginSystemTests.dir/tests/main.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/tests/main.cpp
+CMakeFiles/PluginSystemTests.dir/tests/main.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/PluginSystemTests.dir/tests/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/tests/main.cpp.o -MF CMakeFiles/PluginSystemTests.dir/tests/main.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/tests/main.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/tests/main.cpp
+
+CMakeFiles/PluginSystemTests.dir/tests/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/tests/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/tests/main.cpp > CMakeFiles/PluginSystemTests.dir/tests/main.cpp.i
+
+CMakeFiles/PluginSystemTests.dir/tests/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/tests/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/tests/main.cpp -o CMakeFiles/PluginSystemTests.dir/tests/main.cpp.s
+
 CMakeFiles/PluginSystemTests.dir/tests/plugins/PluginSystemTests.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
 CMakeFiles/PluginSystemTests.dir/tests/plugins/PluginSystemTests.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/tests/plugins/PluginSystemTests.cpp
 CMakeFiles/PluginSystemTests.dir/tests/plugins/PluginSystemTests.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/PluginSystemTests.dir/tests/plugins/PluginSystemTests.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/PluginSystemTests.dir/tests/plugins/PluginSystemTests.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/tests/plugins/PluginSystemTests.cpp.o -MF CMakeFiles/PluginSystemTests.dir/tests/plugins/PluginSystemTests.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/tests/plugins/PluginSystemTests.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/tests/plugins/PluginSystemTests.cpp
 
 CMakeFiles/PluginSystemTests.dir/tests/plugins/PluginSystemTests.cpp.i: cmake_force
@@ -86,7 +114,7 @@ CMakeFiles/PluginSystemTests.dir/tests/plugins/PluginSystemTests.cpp.s: cmake_fo
 CMakeFiles/PluginSystemTests.dir/tests/plugins/TestPlugin.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
 CMakeFiles/PluginSystemTests.dir/tests/plugins/TestPlugin.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/tests/plugins/TestPlugin.cpp
 CMakeFiles/PluginSystemTests.dir/tests/plugins/TestPlugin.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/PluginSystemTests.dir/tests/plugins/TestPlugin.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/PluginSystemTests.dir/tests/plugins/TestPlugin.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/tests/plugins/TestPlugin.cpp.o -MF CMakeFiles/PluginSystemTests.dir/tests/plugins/TestPlugin.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/tests/plugins/TestPlugin.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/tests/plugins/TestPlugin.cpp
 
 CMakeFiles/PluginSystemTests.dir/tests/plugins/TestPlugin.cpp.i: cmake_force
@@ -97,680 +125,29 @@ CMakeFiles/PluginSystemTests.dir/tests/plugins/TestPlugin.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/tests/plugins/TestPlugin.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/tests/plugins/TestPlugin.cpp -o CMakeFiles/PluginSystemTests.dir/tests/plugins/TestPlugin.cpp.s
 
-CMakeFiles/PluginSystemTests.dir/tests/ValidationPipelineTests.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/tests/ValidationPipelineTests.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/tests/ValidationPipelineTests.cpp
-CMakeFiles/PluginSystemTests.dir/tests/ValidationPipelineTests.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/PluginSystemTests.dir/tests/ValidationPipelineTests.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/tests/ValidationPipelineTests.cpp.o -MF CMakeFiles/PluginSystemTests.dir/tests/ValidationPipelineTests.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/tests/ValidationPipelineTests.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/tests/ValidationPipelineTests.cpp
-
-CMakeFiles/PluginSystemTests.dir/tests/ValidationPipelineTests.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/tests/ValidationPipelineTests.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/tests/ValidationPipelineTests.cpp > CMakeFiles/PluginSystemTests.dir/tests/ValidationPipelineTests.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/tests/ValidationPipelineTests.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/tests/ValidationPipelineTests.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/tests/ValidationPipelineTests.cpp -o CMakeFiles/PluginSystemTests.dir/tests/ValidationPipelineTests.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/tests/ExerciseGenerationTests.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/tests/ExerciseGenerationTests.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/tests/ExerciseGenerationTests.cpp
-CMakeFiles/PluginSystemTests.dir/tests/ExerciseGenerationTests.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/PluginSystemTests.dir/tests/ExerciseGenerationTests.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/tests/ExerciseGenerationTests.cpp.o -MF CMakeFiles/PluginSystemTests.dir/tests/ExerciseGenerationTests.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/tests/ExerciseGenerationTests.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/tests/ExerciseGenerationTests.cpp
-
-CMakeFiles/PluginSystemTests.dir/tests/ExerciseGenerationTests.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/tests/ExerciseGenerationTests.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/tests/ExerciseGenerationTests.cpp > CMakeFiles/PluginSystemTests.dir/tests/ExerciseGenerationTests.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/tests/ExerciseGenerationTests.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/tests/ExerciseGenerationTests.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/tests/ExerciseGenerationTests.cpp -o CMakeFiles/PluginSystemTests.dir/tests/ExerciseGenerationTests.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/tests/MidiSystemTests.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/tests/MidiSystemTests.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/tests/MidiSystemTests.cpp
-CMakeFiles/PluginSystemTests.dir/tests/MidiSystemTests.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/PluginSystemTests.dir/tests/MidiSystemTests.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/tests/MidiSystemTests.cpp.o -MF CMakeFiles/PluginSystemTests.dir/tests/MidiSystemTests.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/tests/MidiSystemTests.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/tests/MidiSystemTests.cpp
-
-CMakeFiles/PluginSystemTests.dir/tests/MidiSystemTests.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/tests/MidiSystemTests.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/tests/MidiSystemTests.cpp > CMakeFiles/PluginSystemTests.dir/tests/MidiSystemTests.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/tests/MidiSystemTests.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/tests/MidiSystemTests.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/tests/MidiSystemTests.cpp -o CMakeFiles/PluginSystemTests.dir/tests/MidiSystemTests.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/tests/RepositoryTests.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/tests/RepositoryTests.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/tests/RepositoryTests.cpp
-CMakeFiles/PluginSystemTests.dir/tests/RepositoryTests.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/PluginSystemTests.dir/tests/RepositoryTests.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/tests/RepositoryTests.cpp.o -MF CMakeFiles/PluginSystemTests.dir/tests/RepositoryTests.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/tests/RepositoryTests.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/tests/RepositoryTests.cpp
-
-CMakeFiles/PluginSystemTests.dir/tests/RepositoryTests.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/tests/RepositoryTests.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/tests/RepositoryTests.cpp > CMakeFiles/PluginSystemTests.dir/tests/RepositoryTests.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/tests/RepositoryTests.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/tests/RepositoryTests.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/tests/RepositoryTests.cpp -o CMakeFiles/PluginSystemTests.dir/tests/RepositoryTests.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/tests/ProgressionSystemTests.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/tests/ProgressionSystemTests.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/tests/ProgressionSystemTests.cpp
-CMakeFiles/PluginSystemTests.dir/tests/ProgressionSystemTests.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/PluginSystemTests.dir/tests/ProgressionSystemTests.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/tests/ProgressionSystemTests.cpp.o -MF CMakeFiles/PluginSystemTests.dir/tests/ProgressionSystemTests.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/tests/ProgressionSystemTests.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/tests/ProgressionSystemTests.cpp
-
-CMakeFiles/PluginSystemTests.dir/tests/ProgressionSystemTests.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/tests/ProgressionSystemTests.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/tests/ProgressionSystemTests.cpp > CMakeFiles/PluginSystemTests.dir/tests/ProgressionSystemTests.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/tests/ProgressionSystemTests.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/tests/ProgressionSystemTests.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/tests/ProgressionSystemTests.cpp -o CMakeFiles/PluginSystemTests.dir/tests/ProgressionSystemTests.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/tests/ErrorHandlingTests.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/tests/ErrorHandlingTests.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/tests/ErrorHandlingTests.cpp
-CMakeFiles/PluginSystemTests.dir/tests/ErrorHandlingTests.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/PluginSystemTests.dir/tests/ErrorHandlingTests.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/tests/ErrorHandlingTests.cpp.o -MF CMakeFiles/PluginSystemTests.dir/tests/ErrorHandlingTests.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/tests/ErrorHandlingTests.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/tests/ErrorHandlingTests.cpp
-
-CMakeFiles/PluginSystemTests.dir/tests/ErrorHandlingTests.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/tests/ErrorHandlingTests.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/tests/ErrorHandlingTests.cpp > CMakeFiles/PluginSystemTests.dir/tests/ErrorHandlingTests.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/tests/ErrorHandlingTests.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/tests/ErrorHandlingTests.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/tests/ErrorHandlingTests.cpp -o CMakeFiles/PluginSystemTests.dir/tests/ErrorHandlingTests.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/tests/PerformanceMonitoringTests.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/tests/PerformanceMonitoringTests.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/tests/PerformanceMonitoringTests.cpp
-CMakeFiles/PluginSystemTests.dir/tests/PerformanceMonitoringTests.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/PluginSystemTests.dir/tests/PerformanceMonitoringTests.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/tests/PerformanceMonitoringTests.cpp.o -MF CMakeFiles/PluginSystemTests.dir/tests/PerformanceMonitoringTests.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/tests/PerformanceMonitoringTests.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/tests/PerformanceMonitoringTests.cpp
-
-CMakeFiles/PluginSystemTests.dir/tests/PerformanceMonitoringTests.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/tests/PerformanceMonitoringTests.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/tests/PerformanceMonitoringTests.cpp > CMakeFiles/PluginSystemTests.dir/tests/PerformanceMonitoringTests.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/tests/PerformanceMonitoringTests.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/tests/PerformanceMonitoringTests.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/tests/PerformanceMonitoringTests.cpp -o CMakeFiles/PluginSystemTests.dir/tests/PerformanceMonitoringTests.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/tests/integration/SystemIntegrationTests.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/tests/integration/SystemIntegrationTests.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/tests/integration/SystemIntegrationTests.cpp
-CMakeFiles/PluginSystemTests.dir/tests/integration/SystemIntegrationTests.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/PluginSystemTests.dir/tests/integration/SystemIntegrationTests.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/tests/integration/SystemIntegrationTests.cpp.o -MF CMakeFiles/PluginSystemTests.dir/tests/integration/SystemIntegrationTests.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/tests/integration/SystemIntegrationTests.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/tests/integration/SystemIntegrationTests.cpp
-
-CMakeFiles/PluginSystemTests.dir/tests/integration/SystemIntegrationTests.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/tests/integration/SystemIntegrationTests.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/tests/integration/SystemIntegrationTests.cpp > CMakeFiles/PluginSystemTests.dir/tests/integration/SystemIntegrationTests.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/tests/integration/SystemIntegrationTests.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/tests/integration/SystemIntegrationTests.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/tests/integration/SystemIntegrationTests.cpp -o CMakeFiles/PluginSystemTests.dir/tests/integration/SystemIntegrationTests.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/tests/crossdomain/CrossDomainValidatorTests.cpp
-CMakeFiles/PluginSystemTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/PluginSystemTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.o -MF CMakeFiles/PluginSystemTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/tests/crossdomain/CrossDomainValidatorTests.cpp
-
-CMakeFiles/PluginSystemTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/tests/crossdomain/CrossDomainValidatorTests.cpp > CMakeFiles/PluginSystemTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/tests/crossdomain/CrossDomainValidatorTests.cpp -o CMakeFiles/PluginSystemTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/tests/statesync/StateSynchronizationManagerTests.cpp
-CMakeFiles/PluginSystemTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/PluginSystemTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.o -MF CMakeFiles/PluginSystemTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/tests/statesync/StateSynchronizationManagerTests.cpp
-
-CMakeFiles/PluginSystemTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/tests/statesync/StateSynchronizationManagerTests.cpp > CMakeFiles/PluginSystemTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/tests/statesync/StateSynchronizationManagerTests.cpp -o CMakeFiles/PluginSystemTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/monitoring/PerformanceMonitor.cpp
-CMakeFiles/PluginSystemTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/PluginSystemTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.o -MF CMakeFiles/PluginSystemTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/monitoring/PerformanceMonitor.cpp
-
-CMakeFiles/PluginSystemTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/monitoring/PerformanceMonitor.cpp > CMakeFiles/PluginSystemTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/monitoring/PerformanceMonitor.cpp -o CMakeFiles/PluginSystemTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/errors/DefaultErrorHandlers.cpp
-CMakeFiles/PluginSystemTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/PluginSystemTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.o -MF CMakeFiles/PluginSystemTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/errors/DefaultErrorHandlers.cpp
-
-CMakeFiles/PluginSystemTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/errors/DefaultErrorHandlers.cpp > CMakeFiles/PluginSystemTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/errors/DefaultErrorHandlers.cpp -o CMakeFiles/PluginSystemTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/src/domain/errors/ErrorHandler.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/src/domain/errors/ErrorHandler.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/errors/ErrorHandler.cpp
-CMakeFiles/PluginSystemTests.dir/src/domain/errors/ErrorHandler.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/PluginSystemTests.dir/src/domain/errors/ErrorHandler.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/src/domain/errors/ErrorHandler.cpp.o -MF CMakeFiles/PluginSystemTests.dir/src/domain/errors/ErrorHandler.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/src/domain/errors/ErrorHandler.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/errors/ErrorHandler.cpp
-
-CMakeFiles/PluginSystemTests.dir/src/domain/errors/ErrorHandler.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/src/domain/errors/ErrorHandler.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/errors/ErrorHandler.cpp > CMakeFiles/PluginSystemTests.dir/src/domain/errors/ErrorHandler.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/src/domain/errors/ErrorHandler.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/src/domain/errors/ErrorHandler.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/errors/ErrorHandler.cpp -o CMakeFiles/PluginSystemTests.dir/src/domain/errors/ErrorHandler.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/src/domain/errors/ErrorLogger.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/src/domain/errors/ErrorLogger.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/errors/ErrorLogger.cpp
-CMakeFiles/PluginSystemTests.dir/src/domain/errors/ErrorLogger.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/PluginSystemTests.dir/src/domain/errors/ErrorLogger.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/src/domain/errors/ErrorLogger.cpp.o -MF CMakeFiles/PluginSystemTests.dir/src/domain/errors/ErrorLogger.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/src/domain/errors/ErrorLogger.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/errors/ErrorLogger.cpp
-
-CMakeFiles/PluginSystemTests.dir/src/domain/errors/ErrorLogger.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/src/domain/errors/ErrorLogger.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/errors/ErrorLogger.cpp > CMakeFiles/PluginSystemTests.dir/src/domain/errors/ErrorLogger.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/src/domain/errors/ErrorLogger.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/src/domain/errors/ErrorLogger.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/errors/ErrorLogger.cpp -o CMakeFiles/PluginSystemTests.dir/src/domain/errors/ErrorLogger.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/src/domain/errors/RecoveryStrategy.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/src/domain/errors/RecoveryStrategy.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/errors/RecoveryStrategy.cpp
-CMakeFiles/PluginSystemTests.dir/src/domain/errors/RecoveryStrategy.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/PluginSystemTests.dir/src/domain/errors/RecoveryStrategy.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/src/domain/errors/RecoveryStrategy.cpp.o -MF CMakeFiles/PluginSystemTests.dir/src/domain/errors/RecoveryStrategy.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/src/domain/errors/RecoveryStrategy.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/errors/RecoveryStrategy.cpp
-
-CMakeFiles/PluginSystemTests.dir/src/domain/errors/RecoveryStrategy.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/src/domain/errors/RecoveryStrategy.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/errors/RecoveryStrategy.cpp > CMakeFiles/PluginSystemTests.dir/src/domain/errors/RecoveryStrategy.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/src/domain/errors/RecoveryStrategy.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/src/domain/errors/RecoveryStrategy.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/errors/RecoveryStrategy.cpp -o CMakeFiles/PluginSystemTests.dir/src/domain/errors/RecoveryStrategy.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/src/domain/music/Pitch.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/src/domain/music/Pitch.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Pitch.cpp
-CMakeFiles/PluginSystemTests.dir/src/domain/music/Pitch.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/PluginSystemTests.dir/src/domain/music/Pitch.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/src/domain/music/Pitch.cpp.o -MF CMakeFiles/PluginSystemTests.dir/src/domain/music/Pitch.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/src/domain/music/Pitch.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Pitch.cpp
-
-CMakeFiles/PluginSystemTests.dir/src/domain/music/Pitch.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/src/domain/music/Pitch.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Pitch.cpp > CMakeFiles/PluginSystemTests.dir/src/domain/music/Pitch.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/src/domain/music/Pitch.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/src/domain/music/Pitch.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Pitch.cpp -o CMakeFiles/PluginSystemTests.dir/src/domain/music/Pitch.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/src/domain/music/Duration.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/src/domain/music/Duration.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Duration.cpp
-CMakeFiles/PluginSystemTests.dir/src/domain/music/Duration.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/PluginSystemTests.dir/src/domain/music/Duration.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/src/domain/music/Duration.cpp.o -MF CMakeFiles/PluginSystemTests.dir/src/domain/music/Duration.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/src/domain/music/Duration.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Duration.cpp
-
-CMakeFiles/PluginSystemTests.dir/src/domain/music/Duration.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/src/domain/music/Duration.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Duration.cpp > CMakeFiles/PluginSystemTests.dir/src/domain/music/Duration.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/src/domain/music/Duration.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/src/domain/music/Duration.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Duration.cpp -o CMakeFiles/PluginSystemTests.dir/src/domain/music/Duration.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/src/domain/music/Interval.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/src/domain/music/Interval.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Interval.cpp
-CMakeFiles/PluginSystemTests.dir/src/domain/music/Interval.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/PluginSystemTests.dir/src/domain/music/Interval.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/src/domain/music/Interval.cpp.o -MF CMakeFiles/PluginSystemTests.dir/src/domain/music/Interval.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/src/domain/music/Interval.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Interval.cpp
-
-CMakeFiles/PluginSystemTests.dir/src/domain/music/Interval.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/src/domain/music/Interval.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Interval.cpp > CMakeFiles/PluginSystemTests.dir/src/domain/music/Interval.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/src/domain/music/Interval.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/src/domain/music/Interval.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Interval.cpp -o CMakeFiles/PluginSystemTests.dir/src/domain/music/Interval.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/src/domain/music/Voice.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/src/domain/music/Voice.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Voice.cpp
-CMakeFiles/PluginSystemTests.dir/src/domain/music/Voice.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/PluginSystemTests.dir/src/domain/music/Voice.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/src/domain/music/Voice.cpp.o -MF CMakeFiles/PluginSystemTests.dir/src/domain/music/Voice.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/src/domain/music/Voice.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Voice.cpp
-
-CMakeFiles/PluginSystemTests.dir/src/domain/music/Voice.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/src/domain/music/Voice.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Voice.cpp > CMakeFiles/PluginSystemTests.dir/src/domain/music/Voice.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/src/domain/music/Voice.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/src/domain/music/Voice.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Voice.cpp -o CMakeFiles/PluginSystemTests.dir/src/domain/music/Voice.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/src/domain/music/Score.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/src/domain/music/Score.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Score.cpp
-CMakeFiles/PluginSystemTests.dir/src/domain/music/Score.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/PluginSystemTests.dir/src/domain/music/Score.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/src/domain/music/Score.cpp.o -MF CMakeFiles/PluginSystemTests.dir/src/domain/music/Score.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/src/domain/music/Score.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Score.cpp
-
-CMakeFiles/PluginSystemTests.dir/src/domain/music/Score.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/src/domain/music/Score.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Score.cpp > CMakeFiles/PluginSystemTests.dir/src/domain/music/Score.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/src/domain/music/Score.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/src/domain/music/Score.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Score.cpp -o CMakeFiles/PluginSystemTests.dir/src/domain/music/Score.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/src/domain/music/MelodicTemplate.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/src/domain/music/MelodicTemplate.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/MelodicTemplate.cpp
-CMakeFiles/PluginSystemTests.dir/src/domain/music/MelodicTemplate.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/PluginSystemTests.dir/src/domain/music/MelodicTemplate.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/src/domain/music/MelodicTemplate.cpp.o -MF CMakeFiles/PluginSystemTests.dir/src/domain/music/MelodicTemplate.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/src/domain/music/MelodicTemplate.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/MelodicTemplate.cpp
-
-CMakeFiles/PluginSystemTests.dir/src/domain/music/MelodicTemplate.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/src/domain/music/MelodicTemplate.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/MelodicTemplate.cpp > CMakeFiles/PluginSystemTests.dir/src/domain/music/MelodicTemplate.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/src/domain/music/MelodicTemplate.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/src/domain/music/MelodicTemplate.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/MelodicTemplate.cpp -o CMakeFiles/PluginSystemTests.dir/src/domain/music/MelodicTemplate.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/src/domain/rules/ParallelFifthsRule.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/src/domain/rules/ParallelFifthsRule.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/rules/ParallelFifthsRule.cpp
-CMakeFiles/PluginSystemTests.dir/src/domain/rules/ParallelFifthsRule.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/PluginSystemTests.dir/src/domain/rules/ParallelFifthsRule.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/src/domain/rules/ParallelFifthsRule.cpp.o -MF CMakeFiles/PluginSystemTests.dir/src/domain/rules/ParallelFifthsRule.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/src/domain/rules/ParallelFifthsRule.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/rules/ParallelFifthsRule.cpp
-
-CMakeFiles/PluginSystemTests.dir/src/domain/rules/ParallelFifthsRule.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/src/domain/rules/ParallelFifthsRule.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/rules/ParallelFifthsRule.cpp > CMakeFiles/PluginSystemTests.dir/src/domain/rules/ParallelFifthsRule.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/src/domain/rules/ParallelFifthsRule.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/src/domain/rules/ParallelFifthsRule.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/rules/ParallelFifthsRule.cpp -o CMakeFiles/PluginSystemTests.dir/src/domain/rules/ParallelFifthsRule.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/src/domain/rules/ParallelOctavesRule.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/src/domain/rules/ParallelOctavesRule.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/rules/ParallelOctavesRule.cpp
-CMakeFiles/PluginSystemTests.dir/src/domain/rules/ParallelOctavesRule.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/PluginSystemTests.dir/src/domain/rules/ParallelOctavesRule.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/src/domain/rules/ParallelOctavesRule.cpp.o -MF CMakeFiles/PluginSystemTests.dir/src/domain/rules/ParallelOctavesRule.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/src/domain/rules/ParallelOctavesRule.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/rules/ParallelOctavesRule.cpp
-
-CMakeFiles/PluginSystemTests.dir/src/domain/rules/ParallelOctavesRule.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/src/domain/rules/ParallelOctavesRule.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/rules/ParallelOctavesRule.cpp > CMakeFiles/PluginSystemTests.dir/src/domain/rules/ParallelOctavesRule.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/src/domain/rules/ParallelOctavesRule.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/src/domain/rules/ParallelOctavesRule.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/rules/ParallelOctavesRule.cpp -o CMakeFiles/PluginSystemTests.dir/src/domain/rules/ParallelOctavesRule.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/src/domain/rules/VoiceLeadingRule.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/src/domain/rules/VoiceLeadingRule.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/rules/VoiceLeadingRule.cpp
-CMakeFiles/PluginSystemTests.dir/src/domain/rules/VoiceLeadingRule.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/PluginSystemTests.dir/src/domain/rules/VoiceLeadingRule.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/src/domain/rules/VoiceLeadingRule.cpp.o -MF CMakeFiles/PluginSystemTests.dir/src/domain/rules/VoiceLeadingRule.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/src/domain/rules/VoiceLeadingRule.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/rules/VoiceLeadingRule.cpp
-
-CMakeFiles/PluginSystemTests.dir/src/domain/rules/VoiceLeadingRule.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/src/domain/rules/VoiceLeadingRule.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/rules/VoiceLeadingRule.cpp > CMakeFiles/PluginSystemTests.dir/src/domain/rules/VoiceLeadingRule.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/src/domain/rules/VoiceLeadingRule.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/src/domain/rules/VoiceLeadingRule.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/rules/VoiceLeadingRule.cpp -o CMakeFiles/PluginSystemTests.dir/src/domain/rules/VoiceLeadingRule.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/src/domain/rules/ValidationPipeline.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/src/domain/rules/ValidationPipeline.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/rules/ValidationPipeline.cpp
-CMakeFiles/PluginSystemTests.dir/src/domain/rules/ValidationPipeline.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/PluginSystemTests.dir/src/domain/rules/ValidationPipeline.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/src/domain/rules/ValidationPipeline.cpp.o -MF CMakeFiles/PluginSystemTests.dir/src/domain/rules/ValidationPipeline.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/src/domain/rules/ValidationPipeline.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/rules/ValidationPipeline.cpp
-
-CMakeFiles/PluginSystemTests.dir/src/domain/rules/ValidationPipeline.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/src/domain/rules/ValidationPipeline.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/rules/ValidationPipeline.cpp > CMakeFiles/PluginSystemTests.dir/src/domain/rules/ValidationPipeline.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/src/domain/rules/ValidationPipeline.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/src/domain/rules/ValidationPipeline.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/rules/ValidationPipeline.cpp -o CMakeFiles/PluginSystemTests.dir/src/domain/rules/ValidationPipeline.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/src/domain/events/NoteAddedEvent.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/src/domain/events/NoteAddedEvent.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/NoteAddedEvent.cpp
-CMakeFiles/PluginSystemTests.dir/src/domain/events/NoteAddedEvent.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/PluginSystemTests.dir/src/domain/events/NoteAddedEvent.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/src/domain/events/NoteAddedEvent.cpp.o -MF CMakeFiles/PluginSystemTests.dir/src/domain/events/NoteAddedEvent.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/src/domain/events/NoteAddedEvent.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/NoteAddedEvent.cpp
-
-CMakeFiles/PluginSystemTests.dir/src/domain/events/NoteAddedEvent.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/src/domain/events/NoteAddedEvent.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/NoteAddedEvent.cpp > CMakeFiles/PluginSystemTests.dir/src/domain/events/NoteAddedEvent.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/src/domain/events/NoteAddedEvent.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/src/domain/events/NoteAddedEvent.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/NoteAddedEvent.cpp -o CMakeFiles/PluginSystemTests.dir/src/domain/events/NoteAddedEvent.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/src/domain/events/EventStore.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/src/domain/events/EventStore.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/EventStore.cpp
-CMakeFiles/PluginSystemTests.dir/src/domain/events/EventStore.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/PluginSystemTests.dir/src/domain/events/EventStore.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/src/domain/events/EventStore.cpp.o -MF CMakeFiles/PluginSystemTests.dir/src/domain/events/EventStore.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/src/domain/events/EventStore.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/EventStore.cpp
-
-CMakeFiles/PluginSystemTests.dir/src/domain/events/EventStore.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/src/domain/events/EventStore.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/EventStore.cpp > CMakeFiles/PluginSystemTests.dir/src/domain/events/EventStore.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/src/domain/events/EventStore.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/src/domain/events/EventStore.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/EventStore.cpp -o CMakeFiles/PluginSystemTests.dir/src/domain/events/EventStore.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/src/domain/events/EventBus.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/src/domain/events/EventBus.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/EventBus.cpp
-CMakeFiles/PluginSystemTests.dir/src/domain/events/EventBus.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/PluginSystemTests.dir/src/domain/events/EventBus.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/src/domain/events/EventBus.cpp.o -MF CMakeFiles/PluginSystemTests.dir/src/domain/events/EventBus.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/src/domain/events/EventBus.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/EventBus.cpp
-
-CMakeFiles/PluginSystemTests.dir/src/domain/events/EventBus.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/src/domain/events/EventBus.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/EventBus.cpp > CMakeFiles/PluginSystemTests.dir/src/domain/events/EventBus.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/src/domain/events/EventBus.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/src/domain/events/EventBus.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/EventBus.cpp -o CMakeFiles/PluginSystemTests.dir/src/domain/events/EventBus.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/src/domain/events/NoteEventHandler.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/src/domain/events/NoteEventHandler.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/NoteEventHandler.cpp
-CMakeFiles/PluginSystemTests.dir/src/domain/events/NoteEventHandler.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/PluginSystemTests.dir/src/domain/events/NoteEventHandler.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/src/domain/events/NoteEventHandler.cpp.o -MF CMakeFiles/PluginSystemTests.dir/src/domain/events/NoteEventHandler.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/src/domain/events/NoteEventHandler.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/NoteEventHandler.cpp
-
-CMakeFiles/PluginSystemTests.dir/src/domain/events/NoteEventHandler.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/src/domain/events/NoteEventHandler.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/NoteEventHandler.cpp > CMakeFiles/PluginSystemTests.dir/src/domain/events/NoteEventHandler.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/src/domain/events/NoteEventHandler.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/src/domain/events/NoteEventHandler.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/NoteEventHandler.cpp -o CMakeFiles/PluginSystemTests.dir/src/domain/events/NoteEventHandler.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/src/domain/events/Snapshot.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/src/domain/events/Snapshot.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/Snapshot.cpp
-CMakeFiles/PluginSystemTests.dir/src/domain/events/Snapshot.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/PluginSystemTests.dir/src/domain/events/Snapshot.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/src/domain/events/Snapshot.cpp.o -MF CMakeFiles/PluginSystemTests.dir/src/domain/events/Snapshot.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/src/domain/events/Snapshot.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/Snapshot.cpp
-
-CMakeFiles/PluginSystemTests.dir/src/domain/events/Snapshot.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/src/domain/events/Snapshot.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/Snapshot.cpp > CMakeFiles/PluginSystemTests.dir/src/domain/events/Snapshot.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/src/domain/events/Snapshot.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/src/domain/events/Snapshot.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/Snapshot.cpp -o CMakeFiles/PluginSystemTests.dir/src/domain/events/Snapshot.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/src/adapters/InMemoryScoreRepository.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/src/adapters/InMemoryScoreRepository.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/InMemoryScoreRepository.cpp
-CMakeFiles/PluginSystemTests.dir/src/adapters/InMemoryScoreRepository.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/PluginSystemTests.dir/src/adapters/InMemoryScoreRepository.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/src/adapters/InMemoryScoreRepository.cpp.o -MF CMakeFiles/PluginSystemTests.dir/src/adapters/InMemoryScoreRepository.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/src/adapters/InMemoryScoreRepository.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/InMemoryScoreRepository.cpp
-
-CMakeFiles/PluginSystemTests.dir/src/adapters/InMemoryScoreRepository.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/src/adapters/InMemoryScoreRepository.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/InMemoryScoreRepository.cpp > CMakeFiles/PluginSystemTests.dir/src/adapters/InMemoryScoreRepository.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/src/adapters/InMemoryScoreRepository.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/src/adapters/InMemoryScoreRepository.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/InMemoryScoreRepository.cpp -o CMakeFiles/PluginSystemTests.dir/src/adapters/InMemoryScoreRepository.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/src/adapters/MockMidiAdapter.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/src/adapters/MockMidiAdapter.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/MockMidiAdapter.cpp
-CMakeFiles/PluginSystemTests.dir/src/adapters/MockMidiAdapter.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/PluginSystemTests.dir/src/adapters/MockMidiAdapter.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/src/adapters/MockMidiAdapter.cpp.o -MF CMakeFiles/PluginSystemTests.dir/src/adapters/MockMidiAdapter.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/src/adapters/MockMidiAdapter.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/MockMidiAdapter.cpp
-
-CMakeFiles/PluginSystemTests.dir/src/adapters/MockMidiAdapter.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/src/adapters/MockMidiAdapter.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/MockMidiAdapter.cpp > CMakeFiles/PluginSystemTests.dir/src/adapters/MockMidiAdapter.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/src/adapters/MockMidiAdapter.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/src/adapters/MockMidiAdapter.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/MockMidiAdapter.cpp -o CMakeFiles/PluginSystemTests.dir/src/adapters/MockMidiAdapter.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/TemplateBasedExerciseGenerator.cpp
-CMakeFiles/PluginSystemTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/PluginSystemTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o -MF CMakeFiles/PluginSystemTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/TemplateBasedExerciseGenerator.cpp
-
-CMakeFiles/PluginSystemTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/TemplateBasedExerciseGenerator.cpp > CMakeFiles/PluginSystemTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/TemplateBasedExerciseGenerator.cpp -o CMakeFiles/PluginSystemTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/src/adapters/EventSourcedRepository.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/src/adapters/EventSourcedRepository.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/EventSourcedRepository.cpp
-CMakeFiles/PluginSystemTests.dir/src/adapters/EventSourcedRepository.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/PluginSystemTests.dir/src/adapters/EventSourcedRepository.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/src/adapters/EventSourcedRepository.cpp.o -MF CMakeFiles/PluginSystemTests.dir/src/adapters/EventSourcedRepository.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/src/adapters/EventSourcedRepository.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/EventSourcedRepository.cpp
-
-CMakeFiles/PluginSystemTests.dir/src/adapters/EventSourcedRepository.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/src/adapters/EventSourcedRepository.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/EventSourcedRepository.cpp > CMakeFiles/PluginSystemTests.dir/src/adapters/EventSourcedRepository.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/src/adapters/EventSourcedRepository.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/src/adapters/EventSourcedRepository.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/EventSourcedRepository.cpp -o CMakeFiles/PluginSystemTests.dir/src/adapters/EventSourcedRepository.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/src/adapters/CachingScoreRepository.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/src/adapters/CachingScoreRepository.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/CachingScoreRepository.cpp
-CMakeFiles/PluginSystemTests.dir/src/adapters/CachingScoreRepository.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object CMakeFiles/PluginSystemTests.dir/src/adapters/CachingScoreRepository.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/src/adapters/CachingScoreRepository.cpp.o -MF CMakeFiles/PluginSystemTests.dir/src/adapters/CachingScoreRepository.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/src/adapters/CachingScoreRepository.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/CachingScoreRepository.cpp
-
-CMakeFiles/PluginSystemTests.dir/src/adapters/CachingScoreRepository.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/src/adapters/CachingScoreRepository.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/CachingScoreRepository.cpp > CMakeFiles/PluginSystemTests.dir/src/adapters/CachingScoreRepository.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/src/adapters/CachingScoreRepository.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/src/adapters/CachingScoreRepository.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/CachingScoreRepository.cpp -o CMakeFiles/PluginSystemTests.dir/src/adapters/CachingScoreRepository.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/src/adapters/RtMidiAdapter.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/src/adapters/RtMidiAdapter.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/RtMidiAdapter.cpp
-CMakeFiles/PluginSystemTests.dir/src/adapters/RtMidiAdapter.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object CMakeFiles/PluginSystemTests.dir/src/adapters/RtMidiAdapter.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/src/adapters/RtMidiAdapter.cpp.o -MF CMakeFiles/PluginSystemTests.dir/src/adapters/RtMidiAdapter.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/src/adapters/RtMidiAdapter.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/RtMidiAdapter.cpp
-
-CMakeFiles/PluginSystemTests.dir/src/adapters/RtMidiAdapter.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/src/adapters/RtMidiAdapter.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/RtMidiAdapter.cpp > CMakeFiles/PluginSystemTests.dir/src/adapters/RtMidiAdapter.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/src/adapters/RtMidiAdapter.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/src/adapters/RtMidiAdapter.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/RtMidiAdapter.cpp -o CMakeFiles/PluginSystemTests.dir/src/adapters/RtMidiAdapter.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/src/domain/progression/ProgressionSystem.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/src/domain/progression/ProgressionSystem.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/progression/ProgressionSystem.cpp
-CMakeFiles/PluginSystemTests.dir/src/domain/progression/ProgressionSystem.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object CMakeFiles/PluginSystemTests.dir/src/domain/progression/ProgressionSystem.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/src/domain/progression/ProgressionSystem.cpp.o -MF CMakeFiles/PluginSystemTests.dir/src/domain/progression/ProgressionSystem.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/src/domain/progression/ProgressionSystem.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/progression/ProgressionSystem.cpp
-
-CMakeFiles/PluginSystemTests.dir/src/domain/progression/ProgressionSystem.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/src/domain/progression/ProgressionSystem.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/progression/ProgressionSystem.cpp > CMakeFiles/PluginSystemTests.dir/src/domain/progression/ProgressionSystem.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/src/domain/progression/ProgressionSystem.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/src/domain/progression/ProgressionSystem.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/progression/ProgressionSystem.cpp -o CMakeFiles/PluginSystemTests.dir/src/domain/progression/ProgressionSystem.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/src/domain/plugins/PluginManager.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/src/domain/plugins/PluginManager.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/plugins/PluginManager.cpp
-CMakeFiles/PluginSystemTests.dir/src/domain/plugins/PluginManager.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building CXX object CMakeFiles/PluginSystemTests.dir/src/domain/plugins/PluginManager.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/src/domain/plugins/PluginManager.cpp.o -MF CMakeFiles/PluginSystemTests.dir/src/domain/plugins/PluginManager.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/src/domain/plugins/PluginManager.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/plugins/PluginManager.cpp
-
-CMakeFiles/PluginSystemTests.dir/src/domain/plugins/PluginManager.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/src/domain/plugins/PluginManager.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/plugins/PluginManager.cpp > CMakeFiles/PluginSystemTests.dir/src/domain/plugins/PluginManager.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/src/domain/plugins/PluginManager.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/src/domain/plugins/PluginManager.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/plugins/PluginManager.cpp -o CMakeFiles/PluginSystemTests.dir/src/domain/plugins/PluginManager.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/crossdomain/CrossDomainValidator.cpp
-CMakeFiles/PluginSystemTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building CXX object CMakeFiles/PluginSystemTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o -MF CMakeFiles/PluginSystemTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/crossdomain/CrossDomainValidator.cpp
-
-CMakeFiles/PluginSystemTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/crossdomain/CrossDomainValidator.cpp > CMakeFiles/PluginSystemTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/crossdomain/CrossDomainValidator.cpp -o CMakeFiles/PluginSystemTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/statesync/StateSynchronizationManager.cpp
-CMakeFiles/PluginSystemTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building CXX object CMakeFiles/PluginSystemTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.o -MF CMakeFiles/PluginSystemTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/statesync/StateSynchronizationManager.cpp
-
-CMakeFiles/PluginSystemTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/statesync/StateSynchronizationManager.cpp > CMakeFiles/PluginSystemTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/statesync/StateSynchronizationManager.cpp -o CMakeFiles/PluginSystemTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.s
-
-CMakeFiles/PluginSystemTests.dir/src/utils/DebugUtils.cpp.o: CMakeFiles/PluginSystemTests.dir/flags.make
-CMakeFiles/PluginSystemTests.dir/src/utils/DebugUtils.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/utils/DebugUtils.cpp
-CMakeFiles/PluginSystemTests.dir/src/utils/DebugUtils.cpp.o: CMakeFiles/PluginSystemTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object CMakeFiles/PluginSystemTests.dir/src/utils/DebugUtils.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PluginSystemTests.dir/src/utils/DebugUtils.cpp.o -MF CMakeFiles/PluginSystemTests.dir/src/utils/DebugUtils.cpp.o.d -o CMakeFiles/PluginSystemTests.dir/src/utils/DebugUtils.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/utils/DebugUtils.cpp
-
-CMakeFiles/PluginSystemTests.dir/src/utils/DebugUtils.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PluginSystemTests.dir/src/utils/DebugUtils.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/utils/DebugUtils.cpp > CMakeFiles/PluginSystemTests.dir/src/utils/DebugUtils.cpp.i
-
-CMakeFiles/PluginSystemTests.dir/src/utils/DebugUtils.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PluginSystemTests.dir/src/utils/DebugUtils.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/utils/DebugUtils.cpp -o CMakeFiles/PluginSystemTests.dir/src/utils/DebugUtils.cpp.s
-
 # Object files for target PluginSystemTests
 PluginSystemTests_OBJECTS = \
+"CMakeFiles/PluginSystemTests.dir/PluginSystemTests_autogen/mocs_compilation.cpp.o" \
+"CMakeFiles/PluginSystemTests.dir/tests/main.cpp.o" \
 "CMakeFiles/PluginSystemTests.dir/tests/plugins/PluginSystemTests.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/tests/plugins/TestPlugin.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/tests/ValidationPipelineTests.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/tests/ExerciseGenerationTests.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/tests/MidiSystemTests.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/tests/RepositoryTests.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/tests/ProgressionSystemTests.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/tests/ErrorHandlingTests.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/tests/PerformanceMonitoringTests.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/tests/integration/SystemIntegrationTests.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/src/domain/errors/ErrorHandler.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/src/domain/errors/ErrorLogger.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/src/domain/errors/RecoveryStrategy.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/src/domain/music/Pitch.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/src/domain/music/Duration.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/src/domain/music/Interval.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/src/domain/music/Voice.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/src/domain/music/Score.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/src/domain/music/MelodicTemplate.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/src/domain/rules/ParallelFifthsRule.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/src/domain/rules/ParallelOctavesRule.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/src/domain/rules/VoiceLeadingRule.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/src/domain/rules/ValidationPipeline.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/src/domain/events/NoteAddedEvent.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/src/domain/events/EventStore.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/src/domain/events/EventBus.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/src/domain/events/NoteEventHandler.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/src/domain/events/Snapshot.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/src/adapters/InMemoryScoreRepository.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/src/adapters/MockMidiAdapter.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/src/adapters/EventSourcedRepository.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/src/adapters/CachingScoreRepository.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/src/adapters/RtMidiAdapter.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/src/domain/progression/ProgressionSystem.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/src/domain/plugins/PluginManager.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.o" \
-"CMakeFiles/PluginSystemTests.dir/src/utils/DebugUtils.cpp.o"
+"CMakeFiles/PluginSystemTests.dir/tests/plugins/TestPlugin.cpp.o"
 
 # External object files for target PluginSystemTests
 PluginSystemTests_EXTERNAL_OBJECTS =
 
+bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/PluginSystemTests_autogen/mocs_compilation.cpp.o
+bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/tests/main.cpp.o
 bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/tests/plugins/PluginSystemTests.cpp.o
 bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/tests/plugins/TestPlugin.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/tests/ValidationPipelineTests.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/tests/ExerciseGenerationTests.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/tests/MidiSystemTests.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/tests/RepositoryTests.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/tests/ProgressionSystemTests.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/tests/ErrorHandlingTests.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/tests/PerformanceMonitoringTests.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/tests/integration/SystemIntegrationTests.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/src/domain/errors/ErrorHandler.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/src/domain/errors/ErrorLogger.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/src/domain/errors/RecoveryStrategy.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/src/domain/music/Pitch.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/src/domain/music/Duration.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/src/domain/music/Interval.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/src/domain/music/Voice.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/src/domain/music/Score.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/src/domain/music/MelodicTemplate.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/src/domain/rules/ParallelFifthsRule.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/src/domain/rules/ParallelOctavesRule.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/src/domain/rules/VoiceLeadingRule.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/src/domain/rules/ValidationPipeline.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/src/domain/events/NoteAddedEvent.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/src/domain/events/EventStore.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/src/domain/events/EventBus.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/src/domain/events/NoteEventHandler.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/src/domain/events/Snapshot.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/src/adapters/InMemoryScoreRepository.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/src/adapters/MockMidiAdapter.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/src/adapters/EventSourcedRepository.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/src/adapters/CachingScoreRepository.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/src/adapters/RtMidiAdapter.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/src/domain/progression/ProgressionSystem.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/src/domain/plugins/PluginManager.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.o
-bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/src/utils/DebugUtils.cpp.o
 bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/build.make
 bin/PluginSystemTests: lib/libgtest.a
 bin/PluginSystemTests: lib/libgtest_main.a
+bin/PluginSystemTests: libMusicTrainerLib.a
 bin/PluginSystemTests: _deps/rtmidi-build/librtmidi.so.6.0.0
 bin/PluginSystemTests: /usr/lib/x86_64-linux-gnu/libasound.so
 bin/PluginSystemTests: lib/libgtest.a
 bin/PluginSystemTests: CMakeFiles/PluginSystemTests.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Linking CXX executable bin/PluginSystemTests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable bin/PluginSystemTests"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/PluginSystemTests.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

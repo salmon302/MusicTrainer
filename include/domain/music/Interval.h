@@ -1,82 +1,56 @@
-#ifndef MUSICTRAINERV3_INTERVAL_H
-#define MUSICTRAINERV3_INTERVAL_H
+#pragma once
 
-#include <cstdint>
+#include "domain/music/Pitch.h"
 #include <string>
-#include <ostream>
-#include "Pitch.h"
+#include <cstdint>
 
+namespace MusicTrainer {
 namespace music {
 
-class Interval;  // Forward declaration
-
-// Forward declare the enum classes
-enum class IntervalQuality {
-	DIMINISHED,
-	MINOR,
-	PERFECT,
-	MAJOR,
-	AUGMENTED
-};
-
-enum class IntervalNumber {
-	UNISON = 1,
-	SECOND = 2,
-	THIRD = 3,
-	FOURTH = 4,
-	FIFTH = 5,
-	SIXTH = 6,
-	SEVENTH = 7,
-	OCTAVE = 8
-};
-
-inline std::ostream& operator<<(std::ostream& os, const IntervalNumber& num) {
-	return os << static_cast<int>(num);
-}
-
-inline std::ostream& operator<<(std::ostream& os, const IntervalQuality& quality) {
-	switch(quality) {
-		case IntervalQuality::DIMINISHED: return os << "DIMINISHED";
-		case IntervalQuality::MINOR: return os << "MINOR";
-		case IntervalQuality::PERFECT: return os << "PERFECT";
-		case IntervalQuality::MAJOR: return os << "MAJOR";
-		case IntervalQuality::AUGMENTED: return os << "AUGMENTED";
-		default: return os << "UNKNOWN";
-	}
-}
-
 class Interval {
-
 public:
-	using Quality = IntervalQuality;
-	using Number = IntervalNumber;
+    enum class Quality {
+        Perfect,
+        Major,
+        Minor,
+        Augmented,
+        Diminished
+    };
 
+    enum class Number {
+        Unison = 1,
+        Second = 2,
+        Third = 3,
+        Fourth = 4,
+        Fifth = 5,
+        Sixth = 6,
+        Seventh = 7,
+        Octave = 8
+    };
 
-	// Factory methods for creating intervals
-	static Interval create(Number number, Quality quality);
-	static Interval fromPitches(const Pitch& lower, const Pitch& upper);
-	
-	// Immutable accessors
-	Number getNumber() const { return number; }
-	Quality getQuality() const { return quality; }
-	int8_t getSemitones() const;
-	bool isPerfect() const;
-	std::string toString() const;
+    // Factory methods
+    static Interval fromSemitones(int semitones);
+    static Interval fromQualityAndNumber(Quality quality, Number number);
+    static Interval fromPitches(const MusicTrainer::music::Pitch& lower, const MusicTrainer::music::Pitch& higher);
 
-	// Value semantics
-	bool operator==(const Interval& other) const;
-	bool operator!=(const Interval& other) const;
-	bool operator<(const Interval& other) const;
+    // Getters
+    Quality getQuality() const { return m_quality; }
+    Number getNumber() const { return m_number; }
+    int getSemitones() const { return m_semitones; }
+    std::string toString() const;
+
+    // Operators
+    bool operator==(const Interval& other) const;
+    bool operator!=(const Interval& other) const;
+    bool operator<(const Interval& other) const;
 
 private:
-	Interval(Number number, Quality quality);
-	static bool isPerfectNumber(Number num);
-	
-	Number number;
-	Quality quality;
+    Interval(Quality quality, Number number, int semitones);
+    
+    Quality m_quality;
+    Number m_number;
+    int m_semitones;
 };
 
 } // namespace music
-
-
-#endif // MUSICTRAINERV3_INTERVAL_H
+} // namespace MusicTrainer

@@ -9,6 +9,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-src/tests/testcapi.c" "_deps/rtmidi-build/CMakeFiles/testcapi.dir/tests/testcapi.c.o" "gcc" "_deps/rtmidi-build/CMakeFiles/testcapi.dir/tests/testcapi.c.o.d"
+  "" "_deps/rtmidi-build/testcapi_autogen/timestamp" "custom" "_deps/rtmidi-build/testcapi_autogen/deps"
+  "/home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build/testcapi_autogen/mocs_compilation.cpp" "_deps/rtmidi-build/CMakeFiles/testcapi.dir/testcapi_autogen/mocs_compilation.cpp.o" "gcc" "_deps/rtmidi-build/CMakeFiles/testcapi.dir/testcapi_autogen/mocs_compilation.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

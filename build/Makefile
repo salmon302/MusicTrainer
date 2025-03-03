@@ -172,6 +172,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named MusicTrainerLib
+
+# Build rule for target.
+MusicTrainerLib: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MusicTrainerLib
+.PHONY : MusicTrainerLib
+
+# fast build rule for target.
+MusicTrainerLib/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/build
+.PHONY : MusicTrainerLib/fast
+
+#=============================================================================
 # Target rules for targets named MusicTrainerV3
 
 # Build rule for target.
@@ -183,6 +196,32 @@ MusicTrainerV3: cmake_check_build_system
 MusicTrainerV3/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/build
 .PHONY : MusicTrainerV3/fast
+
+#=============================================================================
+# Target rules for targets named MusicTrainerGUI
+
+# Build rule for target.
+MusicTrainerGUI: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MusicTrainerGUI
+.PHONY : MusicTrainerGUI
+
+# fast build rule for target.
+MusicTrainerGUI/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/build
+.PHONY : MusicTrainerGUI/fast
+
+#=============================================================================
+# Target rules for targets named TestGUI
+
+# Build rule for target.
+TestGUI: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TestGUI
+.PHONY : TestGUI
+
+# fast build rule for target.
+TestGUI/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/build
+.PHONY : TestGUI/fast
 
 #=============================================================================
 # Target rules for targets named TestSuite
@@ -341,6 +380,422 @@ StateSynchronizationManagerTests/fast:
 .PHONY : StateSynchronizationManagerTests/fast
 
 #=============================================================================
+# Target rules for targets named MusicTrainerLib_autogen_timestamp_deps
+
+# Build rule for target.
+MusicTrainerLib_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MusicTrainerLib_autogen_timestamp_deps
+.PHONY : MusicTrainerLib_autogen_timestamp_deps
+
+# fast build rule for target.
+MusicTrainerLib_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib_autogen_timestamp_deps.dir/build.make CMakeFiles/MusicTrainerLib_autogen_timestamp_deps.dir/build
+.PHONY : MusicTrainerLib_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named MusicTrainerLib_autogen
+
+# Build rule for target.
+MusicTrainerLib_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MusicTrainerLib_autogen
+.PHONY : MusicTrainerLib_autogen
+
+# fast build rule for target.
+MusicTrainerLib_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib_autogen.dir/build.make CMakeFiles/MusicTrainerLib_autogen.dir/build
+.PHONY : MusicTrainerLib_autogen/fast
+
+#=============================================================================
+# Target rules for targets named MusicTrainerV3_autogen_timestamp_deps
+
+# Build rule for target.
+MusicTrainerV3_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MusicTrainerV3_autogen_timestamp_deps
+.PHONY : MusicTrainerV3_autogen_timestamp_deps
+
+# fast build rule for target.
+MusicTrainerV3_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3_autogen_timestamp_deps.dir/build.make CMakeFiles/MusicTrainerV3_autogen_timestamp_deps.dir/build
+.PHONY : MusicTrainerV3_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named MusicTrainerV3_autogen
+
+# Build rule for target.
+MusicTrainerV3_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MusicTrainerV3_autogen
+.PHONY : MusicTrainerV3_autogen
+
+# fast build rule for target.
+MusicTrainerV3_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3_autogen.dir/build.make CMakeFiles/MusicTrainerV3_autogen.dir/build
+.PHONY : MusicTrainerV3_autogen/fast
+
+#=============================================================================
+# Target rules for targets named MusicTrainerGUI_autogen_timestamp_deps
+
+# Build rule for target.
+MusicTrainerGUI_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MusicTrainerGUI_autogen_timestamp_deps
+.PHONY : MusicTrainerGUI_autogen_timestamp_deps
+
+# fast build rule for target.
+MusicTrainerGUI_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI_autogen_timestamp_deps.dir/build.make CMakeFiles/MusicTrainerGUI_autogen_timestamp_deps.dir/build
+.PHONY : MusicTrainerGUI_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named MusicTrainerGUI_autogen
+
+# Build rule for target.
+MusicTrainerGUI_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MusicTrainerGUI_autogen
+.PHONY : MusicTrainerGUI_autogen
+
+# fast build rule for target.
+MusicTrainerGUI_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI_autogen.dir/build.make CMakeFiles/MusicTrainerGUI_autogen.dir/build
+.PHONY : MusicTrainerGUI_autogen/fast
+
+#=============================================================================
+# Target rules for targets named TestGUI_autogen_timestamp_deps
+
+# Build rule for target.
+TestGUI_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TestGUI_autogen_timestamp_deps
+.PHONY : TestGUI_autogen_timestamp_deps
+
+# fast build rule for target.
+TestGUI_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI_autogen_timestamp_deps.dir/build.make CMakeFiles/TestGUI_autogen_timestamp_deps.dir/build
+.PHONY : TestGUI_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named TestGUI_autogen
+
+# Build rule for target.
+TestGUI_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TestGUI_autogen
+.PHONY : TestGUI_autogen
+
+# fast build rule for target.
+TestGUI_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI_autogen.dir/build.make CMakeFiles/TestGUI_autogen.dir/build
+.PHONY : TestGUI_autogen/fast
+
+#=============================================================================
+# Target rules for targets named TestSuite_autogen_timestamp_deps
+
+# Build rule for target.
+TestSuite_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TestSuite_autogen_timestamp_deps
+.PHONY : TestSuite_autogen_timestamp_deps
+
+# fast build rule for target.
+TestSuite_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite_autogen_timestamp_deps.dir/build.make CMakeFiles/TestSuite_autogen_timestamp_deps.dir/build
+.PHONY : TestSuite_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named TestSuite_autogen
+
+# Build rule for target.
+TestSuite_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TestSuite_autogen
+.PHONY : TestSuite_autogen
+
+# fast build rule for target.
+TestSuite_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite_autogen.dir/build.make CMakeFiles/TestSuite_autogen.dir/build
+.PHONY : TestSuite_autogen/fast
+
+#=============================================================================
+# Target rules for targets named ValidationPipelineTests_autogen_timestamp_deps
+
+# Build rule for target.
+ValidationPipelineTests_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ValidationPipelineTests_autogen_timestamp_deps
+.PHONY : ValidationPipelineTests_autogen_timestamp_deps
+
+# fast build rule for target.
+ValidationPipelineTests_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests_autogen_timestamp_deps.dir/build.make CMakeFiles/ValidationPipelineTests_autogen_timestamp_deps.dir/build
+.PHONY : ValidationPipelineTests_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named ValidationPipelineTests_autogen
+
+# Build rule for target.
+ValidationPipelineTests_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ValidationPipelineTests_autogen
+.PHONY : ValidationPipelineTests_autogen
+
+# fast build rule for target.
+ValidationPipelineTests_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests_autogen.dir/build.make CMakeFiles/ValidationPipelineTests_autogen.dir/build
+.PHONY : ValidationPipelineTests_autogen/fast
+
+#=============================================================================
+# Target rules for targets named ExerciseGenerationTests_autogen_timestamp_deps
+
+# Build rule for target.
+ExerciseGenerationTests_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ExerciseGenerationTests_autogen_timestamp_deps
+.PHONY : ExerciseGenerationTests_autogen_timestamp_deps
+
+# fast build rule for target.
+ExerciseGenerationTests_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests_autogen_timestamp_deps.dir/build.make CMakeFiles/ExerciseGenerationTests_autogen_timestamp_deps.dir/build
+.PHONY : ExerciseGenerationTests_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named ExerciseGenerationTests_autogen
+
+# Build rule for target.
+ExerciseGenerationTests_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ExerciseGenerationTests_autogen
+.PHONY : ExerciseGenerationTests_autogen
+
+# fast build rule for target.
+ExerciseGenerationTests_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests_autogen.dir/build.make CMakeFiles/ExerciseGenerationTests_autogen.dir/build
+.PHONY : ExerciseGenerationTests_autogen/fast
+
+#=============================================================================
+# Target rules for targets named MidiSystemTests_autogen_timestamp_deps
+
+# Build rule for target.
+MidiSystemTests_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MidiSystemTests_autogen_timestamp_deps
+.PHONY : MidiSystemTests_autogen_timestamp_deps
+
+# fast build rule for target.
+MidiSystemTests_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests_autogen_timestamp_deps.dir/build.make CMakeFiles/MidiSystemTests_autogen_timestamp_deps.dir/build
+.PHONY : MidiSystemTests_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named MidiSystemTests_autogen
+
+# Build rule for target.
+MidiSystemTests_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MidiSystemTests_autogen
+.PHONY : MidiSystemTests_autogen
+
+# fast build rule for target.
+MidiSystemTests_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests_autogen.dir/build.make CMakeFiles/MidiSystemTests_autogen.dir/build
+.PHONY : MidiSystemTests_autogen/fast
+
+#=============================================================================
+# Target rules for targets named RepositoryTests_autogen_timestamp_deps
+
+# Build rule for target.
+RepositoryTests_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 RepositoryTests_autogen_timestamp_deps
+.PHONY : RepositoryTests_autogen_timestamp_deps
+
+# fast build rule for target.
+RepositoryTests_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests_autogen_timestamp_deps.dir/build.make CMakeFiles/RepositoryTests_autogen_timestamp_deps.dir/build
+.PHONY : RepositoryTests_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named RepositoryTests_autogen
+
+# Build rule for target.
+RepositoryTests_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 RepositoryTests_autogen
+.PHONY : RepositoryTests_autogen
+
+# fast build rule for target.
+RepositoryTests_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests_autogen.dir/build.make CMakeFiles/RepositoryTests_autogen.dir/build
+.PHONY : RepositoryTests_autogen/fast
+
+#=============================================================================
+# Target rules for targets named ProgressionSystemTests_autogen_timestamp_deps
+
+# Build rule for target.
+ProgressionSystemTests_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ProgressionSystemTests_autogen_timestamp_deps
+.PHONY : ProgressionSystemTests_autogen_timestamp_deps
+
+# fast build rule for target.
+ProgressionSystemTests_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests_autogen_timestamp_deps.dir/build.make CMakeFiles/ProgressionSystemTests_autogen_timestamp_deps.dir/build
+.PHONY : ProgressionSystemTests_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named ProgressionSystemTests_autogen
+
+# Build rule for target.
+ProgressionSystemTests_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ProgressionSystemTests_autogen
+.PHONY : ProgressionSystemTests_autogen
+
+# fast build rule for target.
+ProgressionSystemTests_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests_autogen.dir/build.make CMakeFiles/ProgressionSystemTests_autogen.dir/build
+.PHONY : ProgressionSystemTests_autogen/fast
+
+#=============================================================================
+# Target rules for targets named SystemIntegrationTests_autogen_timestamp_deps
+
+# Build rule for target.
+SystemIntegrationTests_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SystemIntegrationTests_autogen_timestamp_deps
+.PHONY : SystemIntegrationTests_autogen_timestamp_deps
+
+# fast build rule for target.
+SystemIntegrationTests_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests_autogen_timestamp_deps.dir/build.make CMakeFiles/SystemIntegrationTests_autogen_timestamp_deps.dir/build
+.PHONY : SystemIntegrationTests_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named SystemIntegrationTests_autogen
+
+# Build rule for target.
+SystemIntegrationTests_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SystemIntegrationTests_autogen
+.PHONY : SystemIntegrationTests_autogen
+
+# fast build rule for target.
+SystemIntegrationTests_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests_autogen.dir/build.make CMakeFiles/SystemIntegrationTests_autogen.dir/build
+.PHONY : SystemIntegrationTests_autogen/fast
+
+#=============================================================================
+# Target rules for targets named PluginSystemTests_autogen_timestamp_deps
+
+# Build rule for target.
+PluginSystemTests_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 PluginSystemTests_autogen_timestamp_deps
+.PHONY : PluginSystemTests_autogen_timestamp_deps
+
+# fast build rule for target.
+PluginSystemTests_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests_autogen_timestamp_deps.dir/build.make CMakeFiles/PluginSystemTests_autogen_timestamp_deps.dir/build
+.PHONY : PluginSystemTests_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named PluginSystemTests_autogen
+
+# Build rule for target.
+PluginSystemTests_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 PluginSystemTests_autogen
+.PHONY : PluginSystemTests_autogen
+
+# fast build rule for target.
+PluginSystemTests_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests_autogen.dir/build.make CMakeFiles/PluginSystemTests_autogen.dir/build
+.PHONY : PluginSystemTests_autogen/fast
+
+#=============================================================================
+# Target rules for targets named ErrorHandlingTests_autogen_timestamp_deps
+
+# Build rule for target.
+ErrorHandlingTests_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ErrorHandlingTests_autogen_timestamp_deps
+.PHONY : ErrorHandlingTests_autogen_timestamp_deps
+
+# fast build rule for target.
+ErrorHandlingTests_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests_autogen_timestamp_deps.dir/build.make CMakeFiles/ErrorHandlingTests_autogen_timestamp_deps.dir/build
+.PHONY : ErrorHandlingTests_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named ErrorHandlingTests_autogen
+
+# Build rule for target.
+ErrorHandlingTests_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ErrorHandlingTests_autogen
+.PHONY : ErrorHandlingTests_autogen
+
+# fast build rule for target.
+ErrorHandlingTests_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests_autogen.dir/build.make CMakeFiles/ErrorHandlingTests_autogen.dir/build
+.PHONY : ErrorHandlingTests_autogen/fast
+
+#=============================================================================
+# Target rules for targets named PerformanceMonitoringTests_autogen_timestamp_deps
+
+# Build rule for target.
+PerformanceMonitoringTests_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 PerformanceMonitoringTests_autogen_timestamp_deps
+.PHONY : PerformanceMonitoringTests_autogen_timestamp_deps
+
+# fast build rule for target.
+PerformanceMonitoringTests_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests_autogen_timestamp_deps.dir/build.make CMakeFiles/PerformanceMonitoringTests_autogen_timestamp_deps.dir/build
+.PHONY : PerformanceMonitoringTests_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named PerformanceMonitoringTests_autogen
+
+# Build rule for target.
+PerformanceMonitoringTests_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 PerformanceMonitoringTests_autogen
+.PHONY : PerformanceMonitoringTests_autogen
+
+# fast build rule for target.
+PerformanceMonitoringTests_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests_autogen.dir/build.make CMakeFiles/PerformanceMonitoringTests_autogen.dir/build
+.PHONY : PerformanceMonitoringTests_autogen/fast
+
+#=============================================================================
+# Target rules for targets named CrossDomainValidatorTests_autogen_timestamp_deps
+
+# Build rule for target.
+CrossDomainValidatorTests_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CrossDomainValidatorTests_autogen_timestamp_deps
+.PHONY : CrossDomainValidatorTests_autogen_timestamp_deps
+
+# fast build rule for target.
+CrossDomainValidatorTests_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests_autogen_timestamp_deps.dir/build.make CMakeFiles/CrossDomainValidatorTests_autogen_timestamp_deps.dir/build
+.PHONY : CrossDomainValidatorTests_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named CrossDomainValidatorTests_autogen
+
+# Build rule for target.
+CrossDomainValidatorTests_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CrossDomainValidatorTests_autogen
+.PHONY : CrossDomainValidatorTests_autogen
+
+# fast build rule for target.
+CrossDomainValidatorTests_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests_autogen.dir/build.make CMakeFiles/CrossDomainValidatorTests_autogen.dir/build
+.PHONY : CrossDomainValidatorTests_autogen/fast
+
+#=============================================================================
+# Target rules for targets named StateSynchronizationManagerTests_autogen_timestamp_deps
+
+# Build rule for target.
+StateSynchronizationManagerTests_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 StateSynchronizationManagerTests_autogen_timestamp_deps
+.PHONY : StateSynchronizationManagerTests_autogen_timestamp_deps
+
+# fast build rule for target.
+StateSynchronizationManagerTests_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests_autogen_timestamp_deps.dir/build.make CMakeFiles/StateSynchronizationManagerTests_autogen_timestamp_deps.dir/build
+.PHONY : StateSynchronizationManagerTests_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named StateSynchronizationManagerTests_autogen
+
+# Build rule for target.
+StateSynchronizationManagerTests_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 StateSynchronizationManagerTests_autogen
+.PHONY : StateSynchronizationManagerTests_autogen
+
+# fast build rule for target.
+StateSynchronizationManagerTests_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests_autogen.dir/build.make CMakeFiles/StateSynchronizationManagerTests_autogen.dir/build
+.PHONY : StateSynchronizationManagerTests_autogen/fast
+
+#=============================================================================
 # Target rules for targets named gmock
 
 # Build rule for target.
@@ -367,6 +822,58 @@ gmock_main/fast:
 .PHONY : gmock_main/fast
 
 #=============================================================================
+# Target rules for targets named gmock_autogen_timestamp_deps
+
+# Build rule for target.
+gmock_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gmock_autogen_timestamp_deps
+.PHONY : gmock_autogen_timestamp_deps
+
+# fast build rule for target.
+gmock_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_autogen_timestamp_deps.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_autogen_timestamp_deps.dir/build
+.PHONY : gmock_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named gmock_autogen
+
+# Build rule for target.
+gmock_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gmock_autogen
+.PHONY : gmock_autogen
+
+# fast build rule for target.
+gmock_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_autogen.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_autogen.dir/build
+.PHONY : gmock_autogen/fast
+
+#=============================================================================
+# Target rules for targets named gmock_main_autogen_timestamp_deps
+
+# Build rule for target.
+gmock_main_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gmock_main_autogen_timestamp_deps
+.PHONY : gmock_main_autogen_timestamp_deps
+
+# fast build rule for target.
+gmock_main_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_main_autogen_timestamp_deps.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_main_autogen_timestamp_deps.dir/build
+.PHONY : gmock_main_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named gmock_main_autogen
+
+# Build rule for target.
+gmock_main_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gmock_main_autogen
+.PHONY : gmock_main_autogen
+
+# fast build rule for target.
+gmock_main_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_main_autogen.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_main_autogen.dir/build
+.PHONY : gmock_main_autogen/fast
+
+#=============================================================================
 # Target rules for targets named gtest
 
 # Build rule for target.
@@ -391,6 +898,58 @@ gtest_main: cmake_check_build_system
 gtest_main/fast:
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
+
+#=============================================================================
+# Target rules for targets named gtest_autogen_timestamp_deps
+
+# Build rule for target.
+gtest_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest_autogen_timestamp_deps
+.PHONY : gtest_autogen_timestamp_deps
+
+# fast build rule for target.
+gtest_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_autogen_timestamp_deps.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_autogen_timestamp_deps.dir/build
+.PHONY : gtest_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named gtest_autogen
+
+# Build rule for target.
+gtest_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest_autogen
+.PHONY : gtest_autogen
+
+# fast build rule for target.
+gtest_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_autogen.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_autogen.dir/build
+.PHONY : gtest_autogen/fast
+
+#=============================================================================
+# Target rules for targets named gtest_main_autogen_timestamp_deps
+
+# Build rule for target.
+gtest_main_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest_main_autogen_timestamp_deps
+.PHONY : gtest_main_autogen_timestamp_deps
+
+# fast build rule for target.
+gtest_main_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main_autogen_timestamp_deps.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main_autogen_timestamp_deps.dir/build
+.PHONY : gtest_main_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named gtest_main_autogen
+
+# Build rule for target.
+gtest_main_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest_main_autogen
+.PHONY : gtest_main_autogen
+
+# fast build rule for target.
+gtest_main_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main_autogen.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main_autogen.dir/build
+.PHONY : gtest_main_autogen/fast
 
 #=============================================================================
 # Target rules for targets named rtmidi
@@ -886,24 +1445,630 @@ uninstall/fast:
 	$(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/uninstall.dir/build.make _deps/rtmidi-build/CMakeFiles/uninstall.dir/build
 .PHONY : uninstall/fast
 
+#=============================================================================
+# Target rules for targets named rtmidi_autogen_timestamp_deps
+
+# Build rule for target.
+rtmidi_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 rtmidi_autogen_timestamp_deps
+.PHONY : rtmidi_autogen_timestamp_deps
+
+# fast build rule for target.
+rtmidi_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/rtmidi_autogen_timestamp_deps.dir/build.make _deps/rtmidi-build/CMakeFiles/rtmidi_autogen_timestamp_deps.dir/build
+.PHONY : rtmidi_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named rtmidi_autogen
+
+# Build rule for target.
+rtmidi_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 rtmidi_autogen
+.PHONY : rtmidi_autogen
+
+# fast build rule for target.
+rtmidi_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/rtmidi_autogen.dir/build.make _deps/rtmidi-build/CMakeFiles/rtmidi_autogen.dir/build
+.PHONY : rtmidi_autogen/fast
+
+#=============================================================================
+# Target rules for targets named cmidiin_autogen_timestamp_deps
+
+# Build rule for target.
+cmidiin_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cmidiin_autogen_timestamp_deps
+.PHONY : cmidiin_autogen_timestamp_deps
+
+# fast build rule for target.
+cmidiin_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/cmidiin_autogen_timestamp_deps.dir/build.make _deps/rtmidi-build/CMakeFiles/cmidiin_autogen_timestamp_deps.dir/build
+.PHONY : cmidiin_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named cmidiin_autogen
+
+# Build rule for target.
+cmidiin_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cmidiin_autogen
+.PHONY : cmidiin_autogen
+
+# fast build rule for target.
+cmidiin_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/cmidiin_autogen.dir/build.make _deps/rtmidi-build/CMakeFiles/cmidiin_autogen.dir/build
+.PHONY : cmidiin_autogen/fast
+
+#=============================================================================
+# Target rules for targets named midiclock_autogen_timestamp_deps
+
+# Build rule for target.
+midiclock_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 midiclock_autogen_timestamp_deps
+.PHONY : midiclock_autogen_timestamp_deps
+
+# fast build rule for target.
+midiclock_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/midiclock_autogen_timestamp_deps.dir/build.make _deps/rtmidi-build/CMakeFiles/midiclock_autogen_timestamp_deps.dir/build
+.PHONY : midiclock_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named midiclock_autogen
+
+# Build rule for target.
+midiclock_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 midiclock_autogen
+.PHONY : midiclock_autogen
+
+# fast build rule for target.
+midiclock_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/midiclock_autogen.dir/build.make _deps/rtmidi-build/CMakeFiles/midiclock_autogen.dir/build
+.PHONY : midiclock_autogen/fast
+
+#=============================================================================
+# Target rules for targets named midiout_autogen_timestamp_deps
+
+# Build rule for target.
+midiout_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 midiout_autogen_timestamp_deps
+.PHONY : midiout_autogen_timestamp_deps
+
+# fast build rule for target.
+midiout_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/midiout_autogen_timestamp_deps.dir/build.make _deps/rtmidi-build/CMakeFiles/midiout_autogen_timestamp_deps.dir/build
+.PHONY : midiout_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named midiout_autogen
+
+# Build rule for target.
+midiout_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 midiout_autogen
+.PHONY : midiout_autogen
+
+# fast build rule for target.
+midiout_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/midiout_autogen.dir/build.make _deps/rtmidi-build/CMakeFiles/midiout_autogen.dir/build
+.PHONY : midiout_autogen/fast
+
+#=============================================================================
+# Target rules for targets named midiprobe_autogen_timestamp_deps
+
+# Build rule for target.
+midiprobe_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 midiprobe_autogen_timestamp_deps
+.PHONY : midiprobe_autogen_timestamp_deps
+
+# fast build rule for target.
+midiprobe_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/midiprobe_autogen_timestamp_deps.dir/build.make _deps/rtmidi-build/CMakeFiles/midiprobe_autogen_timestamp_deps.dir/build
+.PHONY : midiprobe_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named midiprobe_autogen
+
+# Build rule for target.
+midiprobe_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 midiprobe_autogen
+.PHONY : midiprobe_autogen
+
+# fast build rule for target.
+midiprobe_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/midiprobe_autogen.dir/build.make _deps/rtmidi-build/CMakeFiles/midiprobe_autogen.dir/build
+.PHONY : midiprobe_autogen/fast
+
+#=============================================================================
+# Target rules for targets named qmidiin_autogen_timestamp_deps
+
+# Build rule for target.
+qmidiin_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 qmidiin_autogen_timestamp_deps
+.PHONY : qmidiin_autogen_timestamp_deps
+
+# fast build rule for target.
+qmidiin_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/qmidiin_autogen_timestamp_deps.dir/build.make _deps/rtmidi-build/CMakeFiles/qmidiin_autogen_timestamp_deps.dir/build
+.PHONY : qmidiin_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named qmidiin_autogen
+
+# Build rule for target.
+qmidiin_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 qmidiin_autogen
+.PHONY : qmidiin_autogen
+
+# fast build rule for target.
+qmidiin_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/qmidiin_autogen.dir/build.make _deps/rtmidi-build/CMakeFiles/qmidiin_autogen.dir/build
+.PHONY : qmidiin_autogen/fast
+
+#=============================================================================
+# Target rules for targets named sysextest_autogen_timestamp_deps
+
+# Build rule for target.
+sysextest_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 sysextest_autogen_timestamp_deps
+.PHONY : sysextest_autogen_timestamp_deps
+
+# fast build rule for target.
+sysextest_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/sysextest_autogen_timestamp_deps.dir/build.make _deps/rtmidi-build/CMakeFiles/sysextest_autogen_timestamp_deps.dir/build
+.PHONY : sysextest_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named sysextest_autogen
+
+# Build rule for target.
+sysextest_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 sysextest_autogen
+.PHONY : sysextest_autogen
+
+# fast build rule for target.
+sysextest_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/sysextest_autogen.dir/build.make _deps/rtmidi-build/CMakeFiles/sysextest_autogen.dir/build
+.PHONY : sysextest_autogen/fast
+
+#=============================================================================
+# Target rules for targets named apinames_autogen_timestamp_deps
+
+# Build rule for target.
+apinames_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 apinames_autogen_timestamp_deps
+.PHONY : apinames_autogen_timestamp_deps
+
+# fast build rule for target.
+apinames_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/apinames_autogen_timestamp_deps.dir/build.make _deps/rtmidi-build/CMakeFiles/apinames_autogen_timestamp_deps.dir/build
+.PHONY : apinames_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named apinames_autogen
+
+# Build rule for target.
+apinames_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 apinames_autogen
+.PHONY : apinames_autogen
+
+# fast build rule for target.
+apinames_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/apinames_autogen.dir/build.make _deps/rtmidi-build/CMakeFiles/apinames_autogen.dir/build
+.PHONY : apinames_autogen/fast
+
+#=============================================================================
+# Target rules for targets named testcapi_autogen_timestamp_deps
+
+# Build rule for target.
+testcapi_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 testcapi_autogen_timestamp_deps
+.PHONY : testcapi_autogen_timestamp_deps
+
+# fast build rule for target.
+testcapi_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/testcapi_autogen_timestamp_deps.dir/build.make _deps/rtmidi-build/CMakeFiles/testcapi_autogen_timestamp_deps.dir/build
+.PHONY : testcapi_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named testcapi_autogen
+
+# Build rule for target.
+testcapi_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 testcapi_autogen
+.PHONY : testcapi_autogen
+
+# fast build rule for target.
+testcapi_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/testcapi_autogen.dir/build.make _deps/rtmidi-build/CMakeFiles/testcapi_autogen.dir/build
+.PHONY : testcapi_autogen/fast
+
+CrossDomainValidatorTests_autogen/mocs_compilation.o: CrossDomainValidatorTests_autogen/mocs_compilation.cpp.o
+.PHONY : CrossDomainValidatorTests_autogen/mocs_compilation.o
+
+# target to build an object file
+CrossDomainValidatorTests_autogen/mocs_compilation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/CrossDomainValidatorTests_autogen/mocs_compilation.cpp.o
+.PHONY : CrossDomainValidatorTests_autogen/mocs_compilation.cpp.o
+
+CrossDomainValidatorTests_autogen/mocs_compilation.i: CrossDomainValidatorTests_autogen/mocs_compilation.cpp.i
+.PHONY : CrossDomainValidatorTests_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+CrossDomainValidatorTests_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/CrossDomainValidatorTests_autogen/mocs_compilation.cpp.i
+.PHONY : CrossDomainValidatorTests_autogen/mocs_compilation.cpp.i
+
+CrossDomainValidatorTests_autogen/mocs_compilation.s: CrossDomainValidatorTests_autogen/mocs_compilation.cpp.s
+.PHONY : CrossDomainValidatorTests_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+CrossDomainValidatorTests_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/CrossDomainValidatorTests_autogen/mocs_compilation.cpp.s
+.PHONY : CrossDomainValidatorTests_autogen/mocs_compilation.cpp.s
+
+ErrorHandlingTests_autogen/mocs_compilation.o: ErrorHandlingTests_autogen/mocs_compilation.cpp.o
+.PHONY : ErrorHandlingTests_autogen/mocs_compilation.o
+
+# target to build an object file
+ErrorHandlingTests_autogen/mocs_compilation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/ErrorHandlingTests_autogen/mocs_compilation.cpp.o
+.PHONY : ErrorHandlingTests_autogen/mocs_compilation.cpp.o
+
+ErrorHandlingTests_autogen/mocs_compilation.i: ErrorHandlingTests_autogen/mocs_compilation.cpp.i
+.PHONY : ErrorHandlingTests_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+ErrorHandlingTests_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/ErrorHandlingTests_autogen/mocs_compilation.cpp.i
+.PHONY : ErrorHandlingTests_autogen/mocs_compilation.cpp.i
+
+ErrorHandlingTests_autogen/mocs_compilation.s: ErrorHandlingTests_autogen/mocs_compilation.cpp.s
+.PHONY : ErrorHandlingTests_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+ErrorHandlingTests_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/ErrorHandlingTests_autogen/mocs_compilation.cpp.s
+.PHONY : ErrorHandlingTests_autogen/mocs_compilation.cpp.s
+
+ExerciseGenerationTests_autogen/mocs_compilation.o: ExerciseGenerationTests_autogen/mocs_compilation.cpp.o
+.PHONY : ExerciseGenerationTests_autogen/mocs_compilation.o
+
+# target to build an object file
+ExerciseGenerationTests_autogen/mocs_compilation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/ExerciseGenerationTests_autogen/mocs_compilation.cpp.o
+.PHONY : ExerciseGenerationTests_autogen/mocs_compilation.cpp.o
+
+ExerciseGenerationTests_autogen/mocs_compilation.i: ExerciseGenerationTests_autogen/mocs_compilation.cpp.i
+.PHONY : ExerciseGenerationTests_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+ExerciseGenerationTests_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/ExerciseGenerationTests_autogen/mocs_compilation.cpp.i
+.PHONY : ExerciseGenerationTests_autogen/mocs_compilation.cpp.i
+
+ExerciseGenerationTests_autogen/mocs_compilation.s: ExerciseGenerationTests_autogen/mocs_compilation.cpp.s
+.PHONY : ExerciseGenerationTests_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+ExerciseGenerationTests_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/ExerciseGenerationTests_autogen/mocs_compilation.cpp.s
+.PHONY : ExerciseGenerationTests_autogen/mocs_compilation.cpp.s
+
+MidiSystemTests_autogen/mocs_compilation.o: MidiSystemTests_autogen/mocs_compilation.cpp.o
+.PHONY : MidiSystemTests_autogen/mocs_compilation.o
+
+# target to build an object file
+MidiSystemTests_autogen/mocs_compilation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/MidiSystemTests_autogen/mocs_compilation.cpp.o
+.PHONY : MidiSystemTests_autogen/mocs_compilation.cpp.o
+
+MidiSystemTests_autogen/mocs_compilation.i: MidiSystemTests_autogen/mocs_compilation.cpp.i
+.PHONY : MidiSystemTests_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+MidiSystemTests_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/MidiSystemTests_autogen/mocs_compilation.cpp.i
+.PHONY : MidiSystemTests_autogen/mocs_compilation.cpp.i
+
+MidiSystemTests_autogen/mocs_compilation.s: MidiSystemTests_autogen/mocs_compilation.cpp.s
+.PHONY : MidiSystemTests_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+MidiSystemTests_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/MidiSystemTests_autogen/mocs_compilation.cpp.s
+.PHONY : MidiSystemTests_autogen/mocs_compilation.cpp.s
+
+MusicTrainerGUI_autogen/mocs_compilation.o: MusicTrainerGUI_autogen/mocs_compilation.cpp.o
+.PHONY : MusicTrainerGUI_autogen/mocs_compilation.o
+
+# target to build an object file
+MusicTrainerGUI_autogen/mocs_compilation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/MusicTrainerGUI_autogen/mocs_compilation.cpp.o
+.PHONY : MusicTrainerGUI_autogen/mocs_compilation.cpp.o
+
+MusicTrainerGUI_autogen/mocs_compilation.i: MusicTrainerGUI_autogen/mocs_compilation.cpp.i
+.PHONY : MusicTrainerGUI_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+MusicTrainerGUI_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/MusicTrainerGUI_autogen/mocs_compilation.cpp.i
+.PHONY : MusicTrainerGUI_autogen/mocs_compilation.cpp.i
+
+MusicTrainerGUI_autogen/mocs_compilation.s: MusicTrainerGUI_autogen/mocs_compilation.cpp.s
+.PHONY : MusicTrainerGUI_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+MusicTrainerGUI_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/MusicTrainerGUI_autogen/mocs_compilation.cpp.s
+.PHONY : MusicTrainerGUI_autogen/mocs_compilation.cpp.s
+
+MusicTrainerLib_autogen/mocs_compilation.o: MusicTrainerLib_autogen/mocs_compilation.cpp.o
+.PHONY : MusicTrainerLib_autogen/mocs_compilation.o
+
+# target to build an object file
+MusicTrainerLib_autogen/mocs_compilation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/MusicTrainerLib_autogen/mocs_compilation.cpp.o
+.PHONY : MusicTrainerLib_autogen/mocs_compilation.cpp.o
+
+MusicTrainerLib_autogen/mocs_compilation.i: MusicTrainerLib_autogen/mocs_compilation.cpp.i
+.PHONY : MusicTrainerLib_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+MusicTrainerLib_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/MusicTrainerLib_autogen/mocs_compilation.cpp.i
+.PHONY : MusicTrainerLib_autogen/mocs_compilation.cpp.i
+
+MusicTrainerLib_autogen/mocs_compilation.s: MusicTrainerLib_autogen/mocs_compilation.cpp.s
+.PHONY : MusicTrainerLib_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+MusicTrainerLib_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/MusicTrainerLib_autogen/mocs_compilation.cpp.s
+.PHONY : MusicTrainerLib_autogen/mocs_compilation.cpp.s
+
+MusicTrainerV3_autogen/mocs_compilation.o: MusicTrainerV3_autogen/mocs_compilation.cpp.o
+.PHONY : MusicTrainerV3_autogen/mocs_compilation.o
+
+# target to build an object file
+MusicTrainerV3_autogen/mocs_compilation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/MusicTrainerV3_autogen/mocs_compilation.cpp.o
+.PHONY : MusicTrainerV3_autogen/mocs_compilation.cpp.o
+
+MusicTrainerV3_autogen/mocs_compilation.i: MusicTrainerV3_autogen/mocs_compilation.cpp.i
+.PHONY : MusicTrainerV3_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+MusicTrainerV3_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/MusicTrainerV3_autogen/mocs_compilation.cpp.i
+.PHONY : MusicTrainerV3_autogen/mocs_compilation.cpp.i
+
+MusicTrainerV3_autogen/mocs_compilation.s: MusicTrainerV3_autogen/mocs_compilation.cpp.s
+.PHONY : MusicTrainerV3_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+MusicTrainerV3_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/MusicTrainerV3_autogen/mocs_compilation.cpp.s
+.PHONY : MusicTrainerV3_autogen/mocs_compilation.cpp.s
+
+PerformanceMonitoringTests_autogen/mocs_compilation.o: PerformanceMonitoringTests_autogen/mocs_compilation.cpp.o
+.PHONY : PerformanceMonitoringTests_autogen/mocs_compilation.o
+
+# target to build an object file
+PerformanceMonitoringTests_autogen/mocs_compilation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/PerformanceMonitoringTests_autogen/mocs_compilation.cpp.o
+.PHONY : PerformanceMonitoringTests_autogen/mocs_compilation.cpp.o
+
+PerformanceMonitoringTests_autogen/mocs_compilation.i: PerformanceMonitoringTests_autogen/mocs_compilation.cpp.i
+.PHONY : PerformanceMonitoringTests_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+PerformanceMonitoringTests_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/PerformanceMonitoringTests_autogen/mocs_compilation.cpp.i
+.PHONY : PerformanceMonitoringTests_autogen/mocs_compilation.cpp.i
+
+PerformanceMonitoringTests_autogen/mocs_compilation.s: PerformanceMonitoringTests_autogen/mocs_compilation.cpp.s
+.PHONY : PerformanceMonitoringTests_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+PerformanceMonitoringTests_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/PerformanceMonitoringTests_autogen/mocs_compilation.cpp.s
+.PHONY : PerformanceMonitoringTests_autogen/mocs_compilation.cpp.s
+
+PluginSystemTests_autogen/mocs_compilation.o: PluginSystemTests_autogen/mocs_compilation.cpp.o
+.PHONY : PluginSystemTests_autogen/mocs_compilation.o
+
+# target to build an object file
+PluginSystemTests_autogen/mocs_compilation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/PluginSystemTests_autogen/mocs_compilation.cpp.o
+.PHONY : PluginSystemTests_autogen/mocs_compilation.cpp.o
+
+PluginSystemTests_autogen/mocs_compilation.i: PluginSystemTests_autogen/mocs_compilation.cpp.i
+.PHONY : PluginSystemTests_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+PluginSystemTests_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/PluginSystemTests_autogen/mocs_compilation.cpp.i
+.PHONY : PluginSystemTests_autogen/mocs_compilation.cpp.i
+
+PluginSystemTests_autogen/mocs_compilation.s: PluginSystemTests_autogen/mocs_compilation.cpp.s
+.PHONY : PluginSystemTests_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+PluginSystemTests_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/PluginSystemTests_autogen/mocs_compilation.cpp.s
+.PHONY : PluginSystemTests_autogen/mocs_compilation.cpp.s
+
+ProgressionSystemTests_autogen/mocs_compilation.o: ProgressionSystemTests_autogen/mocs_compilation.cpp.o
+.PHONY : ProgressionSystemTests_autogen/mocs_compilation.o
+
+# target to build an object file
+ProgressionSystemTests_autogen/mocs_compilation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/ProgressionSystemTests_autogen/mocs_compilation.cpp.o
+.PHONY : ProgressionSystemTests_autogen/mocs_compilation.cpp.o
+
+ProgressionSystemTests_autogen/mocs_compilation.i: ProgressionSystemTests_autogen/mocs_compilation.cpp.i
+.PHONY : ProgressionSystemTests_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+ProgressionSystemTests_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/ProgressionSystemTests_autogen/mocs_compilation.cpp.i
+.PHONY : ProgressionSystemTests_autogen/mocs_compilation.cpp.i
+
+ProgressionSystemTests_autogen/mocs_compilation.s: ProgressionSystemTests_autogen/mocs_compilation.cpp.s
+.PHONY : ProgressionSystemTests_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+ProgressionSystemTests_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/ProgressionSystemTests_autogen/mocs_compilation.cpp.s
+.PHONY : ProgressionSystemTests_autogen/mocs_compilation.cpp.s
+
+RepositoryTests_autogen/mocs_compilation.o: RepositoryTests_autogen/mocs_compilation.cpp.o
+.PHONY : RepositoryTests_autogen/mocs_compilation.o
+
+# target to build an object file
+RepositoryTests_autogen/mocs_compilation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/RepositoryTests_autogen/mocs_compilation.cpp.o
+.PHONY : RepositoryTests_autogen/mocs_compilation.cpp.o
+
+RepositoryTests_autogen/mocs_compilation.i: RepositoryTests_autogen/mocs_compilation.cpp.i
+.PHONY : RepositoryTests_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+RepositoryTests_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/RepositoryTests_autogen/mocs_compilation.cpp.i
+.PHONY : RepositoryTests_autogen/mocs_compilation.cpp.i
+
+RepositoryTests_autogen/mocs_compilation.s: RepositoryTests_autogen/mocs_compilation.cpp.s
+.PHONY : RepositoryTests_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+RepositoryTests_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/RepositoryTests_autogen/mocs_compilation.cpp.s
+.PHONY : RepositoryTests_autogen/mocs_compilation.cpp.s
+
+StateSynchronizationManagerTests_autogen/mocs_compilation.o: StateSynchronizationManagerTests_autogen/mocs_compilation.cpp.o
+.PHONY : StateSynchronizationManagerTests_autogen/mocs_compilation.o
+
+# target to build an object file
+StateSynchronizationManagerTests_autogen/mocs_compilation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/StateSynchronizationManagerTests_autogen/mocs_compilation.cpp.o
+.PHONY : StateSynchronizationManagerTests_autogen/mocs_compilation.cpp.o
+
+StateSynchronizationManagerTests_autogen/mocs_compilation.i: StateSynchronizationManagerTests_autogen/mocs_compilation.cpp.i
+.PHONY : StateSynchronizationManagerTests_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+StateSynchronizationManagerTests_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/StateSynchronizationManagerTests_autogen/mocs_compilation.cpp.i
+.PHONY : StateSynchronizationManagerTests_autogen/mocs_compilation.cpp.i
+
+StateSynchronizationManagerTests_autogen/mocs_compilation.s: StateSynchronizationManagerTests_autogen/mocs_compilation.cpp.s
+.PHONY : StateSynchronizationManagerTests_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+StateSynchronizationManagerTests_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/StateSynchronizationManagerTests_autogen/mocs_compilation.cpp.s
+.PHONY : StateSynchronizationManagerTests_autogen/mocs_compilation.cpp.s
+
+SystemIntegrationTests_autogen/mocs_compilation.o: SystemIntegrationTests_autogen/mocs_compilation.cpp.o
+.PHONY : SystemIntegrationTests_autogen/mocs_compilation.o
+
+# target to build an object file
+SystemIntegrationTests_autogen/mocs_compilation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/SystemIntegrationTests_autogen/mocs_compilation.cpp.o
+.PHONY : SystemIntegrationTests_autogen/mocs_compilation.cpp.o
+
+SystemIntegrationTests_autogen/mocs_compilation.i: SystemIntegrationTests_autogen/mocs_compilation.cpp.i
+.PHONY : SystemIntegrationTests_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+SystemIntegrationTests_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/SystemIntegrationTests_autogen/mocs_compilation.cpp.i
+.PHONY : SystemIntegrationTests_autogen/mocs_compilation.cpp.i
+
+SystemIntegrationTests_autogen/mocs_compilation.s: SystemIntegrationTests_autogen/mocs_compilation.cpp.s
+.PHONY : SystemIntegrationTests_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+SystemIntegrationTests_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/SystemIntegrationTests_autogen/mocs_compilation.cpp.s
+.PHONY : SystemIntegrationTests_autogen/mocs_compilation.cpp.s
+
+TestGUI_autogen/mocs_compilation.o: TestGUI_autogen/mocs_compilation.cpp.o
+.PHONY : TestGUI_autogen/mocs_compilation.o
+
+# target to build an object file
+TestGUI_autogen/mocs_compilation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/TestGUI_autogen/mocs_compilation.cpp.o
+.PHONY : TestGUI_autogen/mocs_compilation.cpp.o
+
+TestGUI_autogen/mocs_compilation.i: TestGUI_autogen/mocs_compilation.cpp.i
+.PHONY : TestGUI_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+TestGUI_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/TestGUI_autogen/mocs_compilation.cpp.i
+.PHONY : TestGUI_autogen/mocs_compilation.cpp.i
+
+TestGUI_autogen/mocs_compilation.s: TestGUI_autogen/mocs_compilation.cpp.s
+.PHONY : TestGUI_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+TestGUI_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/TestGUI_autogen/mocs_compilation.cpp.s
+.PHONY : TestGUI_autogen/mocs_compilation.cpp.s
+
+TestSuite_autogen/mocs_compilation.o: TestSuite_autogen/mocs_compilation.cpp.o
+.PHONY : TestSuite_autogen/mocs_compilation.o
+
+# target to build an object file
+TestSuite_autogen/mocs_compilation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/TestSuite_autogen/mocs_compilation.cpp.o
+.PHONY : TestSuite_autogen/mocs_compilation.cpp.o
+
+TestSuite_autogen/mocs_compilation.i: TestSuite_autogen/mocs_compilation.cpp.i
+.PHONY : TestSuite_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+TestSuite_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/TestSuite_autogen/mocs_compilation.cpp.i
+.PHONY : TestSuite_autogen/mocs_compilation.cpp.i
+
+TestSuite_autogen/mocs_compilation.s: TestSuite_autogen/mocs_compilation.cpp.s
+.PHONY : TestSuite_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+TestSuite_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/TestSuite_autogen/mocs_compilation.cpp.s
+.PHONY : TestSuite_autogen/mocs_compilation.cpp.s
+
+ValidationPipelineTests_autogen/mocs_compilation.o: ValidationPipelineTests_autogen/mocs_compilation.cpp.o
+.PHONY : ValidationPipelineTests_autogen/mocs_compilation.o
+
+# target to build an object file
+ValidationPipelineTests_autogen/mocs_compilation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/ValidationPipelineTests_autogen/mocs_compilation.cpp.o
+.PHONY : ValidationPipelineTests_autogen/mocs_compilation.cpp.o
+
+ValidationPipelineTests_autogen/mocs_compilation.i: ValidationPipelineTests_autogen/mocs_compilation.cpp.i
+.PHONY : ValidationPipelineTests_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+ValidationPipelineTests_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/ValidationPipelineTests_autogen/mocs_compilation.cpp.i
+.PHONY : ValidationPipelineTests_autogen/mocs_compilation.cpp.i
+
+ValidationPipelineTests_autogen/mocs_compilation.s: ValidationPipelineTests_autogen/mocs_compilation.cpp.s
+.PHONY : ValidationPipelineTests_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+ValidationPipelineTests_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/ValidationPipelineTests_autogen/mocs_compilation.cpp.s
+.PHONY : ValidationPipelineTests_autogen/mocs_compilation.cpp.s
+
 src/adapters/CachingScoreRepository.o: src/adapters/CachingScoreRepository.cpp.o
 .PHONY : src/adapters/CachingScoreRepository.o
 
 # target to build an object file
 src/adapters/CachingScoreRepository.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/adapters/CachingScoreRepository.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/adapters/CachingScoreRepository.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/adapters/CachingScoreRepository.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/adapters/CachingScoreRepository.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/adapters/CachingScoreRepository.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/adapters/CachingScoreRepository.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/adapters/CachingScoreRepository.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/adapters/CachingScoreRepository.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/adapters/CachingScoreRepository.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/adapters/CachingScoreRepository.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/adapters/CachingScoreRepository.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/adapters/CachingScoreRepository.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/adapters/CachingScoreRepository.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/adapters/CachingScoreRepository.cpp.o
 .PHONY : src/adapters/CachingScoreRepository.cpp.o
 
 src/adapters/CachingScoreRepository.i: src/adapters/CachingScoreRepository.cpp.i
@@ -911,19 +2076,7 @@ src/adapters/CachingScoreRepository.i: src/adapters/CachingScoreRepository.cpp.i
 
 # target to preprocess a source file
 src/adapters/CachingScoreRepository.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/adapters/CachingScoreRepository.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/adapters/CachingScoreRepository.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/adapters/CachingScoreRepository.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/adapters/CachingScoreRepository.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/adapters/CachingScoreRepository.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/adapters/CachingScoreRepository.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/adapters/CachingScoreRepository.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/adapters/CachingScoreRepository.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/adapters/CachingScoreRepository.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/adapters/CachingScoreRepository.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/adapters/CachingScoreRepository.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/adapters/CachingScoreRepository.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/adapters/CachingScoreRepository.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/adapters/CachingScoreRepository.cpp.i
 .PHONY : src/adapters/CachingScoreRepository.cpp.i
 
 src/adapters/CachingScoreRepository.s: src/adapters/CachingScoreRepository.cpp.s
@@ -931,19 +2084,7 @@ src/adapters/CachingScoreRepository.s: src/adapters/CachingScoreRepository.cpp.s
 
 # target to generate assembly for a file
 src/adapters/CachingScoreRepository.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/adapters/CachingScoreRepository.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/adapters/CachingScoreRepository.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/adapters/CachingScoreRepository.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/adapters/CachingScoreRepository.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/adapters/CachingScoreRepository.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/adapters/CachingScoreRepository.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/adapters/CachingScoreRepository.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/adapters/CachingScoreRepository.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/adapters/CachingScoreRepository.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/adapters/CachingScoreRepository.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/adapters/CachingScoreRepository.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/adapters/CachingScoreRepository.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/adapters/CachingScoreRepository.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/adapters/CachingScoreRepository.cpp.s
 .PHONY : src/adapters/CachingScoreRepository.cpp.s
 
 src/adapters/EventSourcedRepository.o: src/adapters/EventSourcedRepository.cpp.o
@@ -951,19 +2092,7 @@ src/adapters/EventSourcedRepository.o: src/adapters/EventSourcedRepository.cpp.o
 
 # target to build an object file
 src/adapters/EventSourcedRepository.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/adapters/EventSourcedRepository.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/adapters/EventSourcedRepository.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/adapters/EventSourcedRepository.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/adapters/EventSourcedRepository.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/adapters/EventSourcedRepository.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/adapters/EventSourcedRepository.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/adapters/EventSourcedRepository.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/adapters/EventSourcedRepository.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/adapters/EventSourcedRepository.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/adapters/EventSourcedRepository.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/adapters/EventSourcedRepository.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/adapters/EventSourcedRepository.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/adapters/EventSourcedRepository.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/adapters/EventSourcedRepository.cpp.o
 .PHONY : src/adapters/EventSourcedRepository.cpp.o
 
 src/adapters/EventSourcedRepository.i: src/adapters/EventSourcedRepository.cpp.i
@@ -971,19 +2100,7 @@ src/adapters/EventSourcedRepository.i: src/adapters/EventSourcedRepository.cpp.i
 
 # target to preprocess a source file
 src/adapters/EventSourcedRepository.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/adapters/EventSourcedRepository.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/adapters/EventSourcedRepository.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/adapters/EventSourcedRepository.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/adapters/EventSourcedRepository.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/adapters/EventSourcedRepository.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/adapters/EventSourcedRepository.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/adapters/EventSourcedRepository.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/adapters/EventSourcedRepository.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/adapters/EventSourcedRepository.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/adapters/EventSourcedRepository.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/adapters/EventSourcedRepository.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/adapters/EventSourcedRepository.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/adapters/EventSourcedRepository.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/adapters/EventSourcedRepository.cpp.i
 .PHONY : src/adapters/EventSourcedRepository.cpp.i
 
 src/adapters/EventSourcedRepository.s: src/adapters/EventSourcedRepository.cpp.s
@@ -991,19 +2108,7 @@ src/adapters/EventSourcedRepository.s: src/adapters/EventSourcedRepository.cpp.s
 
 # target to generate assembly for a file
 src/adapters/EventSourcedRepository.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/adapters/EventSourcedRepository.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/adapters/EventSourcedRepository.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/adapters/EventSourcedRepository.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/adapters/EventSourcedRepository.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/adapters/EventSourcedRepository.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/adapters/EventSourcedRepository.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/adapters/EventSourcedRepository.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/adapters/EventSourcedRepository.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/adapters/EventSourcedRepository.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/adapters/EventSourcedRepository.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/adapters/EventSourcedRepository.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/adapters/EventSourcedRepository.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/adapters/EventSourcedRepository.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/adapters/EventSourcedRepository.cpp.s
 .PHONY : src/adapters/EventSourcedRepository.cpp.s
 
 src/adapters/InMemoryScoreRepository.o: src/adapters/InMemoryScoreRepository.cpp.o
@@ -1011,19 +2116,7 @@ src/adapters/InMemoryScoreRepository.o: src/adapters/InMemoryScoreRepository.cpp
 
 # target to build an object file
 src/adapters/InMemoryScoreRepository.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/adapters/InMemoryScoreRepository.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/adapters/InMemoryScoreRepository.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/adapters/InMemoryScoreRepository.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/adapters/InMemoryScoreRepository.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/adapters/InMemoryScoreRepository.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/adapters/InMemoryScoreRepository.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/adapters/InMemoryScoreRepository.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/adapters/InMemoryScoreRepository.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/adapters/InMemoryScoreRepository.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/adapters/InMemoryScoreRepository.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/adapters/InMemoryScoreRepository.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/adapters/InMemoryScoreRepository.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/adapters/InMemoryScoreRepository.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/adapters/InMemoryScoreRepository.cpp.o
 .PHONY : src/adapters/InMemoryScoreRepository.cpp.o
 
 src/adapters/InMemoryScoreRepository.i: src/adapters/InMemoryScoreRepository.cpp.i
@@ -1031,19 +2124,7 @@ src/adapters/InMemoryScoreRepository.i: src/adapters/InMemoryScoreRepository.cpp
 
 # target to preprocess a source file
 src/adapters/InMemoryScoreRepository.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/adapters/InMemoryScoreRepository.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/adapters/InMemoryScoreRepository.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/adapters/InMemoryScoreRepository.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/adapters/InMemoryScoreRepository.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/adapters/InMemoryScoreRepository.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/adapters/InMemoryScoreRepository.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/adapters/InMemoryScoreRepository.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/adapters/InMemoryScoreRepository.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/adapters/InMemoryScoreRepository.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/adapters/InMemoryScoreRepository.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/adapters/InMemoryScoreRepository.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/adapters/InMemoryScoreRepository.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/adapters/InMemoryScoreRepository.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/adapters/InMemoryScoreRepository.cpp.i
 .PHONY : src/adapters/InMemoryScoreRepository.cpp.i
 
 src/adapters/InMemoryScoreRepository.s: src/adapters/InMemoryScoreRepository.cpp.s
@@ -1051,19 +2132,7 @@ src/adapters/InMemoryScoreRepository.s: src/adapters/InMemoryScoreRepository.cpp
 
 # target to generate assembly for a file
 src/adapters/InMemoryScoreRepository.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/adapters/InMemoryScoreRepository.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/adapters/InMemoryScoreRepository.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/adapters/InMemoryScoreRepository.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/adapters/InMemoryScoreRepository.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/adapters/InMemoryScoreRepository.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/adapters/InMemoryScoreRepository.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/adapters/InMemoryScoreRepository.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/adapters/InMemoryScoreRepository.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/adapters/InMemoryScoreRepository.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/adapters/InMemoryScoreRepository.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/adapters/InMemoryScoreRepository.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/adapters/InMemoryScoreRepository.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/adapters/InMemoryScoreRepository.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/adapters/InMemoryScoreRepository.cpp.s
 .PHONY : src/adapters/InMemoryScoreRepository.cpp.s
 
 src/adapters/MockMidiAdapter.o: src/adapters/MockMidiAdapter.cpp.o
@@ -1071,19 +2140,7 @@ src/adapters/MockMidiAdapter.o: src/adapters/MockMidiAdapter.cpp.o
 
 # target to build an object file
 src/adapters/MockMidiAdapter.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/adapters/MockMidiAdapter.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/adapters/MockMidiAdapter.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/adapters/MockMidiAdapter.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/adapters/MockMidiAdapter.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/adapters/MockMidiAdapter.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/adapters/MockMidiAdapter.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/adapters/MockMidiAdapter.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/adapters/MockMidiAdapter.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/adapters/MockMidiAdapter.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/adapters/MockMidiAdapter.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/adapters/MockMidiAdapter.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/adapters/MockMidiAdapter.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/adapters/MockMidiAdapter.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/adapters/MockMidiAdapter.cpp.o
 .PHONY : src/adapters/MockMidiAdapter.cpp.o
 
 src/adapters/MockMidiAdapter.i: src/adapters/MockMidiAdapter.cpp.i
@@ -1091,19 +2148,7 @@ src/adapters/MockMidiAdapter.i: src/adapters/MockMidiAdapter.cpp.i
 
 # target to preprocess a source file
 src/adapters/MockMidiAdapter.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/adapters/MockMidiAdapter.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/adapters/MockMidiAdapter.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/adapters/MockMidiAdapter.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/adapters/MockMidiAdapter.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/adapters/MockMidiAdapter.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/adapters/MockMidiAdapter.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/adapters/MockMidiAdapter.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/adapters/MockMidiAdapter.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/adapters/MockMidiAdapter.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/adapters/MockMidiAdapter.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/adapters/MockMidiAdapter.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/adapters/MockMidiAdapter.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/adapters/MockMidiAdapter.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/adapters/MockMidiAdapter.cpp.i
 .PHONY : src/adapters/MockMidiAdapter.cpp.i
 
 src/adapters/MockMidiAdapter.s: src/adapters/MockMidiAdapter.cpp.s
@@ -1111,19 +2156,7 @@ src/adapters/MockMidiAdapter.s: src/adapters/MockMidiAdapter.cpp.s
 
 # target to generate assembly for a file
 src/adapters/MockMidiAdapter.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/adapters/MockMidiAdapter.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/adapters/MockMidiAdapter.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/adapters/MockMidiAdapter.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/adapters/MockMidiAdapter.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/adapters/MockMidiAdapter.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/adapters/MockMidiAdapter.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/adapters/MockMidiAdapter.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/adapters/MockMidiAdapter.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/adapters/MockMidiAdapter.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/adapters/MockMidiAdapter.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/adapters/MockMidiAdapter.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/adapters/MockMidiAdapter.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/adapters/MockMidiAdapter.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/adapters/MockMidiAdapter.cpp.s
 .PHONY : src/adapters/MockMidiAdapter.cpp.s
 
 src/adapters/RtMidiAdapter.o: src/adapters/RtMidiAdapter.cpp.o
@@ -1131,19 +2164,7 @@ src/adapters/RtMidiAdapter.o: src/adapters/RtMidiAdapter.cpp.o
 
 # target to build an object file
 src/adapters/RtMidiAdapter.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/adapters/RtMidiAdapter.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/adapters/RtMidiAdapter.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/adapters/RtMidiAdapter.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/adapters/RtMidiAdapter.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/adapters/RtMidiAdapter.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/adapters/RtMidiAdapter.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/adapters/RtMidiAdapter.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/adapters/RtMidiAdapter.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/adapters/RtMidiAdapter.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/adapters/RtMidiAdapter.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/adapters/RtMidiAdapter.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/adapters/RtMidiAdapter.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/adapters/RtMidiAdapter.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/adapters/RtMidiAdapter.cpp.o
 .PHONY : src/adapters/RtMidiAdapter.cpp.o
 
 src/adapters/RtMidiAdapter.i: src/adapters/RtMidiAdapter.cpp.i
@@ -1151,19 +2172,7 @@ src/adapters/RtMidiAdapter.i: src/adapters/RtMidiAdapter.cpp.i
 
 # target to preprocess a source file
 src/adapters/RtMidiAdapter.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/adapters/RtMidiAdapter.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/adapters/RtMidiAdapter.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/adapters/RtMidiAdapter.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/adapters/RtMidiAdapter.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/adapters/RtMidiAdapter.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/adapters/RtMidiAdapter.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/adapters/RtMidiAdapter.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/adapters/RtMidiAdapter.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/adapters/RtMidiAdapter.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/adapters/RtMidiAdapter.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/adapters/RtMidiAdapter.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/adapters/RtMidiAdapter.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/adapters/RtMidiAdapter.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/adapters/RtMidiAdapter.cpp.i
 .PHONY : src/adapters/RtMidiAdapter.cpp.i
 
 src/adapters/RtMidiAdapter.s: src/adapters/RtMidiAdapter.cpp.s
@@ -1171,19 +2180,7 @@ src/adapters/RtMidiAdapter.s: src/adapters/RtMidiAdapter.cpp.s
 
 # target to generate assembly for a file
 src/adapters/RtMidiAdapter.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/adapters/RtMidiAdapter.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/adapters/RtMidiAdapter.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/adapters/RtMidiAdapter.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/adapters/RtMidiAdapter.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/adapters/RtMidiAdapter.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/adapters/RtMidiAdapter.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/adapters/RtMidiAdapter.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/adapters/RtMidiAdapter.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/adapters/RtMidiAdapter.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/adapters/RtMidiAdapter.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/adapters/RtMidiAdapter.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/adapters/RtMidiAdapter.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/adapters/RtMidiAdapter.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/adapters/RtMidiAdapter.cpp.s
 .PHONY : src/adapters/RtMidiAdapter.cpp.s
 
 src/adapters/TemplateBasedExerciseGenerator.o: src/adapters/TemplateBasedExerciseGenerator.cpp.o
@@ -1191,19 +2188,7 @@ src/adapters/TemplateBasedExerciseGenerator.o: src/adapters/TemplateBasedExercis
 
 # target to build an object file
 src/adapters/TemplateBasedExerciseGenerator.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o
 .PHONY : src/adapters/TemplateBasedExerciseGenerator.cpp.o
 
 src/adapters/TemplateBasedExerciseGenerator.i: src/adapters/TemplateBasedExerciseGenerator.cpp.i
@@ -1211,19 +2196,7 @@ src/adapters/TemplateBasedExerciseGenerator.i: src/adapters/TemplateBasedExercis
 
 # target to preprocess a source file
 src/adapters/TemplateBasedExerciseGenerator.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.i
 .PHONY : src/adapters/TemplateBasedExerciseGenerator.cpp.i
 
 src/adapters/TemplateBasedExerciseGenerator.s: src/adapters/TemplateBasedExerciseGenerator.cpp.s
@@ -1231,19 +2204,7 @@ src/adapters/TemplateBasedExerciseGenerator.s: src/adapters/TemplateBasedExercis
 
 # target to generate assembly for a file
 src/adapters/TemplateBasedExerciseGenerator.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.s
 .PHONY : src/adapters/TemplateBasedExerciseGenerator.cpp.s
 
 src/domain/crossdomain/CrossDomainValidator.o: src/domain/crossdomain/CrossDomainValidator.cpp.o
@@ -1251,19 +2212,7 @@ src/domain/crossdomain/CrossDomainValidator.o: src/domain/crossdomain/CrossDomai
 
 # target to build an object file
 src/domain/crossdomain/CrossDomainValidator.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o
 .PHONY : src/domain/crossdomain/CrossDomainValidator.cpp.o
 
 src/domain/crossdomain/CrossDomainValidator.i: src/domain/crossdomain/CrossDomainValidator.cpp.i
@@ -1271,19 +2220,7 @@ src/domain/crossdomain/CrossDomainValidator.i: src/domain/crossdomain/CrossDomai
 
 # target to preprocess a source file
 src/domain/crossdomain/CrossDomainValidator.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/crossdomain/CrossDomainValidator.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/crossdomain/CrossDomainValidator.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/crossdomain/CrossDomainValidator.cpp.i
 .PHONY : src/domain/crossdomain/CrossDomainValidator.cpp.i
 
 src/domain/crossdomain/CrossDomainValidator.s: src/domain/crossdomain/CrossDomainValidator.cpp.s
@@ -1291,19 +2228,7 @@ src/domain/crossdomain/CrossDomainValidator.s: src/domain/crossdomain/CrossDomai
 
 # target to generate assembly for a file
 src/domain/crossdomain/CrossDomainValidator.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/crossdomain/CrossDomainValidator.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/crossdomain/CrossDomainValidator.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/crossdomain/CrossDomainValidator.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/crossdomain/CrossDomainValidator.cpp.s
 .PHONY : src/domain/crossdomain/CrossDomainValidator.cpp.s
 
 src/domain/errors/DefaultErrorHandlers.o: src/domain/errors/DefaultErrorHandlers.cpp.o
@@ -1311,19 +2236,7 @@ src/domain/errors/DefaultErrorHandlers.o: src/domain/errors/DefaultErrorHandlers
 
 # target to build an object file
 src/domain/errors/DefaultErrorHandlers.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/errors/DefaultErrorHandlers.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/errors/DefaultErrorHandlers.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/errors/DefaultErrorHandlers.cpp.o
 .PHONY : src/domain/errors/DefaultErrorHandlers.cpp.o
 
 src/domain/errors/DefaultErrorHandlers.i: src/domain/errors/DefaultErrorHandlers.cpp.i
@@ -1331,19 +2244,7 @@ src/domain/errors/DefaultErrorHandlers.i: src/domain/errors/DefaultErrorHandlers
 
 # target to preprocess a source file
 src/domain/errors/DefaultErrorHandlers.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/errors/DefaultErrorHandlers.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/errors/DefaultErrorHandlers.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/errors/DefaultErrorHandlers.cpp.i
 .PHONY : src/domain/errors/DefaultErrorHandlers.cpp.i
 
 src/domain/errors/DefaultErrorHandlers.s: src/domain/errors/DefaultErrorHandlers.cpp.s
@@ -1351,19 +2252,7 @@ src/domain/errors/DefaultErrorHandlers.s: src/domain/errors/DefaultErrorHandlers
 
 # target to generate assembly for a file
 src/domain/errors/DefaultErrorHandlers.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/errors/DefaultErrorHandlers.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/errors/DefaultErrorHandlers.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/errors/DefaultErrorHandlers.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/errors/DefaultErrorHandlers.cpp.s
 .PHONY : src/domain/errors/DefaultErrorHandlers.cpp.s
 
 src/domain/errors/ErrorHandler.o: src/domain/errors/ErrorHandler.cpp.o
@@ -1371,19 +2260,7 @@ src/domain/errors/ErrorHandler.o: src/domain/errors/ErrorHandler.cpp.o
 
 # target to build an object file
 src/domain/errors/ErrorHandler.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/errors/ErrorHandler.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/errors/ErrorHandler.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/errors/ErrorHandler.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/errors/ErrorHandler.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/errors/ErrorHandler.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/errors/ErrorHandler.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/errors/ErrorHandler.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/errors/ErrorHandler.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/errors/ErrorHandler.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/errors/ErrorHandler.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/errors/ErrorHandler.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/errors/ErrorHandler.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/errors/ErrorHandler.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/errors/ErrorHandler.cpp.o
 .PHONY : src/domain/errors/ErrorHandler.cpp.o
 
 src/domain/errors/ErrorHandler.i: src/domain/errors/ErrorHandler.cpp.i
@@ -1391,19 +2268,7 @@ src/domain/errors/ErrorHandler.i: src/domain/errors/ErrorHandler.cpp.i
 
 # target to preprocess a source file
 src/domain/errors/ErrorHandler.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/errors/ErrorHandler.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/errors/ErrorHandler.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/errors/ErrorHandler.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/errors/ErrorHandler.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/errors/ErrorHandler.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/errors/ErrorHandler.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/errors/ErrorHandler.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/errors/ErrorHandler.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/errors/ErrorHandler.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/errors/ErrorHandler.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/errors/ErrorHandler.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/errors/ErrorHandler.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/errors/ErrorHandler.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/errors/ErrorHandler.cpp.i
 .PHONY : src/domain/errors/ErrorHandler.cpp.i
 
 src/domain/errors/ErrorHandler.s: src/domain/errors/ErrorHandler.cpp.s
@@ -1411,19 +2276,7 @@ src/domain/errors/ErrorHandler.s: src/domain/errors/ErrorHandler.cpp.s
 
 # target to generate assembly for a file
 src/domain/errors/ErrorHandler.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/errors/ErrorHandler.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/errors/ErrorHandler.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/errors/ErrorHandler.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/errors/ErrorHandler.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/errors/ErrorHandler.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/errors/ErrorHandler.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/errors/ErrorHandler.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/errors/ErrorHandler.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/errors/ErrorHandler.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/errors/ErrorHandler.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/errors/ErrorHandler.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/errors/ErrorHandler.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/errors/ErrorHandler.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/errors/ErrorHandler.cpp.s
 .PHONY : src/domain/errors/ErrorHandler.cpp.s
 
 src/domain/errors/ErrorLogger.o: src/domain/errors/ErrorLogger.cpp.o
@@ -1431,19 +2284,7 @@ src/domain/errors/ErrorLogger.o: src/domain/errors/ErrorLogger.cpp.o
 
 # target to build an object file
 src/domain/errors/ErrorLogger.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/errors/ErrorLogger.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/errors/ErrorLogger.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/errors/ErrorLogger.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/errors/ErrorLogger.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/errors/ErrorLogger.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/errors/ErrorLogger.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/errors/ErrorLogger.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/errors/ErrorLogger.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/errors/ErrorLogger.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/errors/ErrorLogger.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/errors/ErrorLogger.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/errors/ErrorLogger.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/errors/ErrorLogger.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/errors/ErrorLogger.cpp.o
 .PHONY : src/domain/errors/ErrorLogger.cpp.o
 
 src/domain/errors/ErrorLogger.i: src/domain/errors/ErrorLogger.cpp.i
@@ -1451,19 +2292,7 @@ src/domain/errors/ErrorLogger.i: src/domain/errors/ErrorLogger.cpp.i
 
 # target to preprocess a source file
 src/domain/errors/ErrorLogger.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/errors/ErrorLogger.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/errors/ErrorLogger.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/errors/ErrorLogger.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/errors/ErrorLogger.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/errors/ErrorLogger.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/errors/ErrorLogger.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/errors/ErrorLogger.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/errors/ErrorLogger.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/errors/ErrorLogger.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/errors/ErrorLogger.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/errors/ErrorLogger.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/errors/ErrorLogger.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/errors/ErrorLogger.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/errors/ErrorLogger.cpp.i
 .PHONY : src/domain/errors/ErrorLogger.cpp.i
 
 src/domain/errors/ErrorLogger.s: src/domain/errors/ErrorLogger.cpp.s
@@ -1471,19 +2300,7 @@ src/domain/errors/ErrorLogger.s: src/domain/errors/ErrorLogger.cpp.s
 
 # target to generate assembly for a file
 src/domain/errors/ErrorLogger.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/errors/ErrorLogger.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/errors/ErrorLogger.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/errors/ErrorLogger.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/errors/ErrorLogger.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/errors/ErrorLogger.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/errors/ErrorLogger.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/errors/ErrorLogger.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/errors/ErrorLogger.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/errors/ErrorLogger.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/errors/ErrorLogger.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/errors/ErrorLogger.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/errors/ErrorLogger.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/errors/ErrorLogger.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/errors/ErrorLogger.cpp.s
 .PHONY : src/domain/errors/ErrorLogger.cpp.s
 
 src/domain/errors/RecoveryStrategy.o: src/domain/errors/RecoveryStrategy.cpp.o
@@ -1491,19 +2308,7 @@ src/domain/errors/RecoveryStrategy.o: src/domain/errors/RecoveryStrategy.cpp.o
 
 # target to build an object file
 src/domain/errors/RecoveryStrategy.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/errors/RecoveryStrategy.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/errors/RecoveryStrategy.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/errors/RecoveryStrategy.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/errors/RecoveryStrategy.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/errors/RecoveryStrategy.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/errors/RecoveryStrategy.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/errors/RecoveryStrategy.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/errors/RecoveryStrategy.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/errors/RecoveryStrategy.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/errors/RecoveryStrategy.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/errors/RecoveryStrategy.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/errors/RecoveryStrategy.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/errors/RecoveryStrategy.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/errors/RecoveryStrategy.cpp.o
 .PHONY : src/domain/errors/RecoveryStrategy.cpp.o
 
 src/domain/errors/RecoveryStrategy.i: src/domain/errors/RecoveryStrategy.cpp.i
@@ -1511,19 +2316,7 @@ src/domain/errors/RecoveryStrategy.i: src/domain/errors/RecoveryStrategy.cpp.i
 
 # target to preprocess a source file
 src/domain/errors/RecoveryStrategy.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/errors/RecoveryStrategy.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/errors/RecoveryStrategy.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/errors/RecoveryStrategy.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/errors/RecoveryStrategy.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/errors/RecoveryStrategy.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/errors/RecoveryStrategy.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/errors/RecoveryStrategy.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/errors/RecoveryStrategy.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/errors/RecoveryStrategy.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/errors/RecoveryStrategy.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/errors/RecoveryStrategy.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/errors/RecoveryStrategy.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/errors/RecoveryStrategy.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/errors/RecoveryStrategy.cpp.i
 .PHONY : src/domain/errors/RecoveryStrategy.cpp.i
 
 src/domain/errors/RecoveryStrategy.s: src/domain/errors/RecoveryStrategy.cpp.s
@@ -1531,19 +2324,7 @@ src/domain/errors/RecoveryStrategy.s: src/domain/errors/RecoveryStrategy.cpp.s
 
 # target to generate assembly for a file
 src/domain/errors/RecoveryStrategy.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/errors/RecoveryStrategy.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/errors/RecoveryStrategy.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/errors/RecoveryStrategy.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/errors/RecoveryStrategy.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/errors/RecoveryStrategy.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/errors/RecoveryStrategy.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/errors/RecoveryStrategy.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/errors/RecoveryStrategy.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/errors/RecoveryStrategy.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/errors/RecoveryStrategy.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/errors/RecoveryStrategy.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/errors/RecoveryStrategy.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/errors/RecoveryStrategy.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/errors/RecoveryStrategy.cpp.s
 .PHONY : src/domain/errors/RecoveryStrategy.cpp.s
 
 src/domain/events/EventBus.o: src/domain/events/EventBus.cpp.o
@@ -1551,19 +2332,7 @@ src/domain/events/EventBus.o: src/domain/events/EventBus.cpp.o
 
 # target to build an object file
 src/domain/events/EventBus.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/events/EventBus.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/events/EventBus.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/events/EventBus.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/events/EventBus.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/events/EventBus.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/events/EventBus.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/events/EventBus.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/events/EventBus.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/events/EventBus.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/events/EventBus.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/events/EventBus.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/events/EventBus.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/events/EventBus.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/events/EventBus.cpp.o
 .PHONY : src/domain/events/EventBus.cpp.o
 
 src/domain/events/EventBus.i: src/domain/events/EventBus.cpp.i
@@ -1571,19 +2340,7 @@ src/domain/events/EventBus.i: src/domain/events/EventBus.cpp.i
 
 # target to preprocess a source file
 src/domain/events/EventBus.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/events/EventBus.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/events/EventBus.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/events/EventBus.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/events/EventBus.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/events/EventBus.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/events/EventBus.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/events/EventBus.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/events/EventBus.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/events/EventBus.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/events/EventBus.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/events/EventBus.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/events/EventBus.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/events/EventBus.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/events/EventBus.cpp.i
 .PHONY : src/domain/events/EventBus.cpp.i
 
 src/domain/events/EventBus.s: src/domain/events/EventBus.cpp.s
@@ -1591,19 +2348,7 @@ src/domain/events/EventBus.s: src/domain/events/EventBus.cpp.s
 
 # target to generate assembly for a file
 src/domain/events/EventBus.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/events/EventBus.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/events/EventBus.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/events/EventBus.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/events/EventBus.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/events/EventBus.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/events/EventBus.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/events/EventBus.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/events/EventBus.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/events/EventBus.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/events/EventBus.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/events/EventBus.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/events/EventBus.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/events/EventBus.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/events/EventBus.cpp.s
 .PHONY : src/domain/events/EventBus.cpp.s
 
 src/domain/events/EventStore.o: src/domain/events/EventStore.cpp.o
@@ -1611,19 +2356,7 @@ src/domain/events/EventStore.o: src/domain/events/EventStore.cpp.o
 
 # target to build an object file
 src/domain/events/EventStore.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/events/EventStore.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/events/EventStore.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/events/EventStore.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/events/EventStore.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/events/EventStore.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/events/EventStore.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/events/EventStore.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/events/EventStore.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/events/EventStore.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/events/EventStore.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/events/EventStore.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/events/EventStore.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/events/EventStore.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/events/EventStore.cpp.o
 .PHONY : src/domain/events/EventStore.cpp.o
 
 src/domain/events/EventStore.i: src/domain/events/EventStore.cpp.i
@@ -1631,19 +2364,7 @@ src/domain/events/EventStore.i: src/domain/events/EventStore.cpp.i
 
 # target to preprocess a source file
 src/domain/events/EventStore.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/events/EventStore.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/events/EventStore.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/events/EventStore.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/events/EventStore.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/events/EventStore.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/events/EventStore.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/events/EventStore.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/events/EventStore.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/events/EventStore.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/events/EventStore.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/events/EventStore.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/events/EventStore.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/events/EventStore.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/events/EventStore.cpp.i
 .PHONY : src/domain/events/EventStore.cpp.i
 
 src/domain/events/EventStore.s: src/domain/events/EventStore.cpp.s
@@ -1651,19 +2372,7 @@ src/domain/events/EventStore.s: src/domain/events/EventStore.cpp.s
 
 # target to generate assembly for a file
 src/domain/events/EventStore.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/events/EventStore.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/events/EventStore.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/events/EventStore.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/events/EventStore.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/events/EventStore.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/events/EventStore.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/events/EventStore.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/events/EventStore.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/events/EventStore.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/events/EventStore.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/events/EventStore.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/events/EventStore.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/events/EventStore.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/events/EventStore.cpp.s
 .PHONY : src/domain/events/EventStore.cpp.s
 
 src/domain/events/NoteAddedEvent.o: src/domain/events/NoteAddedEvent.cpp.o
@@ -1671,19 +2380,7 @@ src/domain/events/NoteAddedEvent.o: src/domain/events/NoteAddedEvent.cpp.o
 
 # target to build an object file
 src/domain/events/NoteAddedEvent.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/events/NoteAddedEvent.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/events/NoteAddedEvent.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/events/NoteAddedEvent.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/events/NoteAddedEvent.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/events/NoteAddedEvent.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/events/NoteAddedEvent.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/events/NoteAddedEvent.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/events/NoteAddedEvent.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/events/NoteAddedEvent.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/events/NoteAddedEvent.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/events/NoteAddedEvent.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/events/NoteAddedEvent.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/events/NoteAddedEvent.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/events/NoteAddedEvent.cpp.o
 .PHONY : src/domain/events/NoteAddedEvent.cpp.o
 
 src/domain/events/NoteAddedEvent.i: src/domain/events/NoteAddedEvent.cpp.i
@@ -1691,19 +2388,7 @@ src/domain/events/NoteAddedEvent.i: src/domain/events/NoteAddedEvent.cpp.i
 
 # target to preprocess a source file
 src/domain/events/NoteAddedEvent.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/events/NoteAddedEvent.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/events/NoteAddedEvent.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/events/NoteAddedEvent.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/events/NoteAddedEvent.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/events/NoteAddedEvent.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/events/NoteAddedEvent.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/events/NoteAddedEvent.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/events/NoteAddedEvent.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/events/NoteAddedEvent.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/events/NoteAddedEvent.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/events/NoteAddedEvent.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/events/NoteAddedEvent.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/events/NoteAddedEvent.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/events/NoteAddedEvent.cpp.i
 .PHONY : src/domain/events/NoteAddedEvent.cpp.i
 
 src/domain/events/NoteAddedEvent.s: src/domain/events/NoteAddedEvent.cpp.s
@@ -1711,19 +2396,7 @@ src/domain/events/NoteAddedEvent.s: src/domain/events/NoteAddedEvent.cpp.s
 
 # target to generate assembly for a file
 src/domain/events/NoteAddedEvent.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/events/NoteAddedEvent.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/events/NoteAddedEvent.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/events/NoteAddedEvent.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/events/NoteAddedEvent.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/events/NoteAddedEvent.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/events/NoteAddedEvent.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/events/NoteAddedEvent.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/events/NoteAddedEvent.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/events/NoteAddedEvent.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/events/NoteAddedEvent.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/events/NoteAddedEvent.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/events/NoteAddedEvent.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/events/NoteAddedEvent.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/events/NoteAddedEvent.cpp.s
 .PHONY : src/domain/events/NoteAddedEvent.cpp.s
 
 src/domain/events/NoteEventHandler.o: src/domain/events/NoteEventHandler.cpp.o
@@ -1731,19 +2404,7 @@ src/domain/events/NoteEventHandler.o: src/domain/events/NoteEventHandler.cpp.o
 
 # target to build an object file
 src/domain/events/NoteEventHandler.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/events/NoteEventHandler.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/events/NoteEventHandler.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/events/NoteEventHandler.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/events/NoteEventHandler.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/events/NoteEventHandler.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/events/NoteEventHandler.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/events/NoteEventHandler.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/events/NoteEventHandler.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/events/NoteEventHandler.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/events/NoteEventHandler.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/events/NoteEventHandler.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/events/NoteEventHandler.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/events/NoteEventHandler.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/events/NoteEventHandler.cpp.o
 .PHONY : src/domain/events/NoteEventHandler.cpp.o
 
 src/domain/events/NoteEventHandler.i: src/domain/events/NoteEventHandler.cpp.i
@@ -1751,19 +2412,7 @@ src/domain/events/NoteEventHandler.i: src/domain/events/NoteEventHandler.cpp.i
 
 # target to preprocess a source file
 src/domain/events/NoteEventHandler.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/events/NoteEventHandler.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/events/NoteEventHandler.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/events/NoteEventHandler.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/events/NoteEventHandler.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/events/NoteEventHandler.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/events/NoteEventHandler.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/events/NoteEventHandler.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/events/NoteEventHandler.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/events/NoteEventHandler.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/events/NoteEventHandler.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/events/NoteEventHandler.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/events/NoteEventHandler.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/events/NoteEventHandler.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/events/NoteEventHandler.cpp.i
 .PHONY : src/domain/events/NoteEventHandler.cpp.i
 
 src/domain/events/NoteEventHandler.s: src/domain/events/NoteEventHandler.cpp.s
@@ -1771,19 +2420,7 @@ src/domain/events/NoteEventHandler.s: src/domain/events/NoteEventHandler.cpp.s
 
 # target to generate assembly for a file
 src/domain/events/NoteEventHandler.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/events/NoteEventHandler.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/events/NoteEventHandler.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/events/NoteEventHandler.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/events/NoteEventHandler.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/events/NoteEventHandler.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/events/NoteEventHandler.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/events/NoteEventHandler.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/events/NoteEventHandler.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/events/NoteEventHandler.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/events/NoteEventHandler.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/events/NoteEventHandler.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/events/NoteEventHandler.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/events/NoteEventHandler.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/events/NoteEventHandler.cpp.s
 .PHONY : src/domain/events/NoteEventHandler.cpp.s
 
 src/domain/events/Snapshot.o: src/domain/events/Snapshot.cpp.o
@@ -1791,19 +2428,7 @@ src/domain/events/Snapshot.o: src/domain/events/Snapshot.cpp.o
 
 # target to build an object file
 src/domain/events/Snapshot.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/events/Snapshot.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/events/Snapshot.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/events/Snapshot.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/events/Snapshot.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/events/Snapshot.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/events/Snapshot.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/events/Snapshot.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/events/Snapshot.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/events/Snapshot.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/events/Snapshot.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/events/Snapshot.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/events/Snapshot.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/events/Snapshot.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/events/Snapshot.cpp.o
 .PHONY : src/domain/events/Snapshot.cpp.o
 
 src/domain/events/Snapshot.i: src/domain/events/Snapshot.cpp.i
@@ -1811,19 +2436,7 @@ src/domain/events/Snapshot.i: src/domain/events/Snapshot.cpp.i
 
 # target to preprocess a source file
 src/domain/events/Snapshot.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/events/Snapshot.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/events/Snapshot.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/events/Snapshot.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/events/Snapshot.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/events/Snapshot.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/events/Snapshot.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/events/Snapshot.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/events/Snapshot.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/events/Snapshot.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/events/Snapshot.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/events/Snapshot.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/events/Snapshot.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/events/Snapshot.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/events/Snapshot.cpp.i
 .PHONY : src/domain/events/Snapshot.cpp.i
 
 src/domain/events/Snapshot.s: src/domain/events/Snapshot.cpp.s
@@ -1831,19 +2444,7 @@ src/domain/events/Snapshot.s: src/domain/events/Snapshot.cpp.s
 
 # target to generate assembly for a file
 src/domain/events/Snapshot.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/events/Snapshot.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/events/Snapshot.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/events/Snapshot.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/events/Snapshot.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/events/Snapshot.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/events/Snapshot.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/events/Snapshot.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/events/Snapshot.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/events/Snapshot.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/events/Snapshot.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/events/Snapshot.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/events/Snapshot.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/events/Snapshot.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/events/Snapshot.cpp.s
 .PHONY : src/domain/events/Snapshot.cpp.s
 
 src/domain/monitoring/PerformanceMonitor.o: src/domain/monitoring/PerformanceMonitor.cpp.o
@@ -1851,19 +2452,7 @@ src/domain/monitoring/PerformanceMonitor.o: src/domain/monitoring/PerformanceMon
 
 # target to build an object file
 src/domain/monitoring/PerformanceMonitor.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/monitoring/PerformanceMonitor.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/monitoring/PerformanceMonitor.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/monitoring/PerformanceMonitor.cpp.o
 .PHONY : src/domain/monitoring/PerformanceMonitor.cpp.o
 
 src/domain/monitoring/PerformanceMonitor.i: src/domain/monitoring/PerformanceMonitor.cpp.i
@@ -1871,19 +2460,7 @@ src/domain/monitoring/PerformanceMonitor.i: src/domain/monitoring/PerformanceMon
 
 # target to preprocess a source file
 src/domain/monitoring/PerformanceMonitor.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/monitoring/PerformanceMonitor.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/monitoring/PerformanceMonitor.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/monitoring/PerformanceMonitor.cpp.i
 .PHONY : src/domain/monitoring/PerformanceMonitor.cpp.i
 
 src/domain/monitoring/PerformanceMonitor.s: src/domain/monitoring/PerformanceMonitor.cpp.s
@@ -1891,19 +2468,7 @@ src/domain/monitoring/PerformanceMonitor.s: src/domain/monitoring/PerformanceMon
 
 # target to generate assembly for a file
 src/domain/monitoring/PerformanceMonitor.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/monitoring/PerformanceMonitor.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/monitoring/PerformanceMonitor.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/monitoring/PerformanceMonitor.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/monitoring/PerformanceMonitor.cpp.s
 .PHONY : src/domain/monitoring/PerformanceMonitor.cpp.s
 
 src/domain/music/Duration.o: src/domain/music/Duration.cpp.o
@@ -1911,19 +2476,7 @@ src/domain/music/Duration.o: src/domain/music/Duration.cpp.o
 
 # target to build an object file
 src/domain/music/Duration.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/music/Duration.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/music/Duration.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/music/Duration.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/music/Duration.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/music/Duration.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/music/Duration.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/music/Duration.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/music/Duration.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/music/Duration.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/music/Duration.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/music/Duration.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/music/Duration.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/music/Duration.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/music/Duration.cpp.o
 .PHONY : src/domain/music/Duration.cpp.o
 
 src/domain/music/Duration.i: src/domain/music/Duration.cpp.i
@@ -1931,19 +2484,7 @@ src/domain/music/Duration.i: src/domain/music/Duration.cpp.i
 
 # target to preprocess a source file
 src/domain/music/Duration.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/music/Duration.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/music/Duration.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/music/Duration.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/music/Duration.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/music/Duration.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/music/Duration.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/music/Duration.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/music/Duration.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/music/Duration.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/music/Duration.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/music/Duration.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/music/Duration.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/music/Duration.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/music/Duration.cpp.i
 .PHONY : src/domain/music/Duration.cpp.i
 
 src/domain/music/Duration.s: src/domain/music/Duration.cpp.s
@@ -1951,19 +2492,7 @@ src/domain/music/Duration.s: src/domain/music/Duration.cpp.s
 
 # target to generate assembly for a file
 src/domain/music/Duration.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/music/Duration.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/music/Duration.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/music/Duration.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/music/Duration.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/music/Duration.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/music/Duration.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/music/Duration.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/music/Duration.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/music/Duration.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/music/Duration.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/music/Duration.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/music/Duration.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/music/Duration.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/music/Duration.cpp.s
 .PHONY : src/domain/music/Duration.cpp.s
 
 src/domain/music/Interval.o: src/domain/music/Interval.cpp.o
@@ -1971,19 +2500,7 @@ src/domain/music/Interval.o: src/domain/music/Interval.cpp.o
 
 # target to build an object file
 src/domain/music/Interval.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/music/Interval.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/music/Interval.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/music/Interval.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/music/Interval.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/music/Interval.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/music/Interval.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/music/Interval.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/music/Interval.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/music/Interval.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/music/Interval.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/music/Interval.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/music/Interval.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/music/Interval.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/music/Interval.cpp.o
 .PHONY : src/domain/music/Interval.cpp.o
 
 src/domain/music/Interval.i: src/domain/music/Interval.cpp.i
@@ -1991,19 +2508,7 @@ src/domain/music/Interval.i: src/domain/music/Interval.cpp.i
 
 # target to preprocess a source file
 src/domain/music/Interval.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/music/Interval.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/music/Interval.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/music/Interval.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/music/Interval.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/music/Interval.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/music/Interval.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/music/Interval.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/music/Interval.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/music/Interval.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/music/Interval.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/music/Interval.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/music/Interval.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/music/Interval.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/music/Interval.cpp.i
 .PHONY : src/domain/music/Interval.cpp.i
 
 src/domain/music/Interval.s: src/domain/music/Interval.cpp.s
@@ -2011,19 +2516,7 @@ src/domain/music/Interval.s: src/domain/music/Interval.cpp.s
 
 # target to generate assembly for a file
 src/domain/music/Interval.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/music/Interval.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/music/Interval.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/music/Interval.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/music/Interval.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/music/Interval.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/music/Interval.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/music/Interval.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/music/Interval.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/music/Interval.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/music/Interval.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/music/Interval.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/music/Interval.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/music/Interval.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/music/Interval.cpp.s
 .PHONY : src/domain/music/Interval.cpp.s
 
 src/domain/music/MelodicTemplate.o: src/domain/music/MelodicTemplate.cpp.o
@@ -2031,19 +2524,7 @@ src/domain/music/MelodicTemplate.o: src/domain/music/MelodicTemplate.cpp.o
 
 # target to build an object file
 src/domain/music/MelodicTemplate.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/music/MelodicTemplate.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/music/MelodicTemplate.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/music/MelodicTemplate.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/music/MelodicTemplate.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/music/MelodicTemplate.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/music/MelodicTemplate.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/music/MelodicTemplate.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/music/MelodicTemplate.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/music/MelodicTemplate.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/music/MelodicTemplate.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/music/MelodicTemplate.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/music/MelodicTemplate.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/music/MelodicTemplate.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/music/MelodicTemplate.cpp.o
 .PHONY : src/domain/music/MelodicTemplate.cpp.o
 
 src/domain/music/MelodicTemplate.i: src/domain/music/MelodicTemplate.cpp.i
@@ -2051,19 +2532,7 @@ src/domain/music/MelodicTemplate.i: src/domain/music/MelodicTemplate.cpp.i
 
 # target to preprocess a source file
 src/domain/music/MelodicTemplate.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/music/MelodicTemplate.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/music/MelodicTemplate.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/music/MelodicTemplate.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/music/MelodicTemplate.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/music/MelodicTemplate.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/music/MelodicTemplate.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/music/MelodicTemplate.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/music/MelodicTemplate.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/music/MelodicTemplate.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/music/MelodicTemplate.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/music/MelodicTemplate.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/music/MelodicTemplate.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/music/MelodicTemplate.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/music/MelodicTemplate.cpp.i
 .PHONY : src/domain/music/MelodicTemplate.cpp.i
 
 src/domain/music/MelodicTemplate.s: src/domain/music/MelodicTemplate.cpp.s
@@ -2071,39 +2540,39 @@ src/domain/music/MelodicTemplate.s: src/domain/music/MelodicTemplate.cpp.s
 
 # target to generate assembly for a file
 src/domain/music/MelodicTemplate.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/music/MelodicTemplate.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/music/MelodicTemplate.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/music/MelodicTemplate.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/music/MelodicTemplate.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/music/MelodicTemplate.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/music/MelodicTemplate.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/music/MelodicTemplate.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/music/MelodicTemplate.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/music/MelodicTemplate.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/music/MelodicTemplate.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/music/MelodicTemplate.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/music/MelodicTemplate.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/music/MelodicTemplate.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/music/MelodicTemplate.cpp.s
 .PHONY : src/domain/music/MelodicTemplate.cpp.s
+
+src/domain/music/Note.o: src/domain/music/Note.cpp.o
+.PHONY : src/domain/music/Note.o
+
+# target to build an object file
+src/domain/music/Note.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/music/Note.cpp.o
+.PHONY : src/domain/music/Note.cpp.o
+
+src/domain/music/Note.i: src/domain/music/Note.cpp.i
+.PHONY : src/domain/music/Note.i
+
+# target to preprocess a source file
+src/domain/music/Note.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/music/Note.cpp.i
+.PHONY : src/domain/music/Note.cpp.i
+
+src/domain/music/Note.s: src/domain/music/Note.cpp.s
+.PHONY : src/domain/music/Note.s
+
+# target to generate assembly for a file
+src/domain/music/Note.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/music/Note.cpp.s
+.PHONY : src/domain/music/Note.cpp.s
 
 src/domain/music/Pitch.o: src/domain/music/Pitch.cpp.o
 .PHONY : src/domain/music/Pitch.o
 
 # target to build an object file
 src/domain/music/Pitch.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/music/Pitch.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/music/Pitch.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/music/Pitch.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/music/Pitch.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/music/Pitch.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/music/Pitch.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/music/Pitch.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/music/Pitch.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/music/Pitch.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/music/Pitch.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/music/Pitch.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/music/Pitch.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/music/Pitch.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/music/Pitch.cpp.o
 .PHONY : src/domain/music/Pitch.cpp.o
 
 src/domain/music/Pitch.i: src/domain/music/Pitch.cpp.i
@@ -2111,19 +2580,7 @@ src/domain/music/Pitch.i: src/domain/music/Pitch.cpp.i
 
 # target to preprocess a source file
 src/domain/music/Pitch.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/music/Pitch.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/music/Pitch.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/music/Pitch.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/music/Pitch.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/music/Pitch.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/music/Pitch.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/music/Pitch.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/music/Pitch.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/music/Pitch.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/music/Pitch.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/music/Pitch.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/music/Pitch.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/music/Pitch.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/music/Pitch.cpp.i
 .PHONY : src/domain/music/Pitch.cpp.i
 
 src/domain/music/Pitch.s: src/domain/music/Pitch.cpp.s
@@ -2131,19 +2588,7 @@ src/domain/music/Pitch.s: src/domain/music/Pitch.cpp.s
 
 # target to generate assembly for a file
 src/domain/music/Pitch.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/music/Pitch.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/music/Pitch.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/music/Pitch.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/music/Pitch.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/music/Pitch.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/music/Pitch.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/music/Pitch.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/music/Pitch.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/music/Pitch.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/music/Pitch.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/music/Pitch.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/music/Pitch.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/music/Pitch.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/music/Pitch.cpp.s
 .PHONY : src/domain/music/Pitch.cpp.s
 
 src/domain/music/Score.o: src/domain/music/Score.cpp.o
@@ -2151,19 +2596,7 @@ src/domain/music/Score.o: src/domain/music/Score.cpp.o
 
 # target to build an object file
 src/domain/music/Score.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/music/Score.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/music/Score.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/music/Score.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/music/Score.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/music/Score.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/music/Score.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/music/Score.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/music/Score.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/music/Score.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/music/Score.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/music/Score.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/music/Score.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/music/Score.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/music/Score.cpp.o
 .PHONY : src/domain/music/Score.cpp.o
 
 src/domain/music/Score.i: src/domain/music/Score.cpp.i
@@ -2171,19 +2604,7 @@ src/domain/music/Score.i: src/domain/music/Score.cpp.i
 
 # target to preprocess a source file
 src/domain/music/Score.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/music/Score.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/music/Score.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/music/Score.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/music/Score.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/music/Score.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/music/Score.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/music/Score.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/music/Score.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/music/Score.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/music/Score.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/music/Score.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/music/Score.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/music/Score.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/music/Score.cpp.i
 .PHONY : src/domain/music/Score.cpp.i
 
 src/domain/music/Score.s: src/domain/music/Score.cpp.s
@@ -2191,19 +2612,7 @@ src/domain/music/Score.s: src/domain/music/Score.cpp.s
 
 # target to generate assembly for a file
 src/domain/music/Score.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/music/Score.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/music/Score.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/music/Score.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/music/Score.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/music/Score.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/music/Score.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/music/Score.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/music/Score.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/music/Score.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/music/Score.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/music/Score.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/music/Score.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/music/Score.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/music/Score.cpp.s
 .PHONY : src/domain/music/Score.cpp.s
 
 src/domain/music/Voice.o: src/domain/music/Voice.cpp.o
@@ -2211,19 +2620,7 @@ src/domain/music/Voice.o: src/domain/music/Voice.cpp.o
 
 # target to build an object file
 src/domain/music/Voice.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/music/Voice.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/music/Voice.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/music/Voice.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/music/Voice.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/music/Voice.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/music/Voice.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/music/Voice.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/music/Voice.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/music/Voice.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/music/Voice.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/music/Voice.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/music/Voice.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/music/Voice.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/music/Voice.cpp.o
 .PHONY : src/domain/music/Voice.cpp.o
 
 src/domain/music/Voice.i: src/domain/music/Voice.cpp.i
@@ -2231,19 +2628,7 @@ src/domain/music/Voice.i: src/domain/music/Voice.cpp.i
 
 # target to preprocess a source file
 src/domain/music/Voice.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/music/Voice.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/music/Voice.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/music/Voice.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/music/Voice.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/music/Voice.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/music/Voice.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/music/Voice.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/music/Voice.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/music/Voice.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/music/Voice.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/music/Voice.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/music/Voice.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/music/Voice.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/music/Voice.cpp.i
 .PHONY : src/domain/music/Voice.cpp.i
 
 src/domain/music/Voice.s: src/domain/music/Voice.cpp.s
@@ -2251,19 +2636,7 @@ src/domain/music/Voice.s: src/domain/music/Voice.cpp.s
 
 # target to generate assembly for a file
 src/domain/music/Voice.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/music/Voice.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/music/Voice.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/music/Voice.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/music/Voice.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/music/Voice.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/music/Voice.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/music/Voice.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/music/Voice.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/music/Voice.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/music/Voice.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/music/Voice.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/music/Voice.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/music/Voice.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/music/Voice.cpp.s
 .PHONY : src/domain/music/Voice.cpp.s
 
 src/domain/plugins/PluginManager.o: src/domain/plugins/PluginManager.cpp.o
@@ -2271,19 +2644,7 @@ src/domain/plugins/PluginManager.o: src/domain/plugins/PluginManager.cpp.o
 
 # target to build an object file
 src/domain/plugins/PluginManager.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/plugins/PluginManager.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/plugins/PluginManager.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/plugins/PluginManager.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/plugins/PluginManager.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/plugins/PluginManager.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/plugins/PluginManager.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/plugins/PluginManager.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/plugins/PluginManager.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/plugins/PluginManager.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/plugins/PluginManager.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/plugins/PluginManager.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/plugins/PluginManager.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/plugins/PluginManager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/plugins/PluginManager.cpp.o
 .PHONY : src/domain/plugins/PluginManager.cpp.o
 
 src/domain/plugins/PluginManager.i: src/domain/plugins/PluginManager.cpp.i
@@ -2291,19 +2652,7 @@ src/domain/plugins/PluginManager.i: src/domain/plugins/PluginManager.cpp.i
 
 # target to preprocess a source file
 src/domain/plugins/PluginManager.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/plugins/PluginManager.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/plugins/PluginManager.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/plugins/PluginManager.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/plugins/PluginManager.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/plugins/PluginManager.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/plugins/PluginManager.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/plugins/PluginManager.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/plugins/PluginManager.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/plugins/PluginManager.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/plugins/PluginManager.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/plugins/PluginManager.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/plugins/PluginManager.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/plugins/PluginManager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/plugins/PluginManager.cpp.i
 .PHONY : src/domain/plugins/PluginManager.cpp.i
 
 src/domain/plugins/PluginManager.s: src/domain/plugins/PluginManager.cpp.s
@@ -2311,19 +2660,7 @@ src/domain/plugins/PluginManager.s: src/domain/plugins/PluginManager.cpp.s
 
 # target to generate assembly for a file
 src/domain/plugins/PluginManager.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/plugins/PluginManager.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/plugins/PluginManager.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/plugins/PluginManager.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/plugins/PluginManager.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/plugins/PluginManager.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/plugins/PluginManager.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/plugins/PluginManager.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/plugins/PluginManager.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/plugins/PluginManager.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/plugins/PluginManager.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/plugins/PluginManager.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/plugins/PluginManager.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/plugins/PluginManager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/plugins/PluginManager.cpp.s
 .PHONY : src/domain/plugins/PluginManager.cpp.s
 
 src/domain/progression/ProgressionSystem.o: src/domain/progression/ProgressionSystem.cpp.o
@@ -2331,19 +2668,7 @@ src/domain/progression/ProgressionSystem.o: src/domain/progression/ProgressionSy
 
 # target to build an object file
 src/domain/progression/ProgressionSystem.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/progression/ProgressionSystem.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/progression/ProgressionSystem.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/progression/ProgressionSystem.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/progression/ProgressionSystem.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/progression/ProgressionSystem.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/progression/ProgressionSystem.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/progression/ProgressionSystem.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/progression/ProgressionSystem.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/progression/ProgressionSystem.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/progression/ProgressionSystem.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/progression/ProgressionSystem.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/progression/ProgressionSystem.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/progression/ProgressionSystem.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/progression/ProgressionSystem.cpp.o
 .PHONY : src/domain/progression/ProgressionSystem.cpp.o
 
 src/domain/progression/ProgressionSystem.i: src/domain/progression/ProgressionSystem.cpp.i
@@ -2351,19 +2676,7 @@ src/domain/progression/ProgressionSystem.i: src/domain/progression/ProgressionSy
 
 # target to preprocess a source file
 src/domain/progression/ProgressionSystem.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/progression/ProgressionSystem.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/progression/ProgressionSystem.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/progression/ProgressionSystem.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/progression/ProgressionSystem.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/progression/ProgressionSystem.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/progression/ProgressionSystem.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/progression/ProgressionSystem.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/progression/ProgressionSystem.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/progression/ProgressionSystem.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/progression/ProgressionSystem.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/progression/ProgressionSystem.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/progression/ProgressionSystem.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/progression/ProgressionSystem.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/progression/ProgressionSystem.cpp.i
 .PHONY : src/domain/progression/ProgressionSystem.cpp.i
 
 src/domain/progression/ProgressionSystem.s: src/domain/progression/ProgressionSystem.cpp.s
@@ -2371,19 +2684,7 @@ src/domain/progression/ProgressionSystem.s: src/domain/progression/ProgressionSy
 
 # target to generate assembly for a file
 src/domain/progression/ProgressionSystem.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/progression/ProgressionSystem.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/progression/ProgressionSystem.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/progression/ProgressionSystem.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/progression/ProgressionSystem.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/progression/ProgressionSystem.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/progression/ProgressionSystem.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/progression/ProgressionSystem.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/progression/ProgressionSystem.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/progression/ProgressionSystem.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/progression/ProgressionSystem.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/progression/ProgressionSystem.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/progression/ProgressionSystem.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/progression/ProgressionSystem.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/progression/ProgressionSystem.cpp.s
 .PHONY : src/domain/progression/ProgressionSystem.cpp.s
 
 src/domain/rules/ParallelFifthsRule.o: src/domain/rules/ParallelFifthsRule.cpp.o
@@ -2391,19 +2692,7 @@ src/domain/rules/ParallelFifthsRule.o: src/domain/rules/ParallelFifthsRule.cpp.o
 
 # target to build an object file
 src/domain/rules/ParallelFifthsRule.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/rules/ParallelFifthsRule.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/rules/ParallelFifthsRule.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/rules/ParallelFifthsRule.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/rules/ParallelFifthsRule.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/rules/ParallelFifthsRule.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/rules/ParallelFifthsRule.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/rules/ParallelFifthsRule.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/rules/ParallelFifthsRule.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/rules/ParallelFifthsRule.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/rules/ParallelFifthsRule.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/rules/ParallelFifthsRule.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/rules/ParallelFifthsRule.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/rules/ParallelFifthsRule.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/rules/ParallelFifthsRule.cpp.o
 .PHONY : src/domain/rules/ParallelFifthsRule.cpp.o
 
 src/domain/rules/ParallelFifthsRule.i: src/domain/rules/ParallelFifthsRule.cpp.i
@@ -2411,19 +2700,7 @@ src/domain/rules/ParallelFifthsRule.i: src/domain/rules/ParallelFifthsRule.cpp.i
 
 # target to preprocess a source file
 src/domain/rules/ParallelFifthsRule.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/rules/ParallelFifthsRule.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/rules/ParallelFifthsRule.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/rules/ParallelFifthsRule.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/rules/ParallelFifthsRule.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/rules/ParallelFifthsRule.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/rules/ParallelFifthsRule.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/rules/ParallelFifthsRule.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/rules/ParallelFifthsRule.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/rules/ParallelFifthsRule.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/rules/ParallelFifthsRule.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/rules/ParallelFifthsRule.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/rules/ParallelFifthsRule.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/rules/ParallelFifthsRule.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/rules/ParallelFifthsRule.cpp.i
 .PHONY : src/domain/rules/ParallelFifthsRule.cpp.i
 
 src/domain/rules/ParallelFifthsRule.s: src/domain/rules/ParallelFifthsRule.cpp.s
@@ -2431,19 +2708,7 @@ src/domain/rules/ParallelFifthsRule.s: src/domain/rules/ParallelFifthsRule.cpp.s
 
 # target to generate assembly for a file
 src/domain/rules/ParallelFifthsRule.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/rules/ParallelFifthsRule.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/rules/ParallelFifthsRule.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/rules/ParallelFifthsRule.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/rules/ParallelFifthsRule.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/rules/ParallelFifthsRule.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/rules/ParallelFifthsRule.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/rules/ParallelFifthsRule.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/rules/ParallelFifthsRule.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/rules/ParallelFifthsRule.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/rules/ParallelFifthsRule.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/rules/ParallelFifthsRule.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/rules/ParallelFifthsRule.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/rules/ParallelFifthsRule.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/rules/ParallelFifthsRule.cpp.s
 .PHONY : src/domain/rules/ParallelFifthsRule.cpp.s
 
 src/domain/rules/ParallelOctavesRule.o: src/domain/rules/ParallelOctavesRule.cpp.o
@@ -2451,19 +2716,7 @@ src/domain/rules/ParallelOctavesRule.o: src/domain/rules/ParallelOctavesRule.cpp
 
 # target to build an object file
 src/domain/rules/ParallelOctavesRule.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/rules/ParallelOctavesRule.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/rules/ParallelOctavesRule.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/rules/ParallelOctavesRule.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/rules/ParallelOctavesRule.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/rules/ParallelOctavesRule.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/rules/ParallelOctavesRule.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/rules/ParallelOctavesRule.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/rules/ParallelOctavesRule.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/rules/ParallelOctavesRule.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/rules/ParallelOctavesRule.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/rules/ParallelOctavesRule.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/rules/ParallelOctavesRule.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/rules/ParallelOctavesRule.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/rules/ParallelOctavesRule.cpp.o
 .PHONY : src/domain/rules/ParallelOctavesRule.cpp.o
 
 src/domain/rules/ParallelOctavesRule.i: src/domain/rules/ParallelOctavesRule.cpp.i
@@ -2471,19 +2724,7 @@ src/domain/rules/ParallelOctavesRule.i: src/domain/rules/ParallelOctavesRule.cpp
 
 # target to preprocess a source file
 src/domain/rules/ParallelOctavesRule.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/rules/ParallelOctavesRule.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/rules/ParallelOctavesRule.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/rules/ParallelOctavesRule.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/rules/ParallelOctavesRule.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/rules/ParallelOctavesRule.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/rules/ParallelOctavesRule.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/rules/ParallelOctavesRule.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/rules/ParallelOctavesRule.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/rules/ParallelOctavesRule.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/rules/ParallelOctavesRule.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/rules/ParallelOctavesRule.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/rules/ParallelOctavesRule.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/rules/ParallelOctavesRule.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/rules/ParallelOctavesRule.cpp.i
 .PHONY : src/domain/rules/ParallelOctavesRule.cpp.i
 
 src/domain/rules/ParallelOctavesRule.s: src/domain/rules/ParallelOctavesRule.cpp.s
@@ -2491,19 +2732,7 @@ src/domain/rules/ParallelOctavesRule.s: src/domain/rules/ParallelOctavesRule.cpp
 
 # target to generate assembly for a file
 src/domain/rules/ParallelOctavesRule.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/rules/ParallelOctavesRule.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/rules/ParallelOctavesRule.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/rules/ParallelOctavesRule.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/rules/ParallelOctavesRule.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/rules/ParallelOctavesRule.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/rules/ParallelOctavesRule.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/rules/ParallelOctavesRule.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/rules/ParallelOctavesRule.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/rules/ParallelOctavesRule.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/rules/ParallelOctavesRule.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/rules/ParallelOctavesRule.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/rules/ParallelOctavesRule.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/rules/ParallelOctavesRule.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/rules/ParallelOctavesRule.cpp.s
 .PHONY : src/domain/rules/ParallelOctavesRule.cpp.s
 
 src/domain/rules/ValidationPipeline.o: src/domain/rules/ValidationPipeline.cpp.o
@@ -2511,19 +2740,7 @@ src/domain/rules/ValidationPipeline.o: src/domain/rules/ValidationPipeline.cpp.o
 
 # target to build an object file
 src/domain/rules/ValidationPipeline.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/rules/ValidationPipeline.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/rules/ValidationPipeline.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/rules/ValidationPipeline.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/rules/ValidationPipeline.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/rules/ValidationPipeline.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/rules/ValidationPipeline.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/rules/ValidationPipeline.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/rules/ValidationPipeline.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/rules/ValidationPipeline.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/rules/ValidationPipeline.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/rules/ValidationPipeline.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/rules/ValidationPipeline.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/rules/ValidationPipeline.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/rules/ValidationPipeline.cpp.o
 .PHONY : src/domain/rules/ValidationPipeline.cpp.o
 
 src/domain/rules/ValidationPipeline.i: src/domain/rules/ValidationPipeline.cpp.i
@@ -2531,19 +2748,7 @@ src/domain/rules/ValidationPipeline.i: src/domain/rules/ValidationPipeline.cpp.i
 
 # target to preprocess a source file
 src/domain/rules/ValidationPipeline.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/rules/ValidationPipeline.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/rules/ValidationPipeline.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/rules/ValidationPipeline.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/rules/ValidationPipeline.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/rules/ValidationPipeline.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/rules/ValidationPipeline.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/rules/ValidationPipeline.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/rules/ValidationPipeline.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/rules/ValidationPipeline.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/rules/ValidationPipeline.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/rules/ValidationPipeline.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/rules/ValidationPipeline.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/rules/ValidationPipeline.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/rules/ValidationPipeline.cpp.i
 .PHONY : src/domain/rules/ValidationPipeline.cpp.i
 
 src/domain/rules/ValidationPipeline.s: src/domain/rules/ValidationPipeline.cpp.s
@@ -2551,19 +2756,7 @@ src/domain/rules/ValidationPipeline.s: src/domain/rules/ValidationPipeline.cpp.s
 
 # target to generate assembly for a file
 src/domain/rules/ValidationPipeline.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/rules/ValidationPipeline.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/rules/ValidationPipeline.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/rules/ValidationPipeline.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/rules/ValidationPipeline.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/rules/ValidationPipeline.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/rules/ValidationPipeline.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/rules/ValidationPipeline.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/rules/ValidationPipeline.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/rules/ValidationPipeline.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/rules/ValidationPipeline.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/rules/ValidationPipeline.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/rules/ValidationPipeline.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/rules/ValidationPipeline.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/rules/ValidationPipeline.cpp.s
 .PHONY : src/domain/rules/ValidationPipeline.cpp.s
 
 src/domain/rules/VoiceLeadingRule.o: src/domain/rules/VoiceLeadingRule.cpp.o
@@ -2571,19 +2764,7 @@ src/domain/rules/VoiceLeadingRule.o: src/domain/rules/VoiceLeadingRule.cpp.o
 
 # target to build an object file
 src/domain/rules/VoiceLeadingRule.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/rules/VoiceLeadingRule.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/rules/VoiceLeadingRule.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/rules/VoiceLeadingRule.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/rules/VoiceLeadingRule.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/rules/VoiceLeadingRule.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/rules/VoiceLeadingRule.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/rules/VoiceLeadingRule.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/rules/VoiceLeadingRule.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/rules/VoiceLeadingRule.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/rules/VoiceLeadingRule.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/rules/VoiceLeadingRule.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/rules/VoiceLeadingRule.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/rules/VoiceLeadingRule.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/rules/VoiceLeadingRule.cpp.o
 .PHONY : src/domain/rules/VoiceLeadingRule.cpp.o
 
 src/domain/rules/VoiceLeadingRule.i: src/domain/rules/VoiceLeadingRule.cpp.i
@@ -2591,19 +2772,7 @@ src/domain/rules/VoiceLeadingRule.i: src/domain/rules/VoiceLeadingRule.cpp.i
 
 # target to preprocess a source file
 src/domain/rules/VoiceLeadingRule.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/rules/VoiceLeadingRule.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/rules/VoiceLeadingRule.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/rules/VoiceLeadingRule.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/rules/VoiceLeadingRule.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/rules/VoiceLeadingRule.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/rules/VoiceLeadingRule.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/rules/VoiceLeadingRule.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/rules/VoiceLeadingRule.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/rules/VoiceLeadingRule.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/rules/VoiceLeadingRule.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/rules/VoiceLeadingRule.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/rules/VoiceLeadingRule.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/rules/VoiceLeadingRule.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/rules/VoiceLeadingRule.cpp.i
 .PHONY : src/domain/rules/VoiceLeadingRule.cpp.i
 
 src/domain/rules/VoiceLeadingRule.s: src/domain/rules/VoiceLeadingRule.cpp.s
@@ -2611,19 +2780,7 @@ src/domain/rules/VoiceLeadingRule.s: src/domain/rules/VoiceLeadingRule.cpp.s
 
 # target to generate assembly for a file
 src/domain/rules/VoiceLeadingRule.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/rules/VoiceLeadingRule.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/rules/VoiceLeadingRule.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/rules/VoiceLeadingRule.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/rules/VoiceLeadingRule.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/rules/VoiceLeadingRule.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/rules/VoiceLeadingRule.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/rules/VoiceLeadingRule.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/rules/VoiceLeadingRule.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/rules/VoiceLeadingRule.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/rules/VoiceLeadingRule.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/rules/VoiceLeadingRule.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/rules/VoiceLeadingRule.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/rules/VoiceLeadingRule.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/rules/VoiceLeadingRule.cpp.s
 .PHONY : src/domain/rules/VoiceLeadingRule.cpp.s
 
 src/domain/statesync/StateSynchronizationManager.o: src/domain/statesync/StateSynchronizationManager.cpp.o
@@ -2631,19 +2788,7 @@ src/domain/statesync/StateSynchronizationManager.o: src/domain/statesync/StateSy
 
 # target to build an object file
 src/domain/statesync/StateSynchronizationManager.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/statesync/StateSynchronizationManager.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/statesync/StateSynchronizationManager.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/statesync/StateSynchronizationManager.cpp.o
 .PHONY : src/domain/statesync/StateSynchronizationManager.cpp.o
 
 src/domain/statesync/StateSynchronizationManager.i: src/domain/statesync/StateSynchronizationManager.cpp.i
@@ -2651,19 +2796,7 @@ src/domain/statesync/StateSynchronizationManager.i: src/domain/statesync/StateSy
 
 # target to preprocess a source file
 src/domain/statesync/StateSynchronizationManager.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/statesync/StateSynchronizationManager.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/statesync/StateSynchronizationManager.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/statesync/StateSynchronizationManager.cpp.i
 .PHONY : src/domain/statesync/StateSynchronizationManager.cpp.i
 
 src/domain/statesync/StateSynchronizationManager.s: src/domain/statesync/StateSynchronizationManager.cpp.s
@@ -2671,19 +2804,7 @@ src/domain/statesync/StateSynchronizationManager.s: src/domain/statesync/StateSy
 
 # target to generate assembly for a file
 src/domain/statesync/StateSynchronizationManager.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/domain/statesync/StateSynchronizationManager.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/domain/statesync/StateSynchronizationManager.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/domain/statesync/StateSynchronizationManager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/statesync/StateSynchronizationManager.cpp.s
 .PHONY : src/domain/statesync/StateSynchronizationManager.cpp.s
 
 src/main.o: src/main.cpp.o
@@ -2710,24 +2831,303 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/presentation/ExercisePanel.o: src/presentation/ExercisePanel.cpp.o
+.PHONY : src/presentation/ExercisePanel.o
+
+# target to build an object file
+src/presentation/ExercisePanel.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/ExercisePanel.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/ExercisePanel.cpp.o
+.PHONY : src/presentation/ExercisePanel.cpp.o
+
+src/presentation/ExercisePanel.i: src/presentation/ExercisePanel.cpp.i
+.PHONY : src/presentation/ExercisePanel.i
+
+# target to preprocess a source file
+src/presentation/ExercisePanel.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/ExercisePanel.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/ExercisePanel.cpp.i
+.PHONY : src/presentation/ExercisePanel.cpp.i
+
+src/presentation/ExercisePanel.s: src/presentation/ExercisePanel.cpp.s
+.PHONY : src/presentation/ExercisePanel.s
+
+# target to generate assembly for a file
+src/presentation/ExercisePanel.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/ExercisePanel.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/ExercisePanel.cpp.s
+.PHONY : src/presentation/ExercisePanel.cpp.s
+
+src/presentation/FeedbackArea.o: src/presentation/FeedbackArea.cpp.o
+.PHONY : src/presentation/FeedbackArea.o
+
+# target to build an object file
+src/presentation/FeedbackArea.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/FeedbackArea.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/FeedbackArea.cpp.o
+.PHONY : src/presentation/FeedbackArea.cpp.o
+
+src/presentation/FeedbackArea.i: src/presentation/FeedbackArea.cpp.i
+.PHONY : src/presentation/FeedbackArea.i
+
+# target to preprocess a source file
+src/presentation/FeedbackArea.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/FeedbackArea.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/FeedbackArea.cpp.i
+.PHONY : src/presentation/FeedbackArea.cpp.i
+
+src/presentation/FeedbackArea.s: src/presentation/FeedbackArea.cpp.s
+.PHONY : src/presentation/FeedbackArea.s
+
+# target to generate assembly for a file
+src/presentation/FeedbackArea.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/FeedbackArea.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/FeedbackArea.cpp.s
+.PHONY : src/presentation/FeedbackArea.cpp.s
+
+src/presentation/GridCell.o: src/presentation/GridCell.cpp.o
+.PHONY : src/presentation/GridCell.o
+
+# target to build an object file
+src/presentation/GridCell.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/GridCell.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/GridCell.cpp.o
+.PHONY : src/presentation/GridCell.cpp.o
+
+src/presentation/GridCell.i: src/presentation/GridCell.cpp.i
+.PHONY : src/presentation/GridCell.i
+
+# target to preprocess a source file
+src/presentation/GridCell.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/GridCell.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/GridCell.cpp.i
+.PHONY : src/presentation/GridCell.cpp.i
+
+src/presentation/GridCell.s: src/presentation/GridCell.cpp.s
+.PHONY : src/presentation/GridCell.s
+
+# target to generate assembly for a file
+src/presentation/GridCell.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/GridCell.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/GridCell.cpp.s
+.PHONY : src/presentation/GridCell.cpp.s
+
+src/presentation/MainWindow.o: src/presentation/MainWindow.cpp.o
+.PHONY : src/presentation/MainWindow.o
+
+# target to build an object file
+src/presentation/MainWindow.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/MainWindow.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/MainWindow.cpp.o
+.PHONY : src/presentation/MainWindow.cpp.o
+
+src/presentation/MainWindow.i: src/presentation/MainWindow.cpp.i
+.PHONY : src/presentation/MainWindow.i
+
+# target to preprocess a source file
+src/presentation/MainWindow.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/MainWindow.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/MainWindow.cpp.i
+.PHONY : src/presentation/MainWindow.cpp.i
+
+src/presentation/MainWindow.s: src/presentation/MainWindow.cpp.s
+.PHONY : src/presentation/MainWindow.s
+
+# target to generate assembly for a file
+src/presentation/MainWindow.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/MainWindow.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/MainWindow.cpp.s
+.PHONY : src/presentation/MainWindow.cpp.s
+
+src/presentation/NoteGrid.o: src/presentation/NoteGrid.cpp.o
+.PHONY : src/presentation/NoteGrid.o
+
+# target to build an object file
+src/presentation/NoteGrid.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/NoteGrid.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/NoteGrid.cpp.o
+.PHONY : src/presentation/NoteGrid.cpp.o
+
+src/presentation/NoteGrid.i: src/presentation/NoteGrid.cpp.i
+.PHONY : src/presentation/NoteGrid.i
+
+# target to preprocess a source file
+src/presentation/NoteGrid.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/NoteGrid.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/NoteGrid.cpp.i
+.PHONY : src/presentation/NoteGrid.cpp.i
+
+src/presentation/NoteGrid.s: src/presentation/NoteGrid.cpp.s
+.PHONY : src/presentation/NoteGrid.s
+
+# target to generate assembly for a file
+src/presentation/NoteGrid.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/NoteGrid.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/NoteGrid.cpp.s
+.PHONY : src/presentation/NoteGrid.cpp.s
+
+src/presentation/ScoreView.o: src/presentation/ScoreView.cpp.o
+.PHONY : src/presentation/ScoreView.o
+
+# target to build an object file
+src/presentation/ScoreView.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/ScoreView.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/ScoreView.cpp.o
+.PHONY : src/presentation/ScoreView.cpp.o
+
+src/presentation/ScoreView.i: src/presentation/ScoreView.cpp.i
+.PHONY : src/presentation/ScoreView.i
+
+# target to preprocess a source file
+src/presentation/ScoreView.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/ScoreView.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/ScoreView.cpp.i
+.PHONY : src/presentation/ScoreView.cpp.i
+
+src/presentation/ScoreView.s: src/presentation/ScoreView.cpp.s
+.PHONY : src/presentation/ScoreView.s
+
+# target to generate assembly for a file
+src/presentation/ScoreView.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/ScoreView.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/ScoreView.cpp.s
+.PHONY : src/presentation/ScoreView.cpp.s
+
+src/presentation/TransportControls.o: src/presentation/TransportControls.cpp.o
+.PHONY : src/presentation/TransportControls.o
+
+# target to build an object file
+src/presentation/TransportControls.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/TransportControls.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/TransportControls.cpp.o
+.PHONY : src/presentation/TransportControls.cpp.o
+
+src/presentation/TransportControls.i: src/presentation/TransportControls.cpp.i
+.PHONY : src/presentation/TransportControls.i
+
+# target to preprocess a source file
+src/presentation/TransportControls.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/TransportControls.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/TransportControls.cpp.i
+.PHONY : src/presentation/TransportControls.cpp.i
+
+src/presentation/TransportControls.s: src/presentation/TransportControls.cpp.s
+.PHONY : src/presentation/TransportControls.s
+
+# target to generate assembly for a file
+src/presentation/TransportControls.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/TransportControls.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/TransportControls.cpp.s
+.PHONY : src/presentation/TransportControls.cpp.s
+
+src/presentation/ViewportManager.o: src/presentation/ViewportManager.cpp.o
+.PHONY : src/presentation/ViewportManager.o
+
+# target to build an object file
+src/presentation/ViewportManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/ViewportManager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/ViewportManager.cpp.o
+.PHONY : src/presentation/ViewportManager.cpp.o
+
+src/presentation/ViewportManager.i: src/presentation/ViewportManager.cpp.i
+.PHONY : src/presentation/ViewportManager.i
+
+# target to preprocess a source file
+src/presentation/ViewportManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/ViewportManager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/ViewportManager.cpp.i
+.PHONY : src/presentation/ViewportManager.cpp.i
+
+src/presentation/ViewportManager.s: src/presentation/ViewportManager.cpp.s
+.PHONY : src/presentation/ViewportManager.s
+
+# target to generate assembly for a file
+src/presentation/ViewportManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/ViewportManager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/ViewportManager.cpp.s
+.PHONY : src/presentation/ViewportManager.cpp.s
+
+src/presentation/main_gui.o: src/presentation/main_gui.cpp.o
+.PHONY : src/presentation/main_gui.o
+
+# target to build an object file
+src/presentation/main_gui.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/main_gui.cpp.o
+.PHONY : src/presentation/main_gui.cpp.o
+
+src/presentation/main_gui.i: src/presentation/main_gui.cpp.i
+.PHONY : src/presentation/main_gui.i
+
+# target to preprocess a source file
+src/presentation/main_gui.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/main_gui.cpp.i
+.PHONY : src/presentation/main_gui.cpp.i
+
+src/presentation/main_gui.s: src/presentation/main_gui.cpp.s
+.PHONY : src/presentation/main_gui.s
+
+# target to generate assembly for a file
+src/presentation/main_gui.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/main_gui.cpp.s
+.PHONY : src/presentation/main_gui.cpp.s
+
+src/presentation/test_gui.o: src/presentation/test_gui.cpp.o
+.PHONY : src/presentation/test_gui.o
+
+# target to build an object file
+src/presentation/test_gui.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/test_gui.cpp.o
+.PHONY : src/presentation/test_gui.cpp.o
+
+src/presentation/test_gui.i: src/presentation/test_gui.cpp.i
+.PHONY : src/presentation/test_gui.i
+
+# target to preprocess a source file
+src/presentation/test_gui.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/test_gui.cpp.i
+.PHONY : src/presentation/test_gui.cpp.i
+
+src/presentation/test_gui.s: src/presentation/test_gui.cpp.s
+.PHONY : src/presentation/test_gui.s
+
+# target to generate assembly for a file
+src/presentation/test_gui.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/test_gui.cpp.s
+.PHONY : src/presentation/test_gui.cpp.s
+
+src/presentation/viewmodels/ScoreViewModel.o: src/presentation/viewmodels/ScoreViewModel.cpp.o
+.PHONY : src/presentation/viewmodels/ScoreViewModel.o
+
+# target to build an object file
+src/presentation/viewmodels/ScoreViewModel.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.o
+.PHONY : src/presentation/viewmodels/ScoreViewModel.cpp.o
+
+src/presentation/viewmodels/ScoreViewModel.i: src/presentation/viewmodels/ScoreViewModel.cpp.i
+.PHONY : src/presentation/viewmodels/ScoreViewModel.i
+
+# target to preprocess a source file
+src/presentation/viewmodels/ScoreViewModel.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.i
+.PHONY : src/presentation/viewmodels/ScoreViewModel.cpp.i
+
+src/presentation/viewmodels/ScoreViewModel.s: src/presentation/viewmodels/ScoreViewModel.cpp.s
+.PHONY : src/presentation/viewmodels/ScoreViewModel.s
+
+# target to generate assembly for a file
+src/presentation/viewmodels/ScoreViewModel.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.s
+.PHONY : src/presentation/viewmodels/ScoreViewModel.cpp.s
+
 src/utils/DebugUtils.o: src/utils/DebugUtils.cpp.o
 .PHONY : src/utils/DebugUtils.o
 
 # target to build an object file
 src/utils/DebugUtils.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/utils/DebugUtils.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/utils/DebugUtils.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/utils/DebugUtils.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/utils/DebugUtils.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/utils/DebugUtils.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/utils/DebugUtils.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/utils/DebugUtils.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/utils/DebugUtils.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/utils/DebugUtils.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/utils/DebugUtils.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/utils/DebugUtils.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/utils/DebugUtils.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/utils/DebugUtils.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/utils/DebugUtils.cpp.o
 .PHONY : src/utils/DebugUtils.cpp.o
 
 src/utils/DebugUtils.i: src/utils/DebugUtils.cpp.i
@@ -2735,19 +3135,7 @@ src/utils/DebugUtils.i: src/utils/DebugUtils.cpp.i
 
 # target to preprocess a source file
 src/utils/DebugUtils.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/utils/DebugUtils.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/utils/DebugUtils.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/utils/DebugUtils.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/utils/DebugUtils.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/utils/DebugUtils.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/utils/DebugUtils.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/utils/DebugUtils.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/utils/DebugUtils.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/utils/DebugUtils.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/utils/DebugUtils.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/utils/DebugUtils.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/utils/DebugUtils.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/utils/DebugUtils.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/utils/DebugUtils.cpp.i
 .PHONY : src/utils/DebugUtils.cpp.i
 
 src/utils/DebugUtils.s: src/utils/DebugUtils.cpp.s
@@ -2755,19 +3143,7 @@ src/utils/DebugUtils.s: src/utils/DebugUtils.cpp.s
 
 # target to generate assembly for a file
 src/utils/DebugUtils.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/utils/DebugUtils.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/src/utils/DebugUtils.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/src/utils/DebugUtils.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/src/utils/DebugUtils.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/src/utils/DebugUtils.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/src/utils/DebugUtils.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/src/utils/DebugUtils.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/src/utils/DebugUtils.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/src/utils/DebugUtils.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/src/utils/DebugUtils.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/src/utils/DebugUtils.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/src/utils/DebugUtils.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/src/utils/DebugUtils.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/utils/DebugUtils.cpp.s
 .PHONY : src/utils/DebugUtils.cpp.s
 
 tests/ErrorHandlingTests.o: tests/ErrorHandlingTests.cpp.o
@@ -2776,17 +3152,7 @@ tests/ErrorHandlingTests.o: tests/ErrorHandlingTests.cpp.o
 # target to build an object file
 tests/ErrorHandlingTests.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/ErrorHandlingTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/ErrorHandlingTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/ErrorHandlingTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/ErrorHandlingTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/ErrorHandlingTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/ErrorHandlingTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/ErrorHandlingTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/ErrorHandlingTests.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/ErrorHandlingTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/ErrorHandlingTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/ErrorHandlingTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/ErrorHandlingTests.cpp.o
 .PHONY : tests/ErrorHandlingTests.cpp.o
 
 tests/ErrorHandlingTests.i: tests/ErrorHandlingTests.cpp.i
@@ -2795,17 +3161,7 @@ tests/ErrorHandlingTests.i: tests/ErrorHandlingTests.cpp.i
 # target to preprocess a source file
 tests/ErrorHandlingTests.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/ErrorHandlingTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/ErrorHandlingTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/ErrorHandlingTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/ErrorHandlingTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/ErrorHandlingTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/ErrorHandlingTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/ErrorHandlingTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/ErrorHandlingTests.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/ErrorHandlingTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/ErrorHandlingTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/ErrorHandlingTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/ErrorHandlingTests.cpp.i
 .PHONY : tests/ErrorHandlingTests.cpp.i
 
 tests/ErrorHandlingTests.s: tests/ErrorHandlingTests.cpp.s
@@ -2814,17 +3170,7 @@ tests/ErrorHandlingTests.s: tests/ErrorHandlingTests.cpp.s
 # target to generate assembly for a file
 tests/ErrorHandlingTests.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/ErrorHandlingTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/ErrorHandlingTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/ErrorHandlingTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/ErrorHandlingTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/ErrorHandlingTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/ErrorHandlingTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/ErrorHandlingTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/ErrorHandlingTests.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/ErrorHandlingTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/ErrorHandlingTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/ErrorHandlingTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/ErrorHandlingTests.cpp.s
 .PHONY : tests/ErrorHandlingTests.cpp.s
 
 tests/ExerciseGenerationTests.o: tests/ExerciseGenerationTests.cpp.o
@@ -2833,17 +3179,7 @@ tests/ExerciseGenerationTests.o: tests/ExerciseGenerationTests.cpp.o
 # target to build an object file
 tests/ExerciseGenerationTests.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/ExerciseGenerationTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/ExerciseGenerationTests.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/ExerciseGenerationTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/ExerciseGenerationTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/ExerciseGenerationTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/ExerciseGenerationTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/ExerciseGenerationTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/ExerciseGenerationTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/ExerciseGenerationTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/ExerciseGenerationTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/ExerciseGenerationTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/ExerciseGenerationTests.cpp.o
 .PHONY : tests/ExerciseGenerationTests.cpp.o
 
 tests/ExerciseGenerationTests.i: tests/ExerciseGenerationTests.cpp.i
@@ -2852,17 +3188,7 @@ tests/ExerciseGenerationTests.i: tests/ExerciseGenerationTests.cpp.i
 # target to preprocess a source file
 tests/ExerciseGenerationTests.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/ExerciseGenerationTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/ExerciseGenerationTests.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/ExerciseGenerationTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/ExerciseGenerationTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/ExerciseGenerationTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/ExerciseGenerationTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/ExerciseGenerationTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/ExerciseGenerationTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/ExerciseGenerationTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/ExerciseGenerationTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/ExerciseGenerationTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/ExerciseGenerationTests.cpp.i
 .PHONY : tests/ExerciseGenerationTests.cpp.i
 
 tests/ExerciseGenerationTests.s: tests/ExerciseGenerationTests.cpp.s
@@ -2871,17 +3197,7 @@ tests/ExerciseGenerationTests.s: tests/ExerciseGenerationTests.cpp.s
 # target to generate assembly for a file
 tests/ExerciseGenerationTests.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/ExerciseGenerationTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/ExerciseGenerationTests.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/ExerciseGenerationTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/ExerciseGenerationTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/ExerciseGenerationTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/ExerciseGenerationTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/ExerciseGenerationTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/ExerciseGenerationTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/ExerciseGenerationTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/ExerciseGenerationTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/ExerciseGenerationTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/ExerciseGenerationTests.cpp.s
 .PHONY : tests/ExerciseGenerationTests.cpp.s
 
 tests/MidiSystemTests.o: tests/MidiSystemTests.cpp.o
@@ -2890,17 +3206,7 @@ tests/MidiSystemTests.o: tests/MidiSystemTests.cpp.o
 # target to build an object file
 tests/MidiSystemTests.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/MidiSystemTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/MidiSystemTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/MidiSystemTests.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/MidiSystemTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/MidiSystemTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/MidiSystemTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/MidiSystemTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/MidiSystemTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/MidiSystemTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/MidiSystemTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/MidiSystemTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/MidiSystemTests.cpp.o
 .PHONY : tests/MidiSystemTests.cpp.o
 
 tests/MidiSystemTests.i: tests/MidiSystemTests.cpp.i
@@ -2909,17 +3215,7 @@ tests/MidiSystemTests.i: tests/MidiSystemTests.cpp.i
 # target to preprocess a source file
 tests/MidiSystemTests.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/MidiSystemTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/MidiSystemTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/MidiSystemTests.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/MidiSystemTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/MidiSystemTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/MidiSystemTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/MidiSystemTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/MidiSystemTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/MidiSystemTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/MidiSystemTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/MidiSystemTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/MidiSystemTests.cpp.i
 .PHONY : tests/MidiSystemTests.cpp.i
 
 tests/MidiSystemTests.s: tests/MidiSystemTests.cpp.s
@@ -2928,17 +3224,7 @@ tests/MidiSystemTests.s: tests/MidiSystemTests.cpp.s
 # target to generate assembly for a file
 tests/MidiSystemTests.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/MidiSystemTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/MidiSystemTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/MidiSystemTests.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/MidiSystemTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/MidiSystemTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/MidiSystemTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/MidiSystemTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/MidiSystemTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/MidiSystemTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/MidiSystemTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/MidiSystemTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/MidiSystemTests.cpp.s
 .PHONY : tests/MidiSystemTests.cpp.s
 
 tests/PerformanceMonitoringTests.o: tests/PerformanceMonitoringTests.cpp.o
@@ -2947,17 +3233,7 @@ tests/PerformanceMonitoringTests.o: tests/PerformanceMonitoringTests.cpp.o
 # target to build an object file
 tests/PerformanceMonitoringTests.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/PerformanceMonitoringTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/PerformanceMonitoringTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/PerformanceMonitoringTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/PerformanceMonitoringTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/PerformanceMonitoringTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/PerformanceMonitoringTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/PerformanceMonitoringTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/PerformanceMonitoringTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/PerformanceMonitoringTests.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/PerformanceMonitoringTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/PerformanceMonitoringTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/PerformanceMonitoringTests.cpp.o
 .PHONY : tests/PerformanceMonitoringTests.cpp.o
 
 tests/PerformanceMonitoringTests.i: tests/PerformanceMonitoringTests.cpp.i
@@ -2966,17 +3242,7 @@ tests/PerformanceMonitoringTests.i: tests/PerformanceMonitoringTests.cpp.i
 # target to preprocess a source file
 tests/PerformanceMonitoringTests.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/PerformanceMonitoringTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/PerformanceMonitoringTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/PerformanceMonitoringTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/PerformanceMonitoringTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/PerformanceMonitoringTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/PerformanceMonitoringTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/PerformanceMonitoringTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/PerformanceMonitoringTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/PerformanceMonitoringTests.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/PerformanceMonitoringTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/PerformanceMonitoringTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/PerformanceMonitoringTests.cpp.i
 .PHONY : tests/PerformanceMonitoringTests.cpp.i
 
 tests/PerformanceMonitoringTests.s: tests/PerformanceMonitoringTests.cpp.s
@@ -2985,17 +3251,7 @@ tests/PerformanceMonitoringTests.s: tests/PerformanceMonitoringTests.cpp.s
 # target to generate assembly for a file
 tests/PerformanceMonitoringTests.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/PerformanceMonitoringTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/PerformanceMonitoringTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/PerformanceMonitoringTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/PerformanceMonitoringTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/PerformanceMonitoringTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/PerformanceMonitoringTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/PerformanceMonitoringTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/PerformanceMonitoringTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/PerformanceMonitoringTests.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/PerformanceMonitoringTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/PerformanceMonitoringTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/PerformanceMonitoringTests.cpp.s
 .PHONY : tests/PerformanceMonitoringTests.cpp.s
 
 tests/ProgressionSystemTests.o: tests/ProgressionSystemTests.cpp.o
@@ -3004,17 +3260,7 @@ tests/ProgressionSystemTests.o: tests/ProgressionSystemTests.cpp.o
 # target to build an object file
 tests/ProgressionSystemTests.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/ProgressionSystemTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/ProgressionSystemTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/ProgressionSystemTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/ProgressionSystemTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/ProgressionSystemTests.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/ProgressionSystemTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/ProgressionSystemTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/ProgressionSystemTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/ProgressionSystemTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/ProgressionSystemTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/ProgressionSystemTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/ProgressionSystemTests.cpp.o
 .PHONY : tests/ProgressionSystemTests.cpp.o
 
 tests/ProgressionSystemTests.i: tests/ProgressionSystemTests.cpp.i
@@ -3023,17 +3269,7 @@ tests/ProgressionSystemTests.i: tests/ProgressionSystemTests.cpp.i
 # target to preprocess a source file
 tests/ProgressionSystemTests.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/ProgressionSystemTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/ProgressionSystemTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/ProgressionSystemTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/ProgressionSystemTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/ProgressionSystemTests.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/ProgressionSystemTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/ProgressionSystemTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/ProgressionSystemTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/ProgressionSystemTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/ProgressionSystemTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/ProgressionSystemTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/ProgressionSystemTests.cpp.i
 .PHONY : tests/ProgressionSystemTests.cpp.i
 
 tests/ProgressionSystemTests.s: tests/ProgressionSystemTests.cpp.s
@@ -3042,17 +3278,7 @@ tests/ProgressionSystemTests.s: tests/ProgressionSystemTests.cpp.s
 # target to generate assembly for a file
 tests/ProgressionSystemTests.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/ProgressionSystemTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/ProgressionSystemTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/ProgressionSystemTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/ProgressionSystemTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/ProgressionSystemTests.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/ProgressionSystemTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/ProgressionSystemTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/ProgressionSystemTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/ProgressionSystemTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/ProgressionSystemTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/ProgressionSystemTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/ProgressionSystemTests.cpp.s
 .PHONY : tests/ProgressionSystemTests.cpp.s
 
 tests/RepositoryTests.o: tests/RepositoryTests.cpp.o
@@ -3061,17 +3287,7 @@ tests/RepositoryTests.o: tests/RepositoryTests.cpp.o
 # target to build an object file
 tests/RepositoryTests.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/RepositoryTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/RepositoryTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/RepositoryTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/RepositoryTests.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/RepositoryTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/RepositoryTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/RepositoryTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/RepositoryTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/RepositoryTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/RepositoryTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/RepositoryTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/RepositoryTests.cpp.o
 .PHONY : tests/RepositoryTests.cpp.o
 
 tests/RepositoryTests.i: tests/RepositoryTests.cpp.i
@@ -3080,17 +3296,7 @@ tests/RepositoryTests.i: tests/RepositoryTests.cpp.i
 # target to preprocess a source file
 tests/RepositoryTests.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/RepositoryTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/RepositoryTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/RepositoryTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/RepositoryTests.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/RepositoryTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/RepositoryTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/RepositoryTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/RepositoryTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/RepositoryTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/RepositoryTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/RepositoryTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/RepositoryTests.cpp.i
 .PHONY : tests/RepositoryTests.cpp.i
 
 tests/RepositoryTests.s: tests/RepositoryTests.cpp.s
@@ -3099,17 +3305,7 @@ tests/RepositoryTests.s: tests/RepositoryTests.cpp.s
 # target to generate assembly for a file
 tests/RepositoryTests.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/RepositoryTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/RepositoryTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/RepositoryTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/RepositoryTests.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/RepositoryTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/RepositoryTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/RepositoryTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/RepositoryTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/RepositoryTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/RepositoryTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/RepositoryTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/RepositoryTests.cpp.s
 .PHONY : tests/RepositoryTests.cpp.s
 
 tests/TestSuite.o: tests/TestSuite.cpp.o
@@ -3143,16 +3339,6 @@ tests/ValidationPipelineTests.o: tests/ValidationPipelineTests.cpp.o
 tests/ValidationPipelineTests.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/ValidationPipelineTests.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/ValidationPipelineTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/ValidationPipelineTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/ValidationPipelineTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/ValidationPipelineTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/ValidationPipelineTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/ValidationPipelineTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/ValidationPipelineTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/ValidationPipelineTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/ValidationPipelineTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/ValidationPipelineTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/ValidationPipelineTests.cpp.o
 .PHONY : tests/ValidationPipelineTests.cpp.o
 
 tests/ValidationPipelineTests.i: tests/ValidationPipelineTests.cpp.i
@@ -3162,16 +3348,6 @@ tests/ValidationPipelineTests.i: tests/ValidationPipelineTests.cpp.i
 tests/ValidationPipelineTests.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/ValidationPipelineTests.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/ValidationPipelineTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/ValidationPipelineTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/ValidationPipelineTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/ValidationPipelineTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/ValidationPipelineTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/ValidationPipelineTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/ValidationPipelineTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/ValidationPipelineTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/ValidationPipelineTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/ValidationPipelineTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/ValidationPipelineTests.cpp.i
 .PHONY : tests/ValidationPipelineTests.cpp.i
 
 tests/ValidationPipelineTests.s: tests/ValidationPipelineTests.cpp.s
@@ -3181,16 +3357,6 @@ tests/ValidationPipelineTests.s: tests/ValidationPipelineTests.cpp.s
 tests/ValidationPipelineTests.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/ValidationPipelineTests.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/ValidationPipelineTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/ValidationPipelineTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/ValidationPipelineTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/ValidationPipelineTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/ValidationPipelineTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/ValidationPipelineTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/ValidationPipelineTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/ValidationPipelineTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/ValidationPipelineTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/ValidationPipelineTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/ValidationPipelineTests.cpp.s
 .PHONY : tests/ValidationPipelineTests.cpp.s
 
 tests/crossdomain/CrossDomainValidatorTests.o: tests/crossdomain/CrossDomainValidatorTests.cpp.o
@@ -3199,17 +3365,7 @@ tests/crossdomain/CrossDomainValidatorTests.o: tests/crossdomain/CrossDomainVali
 # target to build an object file
 tests/crossdomain/CrossDomainValidatorTests.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.o
 .PHONY : tests/crossdomain/CrossDomainValidatorTests.cpp.o
 
 tests/crossdomain/CrossDomainValidatorTests.i: tests/crossdomain/CrossDomainValidatorTests.cpp.i
@@ -3218,17 +3374,7 @@ tests/crossdomain/CrossDomainValidatorTests.i: tests/crossdomain/CrossDomainVali
 # target to preprocess a source file
 tests/crossdomain/CrossDomainValidatorTests.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.i
 .PHONY : tests/crossdomain/CrossDomainValidatorTests.cpp.i
 
 tests/crossdomain/CrossDomainValidatorTests.s: tests/crossdomain/CrossDomainValidatorTests.cpp.s
@@ -3237,17 +3383,7 @@ tests/crossdomain/CrossDomainValidatorTests.s: tests/crossdomain/CrossDomainVali
 # target to generate assembly for a file
 tests/crossdomain/CrossDomainValidatorTests.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.s
 .PHONY : tests/crossdomain/CrossDomainValidatorTests.cpp.s
 
 tests/integration/SystemIntegrationTests.o: tests/integration/SystemIntegrationTests.cpp.o
@@ -3256,17 +3392,7 @@ tests/integration/SystemIntegrationTests.o: tests/integration/SystemIntegrationT
 # target to build an object file
 tests/integration/SystemIntegrationTests.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/integration/SystemIntegrationTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/integration/SystemIntegrationTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/integration/SystemIntegrationTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/integration/SystemIntegrationTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/integration/SystemIntegrationTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/integration/SystemIntegrationTests.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/integration/SystemIntegrationTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/integration/SystemIntegrationTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/integration/SystemIntegrationTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/integration/SystemIntegrationTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/integration/SystemIntegrationTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/integration/SystemIntegrationTests.cpp.o
 .PHONY : tests/integration/SystemIntegrationTests.cpp.o
 
 tests/integration/SystemIntegrationTests.i: tests/integration/SystemIntegrationTests.cpp.i
@@ -3275,17 +3401,7 @@ tests/integration/SystemIntegrationTests.i: tests/integration/SystemIntegrationT
 # target to preprocess a source file
 tests/integration/SystemIntegrationTests.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/integration/SystemIntegrationTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/integration/SystemIntegrationTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/integration/SystemIntegrationTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/integration/SystemIntegrationTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/integration/SystemIntegrationTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/integration/SystemIntegrationTests.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/integration/SystemIntegrationTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/integration/SystemIntegrationTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/integration/SystemIntegrationTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/integration/SystemIntegrationTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/integration/SystemIntegrationTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/integration/SystemIntegrationTests.cpp.i
 .PHONY : tests/integration/SystemIntegrationTests.cpp.i
 
 tests/integration/SystemIntegrationTests.s: tests/integration/SystemIntegrationTests.cpp.s
@@ -3294,17 +3410,7 @@ tests/integration/SystemIntegrationTests.s: tests/integration/SystemIntegrationT
 # target to generate assembly for a file
 tests/integration/SystemIntegrationTests.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/integration/SystemIntegrationTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/integration/SystemIntegrationTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/integration/SystemIntegrationTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/integration/SystemIntegrationTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/integration/SystemIntegrationTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/integration/SystemIntegrationTests.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/integration/SystemIntegrationTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/integration/SystemIntegrationTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/integration/SystemIntegrationTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/integration/SystemIntegrationTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/integration/SystemIntegrationTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/integration/SystemIntegrationTests.cpp.s
 .PHONY : tests/integration/SystemIntegrationTests.cpp.s
 
 tests/main.o: tests/main.cpp.o
@@ -3313,6 +3419,17 @@ tests/main.o: tests/main.cpp.o
 # target to build an object file
 tests/main.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/main.cpp.o
 .PHONY : tests/main.cpp.o
 
 tests/main.i: tests/main.cpp.i
@@ -3321,6 +3438,17 @@ tests/main.i: tests/main.cpp.i
 # target to preprocess a source file
 tests/main.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/main.cpp.i
 .PHONY : tests/main.cpp.i
 
 tests/main.s: tests/main.cpp.s
@@ -3329,6 +3457,17 @@ tests/main.s: tests/main.cpp.s
 # target to generate assembly for a file
 tests/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/main.cpp.s
 .PHONY : tests/main.cpp.s
 
 tests/plugins/PluginSystemTests.o: tests/plugins/PluginSystemTests.cpp.o
@@ -3337,17 +3476,7 @@ tests/plugins/PluginSystemTests.o: tests/plugins/PluginSystemTests.cpp.o
 # target to build an object file
 tests/plugins/PluginSystemTests.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/plugins/PluginSystemTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/plugins/PluginSystemTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/plugins/PluginSystemTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/plugins/PluginSystemTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/plugins/PluginSystemTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/plugins/PluginSystemTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/plugins/PluginSystemTests.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/plugins/PluginSystemTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/plugins/PluginSystemTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/plugins/PluginSystemTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/plugins/PluginSystemTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/plugins/PluginSystemTests.cpp.o
 .PHONY : tests/plugins/PluginSystemTests.cpp.o
 
 tests/plugins/PluginSystemTests.i: tests/plugins/PluginSystemTests.cpp.i
@@ -3356,17 +3485,7 @@ tests/plugins/PluginSystemTests.i: tests/plugins/PluginSystemTests.cpp.i
 # target to preprocess a source file
 tests/plugins/PluginSystemTests.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/plugins/PluginSystemTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/plugins/PluginSystemTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/plugins/PluginSystemTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/plugins/PluginSystemTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/plugins/PluginSystemTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/plugins/PluginSystemTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/plugins/PluginSystemTests.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/plugins/PluginSystemTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/plugins/PluginSystemTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/plugins/PluginSystemTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/plugins/PluginSystemTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/plugins/PluginSystemTests.cpp.i
 .PHONY : tests/plugins/PluginSystemTests.cpp.i
 
 tests/plugins/PluginSystemTests.s: tests/plugins/PluginSystemTests.cpp.s
@@ -3375,17 +3494,7 @@ tests/plugins/PluginSystemTests.s: tests/plugins/PluginSystemTests.cpp.s
 # target to generate assembly for a file
 tests/plugins/PluginSystemTests.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/plugins/PluginSystemTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/plugins/PluginSystemTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/plugins/PluginSystemTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/plugins/PluginSystemTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/plugins/PluginSystemTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/plugins/PluginSystemTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/plugins/PluginSystemTests.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/plugins/PluginSystemTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/plugins/PluginSystemTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/plugins/PluginSystemTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/plugins/PluginSystemTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/plugins/PluginSystemTests.cpp.s
 .PHONY : tests/plugins/PluginSystemTests.cpp.s
 
 tests/plugins/TestPlugin.o: tests/plugins/TestPlugin.cpp.o
@@ -3394,17 +3503,7 @@ tests/plugins/TestPlugin.o: tests/plugins/TestPlugin.cpp.o
 # target to build an object file
 tests/plugins/TestPlugin.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/plugins/TestPlugin.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/plugins/TestPlugin.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/plugins/TestPlugin.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/plugins/TestPlugin.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/plugins/TestPlugin.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/plugins/TestPlugin.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/plugins/TestPlugin.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/plugins/TestPlugin.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/plugins/TestPlugin.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/plugins/TestPlugin.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/plugins/TestPlugin.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/plugins/TestPlugin.cpp.o
 .PHONY : tests/plugins/TestPlugin.cpp.o
 
 tests/plugins/TestPlugin.i: tests/plugins/TestPlugin.cpp.i
@@ -3413,17 +3512,7 @@ tests/plugins/TestPlugin.i: tests/plugins/TestPlugin.cpp.i
 # target to preprocess a source file
 tests/plugins/TestPlugin.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/plugins/TestPlugin.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/plugins/TestPlugin.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/plugins/TestPlugin.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/plugins/TestPlugin.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/plugins/TestPlugin.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/plugins/TestPlugin.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/plugins/TestPlugin.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/plugins/TestPlugin.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/plugins/TestPlugin.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/plugins/TestPlugin.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/plugins/TestPlugin.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/plugins/TestPlugin.cpp.i
 .PHONY : tests/plugins/TestPlugin.cpp.i
 
 tests/plugins/TestPlugin.s: tests/plugins/TestPlugin.cpp.s
@@ -3432,17 +3521,7 @@ tests/plugins/TestPlugin.s: tests/plugins/TestPlugin.cpp.s
 # target to generate assembly for a file
 tests/plugins/TestPlugin.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/plugins/TestPlugin.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/plugins/TestPlugin.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/plugins/TestPlugin.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/plugins/TestPlugin.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/plugins/TestPlugin.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/plugins/TestPlugin.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/plugins/TestPlugin.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/plugins/TestPlugin.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/plugins/TestPlugin.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/plugins/TestPlugin.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/plugins/TestPlugin.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/plugins/TestPlugin.cpp.s
 .PHONY : tests/plugins/TestPlugin.cpp.s
 
 tests/statesync/StateSynchronizationManagerTests.o: tests/statesync/StateSynchronizationManagerTests.cpp.o
@@ -3451,16 +3530,6 @@ tests/statesync/StateSynchronizationManagerTests.o: tests/statesync/StateSynchro
 # target to build an object file
 tests/statesync/StateSynchronizationManagerTests.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/statesync/StateSynchronizationManagerTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.o
 .PHONY : tests/statesync/StateSynchronizationManagerTests.cpp.o
 
@@ -3470,16 +3539,6 @@ tests/statesync/StateSynchronizationManagerTests.i: tests/statesync/StateSynchro
 # target to preprocess a source file
 tests/statesync/StateSynchronizationManagerTests.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/statesync/StateSynchronizationManagerTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.i
 .PHONY : tests/statesync/StateSynchronizationManagerTests.cpp.i
 
@@ -3489,16 +3548,6 @@ tests/statesync/StateSynchronizationManagerTests.s: tests/statesync/StateSynchro
 # target to generate assembly for a file
 tests/statesync/StateSynchronizationManagerTests.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/statesync/StateSynchronizationManagerTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests.dir/build.make CMakeFiles/ValidationPipelineTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MidiSystemTests.dir/build.make CMakeFiles/MidiSystemTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests.dir/build.make CMakeFiles/RepositoryTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SystemIntegrationTests.dir/build.make CMakeFiles/SystemIntegrationTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ErrorHandlingTests.dir/build.make CMakeFiles/ErrorHandlingTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/statesync/StateSynchronizationManagerTests.cpp.s
 .PHONY : tests/statesync/StateSynchronizationManagerTests.cpp.s
 
@@ -3524,6 +3573,12 @@ help:
 	@echo "... ContinuousSubmit"
 	@echo "... ContinuousTest"
 	@echo "... ContinuousUpdate"
+	@echo "... CrossDomainValidatorTests_autogen"
+	@echo "... CrossDomainValidatorTests_autogen_timestamp_deps"
+	@echo "... ErrorHandlingTests_autogen"
+	@echo "... ErrorHandlingTests_autogen_timestamp_deps"
+	@echo "... ExerciseGenerationTests_autogen"
+	@echo "... ExerciseGenerationTests_autogen_timestamp_deps"
 	@echo "... Experimental"
 	@echo "... ExperimentalBuild"
 	@echo "... ExperimentalConfigure"
@@ -3533,6 +3588,14 @@ help:
 	@echo "... ExperimentalSubmit"
 	@echo "... ExperimentalTest"
 	@echo "... ExperimentalUpdate"
+	@echo "... MidiSystemTests_autogen"
+	@echo "... MidiSystemTests_autogen_timestamp_deps"
+	@echo "... MusicTrainerGUI_autogen"
+	@echo "... MusicTrainerGUI_autogen_timestamp_deps"
+	@echo "... MusicTrainerLib_autogen"
+	@echo "... MusicTrainerLib_autogen_timestamp_deps"
+	@echo "... MusicTrainerV3_autogen"
+	@echo "... MusicTrainerV3_autogen_timestamp_deps"
 	@echo "... Nightly"
 	@echo "... NightlyBuild"
 	@echo "... NightlyConfigure"
@@ -3543,11 +3606,57 @@ help:
 	@echo "... NightlySubmit"
 	@echo "... NightlyTest"
 	@echo "... NightlyUpdate"
+	@echo "... PerformanceMonitoringTests_autogen"
+	@echo "... PerformanceMonitoringTests_autogen_timestamp_deps"
+	@echo "... PluginSystemTests_autogen"
+	@echo "... PluginSystemTests_autogen_timestamp_deps"
+	@echo "... ProgressionSystemTests_autogen"
+	@echo "... ProgressionSystemTests_autogen_timestamp_deps"
+	@echo "... RepositoryTests_autogen"
+	@echo "... RepositoryTests_autogen_timestamp_deps"
+	@echo "... StateSynchronizationManagerTests_autogen"
+	@echo "... StateSynchronizationManagerTests_autogen_timestamp_deps"
+	@echo "... SystemIntegrationTests_autogen"
+	@echo "... SystemIntegrationTests_autogen_timestamp_deps"
+	@echo "... TestGUI_autogen"
+	@echo "... TestGUI_autogen_timestamp_deps"
+	@echo "... TestSuite_autogen"
+	@echo "... TestSuite_autogen_timestamp_deps"
+	@echo "... ValidationPipelineTests_autogen"
+	@echo "... ValidationPipelineTests_autogen_timestamp_deps"
+	@echo "... apinames_autogen"
+	@echo "... apinames_autogen_timestamp_deps"
+	@echo "... cmidiin_autogen"
+	@echo "... cmidiin_autogen_timestamp_deps"
+	@echo "... gmock_autogen"
+	@echo "... gmock_autogen_timestamp_deps"
+	@echo "... gmock_main_autogen"
+	@echo "... gmock_main_autogen_timestamp_deps"
+	@echo "... gtest_autogen"
+	@echo "... gtest_autogen_timestamp_deps"
+	@echo "... gtest_main_autogen"
+	@echo "... gtest_main_autogen_timestamp_deps"
+	@echo "... midiclock_autogen"
+	@echo "... midiclock_autogen_timestamp_deps"
+	@echo "... midiout_autogen"
+	@echo "... midiout_autogen_timestamp_deps"
+	@echo "... midiprobe_autogen"
+	@echo "... midiprobe_autogen_timestamp_deps"
+	@echo "... qmidiin_autogen"
+	@echo "... qmidiin_autogen_timestamp_deps"
+	@echo "... rtmidi_autogen"
+	@echo "... rtmidi_autogen_timestamp_deps"
+	@echo "... sysextest_autogen"
+	@echo "... sysextest_autogen_timestamp_deps"
+	@echo "... testcapi_autogen"
+	@echo "... testcapi_autogen_timestamp_deps"
 	@echo "... uninstall"
 	@echo "... CrossDomainValidatorTests"
 	@echo "... ErrorHandlingTests"
 	@echo "... ExerciseGenerationTests"
 	@echo "... MidiSystemTests"
+	@echo "... MusicTrainerGUI"
+	@echo "... MusicTrainerLib"
 	@echo "... MusicTrainerV3"
 	@echo "... PerformanceMonitoringTests"
 	@echo "... PluginSystemTests"
@@ -3555,6 +3664,7 @@ help:
 	@echo "... RepositoryTests"
 	@echo "... StateSynchronizationManagerTests"
 	@echo "... SystemIntegrationTests"
+	@echo "... TestGUI"
 	@echo "... TestSuite"
 	@echo "... ValidationPipelineTests"
 	@echo "... apinames"
@@ -3570,6 +3680,54 @@ help:
 	@echo "... rtmidi"
 	@echo "... sysextest"
 	@echo "... testcapi"
+	@echo "... CrossDomainValidatorTests_autogen/mocs_compilation.o"
+	@echo "... CrossDomainValidatorTests_autogen/mocs_compilation.i"
+	@echo "... CrossDomainValidatorTests_autogen/mocs_compilation.s"
+	@echo "... ErrorHandlingTests_autogen/mocs_compilation.o"
+	@echo "... ErrorHandlingTests_autogen/mocs_compilation.i"
+	@echo "... ErrorHandlingTests_autogen/mocs_compilation.s"
+	@echo "... ExerciseGenerationTests_autogen/mocs_compilation.o"
+	@echo "... ExerciseGenerationTests_autogen/mocs_compilation.i"
+	@echo "... ExerciseGenerationTests_autogen/mocs_compilation.s"
+	@echo "... MidiSystemTests_autogen/mocs_compilation.o"
+	@echo "... MidiSystemTests_autogen/mocs_compilation.i"
+	@echo "... MidiSystemTests_autogen/mocs_compilation.s"
+	@echo "... MusicTrainerGUI_autogen/mocs_compilation.o"
+	@echo "... MusicTrainerGUI_autogen/mocs_compilation.i"
+	@echo "... MusicTrainerGUI_autogen/mocs_compilation.s"
+	@echo "... MusicTrainerLib_autogen/mocs_compilation.o"
+	@echo "... MusicTrainerLib_autogen/mocs_compilation.i"
+	@echo "... MusicTrainerLib_autogen/mocs_compilation.s"
+	@echo "... MusicTrainerV3_autogen/mocs_compilation.o"
+	@echo "... MusicTrainerV3_autogen/mocs_compilation.i"
+	@echo "... MusicTrainerV3_autogen/mocs_compilation.s"
+	@echo "... PerformanceMonitoringTests_autogen/mocs_compilation.o"
+	@echo "... PerformanceMonitoringTests_autogen/mocs_compilation.i"
+	@echo "... PerformanceMonitoringTests_autogen/mocs_compilation.s"
+	@echo "... PluginSystemTests_autogen/mocs_compilation.o"
+	@echo "... PluginSystemTests_autogen/mocs_compilation.i"
+	@echo "... PluginSystemTests_autogen/mocs_compilation.s"
+	@echo "... ProgressionSystemTests_autogen/mocs_compilation.o"
+	@echo "... ProgressionSystemTests_autogen/mocs_compilation.i"
+	@echo "... ProgressionSystemTests_autogen/mocs_compilation.s"
+	@echo "... RepositoryTests_autogen/mocs_compilation.o"
+	@echo "... RepositoryTests_autogen/mocs_compilation.i"
+	@echo "... RepositoryTests_autogen/mocs_compilation.s"
+	@echo "... StateSynchronizationManagerTests_autogen/mocs_compilation.o"
+	@echo "... StateSynchronizationManagerTests_autogen/mocs_compilation.i"
+	@echo "... StateSynchronizationManagerTests_autogen/mocs_compilation.s"
+	@echo "... SystemIntegrationTests_autogen/mocs_compilation.o"
+	@echo "... SystemIntegrationTests_autogen/mocs_compilation.i"
+	@echo "... SystemIntegrationTests_autogen/mocs_compilation.s"
+	@echo "... TestGUI_autogen/mocs_compilation.o"
+	@echo "... TestGUI_autogen/mocs_compilation.i"
+	@echo "... TestGUI_autogen/mocs_compilation.s"
+	@echo "... TestSuite_autogen/mocs_compilation.o"
+	@echo "... TestSuite_autogen/mocs_compilation.i"
+	@echo "... TestSuite_autogen/mocs_compilation.s"
+	@echo "... ValidationPipelineTests_autogen/mocs_compilation.o"
+	@echo "... ValidationPipelineTests_autogen/mocs_compilation.i"
+	@echo "... ValidationPipelineTests_autogen/mocs_compilation.s"
 	@echo "... src/adapters/CachingScoreRepository.o"
 	@echo "... src/adapters/CachingScoreRepository.i"
 	@echo "... src/adapters/CachingScoreRepository.s"
@@ -3630,6 +3788,9 @@ help:
 	@echo "... src/domain/music/MelodicTemplate.o"
 	@echo "... src/domain/music/MelodicTemplate.i"
 	@echo "... src/domain/music/MelodicTemplate.s"
+	@echo "... src/domain/music/Note.o"
+	@echo "... src/domain/music/Note.i"
+	@echo "... src/domain/music/Note.s"
 	@echo "... src/domain/music/Pitch.o"
 	@echo "... src/domain/music/Pitch.i"
 	@echo "... src/domain/music/Pitch.s"
@@ -3663,6 +3824,39 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/presentation/ExercisePanel.o"
+	@echo "... src/presentation/ExercisePanel.i"
+	@echo "... src/presentation/ExercisePanel.s"
+	@echo "... src/presentation/FeedbackArea.o"
+	@echo "... src/presentation/FeedbackArea.i"
+	@echo "... src/presentation/FeedbackArea.s"
+	@echo "... src/presentation/GridCell.o"
+	@echo "... src/presentation/GridCell.i"
+	@echo "... src/presentation/GridCell.s"
+	@echo "... src/presentation/MainWindow.o"
+	@echo "... src/presentation/MainWindow.i"
+	@echo "... src/presentation/MainWindow.s"
+	@echo "... src/presentation/NoteGrid.o"
+	@echo "... src/presentation/NoteGrid.i"
+	@echo "... src/presentation/NoteGrid.s"
+	@echo "... src/presentation/ScoreView.o"
+	@echo "... src/presentation/ScoreView.i"
+	@echo "... src/presentation/ScoreView.s"
+	@echo "... src/presentation/TransportControls.o"
+	@echo "... src/presentation/TransportControls.i"
+	@echo "... src/presentation/TransportControls.s"
+	@echo "... src/presentation/ViewportManager.o"
+	@echo "... src/presentation/ViewportManager.i"
+	@echo "... src/presentation/ViewportManager.s"
+	@echo "... src/presentation/main_gui.o"
+	@echo "... src/presentation/main_gui.i"
+	@echo "... src/presentation/main_gui.s"
+	@echo "... src/presentation/test_gui.o"
+	@echo "... src/presentation/test_gui.i"
+	@echo "... src/presentation/test_gui.s"
+	@echo "... src/presentation/viewmodels/ScoreViewModel.o"
+	@echo "... src/presentation/viewmodels/ScoreViewModel.i"
+	@echo "... src/presentation/viewmodels/ScoreViewModel.s"
 	@echo "... src/utils/DebugUtils.o"
 	@echo "... src/utils/DebugUtils.i"
 	@echo "... src/utils/DebugUtils.s"

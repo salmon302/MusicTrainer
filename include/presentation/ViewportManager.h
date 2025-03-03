@@ -1,0 +1,66 @@
+#pragma once
+#include <QRectF>
+#include <QPointF>
+#include <QSize>
+#include <memory>
+#include <map>
+#include <optional>
+
+QT_BEGIN_NAMESPACE
+class QGraphicsView;
+QT_END_NAMESPACE
+
+namespace MusicTrainer::presentation {
+
+class NoteGrid;
+
+/**
+ * @brief Manages the viewport state and dynamic grid expansion
+ */
+class ViewportManager {
+public:
+    struct ViewportState {
+        QRectF visibleArea;     // Currently visible area in musical space
+        float zoomLevel;        // Current zoom level (default 1.0)
+        QPointF scrollPosition; // Current scroll position
+    };
+    
+    struct LoadingBoundaries {
+        int verticalBuffer{6};   // Additional rows to load (half octave)
+        int horizontalBuffer{4}; // Additional measures to load
+    };
+
+    enum class Direction {
+        Up,
+        Down,
+        Right
+    };
+
+    explicit ViewportManager(NoteGrid* grid);
+    ~ViewportManager();
+    
+    bool updateViewportState(const ViewportState& newState);
+    QRectF getViewportBounds() const;
+    void setViewportBounds(const QRectF& bounds);
+    void updateViewSize(const QSize& size);
+    void updateScrollPosition(const QPointF& pos);
+    void updateZoomLevel(float zoom);
+    QPointF mapToMusicalSpace(const QPointF& screenPoint, const QGraphicsView* view) const;
+    QPointF mapFromMusicalSpace(const QPointF& musicalPoint, const QGraphicsView* view) const;
+    void expandGrid(Direction direction, int amount);
+    std::optional<Direction> shouldExpand() const;
+    const ViewportState& getViewportState() const;
+    const LoadingBoundaries& getLoadingBoundaries() const;
+    void setLoadingBoundaries(const LoadingBoundaries& boundaries);
+    void compactUnusedRegions();
+
+private:
+    NoteGrid* m_grid;
+    ViewportState m_currentState;
+    LoadingBoundaries m_loadingBoundaries;
+    float m_verticalTriggerRatio{0.9f};
+    float m_horizontalTriggerRatio{0.8f};
+    QSize m_viewSize;
+};
+
+} // namespace MusicTrainer::presentation

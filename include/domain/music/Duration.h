@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <string>
 
+namespace MusicTrainer {
 namespace music {
 
 class Duration {
@@ -62,5 +63,6 @@ private:
 };
 
 } // namespace music
+} // namespace MusicTrainer
 
 #endif // MUSICTRAINERV3_DURATION_H

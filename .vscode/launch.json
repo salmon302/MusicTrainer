@@ -1,0 +1,62 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "MusicTrainer GUI",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/bin/MusicTrainerGUI",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "MusicTrainer V3",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/bin/MusicTrainerV3",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "Test GUI",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/bin/TestGUI",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+    ]
+}
