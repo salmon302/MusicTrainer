@@ -11,18 +11,19 @@ namespace MusicTrainer::presentation {
 
 NoteGrid::NoteGrid(QGraphicsScene* scene)
     : m_scene(scene)
-    , m_dimensions{60, 72, 0, 48} // C4 to C5 (1 octave), 48 beats (12 measures in 4/4 time)
+    , m_dimensions{60, 72, 0, 48}  // C4 to C5 (one octave), 12 measures (48 beats in 4/4 time)
+    , m_noteCount(0)
 {
     qDebug() << "NoteGrid::NoteGrid - Initial dimensions:" 
              << "Pitch range:" << m_dimensions.minPitch << "-" << m_dimensions.maxPitch
              << "Time range:" << m_dimensions.startPosition << "-" << m_dimensions.endPosition;
     
-    // Initialize grid lines with proper dimensions
+    // Add initial gridlines with exact dimensions
     updateGridLines(QRectF(
-        m_dimensions.startPosition, 
-        m_dimensions.minPitch, 
-        m_dimensions.endPosition - m_dimensions.startPosition, 
-        m_dimensions.maxPitch - m_dimensions.minPitch
+        m_dimensions.startPosition * GRID_UNIT,
+        m_dimensions.minPitch * NOTE_HEIGHT,
+        (m_dimensions.endPosition - m_dimensions.startPosition) * GRID_UNIT,
+        (m_dimensions.maxPitch - m_dimensions.minPitch) * NOTE_HEIGHT
     ), 1.0f);
 }
 
@@ -33,44 +34,112 @@ const NoteGrid::GridDimensions& NoteGrid::getDimensions() const
     return m_dimensions;
 }
 
+NoteGrid::GridDimensions NoteGrid::validateDimensions(const GridDimensions& dimensions) const 
+{
+    GridDimensions validated = dimensions;
+    
+    // Enforce exactly one octave (12 semitones)
+    validated.maxPitch = validated.minPitch + getOctaveRange();
+    
+    // Ensure pitch range stays within valid MIDI range (0-127)
+    if (validated.minPitch < 0) {
+        validated.minPitch = 0;
+        validated.maxPitch = getOctaveRange();
+    }
+    else if (validated.maxPitch > 127) {
+        validated.maxPitch = 127;
+        validated.minPitch = validated.maxPitch - getOctaveRange();
+    }
+    
+    // Enforce 12 measures maximum (48 beats in 4/4 time)
+    validated.startPosition = dimensions.startPosition;
+    validated.endPosition = qMin(dimensions.startPosition + 48, dimensions.endPosition);
+    
+    return validated;
+}
+
 void NoteGrid::setDimensions(const GridDimensions& dimensions)
 {
-    // Validate pitch range
-    if (dimensions.minPitch > dimensions.maxPitch) {
-        qWarning() << "NoteGrid::setDimensions - Invalid pitch range:" 
-                   << dimensions.minPitch << "-" << dimensions.maxPitch;
-        return;
+    // Store the previous dimensions for logging
+    GridDimensions oldDimensions = m_dimensions;
+    
+    // Only allow octave change if within valid MIDI range
+    if (dimensions.minPitch >= 0 && dimensions.minPitch + 12 <= 127) {
+        m_dimensions.minPitch = dimensions.minPitch;
+        m_dimensions.maxPitch = m_dimensions.minPitch + 12;  // Force exactly one octave
     }
     
-    // Validate position range
-    if (dimensions.startPosition > dimensions.endPosition) {
-        qWarning() << "NoteGrid::setDimensions - Invalid position range:"
-                   << dimensions.startPosition << "-" << dimensions.endPosition;
-        return;
-    }
+    // Enforce 12 measures maximum
+    m_dimensions.startPosition = dimensions.startPosition;
+    m_dimensions.endPosition = qMin(dimensions.startPosition + 48,
+                                  dimensions.endPosition);
     
-    // Store new dimensions
-    m_dimensions = dimensions;
+    qDebug() << "NoteGrid::setDimensions - Old:" << oldDimensions.minPitch << "-" << oldDimensions.maxPitch
+             << "New:" << m_dimensions.minPitch << "-" << m_dimensions.maxPitch;
     
-    // Ensure grid gets redrawn with new dimensions
-    updateGridLines(m_scene->sceneRect(), 1.0);
+    // Create scene rect based on constrained dimensions
+    QRectF newBounds(
+        m_dimensions.startPosition * GRID_UNIT,
+        m_dimensions.minPitch * NOTE_HEIGHT,
+        (m_dimensions.endPosition - m_dimensions.startPosition) * GRID_UNIT,
+        12 * NOTE_HEIGHT  // Force one octave height
+    );
+    
+    // Update visuals with constrained bounds
+    updateGrid(newBounds);
 }
 
 void NoteGrid::expandVertical(int minPitchDelta, int maxPitchDelta)
 {
-    m_dimensions.minPitch += minPitchDelta;
-    m_dimensions.maxPitch += maxPitchDelta;
-    updateGrid(QRectF(m_dimensions.startPosition, m_dimensions.minPitch,
-                     m_dimensions.endPosition - m_dimensions.startPosition,
-                     m_dimensions.maxPitch - m_dimensions.minPitch));
+    // Block any expansion that would change the octave size
+    if (abs(maxPitchDelta - minPitchDelta) != 0) {
+        qDebug() << "NoteGrid::expandVertical - Blocked non-octave-preserving expansion";
+        return;
+    }
+    
+    // Check if new pitch range would be valid
+    int newMinPitch = m_dimensions.minPitch + minPitchDelta;
+    if (newMinPitch < 0 || newMinPitch + 12 > 127) {
+        qDebug() << "NoteGrid::expandVertical - Blocked expansion outside MIDI range";
+        return;
+    }
+    
+    // Update pitch range while maintaining octave
+    m_dimensions.minPitch = newMinPitch;
+    m_dimensions.maxPitch = m_dimensions.minPitch + 12;
+    
+    // Create scene rect based on new dimensions
+    QRectF newBounds(
+        m_dimensions.startPosition * GRID_UNIT,
+        m_dimensions.minPitch * NOTE_HEIGHT,
+        (m_dimensions.endPosition - m_dimensions.startPosition) * GRID_UNIT,
+        12 * NOTE_HEIGHT  // Force one octave height
+    );
+    
+    // Update visuals
+    updateGrid(newBounds);
 }
 
 void NoteGrid::expandHorizontal(int amount)
 {
+    // Block expansion beyond 12 measures (48 beats)
+    if (m_dimensions.endPosition - m_dimensions.startPosition + amount > 48) {
+        qDebug() << "NoteGrid::expandHorizontal - Blocked expansion beyond 12 measures";
+        return;
+    }
+    
     m_dimensions.endPosition += amount;
-    updateGrid(QRectF(m_dimensions.startPosition, m_dimensions.minPitch,
-                     m_dimensions.endPosition - m_dimensions.startPosition,
-                     m_dimensions.maxPitch - m_dimensions.minPitch));
+    
+    // Create scene rect based on new dimensions
+    QRectF newBounds(
+        m_dimensions.startPosition * GRID_UNIT,
+        m_dimensions.minPitch * NOTE_HEIGHT,
+        (m_dimensions.endPosition - m_dimensions.startPosition) * GRID_UNIT,
+        12 * NOTE_HEIGHT  // Force one octave height
+    );
+    
+    // Update visuals
+    updateGrid(newBounds);
 }
 
 void NoteGrid::updateFromScore(std::shared_ptr<MusicTrainer::music::Score> score)
@@ -144,241 +213,42 @@ void NoteGrid::addNote(const MusicTrainer::music::Note& note, int voiceIndex, in
 
 void NoteGrid::updateGridLines(const QRectF& visibleRect, float zoomLevel)
 {
-    // Convert visible rect from scene coordinates to grid coordinates
-    QRectF gridVisibleRect(
-        visibleRect.left() / GRID_UNIT,
-        visibleRect.top() / NOTE_HEIGHT,
+    // Clear existing grid lines
+    clearGridElements();
+    
+    // Convert scene coordinates to musical coordinates
+    QRectF gridRect(
+        visibleRect.x() / GRID_UNIT,
+        visibleRect.y() / NOTE_HEIGHT,
         visibleRect.width() / GRID_UNIT,
-        visibleRect.height() / NOTE_HEIGHT
+        12  // Force one octave height
     );
     
     qDebug() << "NoteGrid::updateGridLines - Refresh -"
              << "SceneRect:" << visibleRect
-             << "GridRect:" << gridVisibleRect
+             << "GridRect:" << gridRect
              << "Zoom:" << zoomLevel
              << "GridDims - Pitch:" << m_dimensions.minPitch << "-" << m_dimensions.maxPitch
              << "Time:" << m_dimensions.startPosition << "-" << m_dimensions.endPosition;
     
-    // Clear existing grid elements
-    clearGridElements();
-    
-    // Constrain drawing range to actual grid dimensions plus a small buffer
-    int minPitch = qMax(m_dimensions.minPitch - 12, qFloor(gridVisibleRect.top()));
-    int maxPitch = qMin(m_dimensions.maxPitch + 12, qCeil(gridVisibleRect.bottom()));
-    
-    int startPos = qMax(m_dimensions.startPosition, qFloor(gridVisibleRect.left()));
-    int endPos = qMin(m_dimensions.endPosition, qCeil(gridVisibleRect.right()));
-    
-    // Calculate beat divisions
-    const auto& timeSignature = m_dimensions.timeSignature;
-    int beatsPerMeasure = timeSignature.beats;
-    
-    // Create pens with appropriate styles
-    QPen beatPen(QColor(220, 220, 220), 1.0);        // Light gray for beats
-    QPen strongBeatPen(QColor(180, 180, 180), 1.5);  // Medium gray for strong beats
-    QPen measurePen(QColor(100, 100, 100), 2.0);     // Dark gray for measures
-    QPen pitchClassPen(QColor(200, 200, 220), 1.2);  // Light blue for pitch markers
-    QPen octavePen(QColor(80, 80, 150), 2.0);        // Dark blue for octave lines
-    
-    // Scale pen widths based on zoom
-    if (zoomLevel != 1.0f) {
-        float penAdjust = 1.0f / qMax(0.1f, zoomLevel);
-        beatPen.setWidthF(1.0f * penAdjust);
-        strongBeatPen.setWidthF(1.5f * penAdjust);
-        measurePen.setWidthF(2.0f * penAdjust);
-        pitchClassPen.setWidthF(1.2f * penAdjust);
-        octavePen.setWidthF(2.0f * penAdjust);
-    }
-    
-    // Create white background
-    QGraphicsRectItem* background = m_scene->addRect(
-        m_dimensions.startPosition * GRID_UNIT,
-        m_dimensions.minPitch * NOTE_HEIGHT,
-        (m_dimensions.endPosition - m_dimensions.startPosition) * GRID_UNIT,
-        (m_dimensions.maxPitch - m_dimensions.minPitch) * NOTE_HEIGHT,
-        Qt::NoPen,
-        QBrush(QColor(252, 252, 255))
-    );
-    background->setZValue(-10);
-    m_horizontalLines.push_back(background);
-    
-    // Draw piano key backgrounds
-    for (int pitch = minPitch; pitch <= maxPitch; ++pitch) {
-        float y = pitch * NOTE_HEIGHT;
-        int pitchClass = pitch % 12;
-        bool isBlackKey = (pitchClass == 1 || pitchClass == 3 || pitchClass == 6 || 
-                          pitchClass == 8 || pitchClass == 10);
-        
-        QColor keyColor = isBlackKey ? QColor(242, 242, 245) : QColor(252, 252, 255);
-        
-        QGraphicsRectItem* keyBackground = m_scene->addRect(
-            m_dimensions.startPosition * GRID_UNIT,
-            y,
-            (m_dimensions.endPosition - m_dimensions.startPosition) * GRID_UNIT,
-            NOTE_HEIGHT,
-            Qt::NoPen,
-            QBrush(keyColor)
-        );
-        keyBackground->setZValue(-8);
-        m_horizontalLines.push_back(keyBackground);
-    }
-    
-    // Draw measure backgrounds
-    for (int pos = startPos; pos <= endPos; pos += beatsPerMeasure) {
-        bool isEvenMeasure = (pos / beatsPerMeasure) % 2 == 0;
-        QColor measureColor = isEvenMeasure ? 
-            QColor(255, 255, 255, 0) :    // Transparent
-            QColor(248, 248, 255, 40);    // Very light blue tint
-            
-        float x = pos * GRID_UNIT;
-        QGraphicsRectItem* measureBg = m_scene->addRect(
-            x,
-            minPitch * NOTE_HEIGHT,
-            beatsPerMeasure * GRID_UNIT,
-            (maxPitch - minPitch) * NOTE_HEIGHT,
-            Qt::NoPen,
-            measureColor
-        );
-        measureBg->setZValue(-5);
-        m_majorVerticalLines.push_back(measureBg);
-    }
-    
-    // Draw horizontal pitch lines
-    for (int pitch = minPitch; pitch <= maxPitch; ++pitch) {
-        float y = pitch * NOTE_HEIGHT;
-        int pitchClass = pitch % 12;
-        
-        // Draw octave lines (C notes)
-        if (pitchClass == 0) {
-            auto line = m_scene->addLine(
-                startPos * GRID_UNIT,
-                y,
-                endPos * GRID_UNIT,
-                y,
-                octavePen
-            );
-            line->setZValue(1);
-            m_majorHorizontalLines.push_back(line);
-            
-            // Add octave label
-            int octaveNumber = (pitch / 12) - 1;  // Standard octave numbering
-            auto label = m_scene->addText(QString("C%1").arg(octaveNumber));
-            label->setPos(startPos * GRID_UNIT - 25, y - 10);
-            label->setDefaultTextColor(QColor(80, 80, 150));
-            label->setScale(0.7 / zoomLevel);
-            label->setZValue(2);
-            m_majorHorizontalLines.push_back(label);
-        }
-        // Draw F note lines
-        else if (pitchClass == 5) {
-            auto line = m_scene->addLine(
-                startPos * GRID_UNIT,
-                y,
-                endPos * GRID_UNIT,
-                y,
-                pitchClassPen
-            );
-            line->setZValue(-2);
-            m_horizontalLines.push_back(line);
-        }
-    }
-    
-    // Draw vertical beat lines
-    for (int pos = startPos; pos <= endPos; ++pos) {
-        float x = pos * GRID_UNIT;
-        
-        bool isMeasure = pos % beatsPerMeasure == 0;
-        bool isStrongBeat = (pos % beatsPerMeasure == beatsPerMeasure / 2) && 
-                           (beatsPerMeasure % 2 == 0);
-        
-        QPen* pen = isMeasure ? &measurePen : 
-                    isStrongBeat ? &strongBeatPen : &beatPen;
-        
-        auto line = m_scene->addLine(
-            x,
-            minPitch * NOTE_HEIGHT,
-            x,
-            maxPitch * NOTE_HEIGHT,
-            *pen
-        );
-        
-        line->setZValue(isMeasure ? 0 : -3);
-        
-        if (isMeasure) {
-            m_majorVerticalLines.push_back(line);
-            
-            // Add measure number
-            if (pos >= m_dimensions.startPosition) {
-                int measureNumber = (pos / beatsPerMeasure) + 1;
-                auto text = m_scene->addText(QString::number(measureNumber));
-                text->setPos(x + 2, minPitch * NOTE_HEIGHT - 20);
-                text->setDefaultTextColor(QColor(60, 60, 60));
-                text->setScale(0.8 / zoomLevel);
-                text->setZValue(5);
-                m_majorVerticalLines.push_back(text);
-            }
-            
-            // Add time signature at start
-            if (pos == m_dimensions.startPosition) {
-                QString timeSig = QString("%1/%2").arg(beatsPerMeasure)
-                    .arg(static_cast<int>(4.0 / timeSignature.beatUnit.getTotalBeats()));
-                auto tsText = m_scene->addText(timeSig);
-                tsText->setPos(x, minPitch * NOTE_HEIGHT - 35);
-                tsText->setDefaultTextColor(QColor(0, 0, 180));
-                tsText->setScale(1.0 / zoomLevel);
-                tsText->setZValue(5);
-                m_majorVerticalLines.push_back(tsText);
-            }
-        } else {
-            m_verticalLines.push_back(line);
-        }
-    }
+    // Create new grid lines within constrained bounds
+    updateGridLineItems(true);  // Major lines
+    updateGridLineItems(false); // Minor lines
 }
 
 void NoteGrid::updateGrid(const QRectF& bounds)
 {
-    // Convert input bounds from scene coordinates to grid coordinates if they are scene coordinates
-    // (We detect this by checking if the values are much larger than typical grid coordinates)
-    QRectF gridBounds = bounds;
-    if (bounds.width() > 100 || bounds.height() > 100) {
-        gridBounds = QRectF(
-            bounds.left() / GRID_UNIT,
-            bounds.top() / NOTE_HEIGHT,
-            bounds.width() / GRID_UNIT,
-            bounds.height() / NOTE_HEIGHT
-        );
-    }
+    // Ensure bounds maintain one octave height
+    QRectF constrainedBounds = bounds;
+    constrainedBounds.setHeight(12 * NOTE_HEIGHT);
     
-    // Constrain to grid dimensions
-    gridBounds = gridBounds.intersected(QRectF(
-        m_dimensions.startPosition,
-        m_dimensions.minPitch,
-        m_dimensions.endPosition - m_dimensions.startPosition,
-        m_dimensions.maxPitch - m_dimensions.minPitch
-    ));
-    
-    qDebug() << "NoteGrid::updateGrid -"
-             << "Original bounds:" << bounds
-             << "Grid bounds:" << gridBounds
+    qDebug() << "NoteGrid::updateGrid - Original bounds:" << bounds
+             << "Grid bounds:" << constrainedBounds
              << "NoteCount:" << m_noteCount
              << "ActiveCells:" << m_gridCells.size();
-
-    // Update all visible cells within the constrained bounds
-    float left = gridBounds.left();
-    float right = gridBounds.right();
-    float top = gridBounds.top();
-    float bottom = gridBounds.bottom();
     
-    for (auto& [pos, pitchMap] : m_gridCells) {
-        // Only process if the position is within bounds
-        if (pos >= left - 1 && pos <= right + 1) {
-            for (auto& [pitch, cell] : pitchMap) {
-                if (pitch >= top - 1 && pitch <= bottom + 1 && cell) {
-                    cell->update(gridBounds, 1.0f);
-                }
-            }
-        }
-    }
+    // Update grid lines with constrained bounds
+    updateGridLines(constrainedBounds, 1.0f);
 }
 
 void NoteGrid::clear()
@@ -431,29 +301,28 @@ int NoteGrid::getNoteCount() const
 
 GridCell* NoteGrid::getOrCreateCell(int position, int pitch)
 {
-    // Prevent notes outside of the defined grid area
-    if (pitch < m_dimensions.minPitch || pitch > m_dimensions.maxPitch || 
-        position < m_dimensions.startPosition || position > m_dimensions.endPosition) {
+    // Enforce grid bounds
+    if (position < m_dimensions.startPosition || position >= m_dimensions.endPosition ||
+        pitch < m_dimensions.minPitch || pitch >= m_dimensions.maxPitch) {
         qDebug() << "NoteGrid::getOrCreateCell - Rejecting out-of-bounds cell at"
-                 << "Position:" << position
-                 << "Pitch:" << pitch
+                 << "Position:" << position << "Pitch:" << pitch
                  << "Grid bounds:" << m_dimensions.minPitch << "-" << m_dimensions.maxPitch
                  << m_dimensions.startPosition << "-" << m_dimensions.endPosition;
-        position = qBound(m_dimensions.startPosition, position, m_dimensions.endPosition);
-        pitch = qBound(m_dimensions.minPitch, pitch, m_dimensions.maxPitch);
+        
+        // Clamp to valid range
+        position = qBound(m_dimensions.startPosition, position, m_dimensions.endPosition - 1);
+        pitch = qBound(m_dimensions.minPitch, pitch, m_dimensions.maxPitch - 1);
     }
-
+    
+    // Create the cell if it doesn't exist
     auto& pitchMap = m_gridCells[position];
-    auto& cellPtr = pitchMap[pitch];
-    
-    if (!cellPtr) {
-        qDebug() << "NoteGrid::getOrCreateCell - Creating new cell at"
-                 << "Position:" << position
-                 << "Pitch:" << pitch;
-        cellPtr = std::make_unique<GridCell>(position, pitch, m_scene);
+    auto& cell = pitchMap[pitch];
+    if (!cell) {
+        cell = std::make_unique<GridCell>(position, pitch, m_scene);
+        m_noteCount++;
     }
     
-    return cellPtr.get();
+    return cell.get();
 }
 
 void NoteGrid::updateGridLineItems(bool majorLines)

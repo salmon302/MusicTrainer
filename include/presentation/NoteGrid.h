@@ -145,6 +145,19 @@ private:
      */
     void updateGridLineItems(bool majorLines = true);
 
+    /**
+     * @brief Validate and constrain grid dimensions to maintain one octave
+     * @param dimensions Dimensions to validate
+     * @return Constrained dimensions that maintain one octave
+     */
+    GridDimensions validateDimensions(const GridDimensions& dimensions) const;
+
+    /**
+     * @brief Get the current octave range (minPitch to maxPitch)
+     * @return Octave range in semitones (always 12)
+     */
+    static constexpr int getOctaveRange() { return 12; }
+
     // Graphics scene that this grid belongs to
     QGraphicsScene* m_scene;
 

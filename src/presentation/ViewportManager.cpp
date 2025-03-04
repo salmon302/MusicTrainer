@@ -10,46 +10,57 @@ namespace MusicTrainer::presentation {
 
 ViewportManager::ViewportManager(NoteGrid* grid)
     : m_grid(grid)
-    , m_currentState{QRectF(), 1.0f, QPointF()}
+    , m_currentState{QRectF(0, 60, 48, 12), 1.0f, QPointF()}  // Initialize with C4-C5 range
     , m_viewSize(0, 0)
     , m_verticalTriggerRatio(0.1f)
     , m_horizontalTriggerRatio(0.2f)
 {
+    // Set initial dimensions to lock C4-C5 octave
+    if (m_grid) {
+        auto dimensions = m_grid->getDimensions();
+        dimensions.minPitch = 60;  // C4
+        dimensions.maxPitch = 72;  // C5
+        m_grid->setDimensions(dimensions);
+    }
 }
 
 ViewportManager::~ViewportManager() = default;
 
+ViewportManager::ViewportState ViewportManager::validateState(const ViewportState& state) const
+{
+    ViewportState validated = state;
+    
+    // Ensure exactly one octave height
+    validated.visibleArea.setHeight(getOctaveRange());
+    
+    // Keep viewport within valid MIDI range
+    if (validated.visibleArea.top() < 0) {
+        validated.visibleArea.moveTop(0);
+    } else if (validated.visibleArea.bottom() > 127) {
+        validated.visibleArea.moveBottom(127);
+    }
+    
+    return validated;
+}
+
 bool ViewportManager::updateViewportState(const ViewportState& newState)
 {
+    // Get current grid dimensions to maintain octave lock
+    auto dimensions = m_grid->getDimensions();
+    
     // Convert scroll position and view size to musical coordinates
     QRectF musicalArea(
-        newState.scrollPosition.x() / GridConstants::GRID_UNIT,          // Convert x to beats
-        newState.scrollPosition.y() / GridConstants::NOTE_HEIGHT,        // Convert y to semitones
-        m_viewSize.width() / (GridConstants::GRID_UNIT * newState.zoomLevel),     // Width in beats
-        m_viewSize.height() / (GridConstants::NOTE_HEIGHT * newState.zoomLevel)    // Height in semitones
+        newState.scrollPosition.x() / GridConstants::GRID_UNIT,
+        dimensions.minPitch,  // Lock to current octave
+        m_viewSize.width() / (GridConstants::GRID_UNIT * newState.zoomLevel),
+        12  // Force one octave height
     );
     
-    qDebug() << "ViewportManager::updateViewportState -"
-             << "MusicalArea:" << musicalArea
-             << "Zoom:" << newState.zoomLevel
-             << "ScrollPos:" << newState.scrollPosition;
-    
-    // Update state
+    // Update state with constrained bounds
     m_currentState = newState;
     m_currentState.visibleArea = musicalArea;
     
-    // Check if we need to expand based on the current viewport bounds
-    auto direction = shouldExpand();
-    if (direction) {
-        // Calculate expansion amount based on direction
-        int amount = (*direction == Direction::Right) ? 16 : 12;
-        qDebug() << "ViewportManager::expandGrid -" 
-                 << "Direction:" << static_cast<int>(*direction)
-                 << "Amount:" << amount;
-        expandGrid(*direction, amount);
-        return true;
-    }
-    return false;
+    return false;  // No expansion needed since we're locking the octave
 }
 
 QRectF ViewportManager::getViewportBounds() const
@@ -59,49 +70,30 @@ QRectF ViewportManager::getViewportBounds() const
 
 void ViewportManager::setViewportBounds(const QRectF& bounds)
 {
-    // If no grid is set, we can't process bounds
     if (!m_grid) return;
     
-    // Get current grid dimensions before any changes
     auto dimensions = m_grid->getDimensions();
     
-    // Convert bounds to musical coordinates if needed (handle both scene and musical coords)
+    // Convert bounds to musical coordinates if needed
     bool isSceneCoords = bounds.width() > 100 || bounds.height() > 100;
-    
     QRectF musicalBounds = isSceneCoords ?
         QRectF(
             bounds.x() / GridConstants::GRID_UNIT,
-            bounds.y() / GridConstants::NOTE_HEIGHT,
+            dimensions.minPitch,  // Lock to current octave
             bounds.width() / GridConstants::GRID_UNIT,
-            bounds.height() / GridConstants::NOTE_HEIGHT
+            12  // Force one octave height
         ) : bounds;
     
-    // Maintain one octave constraint (12 semitones)
-    int currentRange = dimensions.maxPitch - dimensions.minPitch;
-    if (currentRange != 12) {
-        // Reset to one octave if it's different
-        dimensions.maxPitch = dimensions.minPitch + 12;
-    }
-    
-    // Maintain 12 measure constraint (48 beats in 4/4 time)
-    if (dimensions.endPosition - dimensions.startPosition != 48) {
-        dimensions.endPosition = dimensions.startPosition + 48;
-    }
+    // Maintain current octave and update horizontal bounds only
+    dimensions.endPosition = qMin(dimensions.startPosition + 48,
+                                qFloor(musicalBounds.right()));
     
     // Update the grid with constrained dimensions
     m_grid->setDimensions(dimensions);
     
     // Update current state with constrained bounds
     m_currentState.visibleArea = musicalBounds;
-    m_currentState.visibleArea.setHeight(12); // Force one octave height
-    
-    // If we're at the edge, shift the viewport to keep within bounds
-    if (m_currentState.visibleArea.bottom() > dimensions.maxPitch) {
-        m_currentState.visibleArea.moveBottom(dimensions.maxPitch);
-    }
-    if (m_currentState.visibleArea.top() < dimensions.minPitch) {
-        m_currentState.visibleArea.moveTop(dimensions.minPitch);
-    }
+    m_currentState.visibleArea.setHeight(12);
 }
 
 void ViewportManager::updateViewSize(const QSize& size)
@@ -175,59 +167,46 @@ QPointF ViewportManager::mapFromMusicalSpace(const QPointF& musicalPoint, const 
 
 void ViewportManager::expandGrid(Direction direction, int amount)
 {
-    // Expansion is now constrained - it only shifts the visible octave up/down
-    // rather than actually expanding the grid
+    // No vertical expansion allowed - maintain locked octave
+    if (direction == Direction::Up || direction == Direction::Down) {
+        return;
+    }
+    
     if (!m_grid) return;
     
     auto dimensions = m_grid->getDimensions();
     
-    switch (direction) {
-        case Direction::Up:
-            // Shift the octave up
-            dimensions.minPitch -= 12;
-            dimensions.maxPitch -= 12;
-            break;
-            
-        case Direction::Down:
-            // Shift the octave down
-            dimensions.minPitch += 12;
-            dimensions.maxPitch += 12;
-            break;
-            
-        case Direction::Right:
-            // No horizontal expansion beyond 12 measures
-            if (dimensions.endPosition - dimensions.startPosition >= 48) {
-                return;
-            }
-            dimensions.endPosition = qMin(dimensions.endPosition + amount, 
-                                        dimensions.startPosition + 48);
-            break;
+    // Only allow horizontal expansion up to 12 measures
+    if (direction == Direction::Right) {
+        if (dimensions.endPosition - dimensions.startPosition >= 48) {
+            return;
+        }
+        dimensions.endPosition = qMin(dimensions.startPosition + 48, 
+                                   dimensions.endPosition + amount);
+        m_grid->setDimensions(dimensions);
     }
-    
-    m_grid->setDimensions(dimensions);
 }
 
-std::optional<ViewportManager::Direction> ViewportManager::shouldExpand() const
+std::optional<ViewportManager::Direction> ViewportManager::shouldExpand() const 
 {
     if (!m_grid) return std::nullopt;
     
     QRectF visibleArea = m_currentState.visibleArea;
     auto dims = m_grid->getDimensions();
     
-    // Convert grid dimensions to musical coordinates for comparison
-    float gridWidth = (dims.endPosition - dims.startPosition);
-    float gridHeight = (dims.maxPitch - dims.minPitch);
+    // Only trigger octave shifts at near edges
+    float edgeThreshold = 0.5; // Half semitone from edge
     
-    // Check vertical expansion (pitch range)
-    if (visibleArea.top() <= dims.minPitch + gridHeight * m_verticalTriggerRatio) {
+    if (visibleArea.top() <= dims.minPitch + edgeThreshold) {
         return Direction::Up;
     }
-    if (visibleArea.bottom() >= dims.maxPitch - gridHeight * m_verticalTriggerRatio) {
+    if (visibleArea.bottom() >= dims.maxPitch - edgeThreshold) {
         return Direction::Down;
     }
     
-    // Check horizontal expansion (time)
-    if (visibleArea.right() >= dims.endPosition - gridWidth * m_horizontalTriggerRatio) {
+    // Allow horizontal expansion up to 12 measures
+    if (visibleArea.right() >= dims.endPosition - 2 && // Within 2 beats of right edge
+        dims.endPosition - dims.startPosition < 48) {   // Less than 12 measures
         return Direction::Right;
     }
     

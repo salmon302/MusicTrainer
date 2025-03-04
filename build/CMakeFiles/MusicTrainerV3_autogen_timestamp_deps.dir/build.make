@@ -66,8 +66,8 @@ include CMakeFiles/MusicTrainerV3_autogen_timestamp_deps.dir/compiler_depend.mak
 # Include the progress variables for this target.
 include CMakeFiles/MusicTrainerV3_autogen_timestamp_deps.dir/progress.make
 
-CMakeFiles/MusicTrainerV3_autogen_timestamp_deps: /usr/lib/qt6/libexec/moc
 CMakeFiles/MusicTrainerV3_autogen_timestamp_deps: /usr/lib/qt6/libexec/uic
+CMakeFiles/MusicTrainerV3_autogen_timestamp_deps: /usr/lib/qt6/libexec/moc
 CMakeFiles/MusicTrainerV3_autogen_timestamp_deps: libMusicTrainerLib.a
 
 MusicTrainerV3_autogen_timestamp_deps: CMakeFiles/MusicTrainerV3_autogen_timestamp_deps

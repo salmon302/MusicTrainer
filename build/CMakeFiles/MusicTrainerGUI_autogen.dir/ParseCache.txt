@@ -3,9 +3,6 @@
 /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ViewportManager.cpp
 /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/TransportControls.cpp
 /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/NoteGrid.h
-/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ScoreView.cpp
-/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/MainWindow.cpp
-/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ExercisePanel.cpp
 /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/GridCell.cpp
 /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/ScoreView.h
  mmc:Q_OBJECT
@@ -429,10 +426,14 @@
  mdp:/usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h
  mdp:/usr/lib/gcc/x86_64-linux-gnu/13/include/stdbool.h
  mdp:/usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h
+/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/MainWindow.cpp
+/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ExercisePanel.cpp
+/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ScoreView.cpp
 /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/analysis/VoiceAnalyzer.cpp
 /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/NoteGrid.cpp
 /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/VoiceChart.cpp
 /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/analysis/VoiceAnalyzer.h
+/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/main_gui.cpp
 /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/TransportControls.h
  mmc:Q_OBJECT
  mdp:/home/seth-n/Documents/GitHub/MusicTrainer/build/MusicTrainerGUI_autogen/moc_predefs.h
@@ -864,7 +865,7 @@
  mdp:/usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h
  mdp:/usr/lib/gcc/x86_64-linux-gnu/13/include/stdbool.h
  mdp:/usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h
-/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/main_gui.cpp
+/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/GridCell.h
 /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/VoiceChart.h
  mmc:Q_OBJECT
  mdp:/home/seth-n/Documents/GitHub/MusicTrainer/build/MusicTrainerGUI_autogen/moc_predefs.h
@@ -2169,7 +2170,6 @@
  mdp:/usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h
  mdp:/usr/lib/gcc/x86_64-linux-gnu/13/include/stdbool.h
  mdp:/usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h
-/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/GridCell.h
 /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/ViewportManager.h
 /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/MainWindow.h
  mmc:Q_OBJECT

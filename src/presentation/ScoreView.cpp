@@ -30,7 +30,7 @@ ScoreView::ScoreView(QWidget *parent)
     , m_impl(std::make_unique<ScoreViewImpl>())
 {
     // Register Qt types for signal/slot system
-    ::registerQtTypes();  // Call the global function
+    ::registerQtTypes();
 
     setScene(new QGraphicsScene(this));
     setRenderHint(QPainter::Antialiasing);
@@ -40,24 +40,22 @@ ScoreView::ScoreView(QWidget *parent)
     setTransformationAnchor(QGraphicsView::AnchorUnderMouse);
     setResizeAnchor(QGraphicsView::AnchorUnderMouse);
     
-    // Initialize with base transform - log initial state
-    QTransform baseTransform = QTransform::fromScale(1.0, 1.0);
-    qDebug() << "ScoreView::Constructor - Initial transform:" << baseTransform
-             << "m11:" << baseTransform.m11()
-             << "m22:" << baseTransform.m22();
-    setTransform(baseTransform);
-    
+    // Create note grid first with initial octave (C4-C5)
     m_noteGrid = std::make_unique<NoteGrid>(scene());
+    
+    // Create viewport manager with initial one-octave constraint
     m_viewportManager = std::make_unique<ViewportManager>(m_noteGrid.get());
     
-    // Set up scene with minimal initial rect until initialization
+    // Set up minimal scene rect until proper initialization
     scene()->setSceneRect(0, 0, 100, 100);
-    qDebug() << "ScoreView::Constructor - Scene rect:" << scene()->sceneRect();
     
-    // Connect the noteAdded signal to our handling slot
+    // Connect signals after grid and viewport manager are created
     connect(this, &ScoreView::noteAdded, this, &ScoreView::handleNoteAdded);
     
-    initializeViewport();
+    // Initialize viewport last to ensure all components are ready
+    QTimer::singleShot(0, this, [this]() {
+        initializeViewport();
+    });
 }
 
 ScoreView::~ScoreView() = default;
@@ -222,33 +220,31 @@ void ScoreView::checkViewportExpansion()
         visibleRect.left() / GRID_UNIT,
         visibleRect.top() / NOTE_HEIGHT,
         visibleRect.width() / GRID_UNIT,
-        visibleRect.height() / NOTE_HEIGHT
+        12  // Force one octave height
     );
     
     // Calculate potential expansion
     bool needsExpansion = false;
     QRectF newBounds = currentBounds;
     
-    // Keep track of pitch range
-    int currentRange = qRound(currentBounds.height());
-    
-    // Check vertical expansion only for octave shifts, not actual expansion
-    if (visibleMusicalRect.top() <= currentBounds.top() + currentBounds.height() * 0.15) {
-        // Shift the octave range up
+    // Only allow octave shifts when near edges
+    float edgeThreshold = 0.5; // Half semitone from edge
+    if (visibleMusicalRect.top() <= currentBounds.top() + edgeThreshold) {
+        // Shift up one octave
         newBounds.translate(0, -12);
         needsExpansion = true;
     }
-    else if (visibleMusicalRect.bottom() >= currentBounds.bottom() - currentBounds.height() * 0.15) {
-        // Shift the octave range down
+    else if (visibleMusicalRect.bottom() >= currentBounds.bottom() - edgeThreshold) {
+        // Shift down one octave
         newBounds.translate(0, 12);
         needsExpansion = true;
     }
     
-    // Maintain octave height
+    // Always maintain one octave height
     newBounds.setHeight(12);
     
-    // Check horizontal expansion but limit to 12 measures (48 beats)
-    if (visibleMusicalRect.right() >= currentBounds.right() - currentBounds.width() * 0.2) {
+    // Check horizontal expansion but limit to 12 measures
+    if (visibleMusicalRect.right() >= currentBounds.right() - 2) { // Within 2 beats of right edge
         float currentWidth = currentBounds.width();
         if (currentWidth < 48) { // 12 measures in 4/4 time
             float newWidth = qMin(48.0f, currentWidth + 16.0f); // Add up to 4 measures
@@ -269,81 +265,71 @@ void ScoreView::initializeViewport()
 {
     // Set fixed dimensions for one octave starting at middle C
     int minPitch = 60;    // C4 (middle C)
-    int maxPitch = 72;    // C5 (one octave up)
-    int pitchRange = maxPitch - minPitch;
+    int pitchRange = 12;  // Force exactly one octave
     
     int startPosition = 0;
     int endPosition = 48; // 12 measures in 4/4 time
-    int beatRange = endPosition - startPosition;
     
-    // Add small margin for octave labels
+    // Add small margin for octave labels (C4, etc.)
     float labelMargin = 25.0f;
     
-    // Create grid scene rect that represents exactly one octave
+    // Create initial grid scene rect
     QRectF gridSceneRect(
-        labelMargin,                        // Leave space for labels
-        minPitch * NOTE_HEIGHT,             // Start at C4
-        endPosition * GRID_UNIT,            // 12 measures
-        pitchRange * NOTE_HEIGHT            // Exactly one octave
+        labelMargin,                    // Space for labels
+        minPitch * NOTE_HEIGHT,         // Start at C4
+        endPosition * GRID_UNIT,        // 12 measures
+        pitchRange * NOTE_HEIGHT        // Exactly one octave
     );
     
-    // Set grid dimensions
+    // Set initial grid dimensions
     NoteGrid::GridDimensions dimensions{
-        minPitch,
-        maxPitch,
-        startPosition,
-        endPosition
+        minPitch,              // C4
+        minPitch + pitchRange, // C5
+        startPosition,         // Start at beginning
+        endPosition           // 12 measures
     };
     m_noteGrid->setDimensions(dimensions);
     
     // Set scene rect with minimal padding
     scene()->setSceneRect(
-        0,                                              // Start at 0
-        minPitch * NOTE_HEIGHT - NOTE_HEIGHT,          // Small space for labels above
-        gridSceneRect.right() + labelMargin,           // Include label margin
-        pitchRange * NOTE_HEIGHT + NOTE_HEIGHT * 2     // One octave plus minimal padding
+        0,                                  // Start at 0
+        minPitch * NOTE_HEIGHT - NOTE_HEIGHT * 0.5,  // Small space above
+        gridSceneRect.right() + labelMargin,         // Include label margin
+        pitchRange * NOTE_HEIGHT + NOTE_HEIGHT       // One octave plus minimal padding
     );
     
     // Set initial viewport bounds in musical space
     QRectF initialBounds(
         startPosition,
         minPitch,
-        beatRange,
-        pitchRange
+        endPosition - startPosition,
+        pitchRange  // Force one octave height
     );
     
     m_viewportManager->setViewportBounds(initialBounds);
     m_viewportManager->updateViewSize(size());
 
-    // Reset transform and ensure viewport is clean
+    // Reset transform and scrollbars
     resetTransform();
     setViewportMargins(0, 0, 0, 0);
     horizontalScrollBar()->setValue(0);
     verticalScrollBar()->setValue(0);
     
-    // Calculate appropriate scale to fit the grid in the viewport
+    // Calculate scale to fit the viewport
     QRectF viewportRect = viewport()->rect();
-    float horizontalScale = viewportRect.width() / (gridSceneRect.width() * 1.05);  // 5% margin
-    float verticalScale = viewportRect.height() / (gridSceneRect.height() * 1.05);  // 5% margin
-    
-    // Use the smaller scale to ensure everything fits
+    float horizontalScale = viewportRect.width() / (gridSceneRect.width() * 1.05);
+    float verticalScale = viewportRect.height() / (gridSceneRect.height() * 1.05);
     float scaleFactor = qMin(horizontalScale, verticalScale);
     scaleFactor = qMax(0.8f, qMin(scaleFactor, 1.5f));
     
     // Apply scale
     scale(scaleFactor, scaleFactor);
     
-    // Center the view on the grid
-    QPointF gridCenter(
-        gridSceneRect.left() + gridSceneRect.width() * 0.5,
-        gridSceneRect.center().y()
-    );
-    centerOn(gridCenter);
+    // Center on the grid
+    centerOn(gridSceneRect.center());
     
-    // Update viewport manager with the new zoom level
+    // Update viewport manager
     m_viewportManager->updateZoomLevel(scaleFactor);
-    
-    // Ensure the grid is updated
     updateGridVisuals();
 }
 

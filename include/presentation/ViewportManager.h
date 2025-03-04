@@ -55,6 +55,18 @@ public:
     void compactUnusedRegions();
 
 private:
+    /**
+     * @brief Get the octave range (always 12 semitones)
+     */
+    static constexpr int getOctaveRange() { return 12; }
+
+    /**
+     * @brief Enforce one octave constraint on viewport state
+     * @param state State to validate
+     * @return Validated state with one octave constraint
+     */
+    ViewportState validateState(const ViewportState& state) const;
+
     NoteGrid* m_grid;
     ViewportState m_currentState;
     LoadingBoundaries m_loadingBoundaries;

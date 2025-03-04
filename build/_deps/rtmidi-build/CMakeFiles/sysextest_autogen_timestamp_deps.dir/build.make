@@ -66,8 +66,8 @@ include _deps/rtmidi-build/CMakeFiles/sysextest_autogen_timestamp_deps.dir/compi
 # Include the progress variables for this target.
 include _deps/rtmidi-build/CMakeFiles/sysextest_autogen_timestamp_deps.dir/progress.make
 
-_deps/rtmidi-build/CMakeFiles/sysextest_autogen_timestamp_deps: /usr/lib/qt6/libexec/moc
 _deps/rtmidi-build/CMakeFiles/sysextest_autogen_timestamp_deps: /usr/lib/qt6/libexec/uic
+_deps/rtmidi-build/CMakeFiles/sysextest_autogen_timestamp_deps: /usr/lib/qt6/libexec/moc
 _deps/rtmidi-build/CMakeFiles/sysextest_autogen_timestamp_deps: _deps/rtmidi-build/librtmidi.so.6.0.0
 
 sysextest_autogen_timestamp_deps: _deps/rtmidi-build/CMakeFiles/sysextest_autogen_timestamp_deps
