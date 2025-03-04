@@ -90,23 +90,88 @@ void ScoreView::resizeEvent(QResizeEvent *event)
 
 void ScoreView::scrollContentsBy(int dx, int dy)
 {
+    // Call base implementation first
     QGraphicsView::scrollContentsBy(dx, dy);
+    
     if (m_viewportManager) {
         // Convert scroll position to scene coordinates
+        QPointF oldCenter = mapToScene(viewport()->rect().center());
         QPointF scrollPos = mapToScene(QPoint(0, 0));
+        
         qDebug() << "ScoreView::scrollContentsBy -"
                  << "dx:" << dx << "dy:" << dy
-                 << "ScrollPos:" << scrollPos;
+                 << "ScrollPos:" << scrollPos
+                 << "Center:" << oldCenter;
                  
-        // ViewportManager will handle grid unit conversion
+        // Update viewport manager with new scroll position
         m_viewportManager->updateScrollPosition(scrollPos);
+        
+        // Update grid visuals with current view center
         updateGridVisuals();
+        
+        // Maintain view center after grid update
+        centerOn(oldCenter);
     }
 }
 
 void ScoreView::mousePressEvent(QMouseEvent *event)
 {
     if (event->button() == Qt::LeftButton) {
+        QPointF scenePos = mapToScene(event->pos());
+        auto dimensions = m_noteGrid->getDimensions();
+        
+        // Calculate expansion button regions in scene coordinates
+        QRectF topButton(
+            0,  // Start from left edge
+            (dimensions.minPitch - 1) * NOTE_HEIGHT,
+            dimensions.endPosition * GRID_UNIT,
+            NOTE_HEIGHT
+        );
+        
+        QRectF bottomButton(
+            0,  // Start from left edge
+            dimensions.maxPitch * NOTE_HEIGHT,
+            dimensions.endPosition * GRID_UNIT,
+            NOTE_HEIGHT
+        );
+        
+        QRectF rightButton(
+            dimensions.endPosition * GRID_UNIT,
+            (dimensions.minPitch - 1) * NOTE_HEIGHT,  // Include expansion areas
+            GRID_UNIT,
+            (dimensions.maxPitch - dimensions.minPitch + 2) * NOTE_HEIGHT
+        );
+
+        // Check if click was in expansion buttons and handle them exclusively
+        if (topButton.contains(scenePos)) {
+            m_viewportManager->expandGrid(ViewportManager::Direction::Up, 12);
+            event->accept();
+            return;
+        } 
+        if (bottomButton.contains(scenePos)) {
+            m_viewportManager->expandGrid(ViewportManager::Direction::Down, 12);
+            event->accept();
+            return;
+        } 
+        if (rightButton.contains(scenePos)) {
+            m_viewportManager->expandGrid(ViewportManager::Direction::Right, 4);
+            event->accept();
+            return;
+        }
+        
+        // Only handle note placement if not clicking expansion buttons
+        // Convert scene position to musical coordinates
+        QPointF musicalPos = m_viewportManager->mapToMusicalSpace(event->pos(), this);
+        
+        // Clamp to valid ranges
+        int position = qBound(dimensions.startPosition, 
+                            qRound(musicalPos.x()), 
+                            dimensions.endPosition - 1);
+        int pitch = qBound(dimensions.minPitch, 
+                          qRound(musicalPos.y()), 
+                          dimensions.maxPitch - 1);
+        
+        // Start note placement
         m_isSelecting = true;
         m_lastMousePos = event->pos();
     }
@@ -134,9 +199,17 @@ void ScoreView::mouseReleaseEvent(QMouseEvent *event)
         
         // If this is a click (not a drag), potentially add a note
         if ((event->pos() - m_lastMousePos).manhattanLength() < 3) {
-            // Round to nearest grid position
-            int pitch = qRound(musicalPos.y());
-            int position = qRound(musicalPos.x());
+            // Get current grid dimensions
+            auto dimensions = m_noteGrid->getDimensions();
+            
+            // Round to nearest grid position and clamp to valid range
+            int pitch = qBound(dimensions.minPitch, 
+                             qRound(musicalPos.y()),
+                             dimensions.maxPitch - 1);
+            int position = qBound(dimensions.startPosition,
+                                qRound(musicalPos.x()),
+                                dimensions.endPosition - 1);
+                                
             // Emit signal with the note position
             emit noteAdded(pitch, 1.0, position);
         }
@@ -339,63 +412,48 @@ void ScoreView::updateGridVisuals()
         return;
     }
     
-    // Get current viewport bounds in scene coordinates
-    QRectF visibleSceneRect = mapToScene(viewport()->rect()).boundingRect();
-    
-    // Get current zoom level
-    float zoom = transform().m11();
-    
-    qDebug() << "ScoreView::updateGridVisuals -" 
-             << "VisibleScene:" << visibleSceneRect
-             << "Zoom:" << zoom;
-    
-    // Create a musical-space representation of what's visible
-    QPointF topLeft(
-        visibleSceneRect.left() / GRID_UNIT,
-        visibleSceneRect.top() / NOTE_HEIGHT
-    );
-    
-    QPointF bottomRight(
-        visibleSceneRect.right() / GRID_UNIT,
-        visibleSceneRect.bottom() / NOTE_HEIGHT
-    );
-    
-    QRectF musicalBounds(topLeft, bottomRight);
-    
-    // Clean up any previous debug visualization
-    static QGraphicsRectItem* lastDebugRect = nullptr;
-    if (lastDebugRect) {
-        scene()->removeItem(lastDebugRect);
-        delete lastDebugRect;
-        lastDebugRect = nullptr;
-    }
-    
-    // For debug visualization only - show current visible area
-    if (zoom > 0.3) { // Only when zoomed in enough to see
-        lastDebugRect = new QGraphicsRectItem(visibleSceneRect);
-        lastDebugRect->setPen(QPen(QColor(0, 255, 0, 100), 2));  // Semi-transparent green
-        lastDebugRect->setZValue(50);
-        scene()->addItem(lastDebugRect);
-    }
-    
-    // Update viewport manager with visible bounds in musical space
-    m_viewportManager->setViewportBounds(musicalBounds);
-    
-    // Update grid with the visible scene coordinates for rendering
+    // Get current grid dimensions
     auto dimensions = m_noteGrid->getDimensions();
-    QRectF fullGridRect(
-        dimensions.startPosition * GRID_UNIT,
+    
+    // Calculate scene rect size with padding for labels and expansion buttons
+    float labelMargin = 25.0f;  // Space for labels on left
+    float buttonPadding = NOTE_HEIGHT;  // Space for expansion buttons
+    
+    // Create scene rect that includes the entire grid plus margins
+    QRectF sceneRect(
+        -labelMargin,  // Add space for labels on the left
+        (dimensions.minPitch - 1) * NOTE_HEIGHT,  // One note height above for top expansion
+        (dimensions.endPosition + 1) * GRID_UNIT + 2 * labelMargin,  // Grid width plus margins
+        (dimensions.maxPitch - dimensions.minPitch + 2) * NOTE_HEIGHT  // Grid height plus expansion buttons
+    );
+    
+    // Update scene rect
+    scene()->setSceneRect(sceneRect);
+    
+    // Get current viewport rect in scene coordinates
+    QRectF viewportSceneRect = mapToScene(viewport()->rect()).boundingRect();
+    
+    // Create grid rect based on dimensions
+    QRectF gridRect(
+        0,  // Grid starts at 0
         dimensions.minPitch * NOTE_HEIGHT,
-        (dimensions.endPosition - dimensions.startPosition) * GRID_UNIT,
+        dimensions.endPosition * GRID_UNIT,
         (dimensions.maxPitch - dimensions.minPitch) * NOTE_HEIGHT
     );
     
-    // Ensure we're rendering at least the full grid area
-    QRectF renderArea = visibleSceneRect.united(fullGridRect);
+    // Convert viewport rect to musical coordinates for viewport manager
+    QRectF musicalBounds(
+        qMax(0.0, viewportSceneRect.x() / GRID_UNIT),
+        dimensions.minPitch,  // Lock to current octave
+        viewportSceneRect.width() / GRID_UNIT,
+        12  // Force octave height
+    );
     
-    // Update the grid and grid lines with the determined area
-    m_noteGrid->updateGrid(renderArea);
-    m_noteGrid->updateGridLines(renderArea, zoom);
+    // Update viewport manager
+    m_viewportManager->setViewportBounds(musicalBounds);
+    
+    // Update grid visuals
+    m_noteGrid->updateGrid(gridRect);
 }
 
 QPointF ScoreView::mapToMusicalSpace(const QPointF& screenPoint) const
@@ -403,13 +461,18 @@ QPointF ScoreView::mapToMusicalSpace(const QPointF& screenPoint) const
     if (!m_viewportManager) {
         return QPointF();
     }
+    
     QPointF scenePoint = mapToScene(screenPoint.toPoint());
     
-    // Convert from scene coordinates to musical coordinates
-    scenePoint.rx() /= GRID_UNIT;
-    scenePoint.ry() /= NOTE_HEIGHT;
+    // Get current grid dimensions for proper mapping
+    auto dimensions = m_noteGrid->getDimensions();
     
-    return scenePoint;
+    // Convert from scene coordinates to musical coordinates
+    double musicalX = scenePoint.x() / GRID_UNIT;
+    // Map Y coordinate relative to the current octave range
+    double musicalY = dimensions.minPitch + (scenePoint.y() / NOTE_HEIGHT);
+    
+    return QPointF(musicalX, musicalY);
 }
 
 QPointF ScoreView::mapFromMusicalSpace(const QPointF& musicalPoint) const
@@ -419,8 +482,10 @@ QPointF ScoreView::mapFromMusicalSpace(const QPointF& musicalPoint) const
     }
     
     // Convert from musical coordinates to scene coordinates
-    QPointF scenePoint(musicalPoint.x() * GRID_UNIT, musicalPoint.y() * NOTE_HEIGHT);
-    return mapFromScene(scenePoint);
+    double sceneX = musicalPoint.x() * GRID_UNIT;
+    double sceneY = musicalPoint.y() * NOTE_HEIGHT;
+    
+    return mapFromScene(QPointF(sceneX, sceneY));
 }
 
 MusicTrainer::music::Duration ScoreView::convertToMusicalDuration(double numericDuration) {
@@ -464,28 +529,64 @@ void ScoreView::handleNoteAdded(int pitch, double duration, int position)
              << "Duration:" << duration
              << "Position:" << position;
              
-    // Create note components using factory methods
-    MusicTrainer::music::Pitch notePitch = MusicTrainer::music::Pitch::fromMidiNote(static_cast<uint8_t>(pitch));
+    // Create note components directly - pitch is already a valid MIDI note number
+    MusicTrainer::music::Pitch notePitch = MusicTrainer::music::Pitch::fromMidiNote(pitch);
     MusicTrainer::music::Duration noteDuration = convertToMusicalDuration(duration);
     
-    // Create a Note with the correct constructor parameters (pitch, duration)
-    MusicTrainer::music::Note note(notePitch, duration, position);
+    // Create a Note object with the converted pitch
+    MusicTrainer::music::Note note(notePitch, noteDuration.getTotalBeats(), position);
              
     if (m_score) {
         // If we have a score, add it through the score's interface
         auto voice = m_score->getVoice(0); // Use first voice for now
         if (voice) {
-            // Use the duration value directly instead of the Duration object
             voice->addNote(notePitch, duration, position);
             m_score->setCurrentPosition(position + duration);
         }
     }
     
-    // Always add to the grid for visual representation
-    // Make sure to pass the actual MIDI note number, not the position as the pitch
+    // Add to grid for visual representation
     m_noteGrid->addNote(note, 0, position);
     updateGridVisuals();
     checkViewportExpansion();
+}
+
+void ScoreView::expandGrid(ViewportManager::Direction direction, int amount)
+{
+    if (!m_viewportManager) return;
+
+    // Store scroll position and center before expansion
+    QPointF oldCenter = mapToScene(viewport()->rect().center());
+    QPointF oldCorner = mapToScene(QPoint(0, 0));
+    
+    // Block viewport updates during expansion
+    setUpdatesEnabled(false);
+    
+    // Perform grid expansion
+    m_viewportManager->expandGrid(direction, amount);
+    
+    // Re-enable updates
+    setUpdatesEnabled(true);
+    
+    // Adjust viewport to maintain musical position
+    QPointF newCenter;
+    if (direction == ViewportManager::Direction::Up || 
+        direction == ViewportManager::Direction::Down) {
+        // For vertical expansion, maintain the same horizontal position
+        auto dims = m_noteGrid->getDimensions();
+        newCenter = QPointF(
+            oldCenter.x(),
+            (dims.minPitch + 6) * NOTE_HEIGHT  // Center vertically in new octave
+        );
+        centerOn(newCenter);
+    } else {
+        // For horizontal expansion, maintain the same center
+        centerOn(oldCenter);
+    }
+    
+    // Force a full update
+    viewport()->update();
+    scene()->update();
 }
 
 } // namespace MusicTrainer::presentation

@@ -5,7 +5,8 @@ namespace MusicTrainer {
 namespace music {
 
 namespace {
-    constexpr std::array<uint8_t, 7> noteToMidi = {60, 62, 64, 65, 67, 69, 71}; // C4 to B4
+    // Base note values for C major scale (relative to C for each octave)
+    constexpr std::array<uint8_t, 7> noteToMidi = {0, 2, 4, 5, 7, 9, 11};  // Semitones from C
     constexpr std::array<const char*, 7> noteNames = {"C", "D", "E", "F", "G", "A", "B"};
 }
 
@@ -14,10 +15,11 @@ Pitch Pitch::create(NoteName note, int8_t octave, int8_t accidental) {
 }
 
 Pitch Pitch::fromMidiNote(uint8_t midiNote) {
-    int octave = (midiNote / 12) - 1;
+    // Convert MIDI note to note name and octave
+    int octave = (midiNote / 12) - 1;  // MIDI note 60 is middle C (C4)
     int noteInOctave = midiNote % 12;
     
-    // Map MIDI note numbers back to note names and accidentals
+    // Map the note within the octave to note name and accidental
     static const std::array<std::pair<NoteName, int8_t>, 12> midiToNote = {
         std::make_pair(NoteName::C, 0),    // C
         std::make_pair(NoteName::C, 1),    // C#
@@ -40,8 +42,9 @@ Pitch::Pitch(NoteName note, int8_t octave, int8_t accidental)
     : noteName(note), octave(octave), accidental(accidental) {}
 
 uint8_t Pitch::getMidiNote() const {
+    // Convert note name to semitones from C, then add octave offset and accidentals
     uint8_t base = noteToMidi[static_cast<int>(noteName)];
-    return ((octave + 1) * 12) + base + accidental;
+    return base + (octave + 1) * 12 + accidental;  // Fixed order of operations
 }
 
 std::string Pitch::toString() const {

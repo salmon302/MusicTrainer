@@ -376,60 +376,28 @@ CMakeFiles/MusicTrainerGUI.dir/MusicTrainerGUI_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractbutton.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/MusicTrainerGUI_autogen/5PPTR2THOO/moc_FeedbackArea.cpp \
  /home/seth-n/Documents/GitHub/MusicTrainer/MusicTrainerGUI_autogen/5PPTR2THOO/../../include/presentation/FeedbackArea.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTextEdit \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTabWidget \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtabwidget.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTableWidget \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtablewidget.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtableview.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCharts/QChart \
- /usr/include/x86_64-linux-gnu/qt6/QtCharts/qchart.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCharts/QAbstractSeries \
- /usr/include/x86_64-linux-gnu/qt6/QtCharts/qabstractseries.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCharts/QChartGlobal \
- /usr/include/x86_64-linux-gnu/qt6/QtCharts/qchartglobal.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCharts/qtcharts-config.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCharts/qtchartsexports.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCharts/QAbstractAxis \
- /usr/include/x86_64-linux-gnu/qt6/QtCharts/qabstractaxis.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/QPen \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qpen.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/QFont \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qfont.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QVariant \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qvariant.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QObject \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qobject.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCharts/QLegend \
- /usr/include/x86_64-linux-gnu/qt6/QtCharts/qlegend.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QGraphicsWidget \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicswidget.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicslayoutitem.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qevent.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qcoreevent.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qiodevice.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qpointer.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qeventpoint.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qvector2d.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qvectornd.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qpointingdevice.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qinputdevice.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qscreen.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QList \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qlist.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QRect \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qrect.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QSize \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qsize.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QSizeF \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/QTransform \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qtransform.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qnativeinterface.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicsitem.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qpainterpath.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/QBrush \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qbrush.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QMargins \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qmargins.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QVBoxLayout \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qboxlayout.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlayout.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlayoutitem.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qboxlayout.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgridlayout.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QListWidget \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Score.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Voice.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Note.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Pitch.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Duration.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/VoiceChart.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Interval.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/analysis/VoiceAnalyzer.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/MusicTrainerGUI_autogen/5PPTR2THOO/moc_MainWindow.cpp \
  /home/seth-n/Documents/GitHub/MusicTrainer/MusicTrainerGUI_autogen/5PPTR2THOO/../../include/presentation/MainWindow.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMainWindow \
@@ -443,21 +411,7 @@ CMakeFiles/MusicTrainerGUI.dir/MusicTrainerGUI_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qpainter.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qscrollarea.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicsscene.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Score.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Voice.h \
- /usr/include/c++/13/thread /usr/include/c++/13/bits/std_thread.h \
- /usr/include/c++/13/bits/this_thread_sleep.h /usr/include/c++/13/mutex \
- /usr/include/c++/13/bits/std_mutex.h \
- /usr/include/c++/13/bits/unique_lock.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Pitch.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Duration.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Note.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Voice.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Duration.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/GridConstants.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/QtTypes.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QMetaType \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qmetatype.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/MusicTrainerGUI_autogen/5PPTR2THOO/moc_TransportControls.cpp \
  /home/seth-n/Documents/GitHub/MusicTrainer/MusicTrainerGUI_autogen/5PPTR2THOO/../../include/presentation/TransportControls.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QSlider \
@@ -468,6 +422,10 @@ CMakeFiles/MusicTrainerGUI.dir/MusicTrainerGUI_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qcombobox.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QCheckBox \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qcheckbox.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/MusicTrainerGUI_autogen/5PPTR2THOO/moc_VoiceChart.cpp \
  /home/seth-n/Documents/GitHub/MusicTrainer/MusicTrainerGUI_autogen/CNFTXHMAZD/moc_ScoreViewModel.cpp \
  /home/seth-n/Documents/GitHub/MusicTrainer/MusicTrainerGUI_autogen/CNFTXHMAZD/../../include/presentation/viewmodels/ScoreViewModel.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QObject
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QObject \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qobject.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QAbstractListModel \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qabstractitemmodel.h

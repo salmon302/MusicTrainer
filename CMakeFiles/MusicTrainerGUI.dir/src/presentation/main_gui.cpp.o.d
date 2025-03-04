@@ -356,16 +356,16 @@ CMakeFiles/MusicTrainerGUI.dir/src/presentation/main_gui.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QMetaType \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qmetatype.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Voice.h \
- /usr/include/c++/13/thread /usr/include/c++/13/bits/std_thread.h \
- /usr/include/c++/13/bits/this_thread_sleep.h /usr/include/c++/13/mutex \
- /usr/include/c++/13/bits/std_mutex.h \
- /usr/include/c++/13/bits/unique_lock.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Note.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Pitch.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Duration.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Note.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/utils/DebugUtils.h \
- /usr/include/c++/13/sstream /usr/include/c++/13/istream \
- /usr/include/c++/13/ios /usr/include/c++/13/bits/basic_ios.h \
+ /usr/include/c++/13/mutex /usr/include/c++/13/bits/std_mutex.h \
+ /usr/include/c++/13/bits/unique_lock.h /usr/include/c++/13/thread \
+ /usr/include/c++/13/bits/std_thread.h \
+ /usr/include/c++/13/bits/this_thread_sleep.h /usr/include/c++/13/sstream \
+ /usr/include/c++/13/istream /usr/include/c++/13/ios \
+ /usr/include/c++/13/bits/basic_ios.h \
  /usr/include/c++/13/bits/locale_facets.h /usr/include/c++/13/cwctype \
  /usr/include/wctype.h /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h \
@@ -381,5 +381,4 @@ CMakeFiles/MusicTrainerGUI.dir/src/presentation/main_gui.cpp.o: \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/ports/MidiAdapter.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/adapters/LockFreeEventQueue.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/_deps/rtmidi-src/RtMidi.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Score.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Voice.h
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Score.h

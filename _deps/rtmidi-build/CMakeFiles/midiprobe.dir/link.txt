@@ -1,1 +1,1 @@
-/usr/bin/c++  -pthread -Wall -Werror -g CMakeFiles/midiprobe.dir/midiprobe_autogen/mocs_compilation.cpp.o CMakeFiles/midiprobe.dir/tests/midiprobe.cpp.o -o tests/midiprobe  -Wl,-rpath,/home/seth-n/Documents/GitHub/MusicTrainer/_deps/rtmidi-build librtmidi.so.6.0.0 
+/usr/bin/c++ -Wno-error=deprecated-declarations -pthread -Wall -Werror -g CMakeFiles/midiprobe.dir/midiprobe_autogen/mocs_compilation.cpp.o CMakeFiles/midiprobe.dir/tests/midiprobe.cpp.o -o tests/midiprobe  -Wl,-rpath,/home/seth-n/Documents/GitHub/MusicTrainer/_deps/rtmidi-build librtmidi.so.6.0.0 

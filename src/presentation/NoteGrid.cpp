@@ -6,6 +6,7 @@
 #include <QBrush>
 #include <QPen>
 #include <QDebug>
+#include <QGraphicsView> // Added include for QGraphicsView
 
 namespace MusicTrainer::presentation {
 
@@ -18,13 +19,28 @@ NoteGrid::NoteGrid(QGraphicsScene* scene)
              << "Pitch range:" << m_dimensions.minPitch << "-" << m_dimensions.maxPitch
              << "Time range:" << m_dimensions.startPosition << "-" << m_dimensions.endPosition;
     
-    // Add initial gridlines with exact dimensions
-    updateGridLines(QRectF(
-        m_dimensions.startPosition * GRID_UNIT,
-        m_dimensions.minPitch * NOTE_HEIGHT,
-        (m_dimensions.endPosition - m_dimensions.startPosition) * GRID_UNIT,
-        (m_dimensions.maxPitch - m_dimensions.minPitch) * NOTE_HEIGHT
-    ), 1.0f);
+    // Create initial scene rect with one octave height
+    QRectF initialBounds(
+        0,  // Start at left edge
+        m_dimensions.minPitch * NOTE_HEIGHT,  // Start at C4
+        m_dimensions.endPosition * GRID_UNIT,  // Full width
+        12 * NOTE_HEIGHT  // Exactly one octave
+    );
+    
+    // Block signals during initial setup
+    m_scene->blockSignals(true);
+    
+    // Set up initial grid lines
+    updateGridLines(initialBounds, 1.0f);
+    
+    // Re-enable signals and force update
+    m_scene->blockSignals(false);
+    m_scene->update(m_scene->sceneRect());
+    
+    // Ensure view is updated
+    if (m_scene->views().size() > 0) {
+        m_scene->views().first()->viewport()->update();
+    }
 }
 
 NoteGrid::~NoteGrid() = default;
@@ -37,6 +53,10 @@ const NoteGrid::GridDimensions& NoteGrid::getDimensions() const
 NoteGrid::GridDimensions NoteGrid::validateDimensions(const GridDimensions& dimensions) const 
 {
     GridDimensions validated = dimensions;
+    
+    // Ensure valid ranges
+    validated.startPosition = qMax(0, validated.startPosition);
+    validated.endPosition = qMax(validated.startPosition + 1, validated.endPosition);
     
     // Enforce exactly one octave (12 semitones)
     validated.maxPitch = validated.minPitch + getOctaveRange();
@@ -52,8 +72,7 @@ NoteGrid::GridDimensions NoteGrid::validateDimensions(const GridDimensions& dime
     }
     
     // Enforce 12 measures maximum (48 beats in 4/4 time)
-    validated.startPosition = dimensions.startPosition;
-    validated.endPosition = qMin(dimensions.startPosition + 48, dimensions.endPosition);
+    validated.endPosition = qMin(validated.startPosition + 48, validated.endPosition);
     
     return validated;
 }
@@ -62,31 +81,21 @@ void NoteGrid::setDimensions(const GridDimensions& dimensions)
 {
     // Store the previous dimensions for logging
     GridDimensions oldDimensions = m_dimensions;
+    GridDimensions validDimensions = validateDimensions(dimensions);
     
-    // Only allow octave change if within valid MIDI range
-    if (dimensions.minPitch >= 0 && dimensions.minPitch + 12 <= 127) {
-        m_dimensions.minPitch = dimensions.minPitch;
-        m_dimensions.maxPitch = m_dimensions.minPitch + 12;  // Force exactly one octave
-    }
-    
-    // Enforce 12 measures maximum
-    m_dimensions.startPosition = dimensions.startPosition;
-    m_dimensions.endPosition = qMin(dimensions.startPosition + 48,
-                                  dimensions.endPosition);
+    // Update dimensions
+    m_dimensions = validDimensions;
     
     qDebug() << "NoteGrid::setDimensions - Old:" << oldDimensions.minPitch << "-" << oldDimensions.maxPitch
              << "New:" << m_dimensions.minPitch << "-" << m_dimensions.maxPitch;
     
     // Create scene rect based on constrained dimensions
-    QRectF newBounds(
+    updateGrid(QRectF(
         m_dimensions.startPosition * GRID_UNIT,
         m_dimensions.minPitch * NOTE_HEIGHT,
         (m_dimensions.endPosition - m_dimensions.startPosition) * GRID_UNIT,
         12 * NOTE_HEIGHT  // Force one octave height
-    );
-    
-    // Update visuals with constrained bounds
-    updateGrid(newBounds);
+    ));
 }
 
 void NoteGrid::expandVertical(int minPitchDelta, int maxPitchDelta)
@@ -99,25 +108,43 @@ void NoteGrid::expandVertical(int minPitchDelta, int maxPitchDelta)
     
     // Check if new pitch range would be valid
     int newMinPitch = m_dimensions.minPitch + minPitchDelta;
-    if (newMinPitch < 0 || newMinPitch + 12 > 127) {
+    int newMaxPitch = m_dimensions.maxPitch + maxPitchDelta;
+    
+    if (newMinPitch < 0 || newMaxPitch > 127) {
         qDebug() << "NoteGrid::expandVertical - Blocked expansion outside MIDI range";
         return;
     }
     
-    // Update pitch range while maintaining octave
-    m_dimensions.minPitch = newMinPitch;
-    m_dimensions.maxPitch = m_dimensions.minPitch + 12;
-    
-    // Create scene rect based on new dimensions
-    QRectF newBounds(
-        m_dimensions.startPosition * GRID_UNIT,
+    qDebug() << "NoteGrid::expandVertical - Shifting octave from" 
+             << m_dimensions.minPitch << "-" << m_dimensions.maxPitch
+             << "to" << newMinPitch << "-" << newMaxPitch;
+             
+    // Create scene rect for current state
+    QRectF oldBounds(
+        0,
         m_dimensions.minPitch * NOTE_HEIGHT,
-        (m_dimensions.endPosition - m_dimensions.startPosition) * GRID_UNIT,
-        12 * NOTE_HEIGHT  // Force one octave height
+        m_dimensions.endPosition * GRID_UNIT,
+        12 * NOTE_HEIGHT
     );
     
-    // Update visuals
-    updateGrid(newBounds);
+    // Update pitch range while maintaining octave size
+    m_dimensions.minPitch = newMinPitch;
+    m_dimensions.maxPitch = newMaxPitch;
+    
+    // Create scene rect for new state
+    QRectF newBounds(
+        0,
+        m_dimensions.minPitch * NOTE_HEIGHT,
+        m_dimensions.endPosition * GRID_UNIT,
+        12 * NOTE_HEIGHT
+    );
+    
+    // Clear and redraw grid with expanded bounds
+    clearGridElements();
+    updateGridLines(newBounds, 1.0f);
+    
+    // Force scene update for the affected area
+    m_scene->update(oldBounds.united(newBounds));
 }
 
 void NoteGrid::expandHorizontal(int amount)
@@ -128,6 +155,9 @@ void NoteGrid::expandHorizontal(int amount)
         return;
     }
     
+    qDebug() << "NoteGrid::expandHorizontal - Expanding by" << amount 
+             << "beats from" << m_dimensions.endPosition;
+             
     m_dimensions.endPosition += amount;
     
     // Create scene rect based on new dimensions
@@ -138,7 +168,8 @@ void NoteGrid::expandHorizontal(int amount)
         12 * NOTE_HEIGHT  // Force one octave height
     );
     
-    // Update visuals
+    // Update visuals - reestablish the grid boundaries after expansion
+    clearGridElements();  // Clear existing grid elements first
     updateGrid(newBounds);
 }
 
@@ -199,56 +230,78 @@ void NoteGrid::addNote(const MusicTrainer::music::Note& note, int voiceIndex)
 
 void NoteGrid::addNote(const MusicTrainer::music::Note& note, int voiceIndex, int position)
 {
-    // Extract MIDI note number from the Pitch object
-    int pitch = note.getPitch().getMidiNote(); // Get midi note number from Pitch object
+    // Get the raw MIDI note number from the pitch
+    int pitch = note.getPitch().getMidiNote();
     
-    // Create a cell at the specified position
+    qDebug() << "NoteGrid::addNote -"
+             << "Position:" << position
+             << "MIDI pitch:" << pitch
+             << "Voice:" << voiceIndex;
+    
+    // Create a cell at the specified position - let getOrCreateCell handle bounds checking
     auto cell = getOrCreateCell(position, pitch);
-    
-    // Set the note in the cell with proper duration and voice
-    cell->setNote(note, voiceIndex);
-    
-    m_noteCount++;
+    if (cell) {
+        // Set the note in the cell with proper duration and voice
+        cell->setNote(note, voiceIndex);
+    }
 }
 
 void NoteGrid::updateGridLines(const QRectF& visibleRect, float zoomLevel)
 {
-    // Clear existing grid lines
-    clearGridElements();
+    // Convert bounds to integral musical coordinates and validate
+    int startPos = qMax(0, qFloor(visibleRect.left() / GRID_UNIT));
+    int endPos = m_dimensions.endPosition;
+    int minPitch = m_dimensions.minPitch;
+    int maxPitch = m_dimensions.maxPitch;
     
-    // Convert scene coordinates to musical coordinates
-    QRectF gridRect(
-        visibleRect.x() / GRID_UNIT,
-        visibleRect.y() / NOTE_HEIGHT,
-        visibleRect.width() / GRID_UNIT,
-        12  // Force one octave height
-    );
+    // Clear existing grid elements
+    clearGridElements();
     
     qDebug() << "NoteGrid::updateGridLines - Refresh -"
              << "SceneRect:" << visibleRect
-             << "GridRect:" << gridRect
-             << "Zoom:" << zoomLevel
-             << "GridDims - Pitch:" << m_dimensions.minPitch << "-" << m_dimensions.maxPitch
-             << "Time:" << m_dimensions.startPosition << "-" << m_dimensions.endPosition;
+             << "Musical coords - Time:" << startPos << "-" << endPos
+             << "Pitch:" << minPitch << "-" << maxPitch
+             << "Zoom:" << zoomLevel;
     
-    // Create new grid lines within constrained bounds
+    // Draw grid lines within valid bounds
     updateGridLineItems(true);  // Major lines
     updateGridLineItems(false); // Minor lines
 }
 
 void NoteGrid::updateGrid(const QRectF& bounds)
 {
-    // Ensure bounds maintain one octave height
-    QRectF constrainedBounds = bounds;
-    constrainedBounds.setHeight(12 * NOTE_HEIGHT);
+    // Convert bounds to integral musical coordinates and validate
+    int startPos = qMax(0, qFloor(bounds.left() / GRID_UNIT));
+    int endPos = qMin(m_dimensions.endPosition, qCeil(bounds.right() / GRID_UNIT));
+    int minPitch = qBound(0, qFloor(bounds.top() / NOTE_HEIGHT), 127);
+    int maxPitch = qBound(0, qCeil(bounds.bottom() / NOTE_HEIGHT), 127);
+    
+    // Construct valid bounds in scene coordinates
+    QRectF validBounds(
+        startPos * GRID_UNIT,
+        minPitch * NOTE_HEIGHT,
+        (endPos - startPos) * GRID_UNIT,
+        (maxPitch - minPitch) * NOTE_HEIGHT
+    );
     
     qDebug() << "NoteGrid::updateGrid - Original bounds:" << bounds
-             << "Grid bounds:" << constrainedBounds
-             << "NoteCount:" << m_noteCount
-             << "ActiveCells:" << m_gridCells.size();
+             << "Grid bounds:" << validBounds
+             << "Musical coords - Time:" << startPos << "-" << endPos
+             << "Pitch:" << minPitch << "-" << maxPitch;
     
-    // Update grid lines with constrained bounds
-    updateGridLines(constrainedBounds, 1.0f);
+    // Clear and update grid elements with a single scene update
+    m_scene->blockSignals(true);  // Block updates during changes
+    clearGridElements();
+    updateGridLines(validBounds, 1.0f);
+    m_scene->blockSignals(false); // Re-enable updates
+    
+    // Force a full scene update
+    m_scene->update(m_scene->sceneRect());
+    
+    // Request view update through the scene
+    if (m_scene->views().size() > 0) {
+        m_scene->views().first()->viewport()->update();
+    }
 }
 
 void NoteGrid::clear()
@@ -304,7 +357,7 @@ GridCell* NoteGrid::getOrCreateCell(int position, int pitch)
     // Enforce grid bounds
     if (position < m_dimensions.startPosition || position >= m_dimensions.endPosition ||
         pitch < m_dimensions.minPitch || pitch >= m_dimensions.maxPitch) {
-        qDebug() << "NoteGrid::getOrCreateCell - Rejecting out-of-bounds cell at"
+        qDebug() << "NoteGrid::getOrCreateCell - Clamping out-of-bounds cell at"
                  << "Position:" << position << "Pitch:" << pitch
                  << "Grid bounds:" << m_dimensions.minPitch << "-" << m_dimensions.maxPitch
                  << m_dimensions.startPosition << "-" << m_dimensions.endPosition;
@@ -319,7 +372,6 @@ GridCell* NoteGrid::getOrCreateCell(int position, int pitch)
     auto& cell = pitchMap[pitch];
     if (!cell) {
         cell = std::make_unique<GridCell>(position, pitch, m_scene);
-        m_noteCount++;
     }
     
     return cell.get();
@@ -327,27 +379,127 @@ GridCell* NoteGrid::getOrCreateCell(int position, int pitch)
 
 void NoteGrid::updateGridLineItems(bool majorLines)
 {
-    // Implementation not needed for now
+    // Set up line style based on major/minor lines
+    QPen linePen(majorLines ? Qt::black : Qt::gray);
+    linePen.setWidth(majorLines ? 2 : 1);
+
+    // Calculate step sizes
+    int horizontalStep = majorLines ? 12 : 1;  // One octave or one semitone
+    int verticalStep = majorLines ? 4 : 1;     // One bar or one beat
+
+    // Draw horizontal pitch lines
+    for (int pitch = m_dimensions.minPitch; pitch <= m_dimensions.maxPitch; pitch += horizontalStep) {
+        auto* line = new QGraphicsLineItem(
+            0,  // Start from left edge
+            pitch * NOTE_HEIGHT,
+            m_dimensions.endPosition * GRID_UNIT,  // Extend to right edge
+            pitch * NOTE_HEIGHT
+        );
+        line->setPen(linePen);
+        m_scene->addItem(line);
+        
+        if (majorLines) {
+            m_majorHorizontalLines.push_back(line);
+            
+            // Add octave labels (e.g., "C4") for C notes
+            if (pitch % 12 == 0) {
+                int octave = (pitch / 12) - 1;
+                auto* label = new QGraphicsTextItem(QString("C%1").arg(octave));
+                label->setDefaultTextColor(Qt::black);
+                label->setPos(
+                    -GRID_UNIT,  // Place left of grid
+                    pitch * NOTE_HEIGHT - NOTE_HEIGHT/2  // Centered on pitch line
+                );
+                m_scene->addItem(label);
+                m_horizontalLines.push_back(label);
+            }
+        } else {
+            m_horizontalLines.push_back(line);
+        }
+    }
+
+    // Draw vertical time division lines
+    for (int pos = 0; pos <= m_dimensions.endPosition; pos += verticalStep) {
+        auto* line = new QGraphicsLineItem(
+            pos * GRID_UNIT,
+            m_dimensions.minPitch * NOTE_HEIGHT,
+            pos * GRID_UNIT,
+            m_dimensions.maxPitch * NOTE_HEIGHT
+        );
+        line->setPen(linePen);
+        m_scene->addItem(line);
+        
+        if (majorLines) {
+            m_majorVerticalLines.push_back(line);
+        } else {
+            m_verticalLines.push_back(line);
+        }
+    }
+
+    // Add expansion buttons for major lines only
+    if (majorLines) {
+        // Top expansion button - full width
+        auto* topArrow = m_scene->addRect(
+            0,
+            (m_dimensions.minPitch - 1) * NOTE_HEIGHT,
+            m_dimensions.endPosition * GRID_UNIT,
+            NOTE_HEIGHT,
+            QPen(Qt::black),
+            QBrush(QColor(240, 240, 240))
+        );
+        topArrow->setZValue(10);
+        m_majorHorizontalLines.push_back(topArrow);
+
+        // Bottom expansion button - full width
+        auto* bottomArrow = m_scene->addRect(
+            0,
+            m_dimensions.maxPitch * NOTE_HEIGHT,
+            m_dimensions.endPosition * GRID_UNIT,
+            NOTE_HEIGHT,
+            QPen(Qt::black),
+            QBrush(QColor(240, 240, 240))
+        );
+        bottomArrow->setZValue(10);
+        m_majorHorizontalLines.push_back(bottomArrow);
+
+        // Right expansion button - full height including expansion areas
+        auto* rightArrow = m_scene->addRect(
+            m_dimensions.endPosition * GRID_UNIT,
+            (m_dimensions.minPitch - 1) * NOTE_HEIGHT,
+            GRID_UNIT,
+            (m_dimensions.maxPitch - m_dimensions.minPitch + 2) * NOTE_HEIGHT,
+            QPen(Qt::black),
+            QBrush(QColor(240, 240, 240))
+        );
+        rightArrow->setZValue(10);
+        m_majorVerticalLines.push_back(rightArrow);
+    }
 }
 
 void NoteGrid::clearGridElements()
 {
-    // Helper function to clear a vector of grid items
-    auto clearItems = [this](std::vector<QGraphicsItem*>& items) {
-        for (auto item : items) {
-            if (item) {
-                m_scene->removeItem(item);
-                delete item;
-            }
-        }
-        items.clear();
-    };
-    
-    // Clear all grid line vectors
-    clearItems(m_horizontalLines);
-    clearItems(m_verticalLines);
-    clearItems(m_majorHorizontalLines);
-    clearItems(m_majorVerticalLines);
+    // Remove only grid lines and labels while preserving note cells
+    for (auto* item : m_horizontalLines) {
+        m_scene->removeItem(item);
+        delete item;
+    }
+    for (auto* item : m_verticalLines) {
+        m_scene->removeItem(item);
+        delete item;
+    }
+    for (auto* item : m_majorHorizontalLines) {
+        m_scene->removeItem(item);
+        delete item;
+    }
+    for (auto* item : m_majorVerticalLines) {
+        m_scene->removeItem(item);
+        delete item;
+    }
+
+    m_horizontalLines.clear();
+    m_verticalLines.clear();
+    m_majorHorizontalLines.clear();
+    m_majorVerticalLines.clear();
 }
 
 } // namespace MusicTrainer::presentation

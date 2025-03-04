@@ -18,6 +18,7 @@ _deps/rtmidi-build/rtmidi_autogen/timestamp: _deps/rtmidi-src/CMakeLists.txt \
   /usr/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake \
   /usr/share/cmake-3.28/Modules/CheckIncludeFile.cmake \
   /usr/share/cmake-3.28/Modules/CheckLibraryExists.cmake \
+  /usr/share/cmake-3.28/Modules/CheckSymbolExists.cmake \
   /usr/share/cmake-3.28/Modules/DartConfiguration.tcl.in \
   /usr/share/cmake-3.28/Modules/FindALSA.cmake \
   /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake \
@@ -468,6 +469,8 @@ _deps/rtmidi-build/CMakeFiles/rtmidi.dir/rtmidi_c.cpp.o: _deps/rtmidi-src/rtmidi
 
 /usr/include/x86_64-linux-gnu/sys/time.h:
 
+/usr/include/x86_64-linux-gnu/sys/single_threaded.h:
+
 /usr/include/c++/13/ostream:
 
 /usr/include/c++/13/bits/streambuf_iterator.h:
@@ -588,6 +591,10 @@ _deps/rtmidi-build/CMakeFiles/rtmidi.dir/rtmidi_c.cpp.o: _deps/rtmidi-src/rtmidi
 
 /usr/include/c++/13/bits/cxxabi_init_exception.h:
 
+/usr/include/c++/13/bits/cpp_type_traits.h:
+
+/usr/include/x86_64-linux-gnu/bits/types.h:
+
 /usr/include/alsa/asoundlib.h:
 
 /usr/include/c++/13/bits/stringfwd.h:
@@ -599,10 +606,6 @@ _deps/rtmidi-build/CMakeFiles/rtmidi.dir/rtmidi_c.cpp.o: _deps/rtmidi-src/rtmidi
 /usr/share/cmake-3.28/Modules/FindThreads.cmake:
 
 /usr/include/c++/13/bits/alloc_traits.h:
-
-/usr/include/c++/13/bits/localefwd.h:
-
-/usr/include/alsa/pcm.h:
 
 /usr/include/c++/13/bits/streambuf.tcc:
 
@@ -654,16 +657,6 @@ _deps/rtmidi-src/RtMidi.cpp:
 
 _deps/rtmidi-src/RtMidi.h:
 
-/usr/include/c++/13/bits/nested_exception.h:
-
-/usr/include/c++/13/bits/basic_ios.tcc:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/gthr.h:
-
-_deps/rtmidi-src/cmake/RtMidiConfigUninstall.cmake.in:
-
-/usr/include/x86_64-linux-gnu/bits/types/time_t.h:
-
 /usr/include/c++/13/istream:
 
 /usr/share/cmake-3.28/Modules/FindALSA.cmake:
@@ -694,6 +687,16 @@ _deps/rtmidi-src/cmake/RtMidi-config.cmake.in:
 
 /usr/include/alsa/seqmid.h:
 
+/usr/include/c++/13/bits/nested_exception.h:
+
+/usr/include/c++/13/bits/basic_ios.tcc:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/gthr.h:
+
+_deps/rtmidi-src/cmake/RtMidiConfigUninstall.cmake.in:
+
+/usr/include/x86_64-linux-gnu/bits/types/time_t.h:
+
 /usr/include/c++/13/bits/basic_string.tcc:
 
 /usr/include/alloca.h:
@@ -711,6 +714,8 @@ _deps/rtmidi-src/rtmidi_c.cpp:
 /usr/include/c++/13/bits/char_traits.h:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_inline.h:
+
+/usr/include/alsa/pcm.h:
 
 /usr/include/alsa/seq_midi_event.h:
 
@@ -733,6 +738,8 @@ _deps/rtmidi-src/rtmidi_c.h:
 /usr/include/alsa/timer.h:
 
 /usr/include/string.h:
+
+/usr/include/c++/13/bits/localefwd.h:
 
 /usr/share/cmake-3.28/Modules/FindPackageMessage.cmake:
 
@@ -763,10 +770,6 @@ _deps/rtmidi-src/rtmidi_c.h:
 /usr/include/alsa/conf.h:
 
 /usr/include/alsa/rawmidi.h:
-
-/usr/include/c++/13/bits/cpp_type_traits.h:
-
-/usr/include/x86_64-linux-gnu/bits/types.h:
 
 /usr/include/c++/13/iosfwd:
 
@@ -799,8 +802,6 @@ _deps/rtmidi-src/rtmidi_c.h:
 /usr/include/x86_64-linux-gnu/bits/poll.h:
 
 /usr/include/c++/13/type_traits:
-
-/usr/include/x86_64-linux-gnu/sys/single_threaded.h:
 
 /usr/include/c++/13/vector:
 
@@ -889,6 +890,8 @@ _deps/rtmidi-src/rtmidi_c.h:
 /usr/include/c++/13/bits/requires_hosted.h:
 
 /usr/include/x86_64-linux-gnu/bits/floatn-common.h:
+
+/usr/share/cmake-3.28/Modules/CheckSymbolExists.cmake:
 
 /usr/include/x86_64-linux-gnu/bits/types/wint_t.h:
 

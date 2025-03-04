@@ -319,7 +319,10 @@ MusicTrainerGUI_autogen/timestamp: \
 	/usr/include/x86_64-linux-gnu/gnu/stubs.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/QAbstractListModel \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/QObject \
+	/usr/include/x86_64-linux-gnu/qt6/QtCore/QPointF \
+	/usr/include/x86_64-linux-gnu/qt6/QtCore/QRectF \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/QSettings \
+	/usr/include/x86_64-linux-gnu/qt6/QtCore/QSize \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qabstractitemmodel.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qalgorithms.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qanystringview.h \

@@ -1,5 +1,4 @@
 #define __DBL_MIN_EXP__ (-1021)
-#define RTMIDI_NO_JACK 1
 #define __UINT_LEAST16_MAX__ 0xffff
 #define __FLT16_HAS_QUIET_NAN__ 1
 #define __ATOMIC_ACQUIRE 2
@@ -407,6 +406,7 @@
 #define __FLT64_MIN__ 2.22507385850720138309023271733240406e-308F64
 #define __INT_LEAST32_WIDTH__ 32
 #define __INTMAX_TYPE__ long int
+#define JACK_HAS_PORT_RENAME 1
 #define __FLT32X_HAS_QUIET_NAN__ 1
 #define __ATOMIC_CONSUME 1
 #define __GNUC_MINOR__ 3
@@ -436,5 +436,6 @@
 #define __SIZE_MAX__ 0xffffffffffffffffUL
 #define __UINT_FAST8_TYPE__ unsigned char
 #define _GNU_SOURCE 1
+#define __UNIX_JACK__ 1
 #define __ATOMIC_ACQ_REL 4
 #define __ATOMIC_RELEASE 3

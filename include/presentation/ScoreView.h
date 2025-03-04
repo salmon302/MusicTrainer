@@ -7,6 +7,7 @@
 #include "domain/music/Voice.h"
 #include "domain/music/Note.h"
 #include "presentation/GridConstants.h"
+#include "presentation/ViewportManager.h" // Added to resolve ViewportManager::Direction
 
 QT_BEGIN_NAMESPACE
 class QGraphicsScene;
@@ -41,6 +42,7 @@ public:
     QPointF mapToMusicalSpace(const QPointF& screenPoint) const;
     QPointF mapFromMusicalSpace(const QPointF& musicalPoint) const;
     MusicTrainer::music::Duration convertToMusicalDuration(double numericDuration);
+    void expandGrid(ViewportManager::Direction direction, int amount);
 
 signals:
     void noteSelected(int position, int voiceIndex);

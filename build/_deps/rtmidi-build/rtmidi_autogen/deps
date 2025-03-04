@@ -15,6 +15,7 @@ rtmidi_autogen/timestamp: \
 	/usr/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake \
 	/usr/share/cmake-3.28/Modules/CheckIncludeFile.cmake \
 	/usr/share/cmake-3.28/Modules/CheckLibraryExists.cmake \
+	/usr/share/cmake-3.28/Modules/CheckSymbolExists.cmake \
 	/usr/share/cmake-3.28/Modules/DartConfiguration.tcl.in \
 	/usr/share/cmake-3.28/Modules/FindALSA.cmake \
 	/usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake \

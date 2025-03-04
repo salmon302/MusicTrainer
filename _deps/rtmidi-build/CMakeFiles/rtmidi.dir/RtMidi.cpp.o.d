@@ -179,4 +179,8 @@ _deps/rtmidi-build/CMakeFiles/rtmidi.dir/RtMidi.cpp.o: \
  /usr/include/alsa/timer.h /usr/include/alsa/hwdep.h \
  /usr/include/alsa/control.h /usr/include/alsa/mixer.h \
  /usr/include/alsa/seq_event.h /usr/include/alsa/seq.h \
- /usr/include/alsa/seqmid.h /usr/include/alsa/seq_midi_event.h
+ /usr/include/alsa/seqmid.h /usr/include/alsa/seq_midi_event.h \
+ /usr/include/jack/jack.h /usr/include/jack/systemdeps.h \
+ /usr/include/inttypes.h /usr/include/jack/types.h \
+ /usr/include/jack/transport.h /usr/include/jack/weakmacros.h \
+ /usr/include/jack/midiport.h /usr/include/jack/ringbuffer.h

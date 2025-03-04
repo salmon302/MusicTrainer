@@ -32,12 +32,12 @@ struct qt_meta_stringdata_MusicTrainer__presentation__viewmodels__ScoreViewModel
     char stringdata2[1];
     char stringdata3[10];
     char stringdata4[11];
-    char stringdata5[5];
+    char stringdata5[12];
     char stringdata6[5];
     char stringdata7[12];
     char stringdata8[9];
     char stringdata9[11];
-    char stringdata10[6];
+    char stringdata10[13];
     char stringdata11[6];
     char stringdata12[13];
 };
@@ -50,26 +50,26 @@ Q_CONSTINIT static const qt_meta_stringdata_MusicTrainer__presentation__viewmode
         QT_MOC_LITERAL(68, 0),  // ""
         QT_MOC_LITERAL(69, 9),  // "noteAdded"
         QT_MOC_LITERAL(79, 10),  // "voiceIndex"
-        QT_MOC_LITERAL(90, 4),  // "Note"
-        QT_MOC_LITERAL(95, 4),  // "note"
-        QT_MOC_LITERAL(100, 11),  // "noteRemoved"
-        QT_MOC_LITERAL(112, 8),  // "position"
-        QT_MOC_LITERAL(121, 10),  // "voiceAdded"
-        QT_MOC_LITERAL(132, 5),  // "Voice"
-        QT_MOC_LITERAL(138, 5),  // "voice"
-        QT_MOC_LITERAL(144, 12)   // "voiceRemoved"
+        QT_MOC_LITERAL(90, 11),  // "music::Note"
+        QT_MOC_LITERAL(102, 4),  // "note"
+        QT_MOC_LITERAL(107, 11),  // "noteRemoved"
+        QT_MOC_LITERAL(119, 8),  // "position"
+        QT_MOC_LITERAL(128, 10),  // "voiceAdded"
+        QT_MOC_LITERAL(139, 12),  // "music::Voice"
+        QT_MOC_LITERAL(152, 5),  // "voice"
+        QT_MOC_LITERAL(158, 12)   // "voiceRemoved"
     },
     "MusicTrainer::presentation::viewmodels::ScoreViewModel",
     "scoreChanged",
     "",
     "noteAdded",
     "voiceIndex",
-    "Note",
+    "music::Note",
     "note",
     "noteRemoved",
     "position",
     "voiceAdded",
-    "Voice",
+    "music::Voice",
     "voice",
     "voiceRemoved"
 };
@@ -107,7 +107,7 @@ Q_CONSTINIT static const uint qt_meta_data_MusicTrainer__presentation__viewmodel
 };
 
 Q_CONSTINIT const QMetaObject MusicTrainer::presentation::viewmodels::ScoreViewModel::staticMetaObject = { {
-    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    QMetaObject::SuperData::link<QAbstractListModel::staticMetaObject>(),
     qt_meta_stringdata_MusicTrainer__presentation__viewmodels__ScoreViewModel.offsetsAndSizes,
     qt_meta_data_MusicTrainer__presentation__viewmodels__ScoreViewModel,
     qt_static_metacall,
@@ -120,14 +120,14 @@ Q_CONSTINIT const QMetaObject MusicTrainer::presentation::viewmodels::ScoreViewM
         // method 'noteAdded'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const Note &, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const music::Note &, std::false_type>,
         // method 'noteRemoved'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
         // method 'voiceAdded'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const Voice &, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const music::Voice &, std::false_type>,
         // method 'voiceRemoved'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>
@@ -142,9 +142,9 @@ void MusicTrainer::presentation::viewmodels::ScoreViewModel::qt_static_metacall(
         (void)_t;
         switch (_id) {
         case 0: _t->scoreChanged(); break;
-        case 1: _t->noteAdded((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<Note>>(_a[2]))); break;
+        case 1: _t->noteAdded((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<music::Note>>(_a[2]))); break;
         case 2: _t->noteRemoved((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[2]))); break;
-        case 3: _t->voiceAdded((*reinterpret_cast< std::add_pointer_t<Voice>>(_a[1]))); break;
+        case 3: _t->voiceAdded((*reinterpret_cast< std::add_pointer_t<music::Voice>>(_a[1]))); break;
         case 4: _t->voiceRemoved((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         default: ;
         }
@@ -158,7 +158,7 @@ void MusicTrainer::presentation::viewmodels::ScoreViewModel::qt_static_metacall(
             }
         }
         {
-            using _t = void (ScoreViewModel::*)(int , const Note & );
+            using _t = void (ScoreViewModel::*)(int , const music::Note & );
             if (_t _q_method = &ScoreViewModel::noteAdded; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 1;
                 return;
@@ -172,7 +172,7 @@ void MusicTrainer::presentation::viewmodels::ScoreViewModel::qt_static_metacall(
             }
         }
         {
-            using _t = void (ScoreViewModel::*)(const Voice & );
+            using _t = void (ScoreViewModel::*)(const music::Voice & );
             if (_t _q_method = &ScoreViewModel::voiceAdded; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 3;
                 return;
@@ -198,12 +198,12 @@ void *MusicTrainer::presentation::viewmodels::ScoreViewModel::qt_metacast(const 
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_MusicTrainer__presentation__viewmodels__ScoreViewModel.stringdata0))
         return static_cast<void*>(this);
-    return QObject::qt_metacast(_clname);
+    return QAbstractListModel::qt_metacast(_clname);
 }
 
 int MusicTrainer::presentation::viewmodels::ScoreViewModel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QObject::qt_metacall(_c, _id, _a);
+    _id = QAbstractListModel::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
@@ -225,7 +225,7 @@ void MusicTrainer::presentation::viewmodels::ScoreViewModel::scoreChanged()
 }
 
 // SIGNAL 1
-void MusicTrainer::presentation::viewmodels::ScoreViewModel::noteAdded(int _t1, const Note & _t2)
+void MusicTrainer::presentation::viewmodels::ScoreViewModel::noteAdded(int _t1, const music::Note & _t2)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
     QMetaObject::activate(this, &staticMetaObject, 1, _a);
@@ -239,7 +239,7 @@ void MusicTrainer::presentation::viewmodels::ScoreViewModel::noteRemoved(int _t1
 }
 
 // SIGNAL 3
-void MusicTrainer::presentation::viewmodels::ScoreViewModel::voiceAdded(const Voice & _t1)
+void MusicTrainer::presentation::viewmodels::ScoreViewModel::voiceAdded(const music::Voice & _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 3, _a);

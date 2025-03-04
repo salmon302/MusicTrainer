@@ -325,16 +325,10 @@ CMakeFiles/TestGUI.dir/src/presentation/ViewportManager.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qfont.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qpen.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Note.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Voice.h \
- /usr/include/c++/13/thread /usr/include/c++/13/bits/std_thread.h \
- /usr/include/c++/13/bits/this_thread_sleep.h /usr/include/c++/13/mutex \
- /usr/include/c++/13/bits/std_mutex.h \
- /usr/include/c++/13/bits/unique_lock.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Pitch.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Duration.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Score.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Voice.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Duration.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Score.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/GridConstants.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/ScoreView.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QGraphicsView \
@@ -365,10 +359,8 @@ CMakeFiles/TestGUI.dir/src/presentation/ViewportManager.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qcursor.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qbitmap.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicsscene.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/QtTypes.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QMetaType \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qmetatype.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QGraphicsView \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qwidget.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QtMath \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qmath.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QDebug \

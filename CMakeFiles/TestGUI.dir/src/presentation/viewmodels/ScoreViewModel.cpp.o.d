@@ -280,22 +280,11 @@ CMakeFiles/TestGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qbindingstorage.h \
  /usr/include/c++/13/chrono /usr/include/c++/13/bits/chrono.h \
  /usr/include/c++/13/ratio /usr/include/c++/13/ctime \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Score.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Voice.h \
- /usr/include/c++/13/thread /usr/include/c++/13/bits/std_thread.h \
- /usr/include/c++/13/bits/this_thread_sleep.h /usr/include/c++/13/mutex \
- /usr/include/c++/13/bits/std_mutex.h \
- /usr/include/c++/13/bits/unique_lock.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Pitch.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Duration.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Note.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Voice.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/QtTypes.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QMetaType \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qmetatype.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Pitch.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Duration.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QDebug \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QAbstractListModel \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qabstractitemmodel.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qhash.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qobject.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qvariant.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qdebug.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qtextstream.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qstringconverter_base.h \
@@ -314,5 +303,11 @@ CMakeFiles/TestGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qmap.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qshareddata_impl.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qset.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qhash.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qvarlengtharray.h
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qvarlengtharray.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Score.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Voice.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Note.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Pitch.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Duration.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QDebug \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qdebug.h
