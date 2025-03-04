@@ -12,17 +12,21 @@
 #include <QWheelEvent>
 #include <QDebug>
 
-// Import the music namespace to match the header
-using music::Voice;
-using music::Note;
-using music::Score;
-using music::Pitch;
-using music::Duration;
-
 namespace MusicTrainer::presentation {
 
+// Define base zoom level constant
+constexpr float GRID_ZOOM_BASE = 1.0f;
+
+// Define ScoreViewImpl class to fix incomplete type error
+class ScoreView::ScoreViewImpl {
+public:
+    explicit ScoreViewImpl() = default;
+};
+
+// Main implementation
 ScoreView::ScoreView(QWidget *parent)
     : QGraphicsView(parent)
+    , m_impl(std::make_unique<ScoreViewImpl>())
 {
     // Register Qt types for signal/slot system
     ::registerQtTypes();  // Call the global function
@@ -57,7 +61,7 @@ ScoreView::ScoreView(QWidget *parent)
 
 ScoreView::~ScoreView() = default;
 
-void ScoreView::setScore(std::shared_ptr<Score> score)
+void ScoreView::setScore(std::shared_ptr<MusicTrainer::music::Score> score)
 {
     if (m_score == score) {
         return;
@@ -66,7 +70,7 @@ void ScoreView::setScore(std::shared_ptr<Score> score)
     onScoreChanged();
 }
 
-std::shared_ptr<Score> ScoreView::getScore() const
+std::shared_ptr<MusicTrainer::music::Score> ScoreView::getScore() const
 {
     return m_score;
 }
@@ -174,12 +178,12 @@ void ScoreView::onScoreChanged()
     updateGridVisuals();
 }
 
-void ScoreView::onVoiceAdded(const Voice& voice)
+void ScoreView::onVoiceAdded(const MusicTrainer::music::Voice& voice)
 {
     updateGridVisuals();
 }
 
-void ScoreView::onNoteAdded(const Note& note)
+void ScoreView::onNoteAdded(const MusicTrainer::music::Note& note)
 {
     if (m_score) {
         // Determine the position based on currently selected position or last note
@@ -332,19 +336,19 @@ QPointF ScoreView::mapFromMusicalSpace(const QPointF& musicalPoint) const
     return mapFromScene(scenePoint);
 }
 
-Duration ScoreView::convertToMusicalDuration(double numericDuration) {
+MusicTrainer::music::Duration ScoreView::convertToMusicalDuration(double numericDuration) {
     // Find the closest base duration type
-    Duration::Type baseType = Duration::Type::QUARTER;
+    MusicTrainer::music::Duration::Type baseType = MusicTrainer::music::Duration::Type::QUARTER;
     uint8_t dots = 0;
     
     // Map of duration values to types (in beats)
-    static const std::vector<std::pair<Duration::Type, double>> durationMap = {
-        {Duration::Type::WHOLE, 4.0},
-        {Duration::Type::HALF, 2.0},
-        {Duration::Type::QUARTER, 1.0},
-        {Duration::Type::EIGHTH, 0.5},
-        {Duration::Type::SIXTEENTH, 0.25},
-        {Duration::Type::THIRTY_SECOND, 0.125}
+    static const std::vector<std::pair<MusicTrainer::music::Duration::Type, double>> durationMap = {
+        {MusicTrainer::music::Duration::Type::WHOLE, 4.0},
+        {MusicTrainer::music::Duration::Type::HALF, 2.0},
+        {MusicTrainer::music::Duration::Type::QUARTER, 1.0},
+        {MusicTrainer::music::Duration::Type::EIGHTH, 0.5},
+        {MusicTrainer::music::Duration::Type::SIXTEENTH, 0.25},
+        {MusicTrainer::music::Duration::Type::THIRTY_SECOND, 0.125}
     };
     
     // Find the closest base duration
@@ -362,16 +366,19 @@ Duration ScoreView::convertToMusicalDuration(double numericDuration) {
         dots++;
     }
     
-    return Duration::create(baseType, dots);
+    return MusicTrainer::music::Duration::create(baseType, dots);
 }
 
+// Fix the handleNoteAdded method to use the correct Note constructor
 void ScoreView::handleNoteAdded(int pitch, double duration, int position)
 {
     // Create note components using factory methods
-    Pitch notePitch = Pitch::fromMidiNote(static_cast<uint8_t>(pitch));
-    Duration noteDuration = convertToMusicalDuration(duration);
-    Note note(pitch, duration); // Keep using simple constructor for grid display
+    MusicTrainer::music::Pitch notePitch = MusicTrainer::music::Pitch::fromMidiNote(static_cast<uint8_t>(pitch));
+    MusicTrainer::music::Duration noteDuration = convertToMusicalDuration(duration);
     
+    // Create a Note with the correct constructor parameters (pitch, duration, position)
+    MusicTrainer::music::Note note(notePitch, duration, position);
+
     qDebug() << "ScoreView::handleNoteAdded -"
              << "Pitch:" << pitch
              << "Duration:" << duration
@@ -381,7 +388,8 @@ void ScoreView::handleNoteAdded(int pitch, double duration, int position)
         // If we have a score, add it through the score's interface
         auto voice = m_score->getVoice(0); // Use first voice for now
         if (voice) {
-            voice->addNote(notePitch, noteDuration);
+            // Use the duration value directly instead of the Duration object
+            voice->addNote(notePitch, duration, position);
             m_score->setCurrentPosition(position + duration);
         }
     }

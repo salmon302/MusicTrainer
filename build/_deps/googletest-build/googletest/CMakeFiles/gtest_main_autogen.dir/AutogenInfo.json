@@ -32,7 +32,7 @@
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
 	"INCLUDE_DIR" : "/home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/googletest-build/googletest/gtest_main_autogen/include",
 	"MOC_COMPILATION_FILE" : "/home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/googletest-build/googletest/gtest_main_autogen/mocs_compilation.cpp",
-	"MOC_DEFINITIONS" : [ "RTMIDI_DO_NOT_ENSURE_UNIQUE_PORTNAMES", "RTMIDI_NO_JACK" ],
+	"MOC_DEFINITIONS" : [ "RTMIDI_DO_NOT_ENSURE_UNIQUE_PORTNAMES" ],
 	"MOC_DEPEND_FILTERS" : 
 	[
 		[

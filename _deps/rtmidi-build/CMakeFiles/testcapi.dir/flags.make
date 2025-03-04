@@ -3,13 +3,13 @@
 
 # compile C with /usr/bin/cc
 # compile CXX with /usr/bin/c++
-C_DEFINES = -DRTMIDI_DO_NOT_ENSURE_UNIQUE_PORTNAMES -DRTMIDI_NO_JACK -D__RTMIDI_DEBUG__
+C_DEFINES = -DRTMIDI_DO_NOT_ENSURE_UNIQUE_PORTNAMES -D__RTMIDI_DEBUG__
 
 C_INCLUDES = -I/home/seth-n/Documents/GitHub/MusicTrainer/_deps/rtmidi-build/testcapi_autogen/include -I/home/seth-n/Documents/GitHub/MusicTrainer/_deps/rtmidi-src
 
 C_FLAGS = -g
 
-CXX_DEFINES = -DRTMIDI_DO_NOT_ENSURE_UNIQUE_PORTNAMES -DRTMIDI_NO_JACK -D__RTMIDI_DEBUG__
+CXX_DEFINES = -DRTMIDI_DO_NOT_ENSURE_UNIQUE_PORTNAMES -D__RTMIDI_DEBUG__
 
 CXX_INCLUDES = -I/home/seth-n/Documents/GitHub/MusicTrainer/_deps/rtmidi-build/testcapi_autogen/include -I/home/seth-n/Documents/GitHub/MusicTrainer/_deps/rtmidi-src
 

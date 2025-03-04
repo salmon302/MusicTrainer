@@ -7,11 +7,6 @@
 #include <QPen>
 #include <QDebug>
 
-// Import music namespace types for consistency
-using music::Note;
-using music::Score;
-using music::Voice;
-
 namespace MusicTrainer::presentation {
 
 NoteGrid::NoteGrid(QGraphicsScene* scene)
@@ -63,14 +58,14 @@ void NoteGrid::expandHorizontal(int amount)
                      m_dimensions.maxPitch - m_dimensions.minPitch));
 }
 
-void NoteGrid::updateFromScore(std::shared_ptr<Score> score)
+void NoteGrid::updateFromScore(std::shared_ptr<MusicTrainer::music::Score> score)
 {
     clear();
     if (!score) return;
 
     // Update grid's time signature from score
     m_dimensions.timeSignature = score->getTimeSignature();
-
+    
     // Get all voices from the score and their notes
     const auto& voices = score->getVoices();
     
@@ -79,20 +74,30 @@ void NoteGrid::updateFromScore(std::shared_ptr<Score> score)
         const auto& voice = voices[voiceIndex];
         if (!voice) continue;
         
-        // Get note count for this voice
-        size_t noteCount = voice->getNoteCount();
+        // Use getAllNotes() to get the vector of notes and its size
+        const auto& notes = voice->getAllNotes();
+        size_t noteCount = notes.size();
         
         // Add each note to the grid with its corresponding voice index
         int position = 0; // Start at position 0
         for (size_t i = 0; i < noteCount; ++i) {
-            const auto* vnote = voice->getNote(i);
-            if (vnote) {
-                // Convert Voice::Note to music::Note - using correct method name getMidiNote()
-                Note note(vnote->pitch.getMidiNote(), vnote->duration.getTotalBeats());
-                addNote(note, voiceIndex, position);
-                // Move position forward by note duration
-                position += vnote->duration.getTotalBeats();
-            }
+            // Use getNoteAt instead of getNote
+            const auto* vnote = voice->getNoteAt(i);
+            if (!vnote) continue;
+            
+            // Use -> operator since vnote is a pointer
+            int midiNote = vnote->getPitch().getMidiNote();
+            double duration = vnote->getDuration();
+            
+            // Create a Note with correct constructor (pitch, duration, position)
+            MusicTrainer::music::Pitch notePitch = MusicTrainer::music::Pitch::fromMidiNote(midiNote);
+            MusicTrainer::music::Note note(notePitch, duration, position);
+            
+            // Add the note to the grid
+            addNote(note, voiceIndex, position);
+            
+            // Move position forward by note duration
+            position += duration;
         }
     }
     
@@ -102,16 +107,16 @@ void NoteGrid::updateFromScore(std::shared_ptr<Score> score)
                      m_dimensions.maxPitch - m_dimensions.minPitch));
 }
 
-void NoteGrid::addNote(const Note& note, int voiceIndex)
+void NoteGrid::addNote(const MusicTrainer::music::Note& note, int voiceIndex)
 {
     // Forward to the version that takes a position parameter with default position 0
     addNote(note, voiceIndex, 0);
 }
 
-void NoteGrid::addNote(const Note& note, int voiceIndex, int position)
+void NoteGrid::addNote(const MusicTrainer::music::Note& note, int voiceIndex, int position)
 {
-    // Extract pitch from the note
-    int pitch = note.getPitch(); // Use getter instead of direct pitch access
+    // Extract MIDI note number from the Pitch object
+    int pitch = note.getPitch().getMidiNote(); // Get midi note number from Pitch object
     
     // Create a cell at the specified position
     auto cell = getOrCreateCell(position, pitch);

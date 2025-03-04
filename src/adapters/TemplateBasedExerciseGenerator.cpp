@@ -4,7 +4,6 @@
 #include <stdexcept>
 #include <random>
 #include "domain/music/Duration.h"
-#include "domain/music/HarmonicContext.h"
 #include "domain/music/Pitch.h"
 #include "domain/music/Score.h"
 
@@ -34,8 +33,12 @@ void TemplateBasedExerciseGenerator::initializeVoiceConstraints() {
 		0.9, // Higher stepwise motion probability
 		8,   // Max leap of perfect fifth
 		{
-			Interval::create(IntervalNumber::THIRD, IntervalQuality::MAJOR),
-			Interval::create(IntervalNumber::FIFTH, IntervalQuality::PERFECT)
+			MusicTrainer::music::Interval::fromQualityAndNumber(
+				MusicTrainer::music::Interval::Quality::Major,
+				MusicTrainer::music::Interval::Number::Third),
+			MusicTrainer::music::Interval::fromQualityAndNumber(
+				MusicTrainer::music::Interval::Quality::Perfect,
+				MusicTrainer::music::Interval::Number::Fifth)
 		}
 	};
 
@@ -47,8 +50,12 @@ void TemplateBasedExerciseGenerator::initializeVoiceConstraints() {
 		0.9, // High stepwise motion probability
 		6,   // Max leap of perfect fourth
 		{
-			Interval::create(IntervalNumber::SECOND, IntervalQuality::MAJOR),
-			Interval::create(IntervalNumber::THIRD, IntervalQuality::MINOR)
+			MusicTrainer::music::Interval::fromQualityAndNumber(
+				MusicTrainer::music::Interval::Quality::Major,
+				MusicTrainer::music::Interval::Number::Second),
+			MusicTrainer::music::Interval::fromQualityAndNumber(
+				MusicTrainer::music::Interval::Quality::Minor,
+				MusicTrainer::music::Interval::Number::Third)
 		}
 	};
 	
@@ -59,8 +66,12 @@ void TemplateBasedExerciseGenerator::initializeVoiceConstraints() {
 		0.85, // High stepwise motion probability
 		8,   // Max leap of perfect fifth
 		{
-			Interval::create(IntervalNumber::SECOND, IntervalQuality::MAJOR),
-			Interval::create(IntervalNumber::THIRD, IntervalQuality::MAJOR)
+			MusicTrainer::music::Interval::fromQualityAndNumber(
+				MusicTrainer::music::Interval::Quality::Major,
+				MusicTrainer::music::Interval::Number::Second),
+			MusicTrainer::music::Interval::fromQualityAndNumber(
+				MusicTrainer::music::Interval::Quality::Major,
+				MusicTrainer::music::Interval::Number::Third)
 		}
 	};
 	
@@ -71,9 +82,15 @@ void TemplateBasedExerciseGenerator::initializeVoiceConstraints() {
 		0.75, // High stepwise motion probability
 		12,  // Max leap of octave (test requirement)
 		{
-			Interval::create(IntervalNumber::THIRD, IntervalQuality::MAJOR),
-			Interval::create(IntervalNumber::FOURTH, IntervalQuality::PERFECT),
-			Interval::create(IntervalNumber::FIFTH, IntervalQuality::PERFECT)
+			MusicTrainer::music::Interval::fromQualityAndNumber(
+				MusicTrainer::music::Interval::Quality::Major,
+				MusicTrainer::music::Interval::Number::Third),
+			MusicTrainer::music::Interval::fromQualityAndNumber(
+				MusicTrainer::music::Interval::Quality::Perfect,
+				MusicTrainer::music::Interval::Number::Fourth),
+			MusicTrainer::music::Interval::fromQualityAndNumber(
+				MusicTrainer::music::Interval::Quality::Perfect,
+				MusicTrainer::music::Interval::Number::Fifth)
 		}
 	};
 }
@@ -84,41 +101,41 @@ void TemplateBasedExerciseGenerator::initializePatternBanks() {
 		const auto& constraints = voiceConstraints[voiceType];
 		
 		// Common patterns with controlled intervals and harmonic contexts
-		std::vector<std::tuple<std::vector<int>, std::vector<Duration::Type>, music::HarmonicContext>> commonPatterns;
+		std::vector<std::tuple<std::vector<int>, std::vector<MusicTrainer::music::Duration::Type>, MusicTrainer::music::HarmonicContext>> commonPatterns;
 		
 		// Voice-specific patterns that respect max leap constraints
 		if (voiceType == VoiceType::Soprano) {
 			// Soprano patterns (max leap of 8 semitones)
 			commonPatterns = {
-				{{0, 2, 4, 5}, {Duration::Type::QUARTER, Duration::Type::QUARTER, Duration::Type::QUARTER, Duration::Type::QUARTER}, music::HarmonicContext::TONIC},
-				{{7, 5, 4, 2}, {Duration::Type::QUARTER, Duration::Type::QUARTER, Duration::Type::QUARTER, Duration::Type::QUARTER}, music::HarmonicContext::DOMINANT},
-				{{0, 4, 7, 4}, {Duration::Type::QUARTER, Duration::Type::QUARTER, Duration::Type::QUARTER, Duration::Type::QUARTER}, music::HarmonicContext::SUBDOMINANT},
-				{{0, 2, 0, -2}, {Duration::Type::QUARTER, Duration::Type::QUARTER, Duration::Type::QUARTER, Duration::Type::QUARTER}, music::HarmonicContext::TONIC}
+				{{0, 2, 4, 5}, {MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER}, MusicTrainer::music::HarmonicContext::TONIC},
+				{{7, 5, 4, 2}, {MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER}, MusicTrainer::music::HarmonicContext::DOMINANT},
+				{{0, 4, 7, 4}, {MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER}, MusicTrainer::music::HarmonicContext::SUBDOMINANT},
+				{{0, 2, 0, -2}, {MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER}, MusicTrainer::music::HarmonicContext::TONIC}
 			};
 		} else if (voiceType == VoiceType::Alto) {
 			commonPatterns = {
-				{{0, 2, 3, 2}, {Duration::Type::QUARTER, Duration::Type::QUARTER, Duration::Type::QUARTER, Duration::Type::QUARTER}, music::HarmonicContext::TONIC},
-				{{5, 3, 2, 0}, {Duration::Type::QUARTER, Duration::Type::QUARTER, Duration::Type::QUARTER, Duration::Type::QUARTER}, music::HarmonicContext::DOMINANT},
-				{{0, 3, 5, 3}, {Duration::Type::QUARTER, Duration::Type::QUARTER, Duration::Type::QUARTER, Duration::Type::QUARTER}, music::HarmonicContext::SUBDOMINANT}
+				{{0, 2, 3, 2}, {MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER}, MusicTrainer::music::HarmonicContext::TONIC},
+				{{5, 3, 2, 0}, {MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER}, MusicTrainer::music::HarmonicContext::DOMINANT},
+				{{0, 3, 5, 3}, {MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER}, MusicTrainer::music::HarmonicContext::SUBDOMINANT}
 			};
 		} else if (voiceType == VoiceType::Tenor) {
 			commonPatterns = {
-				{{0, 2, 4, 2}, {Duration::Type::QUARTER, Duration::Type::QUARTER, Duration::Type::QUARTER, Duration::Type::QUARTER}, music::HarmonicContext::TONIC},
-				{{5, 3, 1, 0}, {Duration::Type::QUARTER, Duration::Type::QUARTER, Duration::Type::QUARTER, Duration::Type::QUARTER}, music::HarmonicContext::DOMINANT},
-				{{0, 4, 7, 4}, {Duration::Type::QUARTER, Duration::Type::QUARTER, Duration::Type::QUARTER, Duration::Type::QUARTER}, music::HarmonicContext::SUBDOMINANT}
+				{{0, 2, 4, 2}, {MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER}, MusicTrainer::music::HarmonicContext::TONIC},
+				{{5, 3, 1, 0}, {MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER}, MusicTrainer::music::HarmonicContext::DOMINANT},
+				{{0, 4, 7, 4}, {MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER}, MusicTrainer::music::HarmonicContext::SUBDOMINANT}
 			};
 		} else {
 			commonPatterns = {
-				{{0, -3, -5, 0}, {Duration::Type::QUARTER, Duration::Type::QUARTER, Duration::Type::QUARTER, Duration::Type::QUARTER}, music::HarmonicContext::TONIC},
-				{{7, 3, 0, -4}, {Duration::Type::QUARTER, Duration::Type::QUARTER, Duration::Type::QUARTER, Duration::Type::QUARTER}, music::HarmonicContext::DOMINANT},
-				{{0, 4, -3, 0}, {Duration::Type::QUARTER, Duration::Type::QUARTER, Duration::Type::QUARTER, Duration::Type::QUARTER}, music::HarmonicContext::SUBDOMINANT}
+				{{0, -3, -5, 0}, {MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER}, MusicTrainer::music::HarmonicContext::TONIC},
+				{{7, 3, 0, -4}, {MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER}, MusicTrainer::music::HarmonicContext::DOMINANT},
+				{{0, 4, -3, 0}, {MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER, MusicTrainer::music::Duration::Type::QUARTER}, MusicTrainer::music::HarmonicContext::SUBDOMINANT}
 			};
 		}
 		
 		// Convert relative patterns to absolute pitches with strict interval validation
 		for (const auto& [intervals, durations, context] : commonPatterns) {
-			std::vector<Pitch> pitches;
-			std::vector<Duration> durs;
+			std::vector<MusicTrainer::music::Pitch> pitches;
+			std::vector<MusicTrainer::music::Duration> durs;
 			
 			int basePitch = constraints.minPitch + ((constraints.maxPitch - constraints.minPitch) / 2);
 			int currentPitch = basePitch;
@@ -141,8 +158,8 @@ void TemplateBasedExerciseGenerator::initializePatternBanks() {
 				}
 				
 				currentPitch = targetPitch;
-				pitches.push_back(Pitch::fromMidiNote(targetPitch));
-				durs.push_back(Duration::create(durations[i]));
+				pitches.push_back(MusicTrainer::music::Pitch::fromMidiNote(targetPitch));
+				durs.push_back(MusicTrainer::music::Duration::create(durations[i]));
 			}
 			
 			if (validPattern) {
@@ -155,68 +172,68 @@ void TemplateBasedExerciseGenerator::initializePatternBanks() {
 }
 
 
-void TemplateBasedExerciseGenerator::applyConstraintsToTemplate(MelodicTemplate& tmpl, const VoiceConstraints& constraints) {
+void TemplateBasedExerciseGenerator::applyConstraintsToTemplate(MusicTrainer::music::MelodicTemplate& tmpl, const VoiceConstraints& constraints) {
 	tmpl.setPitchRange(
-		Pitch::fromMidiNote(constraints.minPitch),
-		Pitch::fromMidiNote(constraints.maxPitch)
+		MusicTrainer::music::Pitch::fromMidiNote(constraints.minPitch),
+		MusicTrainer::music::Pitch::fromMidiNote(constraints.maxPitch)
 	);
 	tmpl.setMaximumLeap(constraints.maxLeap);
 	tmpl.setStepwiseMotionProbability(constraints.stepwiseMotionProbability);
 }
 
-void TemplateBasedExerciseGenerator::applyPatternsToTemplate(MelodicTemplate& tmpl, const PatternBank& patterns) {
+void TemplateBasedExerciseGenerator::applyPatternsToTemplate(MusicTrainer::music::MelodicTemplate& tmpl, const PatternBank& patterns) {
 	// Add opening patterns
 	for (const auto& pattern : patterns.openingPatterns) {
-		tmpl.addPattern(pattern.pitches, pattern.durations, 2.0, PatternCategory::OPENING, pattern.context);
+		tmpl.addPattern(pattern.pitches, pattern.durations, 2.0, MusicTrainer::music::PatternCategory::OPENING, pattern.context);
 		// Also add as general pattern with lower weight
-		tmpl.addPattern(pattern.pitches, pattern.durations, 0.5, PatternCategory::GENERAL, pattern.context);
+		tmpl.addPattern(pattern.pitches, pattern.durations, 0.5, MusicTrainer::music::PatternCategory::GENERAL, pattern.context);
 	}
 	
 	// Add middle patterns
 	for (const auto& pattern : patterns.middlePatterns) {
-		tmpl.addPattern(pattern.pitches, pattern.durations, 1.0, PatternCategory::MIDDLE, pattern.context);
+		tmpl.addPattern(pattern.pitches, pattern.durations, 1.0, MusicTrainer::music::PatternCategory::MIDDLE, pattern.context);
 		// Also add as general pattern
-		tmpl.addPattern(pattern.pitches, pattern.durations, 0.5, PatternCategory::GENERAL, pattern.context);
+		tmpl.addPattern(pattern.pitches, pattern.durations, 0.5, MusicTrainer::music::PatternCategory::GENERAL, pattern.context);
 	}
 	
 	// Add cadence patterns
 	for (const auto& pattern : patterns.cadencePatterns) {
-		tmpl.addPattern(pattern.pitches, pattern.durations, 1.5, PatternCategory::CADENCE, pattern.context);
+		tmpl.addPattern(pattern.pitches, pattern.durations, 1.5, MusicTrainer::music::PatternCategory::CADENCE, pattern.context);
 		// Also add as general pattern with lower weight
-		tmpl.addPattern(pattern.pitches, pattern.durations, 0.5, PatternCategory::GENERAL, pattern.context);
+		tmpl.addPattern(pattern.pitches, pattern.durations, 0.5, MusicTrainer::music::PatternCategory::GENERAL, pattern.context);
 	}
 	
 	// Set category probabilities
-	tmpl.setPatternCategoryProbability(PatternCategory::OPENING, 0.8);
-	tmpl.setPatternCategoryProbability(PatternCategory::MIDDLE, 0.6);
-	tmpl.setPatternCategoryProbability(PatternCategory::CADENCE, 0.9);
-	tmpl.setPatternCategoryProbability(PatternCategory::GENERAL, 0.4);
+	tmpl.setPatternCategoryProbability(MusicTrainer::music::PatternCategory::OPENING, 0.8);
+	tmpl.setPatternCategoryProbability(MusicTrainer::music::PatternCategory::MIDDLE, 0.6);
+	tmpl.setPatternCategoryProbability(MusicTrainer::music::PatternCategory::CADENCE, 0.9);
+	tmpl.setPatternCategoryProbability(MusicTrainer::music::PatternCategory::GENERAL, 0.4);
 }
 
-std::unique_ptr<Score> TemplateBasedExerciseGenerator::generateExercise(
+std::unique_ptr<MusicTrainer::music::Score> TemplateBasedExerciseGenerator::generateExercise(
 	const ports::ExerciseParameters& params) {
-	auto score = Score::create();
+	auto score = MusicTrainer::music::Score::create();
 	
 	// Generate harmonic progression
-	std::vector<music::HarmonicContext> progression;
+	std::vector<MusicTrainer::music::HarmonicContext> progression;
 	progression.reserve(params.measureCount);
 	
 	// Simple harmonic progression: I-IV-V-I
 	for (size_t i = 0; i < params.measureCount; ++i) {
-		if (i % 4 == 0) progression.push_back(music::HarmonicContext::TONIC);
-		else if (i % 4 == 1) progression.push_back(music::HarmonicContext::SUBDOMINANT);
-		else if (i % 4 == 2) progression.push_back(music::HarmonicContext::DOMINANT);
-		else progression.push_back(music::HarmonicContext::TONIC);
+		if (i % 4 == 0) progression.push_back(MusicTrainer::music::HarmonicContext::TONIC);
+		else if (i % 4 == 1) progression.push_back(MusicTrainer::music::HarmonicContext::SUBDOMINANT);
+		else if (i % 4 == 2) progression.push_back(MusicTrainer::music::HarmonicContext::DOMINANT);
+		else progression.push_back(MusicTrainer::music::HarmonicContext::TONIC);
 	}
 	
 	// Generate voices with harmonic context
 	for (size_t i = 0; i < params.voiceCount; ++i) {
-		auto voice = Voice::create();
+		auto voice = MusicTrainer::music::Voice::create();
 		auto melody = getTemplateForVoice(i, params.voiceCount)->generateMelody(
 			params.measureCount, progression);
 		
 		for (const auto& [pitch, duration] : melody) {
-			voice->addNote(pitch, duration);
+			voice->addNote(pitch, duration.getTotalBeats());
 		}
 		
 		score->addVoice(std::move(voice));
@@ -225,7 +242,7 @@ std::unique_ptr<Score> TemplateBasedExerciseGenerator::generateExercise(
 	return score;
 }
 
-bool TemplateBasedExerciseGenerator::validateExercise(const Score& score, const std::vector<std::unique_ptr<rules::Rule>>& rules) {
+bool TemplateBasedExerciseGenerator::validateExercise(const MusicTrainer::music::Score& score, const std::vector<std::unique_ptr<MusicTrainer::music::rules::Rule>>& rules) {
 	validationErrors.clear();
 	bool isValid = true;
 	
@@ -243,14 +260,14 @@ std::vector<std::string> TemplateBasedExerciseGenerator::getValidationErrors() c
 	return validationErrors;
 }
 
-std::unique_ptr<MelodicTemplate> TemplateBasedExerciseGenerator::createVoiceTemplate(VoiceType type) {
-	auto melTemplate = MelodicTemplate::create();
+std::unique_ptr<MusicTrainer::music::MelodicTemplate> TemplateBasedExerciseGenerator::createVoiceTemplate(VoiceType type) {
+	auto melTemplate = MusicTrainer::music::MelodicTemplate::create();
 	
 	// Apply constraints first to ensure they're set before patterns
 	const auto& constraints = voiceConstraints[type];
 	melTemplate->setPitchRange(
-		Pitch::fromMidiNote(constraints.minPitch),
-		Pitch::fromMidiNote(constraints.maxPitch)
+		MusicTrainer::music::Pitch::fromMidiNote(constraints.minPitch),
+		MusicTrainer::music::Pitch::fromMidiNote(constraints.maxPitch)
 	);
 	melTemplate->setMaximumLeap(constraints.maxLeap);
 	melTemplate->setStepwiseMotionProbability(constraints.stepwiseMotionProbability);
@@ -261,13 +278,16 @@ std::unique_ptr<MelodicTemplate> TemplateBasedExerciseGenerator::createVoiceTemp
 	
 	if (type == VoiceType::Soprano) {
 		melTemplate->addPreferredInterval(
-			Interval::create(IntervalNumber::THIRD, IntervalQuality::MAJOR), 1.5);
-		melTemplate->setHarmonicContextProbability(music::HarmonicContext::TONIC, 0.4);
-		melTemplate->setHarmonicContextProbability(music::HarmonicContext::DOMINANT, 0.3);
+			MusicTrainer::music::Interval::fromQualityAndNumber(
+				MusicTrainer::music::Interval::Quality::Major,
+				MusicTrainer::music::Interval::Number::Third),
+			1.5);
+		melTemplate->setHarmonicContextProbability(MusicTrainer::music::HarmonicContext::TONIC, 0.4);
+		melTemplate->setHarmonicContextProbability(MusicTrainer::music::HarmonicContext::DOMINANT, 0.3);
 		
 		// Add voice leading rules
 		melTemplate->addVoiceLeadingRule(
-			[](const Pitch& from, const Pitch& to) {
+			[](const MusicTrainer::music::Pitch& from, const MusicTrainer::music::Pitch& to) {
 				// Avoid augmented seconds
 				int interval = std::abs(to.getMidiNote() - from.getMidiNote());
 				return interval != 3; // Avoid augmented second (3 semitones)
@@ -284,9 +304,9 @@ std::unique_ptr<MelodicTemplate> TemplateBasedExerciseGenerator::createVoiceTemp
 			// Validate and adjust pitches
 			for (size_t i = 0; i < pattern.pitches.size(); ++i) {
 				if (pattern.pitches[i].getMidiNote() < constraints.minPitch) {
-					pattern.pitches[i] = Pitch::fromMidiNote(constraints.minPitch);
+					pattern.pitches[i] = MusicTrainer::music::Pitch::fromMidiNote(constraints.minPitch);
 				} else if (pattern.pitches[i].getMidiNote() > constraints.maxPitch) {
-					pattern.pitches[i] = Pitch::fromMidiNote(constraints.maxPitch);
+					pattern.pitches[i] = MusicTrainer::music::Pitch::fromMidiNote(constraints.maxPitch);
 				}
 			}
 		}
@@ -299,7 +319,7 @@ std::unique_ptr<MelodicTemplate> TemplateBasedExerciseGenerator::createVoiceTemp
 }
 
 
-const MelodicTemplate* TemplateBasedExerciseGenerator::getTemplateForVoice(size_t voiceIndex, size_t totalVoices) {
+const MusicTrainer::music::MelodicTemplate* TemplateBasedExerciseGenerator::getTemplateForVoice(size_t voiceIndex, size_t totalVoices) {
 	if (totalVoices == 4) {
 		switch (voiceIndex) {
 			case 0: return sopranoTemplate.get();

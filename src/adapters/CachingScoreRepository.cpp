@@ -1,109 +1,106 @@
 #include "adapters/CachingScoreRepository.h"
+#include "domain/music/Score.h"
 #include "domain/errors/DomainErrors.h"
 #include <algorithm>
 #include <iostream>
 
 namespace music::adapters {
 
-std::unique_ptr<CachingScoreRepository> CachingScoreRepository::create(std::unique_ptr<ScoreRepository> baseRepository) {
+std::unique_ptr<CachingScoreRepository> CachingScoreRepository::create(std::unique_ptr<ports::ScoreRepository> baseRepository) {
 	return std::unique_ptr<CachingScoreRepository>(new CachingScoreRepository(std::move(baseRepository)));
 }
 
-CachingScoreRepository::CachingScoreRepository(std::unique_ptr<ScoreRepository> baseRepo)
-	: baseRepository(std::move(baseRepo)) {}
+CachingScoreRepository::CachingScoreRepository(std::unique_ptr<ports::ScoreRepository> baseRepository)
+	: baseRepository(std::move(baseRepository)) {}
 
-void CachingScoreRepository::save(const std::string& name, const Score& score) {
-	std::cout << "[Cache] Saving score: " << name << std::endl;
+CachingScoreRepository::~CachingScoreRepository() = default;
+
+void CachingScoreRepository::save(const std::string& name, const MusicTrainer::music::Score& score) {
 	try {
 		baseRepository->save(name, score);
-		updateCache(name, [&](auto& cache) {
-			cache.erase(name);
-			std::cout << "[Cache] Removed from cache: " << name << std::endl;
+		updateCache(name, [&score, &name](auto& newCache) {
+			auto& entry = newCache[name];
+			entry.score = std::make_unique<MusicTrainer::music::Score>(score);
+			entry.lastAccess = std::chrono::system_clock::now();
+			entry.valid.store(true);
 		});
 	} catch (const MusicTrainer::RepositoryError& e) {
-		std::cerr << "[Cache] Error saving to base repository: " << e.what() << std::endl;
-		MusicTrainer::ErrorContext context(__FILE__, __LINE__, __FUNCTION__,
-										  "name: " + name + ", operation: save");
-		throw MusicTrainer::RepositoryError("Failed to save score to repository: " + std::string(e.what()), context);
+		if (errorHandler) {
+			errorHandler(e);
+		}
+		throw;
 	}
 }
 
-std::unique_ptr<Score> CachingScoreRepository::load(const std::string& name) {
-	std::cout << "[Cache] Loading score: " << name << std::endl;
+std::unique_ptr<MusicTrainer::music::Score> CachingScoreRepository::load(const std::string& name) {
+	totalAccesses.fetch_add(1);
 	
-	totalAccesses++;
-	
+	// Check cache first
 	auto it = cache.find(name);
-	if (it != cache.end() && it->second.valid.load(std::memory_order_acquire) && !isExpired(it->second)) {
-		cacheHits++;
-		double hitRate = static_cast<double>(cacheHits.load()) / totalAccesses.load();
-		std::cout << "[Cache] Cache hit! Hits: " << cacheHits << ", Hit rate: " << hitRate << std::endl;
-		return std::make_unique<Score>(*it->second.score);
+	if (it != cache.end() && it->second.score && !isExpired(it->second)) {
+		cacheHits.fetch_add(1);
+		it->second.lastAccess = std::chrono::system_clock::now();
+		return std::make_unique<MusicTrainer::music::Score>(*it->second.score);
 	}
 	
 	try {
-		std::cout << "[Cache] Loading from base repository" << std::endl;
-        std::cerr << "[Cache] setErrorHandler called. Address of errorHandler: " << &errorHandler << std::endl;
 		auto result = baseRepository->load(name);
 		if (result) {
-			updateCache(name, [&](auto& cache) {
-				auto& newEntry = cache[name];
-				newEntry.score = std::make_unique<Score>(*result);
+			updateCache(name, [&result, &name](auto& newCache) {
+				auto& newEntry = newCache[name];
+				newEntry.score = std::make_unique<MusicTrainer::music::Score>(*result);
 				newEntry.lastAccess = std::chrono::system_clock::now();
 				newEntry.valid.store(true);
-				std::cout << "[Cache] Added to cache" << std::endl;
 			});
 		}
 		return result;
 	} catch (const MusicTrainer::RepositoryError& e) {
-		std::cerr << "[Cache] Error loading from base repository: " << e.what() << std::endl;
-		MusicTrainer::ErrorContext context(__FILE__, __LINE__, __FUNCTION__,
-										  "name: " + name + ", operation: load");
-		// Attempt recovery if strategy exists
-        if (recoveryStrategy) {
-            std::cout << "[Cache] Calling recovery strategy" << std::endl;
-
-            auto result = recoveryStrategy(e);
-            if (result.success()) {
-                // Call the registered error handler if available to notify about the error that was recovered
-                if (errorHandler) {
-                    std::cout << "[Cache] Calling error handler after successful recovery" << std::endl;
-                    errorHandler(e);
-                }
-                return std::move(result.score);
-            }
-        }
-        // If recovery fails, also notify the error handler before rethrowing
-        if (errorHandler) {
-            std::cout << "[Cache] Calling error handler after failed recovery/no strategy" << std::endl;
-            std::cerr << "[Cache] Error handler called. Address of errorHandler: " << &errorHandler << std::endl;
-            errorHandler(e);
-        }
-        throw MusicTrainer::RepositoryError("Failed to load score from repository: " + std::string(e.what()), context);
+		if (recoveryStrategy) {
+			auto recoveryResult = recoveryStrategy(e);
+			if (recoveryResult.success()) {
+				return std::move(recoveryResult.score);
+			}
+		}
+		if (errorHandler) {
+			errorHandler(e);
+		}
+		throw;
 	}
 }
 
 std::vector<std::string> CachingScoreRepository::listScores() {
-	return baseRepository->listScores();
+	try {
+		return baseRepository->listScores();
+	} catch (const MusicTrainer::RepositoryError& e) {
+		if (errorHandler) {
+			errorHandler(e);
+		}
+		throw;
+	}
 }
 
 void CachingScoreRepository::remove(const std::string& name) {
-	baseRepository->remove(name);
-	updateCache(name, [&](auto& cache) {
-		cache.erase(name);
-	});
+	try {
+		baseRepository->remove(name);
+		updateCache(name, [&name](auto& newCache) {
+			newCache.erase(name);
+		});
+	} catch (const MusicTrainer::RepositoryError& e) {
+		if (errorHandler) {
+			errorHandler(e);
+		}
+		throw;
+	}
 }
 
 void CachingScoreRepository::clearCache() {
-	updateCache("", [](auto& cache) {
-		cache.clear();
-	});
-	cacheHits.store(0, std::memory_order_release);
-	totalAccesses.store(0, std::memory_order_release);
+	cache.clear();
+	cacheHits.store(0);
+	totalAccesses.store(0);
 }
 
 void CachingScoreRepository::setCacheTimeout(std::chrono::seconds timeout) {
-	cacheTimeout.store(timeout.count(), std::memory_order_release);
+	cacheTimeout.store(timeout.count());
 }
 
 size_t CachingScoreRepository::getCacheSize() const {
@@ -111,29 +108,26 @@ size_t CachingScoreRepository::getCacheSize() const {
 }
 
 double CachingScoreRepository::getCacheHitRate() const {
-	auto total = totalAccesses.load(std::memory_order_acquire);
+	auto total = totalAccesses.load();
 	if (total == 0) return 0.0;
-	return static_cast<double>(cacheHits.load(std::memory_order_acquire)) / total;
+	return static_cast<double>(cacheHits.load()) / total;
 }
 
 void CachingScoreRepository::cleanExpiredEntries() {
-	updateCache("", [this](auto& cache) {
-		for (auto it = cache.begin(); it != cache.end();) {
-			if (isExpired(it->second)) {
-				it = cache.erase(it);
-			} else {
-				++it;
-			}
+	auto now = std::chrono::system_clock::now();
+	for (auto it = cache.begin(); it != cache.end();) {
+		if (isExpired(it->second)) {
+			it = cache.erase(it);
+		} else {
+			++it;
 		}
-	});
+	}
 }
 
 bool CachingScoreRepository::isExpired(const CacheEntry& entry) const {
 	auto now = std::chrono::system_clock::now();
 	auto age = std::chrono::duration_cast<std::chrono::seconds>(now - entry.lastAccess);
-	return age.count() > cacheTimeout.load(std::memory_order_acquire);
+	return age.count() > cacheTimeout.load() || !entry.valid.load();
 }
-
-CachingScoreRepository::~CachingScoreRepository() = default;
 
 } // namespace music::adapters

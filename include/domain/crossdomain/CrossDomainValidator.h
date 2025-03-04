@@ -12,20 +12,20 @@ namespace music {
 namespace crossdomain {
 
 struct ValidationResult {
-	std::string message;
-	bool isValid;
+    std::string message;
+    bool isValid;
 };
 
 class CrossDomainValidator {
 public:
-	CrossDomainValidator(rules::ValidationPipeline& pipeline, ports::ScoreRepository& repository);
-	~CrossDomainValidator() = default;
+    CrossDomainValidator(MusicTrainer::music::rules::ValidationPipeline& pipeline, music::ports::ScoreRepository& repository);
+    ~CrossDomainValidator() = default;
 
-	ValidationResult validate(const Score& score);
+    ValidationResult validate(const MusicTrainer::music::Score& score);
 
 private:
-	rules::ValidationPipeline& pipeline;
-	ports::ScoreRepository& repository;
+    MusicTrainer::music::rules::ValidationPipeline& pipeline;
+    music::ports::ScoreRepository& repository;
 };
 
 } // namespace crossdomain

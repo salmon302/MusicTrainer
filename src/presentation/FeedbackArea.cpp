@@ -3,6 +3,8 @@
 #include "domain/music/Score.h"
 #include "domain/music/Voice.h"
 #include "domain/music/Note.h"
+#include "domain/music/Interval.h"
+#include "domain/analysis/VoiceAnalyzer.h"
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -195,23 +197,20 @@ QString FeedbackArea::formatIntervalList(const std::vector<music::Interval>& int
 
 void FeedbackArea::onTabChanged(int index)
 {
-    if (!m_chartWidget) return;
-    
-    auto* score = dynamic_cast<const music::Score*>(property("currentScore").value<void*>());
-    if (!score) return;
-    
-    if (index == 0 && score->getVoiceCount() > 0) {
-        // Voice Analysis tab - show first voice
-        if (auto* voice = score->getVoice(0)) {
-            static_cast<VoiceChart*>(m_chartWidget)->updateVoiceData(*voice);
-        }
-    } else if (index == 1 && score->getVoiceCount() >= 2) {
-        // Interval Analysis tab - show first two voices
-        if (auto* voice1 = score->getVoice(0)) {
-            if (auto* voice2 = score->getVoice(1)) {
-                static_cast<VoiceChart*>(m_chartWidget)->updateVoiceRelationship(*voice1, *voice2);
-            }
-        }
+    // Get current score from property
+    const auto score = property("currentScore").value<const music::Score*>();
+    if (!score) {
+        return;
+    }
+
+    // Update appropriate tab
+    switch (index) {
+        case 0: // Voice Analysis
+            updateVoiceAnalysis(*score);
+            break;
+        case 1: // Interval Analysis
+            updateIntervalAnalysis(*score);
+            break;
     }
 }
 

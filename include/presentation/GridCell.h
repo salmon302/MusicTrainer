@@ -6,9 +6,6 @@
 #include "presentation/GridConstants.h"
 #include <optional>
 
-// Import the music namespace for consistency
-using music::Note;
-
 namespace MusicTrainer::presentation {
 
 /**
@@ -50,7 +47,7 @@ public:
      * @param note Note to place in the cell
      * @param voiceIndex Voice index for coloring
      */
-    void setNote(const Note& note, int voiceIndex);
+    void setNote(const MusicTrainer::music::Note& note, int voiceIndex);
 
     /**
      * @brief Clear any note from this cell
@@ -68,8 +65,8 @@ private:
     int m_position;
     int m_pitch;
     QGraphicsScene* m_scene;
-    QGraphicsItem* m_noteRect;
-    std::optional<Note> m_note;
+    QGraphicsRectItem* m_noteRect;  // Changed from QGraphicsItem* to QGraphicsRectItem*
+    std::optional<MusicTrainer::music::Note> m_note;
     int m_voiceIndex;
 };
 

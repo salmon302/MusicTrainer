@@ -1,6 +1,11 @@
 #pragma once
 
 #include <QtWidgets/QWidget>
+#include <QtWidgets/QTextEdit>
+#include <QtWidgets/QTabWidget>
+#include <QtWidgets/QTableWidget>
+#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QListWidget>
 #include "domain/music/Score.h"
 #include "presentation/VoiceChart.h"
 #include "domain/analysis/VoiceAnalyzer.h"
@@ -9,13 +14,7 @@
 #include <string>
 
 QT_BEGIN_NAMESPACE
-class QTabWidget;
-class QTableWidget;
-class QTextEdit;
-class QListWidget;
-class QVBoxLayout;
 class QHeaderView;
-class QListWidgetItem;
 QT_END_NAMESPACE
 
 namespace MusicTrainer::presentation {

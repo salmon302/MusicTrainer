@@ -10,12 +10,6 @@
 #include "domain/music/Duration.h"
 #include "presentation/GridConstants.h"
 
-// Import the music namespace for consistency with other files
-using music::Voice;
-using music::Note;
-using music::Score;
-using music::Duration;
-
 namespace MusicTrainer::presentation {
 
 class GridCell;
@@ -36,7 +30,7 @@ public:
         int maxPitch;      // Highest visible pitch (MIDI note number)
         int startPosition; // Leftmost position (in beats)
         int endPosition;   // Rightmost position (in beats)
-        Voice::TimeSignature timeSignature{4, Duration::createQuarter()}; // Time signature with default 4/4
+        MusicTrainer::music::Voice::TimeSignature timeSignature{4, MusicTrainer::music::Duration::createQuarter()}; // Time signature with default 4/4
     };
 
     // Grid constants from shared header
@@ -75,14 +69,14 @@ public:
      * @brief Update the grid from a musical score
      * @param score Score to render
      */
-    void updateFromScore(std::shared_ptr<Score> score);
+    void updateFromScore(std::shared_ptr<MusicTrainer::music::Score> score);
 
     /**
      * @brief Add a note to the grid
      * @param note Note to add
      * @param voiceIndex Index of the voice this note belongs to
      */
-    void addNote(const Note& note, int voiceIndex);
+    void addNote(const MusicTrainer::music::Note& note, int voiceIndex);
 
     /**
      * @brief Add a note to the grid
@@ -90,7 +84,7 @@ public:
      * @param voiceIndex Index of the voice this note belongs to
      * @param position Position in musical time (in beats)
      */
-    void addNote(const Note& note, int voiceIndex, int position = 0);
+    void addNote(const MusicTrainer::music::Note& note, int voiceIndex, int position = 0);
     
     /**
      * @brief Update the visual grid lines

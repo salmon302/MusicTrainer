@@ -183,6 +183,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/share/cmake-3.28/Modules/CheckCXXSourceCompiles.cmake"
   "/usr/share/cmake-3.28/Modules/CheckIncludeFile.cmake"
   "/usr/share/cmake-3.28/Modules/CheckLibraryExists.cmake"
+  "/usr/share/cmake-3.28/Modules/CheckSymbolExists.cmake"
   "/usr/share/cmake-3.28/Modules/Compiler/ADSP-DetermineCompiler.cmake"
   "/usr/share/cmake-3.28/Modules/Compiler/ARMCC-DetermineCompiler.cmake"
   "/usr/share/cmake-3.28/Modules/Compiler/ARMClang-DetermineCompiler.cmake"

@@ -5,6 +5,7 @@
 #include "domain/music/Pitch.h"
 #include <vector>
 #include <memory>
+#include <string>
 
 namespace MusicTrainer {
 namespace music {
@@ -17,10 +18,13 @@ struct VoiceCharacteristics {
     bool hasRangeIssues{false};
     bool hasLeadingIssues{false};
     std::string analysis;
+    std::vector<std::string> issues;  // Added issues vector
 };
 
 class VoiceAnalyzer {
 public:
+    static std::unique_ptr<VoiceAnalyzer> create();  // Added create method
+    
     VoiceAnalyzer();
     ~VoiceAnalyzer();
 

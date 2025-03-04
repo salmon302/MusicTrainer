@@ -66,13 +66,13 @@ include CMakeFiles/TestGUI_autogen_timestamp_deps.dir/compiler_depend.make
 # Include the progress variables for this target.
 include CMakeFiles/TestGUI_autogen_timestamp_deps.dir/progress.make
 
+CMakeFiles/TestGUI_autogen_timestamp_deps: /usr/lib/qt6/libexec/uic
+CMakeFiles/TestGUI_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.4.2
+CMakeFiles/TestGUI_autogen_timestamp_deps: /usr/lib/qt6/libexec/moc
 CMakeFiles/TestGUI_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.4.2
 CMakeFiles/TestGUI_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libQt6Charts.so.6.4.2
-CMakeFiles/TestGUI_autogen_timestamp_deps: _deps/rtmidi-build/librtmidi.so.6.0.0
-CMakeFiles/TestGUI_autogen_timestamp_deps: /usr/lib/qt6/libexec/moc
-CMakeFiles/TestGUI_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.4.2
-CMakeFiles/TestGUI_autogen_timestamp_deps: /usr/lib/qt6/libexec/uic
 CMakeFiles/TestGUI_autogen_timestamp_deps: libMusicTrainerLib.a
+CMakeFiles/TestGUI_autogen_timestamp_deps: _deps/rtmidi-build/librtmidi.so.6.0.0
 
 TestGUI_autogen_timestamp_deps: CMakeFiles/TestGUI_autogen_timestamp_deps
 TestGUI_autogen_timestamp_deps: CMakeFiles/TestGUI_autogen_timestamp_deps.dir/build.make

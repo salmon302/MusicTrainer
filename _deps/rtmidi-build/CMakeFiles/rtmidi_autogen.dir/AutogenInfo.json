@@ -10,6 +10,7 @@
 		"/usr/share/cmake-3.28/Modules/FindPkgConfig.cmake",
 		"/usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake",
 		"/usr/share/cmake-3.28/Modules/FindPackageMessage.cmake",
+		"/usr/share/cmake-3.28/Modules/CheckSymbolExists.cmake",
 		"/usr/share/cmake-3.28/Modules/FindALSA.cmake",
 		"/usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake",
 		"/usr/share/cmake-3.28/Modules/FindPackageMessage.cmake",
@@ -55,11 +56,12 @@
 	"MOC_COMPILATION_FILE" : "/home/seth-n/Documents/GitHub/MusicTrainer/_deps/rtmidi-build/rtmidi_autogen/mocs_compilation.cpp",
 	"MOC_DEFINITIONS" : 
 	[
+		"JACK_HAS_PORT_RENAME",
 		"RTMIDI_DO_NOT_ENSURE_UNIQUE_PORTNAMES",
 		"RTMIDI_EXPORT",
-		"RTMIDI_NO_JACK",
 		"__LINUX_ALSA__",
 		"__RTMIDI_DEBUG__",
+		"__UNIX_JACK__",
 		"rtmidi_EXPORTS"
 	],
 	"MOC_DEPEND_FILTERS" : 

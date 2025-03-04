@@ -26,9 +26,9 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
-struct qt_meta_stringdata_music__analysis__MusicTrainer__presentation__FeedbackArea_t {
+struct qt_meta_stringdata_MusicTrainer__presentation__FeedbackArea_t {
     uint offsetsAndSizes[26];
-    char stringdata0[58];
+    char stringdata0[41];
     char stringdata1[21];
     char stringdata2[1];
     char stringdata3[9];
@@ -43,24 +43,24 @@ struct qt_meta_stringdata_music__analysis__MusicTrainer__presentation__FeedbackA
     char stringdata12[5];
 };
 #define QT_MOC_LITERAL(ofs, len) \
-    uint(sizeof(qt_meta_stringdata_music__analysis__MusicTrainer__presentation__FeedbackArea_t::offsetsAndSizes) + ofs), len 
-Q_CONSTINIT static const qt_meta_stringdata_music__analysis__MusicTrainer__presentation__FeedbackArea_t qt_meta_stringdata_music__analysis__MusicTrainer__presentation__FeedbackArea = {
+    uint(sizeof(qt_meta_stringdata_MusicTrainer__presentation__FeedbackArea_t::offsetsAndSizes) + ofs), len 
+Q_CONSTINIT static const qt_meta_stringdata_MusicTrainer__presentation__FeedbackArea_t qt_meta_stringdata_MusicTrainer__presentation__FeedbackArea = {
     {
-        QT_MOC_LITERAL(0, 57),  // "music::analysis::MusicTrainer..."
-        QT_MOC_LITERAL(58, 20),  // "feedbackItemSelected"
-        QT_MOC_LITERAL(79, 0),  // ""
-        QT_MOC_LITERAL(80, 8),  // "position"
-        QT_MOC_LITERAL(89, 10),  // "voiceIndex"
-        QT_MOC_LITERAL(100, 12),  // "onTabChanged"
-        QT_MOC_LITERAL(113, 5),  // "index"
-        QT_MOC_LITERAL(119, 26),  // "onVoiceAnalysisItemClicked"
-        QT_MOC_LITERAL(146, 3),  // "row"
-        QT_MOC_LITERAL(150, 6),  // "column"
-        QT_MOC_LITERAL(157, 26),  // "onValidationMessageClicked"
-        QT_MOC_LITERAL(184, 16),  // "QListWidgetItem*"
-        QT_MOC_LITERAL(201, 4)   // "item"
+        QT_MOC_LITERAL(0, 40),  // "MusicTrainer::presentation::F..."
+        QT_MOC_LITERAL(41, 20),  // "feedbackItemSelected"
+        QT_MOC_LITERAL(62, 0),  // ""
+        QT_MOC_LITERAL(63, 8),  // "position"
+        QT_MOC_LITERAL(72, 10),  // "voiceIndex"
+        QT_MOC_LITERAL(83, 12),  // "onTabChanged"
+        QT_MOC_LITERAL(96, 5),  // "index"
+        QT_MOC_LITERAL(102, 26),  // "onVoiceAnalysisItemClicked"
+        QT_MOC_LITERAL(129, 3),  // "row"
+        QT_MOC_LITERAL(133, 6),  // "column"
+        QT_MOC_LITERAL(140, 26),  // "onValidationMessageClicked"
+        QT_MOC_LITERAL(167, 16),  // "QListWidgetItem*"
+        QT_MOC_LITERAL(184, 4)   // "item"
     },
-    "music::analysis::MusicTrainer::presentation::FeedbackArea",
+    "MusicTrainer::presentation::FeedbackArea",
     "feedbackItemSelected",
     "",
     "position",
@@ -77,7 +77,7 @@ Q_CONSTINIT static const qt_meta_stringdata_music__analysis__MusicTrainer__prese
 #undef QT_MOC_LITERAL
 } // unnamed namespace
 
-Q_CONSTINIT static const uint qt_meta_data_music__analysis__MusicTrainer__presentation__FeedbackArea[] = {
+Q_CONSTINIT static const uint qt_meta_data_MusicTrainer__presentation__FeedbackArea[] = {
 
  // content:
       10,       // revision
@@ -109,13 +109,13 @@ Q_CONSTINIT static const uint qt_meta_data_music__analysis__MusicTrainer__presen
        0        // eod
 };
 
-Q_CONSTINIT const QMetaObject music::analysis::MusicTrainer::presentation::FeedbackArea::staticMetaObject = { {
+Q_CONSTINIT const QMetaObject MusicTrainer::presentation::FeedbackArea::staticMetaObject = { {
     QMetaObject::SuperData::link<QWidget::staticMetaObject>(),
-    qt_meta_stringdata_music__analysis__MusicTrainer__presentation__FeedbackArea.offsetsAndSizes,
-    qt_meta_data_music__analysis__MusicTrainer__presentation__FeedbackArea,
+    qt_meta_stringdata_MusicTrainer__presentation__FeedbackArea.offsetsAndSizes,
+    qt_meta_data_MusicTrainer__presentation__FeedbackArea,
     qt_static_metacall,
     nullptr,
-    qt_incomplete_metaTypeArray<qt_meta_stringdata_music__analysis__MusicTrainer__presentation__FeedbackArea_t,
+    qt_incomplete_metaTypeArray<qt_meta_stringdata_MusicTrainer__presentation__FeedbackArea_t,
         // Q_OBJECT / Q_GADGET
         QtPrivate::TypeAndForceComplete<FeedbackArea, std::true_type>,
         // method 'feedbackItemSelected'
@@ -136,7 +136,7 @@ Q_CONSTINIT const QMetaObject music::analysis::MusicTrainer::presentation::Feedb
     nullptr
 } };
 
-void music::analysis::MusicTrainer::presentation::FeedbackArea::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void MusicTrainer::presentation::FeedbackArea::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         auto *_t = static_cast<FeedbackArea *>(_o);
@@ -160,20 +160,20 @@ void music::analysis::MusicTrainer::presentation::FeedbackArea::qt_static_metaca
     }
 }
 
-const QMetaObject *music::analysis::MusicTrainer::presentation::FeedbackArea::metaObject() const
+const QMetaObject *MusicTrainer::presentation::FeedbackArea::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *music::analysis::MusicTrainer::presentation::FeedbackArea::qt_metacast(const char *_clname)
+void *MusicTrainer::presentation::FeedbackArea::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_music__analysis__MusicTrainer__presentation__FeedbackArea.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_MusicTrainer__presentation__FeedbackArea.stringdata0))
         return static_cast<void*>(this);
     return QWidget::qt_metacast(_clname);
 }
 
-int music::analysis::MusicTrainer::presentation::FeedbackArea::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int MusicTrainer::presentation::FeedbackArea::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QWidget::qt_metacall(_c, _id, _a);
     if (_id < 0)
@@ -191,7 +191,7 @@ int music::analysis::MusicTrainer::presentation::FeedbackArea::qt_metacall(QMeta
 }
 
 // SIGNAL 0
-void music::analysis::MusicTrainer::presentation::FeedbackArea::feedbackItemSelected(int _t1, int _t2)
+void MusicTrainer::presentation::FeedbackArea::feedbackItemSelected(int _t1, int _t2)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);

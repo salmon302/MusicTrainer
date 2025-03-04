@@ -10,6 +10,7 @@
 		"/usr/share/cmake-3.28/Modules/FindPkgConfig.cmake",
 		"/usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake",
 		"/usr/share/cmake-3.28/Modules/FindPackageMessage.cmake",
+		"/usr/share/cmake-3.28/Modules/CheckSymbolExists.cmake",
 		"/usr/share/cmake-3.28/Modules/FindALSA.cmake",
 		"/usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake",
 		"/usr/share/cmake-3.28/Modules/FindPackageMessage.cmake",
@@ -39,12 +40,7 @@
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
 	"INCLUDE_DIR" : "/home/seth-n/Documents/GitHub/MusicTrainer/_deps/rtmidi-build/qmidiin_autogen/include",
 	"MOC_COMPILATION_FILE" : "/home/seth-n/Documents/GitHub/MusicTrainer/_deps/rtmidi-build/qmidiin_autogen/mocs_compilation.cpp",
-	"MOC_DEFINITIONS" : 
-	[
-		"RTMIDI_DO_NOT_ENSURE_UNIQUE_PORTNAMES",
-		"RTMIDI_NO_JACK",
-		"__RTMIDI_DEBUG__"
-	],
+	"MOC_DEFINITIONS" : [ "RTMIDI_DO_NOT_ENSURE_UNIQUE_PORTNAMES", "__RTMIDI_DEBUG__" ],
 	"MOC_DEPEND_FILTERS" : 
 	[
 		[

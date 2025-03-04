@@ -7,16 +7,14 @@
 // Forward declarations
 class QDockWidget;
 
-// Correct namespace forward declaration
+// Correct namespace for Score
+namespace MusicTrainer {
 namespace music {
     class Score;
 }
-
-namespace MusicTrainer {
 namespace ports {
     class MidiAdapter;
 }
-
 namespace presentation {
 
 class ScoreView;
@@ -49,7 +47,7 @@ private:
     void setupStatusBar();
 
     std::shared_ptr<ports::MidiAdapter> m_midiAdapter;
-    std::shared_ptr<music::Score> m_score; // Fixed namespace reference
+    std::shared_ptr<MusicTrainer::music::Score> m_score; // Fully qualified namespace
 
     // UI Components
     ScoreView* m_scoreView{nullptr};

@@ -4,7 +4,7 @@
 #include <map>
 #include <iostream>
 
-namespace music::analysis {
+namespace MusicTrainer::music::analysis {
 
 std::unique_ptr<VoiceAnalyzer> VoiceAnalyzer::create() {
     return std::unique_ptr<VoiceAnalyzer>(new VoiceAnalyzer());
@@ -148,4 +148,4 @@ bool VoiceAnalyzer::hasRangeIssue(const Voice& voice) const {
     return (maxIt->pitch.getMidiNote() - minIt->pitch.getMidiNote()) > 24;
 }
 
-} // namespace music::analysis
+} // namespace MusicTrainer::music::analysis

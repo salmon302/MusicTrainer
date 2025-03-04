@@ -17,8 +17,8 @@ class EventSourcedRepository : public ports::ScoreRepository {
 public:
 	static std::unique_ptr<EventSourcedRepository> create();
 	
-	void save(const std::string& name, const Score& score) override;
-	std::unique_ptr<Score> load(const std::string& name) override;
+	void save(const std::string& name, const MusicTrainer::music::Score& score) override;
+	std::unique_ptr<MusicTrainer::music::Score> load(const std::string& name) override;
 	std::vector<std::string> listScores() override;
 	void remove(const std::string& name) override;
 	
@@ -64,7 +64,7 @@ private:
 	}
 	
 	std::unordered_map<std::string, ScoreState> scoreStates;
-	std::unique_ptr<Score> reconstructScore(const ScoreState& state);
+	std::unique_ptr<MusicTrainer::music::Score> reconstructScore(const ScoreState& state);
 };
 
 } // namespace music::adapters

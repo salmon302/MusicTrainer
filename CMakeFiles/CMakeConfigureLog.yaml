@@ -605,3 +605,40 @@ events:
         
       exitCode: 0
 ...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckSymbolExists.cmake:140 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CheckSymbolExists.cmake:66 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "_deps/rtmidi-src/CMakeLists.txt:113 (check_symbol_exists)"
+    checks:
+      - "Looking for jack_port_rename"
+    directories:
+      source: "/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles/CMakeScratch/TryCompile-l7vdKt"
+      binary: "/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles/CMakeScratch/TryCompile-l7vdKt"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/x86_64-linux-gnu/cmake/Qt6;/usr/lib/x86_64-linux-gnu/cmake/Qt6/3rdparty/extra-cmake-modules/find-modules;/usr/lib/x86_64-linux-gnu/cmake/Qt6/3rdparty/kwin"
+    buildResult:
+      variable: "JACK_HAS_PORT_RENAME"
+      cached: true
+      stdout: |
+        Change Dir: '/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles/CMakeScratch/TryCompile-l7vdKt'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_59dca/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_59dca.dir/build.make CMakeFiles/cmTC_59dca.dir/build
+        gmake[1]: Entering directory '/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles/CMakeScratch/TryCompile-l7vdKt'
+        Building C object CMakeFiles/cmTC_59dca.dir/CheckSymbolExists.c.o
+        /usr/bin/cc    -o CMakeFiles/cmTC_59dca.dir/CheckSymbolExists.c.o -c /home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles/CMakeScratch/TryCompile-l7vdKt/CheckSymbolExists.c
+        Linking C executable cmTC_59dca
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_59dca.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_59dca.dir/CheckSymbolExists.c.o -o cmTC_59dca  -ljack 
+        gmake[1]: Leaving directory '/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles/CMakeScratch/TryCompile-l7vdKt'
+        
+      exitCode: 0
+...

@@ -14,7 +14,7 @@ std::unique_ptr<ProgressionSystem> ProgressionSystem::create() {
 	return std::unique_ptr<ProgressionSystem>(new ProgressionSystem());
 }
 
-void ProgressionSystem::recordExerciseAttempt(const Score& exercise, const Score& attempt, double timeSpent) {
+void ProgressionSystem::recordExerciseAttempt(const MusicTrainer::music::Score& exercise, const MusicTrainer::music::Score& attempt, double timeSpent) {
 	// Calculate accuracy
 	double accuracy = calculateAccuracy(exercise, attempt);
 	
@@ -118,7 +118,7 @@ ProgressionSystem::ExerciseAnalytics ProgressionSystem::getAnalytics() const {
 }
 
 
-double ProgressionSystem::calculateAccuracy(const Score& exercise, const Score& attempt) const {
+double ProgressionSystem::calculateAccuracy(const MusicTrainer::music::Score& exercise, const MusicTrainer::music::Score& attempt) const {
 	// Compare notes, rhythm, and timing
 	// TODO: Implement detailed comparison
 	return 0.75; // Placeholder

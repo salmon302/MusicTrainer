@@ -16,7 +16,7 @@ namespace music::adapters {
 // Forward declaration of recovery result
 struct RecoveryResult {
     bool success() const { return _success; }
-    std::unique_ptr<Score> score;
+    std::unique_ptr<MusicTrainer::music::Score> score;
     bool _success = false;
 };
 
@@ -25,10 +25,10 @@ public:
     using ErrorHandler = std::function<void(const MusicTrainer::MusicTrainerError&)>;
     using RecoveryStrategy = std::function<RecoveryResult(const MusicTrainer::RepositoryError&)>;
 
-    static std::unique_ptr<CachingScoreRepository> create(std::unique_ptr<ScoreRepository> baseRepository);
+    static std::unique_ptr<CachingScoreRepository> create(std::unique_ptr<ports::ScoreRepository> baseRepository);
     
-    void save(const std::string& name, const Score& score) override;
-    std::unique_ptr<Score> load(const std::string& name) override;
+    void save(const std::string& name, const MusicTrainer::music::Score& score) override;
+    std::unique_ptr<MusicTrainer::music::Score> load(const std::string& name) override;
     std::vector<std::string> listScores() override;
     void remove(const std::string& name) override;
     
@@ -49,15 +49,15 @@ public:
     ~CachingScoreRepository(); // Moved from private to public
 
 private:
-    CachingScoreRepository(std::unique_ptr<ScoreRepository> baseRepository);
+    CachingScoreRepository(std::unique_ptr<ports::ScoreRepository> baseRepository);
     
     struct CacheEntry {
-        std::unique_ptr<Score> score;
+        std::unique_ptr<MusicTrainer::music::Score> score;
         std::chrono::system_clock::time_point lastAccess;
         std::atomic<bool> valid{true};
         
         CacheEntry() : lastAccess(std::chrono::system_clock::now()) {}
-        CacheEntry(std::unique_ptr<Score> s, std::chrono::system_clock::time_point t)
+        CacheEntry(std::unique_ptr<MusicTrainer::music::Score> s, std::chrono::system_clock::time_point t)
             : score(std::move(s)), lastAccess(t), valid(true) {}
     };
     
@@ -66,7 +66,7 @@ private:
         for (const auto& [key, entry] : cache) {
             if (entry.score && entry.valid.load()) {
                 auto& newEntry = newCache[key];
-                newEntry.score = std::make_unique<Score>(*entry.score);
+                newEntry.score = std::make_unique<MusicTrainer::music::Score>(*entry.score);
                 newEntry.lastAccess = entry.lastAccess;
                 newEntry.valid.store(true);
             }
@@ -75,7 +75,7 @@ private:
         cache = std::move(newCache);
     }
     
-    std::unique_ptr<ScoreRepository> baseRepository;
+    std::unique_ptr<ports::ScoreRepository> baseRepository;
     std::unordered_map<std::string, CacheEntry> cache;
     std::atomic<std::chrono::seconds::rep> cacheTimeout{300}; // 5 minutes default
     

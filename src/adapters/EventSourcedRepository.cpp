@@ -9,15 +9,15 @@ std::unique_ptr<EventSourcedRepository> EventSourcedRepository::create() {
 	return std::unique_ptr<EventSourcedRepository>(new EventSourcedRepository());
 }
 
-void EventSourcedRepository::save(const std::string& name, const Score& score) {
-	updateState(name, [&](ScoreState& state) {
+void EventSourcedRepository::save(const std::string& name, const MusicTrainer::music::Score& score) {
+	updateState(name, [&score](ScoreState& state) {
 		state.snapshot = std::make_unique<events::Snapshot>(score);
 		state.version = 0;
 		state.events.clear();
 	});
 }
 
-std::unique_ptr<Score> EventSourcedRepository::load(const std::string& name) {
+std::unique_ptr<MusicTrainer::music::Score> EventSourcedRepository::load(const std::string& name) {
 	auto it = scoreStates.find(name);
 	if (it == scoreStates.end()) {
 		throw MusicTrainer::RepositoryError("Score not found: " + name);
@@ -40,7 +40,7 @@ void EventSourcedRepository::remove(const std::string& name) {
 
 void EventSourcedRepository::appendEvents(const std::string& name, 
 	const std::vector<std::unique_ptr<events::Event>>& events) {
-	updateState(name, [&](ScoreState& state) {
+	updateState(name, [&events](ScoreState& state) {
 		for (const auto& event : events) {
 			state.events.push_back(event->clone());
 		}
@@ -77,7 +77,7 @@ std::vector<std::unique_ptr<events::Event>> EventSourcedRepository::getEvents(
 	return result;
 }
 
-std::unique_ptr<Score> EventSourcedRepository::reconstructScore(const ScoreState& state) {
+std::unique_ptr<MusicTrainer::music::Score> EventSourcedRepository::reconstructScore(const ScoreState& state) {
 	if (!state.snapshot) {
 		return nullptr;
 	}

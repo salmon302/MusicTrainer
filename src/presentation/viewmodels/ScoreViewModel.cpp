@@ -6,17 +6,16 @@
 #include "domain/music/Duration.h"
 #include <QDebug>
 
-// Import the music namespace to match the header
-using music::Voice;
-using music::Note;
-using music::Score;
-using music::Pitch;
-using music::Duration;
+using MusicTrainer::music::Voice;
+using MusicTrainer::music::Note;
+using MusicTrainer::music::Score;
+using MusicTrainer::music::Pitch;
+using MusicTrainer::music::Duration;
 
 namespace MusicTrainer::presentation::viewmodels {
 
 ScoreViewModel::ScoreViewModel(QObject* parent)
-    : QObject(parent)
+    : QAbstractListModel(parent)
     , m_score(nullptr)
     , m_isDirty(false)
 {
@@ -66,8 +65,9 @@ void ScoreViewModel::addNote(int voiceIndex, int pitch, double duration, int pos
     }
     
     try {
-        // Create the note directly with int pitch and double duration
-        Note note(pitch, duration);
+        // Create note with proper constructor
+        Pitch notePitch = Pitch::fromMidiNote(pitch);
+        Note note(notePitch, duration, position);
         
         // Add the note to the voice in the future implementation
         // m_score->getVoice(voiceIndex)->addNote(note);

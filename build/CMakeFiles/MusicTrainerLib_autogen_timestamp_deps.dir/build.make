@@ -66,9 +66,9 @@ include CMakeFiles/MusicTrainerLib_autogen_timestamp_deps.dir/compiler_depend.ma
 # Include the progress variables for this target.
 include CMakeFiles/MusicTrainerLib_autogen_timestamp_deps.dir/progress.make
 
-CMakeFiles/MusicTrainerLib_autogen_timestamp_deps: _deps/rtmidi-build/librtmidi.so.6.0.0
-CMakeFiles/MusicTrainerLib_autogen_timestamp_deps: /usr/lib/qt6/libexec/moc
 CMakeFiles/MusicTrainerLib_autogen_timestamp_deps: /usr/lib/qt6/libexec/uic
+CMakeFiles/MusicTrainerLib_autogen_timestamp_deps: /usr/lib/qt6/libexec/moc
+CMakeFiles/MusicTrainerLib_autogen_timestamp_deps: _deps/rtmidi-build/librtmidi.so.6.0.0
 
 MusicTrainerLib_autogen_timestamp_deps: CMakeFiles/MusicTrainerLib_autogen_timestamp_deps
 MusicTrainerLib_autogen_timestamp_deps: CMakeFiles/MusicTrainerLib_autogen_timestamp_deps.dir/build.make

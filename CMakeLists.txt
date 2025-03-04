@@ -15,6 +15,9 @@ set(CMAKE_AUTOUIC ON)
 # Make Qt6 optional - first try Qt6, then fall back to Qt5 if needed
 find_package(Qt6 COMPONENTS Core Widgets Charts QUIET)
 if(NOT Qt6_FOUND)
+    message(STATUS "Qt6 include dirs: ${Qt6Core_INCLUDE_DIRS}")
+    message(STATUS "Qt6 widgets include dirs: ${Qt6Widgets_INCLUDE_DIRS}")
+    message(STATUS "Qt6 charts include dirs: ${Qt6Charts_INCLUDE_DIRS}")
     message(STATUS "Qt6 not found, trying Qt5...")
     find_package(Qt5 COMPONENTS Core Widgets Charts QUIET)
     if(Qt5_FOUND)
@@ -251,6 +254,11 @@ set(MUSICTRAINERGUI_HEADERS
 
 # Include directories
 include_directories(${PROJECT_SOURCE_DIR}/include)
+include_directories(
+    ${Qt${QT_VERSION_MAJOR}Core_INCLUDE_DIRS}
+    ${Qt${QT_VERSION_MAJOR}Widgets_INCLUDE_DIRS}
+    ${Qt${QT_VERSION_MAJOR}Charts_INCLUDE_DIRS}
+)
 
 # Main library target (not executable)
 add_library(MusicTrainerLib STATIC ${LIB_SOURCES} ${HEADERS})

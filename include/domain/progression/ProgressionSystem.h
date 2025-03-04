@@ -59,7 +59,7 @@ public:
 	static std::unique_ptr<ProgressionSystem> create();
 
 	// Skill tracking
-	void recordExerciseAttempt(const Score& exercise, const Score& attempt, double timeSpent);
+	void recordExerciseAttempt(const MusicTrainer::music::Score& exercise, const MusicTrainer::music::Score& attempt, double timeSpent);
 	SkillMetrics getCurrentSkillLevel() const;
 	
 	// Difficulty management
@@ -126,7 +126,7 @@ private:
 	std::atomic<double> currentDifficulty{1.0};
 	
 	// Skill assessment
-	double calculateAccuracy(const Score& exercise, const Score& attempt) const;
+	double calculateAccuracy(const MusicTrainer::music::Score& exercise, const MusicTrainer::music::Score& attempt) const;
 	
 	// Current skill levels
 	SkillMetrics currentSkills;

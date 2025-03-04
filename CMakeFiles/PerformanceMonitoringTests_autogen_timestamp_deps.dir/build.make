@@ -68,9 +68,9 @@ include CMakeFiles/PerformanceMonitoringTests_autogen_timestamp_deps.dir/progres
 
 CMakeFiles/PerformanceMonitoringTests_autogen_timestamp_deps: /usr/lib/qt6/libexec/uic
 CMakeFiles/PerformanceMonitoringTests_autogen_timestamp_deps: /usr/lib/qt6/libexec/moc
-CMakeFiles/PerformanceMonitoringTests_autogen_timestamp_deps: lib/libgtest.so.1.13.0
-CMakeFiles/PerformanceMonitoringTests_autogen_timestamp_deps: lib/libgtest_main.so.1.13.0
 CMakeFiles/PerformanceMonitoringTests_autogen_timestamp_deps: libMusicTrainerLib.a
+CMakeFiles/PerformanceMonitoringTests_autogen_timestamp_deps: lib/libgtest_main.so.1.13.0
+CMakeFiles/PerformanceMonitoringTests_autogen_timestamp_deps: lib/libgtest.so.1.13.0
 CMakeFiles/PerformanceMonitoringTests_autogen_timestamp_deps: _deps/rtmidi-build/librtmidi.so.6.0.0
 
 PerformanceMonitoringTests_autogen_timestamp_deps: CMakeFiles/PerformanceMonitoringTests_autogen_timestamp_deps

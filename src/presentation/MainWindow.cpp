@@ -15,15 +15,16 @@
 #include <QtWidgets/QApplication>
 #include <QDockWidget>
 
-using namespace music; // Add using directive for music namespace
-
 namespace MusicTrainer::presentation {
 
 MainWindow::MainWindow(std::shared_ptr<ports::MidiAdapter> midiAdapter, QWidget *parent)
     : QMainWindow(parent)
     , m_midiAdapter(midiAdapter)
-    , m_score(Score::create()) // Use factory method instead of make_shared
 {
+    // Create a shared_ptr from the unique_ptr returned by Score::create()
+    auto scorePtr = MusicTrainer::music::Score::create();
+    m_score = std::shared_ptr<MusicTrainer::music::Score>(scorePtr.release());
+    
     setWindowTitle(tr("MusicTrainer"));
     resize(1024, 768);
 
@@ -53,7 +54,10 @@ MainWindow::MainWindow(std::shared_ptr<ports::MidiAdapter> midiAdapter, QWidget 
 
     // Create a default voice if none exists yet
     if (m_score && m_score->getVoiceCount() == 0) {
-        m_score->addVoice(std::make_unique<Voice>(Voice::TimeSignature::commonTime()));
+        // Use the factory method instead of make_unique with private constructor
+        auto timeSignature = MusicTrainer::music::Voice::TimeSignature::commonTime();
+        auto voice = MusicTrainer::music::Voice::create(timeSignature);
+        m_score->addVoice(std::move(voice));
     }
 
     // Show warning if MIDI is not available
@@ -101,7 +105,9 @@ void MainWindow::setupMenus()
                 // TODO: Implement save functionality
             }
         }
-        m_score = Score::create();
+        // Create a shared_ptr from the unique_ptr returned by Score::create()
+        auto scorePtr = MusicTrainer::music::Score::create();
+        m_score = std::shared_ptr<MusicTrainer::music::Score>(scorePtr.release());
         m_scoreView->setScore(m_score);
     });
     fileMenu->addAction(newAction);

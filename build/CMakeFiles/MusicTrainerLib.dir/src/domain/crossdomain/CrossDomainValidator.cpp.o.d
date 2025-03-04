@@ -172,23 +172,12 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/rules/Rule.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/rules/IncrementalRule.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/rules/../music/Score.h \
- /usr/include/c++/13/algorithm /usr/include/c++/13/bits/stl_algo.h \
- /usr/include/c++/13/bits/algorithmfwd.h \
- /usr/include/c++/13/bits/stl_heap.h \
- /usr/include/c++/13/bits/uniform_int_dist.h \
- /usr/include/c++/13/pstl/glue_algorithm_defs.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Voice.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Note.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Pitch.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Duration.h \
  /usr/include/c++/13/optional \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/rules/../music/Voice.h \
- /usr/include/c++/13/thread /usr/include/c++/13/bits/std_thread.h \
- /usr/include/c++/13/bits/this_thread_sleep.h /usr/include/c++/13/map \
- /usr/include/c++/13/bits/stl_tree.h /usr/include/c++/13/bits/stl_map.h \
- /usr/include/c++/13/bits/stl_multimap.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/rules/../music/Pitch.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/rules/../music/Duration.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/rules/../music/Note.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/ports/ScoreRepository.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/ports/../music/Score.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Score.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/rules/ParallelFifthsRule.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/rules/ParallelOctavesRule.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/rules/VoiceLeadingRule.h \
@@ -199,8 +188,11 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/errors/RecoveryStrategy.h \
  /usr/include/c++/13/functional /usr/include/c++/13/bits/std_function.h \
  /usr/include/c++/13/array /usr/include/c++/13/compare \
- /usr/include/c++/13/cmath /usr/include/math.h \
- /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/c++/13/bits/stl_algo.h \
+ /usr/include/c++/13/bits/algorithmfwd.h \
+ /usr/include/c++/13/bits/stl_heap.h \
+ /usr/include/c++/13/bits/uniform_int_dist.h /usr/include/c++/13/cmath \
+ /usr/include/math.h /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
  /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
@@ -222,7 +214,8 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o
  /usr/include/c++/13/tr1/poly_laguerre.tcc \
  /usr/include/c++/13/tr1/riemann_zeta.tcc /usr/include/c++/13/future \
  /usr/include/c++/13/condition_variable /usr/include/c++/13/system_error \
- /usr/include/c++/13/bits/atomic_futex.h /usr/include/c++/13/iostream \
+ /usr/include/c++/13/bits/atomic_futex.h \
+ /usr/include/c++/13/bits/std_thread.h /usr/include/c++/13/iostream \
  /usr/include/c++/13/ostream /usr/include/c++/13/ios \
  /usr/include/c++/13/bits/ios_base.h \
  /usr/include/c++/13/bits/locale_classes.h \
