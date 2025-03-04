@@ -139,7 +139,7 @@ void VoiceChart::drawIntervalHistogram(QPainter& painter, const QRect& rect)
         );
         
         // Color based on interval type
-        QColor color = interval.isPerfect() ? 
+        QColor color = interval.getQuality() == Interval::Quality::Perfect ?
             QColor(100, 200, 100) : QColor(200, 100, 100);
         
         painter.fillRect(barRect, color);

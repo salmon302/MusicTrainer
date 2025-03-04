@@ -5,6 +5,7 @@
   /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Pitch.h \
   /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Score.h \
   /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Voice.h \
+  /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/GridConstants.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \

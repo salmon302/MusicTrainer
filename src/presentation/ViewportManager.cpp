@@ -21,21 +21,24 @@ ViewportManager::~ViewportManager() = default;
 
 bool ViewportManager::updateViewportState(const ViewportState& newState)
 {
-    m_currentState = newState;
-    
-    // Calculate scaled area for debugging output only - do not modify m_currentState
-    QRectF scaledArea = m_currentState.visibleArea;
-    scaledArea.setLeft(scaledArea.left() * ScoreView::GRID_UNIT);
-    scaledArea.setRight(scaledArea.right() * ScoreView::GRID_UNIT);
-    scaledArea.setTop(scaledArea.top() * ScoreView::NOTE_HEIGHT);
-    scaledArea.setBottom(scaledArea.bottom() * ScoreView::NOTE_HEIGHT);
+    // Convert scroll position and view size to musical coordinates
+    QRectF musicalArea(
+        newState.scrollPosition.x() / GridConstants::GRID_UNIT,          // Convert x to beats
+        newState.scrollPosition.y() / GridConstants::NOTE_HEIGHT,        // Convert y to semitones
+        m_viewSize.width() / (GridConstants::GRID_UNIT * newState.zoomLevel),     // Width in beats
+        m_viewSize.height() / (GridConstants::NOTE_HEIGHT * newState.zoomLevel)    // Height in semitones
+    );
     
     qDebug() << "ViewportManager::updateViewportState -"
-             << "Original:" << newState.visibleArea
-             << "Scaled:" << scaledArea
-             << "Zoom:" << m_currentState.zoomLevel
-             << "ScrollPos:" << m_currentState.scrollPosition;
+             << "MusicalArea:" << musicalArea
+             << "Zoom:" << newState.zoomLevel
+             << "ScrollPos:" << newState.scrollPosition;
     
+    // Update state
+    m_currentState = newState;
+    m_currentState.visibleArea = musicalArea;
+    
+    // Check if we need to expand based on the current viewport bounds
     auto direction = shouldExpand();
     if (direction) {
         // Calculate expansion amount based on direction
@@ -56,21 +59,60 @@ QRectF ViewportManager::getViewportBounds() const
 
 void ViewportManager::setViewportBounds(const QRectF& bounds)
 {
-    // Store original, unscaled bounds
-    m_currentState.visibleArea = bounds;
-    updateViewportState(m_currentState);
+    // If no grid is set, we can't process bounds
+    if (!m_grid) return;
+    
+    // Get current grid dimensions before any changes
+    auto dimensions = m_grid->getDimensions();
+    
+    // Convert bounds to musical coordinates if needed (handle both scene and musical coords)
+    bool isSceneCoords = bounds.width() > 100 || bounds.height() > 100;
+    
+    QRectF musicalBounds = isSceneCoords ?
+        QRectF(
+            bounds.x() / GridConstants::GRID_UNIT,
+            bounds.y() / GridConstants::NOTE_HEIGHT,
+            bounds.width() / GridConstants::GRID_UNIT,
+            bounds.height() / GridConstants::NOTE_HEIGHT
+        ) : bounds;
+    
+    // Maintain one octave constraint (12 semitones)
+    int currentRange = dimensions.maxPitch - dimensions.minPitch;
+    if (currentRange != 12) {
+        // Reset to one octave if it's different
+        dimensions.maxPitch = dimensions.minPitch + 12;
+    }
+    
+    // Maintain 12 measure constraint (48 beats in 4/4 time)
+    if (dimensions.endPosition - dimensions.startPosition != 48) {
+        dimensions.endPosition = dimensions.startPosition + 48;
+    }
+    
+    // Update the grid with constrained dimensions
+    m_grid->setDimensions(dimensions);
+    
+    // Update current state with constrained bounds
+    m_currentState.visibleArea = musicalBounds;
+    m_currentState.visibleArea.setHeight(12); // Force one octave height
+    
+    // If we're at the edge, shift the viewport to keep within bounds
+    if (m_currentState.visibleArea.bottom() > dimensions.maxPitch) {
+        m_currentState.visibleArea.moveBottom(dimensions.maxPitch);
+    }
+    if (m_currentState.visibleArea.top() < dimensions.minPitch) {
+        m_currentState.visibleArea.moveTop(dimensions.minPitch);
+    }
 }
 
 void ViewportManager::updateViewSize(const QSize& size)
 {
     m_viewSize = size;
-    // Recalculate viewport state based on new size
     updateViewportState(m_currentState);
 }
 
-void ViewportManager::updateScrollPosition(const QPointF& pos)
+void ViewportManager::updateScrollPosition(const QPointF& scrollPos)
 {
-    m_currentState.scrollPosition = pos;
+    m_currentState.scrollPosition = scrollPos;
     updateViewportState(m_currentState);
 }
 
@@ -133,20 +175,36 @@ QPointF ViewportManager::mapFromMusicalSpace(const QPointF& musicalPoint, const 
 
 void ViewportManager::expandGrid(Direction direction, int amount)
 {
+    // Expansion is now constrained - it only shifts the visible octave up/down
+    // rather than actually expanding the grid
     if (!m_grid) return;
     
-    auto dims = m_grid->getDimensions();
+    auto dimensions = m_grid->getDimensions();
+    
     switch (direction) {
         case Direction::Up:
-            m_grid->expandVertical(-amount, 0);
+            // Shift the octave up
+            dimensions.minPitch -= 12;
+            dimensions.maxPitch -= 12;
             break;
+            
         case Direction::Down:
-            m_grid->expandVertical(0, amount);
+            // Shift the octave down
+            dimensions.minPitch += 12;
+            dimensions.maxPitch += 12;
             break;
+            
         case Direction::Right:
-            m_grid->expandHorizontal(amount);
+            // No horizontal expansion beyond 12 measures
+            if (dimensions.endPosition - dimensions.startPosition >= 48) {
+                return;
+            }
+            dimensions.endPosition = qMin(dimensions.endPosition + amount, 
+                                        dimensions.startPosition + 48);
             break;
     }
+    
+    m_grid->setDimensions(dimensions);
 }
 
 std::optional<ViewportManager::Direction> ViewportManager::shouldExpand() const

@@ -4,4 +4,5 @@
 #include "5PPTR2THOO/moc_MainWindow.cpp"
 #include "5PPTR2THOO/moc_ScoreView.cpp"
 #include "5PPTR2THOO/moc_TransportControls.cpp"
+#include "5PPTR2THOO/moc_VoiceChart.cpp"
 #include "CNFTXHMAZD/moc_ScoreViewModel.cpp"

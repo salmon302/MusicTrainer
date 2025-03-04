@@ -406,6 +406,14 @@ CMakeFiles/TestGUI.dir/src/presentation/test_gui.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qcheckbox.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/FeedbackArea.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTextEdit \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTabWidget \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtabwidget.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTableWidget \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtablewidget.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtableview.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QVBoxLayout \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QListWidget \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Score.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Voice.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Note.h \

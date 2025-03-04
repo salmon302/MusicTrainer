@@ -238,6 +238,19 @@ set(MUSICTRAINERGUI_SOURCES
     src/presentation/VoiceChart.cpp
 )
 
+set(GUI_HEADERS
+    include/presentation/MainWindow.h
+    include/presentation/ScoreView.h
+    include/presentation/ViewportManager.h
+    include/presentation/NoteGrid.h
+    include/presentation/GridCell.h
+    include/presentation/TransportControls.h
+    include/presentation/ExercisePanel.h
+    include/presentation/FeedbackArea.h
+    include/presentation/viewmodels/ScoreViewModel.h
+    include/presentation/VoiceChart.h
+)
+
 set(MUSICTRAINERGUI_HEADERS
     include/presentation/MainWindow.h
     include/presentation/ScoreView.h
@@ -248,6 +261,7 @@ set(MUSICTRAINERGUI_HEADERS
     include/presentation/ExercisePanel.h
     include/presentation/FeedbackArea.h
     include/presentation/viewmodels/ScoreViewModel.h
+    include/presentation/VoiceChart.h
     include/domain/analysis/VoiceAnalyzer.h
     include/presentation/VoiceChart.h
 )
@@ -280,7 +294,7 @@ if(Qt${QT_VERSION_MAJOR}_FOUND)
     )
     
     # Add the full GUI application
-    add_executable(MusicTrainerGUI src/presentation/main_gui.cpp ${GUI_SOURCES} ${GUI_HEADERS})
+    add_executable(MusicTrainerGUI src/presentation/main_gui.cpp ${MUSICTRAINERGUI_SOURCES} ${MUSICTRAINERGUI_HEADERS})
     target_link_libraries(MusicTrainerGUI PRIVATE 
         MusicTrainerLib 
         Qt${QT_VERSION_MAJOR}::Core 

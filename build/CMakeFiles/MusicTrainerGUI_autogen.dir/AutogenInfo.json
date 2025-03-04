@@ -349,6 +349,12 @@
 	"HEADERS" : 
 	[
 		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/include/domain/analysis/VoiceAnalyzer.h",
+			"MU",
+			"LV26KPTB6X/moc_VoiceAnalyzer.cpp",
+			null
+		],
+		[
 			"/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/ExercisePanel.h",
 			"MU",
 			"5PPTR2THOO/moc_ExercisePanel.cpp",
@@ -394,6 +400,12 @@
 			"/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/ViewportManager.h",
 			"MU",
 			"5PPTR2THOO/moc_ViewportManager.cpp",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/VoiceChart.h",
+			"MU",
+			"5PPTR2THOO/moc_VoiceChart.cpp",
 			null
 		],
 		[
@@ -481,6 +493,11 @@
 	"SOURCES" : 
 	[
 		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/src/domain/analysis/VoiceAnalyzer.cpp",
+			"MU",
+			null
+		],
+		[
 			"/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ExercisePanel.cpp",
 			"MU",
 			null
@@ -517,6 +534,11 @@
 		],
 		[
 			"/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ViewportManager.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/VoiceChart.cpp",
 			"MU",
 			null
 		],

@@ -11,12 +11,19 @@ namespace MusicTrainer::presentation {
 
 NoteGrid::NoteGrid(QGraphicsScene* scene)
     : m_scene(scene)
-    , m_dimensions{48, 96, 0, 32} // C3 to C7, 32 beats
+    , m_dimensions{60, 72, 0, 48} // C4 to C5 (1 octave), 48 beats (12 measures in 4/4 time)
 {
     qDebug() << "NoteGrid::NoteGrid - Initial dimensions:" 
              << "Pitch range:" << m_dimensions.minPitch << "-" << m_dimensions.maxPitch
              << "Time range:" << m_dimensions.startPosition << "-" << m_dimensions.endPosition;
-    updateGridLines(QRectF(0, m_dimensions.minPitch, 32, 48), 1.0f);
+    
+    // Initialize grid lines with proper dimensions
+    updateGridLines(QRectF(
+        m_dimensions.startPosition, 
+        m_dimensions.minPitch, 
+        m_dimensions.endPosition - m_dimensions.startPosition, 
+        m_dimensions.maxPitch - m_dimensions.minPitch
+    ), 1.0f);
 }
 
 NoteGrid::~NoteGrid() = default;
@@ -28,17 +35,25 @@ const NoteGrid::GridDimensions& NoteGrid::getDimensions() const
 
 void NoteGrid::setDimensions(const GridDimensions& dimensions)
 {
-    qDebug() << "NoteGrid::setDimensions - Old:" 
-             << m_dimensions.minPitch << "-" << m_dimensions.maxPitch
-             << m_dimensions.startPosition << "-" << m_dimensions.endPosition
-             << "New:" 
-             << dimensions.minPitch << "-" << dimensions.maxPitch
-             << dimensions.startPosition << "-" << dimensions.endPosition;
-             
+    // Validate pitch range
+    if (dimensions.minPitch > dimensions.maxPitch) {
+        qWarning() << "NoteGrid::setDimensions - Invalid pitch range:" 
+                   << dimensions.minPitch << "-" << dimensions.maxPitch;
+        return;
+    }
+    
+    // Validate position range
+    if (dimensions.startPosition > dimensions.endPosition) {
+        qWarning() << "NoteGrid::setDimensions - Invalid position range:"
+                   << dimensions.startPosition << "-" << dimensions.endPosition;
+        return;
+    }
+    
+    // Store new dimensions
     m_dimensions = dimensions;
-    updateGrid(QRectF(m_dimensions.startPosition, m_dimensions.minPitch,
-                     m_dimensions.endPosition - m_dimensions.startPosition,
-                     m_dimensions.maxPitch - m_dimensions.minPitch));
+    
+    // Ensure grid gets redrawn with new dimensions
+    updateGridLines(m_scene->sceneRect(), 1.0);
 }
 
 void NoteGrid::expandVertical(int minPitchDelta, int maxPitchDelta)
@@ -129,147 +144,238 @@ void NoteGrid::addNote(const MusicTrainer::music::Note& note, int voiceIndex, in
 
 void NoteGrid::updateGridLines(const QRectF& visibleRect, float zoomLevel)
 {
-    qDebug() << "NoteGrid::updateGridLines -"
-             << "VisibleRect:" << visibleRect
+    // Convert visible rect from scene coordinates to grid coordinates
+    QRectF gridVisibleRect(
+        visibleRect.left() / GRID_UNIT,
+        visibleRect.top() / NOTE_HEIGHT,
+        visibleRect.width() / GRID_UNIT,
+        visibleRect.height() / NOTE_HEIGHT
+    );
+    
+    qDebug() << "NoteGrid::updateGridLines - Refresh -"
+             << "SceneRect:" << visibleRect
+             << "GridRect:" << gridVisibleRect
              << "Zoom:" << zoomLevel
              << "GridDims - Pitch:" << m_dimensions.minPitch << "-" << m_dimensions.maxPitch
-             << "Time:" << m_dimensions.startPosition << "-" << m_dimensions.endPosition
-             << "TimeSignature:" << m_dimensions.timeSignature.beats << "/" << m_dimensions.timeSignature.beatUnit.getTotalBeats();
-
-    // Clear existing grid lines
-    for (auto item : m_horizontalLines) {
-        m_scene->removeItem(item);
-        delete item;
-    }
-    m_horizontalLines.clear();
-
-    for (auto item : m_verticalLines) {
-        m_scene->removeItem(item);
-        delete item;
-    }
-    m_verticalLines.clear();
-
-    // Limit grid lines to visible area with a margin to prevent excessive line creation
-    int minPitch = qMax(m_dimensions.minPitch, qFloor(visibleRect.top() / NOTE_HEIGHT) - 1);
-    int maxPitch = qMin(m_dimensions.maxPitch, qCeil(visibleRect.bottom() / NOTE_HEIGHT) + 1);
+             << "Time:" << m_dimensions.startPosition << "-" << m_dimensions.endPosition;
     
-    int startPos = qMax(m_dimensions.startPosition, qFloor(visibleRect.left() / GRID_UNIT) - 1);
-    int endPos = qMin(m_dimensions.endPosition, qCeil(visibleRect.right() / GRID_UNIT) + 1);
-
-    // Get score time signature beats per measure
+    // Clear existing grid elements
+    clearGridElements();
+    
+    // Constrain drawing range to actual grid dimensions plus a small buffer
+    int minPitch = qMax(m_dimensions.minPitch - 12, qFloor(gridVisibleRect.top()));
+    int maxPitch = qMin(m_dimensions.maxPitch + 12, qCeil(gridVisibleRect.bottom()));
+    
+    int startPos = qMax(m_dimensions.startPosition, qFloor(gridVisibleRect.left()));
+    int endPos = qMin(m_dimensions.endPosition, qCeil(gridVisibleRect.right()));
+    
+    // Calculate beat divisions
     const auto& timeSignature = m_dimensions.timeSignature;
     int beatsPerMeasure = timeSignature.beats;
-
-    // Create pens with different styles and thicknesses
-    QPen beatPen(QColor(200, 200, 200), 0.5);        // Light gray for beat lines
-    QPen measurePen(QColor(120, 120, 120), 1.0);     // Darker gray for measure lines
-    QPen strongBeatPen(QColor(100, 100, 100), 0.8);  // Medium gray for strong beats
-    QPen pitchClassPen(QColor(180, 180, 200), 0.7);  // Bluish for note pitch classes
-    QPen octavePen(QColor(80, 80, 100), 1.2);        // Dark blue-gray for octave lines
-
-    // Scale pen widths based on zoom level
+    
+    // Create pens with appropriate styles
+    QPen beatPen(QColor(220, 220, 220), 1.0);        // Light gray for beats
+    QPen strongBeatPen(QColor(180, 180, 180), 1.5);  // Medium gray for strong beats
+    QPen measurePen(QColor(100, 100, 100), 2.0);     // Dark gray for measures
+    QPen pitchClassPen(QColor(200, 200, 220), 1.2);  // Light blue for pitch markers
+    QPen octavePen(QColor(80, 80, 150), 2.0);        // Dark blue for octave lines
+    
+    // Scale pen widths based on zoom
     if (zoomLevel != 1.0f) {
-        float penAdjust = 1.0f / zoomLevel;
-        beatPen.setWidthF(0.5f * penAdjust);
-        measurePen.setWidthF(1.0f * penAdjust);
-        strongBeatPen.setWidthF(0.8f * penAdjust);
-        pitchClassPen.setWidthF(0.7f * penAdjust);
-        octavePen.setWidthF(1.2f * penAdjust);
+        float penAdjust = 1.0f / qMax(0.1f, zoomLevel);
+        beatPen.setWidthF(1.0f * penAdjust);
+        strongBeatPen.setWidthF(1.5f * penAdjust);
+        measurePen.setWidthF(2.0f * penAdjust);
+        pitchClassPen.setWidthF(1.2f * penAdjust);
+        octavePen.setWidthF(2.0f * penAdjust);
     }
-
-    // Add vertical gradient effect to horizontal lines
-    QLinearGradient horizontalGradient(0, 0, 0, 1);
-    horizontalGradient.setColorAt(0, QColor(240, 240, 245));
-    horizontalGradient.setColorAt(1, QColor(230, 230, 235));
-
-    // Horizontal lines (pitches) - only draw what's needed for the visible area
+    
+    // Create white background
+    QGraphicsRectItem* background = m_scene->addRect(
+        m_dimensions.startPosition * GRID_UNIT,
+        m_dimensions.minPitch * NOTE_HEIGHT,
+        (m_dimensions.endPosition - m_dimensions.startPosition) * GRID_UNIT,
+        (m_dimensions.maxPitch - m_dimensions.minPitch) * NOTE_HEIGHT,
+        Qt::NoPen,
+        QBrush(QColor(252, 252, 255))
+    );
+    background->setZValue(-10);
+    m_horizontalLines.push_back(background);
+    
+    // Draw piano key backgrounds
     for (int pitch = minPitch; pitch <= maxPitch; ++pitch) {
         float y = pitch * NOTE_HEIGHT;
-        QPen* pen;
+        int pitchClass = pitch % 12;
+        bool isBlackKey = (pitchClass == 1 || pitchClass == 3 || pitchClass == 6 || 
+                          pitchClass == 8 || pitchClass == 10);
         
-        if (pitch % 12 == 0) {           // C notes (octave lines)
-            pen = &octavePen;
-        } else if (pitch % 12 == 5 || pitch % 12 == 7) {  // F and G lines
-            pen = &pitchClassPen;
-        } else {
-            pen = &beatPen;
-        }
+        QColor keyColor = isBlackKey ? QColor(242, 242, 245) : QColor(252, 252, 255);
         
-        auto line = m_scene->addLine(
-            visibleRect.left(), 
+        QGraphicsRectItem* keyBackground = m_scene->addRect(
+            m_dimensions.startPosition * GRID_UNIT,
             y,
-            visibleRect.right(), 
-            y,
-            *pen
+            (m_dimensions.endPosition - m_dimensions.startPosition) * GRID_UNIT,
+            NOTE_HEIGHT,
+            Qt::NoPen,
+            QBrush(keyColor)
         );
-        
-        // Apply gradient background to octave and pitch class lines
-        if (pitch % 12 == 0 || pitch % 12 == 5 || pitch % 12 == 7) {
-            line->setZValue(-1); // Put background lines behind
-            QGraphicsRectItem* bg = m_scene->addRect(
-                visibleRect.left(),
-                y - 0.5,
-                visibleRect.right() - visibleRect.left(),
-                1.0,
-                Qt::NoPen,
-                horizontalGradient
-            );
-            bg->setZValue(-2); // Put gradient behind lines
-            m_horizontalLines.push_back(bg);
-        }
-        
-        m_horizontalLines.push_back(line);
+        keyBackground->setZValue(-8);
+        m_horizontalLines.push_back(keyBackground);
     }
-
-    // Vertical lines (beats and measures) - only draw what's needed for the visible area
+    
+    // Draw measure backgrounds
+    for (int pos = startPos; pos <= endPos; pos += beatsPerMeasure) {
+        bool isEvenMeasure = (pos / beatsPerMeasure) % 2 == 0;
+        QColor measureColor = isEvenMeasure ? 
+            QColor(255, 255, 255, 0) :    // Transparent
+            QColor(248, 248, 255, 40);    // Very light blue tint
+            
+        float x = pos * GRID_UNIT;
+        QGraphicsRectItem* measureBg = m_scene->addRect(
+            x,
+            minPitch * NOTE_HEIGHT,
+            beatsPerMeasure * GRID_UNIT,
+            (maxPitch - minPitch) * NOTE_HEIGHT,
+            Qt::NoPen,
+            measureColor
+        );
+        measureBg->setZValue(-5);
+        m_majorVerticalLines.push_back(measureBg);
+    }
+    
+    // Draw horizontal pitch lines
+    for (int pitch = minPitch; pitch <= maxPitch; ++pitch) {
+        float y = pitch * NOTE_HEIGHT;
+        int pitchClass = pitch % 12;
+        
+        // Draw octave lines (C notes)
+        if (pitchClass == 0) {
+            auto line = m_scene->addLine(
+                startPos * GRID_UNIT,
+                y,
+                endPos * GRID_UNIT,
+                y,
+                octavePen
+            );
+            line->setZValue(1);
+            m_majorHorizontalLines.push_back(line);
+            
+            // Add octave label
+            int octaveNumber = (pitch / 12) - 1;  // Standard octave numbering
+            auto label = m_scene->addText(QString("C%1").arg(octaveNumber));
+            label->setPos(startPos * GRID_UNIT - 25, y - 10);
+            label->setDefaultTextColor(QColor(80, 80, 150));
+            label->setScale(0.7 / zoomLevel);
+            label->setZValue(2);
+            m_majorHorizontalLines.push_back(label);
+        }
+        // Draw F note lines
+        else if (pitchClass == 5) {
+            auto line = m_scene->addLine(
+                startPos * GRID_UNIT,
+                y,
+                endPos * GRID_UNIT,
+                y,
+                pitchClassPen
+            );
+            line->setZValue(-2);
+            m_horizontalLines.push_back(line);
+        }
+    }
+    
+    // Draw vertical beat lines
     for (int pos = startPos; pos <= endPos; ++pos) {
         float x = pos * GRID_UNIT;
-        QPen* pen;
         
-        bool isMeasureLine = pos % beatsPerMeasure == 0;
-        bool isStrongBeat = pos % beatsPerMeasure == timeSignature.beats / 2;  // Middle of measure
+        bool isMeasure = pos % beatsPerMeasure == 0;
+        bool isStrongBeat = (pos % beatsPerMeasure == beatsPerMeasure / 2) && 
+                           (beatsPerMeasure % 2 == 0);
         
-        if (isMeasureLine) {          // Measure lines
-            pen = &measurePen;
-        } else if (isStrongBeat) {    // Strong beat lines
-            pen = &strongBeatPen;
-        } else {                      // Regular beat lines
-            pen = &beatPen;
-        }
+        QPen* pen = isMeasure ? &measurePen : 
+                    isStrongBeat ? &strongBeatPen : &beatPen;
         
         auto line = m_scene->addLine(
             x,
-            visibleRect.top(),
+            minPitch * NOTE_HEIGHT,
             x,
-            visibleRect.bottom(),
+            maxPitch * NOTE_HEIGHT,
             *pen
         );
-
-        // Add measure number labels only for visible measures
-        if (isMeasureLine) {
-            auto text = m_scene->addText(QString::number(pos / beatsPerMeasure + 1));
-            text->setPos(x + 0.1, visibleRect.top());
-            text->setDefaultTextColor(QColor(80, 80, 80));
-            text->setScale(0.03 / zoomLevel);  // Scale text size with zoom
-            m_verticalLines.push_back(text);
-        }
         
-        m_verticalLines.push_back(line);
+        line->setZValue(isMeasure ? 0 : -3);
+        
+        if (isMeasure) {
+            m_majorVerticalLines.push_back(line);
+            
+            // Add measure number
+            if (pos >= m_dimensions.startPosition) {
+                int measureNumber = (pos / beatsPerMeasure) + 1;
+                auto text = m_scene->addText(QString::number(measureNumber));
+                text->setPos(x + 2, minPitch * NOTE_HEIGHT - 20);
+                text->setDefaultTextColor(QColor(60, 60, 60));
+                text->setScale(0.8 / zoomLevel);
+                text->setZValue(5);
+                m_majorVerticalLines.push_back(text);
+            }
+            
+            // Add time signature at start
+            if (pos == m_dimensions.startPosition) {
+                QString timeSig = QString("%1/%2").arg(beatsPerMeasure)
+                    .arg(static_cast<int>(4.0 / timeSignature.beatUnit.getTotalBeats()));
+                auto tsText = m_scene->addText(timeSig);
+                tsText->setPos(x, minPitch * NOTE_HEIGHT - 35);
+                tsText->setDefaultTextColor(QColor(0, 0, 180));
+                tsText->setScale(1.0 / zoomLevel);
+                tsText->setZValue(5);
+                m_majorVerticalLines.push_back(tsText);
+            }
+        } else {
+            m_verticalLines.push_back(line);
+        }
     }
 }
 
 void NoteGrid::updateGrid(const QRectF& bounds)
 {
+    // Convert input bounds from scene coordinates to grid coordinates if they are scene coordinates
+    // (We detect this by checking if the values are much larger than typical grid coordinates)
+    QRectF gridBounds = bounds;
+    if (bounds.width() > 100 || bounds.height() > 100) {
+        gridBounds = QRectF(
+            bounds.left() / GRID_UNIT,
+            bounds.top() / NOTE_HEIGHT,
+            bounds.width() / GRID_UNIT,
+            bounds.height() / NOTE_HEIGHT
+        );
+    }
+    
+    // Constrain to grid dimensions
+    gridBounds = gridBounds.intersected(QRectF(
+        m_dimensions.startPosition,
+        m_dimensions.minPitch,
+        m_dimensions.endPosition - m_dimensions.startPosition,
+        m_dimensions.maxPitch - m_dimensions.minPitch
+    ));
+    
     qDebug() << "NoteGrid::updateGrid -"
-             << "Bounds:" << bounds
+             << "Original bounds:" << bounds
+             << "Grid bounds:" << gridBounds
              << "NoteCount:" << m_noteCount
              << "ActiveCells:" << m_gridCells.size();
 
-    // Update all visible cells
+    // Update all visible cells within the constrained bounds
+    float left = gridBounds.left();
+    float right = gridBounds.right();
+    float top = gridBounds.top();
+    float bottom = gridBounds.bottom();
+    
     for (auto& [pos, pitchMap] : m_gridCells) {
-        for (auto& [pitch, cell] : pitchMap) {
-            if (cell && cell->isVisible(bounds)) {
-                cell->update(bounds, 1.0f);
+        // Only process if the position is within bounds
+        if (pos >= left - 1 && pos <= right + 1) {
+            for (auto& [pitch, cell] : pitchMap) {
+                if (pitch >= top - 1 && pitch <= bottom + 1 && cell) {
+                    cell->update(gridBounds, 1.0f);
+                }
             }
         }
     }
@@ -325,20 +431,54 @@ int NoteGrid::getNoteCount() const
 
 GridCell* NoteGrid::getOrCreateCell(int position, int pitch)
 {
+    // Prevent notes outside of the defined grid area
+    if (pitch < m_dimensions.minPitch || pitch > m_dimensions.maxPitch || 
+        position < m_dimensions.startPosition || position > m_dimensions.endPosition) {
+        qDebug() << "NoteGrid::getOrCreateCell - Rejecting out-of-bounds cell at"
+                 << "Position:" << position
+                 << "Pitch:" << pitch
+                 << "Grid bounds:" << m_dimensions.minPitch << "-" << m_dimensions.maxPitch
+                 << m_dimensions.startPosition << "-" << m_dimensions.endPosition;
+        position = qBound(m_dimensions.startPosition, position, m_dimensions.endPosition);
+        pitch = qBound(m_dimensions.minPitch, pitch, m_dimensions.maxPitch);
+    }
+
     auto& pitchMap = m_gridCells[position];
     auto& cellPtr = pitchMap[pitch];
+    
     if (!cellPtr) {
         qDebug() << "NoteGrid::getOrCreateCell - Creating new cell at"
                  << "Position:" << position
                  << "Pitch:" << pitch;
         cellPtr = std::make_unique<GridCell>(position, pitch, m_scene);
     }
+    
     return cellPtr.get();
 }
 
 void NoteGrid::updateGridLineItems(bool majorLines)
 {
     // Implementation not needed for now
+}
+
+void NoteGrid::clearGridElements()
+{
+    // Helper function to clear a vector of grid items
+    auto clearItems = [this](std::vector<QGraphicsItem*>& items) {
+        for (auto item : items) {
+            if (item) {
+                m_scene->removeItem(item);
+                delete item;
+            }
+        }
+        items.clear();
+    };
+    
+    // Clear all grid line vectors
+    clearItems(m_horizontalLines);
+    clearItems(m_verticalLines);
+    clearItems(m_majorHorizontalLines);
+    clearItems(m_majorVerticalLines);
 }
 
 } // namespace MusicTrainer::presentation

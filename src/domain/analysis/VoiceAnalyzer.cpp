@@ -1,6 +1,13 @@
 #include "domain/analysis/VoiceAnalyzer.h"
 #include <sstream>
 #include <algorithm>
+
+namespace MusicTrainer::music::analysis {
+
+std::vector<Interval> getMelodicIntervals(const Voice& voice);
+std::string getVoiceDescription(const VoiceCharacteristics& chars);
+
+} // namespace MusicTrainer::music::analysis
 #include <map>
 #include <iostream>
 
@@ -21,11 +28,11 @@ VoiceCharacteristics VoiceAnalyzer::analyzeVoice(const Voice& voice) const {
     // Find range
     auto [minIt, maxIt] = std::minmax_element(notes.begin(), notes.end(),
         [](const auto& a, const auto& b) {
-            return a.pitch.getMidiNote() < b.pitch.getMidiNote();
+            return a.getPitch().getMidiNote() < b.getPitch().getMidiNote();
         });
         
-    chars.lowestPitch = minIt->pitch;
-    chars.highestPitch = maxIt->pitch;
+    chars.lowestPitch = minIt->getPitch();
+    chars.highestPitch = maxIt->getPitch();
     
     // Analyze melodic intervals
     chars.commonIntervals = getMelodicIntervals(voice);
@@ -41,7 +48,7 @@ VoiceCharacteristics VoiceAnalyzer::analyzeVoice(const Voice& voice) const {
     return chars;
 }
 
-std::vector<Interval> VoiceAnalyzer::getMelodicIntervals(const Voice& voice) const {
+std::vector<Interval> getMelodicIntervals(const Voice& voice) {
     std::vector<Interval> intervals;
     auto notes = voice.getAllNotes();
     
@@ -50,7 +57,7 @@ std::vector<Interval> VoiceAnalyzer::getMelodicIntervals(const Voice& voice) con
     
     // Analyze consecutive notes
     for (size_t i = 0; i < notes.size() - 1; ++i) {
-        auto interval = Interval::fromPitches(notes[i].pitch, notes[i + 1].pitch);
+        auto interval = Interval::fromPitches(notes[i].getPitch(), notes[i + 1].getPitch());
         intervalCounts[interval]++;
     }
     
@@ -78,7 +85,7 @@ std::vector<Interval> VoiceAnalyzer::analyzeVoiceRelationship(
     std::map<Interval, int> intervalCounts;
     
     for (size_t i = 0; i < std::min(notes1.size(), notes2.size()); ++i) {
-        auto interval = Interval::fromPitches(notes1[i].pitch, notes2[i].pitch);
+        auto interval = Interval::fromPitches(notes1[i].getPitch(), notes2[i].getPitch());
         intervalCounts[interval]++;
     }
     
@@ -95,7 +102,7 @@ std::vector<Interval> VoiceAnalyzer::analyzeVoiceRelationship(
     return harmonicIntervals;
 }
 
-std::string VoiceAnalyzer::getVoiceDescription(const VoiceCharacteristics& chars) const {
+std::string getVoiceDescription(const VoiceCharacteristics& chars) {
     std::stringstream ss;
     
     // Range description
@@ -124,7 +131,7 @@ bool VoiceAnalyzer::hasVoiceLeadingIssue(const Voice& voice) const {
     auto notes = voice.getAllNotes();
     
     for (size_t i = 0; i < notes.size() - 1; ++i) {
-        auto interval = Interval::fromPitches(notes[i].pitch, notes[i + 1].pitch);
+        auto interval = Interval::fromPitches(notes[i].getPitch(), notes[i + 1].getPitch());
         // Check for leaps larger than an octave
         if (interval.getSemitones() > 12) {
             return true;
@@ -141,11 +148,25 @@ bool VoiceAnalyzer::hasRangeIssue(const Voice& voice) const {
     // Find total range
     auto [minIt, maxIt] = std::minmax_element(notes.begin(), notes.end(),
         [](const auto& a, const auto& b) {
-            return a.pitch.getMidiNote() < b.pitch.getMidiNote();
+            return a.getPitch().getMidiNote() < b.getPitch().getMidiNote();
         });
         
     // Check if range exceeds two octaves
-    return (maxIt->pitch.getMidiNote() - minIt->pitch.getMidiNote()) > 24;
+    return (maxIt->getPitch().getMidiNote() - minIt->getPitch().getMidiNote()) > 24;
 }
 
+
 } // namespace MusicTrainer::music::analysis
+
+namespace MusicTrainer::music::analysis {
+
+class VoiceAnalyzer::VoiceAnalyzerImpl {
+    public:
+        VoiceAnalyzerImpl() = default;
+        ~VoiceAnalyzerImpl() = default;
+};
+
+} // namespace MusicTrainer::music::analysis
+
+MusicTrainer::music::analysis::VoiceAnalyzer::VoiceAnalyzer() = default;
+MusicTrainer::music::analysis::VoiceAnalyzer::~VoiceAnalyzer() = default;

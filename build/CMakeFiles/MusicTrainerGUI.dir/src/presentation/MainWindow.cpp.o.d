@@ -356,6 +356,7 @@ CMakeFiles/MusicTrainerGUI.dir/src/presentation/MainWindow.cpp.o: \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Note.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Pitch.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Duration.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/GridConstants.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/TransportControls.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QPushButton \

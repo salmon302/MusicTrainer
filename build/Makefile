@@ -2207,6 +2207,30 @@ src/adapters/TemplateBasedExerciseGenerator.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.s
 .PHONY : src/adapters/TemplateBasedExerciseGenerator.cpp.s
 
+src/domain/analysis/VoiceAnalyzer.o: src/domain/analysis/VoiceAnalyzer.cpp.o
+.PHONY : src/domain/analysis/VoiceAnalyzer.o
+
+# target to build an object file
+src/domain/analysis/VoiceAnalyzer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.o
+.PHONY : src/domain/analysis/VoiceAnalyzer.cpp.o
+
+src/domain/analysis/VoiceAnalyzer.i: src/domain/analysis/VoiceAnalyzer.cpp.i
+.PHONY : src/domain/analysis/VoiceAnalyzer.i
+
+# target to preprocess a source file
+src/domain/analysis/VoiceAnalyzer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.i
+.PHONY : src/domain/analysis/VoiceAnalyzer.cpp.i
+
+src/domain/analysis/VoiceAnalyzer.s: src/domain/analysis/VoiceAnalyzer.cpp.s
+.PHONY : src/domain/analysis/VoiceAnalyzer.s
+
+# target to generate assembly for a file
+src/domain/analysis/VoiceAnalyzer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.s
+.PHONY : src/domain/analysis/VoiceAnalyzer.cpp.s
+
 src/domain/crossdomain/CrossDomainValidator.o: src/domain/crossdomain/CrossDomainValidator.cpp.o
 .PHONY : src/domain/crossdomain/CrossDomainValidator.o
 
@@ -3047,6 +3071,30 @@ src/presentation/ViewportManager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/ViewportManager.cpp.s
 .PHONY : src/presentation/ViewportManager.cpp.s
 
+src/presentation/VoiceChart.o: src/presentation/VoiceChart.cpp.o
+.PHONY : src/presentation/VoiceChart.o
+
+# target to build an object file
+src/presentation/VoiceChart.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/VoiceChart.cpp.o
+.PHONY : src/presentation/VoiceChart.cpp.o
+
+src/presentation/VoiceChart.i: src/presentation/VoiceChart.cpp.i
+.PHONY : src/presentation/VoiceChart.i
+
+# target to preprocess a source file
+src/presentation/VoiceChart.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/VoiceChart.cpp.i
+.PHONY : src/presentation/VoiceChart.cpp.i
+
+src/presentation/VoiceChart.s: src/presentation/VoiceChart.cpp.s
+.PHONY : src/presentation/VoiceChart.s
+
+# target to generate assembly for a file
+src/presentation/VoiceChart.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/VoiceChart.cpp.s
+.PHONY : src/presentation/VoiceChart.cpp.s
+
 src/presentation/main_gui.o: src/presentation/main_gui.cpp.o
 .PHONY : src/presentation/main_gui.o
 
@@ -3746,6 +3794,9 @@ help:
 	@echo "... src/adapters/TemplateBasedExerciseGenerator.o"
 	@echo "... src/adapters/TemplateBasedExerciseGenerator.i"
 	@echo "... src/adapters/TemplateBasedExerciseGenerator.s"
+	@echo "... src/domain/analysis/VoiceAnalyzer.o"
+	@echo "... src/domain/analysis/VoiceAnalyzer.i"
+	@echo "... src/domain/analysis/VoiceAnalyzer.s"
 	@echo "... src/domain/crossdomain/CrossDomainValidator.o"
 	@echo "... src/domain/crossdomain/CrossDomainValidator.i"
 	@echo "... src/domain/crossdomain/CrossDomainValidator.s"
@@ -3848,6 +3899,9 @@ help:
 	@echo "... src/presentation/ViewportManager.o"
 	@echo "... src/presentation/ViewportManager.i"
 	@echo "... src/presentation/ViewportManager.s"
+	@echo "... src/presentation/VoiceChart.o"
+	@echo "... src/presentation/VoiceChart.i"
+	@echo "... src/presentation/VoiceChart.s"
 	@echo "... src/presentation/main_gui.o"
 	@echo "... src/presentation/main_gui.i"
 	@echo "... src/presentation/main_gui.s"

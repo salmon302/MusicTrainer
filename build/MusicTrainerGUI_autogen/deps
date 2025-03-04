@@ -14,6 +14,7 @@ MusicTrainerGUI_autogen/timestamp: \
 	/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/ExercisePanel.h \
 	/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/FeedbackArea.h \
 	/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/GridCell.h \
+	/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/GridConstants.h \
 	/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/MainWindow.h \
 	/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/NoteGrid.h \
 	/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/ScoreView.h \
@@ -21,6 +22,7 @@ MusicTrainerGUI_autogen/timestamp: \
 	/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/ViewportManager.h \
 	/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/VoiceChart.h \
 	/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/viewmodels/ScoreViewModel.h \
+	/home/seth-n/Documents/GitHub/MusicTrainer/src/domain/analysis/VoiceAnalyzer.cpp \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ExercisePanel.cpp \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/FeedbackArea.cpp \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/GridCell.cpp \
@@ -29,6 +31,7 @@ MusicTrainerGUI_autogen/timestamp: \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ScoreView.cpp \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/TransportControls.cpp \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ViewportManager.cpp \
+	/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/VoiceChart.cpp \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/main_gui.cpp \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/viewmodels/ScoreViewModel.cpp \
 	/usr/include/alloca.h \

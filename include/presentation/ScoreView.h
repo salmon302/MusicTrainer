@@ -6,6 +6,7 @@
 #include "domain/music/Score.h"
 #include "domain/music/Voice.h"
 #include "domain/music/Note.h"
+#include "presentation/GridConstants.h"
 
 QT_BEGIN_NAMESPACE
 class QGraphicsScene;
@@ -26,9 +27,9 @@ public:
     ~ScoreView() override;
     
     // Constants for grid sizing
-    static constexpr double GRID_UNIT = 60.0;
-   static constexpr double NOTE_HEIGHT = 10.0;
-   static constexpr double GRID_ZOOM_BASE = 1.0;
+    static constexpr double GRID_UNIT = GridConstants::GRID_UNIT;
+    static constexpr double NOTE_HEIGHT = GridConstants::NOTE_HEIGHT;
+    static constexpr double GRID_ZOOM_BASE = GridConstants::GRID_ZOOM_BASE;
    
    void updateScore(const music::Score& score);
     void clearScore();

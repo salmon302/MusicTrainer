@@ -269,6 +269,12 @@
 			null
 		],
 		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/VoiceChart.h",
+			"MU",
+			"5PPTR2THOO/moc_VoiceChart.cpp",
+			null
+		],
+		[
 			"/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/viewmodels/ScoreViewModel.h",
 			"MU",
 			"CNFTXHMAZD/moc_ScoreViewModel.cpp",

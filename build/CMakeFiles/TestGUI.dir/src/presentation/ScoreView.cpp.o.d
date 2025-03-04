@@ -351,6 +351,7 @@ CMakeFiles/TestGUI.dir/src/presentation/ScoreView.cpp.o: \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Note.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Pitch.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Duration.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/GridConstants.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/ViewportManager.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QRectF \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qrect.h \
@@ -361,7 +362,6 @@ CMakeFiles/TestGUI.dir/src/presentation/ScoreView.cpp.o: \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/NoteGrid.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QGraphicsScene \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicsscene.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/GridConstants.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/QtTypeRegistration.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/QtNoteTypes.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/QtTypes.h \
@@ -396,5 +396,8 @@ CMakeFiles/TestGUI.dir/src/presentation/ScoreView.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicsitem.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qpainterpath.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/QWheelEvent \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QTimer \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qtimer.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qbasictimer.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QDebug \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qdebug.h

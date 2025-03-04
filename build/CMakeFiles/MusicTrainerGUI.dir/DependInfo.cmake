@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/seth-n/Documents/GitHub/MusicTrainer/build/MusicTrainerGUI_autogen/mocs_compilation.cpp" "CMakeFiles/MusicTrainerGUI.dir/MusicTrainerGUI_autogen/mocs_compilation.cpp.o" "gcc" "CMakeFiles/MusicTrainerGUI.dir/MusicTrainerGUI_autogen/mocs_compilation.cpp.o.d"
+  "/home/seth-n/Documents/GitHub/MusicTrainer/src/domain/analysis/VoiceAnalyzer.cpp" "CMakeFiles/MusicTrainerGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.o" "gcc" "CMakeFiles/MusicTrainerGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.o.d"
   "/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ExercisePanel.cpp" "CMakeFiles/MusicTrainerGUI.dir/src/presentation/ExercisePanel.cpp.o" "gcc" "CMakeFiles/MusicTrainerGUI.dir/src/presentation/ExercisePanel.cpp.o.d"
   "/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/FeedbackArea.cpp" "CMakeFiles/MusicTrainerGUI.dir/src/presentation/FeedbackArea.cpp.o" "gcc" "CMakeFiles/MusicTrainerGUI.dir/src/presentation/FeedbackArea.cpp.o.d"
   "/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/GridCell.cpp" "CMakeFiles/MusicTrainerGUI.dir/src/presentation/GridCell.cpp.o" "gcc" "CMakeFiles/MusicTrainerGUI.dir/src/presentation/GridCell.cpp.o.d"
@@ -17,6 +18,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ScoreView.cpp" "CMakeFiles/MusicTrainerGUI.dir/src/presentation/ScoreView.cpp.o" "gcc" "CMakeFiles/MusicTrainerGUI.dir/src/presentation/ScoreView.cpp.o.d"
   "/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/TransportControls.cpp" "CMakeFiles/MusicTrainerGUI.dir/src/presentation/TransportControls.cpp.o" "gcc" "CMakeFiles/MusicTrainerGUI.dir/src/presentation/TransportControls.cpp.o.d"
   "/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ViewportManager.cpp" "CMakeFiles/MusicTrainerGUI.dir/src/presentation/ViewportManager.cpp.o" "gcc" "CMakeFiles/MusicTrainerGUI.dir/src/presentation/ViewportManager.cpp.o.d"
+  "/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/VoiceChart.cpp" "CMakeFiles/MusicTrainerGUI.dir/src/presentation/VoiceChart.cpp.o" "gcc" "CMakeFiles/MusicTrainerGUI.dir/src/presentation/VoiceChart.cpp.o.d"
   "/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/main_gui.cpp" "CMakeFiles/MusicTrainerGUI.dir/src/presentation/main_gui.cpp.o" "gcc" "CMakeFiles/MusicTrainerGUI.dir/src/presentation/main_gui.cpp.o.d"
   "/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/viewmodels/ScoreViewModel.cpp" "CMakeFiles/MusicTrainerGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.o" "gcc" "CMakeFiles/MusicTrainerGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.o.d"
   )

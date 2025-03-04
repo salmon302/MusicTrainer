@@ -411,6 +411,7 @@ CMakeFiles/MusicTrainerGUI.dir/MusicTrainerGUI_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qpainter.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qscrollarea.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicsscene.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/GridConstants.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/build/MusicTrainerGUI_autogen/5PPTR2THOO/moc_TransportControls.cpp \
  /home/seth-n/Documents/GitHub/MusicTrainer/build/MusicTrainerGUI_autogen/5PPTR2THOO/../../../include/presentation/TransportControls.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QSlider \
@@ -421,6 +422,7 @@ CMakeFiles/MusicTrainerGUI.dir/MusicTrainerGUI_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qcombobox.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QCheckBox \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qcheckbox.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/build/MusicTrainerGUI_autogen/5PPTR2THOO/moc_VoiceChart.cpp \
  /home/seth-n/Documents/GitHub/MusicTrainer/build/MusicTrainerGUI_autogen/CNFTXHMAZD/moc_ScoreViewModel.cpp \
  /home/seth-n/Documents/GitHub/MusicTrainer/build/MusicTrainerGUI_autogen/CNFTXHMAZD/../../../include/presentation/viewmodels/ScoreViewModel.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QObject \

@@ -135,6 +135,11 @@ private:
     GridCell* getOrCreateCell(int position, int pitch);
 
     /**
+     * @brief Clear all grid line elements from the scene
+     */
+    void clearGridElements();
+    
+    /**
      * @brief Update the visual appearance of grid lines
      * @param majorLines Whether to update major grid lines
      */

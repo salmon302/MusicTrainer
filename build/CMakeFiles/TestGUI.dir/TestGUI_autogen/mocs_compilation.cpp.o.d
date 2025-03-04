@@ -377,6 +377,19 @@ CMakeFiles/TestGUI.dir/TestGUI_autogen/mocs_compilation.cpp.o: \
  /home/seth-n/Documents/GitHub/MusicTrainer/build/TestGUI_autogen/5PPTR2THOO/moc_FeedbackArea.cpp \
  /home/seth-n/Documents/GitHub/MusicTrainer/build/TestGUI_autogen/5PPTR2THOO/../../../include/presentation/FeedbackArea.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTextEdit \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTabWidget \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtabwidget.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTableWidget \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtablewidget.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtableview.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QVBoxLayout \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qboxlayout.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlayout.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlayoutitem.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qboxlayout.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgridlayout.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QListWidget \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Score.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Voice.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Note.h \
@@ -398,6 +411,7 @@ CMakeFiles/TestGUI.dir/TestGUI_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qpainter.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qscrollarea.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicsscene.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/GridConstants.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/build/TestGUI_autogen/5PPTR2THOO/moc_TransportControls.cpp \
  /home/seth-n/Documents/GitHub/MusicTrainer/build/TestGUI_autogen/5PPTR2THOO/../../../include/presentation/TransportControls.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QSlider \
@@ -408,6 +422,7 @@ CMakeFiles/TestGUI.dir/TestGUI_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qcombobox.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QCheckBox \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qcheckbox.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/build/TestGUI_autogen/5PPTR2THOO/moc_VoiceChart.cpp \
  /home/seth-n/Documents/GitHub/MusicTrainer/build/TestGUI_autogen/CNFTXHMAZD/moc_ScoreViewModel.cpp \
  /home/seth-n/Documents/GitHub/MusicTrainer/build/TestGUI_autogen/CNFTXHMAZD/../../../include/presentation/viewmodels/ScoreViewModel.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QObject \

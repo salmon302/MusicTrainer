@@ -158,4 +158,25 @@ bool ScoreViewModel::isDirty() const
     return m_isDirty;
 }
 
+int ScoreViewModel::rowCount(const QModelIndex& parent) const
+{
+    Q_UNUSED(parent);
+    return m_score ? m_score->getVoiceCount() : 0; // Return voice count or 0 if no score
+}
+
+QVariant ScoreViewModel::data(const QModelIndex& index, int role) const
+{
+    if (!m_score || !index.isValid() || role != Qt::DisplayRole) {
+        return QVariant(); // Return empty QVariant for invalid cases
+    }
+
+    int row = index.row();
+    if (row < 0 || row >= getVoiceCount()) {
+        return QVariant(); // Return empty QVariant for invalid rows
+    }
+
+    // For now, just return voice index as string for display
+    return QString::number(row);
+}
+
 } // namespace MusicTrainer::presentation::viewmodels
