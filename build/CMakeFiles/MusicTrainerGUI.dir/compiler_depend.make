@@ -23,6 +23,7 @@ CMakeFiles/MusicTrainerGUI.dir/MusicTrainerGUI_autogen/mocs_compilation.cpp.o: M
   /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Score.h \
   /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Voice.h \
   /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/GridConstants.h \
+  /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/ViewportManager.h \
   /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/VoiceChart.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
@@ -292,7 +293,10 @@ CMakeFiles/MusicTrainerGUI.dir/MusicTrainerGUI_autogen/mocs_compilation.cpp.o: M
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QAbstractListModel \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QObject \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QPointF \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QRectF \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QSettings \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QSize \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qabstractitemmodel.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qalgorithms.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qanystringview.h \
@@ -2020,6 +2024,7 @@ CMakeFiles/MusicTrainerGUI.dir/src/presentation/MainWindow.cpp.o: /home/seth-n/D
   /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/MainWindow.h \
   /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/ScoreView.h \
   /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/TransportControls.h \
+  /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/ViewportManager.h \
   /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/VoiceChart.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
@@ -2304,7 +2309,10 @@ CMakeFiles/MusicTrainerGUI.dir/src/presentation/MainWindow.cpp.o: /home/seth-n/D
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QDebug \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QPointF \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QRectF \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QSettings \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QSize \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qabstractitemmodel.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qalgorithms.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qanystringview.h \
@@ -2869,12 +2877,21 @@ CMakeFiles/MusicTrainerGUI.dir/src/presentation/NoteGrid.cpp.o: /home/seth-n/Doc
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qversiontagging.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/QBrush \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/QPen \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qaction.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qbitmap.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qbrush.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qcolor.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qcursor.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qfont.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qfontinfo.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qfontmetrics.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qicon.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qimage.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qkeysequence.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qpaintdevice.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qpainter.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qpainterpath.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qpalette.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qpen.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qpixelformat.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qpixmap.h \
@@ -2882,6 +2899,7 @@ CMakeFiles/MusicTrainerGUI.dir/src/presentation/NoteGrid.cpp.o: /home/seth-n/Doc
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qregion.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qrgb.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qrgba64.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextoption.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qtgui-config.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qtguiexports.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qtguiglobal.h \
@@ -2889,11 +2907,18 @@ CMakeFiles/MusicTrainerGUI.dir/src/presentation/NoteGrid.cpp.o: /home/seth-n/Doc
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qwindowdefs.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QGraphicsRectItem \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QGraphicsScene \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QGraphicsView \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractscrollarea.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qframe.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicsitem.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicsscene.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicsview.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qscrollarea.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qsizepolicy.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgets-config.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgetsexports.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgetsglobal.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qwidget.h \
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
@@ -5491,21 +5516,17 @@ _deps/rtmidi-src/RtMidi.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/QTimer:
 
-/usr/include/x86_64-linux-gnu/qt6/QtCore/QSize:
-
-/home/seth-n/Documents/GitHub/MusicTrainer/include/adapters/LockFreeEventQueue.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtCore/QRectF:
-
 /usr/include/x86_64-linux-gnu/qt6/QtCore/QRect:
-
-/usr/include/x86_64-linux-gnu/qt6/QtCore/QPointF:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/QMetaType:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/QList:
 
 /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/QtTypes.h:
+
+/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ScoreView.cpp:
+
+/usr/include/x86_64-linux-gnu/qt6/QtGui/QPen:
 
 /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
 
@@ -5697,6 +5718,10 @@ MusicTrainerGUI_autogen/CNFTXHMAZD/moc_ScoreViewModel.cpp:
 
 /usr/include/c++/13/pstl/glue_algorithm_defs.h:
 
+/home/seth-n/Documents/GitHub/MusicTrainer/include/adapters/LockFreeEventQueue.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtCore/QRectF:
+
 /usr/include/c++/13/ext/concurrence.h:
 
 /usr/include/c++/13/new:
@@ -5793,21 +5818,17 @@ MusicTrainerGUI_autogen/CNFTXHMAZD/moc_ScoreViewModel.cpp:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qlocale.h:
 
-/home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Voice.h:
+/usr/include/c++/13/array:
 
 /usr/include/x86_64-linux-gnu/bits/math-vector.h:
 
 /usr/include/c++/13/bits/hash_bytes.h:
 
-/usr/include/c++/13/array:
-
 /usr/include/asm-generic/errno-base.h:
 
 /usr/include/c++/13/bits/stl_iterator_base_funcs.h:
 
-MusicTrainerGUI_autogen/5PPTR2THOO/moc_ExercisePanel.cpp:
-
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qsharedpointer.h:
+/home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Voice.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractitemview.h:
 
@@ -5820,6 +5841,10 @@ MusicTrainerGUI_autogen/5PPTR2THOO/moc_ExercisePanel.cpp:
 /usr/include/c++/13/tr1/special_function_util.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtGui/qwindowdefs.h:
+
+MusicTrainerGUI_autogen/5PPTR2THOO/moc_ExercisePanel.cpp:
+
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qsharedpointer.h:
 
 /usr/include/x86_64-linux-gnu/bits/long-double.h:
 
@@ -5861,37 +5886,9 @@ MusicTrainerGUI_autogen/5PPTR2THOO/moc_ExercisePanel.cpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
 
-/usr/include/c++/13/ext/numeric_traits.h:
-
-/usr/include/c++/13/bits/stl_iterator.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtGui/qtextdocument.h:
-
-/usr/include/c++/13/bits/streambuf.tcc:
-
-MusicTrainerGUI_autogen/5PPTR2THOO/moc_MainWindow.cpp:
-
-MusicTrainerGUI_autogen/5PPTR2THOO/moc_TransportControls.cpp:
-
-/usr/include/x86_64-linux-gnu/qt6/QtGui/qcolor.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qboxlayout.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtGui/QBrush:
-
-/usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtGui/qpaintdevice.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qscrollbar.h:
-
-/usr/include/c++/13/bits/shared_ptr.h:
+/usr/include/c++/13/bits/locale_classes.tcc:
 
 /usr/include/c++/13/bits/uniform_int_dist.h:
-
-/usr/include/c++/13/bits/locale_classes.tcc:
 
 /usr/include/c++/13/optional:
 
@@ -5961,6 +5958,34 @@ MusicTrainerGUI_autogen/5PPTR2THOO/moc_VoiceChart.cpp:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qvarlengtharray.h:
 
+/usr/include/c++/13/ext/numeric_traits.h:
+
+/usr/include/c++/13/bits/stl_iterator.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtGui/qtextdocument.h:
+
+/usr/include/c++/13/bits/streambuf.tcc:
+
+MusicTrainerGUI_autogen/5PPTR2THOO/moc_MainWindow.cpp:
+
+MusicTrainerGUI_autogen/5PPTR2THOO/moc_TransportControls.cpp:
+
+/usr/include/x86_64-linux-gnu/qt6/QtGui/qcolor.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qboxlayout.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtGui/QBrush:
+
+/usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtGui/qpaintdevice.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qscrollbar.h:
+
+/usr/include/c++/13/bits/shared_ptr.h:
+
 /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/GridConstants.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qiterable.h:
@@ -5969,9 +5994,9 @@ MusicTrainerGUI_autogen/5PPTR2THOO/moc_VoiceChart.cpp:
 
 /usr/include/x86_64-linux-gnu/qt6/QtGui/qicon.h:
 
-/usr/include/c++/13/stdexcept:
-
 /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/QtTypeRegistration.h:
+
+/usr/include/c++/13/stdexcept:
 
 /usr/include/c++/13/clocale:
 
@@ -6012,8 +6037,6 @@ MusicTrainerGUI_autogen/5PPTR2THOO/moc_VoiceChart.cpp:
 /usr/include/linux/errno.h:
 
 /usr/include/c++/13/bits/std_abs.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtGui/QPen:
 
 /usr/include/c++/13/bits/ptr_traits.h:
 
@@ -6111,13 +6134,13 @@ MusicTrainerGUI_autogen/5PPTR2THOO/moc_VoiceChart.cpp:
 
 /usr/include/c++/13/cctype:
 
-/usr/include/c++/13/cmath:
-
-/usr/include/c++/13/cstdint:
-
 /usr/include/limits.h:
 
 /usr/include/c++/13/cstdlib:
+
+/usr/include/c++/13/cstdint:
+
+/usr/include/c++/13/cmath:
 
 /usr/include/c++/13/bits/list.tcc:
 
@@ -6222,6 +6245,10 @@ MusicTrainerGUI_autogen/5PPTR2THOO/moc_VoiceChart.cpp:
 /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/viewmodels/ScoreViewModel.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/QObject:
+
+/usr/include/x86_64-linux-gnu/qt6/QtCore/QPointF:
+
+/usr/include/x86_64-linux-gnu/qt6/QtCore/QSize:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qbytearraylist.h:
 
@@ -6565,6 +6592,14 @@ MusicTrainerGUI_autogen/5PPTR2THOO/moc_ScoreView.cpp:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qiodevice.h:
 
+/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/QtNoteTypes.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtGui/qregion.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qline.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtGui/qpainterpath.h:
+
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QHBoxLayout:
 
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QGroupBox:
@@ -6602,13 +6637,3 @@ MusicTrainerGUI_autogen/5PPTR2THOO/moc_ScoreView.cpp:
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmessagebox.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstatusbar.h:
-
-/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ScoreView.cpp:
-
-/usr/include/x86_64-linux-gnu/qt6/QtGui/qregion.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qline.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtGui/qpainterpath.h:
-
-/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/QtNoteTypes.h:

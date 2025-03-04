@@ -412,6 +412,13 @@ CMakeFiles/TestGUI.dir/TestGUI_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qscrollarea.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicsscene.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/GridConstants.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/ViewportManager.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QRectF \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qrect.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QPointF \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qpoint.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QSize \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qsize.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/build/TestGUI_autogen/5PPTR2THOO/moc_TransportControls.cpp \
  /home/seth-n/Documents/GitHub/MusicTrainer/build/TestGUI_autogen/5PPTR2THOO/../../../include/presentation/TransportControls.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QSlider \

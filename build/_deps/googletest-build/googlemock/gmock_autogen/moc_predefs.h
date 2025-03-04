@@ -1,5 +1,4 @@
 #define __DBL_MIN_EXP__ (-1021)
-#define RTMIDI_NO_JACK 1
 #define __cpp_nontype_template_parameter_auto 201606L
 #define __UINT_LEAST16_MAX__ 0xffff
 #define __FLT16_HAS_QUIET_NAN__ 1
@@ -148,7 +147,6 @@
 #define __DEC32_MIN_EXP__ (-94)
 #define __INTPTR_WIDTH__ 64
 #define __UINT_LEAST32_MAX__ 0xffffffffU
-#define GTEST_CREATE_SHARED_LIBRARY 1
 #define __FLT32X_HAS_DENORM__ 1
 #define __INT_FAST16_TYPE__ long int
 #define __STRICT_ANSI__ 1
@@ -305,7 +303,6 @@
 #define __INT16_TYPE__ short int
 #define __INT_LEAST8_TYPE__ signed char
 #define __FLT16_MAX__ 6.55040000000000000000000000000000000e+4F16
-#define gmock_EXPORTS 1
 #define __FLT128_MIN__ 3.36210314311209350626267781732175260e-4932F128
 #define __cpp_structured_bindings 201606L
 #define __SIZEOF_INT__ 4

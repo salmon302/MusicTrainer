@@ -6,6 +6,7 @@
   /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Score.h \
   /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Voice.h \
   /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/GridConstants.h \
+  /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/ViewportManager.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -289,6 +290,9 @@
   /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QPointF \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QRectF \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QSize \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qalgorithms.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qanystringview.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qarraydata.h \

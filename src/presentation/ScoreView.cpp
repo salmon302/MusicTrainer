@@ -159,17 +159,19 @@ void ScoreView::mousePressEvent(QMouseEvent *event)
             return;
         }
         
-        // Only handle note placement if not clicking expansion buttons
-        // Convert scene position to musical coordinates
-        QPointF musicalPos = m_viewportManager->mapToMusicalSpace(event->pos(), this);
+        // Convert scene position to musical coordinates for preview
+        QPointF musicalPos = mapToMusicalSpace(event->pos());
         
-        // Clamp to valid ranges
-        int position = qBound(dimensions.startPosition, 
-                            qRound(musicalPos.x()), 
+        // Quantize position and show preview
+        double quantizedPosition = qRound(musicalPos.x() * 4.0) / 4.0;
+        int position = qBound(dimensions.startPosition,
+                            static_cast<int>(quantizedPosition),
                             dimensions.endPosition - 1);
-        int pitch = qBound(dimensions.minPitch, 
-                          qRound(musicalPos.y()), 
+        int pitch = qBound(dimensions.minPitch,
+                          qRound(musicalPos.y()),
                           dimensions.maxPitch - 1);
+                          
+        m_noteGrid->showNotePreview(position, pitch);
         
         // Start note placement
         m_isSelecting = true;
@@ -180,11 +182,28 @@ void ScoreView::mousePressEvent(QMouseEvent *event)
 
 void ScoreView::mouseMoveEvent(QMouseEvent *event)
 {
+    // Get position in musical space
+    QPointF musicalPos = mapToMusicalSpace(event->pos());
+    
     if (m_isSelecting) {
-        // Handle any selection or dragging in musical coordinates
-        QPointF musicalPos = mapToMusicalSpace(event->pos());
-        // Future implementation: handle selection rectangle or note dragging
+        // Get current grid dimensions
+        auto dimensions = m_noteGrid->getDimensions();
+        
+        // Quantize the position to nearest grid line
+        double quantizedPosition = qRound(musicalPos.x() * 4.0) / 4.0;
+        int position = qBound(dimensions.startPosition,
+                            static_cast<int>(quantizedPosition),
+                            dimensions.endPosition - 1);
+                            
+        // Round pitch to nearest semitone and clamp to valid range
+        int pitch = qBound(dimensions.minPitch,
+                          qRound(musicalPos.y()),
+                          dimensions.maxPitch - 1);
+        
+        // Show preview at quantized position
+        m_noteGrid->showNotePreview(position, pitch);
     }
+    
     m_lastMousePos = event->pos();
     QGraphicsView::mouseMoveEvent(event);
 }
@@ -194,6 +213,9 @@ void ScoreView::mouseReleaseEvent(QMouseEvent *event)
     if (event->button() == Qt::LeftButton && m_isSelecting) {
         m_isSelecting = false;
         
+        // Hide the preview
+        m_noteGrid->hideNotePreview();
+        
         // Get final position in musical space
         QPointF musicalPos = mapToMusicalSpace(event->pos());
         
@@ -202,18 +224,30 @@ void ScoreView::mouseReleaseEvent(QMouseEvent *event)
             // Get current grid dimensions
             auto dimensions = m_noteGrid->getDimensions();
             
-            // Round to nearest grid position and clamp to valid range
+            // Enhanced precision: Calculate exact grid position with proper rounding
+            // For pitch, round to the nearest semitone (integer)
             int pitch = qBound(dimensions.minPitch, 
-                             qRound(musicalPos.y()),
+                             qRound(musicalPos.y()), 
                              dimensions.maxPitch - 1);
+                             
+            // For horizontal position, use more precise quantization based on grid units
+            // Quantize to the nearest quarter note by default
+            double quantizedPosition = qRound(musicalPos.x() * 4.0) / 4.0;
             int position = qBound(dimensions.startPosition,
-                                qRound(musicalPos.x()),
+                                static_cast<int>(quantizedPosition),
                                 dimensions.endPosition - 1);
+                                
+            qDebug() << "ScoreView::mouseReleaseEvent - Adding note at"
+                     << "Position:" << position
+                     << "Pitch:" << pitch
+                     << "Raw musical position:" << musicalPos
+                     << "Quantized position:" << quantizedPosition;
                                 
             // Emit signal with the note position
             emit noteAdded(pitch, 1.0, position);
         }
     }
+    
     QGraphicsView::mouseReleaseEvent(event);
 }
 
@@ -467,10 +501,14 @@ QPointF ScoreView::mapToMusicalSpace(const QPointF& screenPoint) const
     // Get current grid dimensions for proper mapping
     auto dimensions = m_noteGrid->getDimensions();
     
-    // Convert from scene coordinates to musical coordinates
+    // Convert from scene coordinates to musical coordinates with higher precision
     double musicalX = scenePoint.x() / GRID_UNIT;
-    // Map Y coordinate relative to the current octave range
-    double musicalY = dimensions.minPitch + (scenePoint.y() / NOTE_HEIGHT);
+    double musicalY = scenePoint.y() / NOTE_HEIGHT;
+    
+    qDebug() << "ScoreView::mapToMusicalSpace -"
+             << "Screen:" << screenPoint
+             << "Scene:" << scenePoint
+             << "Musical:" << QPointF(musicalX, musicalY);
     
     return QPointF(musicalX, musicalY);
 }

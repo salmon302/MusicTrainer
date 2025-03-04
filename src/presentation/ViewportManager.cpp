@@ -166,24 +166,22 @@ QPointF ViewportManager::mapToMusicalSpace(const QPointF& screenPoint, const QGr
     // Convert screen coordinates to scene coordinates
     QPointF scenePoint = view->mapToScene(screenPoint.toPoint());
     
+    // Get current grid dimensions for proper mapping
+    auto dimensions = m_grid->getDimensions();
+    
     // Convert scene coordinates to musical coordinates
-    scenePoint.rx() /= ScoreView::GRID_UNIT;
-    scenePoint.ry() /= ScoreView::NOTE_HEIGHT;
+    double musicalX = scenePoint.x() / ScoreView::GRID_UNIT;
     
-    // Apply zoom level
-    float inverseZoom = 1.0f / m_currentState.zoomLevel;
-    scenePoint *= inverseZoom;
-    
-    // Add scroll offset to get final musical position
-    scenePoint += m_currentState.scrollPosition;
+    // Fix: Map Y coordinate directly to pitch value based on note height
+    double musicalY = scenePoint.y() / ScoreView::NOTE_HEIGHT;
     
     qDebug() << "ViewportManager::mapToMusicalSpace -"
              << "Screen:" << screenPoint
              << "Scene:" << scenePoint
-             << "InverseZoom:" << inverseZoom
-             << "Final:" << scenePoint;
+             << "Musical coordinates:" << QPointF(musicalX, musicalY)
+             << "Zoom:" << m_currentState.zoomLevel;
     
-    return scenePoint;
+    return QPointF(musicalX, musicalY);
 }
 
 QPointF ViewportManager::mapFromMusicalSpace(const QPointF& musicalPoint, const QGraphicsView* view) const

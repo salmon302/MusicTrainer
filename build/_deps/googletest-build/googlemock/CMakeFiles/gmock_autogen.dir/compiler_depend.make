@@ -22,6 +22,17 @@ _deps/googletest-build/googlemock/gmock_autogen/timestamp: _deps/googletest-src/
   /usr/share/cmake-3.28/Modules/CheckLibraryExists.cmake \
   /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake \
   /usr/share/cmake-3.28/Modules/FindPackageMessage.cmake \
+  /usr/share/cmake-3.28/Modules/FindThreads.cmake \
+  _deps/googletest-src/googlemock/CMakeLists.txt \
+  _deps/googletest-src/googlemock/cmake/gmock.pc.in \
+  _deps/googletest-src/googlemock/cmake/gmock_main.pc.in \
+  _deps/googletest-src/googlemock/src/gmock-all.cc \
+  /usr/bin/cmake \
+  /usr/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake \
+  /usr/share/cmake-3.28/Modules/CheckIncludeFile.cmake \
+  /usr/share/cmake-3.28/Modules/CheckLibraryExists.cmake \
+  /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake \
+  /usr/share/cmake-3.28/Modules/FindPackageMessage.cmake \
   /usr/share/cmake-3.28/Modules/FindThreads.cmake
 
 

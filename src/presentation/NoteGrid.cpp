@@ -43,7 +43,10 @@ NoteGrid::NoteGrid(QGraphicsScene* scene)
     }
 }
 
-NoteGrid::~NoteGrid() = default;
+NoteGrid::~NoteGrid() {
+    clearGridElements();
+    delete m_previewIndicator;
+}
 
 const NoteGrid::GridDimensions& NoteGrid::getDimensions() const
 {
@@ -500,6 +503,40 @@ void NoteGrid::clearGridElements()
     m_verticalLines.clear();
     m_majorHorizontalLines.clear();
     m_majorVerticalLines.clear();
+}
+
+void NoteGrid::showNotePreview(int position, int pitch) {
+    if (!m_scene) return;
+    
+    // Create preview indicator if it doesn't exist
+    if (!m_previewIndicator) {
+        auto indicator = new QGraphicsRectItem();
+        indicator->setBrush(QBrush(QColor(100, 100, 255, 128))); // Semi-transparent blue
+        indicator->setPen(QPen(QColor(50, 50, 200), 1)); // Darker blue outline
+        m_previewIndicator = indicator;
+        m_scene->addItem(m_previewIndicator);
+    }
+    
+    updatePreviewPosition(position, pitch);
+    m_previewIndicator->show();
+}
+
+void NoteGrid::hideNotePreview() {
+    if (m_previewIndicator) {
+        m_previewIndicator->hide();
+    }
+}
+
+void NoteGrid::updatePreviewPosition(int position, int pitch) {
+    if (!m_previewIndicator) return;
+    
+    // Convert musical coordinates to scene coordinates
+    qreal x = position * GRID_UNIT;
+    qreal y = pitch * NOTE_HEIGHT;
+    
+    // Set the preview rectangle
+    auto rect = static_cast<QGraphicsRectItem*>(m_previewIndicator);
+    rect->setRect(x, y, GRID_UNIT, NOTE_HEIGHT);
 }
 
 } // namespace MusicTrainer::presentation

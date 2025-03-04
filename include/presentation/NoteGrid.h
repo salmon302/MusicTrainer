@@ -125,6 +125,18 @@ public:
      */
     int getNoteCount() const;
 
+    /**
+     * @brief Show a preview indicator at the specified musical position
+     * @param position Position in musical time
+     * @param pitch MIDI note number
+     */
+    void showNotePreview(int position, int pitch);
+
+    /**
+     * @brief Hide the note preview indicator
+     */
+    void hideNotePreview();
+
 private:
     /**
      * @brief Create a new grid cell or get an existing one
@@ -175,6 +187,16 @@ private:
 
     // Statistics for optimization
     int m_noteCount{0};
+
+    // Preview indicator
+    QGraphicsItem* m_previewIndicator{nullptr};
+    
+    /**
+     * @brief Update the preview indicator position
+     * @param position Position in musical time
+     * @param pitch MIDI note number
+     */
+    void updatePreviewPosition(int position, int pitch);
 };
 
 } // namespace MusicTrainer::presentation

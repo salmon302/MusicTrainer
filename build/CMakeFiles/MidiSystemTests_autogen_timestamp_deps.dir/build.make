@@ -66,11 +66,11 @@ include CMakeFiles/MidiSystemTests_autogen_timestamp_deps.dir/compiler_depend.ma
 # Include the progress variables for this target.
 include CMakeFiles/MidiSystemTests_autogen_timestamp_deps.dir/progress.make
 
-CMakeFiles/MidiSystemTests_autogen_timestamp_deps: libMusicTrainerLib.a
 CMakeFiles/MidiSystemTests_autogen_timestamp_deps: /usr/lib/qt6/libexec/moc
 CMakeFiles/MidiSystemTests_autogen_timestamp_deps: /usr/lib/qt6/libexec/uic
-CMakeFiles/MidiSystemTests_autogen_timestamp_deps: lib/libgtest_main.a
+CMakeFiles/MidiSystemTests_autogen_timestamp_deps: libMusicTrainerLib.a
 CMakeFiles/MidiSystemTests_autogen_timestamp_deps: lib/libgtest.a
+CMakeFiles/MidiSystemTests_autogen_timestamp_deps: lib/libgtest_main.a
 CMakeFiles/MidiSystemTests_autogen_timestamp_deps: _deps/rtmidi-build/librtmidi.so.6.0.0
 
 MidiSystemTests_autogen_timestamp_deps: CMakeFiles/MidiSystemTests_autogen_timestamp_deps

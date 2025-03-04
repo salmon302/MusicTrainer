@@ -357,6 +357,13 @@ CMakeFiles/TestGUI.dir/src/presentation/MainWindow.cpp.o: \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Pitch.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Duration.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/GridConstants.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/ViewportManager.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QRectF \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qrect.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QPointF \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qpoint.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QSize \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qsize.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/TransportControls.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QPushButton \

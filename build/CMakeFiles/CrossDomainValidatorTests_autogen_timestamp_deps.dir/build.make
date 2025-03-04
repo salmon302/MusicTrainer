@@ -66,11 +66,11 @@ include CMakeFiles/CrossDomainValidatorTests_autogen_timestamp_deps.dir/compiler
 # Include the progress variables for this target.
 include CMakeFiles/CrossDomainValidatorTests_autogen_timestamp_deps.dir/progress.make
 
-CMakeFiles/CrossDomainValidatorTests_autogen_timestamp_deps: libMusicTrainerLib.a
 CMakeFiles/CrossDomainValidatorTests_autogen_timestamp_deps: /usr/lib/qt6/libexec/moc
 CMakeFiles/CrossDomainValidatorTests_autogen_timestamp_deps: /usr/lib/qt6/libexec/uic
-CMakeFiles/CrossDomainValidatorTests_autogen_timestamp_deps: lib/libgtest_main.a
+CMakeFiles/CrossDomainValidatorTests_autogen_timestamp_deps: libMusicTrainerLib.a
 CMakeFiles/CrossDomainValidatorTests_autogen_timestamp_deps: lib/libgtest.a
+CMakeFiles/CrossDomainValidatorTests_autogen_timestamp_deps: lib/libgtest_main.a
 CMakeFiles/CrossDomainValidatorTests_autogen_timestamp_deps: _deps/rtmidi-build/librtmidi.so.6.0.0
 
 CrossDomainValidatorTests_autogen_timestamp_deps: CMakeFiles/CrossDomainValidatorTests_autogen_timestamp_deps
