@@ -31,12 +31,20 @@ ViewportManager::ViewportState ViewportManager::validateState(const ViewportStat
     if (!m_grid) return state;
     
     ViewportState validated = state;
-
-    // Convert current dimensions to musical space
     auto dimensions = m_grid->getDimensions();
     
-    // Always maintain exactly one octave height
-    validated.visibleArea.setHeight(getOctaveRange());
+    // Handle height based on multi-octave mode
+    if (!validated.preserveOctaveExpansion) {
+        // In single-octave mode, enforce exactly one octave height
+        validated.visibleArea.setHeight(getOctaveRange());
+    } else {
+        // In multi-octave mode, preserve the expanded height but ensure it's a multiple of octaves
+        int currentHeight = qRound(validated.visibleArea.height());
+        if (currentHeight % getOctaveRange() != 0) {
+            int octaves = (currentHeight / getOctaveRange()) + 1;
+            validated.visibleArea.setHeight(octaves * getOctaveRange());
+        }
+    }
     
     // Clamp pitch range to valid MIDI range
     if (validated.visibleArea.top() < 0) {
@@ -63,7 +71,8 @@ bool ViewportManager::updateViewportState(const ViewportState& newState)
     if (qFuzzyCompare(newState.scrollPosition.x(), m_currentState.scrollPosition.x()) &&
         qFuzzyCompare(newState.scrollPosition.y(), m_currentState.scrollPosition.y()) &&
         qFuzzyCompare(newState.zoomLevel, m_currentState.zoomLevel) &&
-        newState.visibleArea == m_currentState.visibleArea) {
+        newState.visibleArea == m_currentState.visibleArea &&
+        newState.preserveOctaveExpansion == m_currentState.preserveOctaveExpansion) {
         return false;
     }
 
@@ -82,22 +91,9 @@ bool ViewportManager::updateViewportState(const ViewportState& newState)
     m_currentState = newState;
     m_currentState.visibleArea = musicalArea;
     
-    // Preserve multi-octave display if it was previously set
-    if (!m_currentState.preserveOctaveExpansion) {
-        m_currentState.visibleArea.setHeight(12);  // Default to one octave height
-    }
-    
-    // Only update grid dimensions if they would actually change
-    // and we're not in multi-octave mode
-    if (!m_currentState.preserveOctaveExpansion &&
-        (dimensions.minPitch != qFloor(musicalArea.top()) ||
-         dimensions.maxPitch != qFloor(musicalArea.top()) + 12)) {
-        dimensions.minPitch = qBound(0, qFloor(musicalArea.top()), 115);
-        dimensions.maxPitch = dimensions.minPitch + 12;  // Maintain octave
-        m_grid->setDimensions(dimensions);
-    }
-    
-    return shouldExpand().has_value();  // Return true if expansion is needed
+    // Only update grid dimensions if explicitly requested via setViewportBounds
+    // This prevents note placement from affecting the viewport
+    return false;  // Don't trigger expansion during state updates
 }
 
 QRectF ViewportManager::getViewportBounds() const
@@ -374,6 +370,91 @@ void ViewportManager::expandGrid(Direction direction, int amount)
             scene->update(scene->sceneRect());
         }
     }
+}
+
+void ViewportManager::collapseGrid(Direction direction)
+{
+    if (!m_grid) return;
+    
+    auto dimensions = m_grid->getDimensions();
+    
+    // Store view center before collapse
+    int viewCenterX = qRound(m_currentState.visibleArea.center().x());
+    bool needsUpdate = false;
+    
+    // Calculate the new dimensions before applying them
+    NoteGrid::GridDimensions newDimensions = dimensions;
+    
+    switch (direction) {
+        case Direction::Up:
+            // If we have an expanded range above the current octave
+            if (dimensions.maxPitch - dimensions.minPitch > 12) {
+                newDimensions.minPitch += 12;  // Remove top octave
+                needsUpdate = true;
+            }
+            break;
+            
+        case Direction::Down:
+            // If we have an expanded range below the current octave
+            if (dimensions.maxPitch - dimensions.minPitch > 12) {
+                newDimensions.maxPitch -= 12;  // Remove bottom octave
+                needsUpdate = true;
+            }
+            break;
+            
+        case Direction::Right:
+            // Collapse horizontal grid
+            if (dimensions.endPosition > 16) {  // Keep at least 4 measures
+                newDimensions.endPosition = qMax(16, dimensions.endPosition - 16);  // Remove up to 4 measures
+                needsUpdate = true;
+            }
+            break;
+    }
+    
+    if (needsUpdate) {
+        // Apply new dimensions first - this will trigger note visibility updates
+        m_grid->setDimensions(newDimensions);
+        
+        // Update current state to match new dimensions
+        m_currentState.preserveOctaveExpansion = (newDimensions.maxPitch - newDimensions.minPitch > 12);
+        m_currentState.visibleArea = QRectF(
+            viewCenterX - m_currentState.visibleArea.width() / 2,
+            newDimensions.minPitch,
+            m_currentState.visibleArea.width(),
+            newDimensions.maxPitch - newDimensions.minPitch
+        );
+        
+        // Update scroll position to match new dimensions and viewport
+        m_currentState.scrollPosition = QPointF(
+            m_currentState.visibleArea.x() * GridConstants::GRID_UNIT,
+            newDimensions.minPitch * GridConstants::NOTE_HEIGHT
+        );
+    }
+}
+
+bool ViewportManager::canCollapse(Direction direction) const
+{
+    if (!m_grid) return false;
+    
+    auto dimensions = m_grid->getDimensions();
+    
+    switch (direction) {
+        case Direction::Up:
+            // Can collapse up if we have more than one octave and the bottom octave
+            // has enough room for all existing notes
+            return dimensions.maxPitch - dimensions.minPitch > 12;
+            
+        case Direction::Down:
+            // Can collapse down if we have more than one octave and the top octave
+            // has enough room for all existing notes
+            return dimensions.maxPitch - dimensions.minPitch > 12;
+            
+        case Direction::Right:
+            // Can collapse right if we have more than 4 measures
+            return dimensions.endPosition > 16;  // 16 = 4 measures in 4/4 time
+    }
+    
+    return false;
 }
 
 std::optional<ViewportManager::Direction> ViewportManager::shouldExpand() const 

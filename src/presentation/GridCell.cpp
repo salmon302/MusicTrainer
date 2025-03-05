@@ -36,8 +36,23 @@ bool GridCell::isVisible(const QRectF& viewport) const
 {
     if (!m_noteRect) return false;
     
-    QRectF cellRect = m_noteRect->boundingRect();
-    return viewport.intersects(cellRect);
+    // Check if this cell's pitch is within the allowed range
+    QPointF scenePos = m_noteRect->scenePos();
+    float pitchInScene = scenePos.y() / NOTE_HEIGHT;
+    
+    // If viewport is empty, only check if note exists
+    if (viewport.isNull()) {
+        return m_note.has_value() && m_noteRect->isVisible();
+    }
+    
+    // Check if pitch is within viewport bounds
+    if (pitchInScene < viewport.top() / NOTE_HEIGHT || 
+        pitchInScene >= viewport.bottom() / NOTE_HEIGHT) {
+        return false;
+    }
+    
+    QRectF cellRect = m_noteRect->boundingRect().translated(scenePos);
+    return viewport.intersects(cellRect) && m_note.has_value() && m_noteRect->isVisible();
 }
 
 void GridCell::setNote(const MusicTrainer::music::Note& note, int voiceIndex)

@@ -115,50 +115,101 @@ void ScoreView::scrollContentsBy(int dx, int dy)
 
 void ScoreView::mousePressEvent(QMouseEvent *event)
 {
-    if (event->button() == Qt::LeftButton) {
-        QPointF scenePos = mapToScene(event->pos());
-        auto dimensions = m_noteGrid->getDimensions();
-        
-        // Calculate expansion button regions in scene coordinates
-        QRectF topButton(
-            0,  // Start from left edge
-            (dimensions.minPitch - 1) * NOTE_HEIGHT,
-            dimensions.endPosition * GRID_UNIT,
-            NOTE_HEIGHT
-        );
-        
-        QRectF bottomButton(
-            0,  // Start from left edge
-            dimensions.maxPitch * NOTE_HEIGHT,
-            dimensions.endPosition * GRID_UNIT,
-            NOTE_HEIGHT
-        );
-        
-        QRectF rightButton(
-            dimensions.endPosition * GRID_UNIT,
-            (dimensions.minPitch - 1) * NOTE_HEIGHT,  // Include expansion areas
-            GRID_UNIT,
-            (dimensions.maxPitch - dimensions.minPitch + 2) * NOTE_HEIGHT
-        );
+    QPointF scenePos = mapToScene(event->pos());
+    auto dimensions = m_noteGrid->getDimensions();
+    
+    // Calculate expansion button regions in scene coordinates
+    QRectF topButton(
+        0,  // Start from left edge
+        (dimensions.minPitch - 1) * NOTE_HEIGHT,
+        dimensions.endPosition * GRID_UNIT,
+        NOTE_HEIGHT
+    );
+    
+    QRectF bottomButton(
+        0,  // Start from left edge
+        dimensions.maxPitch * NOTE_HEIGHT,
+        dimensions.endPosition * GRID_UNIT,
+        NOTE_HEIGHT
+    );
+    
+    QRectF rightButton(
+        dimensions.endPosition * GRID_UNIT,
+        (dimensions.minPitch - 1) * NOTE_HEIGHT,
+        GRID_UNIT,
+        (dimensions.maxPitch - dimensions.minPitch + 2) * NOTE_HEIGHT
+    );
 
-        // Check if click was in expansion buttons and handle them exclusively
-        if (topButton.contains(scenePos)) {
-            m_viewportManager->expandGrid(ViewportManager::Direction::Up, 12);
-            event->accept();
-            return;
-        } 
-        if (bottomButton.contains(scenePos)) {
-            m_viewportManager->expandGrid(ViewportManager::Direction::Down, 12);
-            event->accept();
-            return;
-        } 
-        if (rightButton.contains(scenePos)) {
-            m_viewportManager->expandGrid(ViewportManager::Direction::Right, 4);
-            event->accept();
-            return;
+    // Calculate the actual note placement area - exclude expansion buttons
+    QRectF noteArea(
+        0,  // Start from left edge
+        dimensions.minPitch * NOTE_HEIGHT,  // Start at actual note area
+        dimensions.endPosition * GRID_UNIT, // Full width
+        (dimensions.maxPitch - dimensions.minPitch) * NOTE_HEIGHT // Only actual note area height
+    );
+
+    qDebug() << "ScoreView::mousePressEvent - Click info:"
+             << "Position:" << scenePos
+             << "Button:" << (event->button() == Qt::LeftButton ? "Left" : "Right")
+             << "\nButtons:" 
+             << "\nTop:" << topButton
+             << "\nBottom:" << bottomButton
+             << "\nRight:" << rightButton
+             << "\nNote area:" << noteArea;
+
+    // Handle expansion/collapse buttons
+    if (topButton.contains(scenePos) || bottomButton.contains(scenePos) || rightButton.contains(scenePos)) {
+        qDebug() << "ScoreView::mousePressEvent - Hit expansion button";
+        if (event->button() == Qt::LeftButton) {
+            // Handle expansion
+            if (topButton.contains(scenePos)) {
+                qDebug() << "ScoreView::mousePressEvent - Expanding up";
+                m_viewportManager->expandGrid(ViewportManager::Direction::Up, 12);
+                event->accept();
+                return;
+            } 
+            if (bottomButton.contains(scenePos)) {
+                qDebug() << "ScoreView::mousePressEvent - Expanding down";
+                m_viewportManager->expandGrid(ViewportManager::Direction::Down, 12);
+                event->accept();
+                return;
+            } 
+            if (rightButton.contains(scenePos)) {
+                qDebug() << "ScoreView::mousePressEvent - Expanding right";
+                m_viewportManager->expandGrid(ViewportManager::Direction::Right, 4);
+                event->accept();
+                return;
+            }
         }
-        
-        // Convert scene position to musical coordinates for preview
+        else if (event->button() == Qt::RightButton) {
+            // Handle collapse
+            if (topButton.contains(scenePos) && m_viewportManager->canCollapse(ViewportManager::Direction::Up)) {
+                qDebug() << "ScoreView::mousePressEvent - Collapsing up";
+                m_viewportManager->collapseGrid(ViewportManager::Direction::Up);
+                event->accept();
+                return;
+            }
+            if (bottomButton.contains(scenePos) && m_viewportManager->canCollapse(ViewportManager::Direction::Down)) {
+                qDebug() << "ScoreView::mousePressEvent - Collapsing down";
+                m_viewportManager->collapseGrid(ViewportManager::Direction::Down);
+                event->accept();
+                return;
+            }
+            if (rightButton.contains(scenePos) && m_viewportManager->canCollapse(ViewportManager::Direction::Right)) {
+                qDebug() << "ScoreView::mousePressEvent - Collapsing right";
+                m_viewportManager->collapseGrid(ViewportManager::Direction::Right);
+                event->accept();
+                return;
+            }
+        }
+        qDebug() << "ScoreView::mousePressEvent - Ignoring expansion button click (no action available)";
+        event->accept();
+        return; // Return early if we clicked any expansion button area, even if not acted upon
+    }
+    
+    // Handle note placement - only if we clicked in the actual note area
+    if (event->button() == Qt::LeftButton && noteArea.contains(scenePos)) {
+        qDebug() << "ScoreView::mousePressEvent - Starting note placement";
         QPointF musicalPos = mapToMusicalSpace(event->pos());
         
         // Quantize position and show preview
@@ -175,7 +226,11 @@ void ScoreView::mousePressEvent(QMouseEvent *event)
         // Start note placement
         m_isSelecting = true;
         m_lastMousePos = event->pos();
+        event->accept();
+        return;
     }
+    
+    qDebug() << "ScoreView::mousePressEvent - Passing to QGraphicsView";
     QGraphicsView::mousePressEvent(event);
 }
 
@@ -552,6 +607,15 @@ MusicTrainer::music::Duration ScoreView::convertToMusicalDuration(double numeric
 // Fix the handleNoteAdded method to use the correct Note constructor
 void ScoreView::handleNoteAdded(int pitch, double duration, int position)
 {
+    if (!m_noteGrid || !m_viewportManager) return;
+
+    auto dimensions = m_noteGrid->getDimensions();
+    auto viewState = m_viewportManager->getViewportState();
+    
+    // Clamp the pitch to the current viewport bounds
+    pitch = qBound(dimensions.minPitch, pitch, dimensions.maxPitch - 1);
+    position = qBound(dimensions.startPosition, position, dimensions.endPosition - 1);
+    
     qDebug() << "ScoreView::handleNoteAdded -"
              << "Pitch:" << pitch
              << "Duration:" << duration
@@ -575,8 +639,15 @@ void ScoreView::handleNoteAdded(int pitch, double duration, int position)
     
     // Add to grid for visual representation
     m_noteGrid->addNote(note, 0, position);
-    updateGridVisuals();
-    checkViewportExpansion();
+    
+    // Only update the grid for the new note's area
+    QRectF updateRect(
+        position * GRID_UNIT - GRID_UNIT,  // Include one unit before
+        pitch * NOTE_HEIGHT - NOTE_HEIGHT,  // Include one unit above
+        GRID_UNIT * 2,  // Two units wide
+        NOTE_HEIGHT * 2  // Two units high
+    );
+    m_noteGrid->updateGrid(updateRect);
 }
 
 void ScoreView::expandGrid(ViewportManager::Direction direction, int amount)

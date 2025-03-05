@@ -49,6 +49,8 @@ public:
     QPointF mapToMusicalSpace(const QPointF& screenPoint, const QGraphicsView* view) const;
     QPointF mapFromMusicalSpace(const QPointF& musicalPoint, const QGraphicsView* view) const;
     void expandGrid(Direction direction, int amount);
+    void collapseGrid(Direction direction); // New method to collapse grid in a direction
+    bool canCollapse(Direction direction) const; // New method to check if collapse is possible
     std::optional<Direction> shouldExpand() const;
     const ViewportState& getViewportState() const;
     const LoadingBoundaries& getLoadingBoundaries() const;

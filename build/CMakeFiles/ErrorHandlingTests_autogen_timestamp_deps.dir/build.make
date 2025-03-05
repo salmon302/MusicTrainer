@@ -68,10 +68,10 @@ include CMakeFiles/ErrorHandlingTests_autogen_timestamp_deps.dir/progress.make
 
 CMakeFiles/ErrorHandlingTests_autogen_timestamp_deps: /usr/lib/qt6/libexec/moc
 CMakeFiles/ErrorHandlingTests_autogen_timestamp_deps: /usr/lib/qt6/libexec/uic
-CMakeFiles/ErrorHandlingTests_autogen_timestamp_deps: lib/libgtest.a
-CMakeFiles/ErrorHandlingTests_autogen_timestamp_deps: _deps/rtmidi-build/librtmidi.so.6.0.0
-CMakeFiles/ErrorHandlingTests_autogen_timestamp_deps: libMusicTrainerLib.a
 CMakeFiles/ErrorHandlingTests_autogen_timestamp_deps: lib/libgtest_main.a
+CMakeFiles/ErrorHandlingTests_autogen_timestamp_deps: lib/libgtest.a
+CMakeFiles/ErrorHandlingTests_autogen_timestamp_deps: libMusicTrainerLib.a
+CMakeFiles/ErrorHandlingTests_autogen_timestamp_deps: _deps/rtmidi-build/librtmidi.so.6.0.0
 
 ErrorHandlingTests_autogen_timestamp_deps: CMakeFiles/ErrorHandlingTests_autogen_timestamp_deps
 ErrorHandlingTests_autogen_timestamp_deps: CMakeFiles/ErrorHandlingTests_autogen_timestamp_deps.dir/build.make

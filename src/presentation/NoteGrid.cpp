@@ -103,10 +103,22 @@ void NoteGrid::setDimensions(const GridDimensions& dimensions)
              << "New:" << m_dimensions.minPitch << "-" << m_dimensions.maxPitch
              << "Range:" << (m_dimensions.maxPitch - m_dimensions.minPitch);
     
+    // Hide notes that are now outside the visible range
+    for (auto& posEntry : m_gridCells) {
+        for (auto& pitchEntry : posEntry.second) {
+            auto cell = pitchEntry.second.get();
+            if (cell) {
+                // Check if the note's pitch is outside the new range
+                if (pitchEntry.first < m_dimensions.minPitch || 
+                    pitchEntry.first >= m_dimensions.maxPitch) {
+                    cell->clear();
+                }
+            }
+        }
+    }
+
     // Calculate new scene rect with margins for labels and expansion buttons
     float labelMargin = 25.0f;
-    
-    // Calculate the height based on actual pitch range, which may be multiple octaves
     float pitchRangeHeight = (m_dimensions.maxPitch - m_dimensions.minPitch + 2) * NOTE_HEIGHT;
     
     QRectF newSceneRect(
@@ -127,7 +139,7 @@ void NoteGrid::setDimensions(const GridDimensions& dimensions)
         m_dimensions.startPosition * GRID_UNIT,
         m_dimensions.minPitch * NOTE_HEIGHT,
         (m_dimensions.endPosition - m_dimensions.startPosition) * GRID_UNIT,
-        (m_dimensions.maxPitch - m_dimensions.minPitch) * NOTE_HEIGHT  // Use actual pitch range
+        (m_dimensions.maxPitch - m_dimensions.minPitch) * NOTE_HEIGHT
     );
     
     // Update grid visuals
@@ -137,11 +149,7 @@ void NoteGrid::setDimensions(const GridDimensions& dimensions)
     m_scene->blockSignals(false);
     
     // Update the entire affected area
-    m_scene->update(oldDimensions.minPitch * NOTE_HEIGHT,
-                   oldDimensions.startPosition * GRID_UNIT,
-                   (oldDimensions.maxPitch - oldDimensions.minPitch) * NOTE_HEIGHT,
-                   (oldDimensions.endPosition - oldDimensions.startPosition) * GRID_UNIT);
-    m_scene->update(newSceneRect);
+    m_scene->update(m_scene->sceneRect());
 }
 
 void NoteGrid::expandVertical(int minPitchDelta, int maxPitchDelta)
@@ -292,10 +300,10 @@ void NoteGrid::addNote(const MusicTrainer::music::Note& note, int voiceIndex, in
              << "MIDI pitch:" << pitch
              << "Voice:" << voiceIndex;
     
-    // Create a cell at the specified position - let getOrCreateCell handle bounds checking
+    // Create a cell at the specified position without auto-expanding
     auto cell = getOrCreateCell(position, pitch);
     if (cell) {
-        // Set the note in the cell with proper duration and voice
+        m_noteCount++;
         cell->setNote(note, voiceIndex);
     }
 }
@@ -438,35 +446,18 @@ int NoteGrid::getNoteCount() const
 
 GridCell* NoteGrid::getOrCreateCell(int position, int pitch)
 {
-    // Enforce grid bounds, but with more flexibility for multi-octave views
+    // Clamp position and pitch to current grid bounds
     if (position < m_dimensions.startPosition || position >= m_dimensions.endPosition ||
         pitch < m_dimensions.minPitch || pitch >= m_dimensions.maxPitch) {
         
-        // Only log debugging info but do not clamp the pitch - allow out-of-range notes
-        // when the grid has been expanded to multiple octaves
-        qDebug() << "NoteGrid::getOrCreateCell - Note at"
+        qDebug() << "NoteGrid::getOrCreateCell - Clamping out-of-bounds note at"
                  << "Position:" << position << "Pitch:" << pitch
                  << "Grid bounds:" << m_dimensions.minPitch << "-" << m_dimensions.maxPitch
                  << m_dimensions.startPosition << "-" << m_dimensions.endPosition;
         
-        // Clamp only the position to valid range, but allow pitch to be outside current octave
+        // Always clamp both position and pitch to current bounds
         position = qBound(m_dimensions.startPosition, position, m_dimensions.endPosition - 1);
-        
-        // Instead of clamping pitch, check if we need to expand the grid
-        if (pitch < m_dimensions.minPitch) {
-            // Temporarily expand down to include this note
-            int octaveShift = ((m_dimensions.minPitch - pitch - 1) / 12 + 1) * 12;
-            GridDimensions newDims = m_dimensions;
-            newDims.minPitch = m_dimensions.minPitch - octaveShift;
-            setDimensions(newDims);
-        }
-        else if (pitch >= m_dimensions.maxPitch) {
-            // Temporarily expand up to include this note
-            int octaveShift = ((pitch - m_dimensions.maxPitch) / 12 + 1) * 12;
-            GridDimensions newDims = m_dimensions;
-            newDims.maxPitch = m_dimensions.maxPitch + octaveShift;
-            setDimensions(newDims);
-        }
+        pitch = qBound(m_dimensions.minPitch, pitch, m_dimensions.maxPitch - 1);
     }
     
     // Create the cell if it doesn't exist
@@ -566,47 +557,95 @@ void NoteGrid::updateGridLineItems(bool majorLines)
         }
     }
 
-    // Add expansion buttons only when at major boundaries
+    // Add expansion/collapse buttons only when at major boundaries
     if (majorLines) {
-        // Top expansion button (if not at top of MIDI range)
+        bool isMultiOctave = (m_dimensions.maxPitch - m_dimensions.minPitch > 12);
+
+        // Top expansion/collapse button (if not at top of MIDI range)
         if (m_dimensions.minPitch > 0) {
-            auto* topArrow = m_scene->addRect(
+            QColor buttonColor = isMultiOctave ? QColor(220, 220, 255) : QColor(240, 240, 240);
+            QString tooltip = isMultiOctave ? "Right-click to collapse octave" : "Click to expand octave up";
+            
+            auto* topArrow = new QGraphicsRectItem(
                 0,
                 (m_dimensions.minPitch - 1) * NOTE_HEIGHT,
                 m_dimensions.endPosition * GRID_UNIT,
-                NOTE_HEIGHT,
-                QPen(Qt::black),
-                QBrush(QColor(240, 240, 240))
+                NOTE_HEIGHT
             );
+            topArrow->setPen(QPen(Qt::black));
+            topArrow->setBrush(QBrush(buttonColor));
+            topArrow->setToolTip(tooltip);
             topArrow->setZValue(10);
             m_majorHorizontalLines.push_back(topArrow);
+            
+            // Add up arrow or collapse indicator
+            QString indicator = isMultiOctave ? "▼" : "▲";
+            auto* arrowText = new QGraphicsTextItem(indicator);
+            arrowText->setDefaultTextColor(Qt::black);
+            arrowText->setPos(
+                m_dimensions.endPosition * GRID_UNIT / 2,
+                (m_dimensions.minPitch - 1) * NOTE_HEIGHT
+            );
+            m_scene->addItem(arrowText);
+            m_majorHorizontalLines.push_back(arrowText);
         }
 
-        // Bottom expansion button (if not at bottom of MIDI range)
+        // Bottom expansion/collapse button (if not at bottom of MIDI range)
         if (m_dimensions.maxPitch < 127) {
-            auto* bottomArrow = m_scene->addRect(
+            QColor buttonColor = isMultiOctave ? QColor(220, 220, 255) : QColor(240, 240, 240);
+            QString tooltip = isMultiOctave ? "Right-click to collapse octave" : "Click to expand octave down";
+            
+            auto* bottomArrow = new QGraphicsRectItem(
                 0,
                 m_dimensions.maxPitch * NOTE_HEIGHT,
                 m_dimensions.endPosition * GRID_UNIT,
-                NOTE_HEIGHT,
-                QPen(Qt::black),
-                QBrush(QColor(240, 240, 240))
+                NOTE_HEIGHT
             );
+            bottomArrow->setPen(QPen(Qt::black));
+            bottomArrow->setBrush(QBrush(buttonColor));
+            bottomArrow->setToolTip(tooltip);
             bottomArrow->setZValue(10);
             m_majorHorizontalLines.push_back(bottomArrow);
+            
+            // Add down arrow or collapse indicator
+            QString indicator = isMultiOctave ? "▲" : "▼";
+            auto* arrowText = new QGraphicsTextItem(indicator);
+            arrowText->setDefaultTextColor(Qt::black);
+            arrowText->setPos(
+                m_dimensions.endPosition * GRID_UNIT / 2,
+                m_dimensions.maxPitch * NOTE_HEIGHT
+            );
+            m_scene->addItem(arrowText);
+            m_majorHorizontalLines.push_back(arrowText);
         }
 
-        // Right expansion button - extend across the full expanded range
-        auto* rightArrow = m_scene->addRect(
+        // Right expansion/collapse button - extend across the full expanded range
+        bool canCollapseHorizontal = m_dimensions.endPosition > 16;
+        QColor rightButtonColor = canCollapseHorizontal ? QColor(220, 220, 255) : QColor(240, 240, 240);
+        QString rightTooltip = canCollapseHorizontal ? "Right-click to collapse measures" : "Click to add measures";
+        
+        auto* rightArrow = new QGraphicsRectItem(
             m_dimensions.endPosition * GRID_UNIT,
             m_dimensions.minPitch * NOTE_HEIGHT,
             GRID_UNIT,
-            (m_dimensions.maxPitch - m_dimensions.minPitch) * NOTE_HEIGHT,
-            QPen(Qt::black),
-            QBrush(QColor(240, 240, 240))
+            (m_dimensions.maxPitch - m_dimensions.minPitch) * NOTE_HEIGHT
         );
+        rightArrow->setPen(QPen(Qt::black));
+        rightArrow->setBrush(QBrush(rightButtonColor));
+        rightArrow->setToolTip(rightTooltip);
         rightArrow->setZValue(10);
         m_majorVerticalLines.push_back(rightArrow);
+        
+        // Add right arrow or collapse indicator
+        QString rightIndicator = canCollapseHorizontal ? "◄" : "►";
+        auto* rightArrowText = new QGraphicsTextItem(rightIndicator);
+        rightArrowText->setDefaultTextColor(Qt::black);
+        rightArrowText->setPos(
+            m_dimensions.endPosition * GRID_UNIT,
+            (m_dimensions.minPitch + (m_dimensions.maxPitch - m_dimensions.minPitch) / 2) * NOTE_HEIGHT
+        );
+        m_scene->addItem(rightArrowText);
+        m_majorVerticalLines.push_back(rightArrowText);
     }
 }
 
