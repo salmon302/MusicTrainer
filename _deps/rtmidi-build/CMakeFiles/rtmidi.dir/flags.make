@@ -6,5 +6,5 @@ CXX_DEFINES = -DJACK_HAS_PORT_RENAME -DRTMIDI_DO_NOT_ENSURE_UNIQUE_PORTNAMES -DR
 
 CXX_INCLUDES = -I/home/seth-n/Documents/GitHub/MusicTrainer/_deps/rtmidi-build/rtmidi_autogen/include -I/home/seth-n/Documents/GitHub/MusicTrainer/_deps/rtmidi-src
 
-CXX_FLAGS = -Wno-error=deprecated-declarations -pthread -Wall -Werror -g -std=c++11 -fPIC
+CXX_FLAGS =  -fPIC -pthread -pthread -Wall -Werror -g -std=c++11 -fPIC -Wno-deprecated-declarations -Wno-error=deprecated-declarations
 

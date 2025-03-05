@@ -1,12 +1,15 @@
 #include "presentation/ViewportManager.h"
 #include "presentation/NoteGrid.h"
 #include "presentation/ScoreView.h"
+#include "presentation/GridConstants.h"
 #include <QtWidgets/QGraphicsView>
 #include <QtMath>
 #include <optional>
 #include <QDebug>
 
 namespace MusicTrainer::presentation {
+
+using namespace GridConstants;
 
 ViewportManager::ViewportManager(NoteGrid* grid)
     : m_grid(grid)
@@ -311,8 +314,9 @@ void ViewportManager::expandGrid(Direction direction, int amount)
             break;
             
         case Direction::Right:
-            if (dimensions.endPosition - dimensions.startPosition < 48) {
-                int expansion = qMin(amount, 48 - (dimensions.endPosition - dimensions.startPosition));
+            // Allow expansion beyond 12 measures (48 beats) up to 48 measures (192 beats)
+            if (dimensions.endPosition - dimensions.startPosition < 192) {
+                int expansion = qMin(amount, 192 - (dimensions.endPosition - dimensions.startPosition));
                 dimensions.endPosition += expansion;
             }
             break;
@@ -403,9 +407,16 @@ void ViewportManager::collapseGrid(Direction direction)
             break;
             
         case Direction::Right:
-            // Collapse horizontal grid
+            // Collapse horizontal grid one bar at a time
             if (dimensions.endPosition > 16) {  // Keep at least 4 measures
-                newDimensions.endPosition = qMax(16, dimensions.endPosition - 16);  // Remove up to 4 measures
+                int newEndPosition = qMax(16, dimensions.endPosition - 4);  // Remove 1 measure (4 beats)
+                
+                // Remove any notes that would be outside the new boundaries
+                int notesRemoved = m_grid->removeNotesInRange(newEndPosition, dimensions.endPosition);
+                qDebug() << "ViewportManager::collapseGrid - Removed" << notesRemoved 
+                         << "notes from positions" << newEndPosition << "to" << dimensions.endPosition;
+                
+                newDimensions.endPosition = newEndPosition;
                 needsUpdate = true;
             }
             break;
@@ -474,9 +485,9 @@ std::optional<ViewportManager::Direction> ViewportManager::shouldExpand() const
         return Direction::Down;
     }
     
-    // Allow horizontal expansion up to 12 measures
+    // Allow horizontal expansion up to 48 measures
     if (visibleArea.right() >= dims.endPosition - 2 && // Within 2 beats of right edge
-        dims.endPosition - dims.startPosition < 48) {   // Less than 12 measures
+        dims.endPosition - dims.startPosition < 192) {   // Less than 48 measures
         return Direction::Right;
     }
     

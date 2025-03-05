@@ -6,12 +6,19 @@
 #include "domain/music/Score.h"
 #include "domain/music/Pitch.h"
 #include "domain/music/Duration.h"
+#include "domain/events/NoteAddedEvent.h"
 #include <QScrollBar>
 #include <QResizeEvent>
 #include <QGraphicsRectItem>
 #include <QWheelEvent>
 #include <QTimer>
 #include <QDebug>
+#include <QLabel>
+#include <QPushButton>
+#include <QHBoxLayout>
+#include <QIcon>
+#include <QStyle>
+#include <QElapsedTimer>
 
 namespace MusicTrainer::presentation {
 
@@ -31,6 +38,9 @@ ScoreView::ScoreView(QWidget *parent)
 {
     // Register Qt types for signal/slot system
     ::registerQtTypes();
+    
+    // Set up duration toolbar before scene setup
+    setupDurationToolbar();
 
     setScene(new QGraphicsScene(this));
     setRenderHint(QPainter::Antialiasing);
@@ -118,101 +128,98 @@ void ScoreView::mousePressEvent(QMouseEvent *event)
     QPointF scenePos = mapToScene(event->pos());
     auto dimensions = m_noteGrid->getDimensions();
     
-    // Calculate expansion button regions in scene coordinates
+    // Create expansion button rectangles and visual items if they don't exist
+    if (!m_topExpandButton) {
+        m_topExpandButton = new QGraphicsRectItem(0, 0, 0, NOTE_HEIGHT);
+        m_topExpandButton->setPen(QPen(Qt::black));
+        m_topExpandButton->setBrush(QBrush(QColor(200, 200, 255, 100)));
+        m_topExpandButton->setZValue(1000); // Ensure it's above the grid
+        scene()->addItem(m_topExpandButton);
+    }
+    if (!m_bottomExpandButton) {
+        m_bottomExpandButton = new QGraphicsRectItem(0, 0, 0, NOTE_HEIGHT);
+        m_bottomExpandButton->setPen(QPen(Qt::black));
+        m_bottomExpandButton->setBrush(QBrush(QColor(200, 200, 255, 100)));
+        m_bottomExpandButton->setZValue(1000);
+        scene()->addItem(m_bottomExpandButton);
+    }
+    if (!m_rightExpandButton) {
+        m_rightExpandButton = new QGraphicsRectItem(0, 0, GRID_UNIT, 0);
+        m_rightExpandButton->setPen(QPen(Qt::black));
+        m_rightExpandButton->setBrush(QBrush(QColor(200, 200, 255, 100)));
+        m_rightExpandButton->setZValue(1000);
+        scene()->addItem(m_rightExpandButton);
+    }
+    
+    // Update button positions and sizes - Fix the top button position to have more separation
     QRectF topButton(
-        0,  // Start from left edge
-        (dimensions.minPitch - 1) * NOTE_HEIGHT,
+        0,
+        (dimensions.minPitch - 1.5) * NOTE_HEIGHT, // Increased separation by moving it up 0.5 NOTE_HEIGHT
         dimensions.endPosition * GRID_UNIT,
         NOTE_HEIGHT
     );
+    m_topExpandButton->setRect(topButton);
     
     QRectF bottomButton(
-        0,  // Start from left edge
+        0,
         dimensions.maxPitch * NOTE_HEIGHT,
         dimensions.endPosition * GRID_UNIT,
         NOTE_HEIGHT
     );
+    m_bottomExpandButton->setRect(bottomButton);
     
     QRectF rightButton(
         dimensions.endPosition * GRID_UNIT,
-        (dimensions.minPitch - 1) * NOTE_HEIGHT,
+        (dimensions.minPitch - 1.5) * NOTE_HEIGHT, // Also adjust the top of the right button to align with the top button
         GRID_UNIT,
-        (dimensions.maxPitch - dimensions.minPitch + 2) * NOTE_HEIGHT
+        (dimensions.maxPitch - dimensions.minPitch + 2.5) * NOTE_HEIGHT // Adjust height to accommodate the new top position
     );
+    m_rightExpandButton->setRect(rightButton);
 
-    // Calculate the actual note placement area - exclude expansion buttons
     QRectF noteArea(
-        0,  // Start from left edge
-        dimensions.minPitch * NOTE_HEIGHT,  // Start at actual note area
-        dimensions.endPosition * GRID_UNIT, // Full width
-        (dimensions.maxPitch - dimensions.minPitch) * NOTE_HEIGHT // Only actual note area height
+        0,
+        dimensions.minPitch * NOTE_HEIGHT,
+        dimensions.endPosition * GRID_UNIT,
+        (dimensions.maxPitch - dimensions.minPitch) * NOTE_HEIGHT
     );
 
-    qDebug() << "ScoreView::mousePressEvent - Click info:"
-             << "Position:" << scenePos
-             << "Button:" << (event->button() == Qt::LeftButton ? "Left" : "Right")
-             << "\nButtons:" 
-             << "\nTop:" << topButton
-             << "\nBottom:" << bottomButton
-             << "\nRight:" << rightButton
-             << "\nNote area:" << noteArea;
-
-    // Handle expansion/collapse buttons
+    // Handle expansion/collapse buttons first
     if (topButton.contains(scenePos) || bottomButton.contains(scenePos) || rightButton.contains(scenePos)) {
-        qDebug() << "ScoreView::mousePressEvent - Hit expansion button";
+        auto viewState = m_viewportManager->getViewportState();
+        
+        // Check if we're in multi-octave mode directly by examining the pitch range
+        bool isMultiOctave = (dimensions.maxPitch - dimensions.minPitch > 12);
+
         if (event->button() == Qt::LeftButton) {
             // Handle expansion
             if (topButton.contains(scenePos)) {
-                qDebug() << "ScoreView::mousePressEvent - Expanding up";
-                m_viewportManager->expandGrid(ViewportManager::Direction::Up, 12);
-                event->accept();
-                return;
-            } 
-            if (bottomButton.contains(scenePos)) {
-                qDebug() << "ScoreView::mousePressEvent - Expanding down";
-                m_viewportManager->expandGrid(ViewportManager::Direction::Down, 12);
-                event->accept();
-                return;
-            } 
-            if (rightButton.contains(scenePos)) {
-                qDebug() << "ScoreView::mousePressEvent - Expanding right";
-                m_viewportManager->expandGrid(ViewportManager::Direction::Right, 4);
-                event->accept();
-                return;
+                expandGrid(ViewportManager::Direction::Up, 12);
+            } else if (bottomButton.contains(scenePos)) {
+                expandGrid(ViewportManager::Direction::Down, 12);
+            } else if (rightButton.contains(scenePos)) {
+                expandGrid(ViewportManager::Direction::Right, 4);
             }
-        }
-        else if (event->button() == Qt::RightButton) {
-            // Handle collapse
-            if (topButton.contains(scenePos) && m_viewportManager->canCollapse(ViewportManager::Direction::Up)) {
-                qDebug() << "ScoreView::mousePressEvent - Collapsing up";
+        } else if (event->button() == Qt::RightButton && isMultiOctave) {
+            // Handle collapse only if in multi-octave mode
+            if (topButton.contains(scenePos)) {
                 m_viewportManager->collapseGrid(ViewportManager::Direction::Up);
-                event->accept();
-                return;
-            }
-            if (bottomButton.contains(scenePos) && m_viewportManager->canCollapse(ViewportManager::Direction::Down)) {
-                qDebug() << "ScoreView::mousePressEvent - Collapsing down";
+                updateGridVisuals(); // Ensure visuals are updated after collapse
+            } else if (bottomButton.contains(scenePos)) {
                 m_viewportManager->collapseGrid(ViewportManager::Direction::Down);
-                event->accept();
-                return;
-            }
-            if (rightButton.contains(scenePos) && m_viewportManager->canCollapse(ViewportManager::Direction::Right)) {
-                qDebug() << "ScoreView::mousePressEvent - Collapsing right";
+                updateGridVisuals();
+            } else if (rightButton.contains(scenePos)) {
                 m_viewportManager->collapseGrid(ViewportManager::Direction::Right);
-                event->accept();
-                return;
+                updateGridVisuals();
             }
         }
-        qDebug() << "ScoreView::mousePressEvent - Ignoring expansion button click (no action available)";
-        event->accept();
-        return; // Return early if we clicked any expansion button area, even if not acted upon
+        return;
     }
-    
-    // Handle note placement - only if we clicked in the actual note area
-    if (event->button() == Qt::LeftButton && noteArea.contains(scenePos)) {
-        qDebug() << "ScoreView::mousePressEvent - Starting note placement";
+
+    // Handle note area interactions
+    if (noteArea.contains(scenePos)) {
         QPointF musicalPos = mapToMusicalSpace(event->pos());
         
-        // Quantize position and show preview
+        // Quantize position and pitch
         double quantizedPosition = qRound(musicalPos.x() * 4.0) / 4.0;
         int position = qBound(dimensions.startPosition,
                             static_cast<int>(quantizedPosition),
@@ -220,17 +227,31 @@ void ScoreView::mousePressEvent(QMouseEvent *event)
         int pitch = qBound(dimensions.minPitch,
                           qRound(musicalPos.y()),
                           dimensions.maxPitch - 1);
-                          
-        m_noteGrid->showNotePreview(position, pitch);
         
-        // Start note placement
-        m_isSelecting = true;
+        if (event->button() == Qt::LeftButton) {
+            // Check if clicking on an existing note
+            if (m_noteGrid->hasNoteAt(position, pitch)) {
+                qDebug() << "ScoreView::mousePressEvent - Starting note drag";
+                startNoteDrag(scenePos);
+            } else {
+                qDebug() << "ScoreView::mousePressEvent - Starting note placement";
+                m_isSelecting = true;
+                m_noteGrid->showNotePreview(position, pitch, m_currentNoteDuration);
+            }
+        } 
+        else if (event->button() == Qt::RightButton) {
+            if (m_noteGrid->hasNoteAt(position, pitch)) {
+                qDebug() << "ScoreView::mousePressEvent - Deleting note";
+                deleteNoteAt(scenePos);
+            }
+            // Removed cycling duration functionality on right-click
+        }
+        
         m_lastMousePos = event->pos();
         event->accept();
         return;
     }
     
-    qDebug() << "ScoreView::mousePressEvent - Passing to QGraphicsView";
     QGraphicsView::mousePressEvent(event);
 }
 
@@ -238,24 +259,25 @@ void ScoreView::mouseMoveEvent(QMouseEvent *event)
 {
     // Get position in musical space
     QPointF musicalPos = mapToMusicalSpace(event->pos());
+    auto dimensions = m_noteGrid->getDimensions();
     
-    if (m_isSelecting) {
-        // Get current grid dimensions
-        auto dimensions = m_noteGrid->getDimensions();
-        
-        // Quantize the position to nearest grid line
-        double quantizedPosition = qRound(musicalPos.x() * 4.0) / 4.0;
-        int position = qBound(dimensions.startPosition,
-                            static_cast<int>(quantizedPosition),
-                            dimensions.endPosition - 1);
-                            
-        // Round pitch to nearest semitone and clamp to valid range
-        int pitch = qBound(dimensions.minPitch,
-                          qRound(musicalPos.y()),
-                          dimensions.maxPitch - 1);
-        
-        // Show preview at quantized position
-        m_noteGrid->showNotePreview(position, pitch);
+    // Quantize the position to nearest grid line
+    double quantizedPosition = qRound(musicalPos.x() * 4.0) / 4.0;
+    int position = qBound(dimensions.startPosition,
+                        static_cast<int>(quantizedPosition),
+                        dimensions.endPosition - 1);
+    
+    // Round pitch to nearest semitone and clamp to valid range
+    int pitch = qBound(dimensions.minPitch,
+                      qRound(musicalPos.y()),
+                      dimensions.maxPitch - 1);
+    
+    if (m_isDragging) {
+        updateNoteDrag(mapToScene(event->pos()));
+    }
+    else if (m_isSelecting) {
+        // Show preview at quantized position with current duration
+        m_noteGrid->showNotePreview(position, pitch, m_currentNoteDuration);
     }
     
     m_lastMousePos = event->pos();
@@ -264,41 +286,46 @@ void ScoreView::mouseMoveEvent(QMouseEvent *event)
 
 void ScoreView::mouseReleaseEvent(QMouseEvent *event)
 {
-    if (event->button() == Qt::LeftButton && m_isSelecting) {
-        m_isSelecting = false;
-        
-        // Hide the preview
-        m_noteGrid->hideNotePreview();
-        
-        // Get final position in musical space
-        QPointF musicalPos = mapToMusicalSpace(event->pos());
-        
-        // If this is a click (not a drag), potentially add a note
-        if ((event->pos() - m_lastMousePos).manhattanLength() < 3) {
-            // Get current grid dimensions
-            auto dimensions = m_noteGrid->getDimensions();
+    if (event->button() == Qt::LeftButton) {
+        if (m_isDragging) {
+            finishNoteDrag(mapToScene(event->pos()));
+            m_isDragging = false;
+        }
+        else if (m_isSelecting) {
+            m_isSelecting = false;
             
-            // Enhanced precision: Calculate exact grid position with proper rounding
-            // For pitch, round to the nearest semitone (integer)
-            int pitch = qBound(dimensions.minPitch, 
-                             qRound(musicalPos.y()), 
-                             dimensions.maxPitch - 1);
-                             
-            // For horizontal position, use more precise quantization based on grid units
-            // Quantize to the nearest quarter note by default
-            double quantizedPosition = qRound(musicalPos.x() * 4.0) / 4.0;
-            int position = qBound(dimensions.startPosition,
-                                static_cast<int>(quantizedPosition),
-                                dimensions.endPosition - 1);
-                                
-            qDebug() << "ScoreView::mouseReleaseEvent - Adding note at"
-                     << "Position:" << position
-                     << "Pitch:" << pitch
-                     << "Raw musical position:" << musicalPos
-                     << "Quantized position:" << quantizedPosition;
-                                
-            // Emit signal with the note position
-            emit noteAdded(pitch, 1.0, position);
+            // Hide the preview
+            m_noteGrid->hideNotePreview();
+            
+            // Get final position in musical space
+            QPointF musicalPos = mapToMusicalSpace(event->pos());
+            
+            // If this is a click (not a drag), potentially add a note
+            if ((event->pos() - m_lastMousePos).manhattanLength() < 3) {
+                // Get current grid dimensions
+                auto dimensions = m_noteGrid->getDimensions();
+                
+                // For pitch, round to the nearest semitone (integer)
+                int pitch = qBound(dimensions.minPitch, 
+                                 qRound(musicalPos.y()), 
+                                 dimensions.maxPitch - 1);
+                
+                // Quantize to the nearest quarter note by default
+                double quantizedPosition = qRound(musicalPos.x() * 4.0) / 4.0;
+                int position = qBound(dimensions.startPosition,
+                                    static_cast<int>(quantizedPosition),
+                                    dimensions.endPosition - 1);
+                
+                qDebug() << "ScoreView::mouseReleaseEvent - Adding note at"
+                         << "Position:" << position
+                         << "Pitch:" << pitch
+                         << "Duration:" << m_currentNoteDuration
+                         << "Raw musical position:" << musicalPos
+                         << "Quantized position:" << quantizedPosition;
+                
+                // Emit signal with the note position and current duration
+                emit noteAdded(pitch, m_currentNoteDuration, position);
+            }
         }
     }
     
@@ -371,6 +398,228 @@ void ScoreView::onNoteAdded(const MusicTrainer::music::Note& note)
     }
 }
 
+void ScoreView::expandGrid(ViewportManager::Direction direction, int amount)
+{
+    if (!m_viewportManager || !m_noteGrid) return;
+
+    // Store viewport state before expansion
+    QPointF oldCenter = mapToScene(viewport()->rect().center());
+    QPointF oldCorner = mapToScene(QPoint(0, 0));
+    
+    // Block viewport updates during expansion
+    setUpdatesEnabled(false);
+    
+    // Perform grid expansion
+    m_viewportManager->expandGrid(direction, amount);
+    
+    // Get new dimensions
+    auto dimensions = m_noteGrid->getDimensions();
+    
+    // Calculate new scene rect with margins
+    float labelMargin = 25.0f;
+    QRectF newSceneRect(
+        -labelMargin,  // Space for labels
+        dimensions.minPitch * NOTE_HEIGHT - NOTE_HEIGHT * 0.5f,  // Small padding above
+        dimensions.endPosition * GRID_UNIT + 2 * labelMargin,  // Width plus margins
+        (dimensions.maxPitch - dimensions.minPitch + 2) * NOTE_HEIGHT  // Full height of expanded octaves plus buttons
+    );
+    
+    // Update scene rect
+    scene()->setSceneRect(newSceneRect);
+
+    // Calculate the new center based on expansion direction
+    QPointF newCenter;
+    if (direction == ViewportManager::Direction::Up) {
+        // For upward expansion, keep view centered on the original octave
+        // but adjust the scene to show the additional octave above
+        newCenter = QPointF(
+            oldCenter.x(),
+            oldCenter.y() + 6 * NOTE_HEIGHT  // Move down to keep original octave visible
+        );
+    } 
+    else if (direction == ViewportManager::Direction::Down) {
+        // For downward expansion, keep center on the original position
+        // since the new octave is added below
+        newCenter = oldCorner;
+    } 
+    else {
+        // For horizontal expansion, keep the same center position
+        newCenter = oldCorner;
+    }
+
+    // Re-enable updates before changing viewport
+    setUpdatesEnabled(true);
+    
+    // Center on the new position
+    centerOn(newCenter);
+    
+    // Update scroll position in viewport manager
+    QPointF newScrollPos = mapToScene(QPoint(0, 0));
+    m_viewportManager->updateScrollPosition(newScrollPos);
+    
+    // Force a complete update
+    viewport()->update();
+    scene()->update(scene()->sceneRect());
+    
+    // Notify any listeners of the expansion
+    emit viewportExpanded(m_viewportManager->getViewportBounds());
+}
+
+void ScoreView::deleteNoteAt(const QPointF& scenePos)
+{
+    if (!m_noteGrid || !m_score) return;
+    
+    // Add rate limiting for rapid deletes
+    static QElapsedTimer lastDeleteTime;
+    if (lastDeleteTime.isValid() && lastDeleteTime.elapsed() < 50) {
+        return;
+    }
+    lastDeleteTime.restart();
+    
+    QPointF musicalPos = mapToMusicalSpace(mapFromScene(scenePos));
+    int position = static_cast<int>(qRound(musicalPos.x() * 4.0) / 4.0);
+    int pitch = qRound(musicalPos.y());
+    
+    // Remove note from the score
+    auto voice = m_score->getVoice(0); // Using first voice for now
+    if (voice && m_noteGrid->hasNoteAt(position, pitch)) {
+        qDebug() << "ScoreView::deleteNoteAt - Deleting note at position:" << position;
+        
+        // Remove from both voice and grid directly to avoid full update
+        voice->removeNote(position);
+        m_noteGrid->removeNotesInRange(position, position + 1);
+        
+        // Only update the immediate area around the deleted note
+        QRectF updateRect(
+            position * GRID_UNIT - GRID_UNIT,  // Include one unit before
+            pitch * NOTE_HEIGHT - NOTE_HEIGHT,  // Include one unit above
+            GRID_UNIT * 2,  // Two units wide
+            NOTE_HEIGHT * 2  // Two units high
+        );
+        m_noteGrid->updateGrid(updateRect);
+    }
+}
+
+void ScoreView::startNoteDrag(const QPointF& scenePos)
+{
+    if (!m_noteGrid) return;
+    
+    QPointF musicalPos = mapToMusicalSpace(mapFromScene(scenePos));
+    m_draggedNotePosition = static_cast<int>(qRound(musicalPos.x() * 4.0) / 4.0);
+    m_draggedNotePitch = qRound(musicalPos.y());
+    
+    if (m_noteGrid->hasNoteAt(m_draggedNotePosition, m_draggedNotePitch)) {
+        m_isDragging = true;
+        if (m_score) {
+            auto voice = m_score->getVoice(0);
+            if (voice) {
+                if (auto note = voice->getNoteAt(m_draggedNotePosition)) {
+                    // Show preview with correct duration
+                    m_noteGrid->showNotePreview(m_draggedNotePosition, m_draggedNotePitch, note->getDuration());
+                }
+            }
+        }
+    }
+}
+
+void ScoreView::updateNoteDrag(const QPointF& scenePos)
+{
+    if (!m_isDragging || !m_noteGrid || !m_score) return;
+    
+    QPointF musicalPos = mapToMusicalSpace(mapFromScene(scenePos));
+    auto dimensions = m_noteGrid->getDimensions();
+    
+    // Get current duration of the note being dragged
+    double duration = m_currentNoteDuration;
+    auto voice = m_score->getVoice(0);
+    if (voice) {
+        if (auto note = voice->getNoteAt(m_draggedNotePosition)) {
+            duration = note->getDuration();
+        }
+    }
+    
+    // Quantize new position
+    double quantizedPosition = qRound(musicalPos.x() * 4.0) / 4.0;
+    int newPosition = qBound(dimensions.startPosition,
+                           static_cast<int>(quantizedPosition),
+                           dimensions.endPosition - 1);
+    
+    int newPitch = qBound(dimensions.minPitch,
+                         qRound(musicalPos.y()),
+                         dimensions.maxPitch - 1);
+    
+    // Update preview with correct duration
+    m_noteGrid->showNotePreview(newPosition, newPitch, duration);
+}
+
+void ScoreView::finishNoteDrag(const QPointF& scenePos)
+{
+    if (!m_isDragging || !m_noteGrid || !m_score) return;
+    
+    QPointF musicalPos = mapToMusicalSpace(mapFromScene(scenePos));
+    auto dimensions = m_noteGrid->getDimensions();
+    
+    // Get new position
+    double quantizedPosition = qRound(musicalPos.x() * 4.0) / 4.0;
+    int newPosition = qBound(dimensions.startPosition,
+                           static_cast<int>(quantizedPosition),
+                           dimensions.endPosition - 1);
+    
+    int newPitch = qBound(dimensions.minPitch,
+                         qRound(musicalPos.y()),
+                         dimensions.maxPitch - 1);
+    
+    // Only move if position actually changed
+    if (newPosition != m_draggedNotePosition || newPitch != m_draggedNotePitch) {
+        auto voice = m_score->getVoice(0); // Using first voice for now
+        if (voice) {
+            // Get the note's duration before removing it
+            double duration = m_currentNoteDuration;
+            if (auto note = voice->getNoteAt(m_draggedNotePosition)) {
+                duration = note->getDuration();
+            }
+            
+            // Remove from old position and add at new position
+            voice->removeNote(m_draggedNotePosition);
+            voice->addNote(MusicTrainer::music::Pitch::fromMidiNote(newPitch),
+                         duration, newPosition);
+        }
+    }
+    
+    // Clean up drag state
+    m_isDragging = false;
+    m_draggedNotePosition = -1;
+    m_draggedNotePitch = -1;
+    m_noteGrid->hideNotePreview();
+    
+    // Update display
+    m_noteGrid->updateFromScore(m_score);
+    updateGridVisuals();
+}
+
+void ScoreView::cycleDuration()
+{
+    // Find next duration button in sequence
+    auto buttons = m_durationButtons->buttons();
+    if (buttons.isEmpty()) return;
+    
+    // Find current button
+    QAbstractButton* currentButton = nullptr;
+    for (auto* button : buttons) {
+        if (button->property("duration").toDouble() == m_currentNoteDuration) {
+            currentButton = button;
+            break;
+        }
+    }
+    
+    // Get next button, wrapping around to first
+    QAbstractButton* nextButton = currentButton ? buttons.at((buttons.indexOf(currentButton) + 1) % buttons.size())
+                                              : buttons.first();
+                                              
+    // Simulate click on next button
+    nextButton->click();
+}
+
 void ScoreView::checkViewportExpansion()
 {
     QRectF currentBounds = m_viewportManager->getViewportBounds();
@@ -389,7 +638,9 @@ void ScoreView::checkViewportExpansion()
     bool needsExpansion = false;
     QRectF newBounds = currentBounds;
     
-    // Only allow octave shifts when near edges
+    // Disable automatic octave shifts when placing notes
+    // We'll keep the code commented for reference
+    /*
     float edgeThreshold = 0.5; // Half semitone from edge
     if (visibleMusicalRect.top() <= currentBounds.top() + edgeThreshold) {
         // Shift up one octave
@@ -401,6 +652,7 @@ void ScoreView::checkViewportExpansion()
         newBounds.translate(0, 12);
         needsExpansion = true;
     }
+    */
     
     // Preserve the expanded height in multi-octave mode
     if (viewState.preserveOctaveExpansion) {
@@ -466,7 +718,7 @@ void ScoreView::initializeViewport()
     
     m_viewportManager->setViewportBounds(initialBounds);
     m_viewportManager->updateViewSize(size());
-
+    
     // Reset transform and scrollbars
     resetTransform();
     setViewportMargins(0, 0, 0, 0);
@@ -571,7 +823,8 @@ QPointF ScoreView::mapFromMusicalSpace(const QPointF& musicalPoint) const
     return mapFromScene(QPointF(sceneX, sceneY));
 }
 
-MusicTrainer::music::Duration ScoreView::convertToMusicalDuration(double numericDuration) {
+MusicTrainer::music::Duration ScoreView::convertToMusicalDuration(double numericDuration)
+{
     // Find the closest base duration type
     MusicTrainer::music::Duration::Type baseType = MusicTrainer::music::Duration::Type::QUARTER;
     uint8_t dots = 0;
@@ -604,117 +857,158 @@ MusicTrainer::music::Duration ScoreView::convertToMusicalDuration(double numeric
     return MusicTrainer::music::Duration::create(baseType, dots);
 }
 
-// Fix the handleNoteAdded method to use the correct Note constructor
 void ScoreView::handleNoteAdded(int pitch, double duration, int position)
 {
-    if (!m_noteGrid || !m_viewportManager) return;
+    if (!m_noteGrid || !m_viewportManager || !m_score) return;
 
-    auto dimensions = m_noteGrid->getDimensions();
-    auto viewState = m_viewportManager->getViewportState();
+    // Create event first to ensure consistent state
+    MusicTrainer::music::Pitch notePitch = MusicTrainer::music::Pitch::fromMidiNote(pitch);
+    auto timeSignature = m_score->getTimeSignature();
+    auto event = ::music::events::NoteAddedEvent::create(
+        0, // voice index
+        notePitch,
+        convertToMusicalDuration(duration),
+        timeSignature
+    );
     
-    // Clamp the pitch to the current viewport bounds
+    // Get current grid dimensions
+    auto dimensions = m_noteGrid->getDimensions();
+    
+    // Validate and clamp the position and pitch
     pitch = qBound(dimensions.minPitch, pitch, dimensions.maxPitch - 1);
     position = qBound(dimensions.startPosition, position, dimensions.endPosition - 1);
+
+    // Apply event first to ensure model is updated
+    event->apply(*m_score);
     
-    qDebug() << "ScoreView::handleNoteAdded -"
-             << "Pitch:" << pitch
-             << "Duration:" << duration
-             << "Position:" << position;
-             
-    // Create note components directly - pitch is already a valid MIDI note number
-    MusicTrainer::music::Pitch notePitch = MusicTrainer::music::Pitch::fromMidiNote(pitch);
-    MusicTrainer::music::Duration noteDuration = convertToMusicalDuration(duration);
+    // Rate limit only the visual update
+    static QElapsedTimer lastNoteTime;
+    if (lastNoteTime.isValid() && lastNoteTime.elapsed() < 50) {
+        return; // Skip visual update but note is already added to model
+    }
+    lastNoteTime.restart();
     
-    // Create a Note object with the converted pitch
-    MusicTrainer::music::Note note(notePitch, noteDuration.getTotalBeats(), position);
-             
-    if (m_score) {
-        // If we have a score, add it through the score's interface
-        auto voice = m_score->getVoice(0); // Use first voice for now
-        if (voice) {
-            voice->addNote(notePitch, duration, position);
-            m_score->setCurrentPosition(position + duration);
+    // Update visual representation
+    MusicTrainer::music::Note note(notePitch, duration, position);
+    m_noteGrid->addNote(note, 0, position);
+    
+    // Update only the affected region
+    QRectF updateRect(
+        position * GRID_UNIT - GRID_UNIT,
+        pitch * NOTE_HEIGHT - NOTE_HEIGHT,
+        GRID_UNIT * 2,
+        NOTE_HEIGHT * 2
+    );
+    m_noteGrid->updateGrid(updateRect);
+    
+    // Check if we need to expand the viewport
+    checkViewportExpansion();
+}
+
+void ScoreView::setupDurationToolbar()
+{
+    // Create toolbar and add it to a layout above the view
+    m_durationToolbar = new QToolBar(this);
+    m_durationToolbar->setMovable(false);
+    
+    // Create button group
+    m_durationButtons = new QButtonGroup(this);
+    m_durationButtons->setExclusive(true);
+    
+    // Duration label
+    m_durationLabel = new QLabel(this);
+    m_durationLabel->setMinimumWidth(80);
+    m_durationToolbar->addWidget(m_durationLabel);
+    
+    // Create buttons for each duration
+    struct DurationInfo {
+        double value;
+        QString name;
+        QString icon;
+    };
+    
+    std::vector<DurationInfo> durations = {
+        {4.0, "Whole", ":/icons/whole"},
+        {2.0, "Half", ":/icons/half"},
+        {1.0, "Quarter", ":/icons/quarter"},
+        {0.5, "Eighth", ":/icons/eighth"},
+        {0.25, "16th", ":/icons/sixteenth"}
+    };
+    
+    for (const auto& info : durations) {
+        auto* button = new QPushButton(this);
+        button->setCheckable(true);
+        button->setToolTip(info.name + " note");
+        button->setFixedSize(32, 32);
+        // Set default style for now, later we can add icons
+        button->setText(info.name.left(1));
+        
+        m_durationButtons->addButton(button);
+        m_durationToolbar->addWidget(button);
+        
+        // Store duration value in button's data
+        button->setProperty("duration", info.value);
+        
+        // Connect button to duration change
+        connect(button, &QPushButton::clicked, this, [this, value = info.value]() {
+            m_currentNoteDuration = value;
+            updateDurationLabel();
+            
+            // Update note grid density based on the selected duration
+            if (m_noteGrid) {
+                m_noteGrid->setGridDensity(value);
+            }
+            
+            // Update preview if currently selecting
+            if (m_isSelecting) {
+                QPointF musicalPos = mapToMusicalSpace(m_lastMousePos);
+                auto dimensions = m_noteGrid->getDimensions();
+                int position = qBound(dimensions.startPosition,
+                                   static_cast<int>(qRound(musicalPos.x() * 4.0) / 4.0),
+                                   dimensions.endPosition - 1);
+                int pitch = qBound(dimensions.minPitch,
+                                 qRound(musicalPos.y()),
+                                 dimensions.maxPitch - 1);
+                m_noteGrid->showNotePreview(position, pitch, m_currentNoteDuration);
+            }
+        });
+    }
+    
+    // Set initial duration button
+    if (auto buttons = m_durationButtons->buttons(); !buttons.isEmpty()) {
+        for (auto* button : buttons) {
+            if (button->property("duration").toDouble() == m_currentNoteDuration) {
+                button->setChecked(true);
+                break;
+            }
         }
     }
     
-    // Add to grid for visual representation
-    m_noteGrid->addNote(note, 0, position);
+    // Add toolbar to layout
+    auto* layout = new QVBoxLayout(this);
+    layout->setContentsMargins(0, 0, 0, 0);
+    layout->addWidget(m_durationToolbar);
+    layout->addWidget(viewport());
+    setLayout(layout);
     
-    // Only update the grid for the new note's area
-    QRectF updateRect(
-        position * GRID_UNIT - GRID_UNIT,  // Include one unit before
-        pitch * NOTE_HEIGHT - NOTE_HEIGHT,  // Include one unit above
-        GRID_UNIT * 2,  // Two units wide
-        NOTE_HEIGHT * 2  // Two units high
-    );
-    m_noteGrid->updateGrid(updateRect);
+    updateDurationLabel();
 }
 
-void ScoreView::expandGrid(ViewportManager::Direction direction, int amount)
+QString ScoreView::getDurationName(double duration) const
 {
-    if (!m_viewportManager || !m_noteGrid) return;
+    if (duration == 4.0) return "Whole";
+    if (duration == 2.0) return "Half";
+    if (duration == 1.0) return "Quarter";
+    if (duration == 0.5) return "Eighth";
+    if (duration == 0.25) return "16th";
+    return QString::number(duration) + " beats";
+}
 
-    // Store viewport state before expansion
-    QPointF oldCenter = mapToScene(viewport()->rect().center());
-    QPointF oldCorner = mapToScene(QPoint(0, 0));
-    
-    // Block viewport updates during expansion
-    setUpdatesEnabled(false);
-    
-    // Perform grid expansion
-    m_viewportManager->expandGrid(direction, amount);
-    
-    // Get new dimensions
-    auto dimensions = m_noteGrid->getDimensions();
-    
-    // Calculate new scene rect with margins
-    float labelMargin = 25.0f;
-    QRectF newSceneRect(
-        -labelMargin,  // Space for labels
-        dimensions.minPitch * NOTE_HEIGHT - NOTE_HEIGHT * 0.5f,  // Small padding above
-        dimensions.endPosition * GRID_UNIT + 2 * labelMargin,  // Width plus margins
-        (dimensions.maxPitch - dimensions.minPitch + 2) * NOTE_HEIGHT  // Full height of expanded octaves plus buttons
-    );
-    
-    // Update scene rect
-    scene()->setSceneRect(newSceneRect);
-
-    // Calculate the new center based on expansion direction
-    QPointF newCenter;
-    if (direction == ViewportManager::Direction::Up) {
-        // For upward expansion, keep view centered on the original octave
-        // but adjust the scene to show the additional octave above
-        newCenter = QPointF(
-            oldCenter.x(),
-            oldCenter.y() + 6 * NOTE_HEIGHT  // Move down to keep original octave visible
-        );
-    } 
-    else if (direction == ViewportManager::Direction::Down) {
-        // For downward expansion, keep center on the original position
-        // since the new octave is added below
-        newCenter = oldCenter;
-    } 
-    else {
-        // For horizontal expansion, keep the same center position
-        newCenter = oldCenter;
+void ScoreView::updateDurationLabel()
+{
+    if (m_durationLabel) {
+        m_durationLabel->setText(getDurationName(m_currentNoteDuration));
     }
-
-    // Re-enable updates before changing viewport
-    setUpdatesEnabled(true);
-    
-    // Center on the new position
-    centerOn(newCenter);
-    
-    // Update scroll position in viewport manager
-    QPointF newScrollPos = mapToScene(QPoint(0, 0));
-    m_viewportManager->updateScrollPosition(newScrollPos);
-    
-    // Force a complete update
-    viewport()->update();
-    scene()->update(scene()->sceneRect());
-    
-    // Notify any listeners of the expansion
-    emit viewportExpanded(m_viewportManager->getViewportBounds());
 }
 
 } // namespace MusicTrainer::presentation

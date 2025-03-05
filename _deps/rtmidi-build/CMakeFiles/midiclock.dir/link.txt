@@ -1,1 +1,1 @@
-/usr/bin/c++ -Wno-error=deprecated-declarations -pthread -Wall -Werror -g CMakeFiles/midiclock.dir/midiclock_autogen/mocs_compilation.cpp.o CMakeFiles/midiclock.dir/tests/midiclock.cpp.o -o tests/midiclock  -Wl,-rpath,/home/seth-n/Documents/GitHub/MusicTrainer/_deps/rtmidi-build librtmidi.so.6.0.0 
+/usr/bin/c++  -fPIC -pthread -pthread -Wall -Werror -g CMakeFiles/midiclock.dir/midiclock_autogen/mocs_compilation.cpp.o CMakeFiles/midiclock.dir/tests/midiclock.cpp.o -o tests/midiclock  -Wl,-rpath,/home/seth-n/Documents/GitHub/MusicTrainer/_deps/rtmidi-build librtmidi.so.6.0.0 

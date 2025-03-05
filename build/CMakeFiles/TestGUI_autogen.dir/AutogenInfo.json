@@ -433,16 +433,15 @@
 	"MOC_INCLUDES" : 
 	[
 		"/home/seth-n/Documents/GitHub/MusicTrainer/include",
-		"/usr/include/x86_64-linux-gnu/qt6/QtDBus",
 		"/home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-src",
 		"/usr/include/x86_64-linux-gnu/qt6/QtCore",
 		"/usr/include/x86_64-linux-gnu/qt6",
+		"/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++",
 		"/usr/include/x86_64-linux-gnu/qt6/QtWidgets",
 		"/usr/include/x86_64-linux-gnu/qt6/QtGui",
 		"/usr/include/x86_64-linux-gnu/qt6/QtCharts",
 		"/usr/include/x86_64-linux-gnu/qt6/QtOpenGL",
 		"/usr/include/x86_64-linux-gnu/qt6/QtOpenGLWidgets",
-		"/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++",
 		"/usr/include",
 		"/usr/include/c++/13",
 		"/usr/include/x86_64-linux-gnu/c++/13",
@@ -464,6 +463,7 @@
 	"MOC_PREDEFS_CMD" : 
 	[
 		"/usr/bin/c++",
+		"-std=c++17",
 		"-dM",
 		"-E",
 		"-c",

@@ -69,15 +69,14 @@ void ScoreViewModel::addNote(int voiceIndex, int pitch, double duration, int pos
         Pitch notePitch = Pitch::fromMidiNote(pitch);
         Note note(notePitch, duration, position);
         
-        // Add the note to the voice in the future implementation
-        // m_score->getVoice(voiceIndex)->addNote(note);
-        
-        m_isDirty = true;
-        
-        // Emit signal that a note was added
-        emit noteAdded(voiceIndex, note);
+        // Add note to the voice
+        auto voice = m_score->getVoice(voiceIndex);
+        if (voice) {
+            voice->addNote(notePitch, duration, position);
+            m_isDirty = true;
+            emit noteAdded(voiceIndex, note);
+        }
     } catch (const std::exception& e) {
-        // Handle exceptions from domain model
         qWarning("Failed to add note: %s", e.what());
     }
 }
@@ -89,15 +88,13 @@ void ScoreViewModel::removeNote(int voiceIndex, int position)
     }
     
     try {
-        // Remove the note from the voice in the future implementation
-        // m_score->getVoice(voiceIndex)->removeNote(position);
-        
-        m_isDirty = true;
-        
-        // Emit signal that a note was removed
-        emit noteRemoved(voiceIndex, position);
+        // Get the voice and remove the note
+        if (auto voice = m_score->getVoice(voiceIndex)) {
+            voice->removeNote(position);
+            m_isDirty = true;
+            emit noteRemoved(voiceIndex, position);
+        }
     } catch (const std::exception& e) {
-        // Handle exceptions from domain model
         qWarning("Failed to remove note: %s", e.what());
     }
 }
@@ -109,16 +106,16 @@ void ScoreViewModel::addVoice()
     }
     
     try {
-        // Create and add a voice to the score in the future implementation
-        // auto voice = Voice::create(m_score->getTimeSignature());
-        // m_score->addVoice(std::move(voice));
-        
-        m_isDirty = true;
-        
-        // Emit signal that a voice was added
-        // emit voiceAdded(*voice);
+        auto voice = Voice::create(m_score->getTimeSignature());
+        if (voice) {
+            m_score->addVoice(std::move(voice));
+            m_isDirty = true;
+            // Get the newly added voice to emit signal
+            if (auto* addedVoice = m_score->getVoice(getVoiceCount() - 1)) {
+                emit voiceAdded(*addedVoice);
+            }
+        }
     } catch (const std::exception& e) {
-        // Handle exceptions from domain model
         qWarning("Failed to add voice: %s", e.what());
     }
 }

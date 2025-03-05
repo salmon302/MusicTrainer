@@ -1,34 +1,39 @@
 cmake_minimum_required(VERSION 3.24)
 project(MusicTrainerV3)
 
+# Set C++17 as required and ensure proper compiler flags
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+# Add compiler-specific flags
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -pthread")
+endif()
 
 # Add a global compile definition to fix RtMidi namespace conflicts
 # These need to be set before any targets are defined
 add_definitions(-DRTMIDI_DO_NOT_ENSURE_UNIQUE_PORTNAMES)
 
-# Add Qt6 support
+# Add Qt6 support with proper configuration
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-# Make Qt6 optional - first try Qt6, then fall back to Qt5 if needed
-find_package(Qt6 COMPONENTS Core Widgets Charts QUIET)
-if(NOT Qt6_FOUND)
-    message(STATUS "Qt6 include dirs: ${Qt6Core_INCLUDE_DIRS}")
-    message(STATUS "Qt6 widgets include dirs: ${Qt6Widgets_INCLUDE_DIRS}")
-    message(STATUS "Qt6 charts include dirs: ${Qt6Charts_INCLUDE_DIRS}")
-    message(STATUS "Qt6 not found, trying Qt5...")
-    find_package(Qt5 COMPONENTS Core Widgets Charts QUIET)
-    if(Qt5_FOUND)
-        message(STATUS "Qt5 found, using as fallback.")
-        set(QT_VERSION_MAJOR 5)
-    else()
-        message(WARNING "Neither Qt6 nor Qt5 found. GUI applications will not be built.")
-    endif()
+# Explicitly set Qt version
+set(QT_VERSION_MAJOR 6)
+
+# Find Qt packages - with explicit paths if needed
+# If you have installed Qt in a non-standard location, you can set Qt6_DIR here
+# set(Qt6_DIR "/path/to/your/Qt/6.x.x/gcc_64/lib/cmake/Qt6")
+
+find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Widgets Charts)
+
+# Check if Qt6 was found and configure accordingly
+if(Qt${QT_VERSION_MAJOR}_FOUND)
+    message(STATUS "Qt${QT_VERSION_MAJOR} found. Building GUI applications.")
 else()
-    message(STATUS "Qt6 found.")
-    set(QT_VERSION_MAJOR 6)
+    message(WARNING "Qt${QT_VERSION_MAJOR} not found. GUI applications will not be built.")
 endif()
 
 # Linux-specific configuration
@@ -71,6 +76,11 @@ FetchContent_Declare(
 	URL https://github.com/thestk/rtmidi/archive/refs/tags/5.0.0.zip
 )
 FetchContent_MakeAvailable(rtmidi)
+
+# Configure RtMidi to avoid deprecated function warnings being treated as errors
+if(TARGET rtmidi)
+    target_compile_options(rtmidi PRIVATE -Wno-deprecated-declarations -Wno-error=deprecated-declarations)
+endif()
 
 # Apply patch to RtMidi if patch file exists
 #if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/patches/rtmidi_fix.patch")
@@ -272,11 +282,6 @@ set(MUSICTRAINERGUI_HEADERS
 
 # Include directories
 include_directories(${PROJECT_SOURCE_DIR}/include)
-include_directories(
-    ${Qt${QT_VERSION_MAJOR}Core_INCLUDE_DIRS}
-    ${Qt${QT_VERSION_MAJOR}Widgets_INCLUDE_DIRS}
-    ${Qt${QT_VERSION_MAJOR}Charts_INCLUDE_DIRS}
-)
 
 # Main library target (not executable)
 add_library(MusicTrainerLib STATIC ${LIB_SOURCES} ${HEADERS})
@@ -288,15 +293,6 @@ target_link_libraries(${PROJECT_NAME} PRIVATE MusicTrainerLib)
 
 # Check if Qt is available and create GUI applications
 if(Qt${QT_VERSION_MAJOR}_FOUND)
-    message(STATUS "Qt${QT_VERSION_MAJOR} found. Building GUI applications.")
-    
-    # Add Qt include directories
-    include_directories(
-        ${Qt${QT_VERSION_MAJOR}Core_INCLUDE_DIRS}
-        ${Qt${QT_VERSION_MAJOR}Widgets_INCLUDE_DIRS}
-        ${Qt${QT_VERSION_MAJOR}Charts_INCLUDE_DIRS}
-    )
-    
     # Add the full GUI application
     add_executable(MusicTrainerGUI src/presentation/main_gui.cpp ${MUSICTRAINERGUI_SOURCES} ${MUSICTRAINERGUI_HEADERS})
     target_link_libraries(MusicTrainerGUI PRIVATE 
@@ -309,9 +305,6 @@ if(Qt${QT_VERSION_MAJOR}_FOUND)
     )
     target_include_directories(MusicTrainerGUI PRIVATE
         ${PROJECT_SOURCE_DIR}/include
-        ${Qt${QT_VERSION_MAJOR}Core_INCLUDE_DIRS}
-        ${Qt${QT_VERSION_MAJOR}Widgets_INCLUDE_DIRS}
-        ${Qt${QT_VERSION_MAJOR}Charts_INCLUDE_DIRS}
     )
     set_target_properties(MusicTrainerGUI PROPERTIES
         WIN32_EXECUTABLE TRUE
@@ -330,16 +323,11 @@ if(Qt${QT_VERSION_MAJOR}_FOUND)
     )
     target_include_directories(TestGUI PRIVATE
         ${PROJECT_SOURCE_DIR}/include
-        ${Qt${QT_VERSION_MAJOR}Core_INCLUDE_DIRS}
-        ${Qt${QT_VERSION_MAJOR}Widgets_INCLUDE_DIRS}
-        ${Qt${QT_VERSION_MAJOR}Charts_INCLUDE_DIRS}
     )
     set_target_properties(TestGUI PROPERTIES
         WIN32_EXECUTABLE FALSE
         MACOSX_BUNDLE FALSE
     )
-else()
-    message(WARNING "Qt not found. GUI applications will not be built.")
 endif()
 
 # Add main test suite

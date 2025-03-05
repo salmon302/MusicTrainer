@@ -65,7 +65,7 @@ void GridCell::setNote(const MusicTrainer::music::Note& note, int voiceIndex)
         m_noteRect = m_scene->addRect(
             m_position * GRID_UNIT,
             m_pitch * NOTE_HEIGHT,
-            GRID_UNIT,
+            note.getDuration() * GRID_UNIT, // Use note duration for width
             NOTE_HEIGHT,
             QPen(Qt::black),
             QBrush(Qt::blue)
@@ -79,7 +79,7 @@ void GridCell::setNote(const MusicTrainer::music::Note& note, int voiceIndex)
     QColor noteColor = QColor::fromHsv((voiceIndex * 60) % 360, 200, 230);
     m_noteRect->setBrush(QBrush(noteColor));
     
-    // Update bounds based on duration if available
+    // Update bounds based on duration
     double duration = note.getDuration();
     if (duration > 0) {
         QRectF rect = m_noteRect->rect();
@@ -105,7 +105,7 @@ void GridCell::update(const QRectF& viewport, float zoomLevel)
         // Note is present, ensure it's visible and properly styled
         m_noteRect->setVisible(true);
         
-        // Update position and size
+        // Update position and size based on note duration
         double duration = m_note->getDuration();
         m_noteRect->setRect(
             m_position * GRID_UNIT,
@@ -118,6 +118,9 @@ void GridCell::update(const QRectF& viewport, float zoomLevel)
         QPen pen = m_noteRect->pen();
         pen.setWidthF(1.0 / zoomLevel);
         m_noteRect->setPen(pen);
+
+        // Set z-value to ensure notes are above grid lines
+        m_noteRect->setZValue(5);
     } else {
         // No note, hide the rectangle
         m_noteRect->setVisible(false);

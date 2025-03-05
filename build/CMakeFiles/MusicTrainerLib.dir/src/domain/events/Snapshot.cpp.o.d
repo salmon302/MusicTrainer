@@ -164,7 +164,11 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/events/Snapshot.cpp.o: \
  /usr/include/c++/13/bits/charconv.h \
  /usr/include/c++/13/bits/basic_string.tcc \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Duration.h \
- /usr/include/c++/13/optional \
+ /usr/include/c++/13/map /usr/include/c++/13/bits/stl_tree.h \
+ /usr/include/c++/13/bits/node_handle.h \
+ /usr/include/c++/13/bits/stl_map.h \
+ /usr/include/c++/13/bits/stl_multimap.h \
+ /usr/include/c++/13/bits/erase_if.h /usr/include/c++/13/optional \
  /usr/include/c++/13/bits/enable_special_members.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/errors/DomainErrors.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/errors/ErrorBase.h \

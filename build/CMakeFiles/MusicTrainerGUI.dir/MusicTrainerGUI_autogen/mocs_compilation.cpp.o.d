@@ -411,6 +411,14 @@ CMakeFiles/MusicTrainerGUI.dir/MusicTrainerGUI_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qpainter.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qscrollarea.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicsscene.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QLabel \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlabel.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qpicture.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qiodevice.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QToolBar \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtoolbar.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QButtonGroup \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qbuttongroup.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/GridConstants.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/ViewportManager.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QRectF \

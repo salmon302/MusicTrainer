@@ -2,6 +2,9 @@
 
 #include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QWidget>
+#include <QtWidgets/QLabel>
+#include <QToolBar>
+#include <QButtonGroup>
 #include <memory>
 #include "domain/music/Score.h"
 #include "domain/music/Voice.h"
@@ -77,6 +80,34 @@ private:
     
     bool m_isSelecting = false;
     QPoint m_lastMousePos;
+
+    bool m_isDragging{false};
+    int m_draggedNotePosition{-1};
+    int m_draggedNotePitch{-1};
+    double m_currentNoteDuration{1.0}; // Default to quarter note
+    QGraphicsItem* m_selectedNote{nullptr};
+
+    // Add toolbar and button members
+    QToolBar* m_durationToolbar{nullptr};
+    QLabel* m_durationLabel{nullptr};
+    QButtonGroup* m_durationButtons{nullptr};
+    
+    // Expansion button visual elements
+    QGraphicsRectItem* m_topExpandButton{nullptr};
+    QGraphicsRectItem* m_bottomExpandButton{nullptr};
+    QGraphicsRectItem* m_rightExpandButton{nullptr};
+
+    // Helper method for duration toolbar
+    void setupDurationToolbar();
+    QString getDurationName(double duration) const;
+    void updateDurationLabel();
+
+    // Helper methods for note operations
+    void deleteNoteAt(const QPointF& scenePos);
+    void startNoteDrag(const QPointF& scenePos);
+    void updateNoteDrag(const QPointF& scenePos);
+    void finishNoteDrag(const QPointF& scenePos);
+    void cycleDuration(); // Cycles through available note durations
 };
 
 } // namespace MusicTrainer::presentation

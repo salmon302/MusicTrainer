@@ -19,6 +19,12 @@ class NoteGrid;
  */
 class ViewportManager {
 public:
+    enum class Direction {
+        Up,
+        Down,
+        Right
+    };
+
     struct ViewportState {
         QRectF visibleArea;     // Currently visible area in musical space
         float zoomLevel;        // Current zoom level (default 1.0)
@@ -29,12 +35,6 @@ public:
     struct LoadingBoundaries {
         int verticalBuffer{6};   // Additional rows to load (half octave)
         int horizontalBuffer{4}; // Additional measures to load
-    };
-
-    enum class Direction {
-        Up,
-        Down,
-        Right
     };
 
     explicit ViewportManager(NoteGrid* grid);

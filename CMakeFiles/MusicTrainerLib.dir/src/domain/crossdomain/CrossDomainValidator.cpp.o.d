@@ -176,7 +176,9 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Note.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Pitch.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Duration.h \
- /usr/include/c++/13/optional \
+ /usr/include/c++/13/map /usr/include/c++/13/bits/stl_tree.h \
+ /usr/include/c++/13/bits/stl_map.h \
+ /usr/include/c++/13/bits/stl_multimap.h /usr/include/c++/13/optional \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/ports/ScoreRepository.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/rules/ParallelFifthsRule.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/rules/ParallelOctavesRule.h \

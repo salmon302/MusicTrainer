@@ -329,6 +329,7 @@ CMakeFiles/MusicTrainerGUI.dir/MusicTrainerGUI_autogen/mocs_compilation.cpp.o: M
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qglobalstatic.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qhash.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qhashfunctions.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qiodevice.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qiodevicebase.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qitemselectionmodel.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qiterable.h \
@@ -401,6 +402,7 @@ CMakeFiles/MusicTrainerGUI.dir/MusicTrainerGUI_autogen/mocs_compilation.cpp.o: M
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qpainter.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qpalette.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qpen.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qpicture.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qpixelformat.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qpixmap.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qpolygon.h \
@@ -417,9 +419,11 @@ CMakeFiles/MusicTrainerGUI.dir/MusicTrainerGUI_autogen/mocs_compilation.cpp.o: M
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qtransform.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qvalidator.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qwindowdefs.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QButtonGroup \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QCheckBox \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QComboBox \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QGraphicsView \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QLabel \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QListWidget \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMainWindow \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QProgressBar \
@@ -429,6 +433,7 @@ CMakeFiles/MusicTrainerGUI.dir/MusicTrainerGUI_autogen/mocs_compilation.cpp.o: M
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTabWidget \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTableWidget \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTextEdit \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QToolBar \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QVBoxLayout \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractbutton.h \
@@ -438,12 +443,14 @@ CMakeFiles/MusicTrainerGUI.dir/MusicTrainerGUI_autogen/mocs_compilation.cpp.o: M
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractslider.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractspinbox.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qboxlayout.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qbuttongroup.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qcheckbox.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qcombobox.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qframe.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicsscene.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicsview.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgridlayout.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlabel.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlayout.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlayoutitem.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlistview.h \
@@ -463,6 +470,7 @@ CMakeFiles/MusicTrainerGUI.dir/MusicTrainerGUI_autogen/mocs_compilation.cpp.o: M
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtablewidget.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtabwidget.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtextedit.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtoolbar.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgets-config.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgetsexports.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgetsglobal.h \
@@ -2349,6 +2357,7 @@ CMakeFiles/MusicTrainerGUI.dir/src/presentation/MainWindow.cpp.o: /home/seth-n/D
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qglobalstatic.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qhash.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qhashfunctions.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qiodevice.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qiodevicebase.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qitemselectionmodel.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qiterable.h \
@@ -2425,6 +2434,7 @@ CMakeFiles/MusicTrainerGUI.dir/src/presentation/MainWindow.cpp.o: /home/seth-n/D
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qpainter.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qpalette.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qpen.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qpicture.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qpixelformat.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qpixmap.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qpolygon.h \
@@ -2442,10 +2452,12 @@ CMakeFiles/MusicTrainerGUI.dir/src/presentation/MainWindow.cpp.o: /home/seth-n/D
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qvalidator.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qwindowdefs.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QApplication \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QButtonGroup \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QCheckBox \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QComboBox \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QDockWidget \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QGraphicsView \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QLabel \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QListWidget \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMainWindow \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMenuBar \
@@ -2469,6 +2481,7 @@ CMakeFiles/MusicTrainerGUI.dir/src/presentation/MainWindow.cpp.o: /home/seth-n/D
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractspinbox.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qapplication.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qboxlayout.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qbuttongroup.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qcheckbox.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qcombobox.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdialog.h \
@@ -2477,6 +2490,7 @@ CMakeFiles/MusicTrainerGUI.dir/src/presentation/MainWindow.cpp.o: /home/seth-n/D
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicsscene.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicsview.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgridlayout.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlabel.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlayout.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlayoutitem.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlistview.h \
@@ -2932,6 +2946,10 @@ CMakeFiles/MusicTrainerGUI.dir/src/presentation/NoteGrid.cpp.o: /home/seth-n/Doc
 
 CMakeFiles/MusicTrainerGUI.dir/src/presentation/ScoreView.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ScoreView.cpp \
   /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Duration.h \
+  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Pitch.h \
+  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/events/Event.h \
+  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/events/NoteAddedEvent.h \
+  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Duration.h \
   /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Note.h \
   /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Pitch.h \
   /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Score.h \
@@ -3210,6 +3228,7 @@ CMakeFiles/MusicTrainerGUI.dir/src/presentation/ScoreView.cpp.o: /home/seth-n/Do
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QDebug \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QElapsedTimer \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QList \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QMetaType \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QObject \
@@ -3245,6 +3264,7 @@ CMakeFiles/MusicTrainerGUI.dir/src/presentation/ScoreView.cpp.o: /home/seth-n/Do
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qcoreevent.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qdatastream.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qdebug.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qelapsedtimer.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qflags.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qforeach.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qgenericatomic.h \
@@ -3309,6 +3329,7 @@ CMakeFiles/MusicTrainerGUI.dir/src/presentation/ScoreView.cpp.o: /home/seth-n/Do
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qvariant.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qvarlengtharray.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qversiontagging.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/QIcon \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/QResizeEvent \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/QTransform \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/QWheelEvent \
@@ -3331,6 +3352,7 @@ CMakeFiles/MusicTrainerGUI.dir/src/presentation/ScoreView.cpp.o: /home/seth-n/Do
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qpainterpath.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qpalette.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qpen.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qpicture.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qpixelformat.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qpixmap.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qpointingdevice.h \
@@ -3339,6 +3361,7 @@ CMakeFiles/MusicTrainerGUI.dir/src/presentation/ScoreView.cpp.o: /home/seth-n/Do
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qrgb.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qrgba64.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qscreen.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextdocument.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextoption.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qtgui-config.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qtguiexports.h \
@@ -3347,20 +3370,36 @@ CMakeFiles/MusicTrainerGUI.dir/src/presentation/ScoreView.cpp.o: /home/seth-n/Do
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qvector2d.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qvectornd.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qwindowdefs.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QButtonGroup \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QGraphicsRectItem \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QGraphicsScene \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QGraphicsView \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QHBoxLayout \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QLabel \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QPushButton \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QScrollBar \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QStyle \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QToolBar \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractbutton.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractscrollarea.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractslider.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qboxlayout.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qbuttongroup.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qframe.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicsitem.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicsscene.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicsview.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgridlayout.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlabel.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlayout.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlayoutitem.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qpushbutton.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qscrollarea.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qscrollbar.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qsizepolicy.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstyle.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtoolbar.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgets-config.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgetsexports.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgetsglobal.h \
@@ -4137,6 +4176,7 @@ CMakeFiles/MusicTrainerGUI.dir/src/presentation/ViewportManager.cpp.o: /home/set
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qglobalstatic.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qhash.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qhashfunctions.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qiodevice.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qiodevicebase.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qiterable.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qiterator.h \
@@ -4185,6 +4225,7 @@ CMakeFiles/MusicTrainerGUI.dir/src/presentation/ViewportManager.cpp.o: /home/set
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qtextstream.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qtmetamacros.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qtypeinfo.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qurl.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qutf8stringview.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qvariant.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qvarlengtharray.h \
@@ -4204,27 +4245,35 @@ CMakeFiles/MusicTrainerGUI.dir/src/presentation/ViewportManager.cpp.o: /home/set
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qpainter.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qpalette.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qpen.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qpicture.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qpixelformat.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qpixmap.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qpolygon.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qregion.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qrgb.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qrgba64.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextdocument.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextoption.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qtgui-config.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qtguiexports.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qtguiglobal.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qtransform.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qwindowdefs.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QButtonGroup \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QGraphicsScene \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QGraphicsView \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QLabel \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QToolBar \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractscrollarea.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qbuttongroup.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qframe.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicsscene.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicsview.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlabel.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qscrollarea.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qsizepolicy.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtoolbar.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgets-config.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgetsexports.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgetsglobal.h \
@@ -5486,9 +5535,9 @@ _deps/rtmidi-src/RtMidi.h:
 
 /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ViewportManager.cpp:
 
-/usr/include/x86_64-linux-gnu/qt6/QtGui/QIcon:
-
 /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/TransportControls.cpp:
+
+/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QStyle:
 
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QScrollBar:
 
@@ -5508,9 +5557,13 @@ _deps/rtmidi-src/RtMidi.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtGui/QResizeEvent:
 
+/usr/include/x86_64-linux-gnu/qt6/QtGui/QIcon:
+
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qtimer.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qpointer.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qelapsedtimer.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qbasictimer.h:
 
@@ -5522,11 +5575,19 @@ _deps/rtmidi-src/RtMidi.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/QList:
 
+/usr/include/x86_64-linux-gnu/qt6/QtCore/QElapsedTimer:
+
 /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/QtTypes.h:
+
+/home/seth-n/Documents/GitHub/MusicTrainer/include/domain/events/NoteAddedEvent.h:
+
+/home/seth-n/Documents/GitHub/MusicTrainer/include/domain/events/Event.h:
 
 /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ScoreView.cpp:
 
 /usr/include/x86_64-linux-gnu/qt6/QtGui/QPen:
+
+/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/NoteGrid.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
 
@@ -6006,9 +6067,9 @@ MusicTrainerGUI_autogen/5PPTR2THOO/moc_TransportControls.cpp:
 
 /usr/include/c++/13/cstdio:
 
-/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qwidget.h:
-
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlabel.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qwidget.h:
 
 /usr/include/x86_64-linux-gnu/bits/endian.h:
 
@@ -6396,11 +6457,11 @@ MusicTrainerGUI_autogen/5PPTR2THOO/moc_ScoreView.cpp:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qtconfigmacros.h:
 
-/usr/include/x86_64-linux-gnu/qt6/QtGui/qpixmap.h:
-
 /usr/include/c++/13/bits/char_traits.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtGui/qpicture.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtGui/qpixmap.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qstringliteral.h:
 
@@ -6466,12 +6527,6 @@ MusicTrainerGUI_autogen/5PPTR2THOO/moc_ScoreView.cpp:
 
 /usr/include/x86_64-linux-gnu/qt6/QtGui/qpen.h:
 
-/usr/include/c++/13/bits/shared_ptr_base.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QPushButton:
-
-/usr/include/x86_64-linux-gnu/qt6/QtGui/qpixelformat.h:
-
 /usr/include/c++/13/bit:
 
 /usr/include/x86_64-linux-gnu/qt6/QtGui/qpolygon.h:
@@ -6498,6 +6553,14 @@ MusicTrainerGUI_autogen/5PPTR2THOO/moc_ScoreView.cpp:
 
 /usr/include/x86_64-linux-gnu/qt6/QtGui/qtransform.h:
 
+/usr/include/c++/13/bits/shared_ptr_base.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QPushButton:
+
+/usr/include/x86_64-linux-gnu/qt6/QtGui/qpixelformat.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QButtonGroup:
+
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QGraphicsView:
 
 /usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
@@ -6505,6 +6568,16 @@ MusicTrainerGUI_autogen/5PPTR2THOO/moc_ScoreView.cpp:
 /usr/include/wchar.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qprogressbar.h:
+
+/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/QtNoteTypes.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtGui/qregion.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtGui/qpainterpath.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qline.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qbuttongroup.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qframe.h:
 
@@ -6582,23 +6655,15 @@ MusicTrainerGUI_autogen/5PPTR2THOO/moc_ScoreView.cpp:
 
 /usr/include/c++/13/cwctype:
 
-/usr/include/c++/13/istream:
-
-/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ExercisePanel.cpp:
-
 /usr/include/asm-generic/errno.h:
-
-/usr/include/c++/13/iostream:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qiodevice.h:
 
-/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/QtNoteTypes.h:
+/usr/include/c++/13/iostream:
 
-/usr/include/x86_64-linux-gnu/qt6/QtGui/qregion.h:
+/usr/include/c++/13/istream:
 
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qline.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtGui/qpainterpath.h:
+/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ExercisePanel.cpp:
 
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QHBoxLayout:
 
@@ -6607,8 +6672,6 @@ MusicTrainerGUI_autogen/5PPTR2THOO/moc_ScoreView.cpp:
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgroupbox.h:
 
 /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/GridCell.cpp:
-
-/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/NoteGrid.h:
 
 /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/GridCell.h:
 

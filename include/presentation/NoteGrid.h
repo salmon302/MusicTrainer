@@ -114,6 +114,13 @@ public:
     void addNote(const MusicTrainer::music::Note& note, int voiceIndex, int position);
     
     /**
+     * @brief Set the grid density based on selected note duration
+     * @param duration The selected note duration in beats
+     * This affects the granularity of the grid display
+     */
+    void setGridDensity(double duration);
+
+    /**
      * @brief Update grid lines for the visible rectangle
      * @param visibleRect Visible rectangle
      * @param zoomLevel Current zoom level
@@ -156,8 +163,9 @@ public:
      * @brief Show a note preview at the specified position
      * @param position Position for the preview
      * @param pitch Pitch for the preview
+     * @param duration Duration of the note (in beats), defaults to 1.0
      */
-    void showNotePreview(int position, int pitch);
+    void showNotePreview(int position, int pitch, double duration = 1.0);
     
     /**
      * @brief Hide the note preview
@@ -169,6 +177,14 @@ public:
      * @return The scene pointer
      */
     QGraphicsScene* getScene() const { return m_scene; }
+
+    /**
+     * @brief Remove notes within a specific position range
+     * @param startPos Starting position (inclusive)
+     * @param endPos Ending position (exclusive)
+     * @return Number of notes removed
+     */
+    int removeNotesInRange(int startPos, int endPos);
 
 private:
     /**
@@ -223,6 +239,12 @@ private:
     
     // Note count for statistics
     int m_noteCount{0};
+    
+    // Current grid density based on selected note duration (default to quarter note = 1.0)
+    double m_gridDensity{1.0};
+    
+    // Track smallest note duration ever used to maintain appropriate grid density
+    double m_smallestNoteDuration{1.0};
 };
 
 } // namespace MusicTrainer::presentation

@@ -351,6 +351,16 @@ CMakeFiles/MusicTrainerGUI.dir/src/presentation/MainWindow.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicsscene.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qwidget.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QLabel \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlabel.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qpicture.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qiodevice.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextdocument.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qurl.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QToolBar \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtoolbar.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QButtonGroup \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qbuttongroup.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Score.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Voice.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Note.h \
@@ -392,8 +402,6 @@ CMakeFiles/MusicTrainerGUI.dir/src/presentation/MainWindow.cpp.o: \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/ExercisePanel.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTextEdit \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtextedit.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextdocument.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qurl.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextcursor.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextformat.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QListWidget \
@@ -444,8 +452,6 @@ CMakeFiles/MusicTrainerGUI.dir/src/presentation/MainWindow.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qdebug.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QStatusBar \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstatusbar.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QToolBar \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtoolbar.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QApplication \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qapplication.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qcoreapplication.h \

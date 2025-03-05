@@ -1,1 +1,1 @@
-/usr/bin/c++ -Wno-error=deprecated-declarations -pthread -Wall -Werror -g CMakeFiles/apinames.dir/apinames_autogen/mocs_compilation.cpp.o CMakeFiles/apinames.dir/tests/apinames.cpp.o -o tests/apinames  -Wl,-rpath,/home/seth-n/Documents/GitHub/MusicTrainer/_deps/rtmidi-build librtmidi.so.6.0.0 
+/usr/bin/c++  -fPIC -pthread -pthread -Wall -Werror -g CMakeFiles/apinames.dir/apinames_autogen/mocs_compilation.cpp.o CMakeFiles/apinames.dir/tests/apinames.cpp.o -o tests/apinames  -Wl,-rpath,/home/seth-n/Documents/GitHub/MusicTrainer/_deps/rtmidi-build librtmidi.so.6.0.0 

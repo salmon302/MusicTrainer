@@ -783,6 +783,14 @@ FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/usr/bin/pkg-config][v1.8.1()]
 FIND_PACKAGE_MESSAGE_DETAILS_Python:INTERNAL=[/usr/bin/python3][cfound components: Interpreter ][v3.12.3()]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
+//Details about finding WrapAtomic
+FIND_PACKAGE_MESSAGE_DETAILS_WrapAtomic:INTERNAL=[1][v()]
+//Details about finding WrapOpenGL
+FIND_PACKAGE_MESSAGE_DETAILS_WrapOpenGL:INTERNAL=[ON][v()]
+//Details about finding WrapVulkanHeaders
+FIND_PACKAGE_MESSAGE_DETAILS_WrapVulkanHeaders:INTERNAL=[/usr/include][v()]
+//Details about finding XKB
+FIND_PACKAGE_MESSAGE_DETAILS_XKB:INTERNAL=[/usr/lib/x86_64-linux-gnu/libxkbcommon.so][/usr/include][v1.6.0(0.5.0)]
 //Test HAVE_STDATOMIC
 HAVE_STDATOMIC:INTERNAL=1
 JACK_CFLAGS:INTERNAL=-I/usr/include

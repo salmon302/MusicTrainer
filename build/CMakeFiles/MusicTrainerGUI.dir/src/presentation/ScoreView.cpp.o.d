@@ -346,6 +346,16 @@ CMakeFiles/MusicTrainerGUI.dir/src/presentation/ScoreView.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicsscene.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qwidget.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QLabel \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlabel.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qpicture.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qiodevice.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextdocument.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qurl.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QToolBar \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtoolbar.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QButtonGroup \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qbuttongroup.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Score.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Voice.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Note.h \
@@ -367,15 +377,17 @@ CMakeFiles/MusicTrainerGUI.dir/src/presentation/ScoreView.cpp.o: \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/QtTypes.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QMetaType \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qmetatype.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/events/NoteAddedEvent.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/events/Event.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/events/../music/Pitch.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/events/../music/Duration.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QScrollBar \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qscrollbar.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractslider.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/QResizeEvent \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qevent.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qcoreevent.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qiodevice.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qpointer.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qurl.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qeventpoint.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qvector2d.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qvectornd.h \
@@ -400,4 +412,20 @@ CMakeFiles/MusicTrainerGUI.dir/src/presentation/ScoreView.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qtimer.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qbasictimer.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QDebug \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qdebug.h
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qdebug.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QLabel \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QPushButton \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qpushbutton.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractbutton.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QHBoxLayout \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qboxlayout.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlayout.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlayoutitem.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qboxlayout.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgridlayout.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/QIcon \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qicon.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QStyle \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstyle.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QElapsedTimer \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qelapsedtimer.h

@@ -168,9 +168,12 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/events/EventStore.cpp.o: \
  /usr/include/c++/13/bits/charconv.h \
  /usr/include/c++/13/bits/basic_string.tcc \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Duration.h \
- /usr/include/c++/13/chrono /usr/include/c++/13/bits/chrono.h \
- /usr/include/c++/13/ratio /usr/include/c++/13/limits \
- /usr/include/c++/13/ctime /usr/include/c++/13/bits/parse_numbers.h \
+ /usr/include/c++/13/map /usr/include/c++/13/bits/stl_tree.h \
+ /usr/include/c++/13/bits/stl_map.h \
+ /usr/include/c++/13/bits/stl_multimap.h /usr/include/c++/13/chrono \
+ /usr/include/c++/13/bits/chrono.h /usr/include/c++/13/ratio \
+ /usr/include/c++/13/limits /usr/include/c++/13/ctime \
+ /usr/include/c++/13/bits/parse_numbers.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/events/Snapshot.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/adapters/LockFreeEventQueue.h \
  /usr/include/c++/13/array /usr/include/c++/13/compare \

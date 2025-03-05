@@ -76,8 +76,9 @@ NoteGrid::GridDimensions NoteGrid::validateDimensions(const GridDimensions& dime
         validated.minPitch = qMax(0, validated.maxPitch - (validated.maxPitch - validated.minPitch));
     }
     
-    // Enforce 12 measures maximum (48 beats in 4/4 time)
-    validated.endPosition = qMin(validated.startPosition + 48, validated.endPosition);
+    // Allow expansion beyond 12 measures but keep a reasonable limit
+    // New limit is 48 measures (192 beats in 4/4 time)
+    validated.endPosition = qMin(validated.startPosition + 192, validated.endPosition);
     
     return validated;
 }
@@ -189,9 +190,9 @@ void NoteGrid::expandVertical(int minPitchDelta, int maxPitchDelta)
 
 void NoteGrid::expandHorizontal(int amount)
 {
-    // Block expansion beyond 12 measures (48 beats)
-    if (m_dimensions.endPosition - m_dimensions.startPosition + amount > 48) {
-        qDebug() << "NoteGrid::expandHorizontal - Blocked expansion beyond 12 measures";
+    // Block expansion beyond 48 measures (192 beats)
+    if (m_dimensions.endPosition - m_dimensions.startPosition + amount > 192) {
+        qDebug() << "NoteGrid::expandHorizontal - Blocked expansion beyond 48 measures";
         return;
     }
     
@@ -237,10 +238,8 @@ void NoteGrid::updateFromScore(std::shared_ptr<MusicTrainer::music::Score> score
     clear();
     if (!score) return;
 
-    // Update grid's time signature from score - extract the numeric value from the TimeSignature struct
+    // Update grid's time signature from score
     auto timeSignature = score->getTimeSignature();
-    // Calculate beats per measure based on time signature
-    // For example, 4/4 would be 4.0 beats per measure
     m_dimensions.timeSignature = static_cast<float>(timeSignature.beats);
     
     // Get all voices from the score and their notes
@@ -251,30 +250,17 @@ void NoteGrid::updateFromScore(std::shared_ptr<MusicTrainer::music::Score> score
         const auto& voice = voices[voiceIndex];
         if (!voice) continue;
         
-        // Use getAllNotes() to get the vector of notes and its size
-        const auto& notes = voice->getAllNotes();
-        size_t noteCount = notes.size();
+        // Get all notes from voice
+        const auto notes = voice->getAllNotes();
         
-        // Add each note to the grid with its corresponding voice index
-        int position = 0; // Start at position 0
-        for (size_t i = 0; i < noteCount; ++i) {
-            // Use getNoteAt instead of getNote
-            const auto* vnote = voice->getNoteAt(i);
-            if (!vnote) continue;
+        // Add each note to the grid in its correct position
+        for (const auto& note : notes) {
+            int position = note.getPosition();
+            int midiNote = note.getPitch().getMidiNote();
+            double duration = note.getDuration();
             
-            // Use -> operator since vnote is a pointer
-            int midiNote = vnote->getPitch().getMidiNote();
-            double duration = vnote->getDuration();
-            
-            // Create a Note with correct constructor (pitch, duration, position)
-            MusicTrainer::music::Pitch notePitch = MusicTrainer::music::Pitch::fromMidiNote(midiNote);
-            MusicTrainer::music::Note note(notePitch, duration, position);
-            
-            // Add the note to the grid
+            // Add directly to grid at the note's actual position
             addNote(note, voiceIndex, position);
-            
-            // Move position forward by note duration
-            position += duration;
         }
     }
     
@@ -294,11 +280,22 @@ void NoteGrid::addNote(const MusicTrainer::music::Note& note, int voiceIndex, in
 {
     // Get the raw MIDI note number from the pitch
     int pitch = note.getPitch().getMidiNote();
+    double duration = note.getDuration();
     
     qDebug() << "NoteGrid::addNote -"
              << "Position:" << position
              << "MIDI pitch:" << pitch
+             << "Duration:" << duration
              << "Voice:" << voiceIndex;
+    
+    // Update smallest note duration if this note is smaller
+    if (duration < m_smallestNoteDuration) {
+        m_smallestNoteDuration = duration;
+        qDebug() << "NoteGrid::addNote - Updated smallest duration:" << m_smallestNoteDuration;
+        
+        // Update grid density to match the new smallest note
+        setGridDensity(duration);
+    }
     
     // Create a cell at the specified position without auto-expanding
     auto cell = getOrCreateCell(position, pitch);
@@ -476,9 +473,32 @@ void NoteGrid::updateGridLineItems(bool majorLines)
     QPen linePen(majorLines ? Qt::black : Qt::gray);
     linePen.setWidth(majorLines ? 2 : 1);
 
-    // Calculate step sizes
+    // Calculate step sizes based on current grid density
     int horizontalStep = majorLines ? 12 : 1;  // One octave or one semitone
-    int verticalStep = majorLines ? 4 : 1;     // One bar or one beat
+    
+    // Adjust vertical step based on grid density (note duration)
+    int verticalStep;
+    
+    if (majorLines) {
+        // Major lines always at measure boundaries
+        verticalStep = 4;
+    } else {
+        // For minor lines, adjust density based on selected note duration
+        if (m_gridDensity <= 0.25) {
+            // 16th note or smaller: show grid lines at 16th note intervals (0.25 beats)
+            verticalStep = 1;
+            // Convert positions to 16th note positions (4 per beat)
+            verticalStep = verticalStep / 4;
+        } else if (m_gridDensity <= 0.5) {
+            // 8th note: show grid lines at 8th note intervals (0.5 beats)
+            verticalStep = 1;
+            // Convert positions to 8th note positions (2 per beat)
+            verticalStep = verticalStep / 2;
+        } else {
+            // Quarter note or larger: show grid lines at quarter note intervals (1 beat)
+            verticalStep = 1;
+        }
+    }
 
     // Draw horizontal pitch lines across the entire range - support multi-octave ranges
     // Start at the lowest C below minPitch (for octave markings)
@@ -522,11 +542,38 @@ void NoteGrid::updateGridLineItems(bool majorLines)
     }
 
     // Draw vertical time division lines spanning across all octaves
-    for (int pos = 0; pos <= m_dimensions.endPosition; pos += verticalStep) {
-        // Skip minor lines at major boundaries
-        if (!majorLines && pos % 4 == 0) continue;
-        // Skip major lines at non-boundaries
-        if (majorLines && pos % 4 != 0) continue;
+    // For smaller note durations, we need to draw more frequent vertical lines
+    double beatDivision = 1.0;
+    
+    if (m_gridDensity <= 0.25) {
+        // 16th note - draw lines at every 16th note
+        beatDivision = 0.25;
+    } else if (m_gridDensity <= 0.5) {
+        // 8th note - draw lines at every 8th note
+        beatDivision = 0.5;
+    } else {
+        // Quarter note or larger - draw lines at every beat
+        beatDivision = 1.0;
+    }
+    
+    // Convert beat divisions to position increments
+    double positionIncrement = beatDivision;
+    
+    // Handle the case where we need finer grid lines for small note durations
+    for (double pos = 0; pos <= m_dimensions.endPosition; pos += positionIncrement) {
+        int intPos = static_cast<int>(pos);
+        
+        // For major lines, only draw at measure boundaries
+        if (majorLines && intPos % 4 != 0) continue;
+        
+        // For minor lines, skip when we're at a major line position
+        if (!majorLines && intPos % 4 == 0 && fabs(pos - intPos) < 0.01) continue;
+        
+        // Skip additional lines based on grid density
+        if (!majorLines) {
+            if (m_gridDensity > 0.5 && fabs(pos - intPos) > 0.01) continue;
+            if (m_gridDensity > 0.25 && fabs(pos - intPos) > 0.01 && fabs(pos - intPos - 0.5) > 0.01) continue;
+        }
         
         auto* line = new QGraphicsLineItem(
             pos * GRID_UNIT,
@@ -541,13 +588,13 @@ void NoteGrid::updateGridLineItems(bool majorLines)
             m_majorVerticalLines.push_back(line);
             
             // Add measure numbers for major lines
-            if (pos % 4 == 0) {
-                int measure = pos / 4 + 1;
+            if (intPos % 4 == 0) {
+                int measure = intPos / 4 + 1;
                 auto* label = new QGraphicsTextItem(QString::number(measure));
                 label->setDefaultTextColor(Qt::black);
                 label->setPos(
-                    pos * GRID_UNIT + 2,  // Just right of the line
-                    (m_dimensions.minPitch - 1) * NOTE_HEIGHT  // Just above the grid
+                    pos * GRID_UNIT,  // Align with grid line, not offset
+                    (m_dimensions.minPitch - 1.5) * NOTE_HEIGHT  // Move up further to 1.5 units
                 );
                 m_scene->addItem(label);
                 m_verticalLines.push_back(label);
@@ -556,7 +603,7 @@ void NoteGrid::updateGridLineItems(bool majorLines)
             m_verticalLines.push_back(line);
         }
     }
-
+    
     // Add expansion/collapse buttons only when at major boundaries
     if (majorLines) {
         bool isMultiOctave = (m_dimensions.maxPitch - m_dimensions.minPitch > 12);
@@ -568,7 +615,7 @@ void NoteGrid::updateGridLineItems(bool majorLines)
             
             auto* topArrow = new QGraphicsRectItem(
                 0,
-                (m_dimensions.minPitch - 1) * NOTE_HEIGHT,
+                (m_dimensions.minPitch - 1.5) * NOTE_HEIGHT,  // Move up further to 1.5 units
                 m_dimensions.endPosition * GRID_UNIT,
                 NOTE_HEIGHT
             );
@@ -675,7 +722,7 @@ void NoteGrid::clearGridElements()
     m_majorVerticalLines.clear();
 }
 
-void NoteGrid::showNotePreview(int position, int pitch) {
+void NoteGrid::showNotePreview(int position, int pitch, double duration) {
     if (!m_scene) return;
     
     // Create preview indicator if it doesn't exist
@@ -687,7 +734,13 @@ void NoteGrid::showNotePreview(int position, int pitch) {
         m_scene->addItem(m_previewIndicator);
     }
     
-    updatePreviewPosition(position, pitch);
+    // Convert musical coordinates to scene coordinates
+    qreal x = position * GRID_UNIT;
+    qreal y = pitch * NOTE_HEIGHT;
+    
+    // Set the preview rectangle with the specified duration
+    auto rect = static_cast<QGraphicsRectItem*>(m_previewIndicator);
+    rect->setRect(x, y, duration * GRID_UNIT, NOTE_HEIGHT);
     m_previewIndicator->show();
 }
 
@@ -698,15 +751,69 @@ void NoteGrid::hideNotePreview() {
 }
 
 void NoteGrid::updatePreviewPosition(int position, int pitch) {
-    if (!m_previewIndicator) return;
+    // This method is now deprecated as we handle preview updates in showNotePreview
+}
+
+int NoteGrid::removeNotesInRange(int startPos, int endPos)
+{
+    int removedCount = 0;
     
-    // Convert musical coordinates to scene coordinates
-    qreal x = position * GRID_UNIT;
-    qreal y = pitch * NOTE_HEIGHT;
+    // Iterate through all positions in the grid
+    for (auto posIt = m_gridCells.begin(); posIt != m_gridCells.end();) {
+        int position = posIt->first;
+        
+        // Check if this position falls within the range to be removed
+        if (position >= startPos && position < endPos) {
+            // Count the number of notes being removed at this position
+            removedCount += posIt->second.size();
+            
+            // Remove all notes at this position
+            posIt = m_gridCells.erase(posIt);
+        } else {
+            ++posIt;
+        }
+    }
     
-    // Set the preview rectangle
-    auto rect = static_cast<QGraphicsRectItem*>(m_previewIndicator);
-    rect->setRect(x, y, GRID_UNIT, NOTE_HEIGHT);
+    // Update the note count
+    m_noteCount -= removedCount;
+    
+    qDebug() << "NoteGrid::removeNotesInRange -"
+             << "Range:" << startPos << "-" << endPos
+             << "Removed:" << removedCount << "notes";
+    
+    return removedCount;
+}
+
+void NoteGrid::setGridDensity(double duration)
+{
+    // Update smallest note duration if this is smaller
+    if (duration < m_smallestNoteDuration) {
+        m_smallestNoteDuration = duration;
+        qDebug() << "NoteGrid::setGridDensity - New smallest duration:" << m_smallestNoteDuration;
+    }
+    
+    // Use the smaller of the selected duration or the smallest note already placed
+    double effectiveDensity = qMin(duration, m_smallestNoteDuration);
+    
+    // Don't update if the density hasn't changed
+    if (m_gridDensity == effectiveDensity) {
+        return;
+    }
+    
+    // For notes smaller than quarter notes, adjust grid density accordingly
+    // This will make the grid more fine-grained for smaller note sizes
+    m_gridDensity = effectiveDensity;
+    
+    qDebug() << "NoteGrid::setGridDensity - Setting grid density to" << m_gridDensity
+             << "(selected:" << duration << ", smallest:" << m_smallestNoteDuration << ")";
+    
+    // Force a complete grid redraw to reflect the new density
+    if (m_scene) {
+        QRectF bounds = m_scene->sceneRect();
+        clearGridElements();
+        updateGridLines(bounds, 1.0f);
+        m_scene->update(bounds);
+    }
 }
 
 } // namespace MusicTrainer::presentation

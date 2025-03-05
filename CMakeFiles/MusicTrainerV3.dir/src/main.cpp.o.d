@@ -159,7 +159,12 @@ CMakeFiles/MusicTrainerV3.dir/src/main.cpp.o: \
  /usr/include/c++/13/pstl/execution_defs.h /usr/include/c++/13/vector \
  /usr/include/c++/13/bits/stl_vector.h \
  /usr/include/c++/13/bits/stl_bvector.h \
- /usr/include/c++/13/bits/vector.tcc /usr/include/c++/13/atomic \
+ /usr/include/c++/13/bits/vector.tcc /usr/include/c++/13/map \
+ /usr/include/c++/13/bits/stl_tree.h \
+ /usr/include/c++/13/bits/node_handle.h \
+ /usr/include/c++/13/bits/stl_map.h \
+ /usr/include/c++/13/bits/stl_multimap.h \
+ /usr/include/c++/13/bits/erase_if.h /usr/include/c++/13/atomic \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Score.h \
  /usr/include/c++/13/optional \
  /usr/include/c++/13/bits/enable_special_members.h \
@@ -175,8 +180,6 @@ CMakeFiles/MusicTrainerV3.dir/src/main.cpp.o: \
  /usr/include/c++/13/bits/unordered_map.h \
  /usr/include/c++/13/bits/hashtable.h \
  /usr/include/c++/13/bits/hashtable_policy.h \
- /usr/include/c++/13/bits/node_handle.h \
- /usr/include/c++/13/bits/erase_if.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/events/../music/Pitch.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/events/../music/Duration.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/events/EventStore.h \

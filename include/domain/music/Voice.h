@@ -4,6 +4,7 @@
 #include "domain/music/Duration.h"
 #include "domain/music/Pitch.h"
 #include <vector>
+#include <map>
 #include <memory>
 #include <string>
 #include <atomic>
@@ -14,12 +15,14 @@ namespace music {
 class Voice {
 public:
     struct TimeSignature {
-        TimeSignature() = default;
         uint8_t beats;
-        Duration beatUnit;
-        TimeSignature(uint8_t b, const Duration& unit) : beats(b), beatUnit(unit) {}
+        uint8_t beatType;
+        
         static TimeSignature commonTime() {
-            return TimeSignature(4, Duration::createQuarter());
+            return {4, 4};
+        }
+        bool operator==(const TimeSignature& other) const {
+            return beats == other.beats && beatType == other.beatType;
         }
     };
 
@@ -35,7 +38,7 @@ public:
     void addNote(const Pitch& pitch, double duration, int position = 0);
     void removeNote(int position);
     void clearNotes();
-    const std::vector<Note>& getAllNotes() const;
+    std::vector<Note> getAllNotes() const;
     Note* getNoteAt(int position);
     const Note* getNoteAt(int position) const;
     std::vector<Note> getNotesInRange(size_t startMeasure, size_t endMeasure) const;

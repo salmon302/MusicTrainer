@@ -88,9 +88,12 @@ CMakeFiles/MusicTrainerLib.dir/src/adapters/CachingScoreRepository.cpp.o: /home/
   /usr/include/c++/13/bits/stl_iterator.h \
   /usr/include/c++/13/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/13/bits/stl_iterator_base_types.h \
+  /usr/include/c++/13/bits/stl_map.h \
+  /usr/include/c++/13/bits/stl_multimap.h \
   /usr/include/c++/13/bits/stl_pair.h \
   /usr/include/c++/13/bits/stl_raw_storage_iter.h \
   /usr/include/c++/13/bits/stl_tempbuf.h \
+  /usr/include/c++/13/bits/stl_tree.h \
   /usr/include/c++/13/bits/stl_uninitialized.h \
   /usr/include/c++/13/bits/stl_vector.h \
   /usr/include/c++/13/bits/streambuf.tcc \
@@ -133,6 +136,7 @@ CMakeFiles/MusicTrainerLib.dir/src/adapters/CachingScoreRepository.cpp.o: /home/
   /usr/include/c++/13/iostream \
   /usr/include/c++/13/istream \
   /usr/include/c++/13/limits \
+  /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
   /usr/include/c++/13/optional \
@@ -328,9 +332,12 @@ CMakeFiles/MusicTrainerLib.dir/src/adapters/EventSourcedRepository.cpp.o: /home/
   /usr/include/c++/13/bits/stl_iterator.h \
   /usr/include/c++/13/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/13/bits/stl_iterator_base_types.h \
+  /usr/include/c++/13/bits/stl_map.h \
+  /usr/include/c++/13/bits/stl_multimap.h \
   /usr/include/c++/13/bits/stl_pair.h \
   /usr/include/c++/13/bits/stl_raw_storage_iter.h \
   /usr/include/c++/13/bits/stl_tempbuf.h \
+  /usr/include/c++/13/bits/stl_tree.h \
   /usr/include/c++/13/bits/stl_uninitialized.h \
   /usr/include/c++/13/bits/stl_vector.h \
   /usr/include/c++/13/bits/string_view.tcc \
@@ -367,6 +374,7 @@ CMakeFiles/MusicTrainerLib.dir/src/adapters/EventSourcedRepository.cpp.o: /home/
   /usr/include/c++/13/initializer_list \
   /usr/include/c++/13/iosfwd \
   /usr/include/c++/13/limits \
+  /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
   /usr/include/c++/13/optional \
@@ -560,9 +568,12 @@ CMakeFiles/MusicTrainerLib.dir/src/adapters/InMemoryScoreRepository.cpp.o: /home
   /usr/include/c++/13/bits/stl_iterator.h \
   /usr/include/c++/13/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/13/bits/stl_iterator_base_types.h \
+  /usr/include/c++/13/bits/stl_map.h \
+  /usr/include/c++/13/bits/stl_multimap.h \
   /usr/include/c++/13/bits/stl_pair.h \
   /usr/include/c++/13/bits/stl_raw_storage_iter.h \
   /usr/include/c++/13/bits/stl_tempbuf.h \
+  /usr/include/c++/13/bits/stl_tree.h \
   /usr/include/c++/13/bits/stl_uninitialized.h \
   /usr/include/c++/13/bits/stl_vector.h \
   /usr/include/c++/13/bits/streambuf.tcc \
@@ -605,6 +616,7 @@ CMakeFiles/MusicTrainerLib.dir/src/adapters/InMemoryScoreRepository.cpp.o: /home
   /usr/include/c++/13/iostream \
   /usr/include/c++/13/istream \
   /usr/include/c++/13/limits \
+  /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
   /usr/include/c++/13/optional \
@@ -1639,9 +1651,12 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o
   /usr/include/c++/13/bits/stl_iterator.h \
   /usr/include/c++/13/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/13/bits/stl_iterator_base_types.h \
+  /usr/include/c++/13/bits/stl_map.h \
+  /usr/include/c++/13/bits/stl_multimap.h \
   /usr/include/c++/13/bits/stl_pair.h \
   /usr/include/c++/13/bits/stl_raw_storage_iter.h \
   /usr/include/c++/13/bits/stl_tempbuf.h \
+  /usr/include/c++/13/bits/stl_tree.h \
   /usr/include/c++/13/bits/stl_uninitialized.h \
   /usr/include/c++/13/bits/stl_vector.h \
   /usr/include/c++/13/bits/streambuf.tcc \
@@ -1688,6 +1703,7 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o
   /usr/include/c++/13/iostream \
   /usr/include/c++/13/istream \
   /usr/include/c++/13/limits \
+  /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/mutex \
   /usr/include/c++/13/new \
@@ -2989,9 +3005,12 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/events/EventBus.cpp.o: /home/seth-n/Do
   /usr/include/c++/13/bits/stl_iterator.h \
   /usr/include/c++/13/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/13/bits/stl_iterator_base_types.h \
+  /usr/include/c++/13/bits/stl_map.h \
+  /usr/include/c++/13/bits/stl_multimap.h \
   /usr/include/c++/13/bits/stl_pair.h \
   /usr/include/c++/13/bits/stl_raw_storage_iter.h \
   /usr/include/c++/13/bits/stl_tempbuf.h \
+  /usr/include/c++/13/bits/stl_tree.h \
   /usr/include/c++/13/bits/stl_uninitialized.h \
   /usr/include/c++/13/bits/stl_vector.h \
   /usr/include/c++/13/bits/streambuf.tcc \
@@ -3034,6 +3053,7 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/events/EventBus.cpp.o: /home/seth-n/Do
   /usr/include/c++/13/iosfwd \
   /usr/include/c++/13/istream \
   /usr/include/c++/13/limits \
+  /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/mutex \
   /usr/include/c++/13/new \
@@ -3251,9 +3271,12 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/events/EventStore.cpp.o: /home/seth-n/
   /usr/include/c++/13/bits/stl_iterator.h \
   /usr/include/c++/13/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/13/bits/stl_iterator_base_types.h \
+  /usr/include/c++/13/bits/stl_map.h \
+  /usr/include/c++/13/bits/stl_multimap.h \
   /usr/include/c++/13/bits/stl_pair.h \
   /usr/include/c++/13/bits/stl_raw_storage_iter.h \
   /usr/include/c++/13/bits/stl_tempbuf.h \
+  /usr/include/c++/13/bits/stl_tree.h \
   /usr/include/c++/13/bits/stl_uninitialized.h \
   /usr/include/c++/13/bits/stl_vector.h \
   /usr/include/c++/13/bits/streambuf.tcc \
@@ -3300,6 +3323,7 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/events/EventStore.cpp.o: /home/seth-n/
   /usr/include/c++/13/iostream \
   /usr/include/c++/13/istream \
   /usr/include/c++/13/limits \
+  /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/mutex \
   /usr/include/c++/13/new \
@@ -3523,9 +3547,12 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/events/NoteAddedEvent.cpp.o: /home/set
   /usr/include/c++/13/bits/stl_iterator.h \
   /usr/include/c++/13/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/13/bits/stl_iterator_base_types.h \
+  /usr/include/c++/13/bits/stl_map.h \
+  /usr/include/c++/13/bits/stl_multimap.h \
   /usr/include/c++/13/bits/stl_pair.h \
   /usr/include/c++/13/bits/stl_raw_storage_iter.h \
   /usr/include/c++/13/bits/stl_tempbuf.h \
+  /usr/include/c++/13/bits/stl_tree.h \
   /usr/include/c++/13/bits/stl_uninitialized.h \
   /usr/include/c++/13/bits/stl_vector.h \
   /usr/include/c++/13/bits/streambuf.tcc \
@@ -3565,6 +3592,7 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/events/NoteAddedEvent.cpp.o: /home/set
   /usr/include/c++/13/iostream \
   /usr/include/c++/13/istream \
   /usr/include/c++/13/limits \
+  /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
   /usr/include/c++/13/optional \
@@ -3774,9 +3802,12 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/events/NoteEventHandler.cpp.o: /home/s
   /usr/include/c++/13/bits/stl_iterator.h \
   /usr/include/c++/13/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/13/bits/stl_iterator_base_types.h \
+  /usr/include/c++/13/bits/stl_map.h \
+  /usr/include/c++/13/bits/stl_multimap.h \
   /usr/include/c++/13/bits/stl_pair.h \
   /usr/include/c++/13/bits/stl_raw_storage_iter.h \
   /usr/include/c++/13/bits/stl_tempbuf.h \
+  /usr/include/c++/13/bits/stl_tree.h \
   /usr/include/c++/13/bits/stl_uninitialized.h \
   /usr/include/c++/13/bits/stl_vector.h \
   /usr/include/c++/13/bits/streambuf.tcc \
@@ -3819,6 +3850,7 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/events/NoteEventHandler.cpp.o: /home/s
   /usr/include/c++/13/iosfwd \
   /usr/include/c++/13/istream \
   /usr/include/c++/13/limits \
+  /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/mutex \
   /usr/include/c++/13/new \
@@ -3971,6 +4003,7 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/events/Snapshot.cpp.o: /home/seth-n/Do
   /usr/include/c++/13/bits/cxxabi_forced.h \
   /usr/include/c++/13/bits/cxxabi_init_exception.h \
   /usr/include/c++/13/bits/enable_special_members.h \
+  /usr/include/c++/13/bits/erase_if.h \
   /usr/include/c++/13/bits/exception.h \
   /usr/include/c++/13/bits/exception_defines.h \
   /usr/include/c++/13/bits/exception_ptr.h \
@@ -3984,6 +4017,7 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/events/Snapshot.cpp.o: /home/seth-n/Do
   /usr/include/c++/13/bits/move.h \
   /usr/include/c++/13/bits/nested_exception.h \
   /usr/include/c++/13/bits/new_allocator.h \
+  /usr/include/c++/13/bits/node_handle.h \
   /usr/include/c++/13/bits/ostream_insert.h \
   /usr/include/c++/13/bits/parse_numbers.h \
   /usr/include/c++/13/bits/postypes.h \
@@ -4003,9 +4037,12 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/events/Snapshot.cpp.o: /home/seth-n/Do
   /usr/include/c++/13/bits/stl_iterator.h \
   /usr/include/c++/13/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/13/bits/stl_iterator_base_types.h \
+  /usr/include/c++/13/bits/stl_map.h \
+  /usr/include/c++/13/bits/stl_multimap.h \
   /usr/include/c++/13/bits/stl_pair.h \
   /usr/include/c++/13/bits/stl_raw_storage_iter.h \
   /usr/include/c++/13/bits/stl_tempbuf.h \
+  /usr/include/c++/13/bits/stl_tree.h \
   /usr/include/c++/13/bits/stl_uninitialized.h \
   /usr/include/c++/13/bits/stl_vector.h \
   /usr/include/c++/13/bits/string_view.tcc \
@@ -4038,6 +4075,7 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/events/Snapshot.cpp.o: /home/seth-n/Do
   /usr/include/c++/13/initializer_list \
   /usr/include/c++/13/iosfwd \
   /usr/include/c++/13/limits \
+  /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
   /usr/include/c++/13/optional \
@@ -5447,6 +5485,7 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/music/Score.cpp.o: /home/seth-n/Docume
   /usr/include/c++/13/bits/cxxabi_forced.h \
   /usr/include/c++/13/bits/cxxabi_init_exception.h \
   /usr/include/c++/13/bits/enable_special_members.h \
+  /usr/include/c++/13/bits/erase_if.h \
   /usr/include/c++/13/bits/exception.h \
   /usr/include/c++/13/bits/exception_defines.h \
   /usr/include/c++/13/bits/exception_ptr.h \
@@ -5460,6 +5499,7 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/music/Score.cpp.o: /home/seth-n/Docume
   /usr/include/c++/13/bits/move.h \
   /usr/include/c++/13/bits/nested_exception.h \
   /usr/include/c++/13/bits/new_allocator.h \
+  /usr/include/c++/13/bits/node_handle.h \
   /usr/include/c++/13/bits/ostream_insert.h \
   /usr/include/c++/13/bits/postypes.h \
   /usr/include/c++/13/bits/predefined_ops.h \
@@ -5480,9 +5520,12 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/music/Score.cpp.o: /home/seth-n/Docume
   /usr/include/c++/13/bits/stl_iterator.h \
   /usr/include/c++/13/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/13/bits/stl_iterator_base_types.h \
+  /usr/include/c++/13/bits/stl_map.h \
+  /usr/include/c++/13/bits/stl_multimap.h \
   /usr/include/c++/13/bits/stl_pair.h \
   /usr/include/c++/13/bits/stl_raw_storage_iter.h \
   /usr/include/c++/13/bits/stl_tempbuf.h \
+  /usr/include/c++/13/bits/stl_tree.h \
   /usr/include/c++/13/bits/stl_uninitialized.h \
   /usr/include/c++/13/bits/stl_vector.h \
   /usr/include/c++/13/bits/string_view.tcc \
@@ -5513,6 +5556,7 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/music/Score.cpp.o: /home/seth-n/Docume
   /usr/include/c++/13/ext/type_traits.h \
   /usr/include/c++/13/initializer_list \
   /usr/include/c++/13/iosfwd \
+  /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
   /usr/include/c++/13/optional \
@@ -5644,10 +5688,12 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/music/Voice.cpp.o: /home/seth-n/Docume
   /usr/include/c++/13/bits/basic_string.tcc \
   /usr/include/c++/13/bits/char_traits.h \
   /usr/include/c++/13/bits/charconv.h \
+  /usr/include/c++/13/bits/chrono.h \
   /usr/include/c++/13/bits/concept_check.h \
   /usr/include/c++/13/bits/cpp_type_traits.h \
   /usr/include/c++/13/bits/cxxabi_forced.h \
   /usr/include/c++/13/bits/cxxabi_init_exception.h \
+  /usr/include/c++/13/bits/erase_if.h \
   /usr/include/c++/13/bits/exception.h \
   /usr/include/c++/13/bits/exception_defines.h \
   /usr/include/c++/13/bits/exception_ptr.h \
@@ -5661,7 +5707,9 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/music/Voice.cpp.o: /home/seth-n/Docume
   /usr/include/c++/13/bits/move.h \
   /usr/include/c++/13/bits/nested_exception.h \
   /usr/include/c++/13/bits/new_allocator.h \
+  /usr/include/c++/13/bits/node_handle.h \
   /usr/include/c++/13/bits/ostream_insert.h \
+  /usr/include/c++/13/bits/parse_numbers.h \
   /usr/include/c++/13/bits/postypes.h \
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
@@ -5672,6 +5720,7 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/music/Voice.cpp.o: /home/seth-n/Docume
   /usr/include/c++/13/bits/shared_ptr_atomic.h \
   /usr/include/c++/13/bits/shared_ptr_base.h \
   /usr/include/c++/13/bits/std_abs.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -5681,14 +5730,18 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/music/Voice.cpp.o: /home/seth-n/Docume
   /usr/include/c++/13/bits/stl_iterator.h \
   /usr/include/c++/13/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/13/bits/stl_iterator_base_types.h \
+  /usr/include/c++/13/bits/stl_map.h \
+  /usr/include/c++/13/bits/stl_multimap.h \
   /usr/include/c++/13/bits/stl_pair.h \
   /usr/include/c++/13/bits/stl_raw_storage_iter.h \
   /usr/include/c++/13/bits/stl_tempbuf.h \
+  /usr/include/c++/13/bits/stl_tree.h \
   /usr/include/c++/13/bits/stl_uninitialized.h \
   /usr/include/c++/13/bits/stl_vector.h \
   /usr/include/c++/13/bits/string_view.tcc \
   /usr/include/c++/13/bits/stringfwd.h \
   /usr/include/c++/13/bits/uniform_int_dist.h \
+  /usr/include/c++/13/bits/unique_lock.h \
   /usr/include/c++/13/bits/unique_ptr.h \
   /usr/include/c++/13/bits/uses_allocator.h \
   /usr/include/c++/13/bits/uses_allocator_args.h \
@@ -5701,6 +5754,7 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/music/Voice.cpp.o: /home/seth-n/Docume
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
   /usr/include/c++/13/cstdlib \
+  /usr/include/c++/13/ctime \
   /usr/include/c++/13/cwchar \
   /usr/include/c++/13/debug/assertions.h \
   /usr/include/c++/13/debug/debug.h \
@@ -5714,12 +5768,17 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/music/Voice.cpp.o: /home/seth-n/Docume
   /usr/include/c++/13/ext/type_traits.h \
   /usr/include/c++/13/initializer_list \
   /usr/include/c++/13/iosfwd \
+  /usr/include/c++/13/limits \
+  /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
+  /usr/include/c++/13/mutex \
   /usr/include/c++/13/new \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/glue_memory_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
+  /usr/include/c++/13/ratio \
+  /usr/include/c++/13/shared_mutex \
   /usr/include/c++/13/string \
   /usr/include/c++/13/string_view \
   /usr/include/c++/13/tuple \
@@ -5807,6 +5866,7 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/music/Voice.cpp.o: /home/seth-n/Docume
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/error_constants.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/gthr-default.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/gthr.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
@@ -6404,6 +6464,7 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/rules/ParallelFifthsRule.cpp.o: /home/
   /usr/include/c++/13/bits/cxxabi_forced.h \
   /usr/include/c++/13/bits/cxxabi_init_exception.h \
   /usr/include/c++/13/bits/enable_special_members.h \
+  /usr/include/c++/13/bits/erase_if.h \
   /usr/include/c++/13/bits/exception.h \
   /usr/include/c++/13/bits/exception_defines.h \
   /usr/include/c++/13/bits/exception_ptr.h \
@@ -6423,6 +6484,7 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/rules/ParallelFifthsRule.cpp.o: /home/
   /usr/include/c++/13/bits/move.h \
   /usr/include/c++/13/bits/nested_exception.h \
   /usr/include/c++/13/bits/new_allocator.h \
+  /usr/include/c++/13/bits/node_handle.h \
   /usr/include/c++/13/bits/ostream.tcc \
   /usr/include/c++/13/bits/ostream_insert.h \
   /usr/include/c++/13/bits/postypes.h \
@@ -6442,9 +6504,12 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/rules/ParallelFifthsRule.cpp.o: /home/
   /usr/include/c++/13/bits/stl_iterator.h \
   /usr/include/c++/13/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/13/bits/stl_iterator_base_types.h \
+  /usr/include/c++/13/bits/stl_map.h \
+  /usr/include/c++/13/bits/stl_multimap.h \
   /usr/include/c++/13/bits/stl_pair.h \
   /usr/include/c++/13/bits/stl_raw_storage_iter.h \
   /usr/include/c++/13/bits/stl_tempbuf.h \
+  /usr/include/c++/13/bits/stl_tree.h \
   /usr/include/c++/13/bits/stl_uninitialized.h \
   /usr/include/c++/13/bits/stl_vector.h \
   /usr/include/c++/13/bits/streambuf.tcc \
@@ -6480,6 +6545,7 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/rules/ParallelFifthsRule.cpp.o: /home/
   /usr/include/c++/13/iosfwd \
   /usr/include/c++/13/iostream \
   /usr/include/c++/13/istream \
+  /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
   /usr/include/c++/13/optional \
@@ -6629,6 +6695,7 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/rules/ParallelOctavesRule.cpp.o: /home
   /usr/include/c++/13/bits/cxxabi_forced.h \
   /usr/include/c++/13/bits/cxxabi_init_exception.h \
   /usr/include/c++/13/bits/enable_special_members.h \
+  /usr/include/c++/13/bits/erase_if.h \
   /usr/include/c++/13/bits/exception.h \
   /usr/include/c++/13/bits/exception_defines.h \
   /usr/include/c++/13/bits/exception_ptr.h \
@@ -6648,6 +6715,7 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/rules/ParallelOctavesRule.cpp.o: /home
   /usr/include/c++/13/bits/move.h \
   /usr/include/c++/13/bits/nested_exception.h \
   /usr/include/c++/13/bits/new_allocator.h \
+  /usr/include/c++/13/bits/node_handle.h \
   /usr/include/c++/13/bits/ostream.tcc \
   /usr/include/c++/13/bits/ostream_insert.h \
   /usr/include/c++/13/bits/postypes.h \
@@ -6667,9 +6735,12 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/rules/ParallelOctavesRule.cpp.o: /home
   /usr/include/c++/13/bits/stl_iterator.h \
   /usr/include/c++/13/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/13/bits/stl_iterator_base_types.h \
+  /usr/include/c++/13/bits/stl_map.h \
+  /usr/include/c++/13/bits/stl_multimap.h \
   /usr/include/c++/13/bits/stl_pair.h \
   /usr/include/c++/13/bits/stl_raw_storage_iter.h \
   /usr/include/c++/13/bits/stl_tempbuf.h \
+  /usr/include/c++/13/bits/stl_tree.h \
   /usr/include/c++/13/bits/stl_uninitialized.h \
   /usr/include/c++/13/bits/stl_vector.h \
   /usr/include/c++/13/bits/streambuf.tcc \
@@ -6705,6 +6776,7 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/rules/ParallelOctavesRule.cpp.o: /home
   /usr/include/c++/13/iosfwd \
   /usr/include/c++/13/iostream \
   /usr/include/c++/13/istream \
+  /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
   /usr/include/c++/13/optional \
@@ -6905,9 +6977,12 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/rules/ValidationPipeline.cpp.o: /home/
   /usr/include/c++/13/bits/stl_iterator.h \
   /usr/include/c++/13/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/13/bits/stl_iterator_base_types.h \
+  /usr/include/c++/13/bits/stl_map.h \
+  /usr/include/c++/13/bits/stl_multimap.h \
   /usr/include/c++/13/bits/stl_pair.h \
   /usr/include/c++/13/bits/stl_raw_storage_iter.h \
   /usr/include/c++/13/bits/stl_tempbuf.h \
+  /usr/include/c++/13/bits/stl_tree.h \
   /usr/include/c++/13/bits/stl_uninitialized.h \
   /usr/include/c++/13/bits/stl_vector.h \
   /usr/include/c++/13/bits/streambuf.tcc \
@@ -6951,6 +7026,7 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/rules/ValidationPipeline.cpp.o: /home/
   /usr/include/c++/13/iostream \
   /usr/include/c++/13/istream \
   /usr/include/c++/13/limits \
+  /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/mutex \
   /usr/include/c++/13/new \
@@ -7105,6 +7181,7 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/rules/VoiceLeadingRule.cpp.o: /home/se
   /usr/include/c++/13/bits/cxxabi_forced.h \
   /usr/include/c++/13/bits/cxxabi_init_exception.h \
   /usr/include/c++/13/bits/enable_special_members.h \
+  /usr/include/c++/13/bits/erase_if.h \
   /usr/include/c++/13/bits/exception.h \
   /usr/include/c++/13/bits/exception_defines.h \
   /usr/include/c++/13/bits/exception_ptr.h \
@@ -7124,6 +7201,7 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/rules/VoiceLeadingRule.cpp.o: /home/se
   /usr/include/c++/13/bits/move.h \
   /usr/include/c++/13/bits/nested_exception.h \
   /usr/include/c++/13/bits/new_allocator.h \
+  /usr/include/c++/13/bits/node_handle.h \
   /usr/include/c++/13/bits/ostream.tcc \
   /usr/include/c++/13/bits/ostream_insert.h \
   /usr/include/c++/13/bits/postypes.h \
@@ -7143,9 +7221,12 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/rules/VoiceLeadingRule.cpp.o: /home/se
   /usr/include/c++/13/bits/stl_iterator.h \
   /usr/include/c++/13/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/13/bits/stl_iterator_base_types.h \
+  /usr/include/c++/13/bits/stl_map.h \
+  /usr/include/c++/13/bits/stl_multimap.h \
   /usr/include/c++/13/bits/stl_pair.h \
   /usr/include/c++/13/bits/stl_raw_storage_iter.h \
   /usr/include/c++/13/bits/stl_tempbuf.h \
+  /usr/include/c++/13/bits/stl_tree.h \
   /usr/include/c++/13/bits/stl_uninitialized.h \
   /usr/include/c++/13/bits/stl_vector.h \
   /usr/include/c++/13/bits/streambuf.tcc \
@@ -7181,6 +7262,7 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/rules/VoiceLeadingRule.cpp.o: /home/se
   /usr/include/c++/13/iosfwd \
   /usr/include/c++/13/iostream \
   /usr/include/c++/13/istream \
+  /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
   /usr/include/c++/13/optional \
@@ -7384,9 +7466,12 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/statesync/StateSynchronizationManager.
   /usr/include/c++/13/bits/stl_iterator.h \
   /usr/include/c++/13/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/13/bits/stl_iterator_base_types.h \
+  /usr/include/c++/13/bits/stl_map.h \
+  /usr/include/c++/13/bits/stl_multimap.h \
   /usr/include/c++/13/bits/stl_pair.h \
   /usr/include/c++/13/bits/stl_raw_storage_iter.h \
   /usr/include/c++/13/bits/stl_tempbuf.h \
+  /usr/include/c++/13/bits/stl_tree.h \
   /usr/include/c++/13/bits/stl_uninitialized.h \
   /usr/include/c++/13/bits/stl_vector.h \
   /usr/include/c++/13/bits/streambuf.tcc \
@@ -7430,6 +7515,7 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/statesync/StateSynchronizationManager.
   /usr/include/c++/13/iostream \
   /usr/include/c++/13/istream \
   /usr/include/c++/13/limits \
+  /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/mutex \
   /usr/include/c++/13/new \
@@ -7860,15 +7946,7 @@ CMakeFiles/MusicTrainerLib.dir/src/utils/DebugUtils.cpp.o: /home/seth-n/Document
 
 /usr/include/c++/13/pstl/glue_numeric_defs.h:
 
-/usr/include/c++/13/bits/codecvt.h:
-
-/usr/include/c++/13/bits/stl_tree.h:
-
 /usr/include/c++/13/bits/stl_numeric.h:
-
-/home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Score.cpp:
-
-/usr/include/c++/13/bits/stl_map.h:
 
 /usr/include/c++/13/random:
 
@@ -7958,13 +8036,7 @@ _deps/rtmidi-src/RtMidi.h:
 
 /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/errors/RecoveryStrategy.h:
 
-/usr/include/c++/13/tr1/bessel_function.tcc:
-
-/usr/include/c++/13/bits/std_thread.h:
-
-/usr/include/c++/13/initializer_list:
-
-/usr/include/c++/13/functional:
+/home/seth-n/Documents/GitHub/MusicTrainer/include/adapters/LockFreeEventQueue.h:
 
 /usr/include/c++/13/ext/type_traits.h:
 
@@ -8018,6 +8090,14 @@ _deps/rtmidi-src/RtMidi.h:
 
 /usr/include/c++/13/bits/stl_uninitialized.h:
 
+/home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Score.cpp:
+
+/usr/include/c++/13/bits/stl_map.h:
+
+/usr/include/c++/13/bits/codecvt.h:
+
+/usr/include/c++/13/bits/stl_tree.h:
+
 /usr/include/c++/13/bits/stl_vector.h:
 
 /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/crossdomain/CrossDomainValidator.cpp:
@@ -8031,6 +8111,10 @@ _deps/rtmidi-src/RtMidi.h:
 /home/seth-n/Documents/GitHub/MusicTrainer/include/adapters/TemplateBasedExerciseGenerator.h:
 
 /usr/include/c++/13/bits/functexcept.h:
+
+/home/seth-n/Documents/GitHub/MusicTrainer/include/adapters/MockMidiAdapter.h:
+
+/usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
 
 /usr/include/c++/13/bits/stl_construct.h:
 
@@ -8069,6 +8153,10 @@ _deps/rtmidi-src/RtMidi.h:
 /usr/include/c++/13/bits/string_view.tcc:
 
 /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
+
+/home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/MockMidiAdapter.cpp:
+
+/usr/include/c++/13/bits/ptr_traits.h:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h:
 
@@ -8110,6 +8198,10 @@ _deps/rtmidi-src/RtMidi.h:
 
 /usr/include/c++/13/bits/algorithmfwd.h:
 
+/home/seth-n/Documents/GitHub/MusicTrainer/include/domain/errors/ErrorHandler.h:
+
+MusicTrainerLib_autogen/mocs_compilation.cpp:
+
 /usr/include/c++/13/ext/alloc_traits.h:
 
 /usr/include/c++/13/new:
@@ -8117,8 +8209,6 @@ _deps/rtmidi-src/RtMidi.h:
 /usr/include/c++/13/bits/alloc_traits.h:
 
 /usr/include/c++/13/bits/concept_check.h:
-
-/usr/include/c++/13/ios:
 
 /usr/include/c++/13/backward/auto_ptr.h:
 
@@ -8302,6 +8392,16 @@ _deps/rtmidi-src/RtMidi.h:
 
 /usr/include/c++/13/bits/memoryfwd.h:
 
+/usr/include/c++/13/functional:
+
+/usr/include/c++/13/tr1/bessel_function.tcc:
+
+/usr/include/c++/13/bits/std_thread.h:
+
+/usr/include/c++/13/initializer_list:
+
+/usr/include/c++/13/ios:
+
 /usr/include/c++/13/iostream:
 
 /usr/include/c++/13/istream:
@@ -8330,9 +8430,9 @@ _deps/rtmidi-src/RtMidi.h:
 
 /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/errors/DefaultErrorHandlers.cpp:
 
-/usr/include/c++/13/map:
-
 /usr/include/x86_64-linux-gnu/bits/iscanonical.h:
+
+/usr/include/c++/13/map:
 
 /usr/include/c++/13/string_view:
 
@@ -8355,10 +8455,6 @@ _deps/rtmidi-src/RtMidi.h:
 /usr/include/c++/13/future:
 
 /usr/include/features.h:
-
-MusicTrainerLib_autogen/mocs_compilation.cpp:
-
-/home/seth-n/Documents/GitHub/MusicTrainer/include/domain/errors/ErrorHandler.h:
 
 /usr/include/c++/13/debug/debug.h:
 
@@ -8516,8 +8612,6 @@ MusicTrainerLib_autogen/mocs_compilation.cpp:
 
 /usr/include/x86_64-linux-gnu/sys/types.h:
 
-/home/seth-n/Documents/GitHub/MusicTrainer/include/adapters/LockFreeEventQueue.h:
-
 /usr/include/c++/13/numeric:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h:
@@ -8545,11 +8639,3 @@ MusicTrainerLib_autogen/mocs_compilation.cpp:
 /usr/include/x86_64-linux-gnu/bits/typesizes.h:
 
 /home/seth-n/Documents/GitHub/MusicTrainer/include/adapters/InMemoryScoreRepository.h:
-
-/usr/include/c++/13/bits/ptr_traits.h:
-
-/home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/MockMidiAdapter.cpp:
-
-/usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
-
-/home/seth-n/Documents/GitHub/MusicTrainer/include/adapters/MockMidiAdapter.h:

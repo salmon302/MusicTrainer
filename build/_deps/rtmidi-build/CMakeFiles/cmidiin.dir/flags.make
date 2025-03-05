@@ -6,5 +6,5 @@ CXX_DEFINES = -DRTMIDI_DO_NOT_ENSURE_UNIQUE_PORTNAMES
 
 CXX_INCLUDES = -I/home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build/cmidiin_autogen/include -I/home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-src
 
-CXX_FLAGS =  -pthread -Wall -std=c++11
+CXX_FLAGS =  -fPIC -pthread -pthread -Wall -std=c++11
 

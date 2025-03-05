@@ -6,5 +6,5 @@ CXX_DEFINES = -DRTMIDI_DO_NOT_ENSURE_UNIQUE_PORTNAMES
 
 CXX_INCLUDES = -I/home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/googletest-build/googlemock/gmock_autogen/include -I/home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/googletest-src/googlemock/include -I/home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/googletest-src/googlemock -isystem /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/googletest-src/googletest/include -isystem /home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/googletest-src/googletest
 
-CXX_FLAGS =  -pthread -std=c++17 -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers
+CXX_FLAGS =  -fPIC -pthread -pthread -std=c++17 -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers
 

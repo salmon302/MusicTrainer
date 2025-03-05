@@ -1,27 +1,27 @@
 #include "domain/music/Voice.h"
 #include <algorithm>
 #include <cstdint>
+#include <map>
+#include <shared_mutex>
+#include <mutex>
 
 namespace MusicTrainer {
 namespace music {
 
 class Voice::VoiceImpl {
 public:
-    std::vector<Note> notes;
-    TimeSignature timeSignature;
-    mutable std::vector<size_t> measureNumbers;
-    mutable std::atomic<bool> measureNumbersValid;
-
-    explicit VoiceImpl(const TimeSignature& ts) 
-        : timeSignature(ts)
-        , measureNumbersValid(false) {}
-
-    // Custom copy constructor to handle atomic member
-    VoiceImpl(const VoiceImpl& other)
+    explicit VoiceImpl(const TimeSignature& ts) : timeSignature(ts), measureNumbersValid(false) {}
+    
+    // Custom copy constructor to handle non-copyable members
+    VoiceImpl(const VoiceImpl& other) 
         : notes(other.notes)
         , timeSignature(other.timeSignature)
-        , measureNumbers(other.measureNumbers)
-        , measureNumbersValid(other.measureNumbersValid.load(std::memory_order_acquire)) {}
+        , measureNumbersValid(other.measureNumbersValid.load()) {}
+    
+    std::map<int, Note> notes;  // Position -> Note map for O(log n) access
+    TimeSignature timeSignature;
+    std::atomic<bool> measureNumbersValid;
+    mutable std::shared_mutex mutex;
 };
 
 std::unique_ptr<Voice> Voice::create(const TimeSignature& timeSignature) {
@@ -44,47 +44,56 @@ Voice& Voice::operator=(const Voice& other) {
 Voice::~Voice() = default;
 
 void Voice::addNote(const Pitch& pitch, double duration, int position) {
-    m_impl->notes.emplace_back(pitch, duration, position);
+    std::unique_lock<std::shared_mutex> lock(m_impl->mutex);
+    m_impl->notes.insert_or_assign(position, Note(pitch, duration, position));
     m_impl->measureNumbersValid.store(false, std::memory_order_release);
 }
 
 void Voice::removeNote(int position) {
-    auto it = std::find_if(m_impl->notes.begin(), m_impl->notes.end(),
-        [position](const Note& note) { return note.getPosition() == position; });
-    if (it != m_impl->notes.end()) {
-        m_impl->notes.erase(it);
-        m_impl->measureNumbersValid.store(false, std::memory_order_release);
-    }
+    std::unique_lock<std::shared_mutex> lock(m_impl->mutex);
+    m_impl->notes.erase(position);
+    m_impl->measureNumbersValid.store(false, std::memory_order_release);
 }
 
 void Voice::clearNotes() {
+    std::unique_lock<std::shared_mutex> lock(m_impl->mutex);
     m_impl->notes.clear();
     m_impl->measureNumbersValid.store(false, std::memory_order_release);
 }
 
-const std::vector<Note>& Voice::getAllNotes() const {
-    return m_impl->notes;
+std::vector<Note> Voice::getAllNotes() const {
+    std::shared_lock<std::shared_mutex> lock(m_impl->mutex);
+    std::vector<Note> result;
+    result.reserve(m_impl->notes.size());
+    for (const auto& [pos, note] : m_impl->notes) {
+        result.push_back(note);
+    }
+    return result;
 }
 
 Note* Voice::getNoteAt(int position) {
-    auto it = std::find_if(m_impl->notes.begin(), m_impl->notes.end(),
-        [position](const Note& note) { return note.getPosition() == position; });
-    return it != m_impl->notes.end() ? &(*it) : nullptr;
+    std::shared_lock<std::shared_mutex> lock(m_impl->mutex);
+    auto it = m_impl->notes.find(position);
+    return it != m_impl->notes.end() ? &it->second : nullptr;
 }
 
 const Note* Voice::getNoteAt(int position) const {
-    auto it = std::find_if(m_impl->notes.begin(), m_impl->notes.end(),
-        [position](const Note& note) { return note.getPosition() == position; });
-    return it != m_impl->notes.end() ? &(*it) : nullptr;
+    std::shared_lock<std::shared_mutex> lock(m_impl->mutex);
+    auto it = m_impl->notes.find(position);
+    return it != m_impl->notes.end() ? &it->second : nullptr;
 }
 
 std::vector<Note> Voice::getNotesInRange(size_t startMeasure, size_t endMeasure) const {
+    std::shared_lock<std::shared_mutex> lock(m_impl->mutex);
     std::vector<Note> result;
-    for (const auto& note : m_impl->notes) {
-        size_t noteMeasure = note.getPosition() / m_impl->timeSignature.beats;
-        if (noteMeasure >= startMeasure && noteMeasure <= endMeasure) {
-            result.push_back(note);
-        }
+    int startPos = startMeasure * m_impl->timeSignature.beats;
+    int endPos = (endMeasure + 1) * m_impl->timeSignature.beats;
+    
+    auto startIt = m_impl->notes.lower_bound(startPos);
+    auto endIt = m_impl->notes.upper_bound(endPos);
+    
+    for (auto it = startIt; it != endIt; ++it) {
+        result.push_back(it->second);
     }
     return result;
 }
@@ -94,40 +103,46 @@ const Voice::TimeSignature& Voice::getTimeSignature() const {
 }
 
 void Voice::setTimeSignature(const TimeSignature& newTimeSignature) {
+    std::unique_lock<std::shared_mutex> lock(m_impl->mutex);
     m_impl->timeSignature = newTimeSignature;
     m_impl->measureNumbersValid.store(false, std::memory_order_release);
 }
 
 int Voice::getFirstNotePosition() const {
-    if (m_impl->notes.empty()) return 0;
-    return m_impl->notes.front().getPosition();
+    std::shared_lock<std::shared_mutex> lock(m_impl->mutex);
+    return m_impl->notes.empty() ? 0 : m_impl->notes.begin()->first;
 }
 
 int Voice::getLastNotePosition() const {
-    if (m_impl->notes.empty()) return 0;
-    return m_impl->notes.back().getPosition();
+    std::shared_lock<std::shared_mutex> lock(m_impl->mutex);
+    return m_impl->notes.empty() ? 0 : m_impl->notes.rbegin()->first;
 }
 
 int Voice::getDuration() const {
+    std::shared_lock<std::shared_mutex> lock(m_impl->mutex);
     if (m_impl->notes.empty()) return 0;
     int maxPos = 0;
-    for (const auto& note : m_impl->notes) {
-        maxPos = std::max(maxPos, note.getPosition() + static_cast<int>(note.getDuration()));
+    for (const auto& [pos, note] : m_impl->notes) {
+        maxPos = std::max(maxPos, pos + static_cast<int>(note.getDuration()));
     }
     return maxPos;
 }
 
 size_t Voice::getHash() const {
+    std::shared_lock<std::shared_mutex> lock(m_impl->mutex);
     size_t hash = std::hash<uint8_t>{}(m_impl->timeSignature.beats);
-    for (const auto& note : m_impl->notes) {
-        hash = hash * 31 + std::hash<int>{}(note.getPosition());
+    for (const auto& [pos, note] : m_impl->notes) {
+        hash = hash * 31 + std::hash<int>{}(pos);
         hash = hash * 31 + std::hash<double>{}(note.getDuration());
     }
     return hash;
 }
 
 std::unique_ptr<Voice> Voice::clone() const {
-    return std::make_unique<Voice>(*this);
+    std::shared_lock<std::shared_mutex> lock(m_impl->mutex);
+    auto newVoice = create(m_impl->timeSignature);
+    newVoice->m_impl->notes = m_impl->notes;
+    return newVoice;
 }
 
 } // namespace music

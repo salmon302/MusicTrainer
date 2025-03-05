@@ -176,7 +176,10 @@ CMakeFiles/MusicTrainerLib.dir/src/adapters/InMemoryScoreRepository.cpp.o: \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Pitch.h \
  /usr/include/c++/13/cstdint \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Duration.h \
- /usr/include/c++/13/atomic /usr/include/c++/13/optional \
+ /usr/include/c++/13/map /usr/include/c++/13/bits/stl_tree.h \
+ /usr/include/c++/13/bits/stl_map.h \
+ /usr/include/c++/13/bits/stl_multimap.h /usr/include/c++/13/atomic \
+ /usr/include/c++/13/optional \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/errors/ErrorBase.h \
  /usr/include/c++/13/stdexcept /usr/include/c++/13/chrono \
  /usr/include/c++/13/bits/chrono.h /usr/include/c++/13/ratio \

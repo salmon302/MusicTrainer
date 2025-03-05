@@ -152,6 +152,7 @@
 #define __UINT_LEAST32_MAX__ 0xffffffffU
 #define __FLT32X_HAS_DENORM__ 1
 #define __INT_FAST16_TYPE__ long int
+#define __STRICT_ANSI__ 1
 #define __MMX_WITH_SSE__ 1
 #define __LDBL_HAS_DENORM__ 1
 #define QT_WIDGETS_LIB 1
@@ -244,7 +245,6 @@
 #define __INT_FAST32_TYPE__ long int
 #define __UINT_LEAST16_TYPE__ short unsigned int
 #define __DEC128_MAX_EXP__ 6145
-#define unix 1
 #define __DBL_HAS_DENORM__ 1
 #define __cpp_rtti 199711L
 #define __UINT64_MAX__ 0xffffffffffffffffUL
@@ -317,7 +317,6 @@
 #define __INTPTR_MAX__ 0x7fffffffffffffffL
 #define __cpp_sized_deallocation 201309L
 #define __cpp_guaranteed_copy_elision 201606L
-#define linux 1
 #define __FLT64_HAS_QUIET_NAN__ 1
 #define __FLT32_MIN_10_EXP__ (-37)
 #define __EXCEPTIONS 1
@@ -434,11 +433,9 @@
 #define __FLT64_MIN__ 2.22507385850720138309023271733240406e-308F64
 #define __INT_LEAST32_WIDTH__ 32
 #define __INTMAX_TYPE__ long int
-#define __GLIBCXX_BITSIZE_INT_N_0 128
 #define __FLT32X_HAS_QUIET_NAN__ 1
 #define __ATOMIC_CONSUME 1
 #define __GNUC_MINOR__ 3
-#define __GLIBCXX_TYPE_INT_N_0 __int128
 #define __UINTMAX_MAX__ 0xffffffffffffffffUL
 #define __PIE__ 2
 #define __FLT32X_DENORM_MIN__ 4.94065645841246544176568792868221372e-324F32x
