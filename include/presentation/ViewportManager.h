@@ -23,6 +23,7 @@ public:
         QRectF visibleArea;     // Currently visible area in musical space
         float zoomLevel;        // Current zoom level (default 1.0)
         QPointF scrollPosition; // Current scroll position
+        bool preserveOctaveExpansion{false}; // Flag to maintain expanded octave range
     };
     
     struct LoadingBoundaries {

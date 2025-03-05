@@ -374,7 +374,7 @@ CMakeFiles/TestGUI.dir/all: CMakeFiles/TestGUI_autogen_timestamp_deps.dir/all
 CMakeFiles/TestGUI.dir/all: CMakeFiles/TestGUI_autogen.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=51,52,53,54,55,56 "Built target TestGUI"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=51,52,53,54,55,56,57 "Built target TestGUI"
 .PHONY : CMakeFiles/TestGUI.dir/all
 
 # Build rule for subdir invocation for target.
@@ -441,7 +441,7 @@ CMakeFiles/ValidationPipelineTests.dir/all: CMakeFiles/ValidationPipelineTests_a
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ValidationPipelineTests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 27
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 28
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ValidationPipelineTests.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 0
 .PHONY : CMakeFiles/ValidationPipelineTests.dir/rule
@@ -534,7 +534,7 @@ CMakeFiles/RepositoryTests.dir/all: CMakeFiles/RepositoryTests_autogen.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/RepositoryTests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 27
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/RepositoryTests.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 0
 .PHONY : CMakeFiles/RepositoryTests.dir/rule
@@ -560,12 +560,12 @@ CMakeFiles/ProgressionSystemTests.dir/all: CMakeFiles/ProgressionSystemTests_aut
 CMakeFiles/ProgressionSystemTests.dir/all: CMakeFiles/ProgressionSystemTests_autogen.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests.dir/build.make CMakeFiles/ProgressionSystemTests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=42,43 "Built target ProgressionSystemTests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=41,42 "Built target ProgressionSystemTests"
 .PHONY : CMakeFiles/ProgressionSystemTests.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ProgressionSystemTests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 27
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 28
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ProgressionSystemTests.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 0
 .PHONY : CMakeFiles/ProgressionSystemTests.dir/rule
@@ -622,7 +622,7 @@ CMakeFiles/PluginSystemTests.dir/all: CMakeFiles/PluginSystemTests_autogen_times
 CMakeFiles/PluginSystemTests.dir/all: CMakeFiles/PluginSystemTests_autogen.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests.dir/build.make CMakeFiles/PluginSystemTests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=39,40 "Built target PluginSystemTests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=38,39,40 "Built target PluginSystemTests"
 .PHONY : CMakeFiles/PluginSystemTests.dir/all
 
 # Build rule for subdir invocation for target.
@@ -689,7 +689,7 @@ CMakeFiles/PerformanceMonitoringTests.dir/all: CMakeFiles/PerformanceMonitoringT
 
 # Build rule for subdir invocation for target.
 CMakeFiles/PerformanceMonitoringTests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 27
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/PerformanceMonitoringTests.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 0
 .PHONY : CMakeFiles/PerformanceMonitoringTests.dir/rule
@@ -746,12 +746,12 @@ CMakeFiles/StateSynchronizationManagerTests.dir/all: CMakeFiles/StateSynchroniza
 CMakeFiles/StateSynchronizationManagerTests.dir/all: CMakeFiles/StateSynchronizationManagerTests_autogen.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=47,48 "Built target StateSynchronizationManagerTests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=46,47 "Built target StateSynchronizationManagerTests"
 .PHONY : CMakeFiles/StateSynchronizationManagerTests.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/StateSynchronizationManagerTests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 27
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 28
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/StateSynchronizationManagerTests.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 0
 .PHONY : CMakeFiles/StateSynchronizationManagerTests.dir/rule
@@ -956,12 +956,12 @@ CMakeFiles/TestGUI_autogen_timestamp_deps.dir/clean:
 CMakeFiles/TestGUI_autogen.dir/all: CMakeFiles/TestGUI_autogen_timestamp_deps.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI_autogen.dir/build.make CMakeFiles/TestGUI_autogen.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI_autogen.dir/build.make CMakeFiles/TestGUI_autogen.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=57 "Built target TestGUI_autogen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num= "Built target TestGUI_autogen"
 .PHONY : CMakeFiles/TestGUI_autogen.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/TestGUI_autogen.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 21
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 20
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/TestGUI_autogen.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 0
 .PHONY : CMakeFiles/TestGUI_autogen.dir/rule
@@ -1066,12 +1066,12 @@ CMakeFiles/ValidationPipelineTests_autogen_timestamp_deps.dir/clean:
 CMakeFiles/ValidationPipelineTests_autogen.dir/all: CMakeFiles/ValidationPipelineTests_autogen_timestamp_deps.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests_autogen.dir/build.make CMakeFiles/ValidationPipelineTests_autogen.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ValidationPipelineTests_autogen.dir/build.make CMakeFiles/ValidationPipelineTests_autogen.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num= "Built target ValidationPipelineTests_autogen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=68 "Built target ValidationPipelineTests_autogen"
 .PHONY : CMakeFiles/ValidationPipelineTests_autogen.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ValidationPipelineTests_autogen.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 26
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ValidationPipelineTests_autogen.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 0
 .PHONY : CMakeFiles/ValidationPipelineTests_autogen.dir/rule
@@ -1231,12 +1231,12 @@ CMakeFiles/RepositoryTests_autogen_timestamp_deps.dir/clean:
 CMakeFiles/RepositoryTests_autogen.dir/all: CMakeFiles/RepositoryTests_autogen_timestamp_deps.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests_autogen.dir/build.make CMakeFiles/RepositoryTests_autogen.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/RepositoryTests_autogen.dir/build.make CMakeFiles/RepositoryTests_autogen.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=46 "Built target RepositoryTests_autogen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num= "Built target RepositoryTests_autogen"
 .PHONY : CMakeFiles/RepositoryTests_autogen.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/RepositoryTests_autogen.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 26
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 25
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/RepositoryTests_autogen.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 0
 .PHONY : CMakeFiles/RepositoryTests_autogen.dir/rule
@@ -1286,12 +1286,12 @@ CMakeFiles/ProgressionSystemTests_autogen_timestamp_deps.dir/clean:
 CMakeFiles/ProgressionSystemTests_autogen.dir/all: CMakeFiles/ProgressionSystemTests_autogen_timestamp_deps.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests_autogen.dir/build.make CMakeFiles/ProgressionSystemTests_autogen.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProgressionSystemTests_autogen.dir/build.make CMakeFiles/ProgressionSystemTests_autogen.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num= "Built target ProgressionSystemTests_autogen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=43 "Built target ProgressionSystemTests_autogen"
 .PHONY : CMakeFiles/ProgressionSystemTests_autogen.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ProgressionSystemTests_autogen.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 26
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ProgressionSystemTests_autogen.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 0
 .PHONY : CMakeFiles/ProgressionSystemTests_autogen.dir/rule
@@ -1396,12 +1396,12 @@ CMakeFiles/PluginSystemTests_autogen_timestamp_deps.dir/clean:
 CMakeFiles/PluginSystemTests_autogen.dir/all: CMakeFiles/PluginSystemTests_autogen_timestamp_deps.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests_autogen.dir/build.make CMakeFiles/PluginSystemTests_autogen.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PluginSystemTests_autogen.dir/build.make CMakeFiles/PluginSystemTests_autogen.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=41 "Built target PluginSystemTests_autogen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num= "Built target PluginSystemTests_autogen"
 .PHONY : CMakeFiles/PluginSystemTests_autogen.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/PluginSystemTests_autogen.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 26
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 25
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/PluginSystemTests_autogen.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 0
 .PHONY : CMakeFiles/PluginSystemTests_autogen.dir/rule
@@ -1506,12 +1506,12 @@ CMakeFiles/PerformanceMonitoringTests_autogen_timestamp_deps.dir/clean:
 CMakeFiles/PerformanceMonitoringTests_autogen.dir/all: CMakeFiles/PerformanceMonitoringTests_autogen_timestamp_deps.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests_autogen.dir/build.make CMakeFiles/PerformanceMonitoringTests_autogen.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests_autogen.dir/build.make CMakeFiles/PerformanceMonitoringTests_autogen.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=38 "Built target PerformanceMonitoringTests_autogen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num= "Built target PerformanceMonitoringTests_autogen"
 .PHONY : CMakeFiles/PerformanceMonitoringTests_autogen.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/PerformanceMonitoringTests_autogen.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 26
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 25
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/PerformanceMonitoringTests_autogen.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 0
 .PHONY : CMakeFiles/PerformanceMonitoringTests_autogen.dir/rule
@@ -1616,12 +1616,12 @@ CMakeFiles/StateSynchronizationManagerTests_autogen_timestamp_deps.dir/clean:
 CMakeFiles/StateSynchronizationManagerTests_autogen.dir/all: CMakeFiles/StateSynchronizationManagerTests_autogen_timestamp_deps.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests_autogen.dir/build.make CMakeFiles/StateSynchronizationManagerTests_autogen.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests_autogen.dir/build.make CMakeFiles/StateSynchronizationManagerTests_autogen.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num= "Built target StateSynchronizationManagerTests_autogen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=48 "Built target StateSynchronizationManagerTests_autogen"
 .PHONY : CMakeFiles/StateSynchronizationManagerTests_autogen.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/StateSynchronizationManagerTests_autogen.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 26
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/StateSynchronizationManagerTests_autogen.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 0
 .PHONY : CMakeFiles/StateSynchronizationManagerTests_autogen.dir/rule
@@ -1644,12 +1644,12 @@ _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all: _deps/googletest-bui
 _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all: _deps/googletest-build/googlemock/CMakeFiles/gmock_autogen.dir/all
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=73,74 "Built target gmock"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=74,75 "Built target gmock"
 .PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all
 
 # Build rule for subdir invocation for target.
 _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 0
 .PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/rule
@@ -1678,7 +1678,7 @@ _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all: _deps/googletes
 
 # Build rule for subdir invocation for target.
 _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 7
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 0
 .PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/rule
@@ -1725,12 +1725,12 @@ _deps/googletest-build/googlemock/CMakeFiles/gmock_autogen_timestamp_deps.dir/cl
 _deps/googletest-build/googlemock/CMakeFiles/gmock_autogen.dir/all: _deps/googletest-build/googlemock/CMakeFiles/gmock_autogen_timestamp_deps.dir/all
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_autogen.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_autogen.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_autogen.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_autogen.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=75 "Built target gmock_autogen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num= "Built target gmock_autogen"
 .PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock_autogen.dir/all
 
 # Build rule for subdir invocation for target.
 _deps/googletest-build/googlemock/CMakeFiles/gmock_autogen.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/googletest-build/googlemock/CMakeFiles/gmock_autogen.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 0
 .PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock_autogen.dir/rule
@@ -1756,7 +1756,7 @@ _deps/googletest-build/googlemock/CMakeFiles/gmock_main_autogen_timestamp_deps.d
 
 # Build rule for subdir invocation for target.
 _deps/googletest-build/googlemock/CMakeFiles/gmock_main_autogen_timestamp_deps.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/googletest-build/googlemock/CMakeFiles/gmock_main_autogen_timestamp_deps.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 0
 .PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock_main_autogen_timestamp_deps.dir/rule
@@ -1782,7 +1782,7 @@ _deps/googletest-build/googlemock/CMakeFiles/gmock_main_autogen.dir/all: _deps/g
 
 # Build rule for subdir invocation for target.
 _deps/googletest-build/googlemock/CMakeFiles/gmock_main_autogen.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/googletest-build/googlemock/CMakeFiles/gmock_main_autogen.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 0
 .PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock_main_autogen.dir/rule
@@ -2724,7 +2724,7 @@ _deps/rtmidi-build/CMakeFiles/cmidiin.dir/all: _deps/rtmidi-build/CMakeFiles/cmi
 
 # Build rule for subdir invocation for target.
 _deps/rtmidi-build/CMakeFiles/cmidiin.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/rtmidi-build/CMakeFiles/cmidiin.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 0
 .PHONY : _deps/rtmidi-build/CMakeFiles/cmidiin.dir/rule
@@ -2752,7 +2752,7 @@ _deps/rtmidi-build/CMakeFiles/midiclock.dir/all: _deps/rtmidi-build/CMakeFiles/m
 
 # Build rule for subdir invocation for target.
 _deps/rtmidi-build/CMakeFiles/midiclock.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/rtmidi-build/CMakeFiles/midiclock.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 0
 .PHONY : _deps/rtmidi-build/CMakeFiles/midiclock.dir/rule
@@ -2775,12 +2775,12 @@ _deps/rtmidi-build/CMakeFiles/midiout.dir/all: _deps/rtmidi-build/CMakeFiles/mid
 _deps/rtmidi-build/CMakeFiles/midiout.dir/all: _deps/rtmidi-build/CMakeFiles/midiout_autogen.dir/all
 	$(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/midiout.dir/build.make _deps/rtmidi-build/CMakeFiles/midiout.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/midiout.dir/build.make _deps/rtmidi-build/CMakeFiles/midiout.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=85,86 "Built target midiout"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=86,87 "Built target midiout"
 .PHONY : _deps/rtmidi-build/CMakeFiles/midiout.dir/all
 
 # Build rule for subdir invocation for target.
 _deps/rtmidi-build/CMakeFiles/midiout.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/rtmidi-build/CMakeFiles/midiout.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 0
 .PHONY : _deps/rtmidi-build/CMakeFiles/midiout.dir/rule
@@ -2887,12 +2887,12 @@ _deps/rtmidi-build/CMakeFiles/apinames.dir/all: _deps/rtmidi-build/CMakeFiles/ap
 _deps/rtmidi-build/CMakeFiles/apinames.dir/all: _deps/rtmidi-build/CMakeFiles/apinames_autogen.dir/all
 	$(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/apinames.dir/build.make _deps/rtmidi-build/CMakeFiles/apinames.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/apinames.dir/build.make _deps/rtmidi-build/CMakeFiles/apinames.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=68,69 "Built target apinames"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=69,70 "Built target apinames"
 .PHONY : _deps/rtmidi-build/CMakeFiles/apinames.dir/all
 
 # Build rule for subdir invocation for target.
 _deps/rtmidi-build/CMakeFiles/apinames.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/rtmidi-build/CMakeFiles/apinames.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 0
 .PHONY : _deps/rtmidi-build/CMakeFiles/apinames.dir/rule
@@ -3045,12 +3045,12 @@ _deps/rtmidi-build/CMakeFiles/cmidiin_autogen_timestamp_deps.dir/clean:
 _deps/rtmidi-build/CMakeFiles/cmidiin_autogen.dir/all: _deps/rtmidi-build/CMakeFiles/cmidiin_autogen_timestamp_deps.dir/all
 	$(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/cmidiin_autogen.dir/build.make _deps/rtmidi-build/CMakeFiles/cmidiin_autogen.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/cmidiin_autogen.dir/build.make _deps/rtmidi-build/CMakeFiles/cmidiin_autogen.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num= "Built target cmidiin_autogen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=73 "Built target cmidiin_autogen"
 .PHONY : _deps/rtmidi-build/CMakeFiles/cmidiin_autogen.dir/all
 
 # Build rule for subdir invocation for target.
 _deps/rtmidi-build/CMakeFiles/cmidiin_autogen.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/rtmidi-build/CMakeFiles/cmidiin_autogen.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 0
 .PHONY : _deps/rtmidi-build/CMakeFiles/cmidiin_autogen.dir/rule
@@ -3097,12 +3097,12 @@ _deps/rtmidi-build/CMakeFiles/midiclock_autogen_timestamp_deps.dir/clean:
 _deps/rtmidi-build/CMakeFiles/midiclock_autogen.dir/all: _deps/rtmidi-build/CMakeFiles/midiclock_autogen_timestamp_deps.dir/all
 	$(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/midiclock_autogen.dir/build.make _deps/rtmidi-build/CMakeFiles/midiclock_autogen.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/midiclock_autogen.dir/build.make _deps/rtmidi-build/CMakeFiles/midiclock_autogen.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num= "Built target midiclock_autogen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=85 "Built target midiclock_autogen"
 .PHONY : _deps/rtmidi-build/CMakeFiles/midiclock_autogen.dir/all
 
 # Build rule for subdir invocation for target.
 _deps/rtmidi-build/CMakeFiles/midiclock_autogen.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/rtmidi-build/CMakeFiles/midiclock_autogen.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 0
 .PHONY : _deps/rtmidi-build/CMakeFiles/midiclock_autogen.dir/rule
@@ -3149,12 +3149,12 @@ _deps/rtmidi-build/CMakeFiles/midiout_autogen_timestamp_deps.dir/clean:
 _deps/rtmidi-build/CMakeFiles/midiout_autogen.dir/all: _deps/rtmidi-build/CMakeFiles/midiout_autogen_timestamp_deps.dir/all
 	$(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/midiout_autogen.dir/build.make _deps/rtmidi-build/CMakeFiles/midiout_autogen.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/midiout_autogen.dir/build.make _deps/rtmidi-build/CMakeFiles/midiout_autogen.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=87 "Built target midiout_autogen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num= "Built target midiout_autogen"
 .PHONY : _deps/rtmidi-build/CMakeFiles/midiout_autogen.dir/all
 
 # Build rule for subdir invocation for target.
 _deps/rtmidi-build/CMakeFiles/midiout_autogen.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/rtmidi-build/CMakeFiles/midiout_autogen.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 0
 .PHONY : _deps/rtmidi-build/CMakeFiles/midiout_autogen.dir/rule
@@ -3357,12 +3357,12 @@ _deps/rtmidi-build/CMakeFiles/apinames_autogen_timestamp_deps.dir/clean:
 _deps/rtmidi-build/CMakeFiles/apinames_autogen.dir/all: _deps/rtmidi-build/CMakeFiles/apinames_autogen_timestamp_deps.dir/all
 	$(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/apinames_autogen.dir/build.make _deps/rtmidi-build/CMakeFiles/apinames_autogen.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps/rtmidi-build/CMakeFiles/apinames_autogen.dir/build.make _deps/rtmidi-build/CMakeFiles/apinames_autogen.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num=70 "Built target apinames_autogen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles --progress-num= "Built target apinames_autogen"
 .PHONY : _deps/rtmidi-build/CMakeFiles/apinames_autogen.dir/all
 
 # Build rule for subdir invocation for target.
 _deps/rtmidi-build/CMakeFiles/apinames_autogen.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/rtmidi-build/CMakeFiles/apinames_autogen.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/seth-n/Documents/GitHub/MusicTrainer/build/CMakeFiles 0
 .PHONY : _deps/rtmidi-build/CMakeFiles/apinames_autogen.dir/rule

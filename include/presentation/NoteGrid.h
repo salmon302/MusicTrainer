@@ -23,152 +23,179 @@ class GridCell;
 class NoteGrid {
 public:
     /**
-     * @brief Structure defining the dimensions of the grid in musical units
+     * @brief Grid dimensions representing the visible area
      */
     struct GridDimensions {
-        int minPitch;      // Lowest visible pitch (MIDI note number)
-        int maxPitch;      // Highest visible pitch (MIDI note number)
-        int startPosition; // Leftmost position (in beats)
-        int endPosition;   // Rightmost position (in beats)
-        MusicTrainer::music::Voice::TimeSignature timeSignature{4, MusicTrainer::music::Duration::createQuarter()}; // Time signature with default 4/4
+        int minPitch;       // Lowest visible pitch (MIDI note number)
+        int maxPitch;       // Highest visible pitch (MIDI note number)
+        int startPosition;  // Leftmost visible position (time)
+        int endPosition;    // Rightmost visible position (time)
+        float timeSignature{4.0f}; // Time signature (beats per measure)
     };
 
     // Grid constants from shared header
     static constexpr float GRID_UNIT = GridConstants::GRID_UNIT;
     static constexpr float NOTE_HEIGHT = GridConstants::NOTE_HEIGHT;
 
-    explicit NoteGrid(QGraphicsScene* scene);
-    ~NoteGrid();
-
     /**
-     * @brief Get the current grid dimensions
-     * @return Current grid dimensions
+     * @brief Constructor taking a scene to render in
+     * @param scene The scene to add grid elements to
+     */
+    explicit NoteGrid(QGraphicsScene* scene);
+    
+    /**
+     * @brief Destructor
+     */
+    ~NoteGrid();
+    
+    /**
+     * @brief Get current grid dimensions
+     * @return Grid dimensions
      */
     const GridDimensions& getDimensions() const;
-
-    /**
-     * @brief Set the current grid dimensions
-     * @param dimensions New grid dimensions
-     */
-    void setDimensions(const GridDimensions& dimensions);
-
-    /**
-     * @brief Expand the grid vertically
-     * @param minPitchDelta Change to min pitch (negative to expand downward)
-     * @param maxPitchDelta Change to max pitch (positive to expand upward)
-     */
-    void expandVertical(int minPitchDelta, int maxPitchDelta);
-
-    /**
-     * @brief Expand the grid horizontally
-     * @param amount Amount to expand by (in musical time units)
-     */
-    void expandHorizontal(int amount);
-
-    /**
-     * @brief Update the grid from a musical score
-     * @param score Score to render
-     */
-    void updateFromScore(std::shared_ptr<MusicTrainer::music::Score> score);
-
-    /**
-     * @brief Add a note to the grid
-     * @param note Note to add
-     * @param voiceIndex Index of the voice this note belongs to
-     */
-    void addNote(const MusicTrainer::music::Note& note, int voiceIndex);
-
-    /**
-     * @brief Add a note to the grid
-     * @param note Note to add
-     * @param voiceIndex Index of the voice this note belongs to
-     * @param position Position in musical time (in beats)
-     */
-    void addNote(const MusicTrainer::music::Note& note, int voiceIndex, int position = 0);
     
     /**
-     * @brief Update the visual grid lines
-     * @param visibleRect Currently visible rectangle
-     * @param zoomLevel Current zoom level
-     */
-    void updateGridLines(const QRectF& visibleRect, float zoomLevel);
-
-    /**
-     * @brief Update the entire grid region
-     * @param bounds New grid bounds
-     */
-    void updateGrid(const QRectF& bounds);
-
-    /**
-     * @brief Clear all notes and grid lines
-     */
-    void clear();
-
-    /**
-     * @brief Compact unused regions to optimize memory usage
-     * @param visibleRect Currently visible rectangle
-     * @param bufferZone Additional area to keep loaded
-     */
-    void compactUnusedRegions(const QRectF& visibleRect, const QRectF& bufferZone);
-
-    /**
-     * @brief Check if a cell contains a note
-     * @param position Position in musical time
-     * @param pitch MIDI note number
-     * @return true if a note exists at the specified location
-     */
-    bool hasNoteAt(int position, int pitch) const;
-
-    /**
-     * @brief Get the current note count in the grid
-     * @return Number of notes currently in the grid
-     */
-    int getNoteCount() const;
-
-    /**
-     * @brief Show a preview indicator at the specified musical position
-     * @param position Position in musical time
-     * @param pitch MIDI note number
-     */
-    void showNotePreview(int position, int pitch);
-
-    /**
-     * @brief Hide the note preview indicator
-     */
-    void hideNotePreview();
-
-private:
-    /**
-     * @brief Create a new grid cell or get an existing one
-     * @param position Position in musical time
-     * @param pitch MIDI note number
-     * @return Pointer to the grid cell
-     */
-    GridCell* getOrCreateCell(int position, int pitch);
-
-    /**
-     * @brief Clear all grid line elements from the scene
-     */
-    void clearGridElements();
-    
-    /**
-     * @brief Update the visual appearance of grid lines
-     * @param majorLines Whether to update major grid lines
-     */
-    void updateGridLineItems(bool majorLines = true);
-
-    /**
-     * @brief Validate and constrain grid dimensions to maintain one octave
+     * @brief Validate and constrain grid dimensions
      * @param dimensions Dimensions to validate
-     * @return Constrained dimensions that maintain one octave
+     * @return Constrained dimensions
      */
     GridDimensions validateDimensions(const GridDimensions& dimensions) const;
 
     /**
      * @brief Get the current octave range (minPitch to maxPitch)
-     * @return Octave range in semitones (always 12)
+     * @return Octave range in semitones (default 12, can be expanded)
      */
     static constexpr int getOctaveRange() { return 12; }
+    
+    /**
+     * @brief Get the minimum octave range
+     * @return Minimum octave range that must be shown (12 semitones)
+     */
+    static constexpr int getMinimumOctaveRange() { return 12; }
+    
+    /**
+     * @brief Set grid dimensions
+     * @param dimensions New dimensions
+     */
+    void setDimensions(const GridDimensions& dimensions);
+    
+    /**
+     * @brief Expand grid vertically
+     * @param minPitchDelta Change to apply to minPitch
+     * @param maxPitchDelta Change to apply to maxPitch
+     */
+    void expandVertical(int minPitchDelta, int maxPitchDelta);
+    
+    /**
+     * @brief Expand grid horizontally
+     * @param amount Amount to expand by
+     */
+    void expandHorizontal(int amount);
+    
+    /**
+     * @brief Update grid based on a score
+     * @param score Score to use for updating
+     */
+    void updateFromScore(std::shared_ptr<MusicTrainer::music::Score> score);
+    
+    /**
+     * @brief Add a note to the grid
+     * @param note Note to add
+     * @param voiceIndex Voice index
+     */
+    void addNote(const MusicTrainer::music::Note& note, int voiceIndex);
+    
+    /**
+     * @brief Add a note to the grid at a specific position
+     * @param note Note to add
+     * @param voiceIndex Voice index
+     * @param position Position to add at
+     */
+    void addNote(const MusicTrainer::music::Note& note, int voiceIndex, int position);
+    
+    /**
+     * @brief Update grid lines for the visible rectangle
+     * @param visibleRect Visible rectangle
+     * @param zoomLevel Current zoom level
+     */
+    void updateGridLines(const QRectF& visibleRect, float zoomLevel);
+    
+    /**
+     * @brief Update grid cells for the visible bounds
+     * @param bounds Visible bounds
+     */
+    void updateGrid(const QRectF& bounds);
+    
+    /**
+     * @brief Clear all grid content
+     */
+    void clear();
+    
+    /**
+     * @brief Free memory for regions outside the buffer zone
+     * @param visibleRect Currently visible rectangle
+     * @param bufferZone Buffer zone around visible area
+     */
+    void compactUnusedRegions(const QRectF& visibleRect, const QRectF& bufferZone);
+    
+    /**
+     * @brief Check if there is a note at the given position and pitch
+     * @param position Position to check
+     * @param pitch Pitch to check
+     * @return True if note exists
+     */
+    bool hasNoteAt(int position, int pitch) const;
+    
+    /**
+     * @brief Get total note count
+     * @return Number of notes in the grid
+     */
+    int getNoteCount() const;
+    
+    /**
+     * @brief Show a note preview at the specified position
+     * @param position Position for the preview
+     * @param pitch Pitch for the preview
+     */
+    void showNotePreview(int position, int pitch);
+    
+    /**
+     * @brief Hide the note preview
+     */
+    void hideNotePreview();
+    
+    /**
+     * @brief Get the scene this grid renders to
+     * @return The scene pointer
+     */
+    QGraphicsScene* getScene() const { return m_scene; }
+
+private:
+    /**
+     * @brief Get or create a cell at the specified position and pitch
+     * @param position Position to get/create
+     * @param pitch Pitch to get/create
+     * @return Pointer to the cell
+     */
+    GridCell* getOrCreateCell(int position, int pitch);
+    
+    /**
+     * @brief Update grid line items
+     * @param majorLines Whether to update major lines
+     */
+    void updateGridLineItems(bool majorLines);
+    
+    /**
+     * @brief Clear grid elements but keep note cells
+     */
+    void clearGridElements();
+    
+    /**
+     * @brief Update the position of the note preview
+     * @param position Position for the preview
+     * @param pitch Pitch for the preview
+     */
+    void updatePreviewPosition(int position, int pitch);
 
     // Graphics scene that this grid belongs to
     QGraphicsScene* m_scene;
@@ -178,25 +205,24 @@ private:
 
     // Sparse storage for grid cells (position -> pitch -> cell)
     std::map<int, std::map<int, std::unique_ptr<GridCell>>> m_gridCells;
-
-    // Grid line visual items
+    
+    // Cache of horizontal grid lines
     std::vector<QGraphicsItem*> m_horizontalLines;
+    
+    // Cache of vertical grid lines
     std::vector<QGraphicsItem*> m_verticalLines;
+    
+    // Cache of major horizontal grid lines (octave boundaries)
     std::vector<QGraphicsItem*> m_majorHorizontalLines;
+    
+    // Cache of major vertical grid lines (measure boundaries)
     std::vector<QGraphicsItem*> m_majorVerticalLines;
-
-    // Statistics for optimization
-    int m_noteCount{0};
-
-    // Preview indicator
+    
+    // Preview indicator for note placement
     QGraphicsItem* m_previewIndicator{nullptr};
     
-    /**
-     * @brief Update the preview indicator position
-     * @param position Position in musical time
-     * @param pitch MIDI note number
-     */
-    void updatePreviewPosition(int position, int pitch);
+    // Note count for statistics
+    int m_noteCount{0};
 };
 
 } // namespace MusicTrainer::presentation

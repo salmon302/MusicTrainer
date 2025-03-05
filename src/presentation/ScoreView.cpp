@@ -90,28 +90,27 @@ void ScoreView::resizeEvent(QResizeEvent *event)
 
 void ScoreView::scrollContentsBy(int dx, int dy)
 {
+    if (dx == 0 && dy == 0) return;  // Skip no-op scrolls
+    
     // Call base implementation first
     QGraphicsView::scrollContentsBy(dx, dy);
     
-    if (m_viewportManager) {
-        // Convert scroll position to scene coordinates
-        QPointF oldCenter = mapToScene(viewport()->rect().center());
-        QPointF scrollPos = mapToScene(QPoint(0, 0));
-        
-        qDebug() << "ScoreView::scrollContentsBy -"
-                 << "dx:" << dx << "dy:" << dy
-                 << "ScrollPos:" << scrollPos
-                 << "Center:" << oldCenter;
-                 
-        // Update viewport manager with new scroll position
-        m_viewportManager->updateScrollPosition(scrollPos);
-        
-        // Update grid visuals with current view center
-        updateGridVisuals();
-        
-        // Maintain view center after grid update
-        centerOn(oldCenter);
-    }
+    if (!m_viewportManager) return;
+
+    // Convert scroll position to scene coordinates
+    QPointF scrollPos = mapToScene(QPoint(0, 0));
+    
+    // Disable updates during scroll
+    setUpdatesEnabled(false);
+    
+    // Update viewport manager with new scroll position
+    m_viewportManager->updateScrollPosition(scrollPos);
+    
+    // Re-enable updates
+    setUpdatesEnabled(true);
+    
+    // Request a single update
+    viewport()->update();
 }
 
 void ScoreView::mousePressEvent(QMouseEvent *event)
@@ -321,13 +320,14 @@ void ScoreView::checkViewportExpansion()
 {
     QRectF currentBounds = m_viewportManager->getViewportBounds();
     QRectF visibleRect = mapToScene(viewport()->rect()).boundingRect();
+    auto viewState = m_viewportManager->getViewportState();
     
     // Convert scene coordinates to musical space
     QRectF visibleMusicalRect(
         visibleRect.left() / GRID_UNIT,
         visibleRect.top() / NOTE_HEIGHT,
         visibleRect.width() / GRID_UNIT,
-        12  // Force one octave height
+        viewState.preserveOctaveExpansion ? (visibleRect.height() / NOTE_HEIGHT) : 12  // Preserve height in multi-octave mode
     );
     
     // Calculate potential expansion
@@ -347,8 +347,12 @@ void ScoreView::checkViewportExpansion()
         needsExpansion = true;
     }
     
-    // Always maintain one octave height
-    newBounds.setHeight(12);
+    // Preserve the expanded height in multi-octave mode
+    if (viewState.preserveOctaveExpansion) {
+        newBounds.setHeight(currentBounds.height());  // Keep current height
+    } else {
+        newBounds.setHeight(12);  // Single octave height
+    }
     
     // Check horizontal expansion but limit to 12 measures
     if (visibleMusicalRect.right() >= currentBounds.right() - 2) { // Within 2 beats of right edge
@@ -380,14 +384,6 @@ void ScoreView::initializeViewport()
     // Add small margin for octave labels (C4, etc.)
     float labelMargin = 25.0f;
     
-    // Create initial grid scene rect
-    QRectF gridSceneRect(
-        labelMargin,                    // Space for labels
-        minPitch * NOTE_HEIGHT,         // Start at C4
-        endPosition * GRID_UNIT,        // 12 measures
-        pitchRange * NOTE_HEIGHT        // Exactly one octave
-    );
-    
     // Set initial grid dimensions
     NoteGrid::GridDimensions dimensions{
         minPitch,              // C4
@@ -397,18 +393,18 @@ void ScoreView::initializeViewport()
     };
     m_noteGrid->setDimensions(dimensions);
     
-    // Set scene rect with minimal padding
+    // Set scene rect to exactly match the current octave plus margins
     scene()->setSceneRect(
-        0,                                  // Start at 0
-        minPitch * NOTE_HEIGHT - NOTE_HEIGHT * 0.5,  // Small space above
-        gridSceneRect.right() + labelMargin,         // Include label margin
-        pitchRange * NOTE_HEIGHT + NOTE_HEIGHT       // One octave plus minimal padding
+        -labelMargin,  // Space for labels
+        dimensions.minPitch * NOTE_HEIGHT - NOTE_HEIGHT * 0.5,  // Small padding above
+        endPosition * GRID_UNIT + 2 * labelMargin,  // Grid width plus margins
+        (pitchRange + 1) * NOTE_HEIGHT  // One octave plus padding
     );
     
     // Set initial viewport bounds in musical space
     QRectF initialBounds(
         startPosition,
-        minPitch,
+        dimensions.minPitch,
         endPosition - startPosition,
         pitchRange  // Force one octave height
     );
@@ -424,8 +420,8 @@ void ScoreView::initializeViewport()
     
     // Calculate scale to fit the viewport
     QRectF viewportRect = viewport()->rect();
-    float horizontalScale = viewportRect.width() / (gridSceneRect.width() * 1.05);
-    float verticalScale = viewportRect.height() / (gridSceneRect.height() * 1.05);
+    float horizontalScale = viewportRect.width() / (endPosition * GRID_UNIT * 1.05);
+    float verticalScale = viewportRect.height() / (pitchRange * NOTE_HEIGHT * 1.05);
     float scaleFactor = qMin(horizontalScale, verticalScale);
     scaleFactor = qMax(0.8f, qMin(scaleFactor, 1.5f));
     
@@ -433,7 +429,8 @@ void ScoreView::initializeViewport()
     scale(scaleFactor, scaleFactor);
     
     // Center on the grid
-    centerOn(gridSceneRect.center());
+    centerOn(QPointF(endPosition * GRID_UNIT / 2.0,
+                    (dimensions.minPitch + pitchRange / 2.0) * NOTE_HEIGHT));
     
     // Update viewport manager
     m_viewportManager->updateZoomLevel(scaleFactor);
@@ -442,52 +439,45 @@ void ScoreView::initializeViewport()
 
 void ScoreView::updateGridVisuals()
 {
-    if (!m_viewportManager || !m_noteGrid) {
-        return;
-    }
+    if (!m_viewportManager || !m_noteGrid) return;
     
     // Get current grid dimensions
     auto dimensions = m_noteGrid->getDimensions();
     
-    // Calculate scene rect size with padding for labels and expansion buttons
-    float labelMargin = 25.0f;  // Space for labels on left
-    float buttonPadding = NOTE_HEIGHT;  // Space for expansion buttons
+    // Get current viewport state to check if we're in multi-octave mode
+    auto viewState = m_viewportManager->getViewportState();
     
-    // Create scene rect that includes the entire grid plus margins
-    QRectF sceneRect(
-        -labelMargin,  // Add space for labels on the left
-        (dimensions.minPitch - 1) * NOTE_HEIGHT,  // One note height above for top expansion
-        (dimensions.endPosition + 1) * GRID_UNIT + 2 * labelMargin,  // Grid width plus margins
-        (dimensions.maxPitch - dimensions.minPitch + 2) * NOTE_HEIGHT  // Grid height plus expansion buttons
-    );
-    
-    // Update scene rect
-    scene()->setSceneRect(sceneRect);
-    
-    // Get current viewport rect in scene coordinates
+    // Get visible viewport area in scene coordinates
     QRectF viewportSceneRect = mapToScene(viewport()->rect()).boundingRect();
     
-    // Create grid rect based on dimensions
-    QRectF gridRect(
-        0,  // Grid starts at 0
-        dimensions.minPitch * NOTE_HEIGHT,
-        dimensions.endPosition * GRID_UNIT,
-        (dimensions.maxPitch - dimensions.minPitch) * NOTE_HEIGHT
-    );
+    // Convert viewport rect to musical coordinates
+    QRectF musicalBounds;
     
-    // Convert viewport rect to musical coordinates for viewport manager
-    QRectF musicalBounds(
-        qMax(0.0, viewportSceneRect.x() / GRID_UNIT),
-        dimensions.minPitch,  // Lock to current octave
-        viewportSceneRect.width() / GRID_UNIT,
-        12  // Force octave height
-    );
+    if (viewState.preserveOctaveExpansion) {
+        // In multi-octave mode, preserve the full expanded range
+        musicalBounds = QRectF(
+            qMax(0.0, viewportSceneRect.x() / GRID_UNIT),
+            dimensions.minPitch,  // Use the full expanded range
+            viewportSceneRect.width() / GRID_UNIT,
+            dimensions.maxPitch - dimensions.minPitch  // Use actual pitch range
+        );
+    } else {
+        // In single-octave mode, force exactly one octave
+        musicalBounds = QRectF(
+            qMax(0.0, viewportSceneRect.x() / GRID_UNIT),
+            dimensions.minPitch,  // Lock to current octave
+            viewportSceneRect.width() / GRID_UNIT,
+            12  // Force octave height
+        );
+    }
     
-    // Update viewport manager
+    // Update viewport manager with visible area but don't reset dimensions
+    // Pass false for resetDimensions to maintain the expanded state
     m_viewportManager->setViewportBounds(musicalBounds);
     
-    // Update grid visuals
-    m_noteGrid->updateGrid(gridRect);
+    // Only update the grid for the visible area plus a small buffer
+    QRectF updateRect = viewportSceneRect.adjusted(-GRID_UNIT, -NOTE_HEIGHT, GRID_UNIT, NOTE_HEIGHT);
+    m_noteGrid->updateGrid(updateRect);
 }
 
 QPointF ScoreView::mapToMusicalSpace(const QPointF& screenPoint) const
@@ -591,9 +581,9 @@ void ScoreView::handleNoteAdded(int pitch, double duration, int position)
 
 void ScoreView::expandGrid(ViewportManager::Direction direction, int amount)
 {
-    if (!m_viewportManager) return;
+    if (!m_viewportManager || !m_noteGrid) return;
 
-    // Store scroll position and center before expansion
+    // Store viewport state before expansion
     QPointF oldCenter = mapToScene(viewport()->rect().center());
     QPointF oldCorner = mapToScene(QPoint(0, 0));
     
@@ -603,28 +593,57 @@ void ScoreView::expandGrid(ViewportManager::Direction direction, int amount)
     // Perform grid expansion
     m_viewportManager->expandGrid(direction, amount);
     
-    // Re-enable updates
-    setUpdatesEnabled(true);
+    // Get new dimensions
+    auto dimensions = m_noteGrid->getDimensions();
     
-    // Adjust viewport to maintain musical position
+    // Calculate new scene rect with margins
+    float labelMargin = 25.0f;
+    QRectF newSceneRect(
+        -labelMargin,  // Space for labels
+        dimensions.minPitch * NOTE_HEIGHT - NOTE_HEIGHT * 0.5f,  // Small padding above
+        dimensions.endPosition * GRID_UNIT + 2 * labelMargin,  // Width plus margins
+        (dimensions.maxPitch - dimensions.minPitch + 2) * NOTE_HEIGHT  // Full height of expanded octaves plus buttons
+    );
+    
+    // Update scene rect
+    scene()->setSceneRect(newSceneRect);
+
+    // Calculate the new center based on expansion direction
     QPointF newCenter;
-    if (direction == ViewportManager::Direction::Up || 
-        direction == ViewportManager::Direction::Down) {
-        // For vertical expansion, maintain the same horizontal position
-        auto dims = m_noteGrid->getDimensions();
+    if (direction == ViewportManager::Direction::Up) {
+        // For upward expansion, keep view centered on the original octave
+        // but adjust the scene to show the additional octave above
         newCenter = QPointF(
             oldCenter.x(),
-            (dims.minPitch + 6) * NOTE_HEIGHT  // Center vertically in new octave
+            oldCenter.y() + 6 * NOTE_HEIGHT  // Move down to keep original octave visible
         );
-        centerOn(newCenter);
-    } else {
-        // For horizontal expansion, maintain the same center
-        centerOn(oldCenter);
+    } 
+    else if (direction == ViewportManager::Direction::Down) {
+        // For downward expansion, keep center on the original position
+        // since the new octave is added below
+        newCenter = oldCenter;
+    } 
+    else {
+        // For horizontal expansion, keep the same center position
+        newCenter = oldCenter;
     }
+
+    // Re-enable updates before changing viewport
+    setUpdatesEnabled(true);
     
-    // Force a full update
+    // Center on the new position
+    centerOn(newCenter);
+    
+    // Update scroll position in viewport manager
+    QPointF newScrollPos = mapToScene(QPoint(0, 0));
+    m_viewportManager->updateScrollPosition(newScrollPos);
+    
+    // Force a complete update
     viewport()->update();
-    scene()->update();
+    scene()->update(scene()->sceneRect());
+    
+    // Notify any listeners of the expansion
+    emit viewportExpanded(m_viewportManager->getViewportBounds());
 }
 
 } // namespace MusicTrainer::presentation

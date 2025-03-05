@@ -488,6 +488,11 @@
 	"SOURCES" : 
 	[
 		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/src/domain/analysis/VoiceAnalyzer.cpp",
+			"MU",
+			null
+		],
+		[
 			"/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ExercisePanel.cpp",
 			"MU",
 			null
@@ -524,6 +529,11 @@
 		],
 		[
 			"/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ViewportManager.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/VoiceChart.cpp",
 			"MU",
 			null
 		],

@@ -50,6 +50,18 @@ public:
     void setNote(const MusicTrainer::music::Note& note, int voiceIndex);
 
     /**
+     * @brief Get the note in this cell
+     * @return Pointer to the note if present, nullptr otherwise
+     */
+    const MusicTrainer::music::Note* getNote() const { return m_note ? &*m_note : nullptr; }
+
+    /**
+     * @brief Get the voice index for this cell
+     * @return Voice index, or -1 if no note is present
+     */
+    int getVoiceIndex() const { return m_voiceIndex; }
+
+    /**
      * @brief Clear any note from this cell
      */
     void clear();

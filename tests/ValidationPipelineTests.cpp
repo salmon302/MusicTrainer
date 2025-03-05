@@ -1,18 +1,18 @@
-#include <gtest/gtest.h>
-#include <iostream>
 #include "domain/rules/ValidationPipeline.h"
 #include "domain/rules/ParallelFifthsRule.h"
 #include "domain/rules/ParallelOctavesRule.h"
 #include "domain/rules/VoiceLeadingRule.h"
-#include "domain/music/Score.h"
 #include "domain/music/Voice.h"
+#include "domain/music/Score.h"
 #include "domain/music/Pitch.h"
 #include "domain/music/Duration.h"
 #include "domain/music/Interval.h"
+#include "domain/errors/DomainErrors.h"
+#include <gtest/gtest.h>
+#include <iostream>
 
-using namespace music;
-using namespace music::rules;
-using namespace std;
+using namespace MusicTrainer::music;
+using namespace MusicTrainer::music::rules;
 
 TEST(ValidationPipelineTest, DetectsParallelFifths) {
 	auto pipeline = ValidationPipeline::create();
@@ -31,11 +31,12 @@ TEST(ValidationPipelineTest, DetectsParallelFifths) {
 	auto f3 = Pitch::create(Pitch::NoteName::F, 3);
 	auto g3 = Pitch::create(Pitch::NoteName::G, 3);
 	
-	voice1->addNote(c4, Duration::createQuarter());
-	voice1->addNote(d4, Duration::createQuarter());
+	auto quarter = Duration::createQuarter();
+	voice1->addNote(c4, quarter.getTotalBeats());
+	voice1->addNote(d4, quarter.getTotalBeats());
 	
-	voice2->addNote(f3, Duration::createQuarter());
-	voice2->addNote(g3, Duration::createQuarter());
+	voice2->addNote(f3, quarter.getTotalBeats());
+	voice2->addNote(g3, quarter.getTotalBeats());
 
 	
 	// Add voices to score (Score handles its own locking)
@@ -92,11 +93,12 @@ TEST(ValidationPipelineTest, DetectsParallelOctavesBasic) {
 	auto c3 = Pitch::create(Pitch::NoteName::C, 3);
 	auto d3 = Pitch::create(Pitch::NoteName::D, 3);
 	
-	voice1->addNote(c4, Duration::createQuarter());
-	voice1->addNote(d4, Duration::createQuarter());
+	auto quarter = Duration::createQuarter();
+	voice1->addNote(c4, quarter.getTotalBeats());
+	voice1->addNote(d4, quarter.getTotalBeats());
 	
-	voice2->addNote(c3, Duration::createQuarter());
-	voice2->addNote(d3, Duration::createQuarter());
+	voice2->addNote(c3, quarter.getTotalBeats());
+	voice2->addNote(d3, quarter.getTotalBeats());
 
 	
 	score->addVoice(std::move(voice1));
@@ -133,15 +135,16 @@ TEST(ValidationPipelineTest, DetectsParallelOctavesComplex) {
 	auto e3 = Pitch::create(Pitch::NoteName::E, 3);
 	auto f3 = Pitch::create(Pitch::NoteName::F, 3);
 	
-	voice1->addNote(c4, Duration::createQuarter());
-	voice1->addNote(d4, Duration::createQuarter());
-	voice1->addNote(e4, Duration::createQuarter());
-	voice1->addNote(f4, Duration::createQuarter());
+	auto quarter = Duration::createQuarter();
+	voice1->addNote(c4, quarter.getTotalBeats());
+	voice1->addNote(d4, quarter.getTotalBeats());
+	voice1->addNote(e4, quarter.getTotalBeats());
+	voice1->addNote(f4, quarter.getTotalBeats());
 	
-	voice2->addNote(c3, Duration::createQuarter());
-	voice2->addNote(d3, Duration::createQuarter());
-	voice2->addNote(e3, Duration::createQuarter());
-	voice2->addNote(f3, Duration::createQuarter());
+	voice2->addNote(c3, quarter.getTotalBeats());
+	voice2->addNote(d3, quarter.getTotalBeats());
+	voice2->addNote(e3, quarter.getTotalBeats());
+	voice2->addNote(f3, quarter.getTotalBeats());
 
 	
 	score->addVoice(std::move(voice1));
@@ -178,11 +181,12 @@ TEST(ValidationPipelineTest, NoParallelOctaves) {
 	auto g3 = Pitch::create(Pitch::NoteName::G, 3);
 	auto f3 = Pitch::create(Pitch::NoteName::F, 3);
 	
-	voice1->addNote(c4, Duration::createQuarter());
-	voice1->addNote(d4, Duration::createQuarter());
+	auto quarter = Duration::createQuarter();
+	voice1->addNote(c4, quarter.getTotalBeats());
+	voice1->addNote(d4, quarter.getTotalBeats());
 	
-	voice2->addNote(g3, Duration::createQuarter());
-	voice2->addNote(f3, Duration::createQuarter());
+	voice2->addNote(g3, quarter.getTotalBeats());
+	voice2->addNote(f3, quarter.getTotalBeats());
 
 	
 	score->addVoice(std::move(voice1));
@@ -211,17 +215,18 @@ TEST(ValidationPipelineTest, DetectsVoiceCrossing) {
 	auto a3 = Pitch::create(Pitch::NoteName::A, 3);
 	auto b3 = Pitch::create(Pitch::NoteName::B, 3);  // Lower voice stays higher
 	
-	voice1->addNote(c4, Duration::createQuarter());
-	voice1->addNote(g3, Duration::createQuarter());
+	auto quarter = Duration::createQuarter();
+	voice1->addNote(c4, quarter.getTotalBeats());
+	voice1->addNote(g3, quarter.getTotalBeats());
 	
-	voice2->addNote(a3, Duration::createQuarter());
-	voice2->addNote(b3, Duration::createQuarter());
+	voice2->addNote(a3, quarter.getTotalBeats());
+	voice2->addNote(b3, quarter.getTotalBeats());
 
 	
 	score->addVoice(std::move(voice1));
 	score->addVoice(std::move(voice2));
 	
-	pipeline->addRule(VoiceLeadingRule::create(9));  // Set max leap to 9 semitones
+	pipeline->addRule(VoiceLeadingRule::create());  // Remove parameter, using default max leap
 	pipeline->compileRules();
 	
 	bool result = pipeline->validate(*score);
@@ -245,13 +250,14 @@ TEST(ValidationPipelineTest, DetectsLargeLeaps) {
 	auto c4 = Pitch::create(Pitch::NoteName::C, 4);
 	auto e5 = Pitch::create(Pitch::NoteName::E, 5);  // Leap of 15 semitones
 	
-	voice->addNote(c4, Duration::createQuarter());
-	voice->addNote(e5, Duration::createQuarter());
+	auto quarter = Duration::createQuarter();
+	voice->addNote(c4, quarter.getTotalBeats());
+	voice->addNote(e5, quarter.getTotalBeats());
 
 	
 	score->addVoice(std::move(voice));
 	
-	pipeline->addRule(VoiceLeadingRule::create(8));  // Set max leap to 8 semitones (smaller than the 15 semitone leap)
+	pipeline->addRule(VoiceLeadingRule::create());  // Remove parameter, using default max leap
 	pipeline->compileRules();
 	
 	bool result = pipeline->validate(*score);
@@ -278,11 +284,12 @@ TEST(ValidationPipelineTest, AcceptsGoodVoiceLeading) {
 	auto g3 = Pitch::create(Pitch::NoteName::G, 3);
 	auto a3 = Pitch::create(Pitch::NoteName::A, 3);
 	
-	voice1->addNote(c4, Duration::createQuarter());
-	voice1->addNote(d4, Duration::createQuarter());
+	auto quarter = Duration::createQuarter();
+	voice1->addNote(c4, quarter.getTotalBeats());
+	voice1->addNote(d4, quarter.getTotalBeats());
 	
-	voice2->addNote(g3, Duration::createQuarter());
-	voice2->addNote(a3, Duration::createQuarter());
+	voice2->addNote(g3, quarter.getTotalBeats());
+	voice2->addNote(a3, quarter.getTotalBeats());
 
 	
 	score->addVoice(std::move(voice1));
@@ -306,15 +313,16 @@ TEST(ValidationPipelineTest, TracksPerformanceMetrics) {
 	auto soprano = Voice::create(timeSignature);
 	auto c4 = Pitch::create(Pitch::NoteName::C, 4);
 	auto g5 = Pitch::create(Pitch::NoteName::G, 5);  // Large leap
-	soprano->addNote(c4, Duration::createQuarter());
-	soprano->addNote(g5, Duration::createQuarter());  // This creates a large leap
+	auto quarter = Duration::createQuarter();
+	soprano->addNote(c4, quarter.getTotalBeats());
+	soprano->addNote(g5, quarter.getTotalBeats());  // This creates a large leap
 
 	
 	auto alto = Voice::create(timeSignature);
 	auto f3 = Pitch::create(Pitch::NoteName::F, 3);
 	auto c4_alto = Pitch::create(Pitch::NoteName::C, 4);  // Creates parallel fifths with soprano
-	alto->addNote(f3, Duration::createQuarter());
-	alto->addNote(c4_alto, Duration::createQuarter());
+	alto->addNote(f3, quarter.getTotalBeats());
+	alto->addNote(c4_alto, quarter.getTotalBeats());
 
 	
 	// Debug output for intervals
@@ -333,7 +341,7 @@ TEST(ValidationPipelineTest, TracksPerformanceMetrics) {
 	std::cout << "Added ParallelFifthsRule with priority 8" << std::endl;
 	pipeline->addRule(std::move(parallelFifths), {}, 8);  // High priority
 	
-	auto voiceLeading = VoiceLeadingRule::create(8);
+	auto voiceLeading = VoiceLeadingRule::create();  // Remove parameter
 	std::cout << "Added VoiceLeadingRule with priority 3" << std::endl;
 	pipeline->addRule(std::move(voiceLeading), {}, 3);   // Lower priority
 	

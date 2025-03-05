@@ -289,4 +289,5 @@ CMakeFiles/TestSuite.dir/tests/ExerciseGenerationTests.cpp.o: \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/ports/../rules/Rule.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/ports/ExerciseParameters.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/MelodicTemplate.h \
- /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Interval.h
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Interval.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/ports/ExerciseParameters.h

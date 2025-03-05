@@ -68,10 +68,10 @@ include CMakeFiles/ProgressionSystemTests_autogen_timestamp_deps.dir/progress.ma
 
 CMakeFiles/ProgressionSystemTests_autogen_timestamp_deps: /usr/lib/qt6/libexec/moc
 CMakeFiles/ProgressionSystemTests_autogen_timestamp_deps: /usr/lib/qt6/libexec/uic
-CMakeFiles/ProgressionSystemTests_autogen_timestamp_deps: libMusicTrainerLib.a
 CMakeFiles/ProgressionSystemTests_autogen_timestamp_deps: lib/libgtest.a
-CMakeFiles/ProgressionSystemTests_autogen_timestamp_deps: lib/libgtest_main.a
 CMakeFiles/ProgressionSystemTests_autogen_timestamp_deps: _deps/rtmidi-build/librtmidi.so.6.0.0
+CMakeFiles/ProgressionSystemTests_autogen_timestamp_deps: libMusicTrainerLib.a
+CMakeFiles/ProgressionSystemTests_autogen_timestamp_deps: lib/libgtest_main.a
 
 ProgressionSystemTests_autogen_timestamp_deps: CMakeFiles/ProgressionSystemTests_autogen_timestamp_deps
 ProgressionSystemTests_autogen_timestamp_deps: CMakeFiles/ProgressionSystemTests_autogen_timestamp_deps.dir/build.make

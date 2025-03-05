@@ -193,6 +193,8 @@ set(GUI_SOURCES
     src/presentation/ExercisePanel.cpp
     src/presentation/FeedbackArea.cpp
     src/presentation/viewmodels/ScoreViewModel.cpp
+    src/domain/analysis/VoiceAnalyzer.cpp
+    src/presentation/VoiceChart.cpp
 )
 
 # GUI headers
@@ -206,6 +208,8 @@ set(GUI_HEADERS
     include/presentation/ExercisePanel.h
     include/presentation/FeedbackArea.h
     include/presentation/viewmodels/ScoreViewModel.h
+    include/domain/analysis/VoiceAnalyzer.h
+    include/presentation/VoiceChart.h
 )
 
 # Test-only sources

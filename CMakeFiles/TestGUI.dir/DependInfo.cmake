@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/seth-n/Documents/GitHub/MusicTrainer/TestGUI_autogen/mocs_compilation.cpp" "CMakeFiles/TestGUI.dir/TestGUI_autogen/mocs_compilation.cpp.o" "gcc" "CMakeFiles/TestGUI.dir/TestGUI_autogen/mocs_compilation.cpp.o.d"
+  "/home/seth-n/Documents/GitHub/MusicTrainer/src/domain/analysis/VoiceAnalyzer.cpp" "CMakeFiles/TestGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.o" "gcc" "CMakeFiles/TestGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.o.d"
   "/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ExercisePanel.cpp" "CMakeFiles/TestGUI.dir/src/presentation/ExercisePanel.cpp.o" "gcc" "CMakeFiles/TestGUI.dir/src/presentation/ExercisePanel.cpp.o.d"
   "/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/FeedbackArea.cpp" "CMakeFiles/TestGUI.dir/src/presentation/FeedbackArea.cpp.o" "gcc" "CMakeFiles/TestGUI.dir/src/presentation/FeedbackArea.cpp.o.d"
   "/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/GridCell.cpp" "CMakeFiles/TestGUI.dir/src/presentation/GridCell.cpp.o" "gcc" "CMakeFiles/TestGUI.dir/src/presentation/GridCell.cpp.o.d"
@@ -17,6 +18,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ScoreView.cpp" "CMakeFiles/TestGUI.dir/src/presentation/ScoreView.cpp.o" "gcc" "CMakeFiles/TestGUI.dir/src/presentation/ScoreView.cpp.o.d"
   "/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/TransportControls.cpp" "CMakeFiles/TestGUI.dir/src/presentation/TransportControls.cpp.o" "gcc" "CMakeFiles/TestGUI.dir/src/presentation/TransportControls.cpp.o.d"
   "/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ViewportManager.cpp" "CMakeFiles/TestGUI.dir/src/presentation/ViewportManager.cpp.o" "gcc" "CMakeFiles/TestGUI.dir/src/presentation/ViewportManager.cpp.o.d"
+  "/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/VoiceChart.cpp" "CMakeFiles/TestGUI.dir/src/presentation/VoiceChart.cpp.o" "gcc" "CMakeFiles/TestGUI.dir/src/presentation/VoiceChart.cpp.o.d"
   "/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/test_gui.cpp" "CMakeFiles/TestGUI.dir/src/presentation/test_gui.cpp.o" "gcc" "CMakeFiles/TestGUI.dir/src/presentation/test_gui.cpp.o.d"
   "/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/viewmodels/ScoreViewModel.cpp" "CMakeFiles/TestGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.o" "gcc" "CMakeFiles/TestGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.o.d"
   )

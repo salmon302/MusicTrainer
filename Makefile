@@ -2213,6 +2213,7 @@ src/domain/analysis/VoiceAnalyzer.o: src/domain/analysis/VoiceAnalyzer.cpp.o
 # target to build an object file
 src/domain/analysis/VoiceAnalyzer.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.o
 .PHONY : src/domain/analysis/VoiceAnalyzer.cpp.o
 
 src/domain/analysis/VoiceAnalyzer.i: src/domain/analysis/VoiceAnalyzer.cpp.i
@@ -2221,6 +2222,7 @@ src/domain/analysis/VoiceAnalyzer.i: src/domain/analysis/VoiceAnalyzer.cpp.i
 # target to preprocess a source file
 src/domain/analysis/VoiceAnalyzer.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.i
 .PHONY : src/domain/analysis/VoiceAnalyzer.cpp.i
 
 src/domain/analysis/VoiceAnalyzer.s: src/domain/analysis/VoiceAnalyzer.cpp.s
@@ -2229,6 +2231,7 @@ src/domain/analysis/VoiceAnalyzer.s: src/domain/analysis/VoiceAnalyzer.cpp.s
 # target to generate assembly for a file
 src/domain/analysis/VoiceAnalyzer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.s
 .PHONY : src/domain/analysis/VoiceAnalyzer.cpp.s
 
 src/domain/crossdomain/CrossDomainValidator.o: src/domain/crossdomain/CrossDomainValidator.cpp.o
@@ -3077,6 +3080,7 @@ src/presentation/VoiceChart.o: src/presentation/VoiceChart.cpp.o
 # target to build an object file
 src/presentation/VoiceChart.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/VoiceChart.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/VoiceChart.cpp.o
 .PHONY : src/presentation/VoiceChart.cpp.o
 
 src/presentation/VoiceChart.i: src/presentation/VoiceChart.cpp.i
@@ -3085,6 +3089,7 @@ src/presentation/VoiceChart.i: src/presentation/VoiceChart.cpp.i
 # target to preprocess a source file
 src/presentation/VoiceChart.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/VoiceChart.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/VoiceChart.cpp.i
 .PHONY : src/presentation/VoiceChart.cpp.i
 
 src/presentation/VoiceChart.s: src/presentation/VoiceChart.cpp.s
@@ -3093,6 +3098,7 @@ src/presentation/VoiceChart.s: src/presentation/VoiceChart.cpp.s
 # target to generate assembly for a file
 src/presentation/VoiceChart.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/VoiceChart.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/VoiceChart.cpp.s
 .PHONY : src/presentation/VoiceChart.cpp.s
 
 src/presentation/main_gui.o: src/presentation/main_gui.cpp.o
