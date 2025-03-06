@@ -15,6 +15,7 @@ TestGUI_autogen/timestamp: \
 	/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/FeedbackArea.h \
 	/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/GridCell.h \
 	/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/GridConstants.h \
+	/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/GridTypes.h \
 	/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/MainWindow.h \
 	/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/NoteGrid.h \
 	/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/ScoreView.h \
@@ -22,14 +23,18 @@ TestGUI_autogen/timestamp: \
 	/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/ViewportManager.h \
 	/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/VoiceChart.h \
 	/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/viewmodels/ScoreViewModel.h \
+	/home/seth-n/Documents/GitHub/MusicTrainer/src/domain/analysis/VoiceAnalyzer.cpp \
+	/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ExerciseBrowser.cpp \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ExercisePanel.cpp \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/FeedbackArea.cpp \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/GridCell.cpp \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/MainWindow.cpp \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/NoteGrid.cpp \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ScoreView.cpp \
+	/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/SettingsDialog.cpp \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/TransportControls.cpp \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ViewportManager.cpp \
+	/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/VoiceChart.cpp \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/test_gui.cpp \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/viewmodels/ScoreViewModel.cpp \
 	/usr/include/alloca.h \
@@ -317,6 +322,7 @@ TestGUI_autogen/timestamp: \
 	/usr/include/x86_64-linux-gnu/gnu/stubs.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/QAbstractListModel \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/QObject \
+	/usr/include/x86_64-linux-gnu/qt6/QtCore/QPointF \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/QSettings \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qabstractitemmodel.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qalgorithms.h \
@@ -350,6 +356,7 @@ TestGUI_autogen/timestamp: \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qglobalstatic.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qhash.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qhashfunctions.h \
+	/usr/include/x86_64-linux-gnu/qt6/QtCore/qiodevice.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qiodevicebase.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qitemselectionmodel.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qiterable.h \
@@ -422,6 +429,7 @@ TestGUI_autogen/timestamp: \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qpainter.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qpalette.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qpen.h \
+	/usr/include/x86_64-linux-gnu/qt6/QtGui/qpicture.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qpixelformat.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qpixmap.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qpolygon.h \
@@ -438,9 +446,11 @@ TestGUI_autogen/timestamp: \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qtransform.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qvalidator.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qwindowdefs.h \
+	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QButtonGroup \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QCheckBox \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QComboBox \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QGraphicsView \
+	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QLabel \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QListWidget \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMainWindow \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QProgressBar \
@@ -450,6 +460,7 @@ TestGUI_autogen/timestamp: \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTabWidget \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTableWidget \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTextEdit \
+	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QToolBar \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QVBoxLayout \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractbutton.h \
@@ -459,12 +470,14 @@ TestGUI_autogen/timestamp: \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractslider.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractspinbox.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qboxlayout.h \
+	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qbuttongroup.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qcheckbox.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qcombobox.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qframe.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicsscene.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicsview.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgridlayout.h \
+	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlabel.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlayout.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlayoutitem.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlistview.h \
@@ -484,6 +497,7 @@ TestGUI_autogen/timestamp: \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtablewidget.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtabwidget.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtextedit.h \
+	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtoolbar.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgets-config.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgetsexports.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgetsglobal.h \

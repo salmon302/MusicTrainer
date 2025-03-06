@@ -1,1 +1,0 @@
-/usr/bin/c++  -fPIC -pthread -pthread CMakeFiles/MusicTrainerV3.dir/MusicTrainerV3_autogen/mocs_compilation.cpp.o CMakeFiles/MusicTrainerV3.dir/src/main.cpp.o -o bin/MusicTrainerV3  -Wl,-rpath,/home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-build libMusicTrainerLib.a _deps/rtmidi-build/librtmidi.so.6.0.0 /usr/lib/x86_64-linux-gnu/libasound.so 

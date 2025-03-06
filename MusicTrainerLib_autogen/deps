@@ -40,6 +40,7 @@ MusicTrainerLib_autogen/timestamp: \
 	/home/seth-n/Documents/GitHub/MusicTrainer/include/utils/DebugUtils.h \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/CachingScoreRepository.cpp \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/EventSourcedRepository.cpp \
+	/home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/InMemoryExerciseRepository.cpp \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/InMemoryScoreRepository.cpp \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/MockMidiAdapter.cpp \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/RtMidiAdapter.cpp \
@@ -54,6 +55,7 @@ MusicTrainerLib_autogen/timestamp: \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/NoteAddedEvent.cpp \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/NoteEventHandler.cpp \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/Snapshot.cpp \
+	/home/seth-n/Documents/GitHub/MusicTrainer/src/domain/exercises/Exercise.cpp \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/domain/monitoring/PerformanceMonitor.cpp \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Duration.cpp \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/domain/music/Interval.cpp \

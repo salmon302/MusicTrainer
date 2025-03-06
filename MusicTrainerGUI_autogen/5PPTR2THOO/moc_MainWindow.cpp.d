@@ -1,5 +1,15 @@
 /home/seth-n/Documents/GitHub/MusicTrainer/MusicTrainerGUI_autogen/5PPTR2THOO/moc_MainWindow.cpp: /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/MainWindow.h \
   /home/seth-n/Documents/GitHub/MusicTrainer/MusicTrainerGUI_autogen/moc_predefs.h \
+  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/exercises/Exercise.h \
+  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/exercises/ExerciseRepository.h \
+  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Duration.h \
+  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Note.h \
+  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Pitch.h \
+  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Score.h \
+  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Voice.h \
+  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/rules/IncrementalRule.h \
+  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/rules/Rule.h \
+  /home/seth-n/Documents/GitHub/MusicTrainer/include/domain/rules/ValidationPipeline.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -25,6 +35,7 @@
   /usr/include/c++/13/bits/c++0x_warning.h \
   /usr/include/c++/13/bits/char_traits.h \
   /usr/include/c++/13/bits/charconv.h \
+  /usr/include/c++/13/bits/chrono.h \
   /usr/include/c++/13/bits/concept_check.h \
   /usr/include/c++/13/bits/cpp_type_traits.h \
   /usr/include/c++/13/bits/cxxabi_forced.h \
@@ -120,6 +131,7 @@
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdlib \
   /usr/include/c++/13/cstring \
+  /usr/include/c++/13/ctime \
   /usr/include/c++/13/cwchar \
   /usr/include/c++/13/cwctype \
   /usr/include/c++/13/debug/assertions.h \
@@ -141,6 +153,7 @@
   /usr/include/c++/13/list \
   /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
+  /usr/include/c++/13/mutex \
   /usr/include/c++/13/new \
   /usr/include/c++/13/numbers \
   /usr/include/c++/13/numeric \
@@ -150,6 +163,8 @@
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/glue_memory_defs.h \
   /usr/include/c++/13/pstl/glue_numeric_defs.h \
+  /usr/include/c++/13/ratio \
+  /usr/include/c++/13/shared_mutex \
   /usr/include/c++/13/stdexcept \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
@@ -278,6 +293,7 @@
   /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_inline.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/error_constants.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/gthr-default.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/gthr.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \

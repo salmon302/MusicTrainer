@@ -1,5 +1,4 @@
 #define __DBL_MIN_EXP__ (-1021)
-#define RTMIDI_NO_JACK 1
 #define __UINT_LEAST16_MAX__ 0xffff
 #define __FLT16_HAS_QUIET_NAN__ 1
 #define __ATOMIC_ACQUIRE 2

@@ -3,7 +3,6 @@
 #include <thread>
 #include <future>
 #include <random>
-
 #include "adapters/EventSourcedRepository.h"
 #include "adapters/CachingScoreRepository.h"
 #include "domain/errors/ErrorBase.h"
@@ -21,49 +20,59 @@
 #include "domain/rules/ValidationPipeline.h"
 
 using namespace std::chrono_literals;
-using namespace MusicTrainer;
 
 namespace {
 
 class SystemIntegrationTest : public ::testing::Test {
 protected:
+    // Core music types
     using Score = MusicTrainer::music::Score;
     using Voice = MusicTrainer::music::Voice;
     using Duration = MusicTrainer::music::Duration;
     using Pitch = MusicTrainer::music::Pitch;
+
+    // Rules
     using ValidationPipeline = MusicTrainer::music::rules::ValidationPipeline;
     using VoiceLeadingRule = MusicTrainer::music::rules::VoiceLeadingRule;
     using ParallelFifthsRule = MusicTrainer::music::rules::ParallelFifthsRule;
     using ParallelOctavesRule = MusicTrainer::music::rules::ParallelOctavesRule;
 
+    // Events
+    using Event = music::events::Event;
+    using NoteAddedEvent = music::events::NoteAddedEvent;
+
+    // Adapters
+    using EventSourcedRepository = music::adapters::EventSourcedRepository;
+    using CachingScoreRepository = music::adapters::CachingScoreRepository;
+    
     std::unique_ptr<ValidationPipeline> validationPipeline;
-    std::unique_ptr<music::adapters::EventSourcedRepository> eventRepo;
-    std::unique_ptr<music::adapters::CachingScoreRepository> repository;
+    std::unique_ptr<EventSourcedRepository> eventRepo;
+    std::unique_ptr<CachingScoreRepository> repository;
 
     void SetUp() override {
         // Initialize error handling
-        ErrorLogger::getInstance().setLogLevel(ErrorLogger::LogLevel::DEBUG);
-        ErrorLogger::getInstance().enableConsoleOutput(true);
-
+        MusicTrainer::ErrorLogger::getInstance().setLogLevel(MusicTrainer::ErrorLogger::LogLevel::DEBUG);
+        MusicTrainer::ErrorLogger::getInstance().enableConsoleOutput(true);
+        
         // Initialize repositories
-        eventRepo = music::adapters::EventSourcedRepository::create();
-        repository = music::adapters::CachingScoreRepository::create(std::move(eventRepo));
-
+        eventRepo = EventSourcedRepository::create();
+        repository = CachingScoreRepository::create(std::move(eventRepo));
+        
         // Initialize validation pipeline
         validationPipeline = ValidationPipeline::create();
-
+        
         // Configure voice leading rules
         auto voiceLeading = VoiceLeadingRule::create();
         std::cout << "[Test] Adding voice leading rule..." << std::endl;
         validationPipeline->addRule(std::move(voiceLeading), {}, 2);
         std::cout << "[Test] Voice leading rule added" << std::endl;
-
+        
         // Configure parallel fifths rule
         auto parallelFifths = ParallelFifthsRule::create();
         std::cout << "[Test] Adding parallel fifths rule..." << std::endl;
         validationPipeline->addRule(std::move(parallelFifths), {}, 1);
         std::cout << "[Test] Parallel fifths rule added" << std::endl;
-
+        
         // Configure parallel octaves rule
         auto parallelOctaves = ParallelOctavesRule::create();
         std::cout << "[Test] Adding parallel octaves rule..." << std::endl;
@@ -120,18 +129,18 @@ TEST_F(SystemIntegrationTest, EventProcessingAndValidation) {
     auto score = Score::create(timeSignature);
     
     // Create and process events
-    auto noteEvent = music::events::NoteAddedEvent::create(
+    auto noteEvent = NoteAddedEvent::create(
         0,
         Pitch::create(Pitch::NoteName::C, 4),
         Duration::createQuarter(),
         timeSignature
     );
     
-    std::vector<std::unique_ptr<music::events::Event>> events;
+    std::vector<std::unique_ptr<Event>> events;
     events.push_back(std::move(noteEvent));
     
     repository->save("test_events", *score);
-    repository->appendEvents("test_events", events);
+    eventRepo->appendEvents("test_events", events);  // Use eventRepo instead of repository for events
 }
 
 TEST_F(SystemIntegrationTest, ConcurrentOperations) {
@@ -195,22 +204,22 @@ TEST_F(SystemIntegrationTest, EdgeCaseHandling) {
     try {
         repository->load("nonexistent_score");
         FAIL() << "Expected RepositoryError";
-    } catch (const music::RepositoryError&) {
+    } catch (const MusicTrainer::RepositoryError&) {
         // Expected
     }
     
     // Test boundary conditions
     try {
-        auto noteEvent = music::events::NoteAddedEvent::create(
+        auto noteEvent = NoteAddedEvent::create(
             0,
             Pitch::create(Pitch::NoteName::C, 4),
             Duration::createQuarter(),
             timeSignature
         );
         
-        std::vector<std::unique_ptr<music::events::Event>> events;
+        std::vector<std::unique_ptr<Event>> events;
         for (int i = 0; i < 1000; ++i) {  // Test with large number of events
-            events.push_back(music::events::NoteAddedEvent::create(
+            events.push_back(NoteAddedEvent::create(
                 i,
                 Pitch::create(Pitch::NoteName::C, 4),
                 Duration::createQuarter(),
@@ -219,7 +228,7 @@ TEST_F(SystemIntegrationTest, EdgeCaseHandling) {
         }
         
         repository->save("boundary_test", *score);
-        repository->appendEvents("boundary_test", events);
+        eventRepo->appendEvents("boundary_test", events);  // Use eventRepo instead of repository
     } catch (const std::exception& e) {
         FAIL() << "Unexpected exception: " << e.what();
     }

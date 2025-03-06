@@ -497,6 +497,11 @@
 			null
 		],
 		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/InMemoryExerciseRepository.cpp",
+			"MU",
+			null
+		],
+		[
 			"/home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/InMemoryScoreRepository.cpp",
 			"MU",
 			null
@@ -563,6 +568,11 @@
 		],
 		[
 			"/home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/Snapshot.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/src/domain/exercises/Exercise.cpp",
 			"MU",
 			null
 		],

@@ -109,8 +109,6 @@ void ViewportManager::setViewportBounds(const QRectF& bounds)
     if (!m_grid) return;
     
     auto dimensions = m_grid->getDimensions();
-    
-    // Calculate new dimensions based on the viewport bounds
     auto newDimensions = dimensions;
     
     // Only update pitch range if we're not in multi-octave mode
@@ -119,78 +117,86 @@ void ViewportManager::setViewportBounds(const QRectF& bounds)
         newDimensions.maxPitch = newDimensions.minPitch + getOctaveRange();
     }
     
-    // For horizontal expansion, we want to extend if we're near the right edge
-    if (bounds.right() > dimensions.endPosition - 2) { // Within 2 beats of the edge
-        int newEndPosition = qMin(48, qCeil(bounds.right() + 4)); // Add some buffer but cap at 48
+    // For horizontal expansion, extend if we're near the right edge
+    if (bounds.right() > dimensions.endPosition - 2) { 
+        int newEndPosition = qMin(192, qCeil(bounds.right() + 4)); // Add buffer but cap at 48 measures
         newDimensions.endPosition = newEndPosition;
     }
     
-    // Update grid dimensions if they've changed and we're not in multi-octave mode
-    if (!m_currentState.preserveOctaveExpansion && 
-        (newDimensions.minPitch != dimensions.minPitch ||
-         newDimensions.maxPitch != dimensions.maxPitch ||
-         newDimensions.endPosition != dimensions.endPosition)) {
-        m_grid->setDimensions(newDimensions);
-        dimensions = newDimensions; // Update local copy
-    }
+    // Validate and apply new dimensions
+    m_grid->setDimensions(newDimensions);
     
-    // Update viewport state, preserving height in multi-octave mode
+    // Update viewport state to match new bounds
     m_currentState.visibleArea = bounds;
-    if (!m_currentState.preserveOctaveExpansion) {
-        m_currentState.visibleArea.setHeight(12);  // Force one octave height only in single-octave mode
+    updateViewportState(m_currentState);
+    
+    // Update viewport visually
+    if (m_grid->getScene()) {
+        m_grid->getScene()->update();
     }
-    
-    // Convert to scene coordinates and update scroll position, respecting multi-octave mode
-    m_currentState.scrollPosition = QPointF(
-        bounds.x() * GridConstants::GRID_UNIT,
-        (m_currentState.preserveOctaveExpansion ? bounds.y() : dimensions.minPitch) * GridConstants::NOTE_HEIGHT
-    );
-    
-    qDebug() << "ViewportManager::setViewportBounds -"
-             << "Bounds:" << bounds
-             << "MultiOctave:" << m_currentState.preserveOctaveExpansion
-             << "MinPitch:" << dimensions.minPitch
-             << "MaxPitch:" << dimensions.maxPitch;
 }
 
 void ViewportManager::updateViewSize(const QSize& size)
 {
+    if (m_viewSize == size) return;
+    
     m_viewSize = size;
+    auto dimensions = m_grid->getDimensions();
+    
+    // Calculate actual content size in scene units
+    float labelMargin = 25.0f;
+    float topMargin = 30.0f;
+    float bottomMargin = 15.0f;
+    
+    float contentWidth = dimensions.endPosition * GridConstants::GRID_UNIT + 2 * labelMargin;
+    float contentHeight = (dimensions.maxPitch - dimensions.minPitch) * GridConstants::NOTE_HEIGHT + 
+                         topMargin + bottomMargin;
+    
+    // Calculate optimal scale to fit content
+    float horizontalScale = size.width() / contentWidth;
+    float verticalScale = size.height() / contentHeight;
+    
+    // Use minimum scale to ensure all content fits
+    float newZoom = qMin(horizontalScale, verticalScale);
+    
+    // Clamp zoom to reasonable range
+    newZoom = qMax(0.8f, qMin(newZoom, 1.5f));
+    
+    // Update state
+    m_currentState.zoomLevel = newZoom;
     updateViewportState(m_currentState);
 }
 
 void ViewportManager::updateScrollPosition(const QPointF& scrollPos)
 {
-    // Store the old position for delta calculation
-    QPointF oldPos = m_currentState.scrollPosition;
-    
-    // Skip update if movement is negligible
-    if (qAbs(scrollPos.x() - oldPos.x()) < 1.0 && qAbs(scrollPos.y() - oldPos.y()) < 1.0) {
+    // Skip if movement is negligible
+    if (qAbs(scrollPos.x() - m_currentState.scrollPosition.x()) < 1.0 &&
+        qAbs(scrollPos.y() - m_currentState.scrollPosition.y()) < 1.0) {
         return;
     }
     
-    // Update with new position
+    // Store old position for delta calculation
+    QPointF oldScroll = m_currentState.scrollPosition;
+    
+    // Update scroll position
     m_currentState.scrollPosition = scrollPos;
     
     // Calculate scroll delta in musical coordinates
-    QPointF scrollDelta(
-        (scrollPos.x() - oldPos.x()) / GridConstants::GRID_UNIT,
-        (scrollPos.y() - oldPos.y()) / GridConstants::NOTE_HEIGHT  // Allow vertical scrolling in multi-octave mode
-    );
+    QPointF scrollDelta = calculateScaledDelta(scrollPos, oldScroll);
     
-    // Update visible area based on scroll delta
+    // Update visible area
     if (m_currentState.preserveOctaveExpansion) {
-        // In multi-octave mode, allow both horizontal and vertical scrolling
+        // In multi-octave mode, allow full scrolling
         m_currentState.visibleArea.translate(scrollDelta.x(), scrollDelta.y());
     } else {
         // In single-octave mode, only allow horizontal scrolling
         m_currentState.visibleArea.translate(scrollDelta.x(), 0);
     }
     
-    // Get current grid dimensions to maintain proper bounds
+    // Get current dimensions
     auto dimensions = m_grid->getDimensions();
     
-    // Ensure visible area stays within grid bounds
+    // Enforce bounds
     if (m_currentState.visibleArea.left() < 0) {
         m_currentState.visibleArea.moveLeft(0);
         m_currentState.scrollPosition.setX(0);
@@ -198,31 +204,30 @@ void ViewportManager::updateScrollPosition(const QPointF& scrollPos)
     if (m_currentState.visibleArea.right() > dimensions.endPosition) {
         m_currentState.visibleArea.moveRight(dimensions.endPosition);
         m_currentState.scrollPosition.setX((dimensions.endPosition - m_currentState.visibleArea.width()) 
-            * GridConstants::GRID_UNIT);
+            * GridConstants::GRID_UNIT * m_currentState.zoomLevel);
     }
     
-    // Handle vertical bounds differently based on mode
+    // Handle vertical bounds based on mode
     if (m_currentState.preserveOctaveExpansion) {
-        // In multi-octave mode, clamp to the expanded range
         if (m_currentState.visibleArea.top() < dimensions.minPitch) {
             m_currentState.visibleArea.moveTop(dimensions.minPitch);
-            m_currentState.scrollPosition.setY(dimensions.minPitch * GridConstants::NOTE_HEIGHT);
+            m_currentState.scrollPosition.setY(dimensions.minPitch * GridConstants::NOTE_HEIGHT 
+                * m_currentState.zoomLevel);
         }
         if (m_currentState.visibleArea.bottom() > dimensions.maxPitch) {
             m_currentState.visibleArea.moveBottom(dimensions.maxPitch);
             m_currentState.scrollPosition.setY((dimensions.maxPitch - m_currentState.visibleArea.height()) 
-                * GridConstants::NOTE_HEIGHT);
+                * GridConstants::NOTE_HEIGHT * m_currentState.zoomLevel);
         }
     } else {
-        // In single-octave mode, lock to current octave
+        // Lock to current octave in single-octave mode
         m_currentState.visibleArea.moveTop(dimensions.minPitch);
-        m_currentState.scrollPosition.setY(dimensions.minPitch * GridConstants::NOTE_HEIGHT);
+        m_currentState.scrollPosition.setY(dimensions.minPitch * GridConstants::NOTE_HEIGHT 
+            * m_currentState.zoomLevel);
     }
     
-    qDebug() << "ViewportManager::updateScrollPosition -"
-             << "MultiOctave:" << m_currentState.preserveOctaveExpansion
-             << "ScrollPos:" << scrollPos
-             << "VisibleArea:" << m_currentState.visibleArea;
+    // Update state
+    updateViewportState(m_currentState);
 }
 
 void ViewportManager::updateZoomLevel(float zoom)
@@ -233,54 +238,40 @@ void ViewportManager::updateZoomLevel(float zoom)
 
 QPointF ViewportManager::mapToMusicalSpace(const QPointF& screenPoint, const QGraphicsView* view) const
 {
-    if (!view) return QPointF();
+    if (!view || !m_grid) return QPointF();
     
-    // Convert screen coordinates to scene coordinates
+    // Convert screen point to scene coordinates
     QPointF scenePoint = view->mapToScene(screenPoint.toPoint());
     
-    // Get current grid dimensions for proper mapping
-    auto dimensions = m_grid->getDimensions();
+    // Account for current zoom level and grid unit scaling
+    double musicalX = scenePoint.x() / (GridConstants::GRID_UNIT * m_currentState.zoomLevel);
+    double musicalY = scenePoint.y() / (GridConstants::NOTE_HEIGHT * m_currentState.zoomLevel);
     
-    // Convert scene coordinates to musical coordinates
-    double musicalX = scenePoint.x() / ScoreView::GRID_UNIT;
-    
-    // Fix: Map Y coordinate directly to pitch value based on note height
-    double musicalY = scenePoint.y() / ScoreView::NOTE_HEIGHT;
-    
-    qDebug() << "ViewportManager::mapToMusicalSpace -"
-             << "Screen:" << screenPoint
-             << "Scene:" << scenePoint
-             << "Musical coordinates:" << QPointF(musicalX, musicalY)
-             << "Zoom:" << m_currentState.zoomLevel;
+    // Add scroll offset
+    musicalX += m_currentState.scrollPosition.x() / (GridConstants::GRID_UNIT * m_currentState.zoomLevel);
+    musicalY += m_currentState.scrollPosition.y() / (GridConstants::NOTE_HEIGHT * m_currentState.zoomLevel);
     
     return QPointF(musicalX, musicalY);
 }
 
 QPointF ViewportManager::mapFromMusicalSpace(const QPointF& musicalPoint, const QGraphicsView* view) const
 {
-    if (!view) return QPointF();
+    if (!view || !m_grid) return QPointF();
+    
+    // First convert to scene coordinates with proper scaling
+    QPointF scenePoint(
+        musicalPoint.x() * GridConstants::GRID_UNIT * m_currentState.zoomLevel,
+        musicalPoint.y() * GridConstants::NOTE_HEIGHT * m_currentState.zoomLevel
+    );
     
     // Remove scroll offset
-    QPointF scenePoint = musicalPoint - m_currentState.scrollPosition;
+    scenePoint -= m_currentState.scrollPosition;
     
-    // Apply zoom level
-    scenePoint *= m_currentState.zoomLevel;
-    
-    // Convert to scene coordinates
-    scenePoint.rx() *= ScoreView::GRID_UNIT;
-    scenePoint.ry() *= ScoreView::NOTE_HEIGHT;
-    
-    qDebug() << "ViewportManager::mapFromMusicalSpace -"
-             << "Musical:" << musicalPoint
-             << "WithoutScroll:" << scenePoint
-             << "Zoom:" << m_currentState.zoomLevel
-             << "Final:" << view->mapFromScene(scenePoint);
-    
-    // Convert scene coordinates back to screen coordinates
+    // Convert back to screen coordinates
     return view->mapFromScene(scenePoint);
 }
 
-void ViewportManager::expandGrid(Direction direction, int amount)
+void ViewportManager::expandGrid(GridDirection direction, int amount)
 {
     if (!m_grid) return;
     
@@ -295,26 +286,21 @@ void ViewportManager::expandGrid(Direction direction, int amount)
     bool multiOctaveMode = false;
     
     switch (direction) {
-        case Direction::Up:
+        case GridDirection::Up:
             if (dimensions.minPitch >= 12) {  // Ensure room for full octave above
-                // Instead of shifting, expand to include another octave above
                 dimensions.minPitch -= 12;
-                multiOctaveMode = true; // Mark that we're in multi-octave mode
-                // Keep the max pitch the same to show both octaves
+                multiOctaveMode = true;
             }
             break;
             
-        case Direction::Down:
+        case GridDirection::Down:
             if (dimensions.maxPitch <= 115) {  // Ensure room for full octave below
-                // Instead of shifting, expand to include another octave below
                 dimensions.maxPitch += 12;
-                multiOctaveMode = true; // Mark that we're in multi-octave mode
-                // Keep the min pitch the same to show both octaves
+                multiOctaveMode = true;
             }
             break;
             
-        case Direction::Right:
-            // Allow expansion beyond 12 measures (48 beats) up to 48 measures (192 beats)
+        case GridDirection::Right:
             if (dimensions.endPosition - dimensions.startPosition < 192) {
                 int expansion = qMin(amount, 192 - (dimensions.endPosition - dimensions.startPosition));
                 dimensions.endPosition += expansion;
@@ -329,93 +315,72 @@ void ViewportManager::expandGrid(Direction direction, int amount)
     float visibleWidth = m_currentState.visibleArea.width();
     int visibleOctaves = (dimensions.maxPitch - dimensions.minPitch) / 12;
     
-    // Update visible area to show the expanded octave range
     m_currentState.visibleArea = QRectF(
-        viewCenterX - visibleWidth / 2,                // Keep horizontal center
-        dimensions.minPitch,                          // Start at new min pitch
-        visibleWidth,                                 // Maintain visible width
-        dimensions.maxPitch - dimensions.minPitch     // Show full expanded range
+        viewCenterX - visibleWidth / 2,
+        dimensions.minPitch,
+        visibleWidth,
+        dimensions.maxPitch - dimensions.minPitch
     );
     
-    // Update scroll position to match new dimensions and viewport
     m_currentState.scrollPosition = QPointF(
         m_currentState.visibleArea.x() * GridConstants::GRID_UNIT,
         dimensions.minPitch * GridConstants::NOTE_HEIGHT
     );
     
-    // Store the multi-octave state as part of the viewport state
     if (multiOctaveMode) {
-        // Force the viewport to maintain the expanded octave range
         m_currentState.preserveOctaveExpansion = true;
     }
     
-    // Force update
     updateViewportState(m_currentState);
     
-    // Get scene for visual updates
     QGraphicsScene* scene = m_grid->getScene();
     if (scene) {
-        // Ensure scene rect is updated to match the new dimensions
         float labelMargin = 25.0f;
         QRectF newSceneRect(
-            -labelMargin,  // Space for labels
-            dimensions.minPitch * GridConstants::NOTE_HEIGHT - GridConstants::NOTE_HEIGHT * 0.5,  // Small padding above
-            dimensions.endPosition * GridConstants::GRID_UNIT + 2 * labelMargin,  // Width plus margins
-            (dimensions.maxPitch - dimensions.minPitch + 2) * GridConstants::NOTE_HEIGHT  // Full expanded range plus space for buttons
+            -labelMargin,
+            dimensions.minPitch * GridConstants::NOTE_HEIGHT - GridConstants::NOTE_HEIGHT * 0.5,
+            dimensions.endPosition * GridConstants::GRID_UNIT + 2 * labelMargin,
+            (dimensions.maxPitch - dimensions.minPitch + 2) * GridConstants::NOTE_HEIGHT
         );
         scene->setSceneRect(newSceneRect);
         
-        // Signal that update is complete
         if (!scene->views().empty()) {
             auto view = scene->views().first();
             view->viewport()->update();
-            
-            // Force a full scene update
             scene->update(scene->sceneRect());
         }
     }
 }
 
-void ViewportManager::collapseGrid(Direction direction)
+void ViewportManager::collapseGrid(GridDirection direction)
 {
     if (!m_grid) return;
     
     auto dimensions = m_grid->getDimensions();
-    
-    // Store view center before collapse
     int viewCenterX = qRound(m_currentState.visibleArea.center().x());
     bool needsUpdate = false;
     
-    // Calculate the new dimensions before applying them
     NoteGrid::GridDimensions newDimensions = dimensions;
     
     switch (direction) {
-        case Direction::Up:
-            // If we have an expanded range above the current octave
+        case GridDirection::Up:
             if (dimensions.maxPitch - dimensions.minPitch > 12) {
-                newDimensions.minPitch += 12;  // Remove top octave
+                newDimensions.minPitch += 12;
                 needsUpdate = true;
             }
             break;
             
-        case Direction::Down:
-            // If we have an expanded range below the current octave
+        case GridDirection::Down:
             if (dimensions.maxPitch - dimensions.minPitch > 12) {
-                newDimensions.maxPitch -= 12;  // Remove bottom octave
+                newDimensions.maxPitch -= 12;
                 needsUpdate = true;
             }
             break;
             
-        case Direction::Right:
-            // Collapse horizontal grid one bar at a time
-            if (dimensions.endPosition > 16) {  // Keep at least 4 measures
-                int newEndPosition = qMax(16, dimensions.endPosition - 4);  // Remove 1 measure (4 beats)
-                
-                // Remove any notes that would be outside the new boundaries
+        case GridDirection::Right:
+            if (dimensions.endPosition > 16) {
+                int newEndPosition = qMax(16, dimensions.endPosition - 4);
                 int notesRemoved = m_grid->removeNotesInRange(newEndPosition, dimensions.endPosition);
-                qDebug() << "ViewportManager::collapseGrid - Removed" << notesRemoved 
-                         << "notes from positions" << newEndPosition << "to" << dimensions.endPosition;
-                
                 newDimensions.endPosition = newEndPosition;
                 needsUpdate = true;
             }
@@ -423,10 +388,8 @@ void ViewportManager::collapseGrid(Direction direction)
     }
     
     if (needsUpdate) {
-        // Apply new dimensions first - this will trigger note visibility updates
         m_grid->setDimensions(newDimensions);
         
-        // Update current state to match new dimensions
         m_currentState.preserveOctaveExpansion = (newDimensions.maxPitch - newDimensions.minPitch > 12);
         m_currentState.visibleArea = QRectF(
             viewCenterX - m_currentState.visibleArea.width() / 2,
@@ -435,7 +398,6 @@ void ViewportManager::collapseGrid(Direction direction)
             newDimensions.maxPitch - newDimensions.minPitch
         );
         
-        // Update scroll position to match new dimensions and viewport
         m_currentState.scrollPosition = QPointF(
             m_currentState.visibleArea.x() * GridConstants::GRID_UNIT,
             newDimensions.minPitch * GridConstants::NOTE_HEIGHT
@@ -443,52 +405,43 @@ void ViewportManager::collapseGrid(Direction direction)
     }
 }
 
-bool ViewportManager::canCollapse(Direction direction) const
+bool ViewportManager::canCollapse(GridDirection direction) const
 {
     if (!m_grid) return false;
     
     auto dimensions = m_grid->getDimensions();
     
     switch (direction) {
-        case Direction::Up:
-            // Can collapse up if we have more than one octave and the bottom octave
-            // has enough room for all existing notes
+        case GridDirection::Up:
+        case GridDirection::Down:
             return dimensions.maxPitch - dimensions.minPitch > 12;
             
-        case Direction::Down:
-            // Can collapse down if we have more than one octave and the top octave
-            // has enough room for all existing notes
-            return dimensions.maxPitch - dimensions.minPitch > 12;
-            
-        case Direction::Right:
-            // Can collapse right if we have more than 4 measures
-            return dimensions.endPosition > 16;  // 16 = 4 measures in 4/4 time
+        case GridDirection::Right:
+            return dimensions.endPosition > 16;
     }
     
     return false;
 }
 
-std::optional<ViewportManager::Direction> ViewportManager::shouldExpand() const 
+std::optional<GridDirection> ViewportManager::shouldExpand() const 
 {
     if (!m_grid) return std::nullopt;
     
     QRectF visibleArea = m_currentState.visibleArea;
     auto dims = m_grid->getDimensions();
     
-    // Only trigger octave shifts at near edges
-    float edgeThreshold = 0.5; // Half semitone from edge
+    float edgeThreshold = 0.5;
     
     if (visibleArea.top() <= dims.minPitch + edgeThreshold) {
-        return Direction::Up;
+        return GridDirection::Up;
     }
     if (visibleArea.bottom() >= dims.maxPitch - edgeThreshold) {
-        return Direction::Down;
+        return GridDirection::Down;
     }
     
-    // Allow horizontal expansion up to 48 measures
-    if (visibleArea.right() >= dims.endPosition - 2 && // Within 2 beats of right edge
-        dims.endPosition - dims.startPosition < 192) {   // Less than 48 measures
-        return Direction::Right;
+    if (visibleArea.right() >= dims.endPosition - 2 && 
+        dims.endPosition - dims.startPosition < 192) {
+        return GridDirection::Right;
     }
     
     return std::nullopt;
@@ -523,6 +476,18 @@ void ViewportManager::compactUnusedRegions()
     );
     
     m_grid->compactUnusedRegions(m_currentState.visibleArea, bufferZone);
+}
+
+QPointF ViewportManager::calculateScaledDelta(const QPointF& screen, const QPointF& scene) const
+{
+    // Convert both points to musical coordinates for consistent scaling
+    double screenX = screen.x() / (GridConstants::GRID_UNIT * m_currentState.zoomLevel);
+    double screenY = screen.y() / (GridConstants::NOTE_HEIGHT * m_currentState.zoomLevel);
+    double sceneX = scene.x() / GridConstants::GRID_UNIT;
+    double sceneY = scene.y() / GridConstants::NOTE_HEIGHT;
+    
+    // Return the difference in musical coordinates
+    return QPointF(screenX - sceneX, screenY - sceneY);
 }
 
 } // namespace MusicTrainer::presentation

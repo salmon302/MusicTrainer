@@ -1,3 +1,0 @@
-/home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-subbuild/CMakeFiles/rtmidi-populate.dir
-/home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-subbuild/CMakeFiles/edit_cache.dir
-/home/seth-n/Documents/GitHub/MusicTrainer/build/_deps/rtmidi-subbuild/CMakeFiles/rebuild_cache.dir

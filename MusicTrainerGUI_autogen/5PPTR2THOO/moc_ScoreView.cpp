@@ -27,7 +27,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
 struct qt_meta_stringdata_MusicTrainer__presentation__ScoreView_t {
-    uint offsetsAndSizes[38];
+    uint offsetsAndSizes[52];
     char stringdata0[38];
     char stringdata1[13];
     char stringdata2[1];
@@ -47,6 +47,13 @@ struct qt_meta_stringdata_MusicTrainer__presentation__ScoreView_t {
     char stringdata16[5];
     char stringdata17[23];
     char stringdata18[16];
+    char stringdata19[22];
+    char stringdata20[5];
+    char stringdata21[20];
+    char stringdata22[19];
+    char stringdata23[19];
+    char stringdata24[17];
+    char stringdata25[16];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_MusicTrainer__presentation__ScoreView_t::offsetsAndSizes) + ofs), len 
@@ -70,7 +77,14 @@ Q_CONSTINIT static const qt_meta_stringdata_MusicTrainer__presentation__ScoreVie
         QT_MOC_LITERAL(197, 25),  // "MusicTrainer::music::Note"
         QT_MOC_LITERAL(223, 4),  // "note"
         QT_MOC_LITERAL(228, 22),  // "checkViewportExpansion"
-        QT_MOC_LITERAL(251, 15)   // "handleNoteAdded"
+        QT_MOC_LITERAL(251, 15),  // "handleNoteAdded"
+        QT_MOC_LITERAL(267, 21),  // "setShowMeasureNumbers"
+        QT_MOC_LITERAL(289, 4),  // "show"
+        QT_MOC_LITERAL(294, 19),  // "setShowKeySignature"
+        QT_MOC_LITERAL(314, 18),  // "setShowVoiceLabels"
+        QT_MOC_LITERAL(333, 18),  // "showMeasureNumbers"
+        QT_MOC_LITERAL(352, 16),  // "showKeySignature"
+        QT_MOC_LITERAL(369, 15)   // "showVoiceLabels"
     },
     "MusicTrainer::presentation::ScoreView",
     "noteSelected",
@@ -90,7 +104,14 @@ Q_CONSTINIT static const qt_meta_stringdata_MusicTrainer__presentation__ScoreVie
     "MusicTrainer::music::Note",
     "note",
     "checkViewportExpansion",
-    "handleNoteAdded"
+    "handleNoteAdded",
+    "setShowMeasureNumbers",
+    "show",
+    "setShowKeySignature",
+    "setShowVoiceLabels",
+    "showMeasureNumbers",
+    "showKeySignature",
+    "showVoiceLabels"
 };
 #undef QT_MOC_LITERAL
 } // unnamed namespace
@@ -101,7 +122,7 @@ Q_CONSTINIT static const uint qt_meta_data_MusicTrainer__presentation__ScoreView
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-      10,   14, // methods
+      16,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -109,18 +130,24 @@ Q_CONSTINIT static const uint qt_meta_data_MusicTrainer__presentation__ScoreView
        4,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    2,   74,    2, 0x06,    1 /* Public */,
-       5,    1,   79,    2, 0x06,    4 /* Public */,
-       7,    3,   82,    2, 0x06,    6 /* Public */,
-       7,    2,   89,    2, 0x26,   10 /* Public | MethodCloned */,
+       1,    2,  110,    2, 0x06,    1 /* Public */,
+       5,    1,  115,    2, 0x06,    4 /* Public */,
+       7,    3,  118,    2, 0x06,    6 /* Public */,
+       7,    2,  125,    2, 0x26,   10 /* Public | MethodCloned */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-      10,    0,   94,    2, 0x0a,   13 /* Public */,
-      11,    1,   95,    2, 0x0a,   14 /* Public */,
-      14,    1,   98,    2, 0x0a,   16 /* Public */,
-      17,    0,  101,    2, 0x0a,   18 /* Public */,
-      18,    3,  102,    2, 0x0a,   19 /* Public */,
-      18,    2,  109,    2, 0x2a,   23 /* Public | MethodCloned */,
+      10,    0,  130,    2, 0x0a,   13 /* Public */,
+      11,    1,  131,    2, 0x0a,   14 /* Public */,
+      14,    1,  134,    2, 0x0a,   16 /* Public */,
+      17,    0,  137,    2, 0x0a,   18 /* Public */,
+      18,    3,  138,    2, 0x0a,   19 /* Public */,
+      18,    2,  145,    2, 0x2a,   23 /* Public | MethodCloned */,
+      19,    1,  150,    2, 0x0a,   26 /* Public */,
+      21,    1,  153,    2, 0x0a,   28 /* Public */,
+      22,    1,  156,    2, 0x0a,   30 /* Public */,
+      23,    0,  159,    2, 0x10a,   32 /* Public | MethodIsConst  */,
+      24,    0,  160,    2, 0x10a,   33 /* Public | MethodIsConst  */,
+      25,    0,  161,    2, 0x10a,   34 /* Public | MethodIsConst  */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int, QMetaType::Int,    3,    4,
@@ -135,6 +162,12 @@ Q_CONSTINIT static const uint qt_meta_data_MusicTrainer__presentation__ScoreView
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int, QMetaType::Double, QMetaType::Int,    8,    9,    3,
     QMetaType::Void, QMetaType::Int, QMetaType::Double,    8,    9,
+    QMetaType::Void, QMetaType::Bool,   20,
+    QMetaType::Void, QMetaType::Bool,   20,
+    QMetaType::Void, QMetaType::Bool,   20,
+    QMetaType::Bool,
+    QMetaType::Bool,
+    QMetaType::Bool,
 
        0        // eod
 };
@@ -182,7 +215,22 @@ Q_CONSTINIT const QMetaObject MusicTrainer::presentation::ScoreView::staticMetaO
         // method 'handleNoteAdded'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
-        QtPrivate::TypeAndForceComplete<double, std::false_type>
+        QtPrivate::TypeAndForceComplete<double, std::false_type>,
+        // method 'setShowMeasureNumbers'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'setShowKeySignature'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'setShowVoiceLabels'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'showMeasureNumbers'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'showKeySignature'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'showVoiceLabels'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>
     >,
     nullptr
 } };
@@ -203,6 +251,15 @@ void MusicTrainer::presentation::ScoreView::qt_static_metacall(QObject *_o, QMet
         case 7: _t->checkViewportExpansion(); break;
         case 8: _t->handleNoteAdded((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[3]))); break;
         case 9: _t->handleNoteAdded((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[2]))); break;
+        case 10: _t->setShowMeasureNumbers((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1]))); break;
+        case 11: _t->setShowKeySignature((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1]))); break;
+        case 12: _t->setShowVoiceLabels((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1]))); break;
+        case 13: { bool _r = _t->showMeasureNumbers();
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 14: { bool _r = _t->showKeySignature();
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 15: { bool _r = _t->showVoiceLabels();
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -250,13 +307,13 @@ int MusicTrainer::presentation::ScoreView::qt_metacall(QMetaObject::Call _c, int
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 10)
+        if (_id < 16)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 10;
+        _id -= 16;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 10)
+        if (_id < 16)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 10;
+        _id -= 16;
     }
     return _id;
 }

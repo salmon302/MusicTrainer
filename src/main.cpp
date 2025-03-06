@@ -159,7 +159,9 @@ void testEventSystem() {
     // Create a note added event
     auto c4 = MusicTrainer::music::Pitch::create(MusicTrainer::music::Pitch::NoteName::C, 4);
     auto quarter = MusicTrainer::music::Duration::create(MusicTrainer::music::Duration::Type::QUARTER);
-    auto timeSignature = MusicTrainer::music::Voice::TimeSignature(4, MusicTrainer::music::Duration::createQuarter());
+    MusicTrainer::music::Voice::TimeSignature timeSignature;
+    timeSignature.beats = 4;
+    timeSignature.beatType = 4;  // Quarter note gets the beat
     auto noteEvent = music::events::NoteAddedEvent::create(0, c4, quarter, timeSignature);
     
     // Test event properties
@@ -232,7 +234,9 @@ void testEventBusAndCorrelation() {
     auto d4 = MusicTrainer::music::Pitch::create(MusicTrainer::music::Pitch::NoteName::D, 4);
     auto quarter = MusicTrainer::music::Duration::create(MusicTrainer::music::Duration::Type::QUARTER);
     
-    auto timeSignature = MusicTrainer::music::Voice::TimeSignature(4, MusicTrainer::music::Duration::createQuarter());
+    MusicTrainer::music::Voice::TimeSignature timeSignature;
+    timeSignature.beats = 4;
+    timeSignature.beatType = 4;  // Quarter note gets the beat
     auto event1 = music::events::NoteAddedEvent::create(0, c4, quarter, timeSignature, "test-correlation");
     
     // Publish first event

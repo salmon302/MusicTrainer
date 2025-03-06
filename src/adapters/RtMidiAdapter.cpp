@@ -248,6 +248,22 @@ void RtMidiAdapter::resetMetrics() {
 		std::memory_order_release);
 }
 
+std::vector<std::string> RtMidiAdapter::getAvailableInputs() const {
+    std::vector<std::string> inputs;
+    if (!midiIn) return inputs;
+    
+    try {
+        unsigned int portCount = midiIn->getPortCount();
+        for (unsigned int i = 0; i < portCount; ++i) {
+            inputs.push_back(midiIn->getPortName(i));
+        }
+    } catch (RtMidiError& error) {
+        handleError(error.getType(), error.getMessage(), const_cast<RtMidiAdapter*>(this));
+    }
+    
+    return inputs;
+}
+
 std::vector<std::string> RtMidiAdapter::getAvailableOutputs() const {
     std::vector<std::string> outputs;
     if (!midiOut) return outputs;

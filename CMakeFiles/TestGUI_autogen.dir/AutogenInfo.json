@@ -364,6 +364,11 @@
 			null
 		],
 		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ExerciseBrowser.cpp",
+			"MU",
+			null
+		],
+		[
 			"/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ExercisePanel.cpp",
 			"MU",
 			null
@@ -390,6 +395,11 @@
 		],
 		[
 			"/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ScoreView.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/SettingsDialog.cpp",
 			"MU",
 			null
 		],

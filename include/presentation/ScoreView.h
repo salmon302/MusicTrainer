@@ -1,23 +1,28 @@
 #pragma once
 
 #include <QtWidgets/QGraphicsView>
-#include <QtWidgets/QWidget>
+#include <QtWidgets/QToolBar>
 #include <QtWidgets/QLabel>
-#include <QToolBar>
-#include <QButtonGroup>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QVBoxLayout>
+#include <QPointF>
 #include <memory>
-#include "domain/music/Score.h"
-#include "domain/music/Voice.h"
-#include "domain/music/Note.h"
 #include "presentation/GridConstants.h"
-#include "presentation/ViewportManager.h" // Added to resolve ViewportManager::Direction
+#include "presentation/GridTypes.h"
+#include "domain/music/Duration.h"
+#include "domain/music/Voice.h"
 
 QT_BEGIN_NAMESPACE
-class QGraphicsScene;
 class QResizeEvent;
 class QMouseEvent;
 class QWheelEvent;
 QT_END_NAMESPACE
+
+namespace MusicTrainer::music {
+class Score;
+class Note;
+}
 
 namespace MusicTrainer::presentation {
 
@@ -35,7 +40,7 @@ public:
     static constexpr double NOTE_HEIGHT = GridConstants::NOTE_HEIGHT;
     static constexpr double GRID_ZOOM_BASE = GridConstants::GRID_ZOOM_BASE;
    
-   void updateScore(const music::Score& score);
+    void updateScore(const music::Score& score);
     void clearScore();
     void highlightNote(int position, int voiceIndex);
     
@@ -45,7 +50,7 @@ public:
     QPointF mapToMusicalSpace(const QPointF& screenPoint) const;
     QPointF mapFromMusicalSpace(const QPointF& musicalPoint) const;
     MusicTrainer::music::Duration convertToMusicalDuration(double numericDuration);
-    void expandGrid(ViewportManager::Direction direction, int amount);
+    void expandGrid(GridDirection direction, int amount);
 
 signals:
     void noteSelected(int position, int voiceIndex);
@@ -58,7 +63,15 @@ public slots:
     void onNoteAdded(const MusicTrainer::music::Note& note);
     void checkViewportExpansion();
     void handleNoteAdded(int pitch, double duration, int position = 0);
-
+    
+    // UI settings methods moved to public
+    void setShowMeasureNumbers(bool show);
+    void setShowKeySignature(bool show);
+    void setShowVoiceLabels(bool show);
+    bool showMeasureNumbers() const { return m_showMeasureNumbers; }
+    bool showKeySignature() const { return m_showKeySignature; }
+    bool showVoiceLabels() const { return m_showVoiceLabels; }
+    
 protected:
     void resizeEvent(QResizeEvent* event) override;
     void mousePressEvent(QMouseEvent* event) override;
@@ -97,17 +110,21 @@ private:
     QGraphicsRectItem* m_bottomExpandButton{nullptr};
     QGraphicsRectItem* m_rightExpandButton{nullptr};
 
-    // Helper method for duration toolbar
+    // Helper methods
     void setupDurationToolbar();
     QString getDurationName(double duration) const;
     void updateDurationLabel();
-
-    // Helper methods for note operations
     void deleteNoteAt(const QPointF& scenePos);
     void startNoteDrag(const QPointF& scenePos);
     void updateNoteDrag(const QPointF& scenePos);
     void finishNoteDrag(const QPointF& scenePos);
     void cycleDuration(); // Cycles through available note durations
+    
+private:
+    // UI display settings
+    bool m_showMeasureNumbers{true};
+    bool m_showKeySignature{true};
+    bool m_showVoiceLabels{true};
 };
 
 } // namespace MusicTrainer::presentation

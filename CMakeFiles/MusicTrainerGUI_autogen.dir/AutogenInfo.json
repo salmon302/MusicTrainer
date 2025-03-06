@@ -221,9 +221,33 @@
 	"HEADERS" : 
 	[
 		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/include/adapters/InMemoryExerciseRepository.h",
+			"MU",
+			"Z5RRMXQBWI/moc_InMemoryExerciseRepository.cpp",
+			null
+		],
+		[
 			"/home/seth-n/Documents/GitHub/MusicTrainer/include/domain/analysis/VoiceAnalyzer.h",
 			"MU",
 			"LV26KPTB6X/moc_VoiceAnalyzer.cpp",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/include/domain/exercises/Exercise.h",
+			"MU",
+			"357P74KKQ5/moc_Exercise.cpp",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/include/domain/exercises/ExerciseRepository.h",
+			"MU",
+			"357P74KKQ5/moc_ExerciseRepository.cpp",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/ExerciseBrowser.h",
+			"MU",
+			"5PPTR2THOO/moc_ExerciseBrowser.cpp",
 			null
 		],
 		[
@@ -260,6 +284,12 @@
 			"/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/ScoreView.h",
 			"MU",
 			"5PPTR2THOO/moc_ScoreView.cpp",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/SettingsDialog.h",
+			"MU",
+			"5PPTR2THOO/moc_SettingsDialog.cpp",
 			null
 		],
 		[
@@ -369,6 +399,11 @@
 			null
 		],
 		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ExerciseBrowser.cpp",
+			"MU",
+			null
+		],
+		[
 			"/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ExercisePanel.cpp",
 			"MU",
 			null
@@ -395,6 +430,11 @@
 		],
 		[
 			"/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ScoreView.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/SettingsDialog.cpp",
 			"MU",
 			null
 		],

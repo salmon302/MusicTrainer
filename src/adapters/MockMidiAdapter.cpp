@@ -114,6 +114,22 @@ void MockMidiAdapter::resetMetrics() {
 	metrics.lastEventTime = std::chrono::system_clock::now().time_since_epoch().count();
 }
 
+std::vector<std::string> MockMidiAdapter::getAvailableInputs() const {
+	// Return mock MIDI input devices
+	return {
+		"Mock MIDI Input 1",
+		"Mock MIDI Input 2"
+	};
+}
+
+std::vector<std::string> MockMidiAdapter::getAvailableOutputs() const {
+	// Return mock MIDI output devices
+	return {
+		"Mock MIDI Output 1",
+		"Mock MIDI Output 2"
+	};
+}
+
 void MockMidiAdapter::simulateError() {
 	metrics.errorCount++;
 	

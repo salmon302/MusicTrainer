@@ -209,10 +209,38 @@ CMakeFiles/MusicTrainerGUI.dir/src/presentation/FeedbackArea.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MusicTrainerGUI.dir/src/presentation/FeedbackArea.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/FeedbackArea.cpp -o CMakeFiles/MusicTrainerGUI.dir/src/presentation/FeedbackArea.cpp.s
 
+CMakeFiles/MusicTrainerGUI.dir/src/presentation/ExerciseBrowser.cpp.o: CMakeFiles/MusicTrainerGUI.dir/flags.make
+CMakeFiles/MusicTrainerGUI.dir/src/presentation/ExerciseBrowser.cpp.o: src/presentation/ExerciseBrowser.cpp
+CMakeFiles/MusicTrainerGUI.dir/src/presentation/ExerciseBrowser.cpp.o: CMakeFiles/MusicTrainerGUI.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/MusicTrainerGUI.dir/src/presentation/ExerciseBrowser.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MusicTrainerGUI.dir/src/presentation/ExerciseBrowser.cpp.o -MF CMakeFiles/MusicTrainerGUI.dir/src/presentation/ExerciseBrowser.cpp.o.d -o CMakeFiles/MusicTrainerGUI.dir/src/presentation/ExerciseBrowser.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ExerciseBrowser.cpp
+
+CMakeFiles/MusicTrainerGUI.dir/src/presentation/ExerciseBrowser.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MusicTrainerGUI.dir/src/presentation/ExerciseBrowser.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ExerciseBrowser.cpp > CMakeFiles/MusicTrainerGUI.dir/src/presentation/ExerciseBrowser.cpp.i
+
+CMakeFiles/MusicTrainerGUI.dir/src/presentation/ExerciseBrowser.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MusicTrainerGUI.dir/src/presentation/ExerciseBrowser.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ExerciseBrowser.cpp -o CMakeFiles/MusicTrainerGUI.dir/src/presentation/ExerciseBrowser.cpp.s
+
+CMakeFiles/MusicTrainerGUI.dir/src/presentation/SettingsDialog.cpp.o: CMakeFiles/MusicTrainerGUI.dir/flags.make
+CMakeFiles/MusicTrainerGUI.dir/src/presentation/SettingsDialog.cpp.o: src/presentation/SettingsDialog.cpp
+CMakeFiles/MusicTrainerGUI.dir/src/presentation/SettingsDialog.cpp.o: CMakeFiles/MusicTrainerGUI.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/MusicTrainerGUI.dir/src/presentation/SettingsDialog.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MusicTrainerGUI.dir/src/presentation/SettingsDialog.cpp.o -MF CMakeFiles/MusicTrainerGUI.dir/src/presentation/SettingsDialog.cpp.o.d -o CMakeFiles/MusicTrainerGUI.dir/src/presentation/SettingsDialog.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/SettingsDialog.cpp
+
+CMakeFiles/MusicTrainerGUI.dir/src/presentation/SettingsDialog.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MusicTrainerGUI.dir/src/presentation/SettingsDialog.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/SettingsDialog.cpp > CMakeFiles/MusicTrainerGUI.dir/src/presentation/SettingsDialog.cpp.i
+
+CMakeFiles/MusicTrainerGUI.dir/src/presentation/SettingsDialog.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MusicTrainerGUI.dir/src/presentation/SettingsDialog.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/SettingsDialog.cpp -o CMakeFiles/MusicTrainerGUI.dir/src/presentation/SettingsDialog.cpp.s
+
 CMakeFiles/MusicTrainerGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.o: CMakeFiles/MusicTrainerGUI.dir/flags.make
 CMakeFiles/MusicTrainerGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.o: src/presentation/viewmodels/ScoreViewModel.cpp
 CMakeFiles/MusicTrainerGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.o: CMakeFiles/MusicTrainerGUI.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/MusicTrainerGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/MusicTrainerGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MusicTrainerGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.o -MF CMakeFiles/MusicTrainerGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.o.d -o CMakeFiles/MusicTrainerGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/viewmodels/ScoreViewModel.cpp
 
 CMakeFiles/MusicTrainerGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.i: cmake_force
@@ -226,7 +254,7 @@ CMakeFiles/MusicTrainerGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.s:
 CMakeFiles/MusicTrainerGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.o: CMakeFiles/MusicTrainerGUI.dir/flags.make
 CMakeFiles/MusicTrainerGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.o: src/domain/analysis/VoiceAnalyzer.cpp
 CMakeFiles/MusicTrainerGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.o: CMakeFiles/MusicTrainerGUI.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/MusicTrainerGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/MusicTrainerGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MusicTrainerGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.o -MF CMakeFiles/MusicTrainerGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.o.d -o CMakeFiles/MusicTrainerGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/analysis/VoiceAnalyzer.cpp
 
 CMakeFiles/MusicTrainerGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.i: cmake_force
@@ -240,7 +268,7 @@ CMakeFiles/MusicTrainerGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.s: cmake_fo
 CMakeFiles/MusicTrainerGUI.dir/src/presentation/VoiceChart.cpp.o: CMakeFiles/MusicTrainerGUI.dir/flags.make
 CMakeFiles/MusicTrainerGUI.dir/src/presentation/VoiceChart.cpp.o: src/presentation/VoiceChart.cpp
 CMakeFiles/MusicTrainerGUI.dir/src/presentation/VoiceChart.cpp.o: CMakeFiles/MusicTrainerGUI.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/MusicTrainerGUI.dir/src/presentation/VoiceChart.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/MusicTrainerGUI.dir/src/presentation/VoiceChart.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MusicTrainerGUI.dir/src/presentation/VoiceChart.cpp.o -MF CMakeFiles/MusicTrainerGUI.dir/src/presentation/VoiceChart.cpp.o.d -o CMakeFiles/MusicTrainerGUI.dir/src/presentation/VoiceChart.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/VoiceChart.cpp
 
 CMakeFiles/MusicTrainerGUI.dir/src/presentation/VoiceChart.cpp.i: cmake_force
@@ -263,6 +291,8 @@ MusicTrainerGUI_OBJECTS = \
 "CMakeFiles/MusicTrainerGUI.dir/src/presentation/TransportControls.cpp.o" \
 "CMakeFiles/MusicTrainerGUI.dir/src/presentation/ExercisePanel.cpp.o" \
 "CMakeFiles/MusicTrainerGUI.dir/src/presentation/FeedbackArea.cpp.o" \
+"CMakeFiles/MusicTrainerGUI.dir/src/presentation/ExerciseBrowser.cpp.o" \
+"CMakeFiles/MusicTrainerGUI.dir/src/presentation/SettingsDialog.cpp.o" \
 "CMakeFiles/MusicTrainerGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.o" \
 "CMakeFiles/MusicTrainerGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.o" \
 "CMakeFiles/MusicTrainerGUI.dir/src/presentation/VoiceChart.cpp.o"
@@ -280,6 +310,8 @@ bin/MusicTrainerGUI: CMakeFiles/MusicTrainerGUI.dir/src/presentation/GridCell.cp
 bin/MusicTrainerGUI: CMakeFiles/MusicTrainerGUI.dir/src/presentation/TransportControls.cpp.o
 bin/MusicTrainerGUI: CMakeFiles/MusicTrainerGUI.dir/src/presentation/ExercisePanel.cpp.o
 bin/MusicTrainerGUI: CMakeFiles/MusicTrainerGUI.dir/src/presentation/FeedbackArea.cpp.o
+bin/MusicTrainerGUI: CMakeFiles/MusicTrainerGUI.dir/src/presentation/ExerciseBrowser.cpp.o
+bin/MusicTrainerGUI: CMakeFiles/MusicTrainerGUI.dir/src/presentation/SettingsDialog.cpp.o
 bin/MusicTrainerGUI: CMakeFiles/MusicTrainerGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.o
 bin/MusicTrainerGUI: CMakeFiles/MusicTrainerGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.o
 bin/MusicTrainerGUI: CMakeFiles/MusicTrainerGUI.dir/src/presentation/VoiceChart.cpp.o
@@ -296,7 +328,7 @@ bin/MusicTrainerGUI: /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.4.2
 bin/MusicTrainerGUI: /usr/lib/x86_64-linux-gnu/libGLX.so
 bin/MusicTrainerGUI: /usr/lib/x86_64-linux-gnu/libOpenGL.so
 bin/MusicTrainerGUI: CMakeFiles/MusicTrainerGUI.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable bin/MusicTrainerGUI"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable bin/MusicTrainerGUI"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MusicTrainerGUI.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -67,8 +67,8 @@ include _deps/rtmidi-build/CMakeFiles/midiout_autogen_timestamp_deps.dir/compile
 include _deps/rtmidi-build/CMakeFiles/midiout_autogen_timestamp_deps.dir/progress.make
 
 _deps/rtmidi-build/CMakeFiles/midiout_autogen_timestamp_deps: /usr/lib/qt6/libexec/uic
-_deps/rtmidi-build/CMakeFiles/midiout_autogen_timestamp_deps: _deps/rtmidi-build/librtmidi.so.6.0.0
 _deps/rtmidi-build/CMakeFiles/midiout_autogen_timestamp_deps: /usr/lib/qt6/libexec/moc
+_deps/rtmidi-build/CMakeFiles/midiout_autogen_timestamp_deps: _deps/rtmidi-build/librtmidi.so.6.0.0
 
 midiout_autogen_timestamp_deps: _deps/rtmidi-build/CMakeFiles/midiout_autogen_timestamp_deps
 midiout_autogen_timestamp_deps: _deps/rtmidi-build/CMakeFiles/midiout_autogen_timestamp_deps.dir/build.make

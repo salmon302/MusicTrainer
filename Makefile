@@ -2111,6 +2111,30 @@ src/adapters/EventSourcedRepository.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/adapters/EventSourcedRepository.cpp.s
 .PHONY : src/adapters/EventSourcedRepository.cpp.s
 
+src/adapters/InMemoryExerciseRepository.o: src/adapters/InMemoryExerciseRepository.cpp.o
+.PHONY : src/adapters/InMemoryExerciseRepository.o
+
+# target to build an object file
+src/adapters/InMemoryExerciseRepository.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/adapters/InMemoryExerciseRepository.cpp.o
+.PHONY : src/adapters/InMemoryExerciseRepository.cpp.o
+
+src/adapters/InMemoryExerciseRepository.i: src/adapters/InMemoryExerciseRepository.cpp.i
+.PHONY : src/adapters/InMemoryExerciseRepository.i
+
+# target to preprocess a source file
+src/adapters/InMemoryExerciseRepository.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/adapters/InMemoryExerciseRepository.cpp.i
+.PHONY : src/adapters/InMemoryExerciseRepository.cpp.i
+
+src/adapters/InMemoryExerciseRepository.s: src/adapters/InMemoryExerciseRepository.cpp.s
+.PHONY : src/adapters/InMemoryExerciseRepository.s
+
+# target to generate assembly for a file
+src/adapters/InMemoryExerciseRepository.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/adapters/InMemoryExerciseRepository.cpp.s
+.PHONY : src/adapters/InMemoryExerciseRepository.cpp.s
+
 src/adapters/InMemoryScoreRepository.o: src/adapters/InMemoryScoreRepository.cpp.o
 .PHONY : src/adapters/InMemoryScoreRepository.o
 
@@ -2473,6 +2497,30 @@ src/domain/events/Snapshot.s: src/domain/events/Snapshot.cpp.s
 src/domain/events/Snapshot.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/events/Snapshot.cpp.s
 .PHONY : src/domain/events/Snapshot.cpp.s
+
+src/domain/exercises/Exercise.o: src/domain/exercises/Exercise.cpp.o
+.PHONY : src/domain/exercises/Exercise.o
+
+# target to build an object file
+src/domain/exercises/Exercise.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/exercises/Exercise.cpp.o
+.PHONY : src/domain/exercises/Exercise.cpp.o
+
+src/domain/exercises/Exercise.i: src/domain/exercises/Exercise.cpp.i
+.PHONY : src/domain/exercises/Exercise.i
+
+# target to preprocess a source file
+src/domain/exercises/Exercise.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/exercises/Exercise.cpp.i
+.PHONY : src/domain/exercises/Exercise.cpp.i
+
+src/domain/exercises/Exercise.s: src/domain/exercises/Exercise.cpp.s
+.PHONY : src/domain/exercises/Exercise.s
+
+# target to generate assembly for a file
+src/domain/exercises/Exercise.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerLib.dir/build.make CMakeFiles/MusicTrainerLib.dir/src/domain/exercises/Exercise.cpp.s
+.PHONY : src/domain/exercises/Exercise.cpp.s
 
 src/domain/monitoring/PerformanceMonitor.o: src/domain/monitoring/PerformanceMonitor.cpp.o
 .PHONY : src/domain/monitoring/PerformanceMonitor.o
@@ -2858,6 +2906,33 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerV3.dir/build.make CMakeFiles/MusicTrainerV3.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/presentation/ExerciseBrowser.o: src/presentation/ExerciseBrowser.cpp.o
+.PHONY : src/presentation/ExerciseBrowser.o
+
+# target to build an object file
+src/presentation/ExerciseBrowser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/ExerciseBrowser.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/ExerciseBrowser.cpp.o
+.PHONY : src/presentation/ExerciseBrowser.cpp.o
+
+src/presentation/ExerciseBrowser.i: src/presentation/ExerciseBrowser.cpp.i
+.PHONY : src/presentation/ExerciseBrowser.i
+
+# target to preprocess a source file
+src/presentation/ExerciseBrowser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/ExerciseBrowser.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/ExerciseBrowser.cpp.i
+.PHONY : src/presentation/ExerciseBrowser.cpp.i
+
+src/presentation/ExerciseBrowser.s: src/presentation/ExerciseBrowser.cpp.s
+.PHONY : src/presentation/ExerciseBrowser.s
+
+# target to generate assembly for a file
+src/presentation/ExerciseBrowser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/ExerciseBrowser.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/ExerciseBrowser.cpp.s
+.PHONY : src/presentation/ExerciseBrowser.cpp.s
+
 src/presentation/ExercisePanel.o: src/presentation/ExercisePanel.cpp.o
 .PHONY : src/presentation/ExercisePanel.o
 
@@ -3019,6 +3094,33 @@ src/presentation/ScoreView.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/ScoreView.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/ScoreView.cpp.s
 .PHONY : src/presentation/ScoreView.cpp.s
+
+src/presentation/SettingsDialog.o: src/presentation/SettingsDialog.cpp.o
+.PHONY : src/presentation/SettingsDialog.o
+
+# target to build an object file
+src/presentation/SettingsDialog.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/SettingsDialog.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/SettingsDialog.cpp.o
+.PHONY : src/presentation/SettingsDialog.cpp.o
+
+src/presentation/SettingsDialog.i: src/presentation/SettingsDialog.cpp.i
+.PHONY : src/presentation/SettingsDialog.i
+
+# target to preprocess a source file
+src/presentation/SettingsDialog.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/SettingsDialog.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/SettingsDialog.cpp.i
+.PHONY : src/presentation/SettingsDialog.cpp.i
+
+src/presentation/SettingsDialog.s: src/presentation/SettingsDialog.cpp.s
+.PHONY : src/presentation/SettingsDialog.s
+
+# target to generate assembly for a file
+src/presentation/SettingsDialog.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/SettingsDialog.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/SettingsDialog.cpp.s
+.PHONY : src/presentation/SettingsDialog.cpp.s
 
 src/presentation/TransportControls.o: src/presentation/TransportControls.cpp.o
 .PHONY : src/presentation/TransportControls.o
@@ -3788,6 +3890,9 @@ help:
 	@echo "... src/adapters/EventSourcedRepository.o"
 	@echo "... src/adapters/EventSourcedRepository.i"
 	@echo "... src/adapters/EventSourcedRepository.s"
+	@echo "... src/adapters/InMemoryExerciseRepository.o"
+	@echo "... src/adapters/InMemoryExerciseRepository.i"
+	@echo "... src/adapters/InMemoryExerciseRepository.s"
 	@echo "... src/adapters/InMemoryScoreRepository.o"
 	@echo "... src/adapters/InMemoryScoreRepository.i"
 	@echo "... src/adapters/InMemoryScoreRepository.s"
@@ -3833,6 +3938,9 @@ help:
 	@echo "... src/domain/events/Snapshot.o"
 	@echo "... src/domain/events/Snapshot.i"
 	@echo "... src/domain/events/Snapshot.s"
+	@echo "... src/domain/exercises/Exercise.o"
+	@echo "... src/domain/exercises/Exercise.i"
+	@echo "... src/domain/exercises/Exercise.s"
 	@echo "... src/domain/monitoring/PerformanceMonitor.o"
 	@echo "... src/domain/monitoring/PerformanceMonitor.i"
 	@echo "... src/domain/monitoring/PerformanceMonitor.s"
@@ -3881,6 +3989,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/presentation/ExerciseBrowser.o"
+	@echo "... src/presentation/ExerciseBrowser.i"
+	@echo "... src/presentation/ExerciseBrowser.s"
 	@echo "... src/presentation/ExercisePanel.o"
 	@echo "... src/presentation/ExercisePanel.i"
 	@echo "... src/presentation/ExercisePanel.s"
@@ -3899,6 +4010,9 @@ help:
 	@echo "... src/presentation/ScoreView.o"
 	@echo "... src/presentation/ScoreView.i"
 	@echo "... src/presentation/ScoreView.s"
+	@echo "... src/presentation/SettingsDialog.o"
+	@echo "... src/presentation/SettingsDialog.i"
+	@echo "... src/presentation/SettingsDialog.s"
 	@echo "... src/presentation/TransportControls.o"
 	@echo "... src/presentation/TransportControls.i"
 	@echo "... src/presentation/TransportControls.s"

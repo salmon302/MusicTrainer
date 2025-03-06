@@ -3,6 +3,11 @@
 #include "presentation/TransportControls.h"
 #include "presentation/ExercisePanel.h"
 #include "presentation/FeedbackArea.h"
+#include "presentation/ExerciseBrowser.h"
+#include "presentation/SettingsDialog.h"
+#include "adapters/InMemoryExerciseRepository.h"
+#include "domain/exercises/Exercise.h"
+#include "domain/rules/ValidationPipeline.h"
 #include "domain/music/Score.h"
 #include "domain/music/Voice.h"
 #include "domain/ports/MidiAdapter.h"
@@ -24,6 +29,12 @@ MainWindow::MainWindow(std::shared_ptr<ports::MidiAdapter> midiAdapter, QWidget 
     // Create a shared_ptr from the unique_ptr returned by Score::create()
     auto scorePtr = MusicTrainer::music::Score::create();
     m_score = std::shared_ptr<MusicTrainer::music::Score>(scorePtr.release());
+    
+    // Initialize exercise repository
+    m_exerciseRepository = adapters::InMemoryExerciseRepository::create();
+    
+    // Initialize validation pipeline
+    m_validationPipeline = music::rules::ValidationPipeline::create();
     
     setWindowTitle(tr("MusicTrainer"));
     resize(1024, 768);
@@ -203,6 +214,41 @@ void MainWindow::connectSignals()
                     // Handle exercise type change
                     qDebug() << "Exercise type changed to:" << exerciseType;
                 });
+                
+        // Connect check solution button
+        connect(m_exercisePanel, &ExercisePanel::checkSolutionRequested,
+                this, &MainWindow::validateExercise);
+                
+        // Connect hint button
+        connect(m_exercisePanel, &ExercisePanel::hintRequested,
+                this, [this](int level) {
+                    // Handle hint request
+                    qDebug() << "Hint requested at level:" << level;
+                    
+                    // Show a simple hint for now
+                    QString hint;
+                    if (m_currentExercise) {
+                        switch (level) {
+                            case 0: // Minimal hint
+                                hint = tr("Check the rules for this exercise type.");
+                                break;
+                            case 1: // Medium hint
+                                hint = tr("Look for parallel fifths or octaves in your counterpoint.");
+                                break;
+                            case 2: // Detailed hint
+                                hint = tr("Make sure your melodic line has a good balance of steps and leaps, "
+                                         "and that you approach perfect consonances by contrary or oblique motion.");
+                                break;
+                            default:
+                                hint = tr("Review the exercise description for guidance.");
+                                break;
+                        }
+                    } else {
+                        hint = tr("No exercise is currently loaded.");
+                    }
+                    
+                    QMessageBox::information(this, tr("Hint"), hint);
+                });
     }
 }
 
@@ -241,16 +287,56 @@ void MainWindow::setupStatusBar()
 
 void MainWindow::onExerciseBrowserRequested()
 {
-    // TODO: Implement exercise browser
-    QMessageBox::information(this, tr("Not Implemented"),
-        tr("Exercise browser not yet implemented."));
+    auto* browser = new ExerciseBrowser(this);
+    
+    // Set the exercise repository
+    browser->setExerciseRepository(m_exerciseRepository);
+    
+    // Show the dialog as modal
+    if (browser->exec() == QDialog::Accepted) {
+        auto selectedExercise = browser->getSelectedExercise();
+        if (selectedExercise) {
+            // Load the selected exercise
+            loadExercise(selectedExercise);
+            
+            // Update status bar
+            statusBar()->showMessage(tr("Exercise loaded: %1").arg(QString::fromStdString(selectedExercise->getName())), 3000);
+        }
+    }
+    
+    // Dialog is automatically deleted when closed
 }
 
 void MainWindow::onSettingsDialogRequested()
 {
-    // Placeholder for settings dialog
-    QMessageBox::information(this, tr("Settings"),
-                             tr("Settings dialog will be implemented in a future update."));
+    auto* settingsDialog = new SettingsDialog(m_midiAdapter, this);
+    
+    // Show the dialog as modal
+    if (settingsDialog->exec() == QDialog::Accepted) {
+        // In a complete implementation, we would apply the settings
+        // For now, just update the status bar
+        statusBar()->showMessage(tr("Settings saved"), 3000);
+        
+        // Update UI components based on settings
+        // This would be more comprehensive in a complete implementation
+        QSettings settings;
+        
+        // Update score view with UI settings
+        settings.beginGroup("UI");
+        bool showMeasureNumbers = settings.value("ShowMeasureNumbers", true).toBool();
+        bool showKeySignature = settings.value("ShowKeySignature", true).toBool();
+        bool showVoiceLabels = settings.value("ShowVoiceLabels", true).toBool();
+        settings.endGroup();
+        
+        // Apply settings to score view
+        if (m_scoreView) {
+            m_scoreView->setShowMeasureNumbers(showMeasureNumbers);
+            m_scoreView->setShowKeySignature(showKeySignature);
+            m_scoreView->setShowVoiceLabels(showVoiceLabels);
+        }
+    }
+    
+    // Dialog is automatically deleted when closed
 }
 
 void MainWindow::onAboutDialogRequested()
@@ -260,6 +346,106 @@ void MainWindow::onAboutDialogRequested()
                           "<p>Version 1.0.0</p>"
                           "<p>A music theory and composition training application.</p>"
                           "<p>Copyright © 2023</p>"));
+}
+
+void MainWindow::loadExercise(std::shared_ptr<domain::exercises::Exercise> exercise)
+{
+    if (!exercise) {
+        return;
+    }
+    
+    // Store the current exercise
+    m_currentExercise = exercise;
+    
+    // Update the exercise panel with the exercise description
+    m_exercisePanel->setExerciseDescription(QString::fromStdString(exercise->getDescription()));
+    m_exercisePanel->setProgress(0);
+    m_exercisePanel->clearRuleViolations();
+    
+    // Clear the feedback area
+    m_feedbackArea->clearFeedback();
+    
+    // If the exercise has a template score, use it
+    if (exercise->getTemplateScore()) {
+        // Create a copy of the template score
+        auto scorePtr = MusicTrainer::music::Score::create();
+        m_score = std::shared_ptr<MusicTrainer::music::Score>(scorePtr.release());
+        
+        // TODO: Copy the template score to the new score
+        
+        // Update the score view
+        m_scoreView->setScore(m_score);
+    }
+    
+    // Set up the validation pipeline with the exercise rules
+    m_validationPipeline = music::rules::ValidationPipeline::create();
+    
+    // Add all rules from the exercise to the validation pipeline
+    for (const auto& rule : exercise->getRules()) {
+        if (rule) {
+            // Clone the rule to avoid modifying the original
+            m_validationPipeline->addRule(std::unique_ptr<music::rules::Rule>(rule->clone()));
+        }
+    }
+    
+    // Compile the rules
+    m_validationPipeline->compileRules();
+}
+
+void MainWindow::validateExercise()
+{
+    if (!m_score || !m_currentExercise || !m_validationPipeline) {
+        QMessageBox::warning(this, tr("Validation Error"),
+                            tr("No exercise is currently loaded."));
+        return;
+    }
+    
+    // Clear previous validation results
+    m_exercisePanel->clearRuleViolations();
+    m_feedbackArea->clearFeedback();
+    
+    // Validate the score
+    bool result = m_validationPipeline->validate(*m_score);
+    
+    if (result) {
+        // Score passed validation
+        QMessageBox::information(this, tr("Validation Result"),
+                                tr("Your solution is correct! All rules are satisfied."));
+        
+        // Update progress
+        m_exercisePanel->setProgress(100);
+        
+        // Add a success message to the feedback area
+        m_feedbackArea->addValidationMessage(tr("Your solution is correct! All rules are satisfied."), false);
+    } else {
+        // Score failed validation
+        QMessageBox::warning(this, tr("Validation Result"),
+                            tr("Your solution has rule violations. See the feedback area for details."));
+        
+        // Get the violations
+        auto violations = m_validationPipeline->getViolations();
+        
+        // Add violations to the exercise panel and feedback area
+        for (const auto& violation : violations) {
+            // Add to exercise panel
+            m_exercisePanel->addRuleViolation(QString::fromStdString(violation), nullptr, 2);
+            
+            // Add to feedback area
+            m_feedbackArea->addValidationMessage(QString::fromStdString(violation), true);
+        }
+        
+        // Update progress based on number of violations
+        int progress = std::max(0, 100 - static_cast<int>(violations.size() * 20));
+        m_exercisePanel->setProgress(progress);
+    }
+    
+    // Get feedback from the validation pipeline
+    auto feedback = m_validationPipeline->getFeedback();
+    
+    // Update the feedback area with the score
+    if (m_score) {
+        m_feedbackArea->updateWithScore(*m_score);
+    }
 }
 
 } // namespace MusicTrainer::presentation

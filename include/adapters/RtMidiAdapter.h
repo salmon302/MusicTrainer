@@ -29,7 +29,8 @@ public:
     ports::MidiPortMetrics getMetrics() const override;
     void resetMetrics() override;
     
-    // Implementation of getAvailableOutputs from MidiAdapter interface
+    // Implementation of device enumeration methods from MidiAdapter interface
+    std::vector<std::string> getAvailableInputs() const override;
     std::vector<std::string> getAvailableOutputs() const override;
     
     ~RtMidiAdapter() override;

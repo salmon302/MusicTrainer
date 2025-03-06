@@ -141,7 +141,9 @@ set(LIB_SOURCES
 	src/domain/events/EventBus.cpp
 	src/domain/events/NoteEventHandler.cpp
 	src/domain/events/Snapshot.cpp
+	src/domain/exercises/Exercise.cpp
 	src/adapters/InMemoryScoreRepository.cpp
+	src/adapters/InMemoryExerciseRepository.cpp
 	src/adapters/MockMidiAdapter.cpp
 	src/adapters/TemplateBasedExerciseGenerator.cpp
 	src/adapters/EventSourcedRepository.cpp
@@ -202,6 +204,8 @@ set(GUI_SOURCES
     src/presentation/TransportControls.cpp
     src/presentation/ExercisePanel.cpp
     src/presentation/FeedbackArea.cpp
+    src/presentation/ExerciseBrowser.cpp
+    src/presentation/SettingsDialog.cpp
     src/presentation/viewmodels/ScoreViewModel.cpp
     src/domain/analysis/VoiceAnalyzer.cpp
     src/presentation/VoiceChart.cpp
@@ -217,9 +221,14 @@ set(GUI_HEADERS
     include/presentation/TransportControls.h
     include/presentation/ExercisePanel.h
     include/presentation/FeedbackArea.h
+    include/presentation/ExerciseBrowser.h
+    include/presentation/SettingsDialog.h
     include/presentation/viewmodels/ScoreViewModel.h
     include/domain/analysis/VoiceAnalyzer.h
     include/presentation/VoiceChart.h
+    include/domain/exercises/Exercise.h
+    include/domain/exercises/ExerciseRepository.h
+    include/adapters/InMemoryExerciseRepository.h
 )
 
 # Test-only sources
@@ -247,22 +256,11 @@ set(MUSICTRAINERGUI_SOURCES
     src/presentation/TransportControls.cpp
     src/presentation/ExercisePanel.cpp
     src/presentation/FeedbackArea.cpp
+    src/presentation/ExerciseBrowser.cpp
+    src/presentation/SettingsDialog.cpp
     src/presentation/viewmodels/ScoreViewModel.cpp
     src/domain/analysis/VoiceAnalyzer.cpp
     src/presentation/VoiceChart.cpp
-)
-
-set(GUI_HEADERS
-    include/presentation/MainWindow.h
-    include/presentation/ScoreView.h
-    include/presentation/ViewportManager.h
-    include/presentation/NoteGrid.h
-    include/presentation/GridCell.h
-    include/presentation/TransportControls.h
-    include/presentation/ExercisePanel.h
-    include/presentation/FeedbackArea.h
-    include/presentation/viewmodels/ScoreViewModel.h
-    include/presentation/VoiceChart.h
 )
 
 set(MUSICTRAINERGUI_HEADERS
@@ -274,10 +272,14 @@ set(MUSICTRAINERGUI_HEADERS
     include/presentation/TransportControls.h
     include/presentation/ExercisePanel.h
     include/presentation/FeedbackArea.h
+    include/presentation/ExerciseBrowser.h
+    include/presentation/SettingsDialog.h
     include/presentation/viewmodels/ScoreViewModel.h
     include/presentation/VoiceChart.h
     include/domain/analysis/VoiceAnalyzer.h
-    include/presentation/VoiceChart.h
+    include/domain/exercises/Exercise.h
+    include/domain/exercises/ExerciseRepository.h
+    include/adapters/InMemoryExerciseRepository.h
 )
 
 # Include directories
@@ -311,8 +313,8 @@ if(Qt${QT_VERSION_MAJOR}_FOUND)
         MACOSX_BUNDLE TRUE
     )
     
-    # Add the test GUI application
-    add_executable(TestGUI src/presentation/test_gui.cpp ${GUI_SOURCES} ${GUI_HEADERS})
+    # Add the test GUI application - use the same headers as MusicTrainerGUI
+    add_executable(TestGUI src/presentation/test_gui.cpp ${MUSICTRAINERGUI_SOURCES} ${MUSICTRAINERGUI_HEADERS})
     target_link_libraries(TestGUI PRIVATE 
         MusicTrainerLib 
         Qt${QT_VERSION_MAJOR}::Core 

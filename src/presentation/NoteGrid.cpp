@@ -85,11 +85,11 @@ NoteGrid::GridDimensions NoteGrid::validateDimensions(const GridDimensions& dime
 
 void NoteGrid::setDimensions(const GridDimensions& dimensions)
 {
-    // Store the previous dimensions for comparison
+    // Store previous dimensions
     GridDimensions oldDimensions = m_dimensions;
     GridDimensions validDimensions = validateDimensions(dimensions);
     
-    // Skip update if dimensions haven't changed
+    // Skip if no meaningful change
     if (oldDimensions.minPitch == validDimensions.minPitch &&
         oldDimensions.maxPitch == validDimensions.maxPitch &&
         oldDimensions.startPosition == validDimensions.startPosition &&
@@ -100,57 +100,36 @@ void NoteGrid::setDimensions(const GridDimensions& dimensions)
     // Update dimensions
     m_dimensions = validDimensions;
     
-    qDebug() << "NoteGrid::setDimensions - Old:" << oldDimensions.minPitch << "-" << oldDimensions.maxPitch
-             << "New:" << m_dimensions.minPitch << "-" << m_dimensions.maxPitch
-             << "Range:" << (m_dimensions.maxPitch - m_dimensions.minPitch);
-    
-    // Hide notes that are now outside the visible range
-    for (auto& posEntry : m_gridCells) {
-        for (auto& pitchEntry : posEntry.second) {
-            auto cell = pitchEntry.second.get();
-            if (cell) {
-                // Check if the note's pitch is outside the new range
-                if (pitchEntry.first < m_dimensions.minPitch || 
-                    pitchEntry.first >= m_dimensions.maxPitch) {
-                    cell->clear();
-                }
-            }
-        }
-    }
-
-    // Calculate new scene rect with margins for labels and expansion buttons
+    // Calculate margins
     float labelMargin = 25.0f;
-    float pitchRangeHeight = (m_dimensions.maxPitch - m_dimensions.minPitch + 2) * NOTE_HEIGHT;
+    float topMargin = 30.0f;
+    float bottomMargin = 15.0f;
     
+    // Calculate total height needed
+    float pitchRangeHeight = (m_dimensions.maxPitch - m_dimensions.minPitch) * NOTE_HEIGHT;
+    float totalHeight = pitchRangeHeight + topMargin + bottomMargin;
+    
+    // Calculate new scene rect with all margins
     QRectF newSceneRect(
-        -labelMargin,  // Space for labels
-        (m_dimensions.minPitch - 1) * NOTE_HEIGHT,  // Extra space for expansion button
-        m_dimensions.endPosition * GRID_UNIT + 2 * labelMargin,  // Width plus margins
-        pitchRangeHeight  // Full pitch range height plus space for buttons
+        -labelMargin,
+        m_dimensions.minPitch * NOTE_HEIGHT - topMargin,
+        m_dimensions.endPosition * GRID_UNIT + 2 * labelMargin,
+        totalHeight
     );
-
-    // Block signals during scene rect update
-    m_scene->blockSignals(true);
     
-    // Update scene rect
+    // Update scene bounds
     m_scene->setSceneRect(newSceneRect);
     
-    // Create bounds for grid update that cover the full pitch range
-    QRectF gridBounds(
-        m_dimensions.startPosition * GRID_UNIT,
-        m_dimensions.minPitch * NOTE_HEIGHT,
-        (m_dimensions.endPosition - m_dimensions.startPosition) * GRID_UNIT,
-        (m_dimensions.maxPitch - m_dimensions.minPitch) * NOTE_HEIGHT
-    );
-    
     // Update grid visuals
-    updateGrid(gridBounds);
+    updateGrid(newSceneRect);
     
-    // Re-enable signals and force update of the changed region
-    m_scene->blockSignals(false);
-    
-    // Update the entire affected area
+    // Force complete scene update
     m_scene->update(m_scene->sceneRect());
+    
+    qDebug() << "NoteGrid::setDimensions - Updated dimensions:"
+             << "Pitch range:" << m_dimensions.minPitch << "-" << m_dimensions.maxPitch
+             << "Range:" << (m_dimensions.maxPitch - m_dimensions.minPitch)
+             << "Scene height:" << totalHeight;
 }
 
 void NoteGrid::expandVertical(int minPitchDelta, int maxPitchDelta)
@@ -335,30 +314,41 @@ void NoteGrid::updateGrid(const QRectF& bounds)
     int minPitch = qBound(0, qFloor(bounds.top() / NOTE_HEIGHT), 127);
     int maxPitch = qBound(0, qCeil(bounds.bottom() / NOTE_HEIGHT), 127);
     
-    // Skip update if bounds haven't changed
+    // Calculate margins and total height needed
+    float topMargin = 30.0f;     // Space for measure numbers and top button
+    float bottomMargin = 15.0f;  // Space for bottom button
+    float labelMargin = 25.0f;   // Space for octave labels
+    
+    // Calculate effective height based on actual pitch range
+    float effectivePitchRange = m_dimensions.maxPitch - m_dimensions.minPitch;
+    float pitchRangeHeight = effectivePitchRange * NOTE_HEIGHT;
+    float totalHeight = pitchRangeHeight + topMargin + bottomMargin;
+    
+    // Skip update if bounds haven't changed significantly
     static QRectF lastBounds;
-    if (lastBounds == bounds) {
+    if (qAbs(lastBounds.top() - bounds.top()) < 1.0 &&
+        qAbs(lastBounds.bottom() - bounds.bottom()) < 1.0 &&
+        qAbs(lastBounds.left() - bounds.left()) < 1.0 &&
+        qAbs(lastBounds.right() - bounds.right()) < 1.0) {
         return;
     }
     lastBounds = bounds;
     
-    // Construct valid bounds in scene coordinates
-    QRectF validBounds(
-        startPos * GRID_UNIT,
-        minPitch * NOTE_HEIGHT,
-        (endPos - startPos) * GRID_UNIT,
-        (maxPitch - minPitch) * NOTE_HEIGHT
+    // Calculate scene rect that encompasses all content plus margins
+    QRectF sceneRect(
+        -labelMargin,  // Space for labels on left
+        m_dimensions.minPitch * NOTE_HEIGHT - topMargin,  // Account for top margin
+        m_dimensions.endPosition * GRID_UNIT + 2 * labelMargin,  // Width plus margins
+        totalHeight  // Full height including margins
     );
     
-    qDebug() << "NoteGrid::updateGrid - Original bounds:" << bounds
-             << "Grid bounds:" << validBounds
-             << "Musical coords - Time:" << startPos << "-" << endPos
-             << "Pitch:" << minPitch << "-" << maxPitch;
+    // Update scene bounds
+    m_scene->setSceneRect(sceneRect);
     
-    // Block updates while modifying scene
+    // Block updates during grid refresh
     m_scene->blockSignals(true);
     
-    // Only clear and update grid elements if really needed
+    // Only update grid lines if musical coordinates changed significantly
     static int lastStartPos = -1;
     static int lastEndPos = -1;
     static int lastMinPitch = -1;
@@ -371,7 +361,7 @@ void NoteGrid::updateGrid(const QRectF& bounds)
                       
     if (needsUpdate) {
         clearGridElements();
-        updateGridLines(validBounds, 1.0f);
+        updateGridLines(sceneRect, 1.0f);
         
         lastStartPos = startPos;
         lastEndPos = endPos;
@@ -381,14 +371,9 @@ void NoteGrid::updateGrid(const QRectF& bounds)
     
     m_scene->blockSignals(false);
     
-    // Only request scene update for the affected area
-    m_scene->update(validBounds);
-    
-    // Only request scene update for the affected area
-    m_scene->update(validBounds);
-    
-    // Request view update if needed
-    if (needsUpdate && m_scene->views().size() > 0) {
+    // Request updates
+    m_scene->update(sceneRect);
+    if (m_scene->views().size() > 0) {
         m_scene->views().first()->viewport()->update();
     }
 }
@@ -698,22 +683,52 @@ void NoteGrid::updateGridLineItems(bool majorLines)
 
 void NoteGrid::clearGridElements()
 {
-    // Remove only grid lines and labels while preserving note cells
+    // First ensure all items are properly parented to the scene
     for (auto* item : m_horizontalLines) {
-        m_scene->removeItem(item);
-        delete item;
+        if (item && item->scene() != m_scene) {
+            m_scene->addItem(item);
+        }
     }
     for (auto* item : m_verticalLines) {
-        m_scene->removeItem(item);
-        delete item;
+        if (item && item->scene() != m_scene) {
+            m_scene->addItem(item);
+        }
     }
     for (auto* item : m_majorHorizontalLines) {
-        m_scene->removeItem(item);
-        delete item;
+        if (item && item->scene() != m_scene) {
+            m_scene->addItem(item);
+        }
     }
     for (auto* item : m_majorVerticalLines) {
-        m_scene->removeItem(item);
-        delete item;
+        if (item && item->scene() != m_scene) {
+            m_scene->addItem(item);
+        }
+    }
+
+    // Now remove and delete items
+    for (auto* item : m_horizontalLines) {
+        if (item && item->scene() == m_scene) {
+            m_scene->removeItem(item);
+            delete item;
+        }
+    }
+    for (auto* item : m_verticalLines) {
+        if (item && item->scene() == m_scene) {
+            m_scene->removeItem(item);
+            delete item;
+        }
+    }
+    for (auto* item : m_majorHorizontalLines) {
+        if (item && item->scene() == m_scene) {
+            m_scene->removeItem(item);
+            delete item;
+        }
+    }
+    for (auto* item : m_majorVerticalLines) {
+        if (item && item->scene() == m_scene) {
+            m_scene->removeItem(item);
+            delete item;
+        }
     }
 
     m_horizontalLines.clear();

@@ -37,6 +37,14 @@ public:
 	double getTotalBeats() const;
 	std::string toString() const;
 
+	// Type checking methods
+	bool isWhole() const { return baseType == Type::WHOLE; }
+	bool isHalf() const { return baseType == Type::HALF; }
+	bool isQuarter() const { return baseType == Type::QUARTER; }
+	bool isEighth() const { return baseType == Type::EIGHTH; }
+	bool isSixteenth() const { return baseType == Type::SIXTEENTH; }
+	bool isThirtySecond() const { return baseType == Type::THIRTY_SECOND; }
+
 	// Value semantics
 	bool operator==(const Duration& other) const;
 	bool operator!=(const Duration& other) const;

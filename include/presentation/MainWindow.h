@@ -3,14 +3,25 @@
 #include <QMainWindow>
 #include <QSettings>
 #include <memory>
+#include "domain/exercises/Exercise.h"
+#include "domain/exercises/ExerciseRepository.h"
+#include "domain/rules/ValidationPipeline.h"
 
 // Forward declarations
 class QDockWidget;
 
-// Correct namespace for Score
 namespace MusicTrainer {
+namespace domain {
+namespace exercises {
+    class Exercise;
+    class ExerciseRepository;
+}
+}
 namespace music {
     class Score;
+    namespace rules {
+        class ValidationPipeline;
+    }
 }
 namespace ports {
     class MidiAdapter;
@@ -48,6 +59,9 @@ private:
 
     std::shared_ptr<ports::MidiAdapter> m_midiAdapter;
     std::shared_ptr<MusicTrainer::music::Score> m_score; // Fully qualified namespace
+    std::shared_ptr<domain::exercises::ExerciseRepository> m_exerciseRepository;
+    std::shared_ptr<domain::exercises::Exercise> m_currentExercise;
+    std::unique_ptr<music::rules::ValidationPipeline> m_validationPipeline;
 
     // UI Components
     ScoreView* m_scoreView{nullptr};
@@ -59,6 +73,10 @@ private:
     QDockWidget* m_transportDock{nullptr};
     QDockWidget* m_exerciseDock{nullptr};
     QDockWidget* m_feedbackDock{nullptr};
+    
+    // Exercise handling
+    void loadExercise(std::shared_ptr<domain::exercises::Exercise> exercise);
+    void validateExercise();
 };
 
 } // namespace presentation

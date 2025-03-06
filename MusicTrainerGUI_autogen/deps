@@ -4,31 +4,42 @@ MusicTrainerGUI_autogen/timestamp: \
 	/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles/3.28.3/CMakeSystem.cmake \
 	/home/seth-n/Documents/GitHub/MusicTrainer/CMakeLists.txt \
 	/home/seth-n/Documents/GitHub/MusicTrainer/MusicTrainerGUI_autogen/moc_predefs.h \
+	/home/seth-n/Documents/GitHub/MusicTrainer/include/adapters/InMemoryExerciseRepository.h \
 	/home/seth-n/Documents/GitHub/MusicTrainer/include/domain/analysis/VoiceAnalyzer.h \
+	/home/seth-n/Documents/GitHub/MusicTrainer/include/domain/exercises/Exercise.h \
+	/home/seth-n/Documents/GitHub/MusicTrainer/include/domain/exercises/ExerciseRepository.h \
 	/home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Duration.h \
 	/home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Interval.h \
 	/home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Note.h \
 	/home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Pitch.h \
 	/home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Score.h \
 	/home/seth-n/Documents/GitHub/MusicTrainer/include/domain/music/Voice.h \
+	/home/seth-n/Documents/GitHub/MusicTrainer/include/domain/rules/IncrementalRule.h \
+	/home/seth-n/Documents/GitHub/MusicTrainer/include/domain/rules/Rule.h \
+	/home/seth-n/Documents/GitHub/MusicTrainer/include/domain/rules/ValidationPipeline.h \
+	/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/ExerciseBrowser.h \
 	/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/ExercisePanel.h \
 	/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/FeedbackArea.h \
 	/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/GridCell.h \
 	/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/GridConstants.h \
+	/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/GridTypes.h \
 	/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/MainWindow.h \
 	/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/NoteGrid.h \
 	/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/ScoreView.h \
+	/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/SettingsDialog.h \
 	/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/TransportControls.h \
 	/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/ViewportManager.h \
 	/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/VoiceChart.h \
 	/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/viewmodels/ScoreViewModel.h \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/domain/analysis/VoiceAnalyzer.cpp \
+	/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ExerciseBrowser.cpp \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ExercisePanel.cpp \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/FeedbackArea.cpp \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/GridCell.cpp \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/MainWindow.cpp \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/NoteGrid.cpp \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ScoreView.cpp \
+	/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/SettingsDialog.cpp \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/TransportControls.cpp \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ViewportManager.cpp \
 	/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/VoiceChart.cpp \
@@ -59,6 +70,7 @@ MusicTrainerGUI_autogen/timestamp: \
 	/usr/include/c++/13/bits/c++0x_warning.h \
 	/usr/include/c++/13/bits/char_traits.h \
 	/usr/include/c++/13/bits/charconv.h \
+	/usr/include/c++/13/bits/chrono.h \
 	/usr/include/c++/13/bits/concept_check.h \
 	/usr/include/c++/13/bits/cpp_type_traits.h \
 	/usr/include/c++/13/bits/cxxabi_forced.h \
@@ -154,6 +166,7 @@ MusicTrainerGUI_autogen/timestamp: \
 	/usr/include/c++/13/cstdint \
 	/usr/include/c++/13/cstdlib \
 	/usr/include/c++/13/cstring \
+	/usr/include/c++/13/ctime \
 	/usr/include/c++/13/cwchar \
 	/usr/include/c++/13/cwctype \
 	/usr/include/c++/13/debug/assertions.h \
@@ -175,6 +188,7 @@ MusicTrainerGUI_autogen/timestamp: \
 	/usr/include/c++/13/list \
 	/usr/include/c++/13/map \
 	/usr/include/c++/13/memory \
+	/usr/include/c++/13/mutex \
 	/usr/include/c++/13/new \
 	/usr/include/c++/13/numbers \
 	/usr/include/c++/13/numeric \
@@ -184,6 +198,8 @@ MusicTrainerGUI_autogen/timestamp: \
 	/usr/include/c++/13/pstl/glue_algorithm_defs.h \
 	/usr/include/c++/13/pstl/glue_memory_defs.h \
 	/usr/include/c++/13/pstl/glue_numeric_defs.h \
+	/usr/include/c++/13/ratio \
+	/usr/include/c++/13/shared_mutex \
 	/usr/include/c++/13/stdexcept \
 	/usr/include/c++/13/streambuf \
 	/usr/include/c++/13/string \
@@ -312,6 +328,7 @@ MusicTrainerGUI_autogen/timestamp: \
 	/usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h \
 	/usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h \
 	/usr/include/x86_64-linux-gnu/c++/13/bits/ctype_inline.h \
+	/usr/include/x86_64-linux-gnu/c++/13/bits/error_constants.h \
 	/usr/include/x86_64-linux-gnu/c++/13/bits/gthr-default.h \
 	/usr/include/x86_64-linux-gnu/c++/13/bits/gthr.h \
 	/usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
@@ -320,9 +337,7 @@ MusicTrainerGUI_autogen/timestamp: \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/QAbstractListModel \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/QObject \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/QPointF \
-	/usr/include/x86_64-linux-gnu/qt6/QtCore/QRectF \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/QSettings \
-	/usr/include/x86_64-linux-gnu/qt6/QtCore/QSize \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qabstractitemmodel.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qalgorithms.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qanystringview.h \
@@ -448,6 +463,7 @@ MusicTrainerGUI_autogen/timestamp: \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QButtonGroup \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QCheckBox \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QComboBox \
+	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QDialog \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QGraphicsView \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QLabel \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QListWidget \
@@ -472,6 +488,7 @@ MusicTrainerGUI_autogen/timestamp: \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qbuttongroup.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qcheckbox.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qcombobox.h \
+	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdialog.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qframe.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicsscene.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicsview.h \

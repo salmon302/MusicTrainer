@@ -15,12 +15,34 @@ namespace music {
 class Voice {
 public:
     struct TimeSignature {
-        uint8_t beats;
-        uint8_t beatType;
+        uint8_t beats = 4;  // Initialize with common time defaults
+        uint8_t beatType = 4;
+        
+        TimeSignature() = default;  // Default constructor will use member initializers
+
+        TimeSignature(int beatsArg, const Duration& beatDuration) {
+            beats = beatsArg;
+            // Set beatType based on Duration - assuming Duration values map to standard notation
+            // where 1 = whole, 2 = half, 4 = quarter, 8 = eighth, 16 = sixteenth, etc.
+            if (beatDuration.isWhole()) {
+                beatType = 1;
+            } else if (beatDuration.isHalf()) {
+                beatType = 2;
+            } else if (beatDuration.isQuarter()) {
+                beatType = 4;
+            } else if (beatDuration.isEighth()) {
+                beatType = 8;
+            } else if (beatDuration.isSixteenth()) {
+                beatType = 16;
+            } else {
+                beatType = 4; // Default to quarter note if unrecognized
+            }
+        }
         
         static TimeSignature commonTime() {
-            return {4, 4};
+            return TimeSignature{};  // Will use the default member initializers
         }
+        
         bool operator==(const TimeSignature& other) const {
             return beats == other.beats && beatType == other.beatType;
         }

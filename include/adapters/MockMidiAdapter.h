@@ -10,6 +10,7 @@
 #include <mutex>
 #include <condition_variable>
 #include "domain/ports/MidiPort.h"
+#include "domain/ports/MidiAdapter.h"
 #include "domain/errors/ErrorBase.h"
 
 namespace music::adapters {
@@ -20,7 +21,7 @@ public:
 		: MusicTrainer::MusicTrainerError(message) {}
 };
 
-class MockMidiAdapter : public ports::MidiPort {
+class MockMidiAdapter : public ports::MidiPort, public MusicTrainer::ports::MidiAdapter {
 public:
 	static std::unique_ptr<MockMidiAdapter> create();
 	~MockMidiAdapter() override {
@@ -36,6 +37,10 @@ public:
 	void setEventCallback(std::function<void(const ports::MidiEvent&)> callback) override;
 	ports::MidiPortMetrics getMetrics() const override;
 	void resetMetrics() override;
+	
+	// Implementation of MidiAdapter interface methods
+	std::vector<std::string> getAvailableInputs() const override;
+	std::vector<std::string> getAvailableOutputs() const override;
 	
 	void setSimulateErrors(bool simulate) { simulateErrors.store(simulate, std::memory_order_release); }
 	void clearEvents() { 

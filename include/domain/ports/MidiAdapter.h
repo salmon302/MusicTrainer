@@ -24,7 +24,8 @@ public:
     virtual MidiPortMetrics getMetrics() const = 0;
     virtual void resetMetrics() = 0;
     
-    // New method for getting available MIDI output devices
+    // Methods for getting available MIDI devices
+    virtual std::vector<std::string> getAvailableInputs() const = 0;
     virtual std::vector<std::string> getAvailableOutputs() const = 0;
 };
 

@@ -377,10 +377,24 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/events/Snapshot.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MusicTrainerLib.dir/src/domain/events/Snapshot.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/events/Snapshot.cpp -o CMakeFiles/MusicTrainerLib.dir/src/domain/events/Snapshot.cpp.s
 
+CMakeFiles/MusicTrainerLib.dir/src/domain/exercises/Exercise.cpp.o: CMakeFiles/MusicTrainerLib.dir/flags.make
+CMakeFiles/MusicTrainerLib.dir/src/domain/exercises/Exercise.cpp.o: src/domain/exercises/Exercise.cpp
+CMakeFiles/MusicTrainerLib.dir/src/domain/exercises/Exercise.cpp.o: CMakeFiles/MusicTrainerLib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/MusicTrainerLib.dir/src/domain/exercises/Exercise.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MusicTrainerLib.dir/src/domain/exercises/Exercise.cpp.o -MF CMakeFiles/MusicTrainerLib.dir/src/domain/exercises/Exercise.cpp.o.d -o CMakeFiles/MusicTrainerLib.dir/src/domain/exercises/Exercise.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/exercises/Exercise.cpp
+
+CMakeFiles/MusicTrainerLib.dir/src/domain/exercises/Exercise.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MusicTrainerLib.dir/src/domain/exercises/Exercise.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/exercises/Exercise.cpp > CMakeFiles/MusicTrainerLib.dir/src/domain/exercises/Exercise.cpp.i
+
+CMakeFiles/MusicTrainerLib.dir/src/domain/exercises/Exercise.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MusicTrainerLib.dir/src/domain/exercises/Exercise.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/exercises/Exercise.cpp -o CMakeFiles/MusicTrainerLib.dir/src/domain/exercises/Exercise.cpp.s
+
 CMakeFiles/MusicTrainerLib.dir/src/adapters/InMemoryScoreRepository.cpp.o: CMakeFiles/MusicTrainerLib.dir/flags.make
 CMakeFiles/MusicTrainerLib.dir/src/adapters/InMemoryScoreRepository.cpp.o: src/adapters/InMemoryScoreRepository.cpp
 CMakeFiles/MusicTrainerLib.dir/src/adapters/InMemoryScoreRepository.cpp.o: CMakeFiles/MusicTrainerLib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/MusicTrainerLib.dir/src/adapters/InMemoryScoreRepository.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/MusicTrainerLib.dir/src/adapters/InMemoryScoreRepository.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MusicTrainerLib.dir/src/adapters/InMemoryScoreRepository.cpp.o -MF CMakeFiles/MusicTrainerLib.dir/src/adapters/InMemoryScoreRepository.cpp.o.d -o CMakeFiles/MusicTrainerLib.dir/src/adapters/InMemoryScoreRepository.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/InMemoryScoreRepository.cpp
 
 CMakeFiles/MusicTrainerLib.dir/src/adapters/InMemoryScoreRepository.cpp.i: cmake_force
@@ -391,10 +405,24 @@ CMakeFiles/MusicTrainerLib.dir/src/adapters/InMemoryScoreRepository.cpp.s: cmake
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MusicTrainerLib.dir/src/adapters/InMemoryScoreRepository.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/InMemoryScoreRepository.cpp -o CMakeFiles/MusicTrainerLib.dir/src/adapters/InMemoryScoreRepository.cpp.s
 
+CMakeFiles/MusicTrainerLib.dir/src/adapters/InMemoryExerciseRepository.cpp.o: CMakeFiles/MusicTrainerLib.dir/flags.make
+CMakeFiles/MusicTrainerLib.dir/src/adapters/InMemoryExerciseRepository.cpp.o: src/adapters/InMemoryExerciseRepository.cpp
+CMakeFiles/MusicTrainerLib.dir/src/adapters/InMemoryExerciseRepository.cpp.o: CMakeFiles/MusicTrainerLib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/MusicTrainerLib.dir/src/adapters/InMemoryExerciseRepository.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MusicTrainerLib.dir/src/adapters/InMemoryExerciseRepository.cpp.o -MF CMakeFiles/MusicTrainerLib.dir/src/adapters/InMemoryExerciseRepository.cpp.o.d -o CMakeFiles/MusicTrainerLib.dir/src/adapters/InMemoryExerciseRepository.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/InMemoryExerciseRepository.cpp
+
+CMakeFiles/MusicTrainerLib.dir/src/adapters/InMemoryExerciseRepository.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MusicTrainerLib.dir/src/adapters/InMemoryExerciseRepository.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/InMemoryExerciseRepository.cpp > CMakeFiles/MusicTrainerLib.dir/src/adapters/InMemoryExerciseRepository.cpp.i
+
+CMakeFiles/MusicTrainerLib.dir/src/adapters/InMemoryExerciseRepository.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MusicTrainerLib.dir/src/adapters/InMemoryExerciseRepository.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/InMemoryExerciseRepository.cpp -o CMakeFiles/MusicTrainerLib.dir/src/adapters/InMemoryExerciseRepository.cpp.s
+
 CMakeFiles/MusicTrainerLib.dir/src/adapters/MockMidiAdapter.cpp.o: CMakeFiles/MusicTrainerLib.dir/flags.make
 CMakeFiles/MusicTrainerLib.dir/src/adapters/MockMidiAdapter.cpp.o: src/adapters/MockMidiAdapter.cpp
 CMakeFiles/MusicTrainerLib.dir/src/adapters/MockMidiAdapter.cpp.o: CMakeFiles/MusicTrainerLib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/MusicTrainerLib.dir/src/adapters/MockMidiAdapter.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/MusicTrainerLib.dir/src/adapters/MockMidiAdapter.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MusicTrainerLib.dir/src/adapters/MockMidiAdapter.cpp.o -MF CMakeFiles/MusicTrainerLib.dir/src/adapters/MockMidiAdapter.cpp.o.d -o CMakeFiles/MusicTrainerLib.dir/src/adapters/MockMidiAdapter.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/MockMidiAdapter.cpp
 
 CMakeFiles/MusicTrainerLib.dir/src/adapters/MockMidiAdapter.cpp.i: cmake_force
@@ -408,7 +436,7 @@ CMakeFiles/MusicTrainerLib.dir/src/adapters/MockMidiAdapter.cpp.s: cmake_force
 CMakeFiles/MusicTrainerLib.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o: CMakeFiles/MusicTrainerLib.dir/flags.make
 CMakeFiles/MusicTrainerLib.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o: src/adapters/TemplateBasedExerciseGenerator.cpp
 CMakeFiles/MusicTrainerLib.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o: CMakeFiles/MusicTrainerLib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/MusicTrainerLib.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/MusicTrainerLib.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MusicTrainerLib.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o -MF CMakeFiles/MusicTrainerLib.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o.d -o CMakeFiles/MusicTrainerLib.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/TemplateBasedExerciseGenerator.cpp
 
 CMakeFiles/MusicTrainerLib.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.i: cmake_force
@@ -422,7 +450,7 @@ CMakeFiles/MusicTrainerLib.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.s
 CMakeFiles/MusicTrainerLib.dir/src/adapters/EventSourcedRepository.cpp.o: CMakeFiles/MusicTrainerLib.dir/flags.make
 CMakeFiles/MusicTrainerLib.dir/src/adapters/EventSourcedRepository.cpp.o: src/adapters/EventSourcedRepository.cpp
 CMakeFiles/MusicTrainerLib.dir/src/adapters/EventSourcedRepository.cpp.o: CMakeFiles/MusicTrainerLib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/MusicTrainerLib.dir/src/adapters/EventSourcedRepository.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/MusicTrainerLib.dir/src/adapters/EventSourcedRepository.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MusicTrainerLib.dir/src/adapters/EventSourcedRepository.cpp.o -MF CMakeFiles/MusicTrainerLib.dir/src/adapters/EventSourcedRepository.cpp.o.d -o CMakeFiles/MusicTrainerLib.dir/src/adapters/EventSourcedRepository.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/EventSourcedRepository.cpp
 
 CMakeFiles/MusicTrainerLib.dir/src/adapters/EventSourcedRepository.cpp.i: cmake_force
@@ -436,7 +464,7 @@ CMakeFiles/MusicTrainerLib.dir/src/adapters/EventSourcedRepository.cpp.s: cmake_
 CMakeFiles/MusicTrainerLib.dir/src/adapters/CachingScoreRepository.cpp.o: CMakeFiles/MusicTrainerLib.dir/flags.make
 CMakeFiles/MusicTrainerLib.dir/src/adapters/CachingScoreRepository.cpp.o: src/adapters/CachingScoreRepository.cpp
 CMakeFiles/MusicTrainerLib.dir/src/adapters/CachingScoreRepository.cpp.o: CMakeFiles/MusicTrainerLib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/MusicTrainerLib.dir/src/adapters/CachingScoreRepository.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/MusicTrainerLib.dir/src/adapters/CachingScoreRepository.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MusicTrainerLib.dir/src/adapters/CachingScoreRepository.cpp.o -MF CMakeFiles/MusicTrainerLib.dir/src/adapters/CachingScoreRepository.cpp.o.d -o CMakeFiles/MusicTrainerLib.dir/src/adapters/CachingScoreRepository.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/CachingScoreRepository.cpp
 
 CMakeFiles/MusicTrainerLib.dir/src/adapters/CachingScoreRepository.cpp.i: cmake_force
@@ -450,7 +478,7 @@ CMakeFiles/MusicTrainerLib.dir/src/adapters/CachingScoreRepository.cpp.s: cmake_
 CMakeFiles/MusicTrainerLib.dir/src/adapters/RtMidiAdapter.cpp.o: CMakeFiles/MusicTrainerLib.dir/flags.make
 CMakeFiles/MusicTrainerLib.dir/src/adapters/RtMidiAdapter.cpp.o: src/adapters/RtMidiAdapter.cpp
 CMakeFiles/MusicTrainerLib.dir/src/adapters/RtMidiAdapter.cpp.o: CMakeFiles/MusicTrainerLib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/MusicTrainerLib.dir/src/adapters/RtMidiAdapter.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/MusicTrainerLib.dir/src/adapters/RtMidiAdapter.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MusicTrainerLib.dir/src/adapters/RtMidiAdapter.cpp.o -MF CMakeFiles/MusicTrainerLib.dir/src/adapters/RtMidiAdapter.cpp.o.d -o CMakeFiles/MusicTrainerLib.dir/src/adapters/RtMidiAdapter.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/adapters/RtMidiAdapter.cpp
 
 CMakeFiles/MusicTrainerLib.dir/src/adapters/RtMidiAdapter.cpp.i: cmake_force
@@ -464,7 +492,7 @@ CMakeFiles/MusicTrainerLib.dir/src/adapters/RtMidiAdapter.cpp.s: cmake_force
 CMakeFiles/MusicTrainerLib.dir/src/domain/progression/ProgressionSystem.cpp.o: CMakeFiles/MusicTrainerLib.dir/flags.make
 CMakeFiles/MusicTrainerLib.dir/src/domain/progression/ProgressionSystem.cpp.o: src/domain/progression/ProgressionSystem.cpp
 CMakeFiles/MusicTrainerLib.dir/src/domain/progression/ProgressionSystem.cpp.o: CMakeFiles/MusicTrainerLib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/MusicTrainerLib.dir/src/domain/progression/ProgressionSystem.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/MusicTrainerLib.dir/src/domain/progression/ProgressionSystem.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MusicTrainerLib.dir/src/domain/progression/ProgressionSystem.cpp.o -MF CMakeFiles/MusicTrainerLib.dir/src/domain/progression/ProgressionSystem.cpp.o.d -o CMakeFiles/MusicTrainerLib.dir/src/domain/progression/ProgressionSystem.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/progression/ProgressionSystem.cpp
 
 CMakeFiles/MusicTrainerLib.dir/src/domain/progression/ProgressionSystem.cpp.i: cmake_force
@@ -478,7 +506,7 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/progression/ProgressionSystem.cpp.s: c
 CMakeFiles/MusicTrainerLib.dir/src/domain/plugins/PluginManager.cpp.o: CMakeFiles/MusicTrainerLib.dir/flags.make
 CMakeFiles/MusicTrainerLib.dir/src/domain/plugins/PluginManager.cpp.o: src/domain/plugins/PluginManager.cpp
 CMakeFiles/MusicTrainerLib.dir/src/domain/plugins/PluginManager.cpp.o: CMakeFiles/MusicTrainerLib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/MusicTrainerLib.dir/src/domain/plugins/PluginManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/MusicTrainerLib.dir/src/domain/plugins/PluginManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MusicTrainerLib.dir/src/domain/plugins/PluginManager.cpp.o -MF CMakeFiles/MusicTrainerLib.dir/src/domain/plugins/PluginManager.cpp.o.d -o CMakeFiles/MusicTrainerLib.dir/src/domain/plugins/PluginManager.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/plugins/PluginManager.cpp
 
 CMakeFiles/MusicTrainerLib.dir/src/domain/plugins/PluginManager.cpp.i: cmake_force
@@ -492,7 +520,7 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/plugins/PluginManager.cpp.s: cmake_for
 CMakeFiles/MusicTrainerLib.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o: CMakeFiles/MusicTrainerLib.dir/flags.make
 CMakeFiles/MusicTrainerLib.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o: src/domain/crossdomain/CrossDomainValidator.cpp
 CMakeFiles/MusicTrainerLib.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o: CMakeFiles/MusicTrainerLib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/MusicTrainerLib.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/MusicTrainerLib.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MusicTrainerLib.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o -MF CMakeFiles/MusicTrainerLib.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o.d -o CMakeFiles/MusicTrainerLib.dir/src/domain/crossdomain/CrossDomainValidator.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/crossdomain/CrossDomainValidator.cpp
 
 CMakeFiles/MusicTrainerLib.dir/src/domain/crossdomain/CrossDomainValidator.cpp.i: cmake_force
@@ -506,7 +534,7 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/crossdomain/CrossDomainValidator.cpp.s
 CMakeFiles/MusicTrainerLib.dir/src/domain/statesync/StateSynchronizationManager.cpp.o: CMakeFiles/MusicTrainerLib.dir/flags.make
 CMakeFiles/MusicTrainerLib.dir/src/domain/statesync/StateSynchronizationManager.cpp.o: src/domain/statesync/StateSynchronizationManager.cpp
 CMakeFiles/MusicTrainerLib.dir/src/domain/statesync/StateSynchronizationManager.cpp.o: CMakeFiles/MusicTrainerLib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/MusicTrainerLib.dir/src/domain/statesync/StateSynchronizationManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/MusicTrainerLib.dir/src/domain/statesync/StateSynchronizationManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MusicTrainerLib.dir/src/domain/statesync/StateSynchronizationManager.cpp.o -MF CMakeFiles/MusicTrainerLib.dir/src/domain/statesync/StateSynchronizationManager.cpp.o.d -o CMakeFiles/MusicTrainerLib.dir/src/domain/statesync/StateSynchronizationManager.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/statesync/StateSynchronizationManager.cpp
 
 CMakeFiles/MusicTrainerLib.dir/src/domain/statesync/StateSynchronizationManager.cpp.i: cmake_force
@@ -520,7 +548,7 @@ CMakeFiles/MusicTrainerLib.dir/src/domain/statesync/StateSynchronizationManager.
 CMakeFiles/MusicTrainerLib.dir/src/utils/DebugUtils.cpp.o: CMakeFiles/MusicTrainerLib.dir/flags.make
 CMakeFiles/MusicTrainerLib.dir/src/utils/DebugUtils.cpp.o: src/utils/DebugUtils.cpp
 CMakeFiles/MusicTrainerLib.dir/src/utils/DebugUtils.cpp.o: CMakeFiles/MusicTrainerLib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/MusicTrainerLib.dir/src/utils/DebugUtils.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/MusicTrainerLib.dir/src/utils/DebugUtils.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MusicTrainerLib.dir/src/utils/DebugUtils.cpp.o -MF CMakeFiles/MusicTrainerLib.dir/src/utils/DebugUtils.cpp.o.d -o CMakeFiles/MusicTrainerLib.dir/src/utils/DebugUtils.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/utils/DebugUtils.cpp
 
 CMakeFiles/MusicTrainerLib.dir/src/utils/DebugUtils.cpp.i: cmake_force
@@ -555,7 +583,9 @@ MusicTrainerLib_OBJECTS = \
 "CMakeFiles/MusicTrainerLib.dir/src/domain/events/EventBus.cpp.o" \
 "CMakeFiles/MusicTrainerLib.dir/src/domain/events/NoteEventHandler.cpp.o" \
 "CMakeFiles/MusicTrainerLib.dir/src/domain/events/Snapshot.cpp.o" \
+"CMakeFiles/MusicTrainerLib.dir/src/domain/exercises/Exercise.cpp.o" \
 "CMakeFiles/MusicTrainerLib.dir/src/adapters/InMemoryScoreRepository.cpp.o" \
+"CMakeFiles/MusicTrainerLib.dir/src/adapters/InMemoryExerciseRepository.cpp.o" \
 "CMakeFiles/MusicTrainerLib.dir/src/adapters/MockMidiAdapter.cpp.o" \
 "CMakeFiles/MusicTrainerLib.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o" \
 "CMakeFiles/MusicTrainerLib.dir/src/adapters/EventSourcedRepository.cpp.o" \
@@ -592,7 +622,9 @@ libMusicTrainerLib.a: CMakeFiles/MusicTrainerLib.dir/src/domain/events/EventStor
 libMusicTrainerLib.a: CMakeFiles/MusicTrainerLib.dir/src/domain/events/EventBus.cpp.o
 libMusicTrainerLib.a: CMakeFiles/MusicTrainerLib.dir/src/domain/events/NoteEventHandler.cpp.o
 libMusicTrainerLib.a: CMakeFiles/MusicTrainerLib.dir/src/domain/events/Snapshot.cpp.o
+libMusicTrainerLib.a: CMakeFiles/MusicTrainerLib.dir/src/domain/exercises/Exercise.cpp.o
 libMusicTrainerLib.a: CMakeFiles/MusicTrainerLib.dir/src/adapters/InMemoryScoreRepository.cpp.o
+libMusicTrainerLib.a: CMakeFiles/MusicTrainerLib.dir/src/adapters/InMemoryExerciseRepository.cpp.o
 libMusicTrainerLib.a: CMakeFiles/MusicTrainerLib.dir/src/adapters/MockMidiAdapter.cpp.o
 libMusicTrainerLib.a: CMakeFiles/MusicTrainerLib.dir/src/adapters/TemplateBasedExerciseGenerator.cpp.o
 libMusicTrainerLib.a: CMakeFiles/MusicTrainerLib.dir/src/adapters/EventSourcedRepository.cpp.o
@@ -605,7 +637,7 @@ libMusicTrainerLib.a: CMakeFiles/MusicTrainerLib.dir/src/domain/statesync/StateS
 libMusicTrainerLib.a: CMakeFiles/MusicTrainerLib.dir/src/utils/DebugUtils.cpp.o
 libMusicTrainerLib.a: CMakeFiles/MusicTrainerLib.dir/build.make
 libMusicTrainerLib.a: CMakeFiles/MusicTrainerLib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Linking CXX static library libMusicTrainerLib.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Linking CXX static library libMusicTrainerLib.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/MusicTrainerLib.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MusicTrainerLib.dir/link.txt --verbose=$(VERBOSE)
 
