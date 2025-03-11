@@ -5,7 +5,7 @@
             "name": "MusicTrainer GUI",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/bin/MusicTrainerGUI",
+            "program": "${workspaceFolder}/build-cmake/bin/MusicTrainerGUI",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
@@ -18,13 +18,14 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build MusicTrainer"
         },
         {
             "name": "MusicTrainer V3",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/bin/MusicTrainerV3",
+            "program": "${workspaceFolder}/build-cmake/bin/MusicTrainerV3",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
@@ -37,13 +38,14 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build MusicTrainer"
         },
         {
             "name": "Test GUI",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/bin/TestGUI",
+            "program": "${workspaceFolder}/build-cmake/bin/TestGUI",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
@@ -56,7 +58,8 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build MusicTrainer"
         }
     ]
 }

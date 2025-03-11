@@ -452,9 +452,31 @@ CMakeFiles/TestGUI.dir/TestGUI_autogen/mocs_compilation.cpp.o: \
  /home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/TestGUI_autogen/5PPTR2THOO/moc_TransportControls.cpp \
  /home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/TestGUI_autogen/5PPTR2THOO/../../../include/presentation/TransportControls.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/TestGUI_autogen/5PPTR2THOO/moc_VoiceChart.cpp \
+ /home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/TestGUI_autogen/ISZRHQQRPX/moc_GridManager.cpp \
+ /home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/TestGUI_autogen/ISZRHQQRPX/../../../include/presentation/grid/GridManager.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/TestGUI_autogen/ISZRHQQRPX/../../../include/presentation/grid/DefaultGridModel.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/TestGUI_autogen/ISZRHQQRPX/../../../include/presentation/grid/IGridModel.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/grid/GridTypes.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/TestGUI_autogen/ISZRHQQRPX/../../../include/presentation/grid/SpatialIndex.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/TestGUI_autogen/ISZRHQQRPX/../../../include/presentation/grid/QtBatchedGridRenderer.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/grid/BatchedGridRenderer.h \
+ /usr/include/c++/13/queue /usr/include/c++/13/deque \
+ /usr/include/c++/13/bits/stl_deque.h /usr/include/c++/13/bits/deque.tcc \
+ /usr/include/c++/13/bits/stl_queue.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/grid/IGridRenderer.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QGraphicsScene \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicsscene.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QGraphicsItemGroup \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicsitem.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qpainterpath.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/TestGUI_autogen/ISZRHQQRPX/../../../include/presentation/grid/ViewportLayoutManager.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/TestGUI_autogen/ISZRHQQRPX/../../../include/presentation/grid/CoordinateTransformer.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/TestGUI_autogen/ISZRHQQRPX/../../../include/presentation/grid/AdaptiveGridExpansionManager.h \
+ /home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/TestGUI_autogen/ISZRHQQRPX/../../../include/presentation/grid/GridMemoryManager.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QObject \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qobject.h \
  /home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/TestGUI_autogen/CNFTXHMAZD/moc_ScoreViewModel.cpp \
  /home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/TestGUI_autogen/CNFTXHMAZD/../../../include/presentation/viewmodels/ScoreViewModel.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QObject \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qobject.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QAbstractListModel \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qabstractitemmodel.h

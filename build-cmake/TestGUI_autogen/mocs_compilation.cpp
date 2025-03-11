@@ -7,4 +7,5 @@
 #include "5PPTR2THOO/moc_SettingsDialog.cpp"
 #include "5PPTR2THOO/moc_TransportControls.cpp"
 #include "5PPTR2THOO/moc_VoiceChart.cpp"
+#include "ISZRHQQRPX/moc_GridManager.cpp"
 #include "CNFTXHMAZD/moc_ScoreViewModel.cpp"

@@ -380,6 +380,45 @@ StateSynchronizationManagerTests/fast:
 .PHONY : StateSynchronizationManagerTests/fast
 
 #=============================================================================
+# Target rules for targets named GridSystemTests
+
+# Build rule for target.
+GridSystemTests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GridSystemTests
+.PHONY : GridSystemTests
+
+# fast build rule for target.
+GridSystemTests/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/build
+.PHONY : GridSystemTests/fast
+
+#=============================================================================
+# Target rules for targets named GridAdapterTests
+
+# Build rule for target.
+GridAdapterTests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GridAdapterTests
+.PHONY : GridAdapterTests
+
+# fast build rule for target.
+GridAdapterTests/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/build
+.PHONY : GridAdapterTests/fast
+
+#=============================================================================
+# Target rules for targets named GridPerformanceBenchmark
+
+# Build rule for target.
+GridPerformanceBenchmark: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GridPerformanceBenchmark
+.PHONY : GridPerformanceBenchmark
+
+# fast build rule for target.
+GridPerformanceBenchmark/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/build
+.PHONY : GridPerformanceBenchmark/fast
+
+#=============================================================================
 # Target rules for targets named MusicTrainerLib_autogen_timestamp_deps
 
 # Build rule for target.
@@ -794,6 +833,84 @@ StateSynchronizationManagerTests_autogen: cmake_check_build_system
 StateSynchronizationManagerTests_autogen/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests_autogen.dir/build.make CMakeFiles/StateSynchronizationManagerTests_autogen.dir/build
 .PHONY : StateSynchronizationManagerTests_autogen/fast
+
+#=============================================================================
+# Target rules for targets named GridSystemTests_autogen_timestamp_deps
+
+# Build rule for target.
+GridSystemTests_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GridSystemTests_autogen_timestamp_deps
+.PHONY : GridSystemTests_autogen_timestamp_deps
+
+# fast build rule for target.
+GridSystemTests_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests_autogen_timestamp_deps.dir/build.make CMakeFiles/GridSystemTests_autogen_timestamp_deps.dir/build
+.PHONY : GridSystemTests_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named GridSystemTests_autogen
+
+# Build rule for target.
+GridSystemTests_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GridSystemTests_autogen
+.PHONY : GridSystemTests_autogen
+
+# fast build rule for target.
+GridSystemTests_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests_autogen.dir/build.make CMakeFiles/GridSystemTests_autogen.dir/build
+.PHONY : GridSystemTests_autogen/fast
+
+#=============================================================================
+# Target rules for targets named GridAdapterTests_autogen_timestamp_deps
+
+# Build rule for target.
+GridAdapterTests_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GridAdapterTests_autogen_timestamp_deps
+.PHONY : GridAdapterTests_autogen_timestamp_deps
+
+# fast build rule for target.
+GridAdapterTests_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests_autogen_timestamp_deps.dir/build.make CMakeFiles/GridAdapterTests_autogen_timestamp_deps.dir/build
+.PHONY : GridAdapterTests_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named GridAdapterTests_autogen
+
+# Build rule for target.
+GridAdapterTests_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GridAdapterTests_autogen
+.PHONY : GridAdapterTests_autogen
+
+# fast build rule for target.
+GridAdapterTests_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests_autogen.dir/build.make CMakeFiles/GridAdapterTests_autogen.dir/build
+.PHONY : GridAdapterTests_autogen/fast
+
+#=============================================================================
+# Target rules for targets named GridPerformanceBenchmark_autogen_timestamp_deps
+
+# Build rule for target.
+GridPerformanceBenchmark_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GridPerformanceBenchmark_autogen_timestamp_deps
+.PHONY : GridPerformanceBenchmark_autogen_timestamp_deps
+
+# fast build rule for target.
+GridPerformanceBenchmark_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark_autogen_timestamp_deps.dir/build.make CMakeFiles/GridPerformanceBenchmark_autogen_timestamp_deps.dir/build
+.PHONY : GridPerformanceBenchmark_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named GridPerformanceBenchmark_autogen
+
+# Build rule for target.
+GridPerformanceBenchmark_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GridPerformanceBenchmark_autogen
+.PHONY : GridPerformanceBenchmark_autogen
+
+# fast build rule for target.
+GridPerformanceBenchmark_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark_autogen.dir/build.make CMakeFiles/GridPerformanceBenchmark_autogen.dir/build
+.PHONY : GridPerformanceBenchmark_autogen/fast
 
 #=============================================================================
 # Target rules for targets named gmock
@@ -1751,6 +1868,78 @@ ExerciseGenerationTests_autogen/mocs_compilation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExerciseGenerationTests.dir/build.make CMakeFiles/ExerciseGenerationTests.dir/ExerciseGenerationTests_autogen/mocs_compilation.cpp.s
 .PHONY : ExerciseGenerationTests_autogen/mocs_compilation.cpp.s
 
+GridAdapterTests_autogen/mocs_compilation.o: GridAdapterTests_autogen/mocs_compilation.cpp.o
+.PHONY : GridAdapterTests_autogen/mocs_compilation.o
+
+# target to build an object file
+GridAdapterTests_autogen/mocs_compilation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/GridAdapterTests_autogen/mocs_compilation.cpp.o
+.PHONY : GridAdapterTests_autogen/mocs_compilation.cpp.o
+
+GridAdapterTests_autogen/mocs_compilation.i: GridAdapterTests_autogen/mocs_compilation.cpp.i
+.PHONY : GridAdapterTests_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+GridAdapterTests_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/GridAdapterTests_autogen/mocs_compilation.cpp.i
+.PHONY : GridAdapterTests_autogen/mocs_compilation.cpp.i
+
+GridAdapterTests_autogen/mocs_compilation.s: GridAdapterTests_autogen/mocs_compilation.cpp.s
+.PHONY : GridAdapterTests_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+GridAdapterTests_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/GridAdapterTests_autogen/mocs_compilation.cpp.s
+.PHONY : GridAdapterTests_autogen/mocs_compilation.cpp.s
+
+GridPerformanceBenchmark_autogen/mocs_compilation.o: GridPerformanceBenchmark_autogen/mocs_compilation.cpp.o
+.PHONY : GridPerformanceBenchmark_autogen/mocs_compilation.o
+
+# target to build an object file
+GridPerformanceBenchmark_autogen/mocs_compilation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/GridPerformanceBenchmark_autogen/mocs_compilation.cpp.o
+.PHONY : GridPerformanceBenchmark_autogen/mocs_compilation.cpp.o
+
+GridPerformanceBenchmark_autogen/mocs_compilation.i: GridPerformanceBenchmark_autogen/mocs_compilation.cpp.i
+.PHONY : GridPerformanceBenchmark_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+GridPerformanceBenchmark_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/GridPerformanceBenchmark_autogen/mocs_compilation.cpp.i
+.PHONY : GridPerformanceBenchmark_autogen/mocs_compilation.cpp.i
+
+GridPerformanceBenchmark_autogen/mocs_compilation.s: GridPerformanceBenchmark_autogen/mocs_compilation.cpp.s
+.PHONY : GridPerformanceBenchmark_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+GridPerformanceBenchmark_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/GridPerformanceBenchmark_autogen/mocs_compilation.cpp.s
+.PHONY : GridPerformanceBenchmark_autogen/mocs_compilation.cpp.s
+
+GridSystemTests_autogen/mocs_compilation.o: GridSystemTests_autogen/mocs_compilation.cpp.o
+.PHONY : GridSystemTests_autogen/mocs_compilation.o
+
+# target to build an object file
+GridSystemTests_autogen/mocs_compilation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/GridSystemTests_autogen/mocs_compilation.cpp.o
+.PHONY : GridSystemTests_autogen/mocs_compilation.cpp.o
+
+GridSystemTests_autogen/mocs_compilation.i: GridSystemTests_autogen/mocs_compilation.cpp.i
+.PHONY : GridSystemTests_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+GridSystemTests_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/GridSystemTests_autogen/mocs_compilation.cpp.i
+.PHONY : GridSystemTests_autogen/mocs_compilation.cpp.i
+
+GridSystemTests_autogen/mocs_compilation.s: GridSystemTests_autogen/mocs_compilation.cpp.s
+.PHONY : GridSystemTests_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+GridSystemTests_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/GridSystemTests_autogen/mocs_compilation.cpp.s
+.PHONY : GridSystemTests_autogen/mocs_compilation.cpp.s
+
 MidiSystemTests_autogen/mocs_compilation.o: MidiSystemTests_autogen/mocs_compilation.cpp.o
 .PHONY : MidiSystemTests_autogen/mocs_compilation.o
 
@@ -2238,6 +2427,9 @@ src/domain/analysis/VoiceAnalyzer.o: src/domain/analysis/VoiceAnalyzer.cpp.o
 src/domain/analysis/VoiceAnalyzer.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/domain/analysis/VoiceAnalyzer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/domain/analysis/VoiceAnalyzer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/domain/analysis/VoiceAnalyzer.cpp.o
 .PHONY : src/domain/analysis/VoiceAnalyzer.cpp.o
 
 src/domain/analysis/VoiceAnalyzer.i: src/domain/analysis/VoiceAnalyzer.cpp.i
@@ -2247,6 +2439,9 @@ src/domain/analysis/VoiceAnalyzer.i: src/domain/analysis/VoiceAnalyzer.cpp.i
 src/domain/analysis/VoiceAnalyzer.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/domain/analysis/VoiceAnalyzer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/domain/analysis/VoiceAnalyzer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/domain/analysis/VoiceAnalyzer.cpp.i
 .PHONY : src/domain/analysis/VoiceAnalyzer.cpp.i
 
 src/domain/analysis/VoiceAnalyzer.s: src/domain/analysis/VoiceAnalyzer.cpp.s
@@ -2256,6 +2451,9 @@ src/domain/analysis/VoiceAnalyzer.s: src/domain/analysis/VoiceAnalyzer.cpp.s
 src/domain/analysis/VoiceAnalyzer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/domain/analysis/VoiceAnalyzer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/domain/analysis/VoiceAnalyzer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/domain/analysis/VoiceAnalyzer.cpp.s
 .PHONY : src/domain/analysis/VoiceAnalyzer.cpp.s
 
 src/domain/crossdomain/CrossDomainValidator.o: src/domain/crossdomain/CrossDomainValidator.cpp.o
@@ -2913,6 +3111,9 @@ src/presentation/ExerciseBrowser.o: src/presentation/ExerciseBrowser.cpp.o
 src/presentation/ExerciseBrowser.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/ExerciseBrowser.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/ExerciseBrowser.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/ExerciseBrowser.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/ExerciseBrowser.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/ExerciseBrowser.cpp.o
 .PHONY : src/presentation/ExerciseBrowser.cpp.o
 
 src/presentation/ExerciseBrowser.i: src/presentation/ExerciseBrowser.cpp.i
@@ -2922,6 +3123,9 @@ src/presentation/ExerciseBrowser.i: src/presentation/ExerciseBrowser.cpp.i
 src/presentation/ExerciseBrowser.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/ExerciseBrowser.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/ExerciseBrowser.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/ExerciseBrowser.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/ExerciseBrowser.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/ExerciseBrowser.cpp.i
 .PHONY : src/presentation/ExerciseBrowser.cpp.i
 
 src/presentation/ExerciseBrowser.s: src/presentation/ExerciseBrowser.cpp.s
@@ -2931,6 +3135,9 @@ src/presentation/ExerciseBrowser.s: src/presentation/ExerciseBrowser.cpp.s
 src/presentation/ExerciseBrowser.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/ExerciseBrowser.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/ExerciseBrowser.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/ExerciseBrowser.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/ExerciseBrowser.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/ExerciseBrowser.cpp.s
 .PHONY : src/presentation/ExerciseBrowser.cpp.s
 
 src/presentation/ExercisePanel.o: src/presentation/ExercisePanel.cpp.o
@@ -2940,6 +3147,9 @@ src/presentation/ExercisePanel.o: src/presentation/ExercisePanel.cpp.o
 src/presentation/ExercisePanel.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/ExercisePanel.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/ExercisePanel.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/ExercisePanel.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/ExercisePanel.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/ExercisePanel.cpp.o
 .PHONY : src/presentation/ExercisePanel.cpp.o
 
 src/presentation/ExercisePanel.i: src/presentation/ExercisePanel.cpp.i
@@ -2949,6 +3159,9 @@ src/presentation/ExercisePanel.i: src/presentation/ExercisePanel.cpp.i
 src/presentation/ExercisePanel.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/ExercisePanel.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/ExercisePanel.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/ExercisePanel.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/ExercisePanel.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/ExercisePanel.cpp.i
 .PHONY : src/presentation/ExercisePanel.cpp.i
 
 src/presentation/ExercisePanel.s: src/presentation/ExercisePanel.cpp.s
@@ -2958,6 +3171,9 @@ src/presentation/ExercisePanel.s: src/presentation/ExercisePanel.cpp.s
 src/presentation/ExercisePanel.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/ExercisePanel.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/ExercisePanel.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/ExercisePanel.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/ExercisePanel.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/ExercisePanel.cpp.s
 .PHONY : src/presentation/ExercisePanel.cpp.s
 
 src/presentation/FeedbackArea.o: src/presentation/FeedbackArea.cpp.o
@@ -2967,6 +3183,9 @@ src/presentation/FeedbackArea.o: src/presentation/FeedbackArea.cpp.o
 src/presentation/FeedbackArea.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/FeedbackArea.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/FeedbackArea.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/FeedbackArea.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/FeedbackArea.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/FeedbackArea.cpp.o
 .PHONY : src/presentation/FeedbackArea.cpp.o
 
 src/presentation/FeedbackArea.i: src/presentation/FeedbackArea.cpp.i
@@ -2976,6 +3195,9 @@ src/presentation/FeedbackArea.i: src/presentation/FeedbackArea.cpp.i
 src/presentation/FeedbackArea.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/FeedbackArea.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/FeedbackArea.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/FeedbackArea.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/FeedbackArea.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/FeedbackArea.cpp.i
 .PHONY : src/presentation/FeedbackArea.cpp.i
 
 src/presentation/FeedbackArea.s: src/presentation/FeedbackArea.cpp.s
@@ -2985,6 +3207,9 @@ src/presentation/FeedbackArea.s: src/presentation/FeedbackArea.cpp.s
 src/presentation/FeedbackArea.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/FeedbackArea.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/FeedbackArea.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/FeedbackArea.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/FeedbackArea.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/FeedbackArea.cpp.s
 .PHONY : src/presentation/FeedbackArea.cpp.s
 
 src/presentation/GridCell.o: src/presentation/GridCell.cpp.o
@@ -2994,6 +3219,9 @@ src/presentation/GridCell.o: src/presentation/GridCell.cpp.o
 src/presentation/GridCell.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/GridCell.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/GridCell.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/GridCell.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/GridCell.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/GridCell.cpp.o
 .PHONY : src/presentation/GridCell.cpp.o
 
 src/presentation/GridCell.i: src/presentation/GridCell.cpp.i
@@ -3003,6 +3231,9 @@ src/presentation/GridCell.i: src/presentation/GridCell.cpp.i
 src/presentation/GridCell.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/GridCell.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/GridCell.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/GridCell.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/GridCell.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/GridCell.cpp.i
 .PHONY : src/presentation/GridCell.cpp.i
 
 src/presentation/GridCell.s: src/presentation/GridCell.cpp.s
@@ -3012,6 +3243,9 @@ src/presentation/GridCell.s: src/presentation/GridCell.cpp.s
 src/presentation/GridCell.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/GridCell.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/GridCell.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/GridCell.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/GridCell.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/GridCell.cpp.s
 .PHONY : src/presentation/GridCell.cpp.s
 
 src/presentation/MainWindow.o: src/presentation/MainWindow.cpp.o
@@ -3021,6 +3255,9 @@ src/presentation/MainWindow.o: src/presentation/MainWindow.cpp.o
 src/presentation/MainWindow.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/MainWindow.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/MainWindow.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/MainWindow.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/MainWindow.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/MainWindow.cpp.o
 .PHONY : src/presentation/MainWindow.cpp.o
 
 src/presentation/MainWindow.i: src/presentation/MainWindow.cpp.i
@@ -3030,6 +3267,9 @@ src/presentation/MainWindow.i: src/presentation/MainWindow.cpp.i
 src/presentation/MainWindow.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/MainWindow.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/MainWindow.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/MainWindow.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/MainWindow.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/MainWindow.cpp.i
 .PHONY : src/presentation/MainWindow.cpp.i
 
 src/presentation/MainWindow.s: src/presentation/MainWindow.cpp.s
@@ -3039,6 +3279,9 @@ src/presentation/MainWindow.s: src/presentation/MainWindow.cpp.s
 src/presentation/MainWindow.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/MainWindow.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/MainWindow.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/MainWindow.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/MainWindow.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/MainWindow.cpp.s
 .PHONY : src/presentation/MainWindow.cpp.s
 
 src/presentation/NoteGrid.o: src/presentation/NoteGrid.cpp.o
@@ -3048,6 +3291,9 @@ src/presentation/NoteGrid.o: src/presentation/NoteGrid.cpp.o
 src/presentation/NoteGrid.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/NoteGrid.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/NoteGrid.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/NoteGrid.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/NoteGrid.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/NoteGrid.cpp.o
 .PHONY : src/presentation/NoteGrid.cpp.o
 
 src/presentation/NoteGrid.i: src/presentation/NoteGrid.cpp.i
@@ -3057,6 +3303,9 @@ src/presentation/NoteGrid.i: src/presentation/NoteGrid.cpp.i
 src/presentation/NoteGrid.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/NoteGrid.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/NoteGrid.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/NoteGrid.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/NoteGrid.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/NoteGrid.cpp.i
 .PHONY : src/presentation/NoteGrid.cpp.i
 
 src/presentation/NoteGrid.s: src/presentation/NoteGrid.cpp.s
@@ -3066,6 +3315,9 @@ src/presentation/NoteGrid.s: src/presentation/NoteGrid.cpp.s
 src/presentation/NoteGrid.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/NoteGrid.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/NoteGrid.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/NoteGrid.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/NoteGrid.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/NoteGrid.cpp.s
 .PHONY : src/presentation/NoteGrid.cpp.s
 
 src/presentation/ScoreView.o: src/presentation/ScoreView.cpp.o
@@ -3075,6 +3327,9 @@ src/presentation/ScoreView.o: src/presentation/ScoreView.cpp.o
 src/presentation/ScoreView.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/ScoreView.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/ScoreView.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/ScoreView.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/ScoreView.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/ScoreView.cpp.o
 .PHONY : src/presentation/ScoreView.cpp.o
 
 src/presentation/ScoreView.i: src/presentation/ScoreView.cpp.i
@@ -3084,6 +3339,9 @@ src/presentation/ScoreView.i: src/presentation/ScoreView.cpp.i
 src/presentation/ScoreView.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/ScoreView.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/ScoreView.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/ScoreView.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/ScoreView.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/ScoreView.cpp.i
 .PHONY : src/presentation/ScoreView.cpp.i
 
 src/presentation/ScoreView.s: src/presentation/ScoreView.cpp.s
@@ -3093,6 +3351,9 @@ src/presentation/ScoreView.s: src/presentation/ScoreView.cpp.s
 src/presentation/ScoreView.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/ScoreView.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/ScoreView.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/ScoreView.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/ScoreView.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/ScoreView.cpp.s
 .PHONY : src/presentation/ScoreView.cpp.s
 
 src/presentation/SettingsDialog.o: src/presentation/SettingsDialog.cpp.o
@@ -3102,6 +3363,9 @@ src/presentation/SettingsDialog.o: src/presentation/SettingsDialog.cpp.o
 src/presentation/SettingsDialog.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/SettingsDialog.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/SettingsDialog.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/SettingsDialog.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/SettingsDialog.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/SettingsDialog.cpp.o
 .PHONY : src/presentation/SettingsDialog.cpp.o
 
 src/presentation/SettingsDialog.i: src/presentation/SettingsDialog.cpp.i
@@ -3111,6 +3375,9 @@ src/presentation/SettingsDialog.i: src/presentation/SettingsDialog.cpp.i
 src/presentation/SettingsDialog.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/SettingsDialog.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/SettingsDialog.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/SettingsDialog.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/SettingsDialog.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/SettingsDialog.cpp.i
 .PHONY : src/presentation/SettingsDialog.cpp.i
 
 src/presentation/SettingsDialog.s: src/presentation/SettingsDialog.cpp.s
@@ -3120,6 +3387,9 @@ src/presentation/SettingsDialog.s: src/presentation/SettingsDialog.cpp.s
 src/presentation/SettingsDialog.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/SettingsDialog.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/SettingsDialog.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/SettingsDialog.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/SettingsDialog.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/SettingsDialog.cpp.s
 .PHONY : src/presentation/SettingsDialog.cpp.s
 
 src/presentation/TransportControls.o: src/presentation/TransportControls.cpp.o
@@ -3129,6 +3399,9 @@ src/presentation/TransportControls.o: src/presentation/TransportControls.cpp.o
 src/presentation/TransportControls.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/TransportControls.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/TransportControls.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/TransportControls.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/TransportControls.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/TransportControls.cpp.o
 .PHONY : src/presentation/TransportControls.cpp.o
 
 src/presentation/TransportControls.i: src/presentation/TransportControls.cpp.i
@@ -3138,6 +3411,9 @@ src/presentation/TransportControls.i: src/presentation/TransportControls.cpp.i
 src/presentation/TransportControls.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/TransportControls.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/TransportControls.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/TransportControls.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/TransportControls.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/TransportControls.cpp.i
 .PHONY : src/presentation/TransportControls.cpp.i
 
 src/presentation/TransportControls.s: src/presentation/TransportControls.cpp.s
@@ -3147,6 +3423,9 @@ src/presentation/TransportControls.s: src/presentation/TransportControls.cpp.s
 src/presentation/TransportControls.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/TransportControls.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/TransportControls.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/TransportControls.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/TransportControls.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/TransportControls.cpp.s
 .PHONY : src/presentation/TransportControls.cpp.s
 
 src/presentation/ViewportManager.o: src/presentation/ViewportManager.cpp.o
@@ -3156,6 +3435,9 @@ src/presentation/ViewportManager.o: src/presentation/ViewportManager.cpp.o
 src/presentation/ViewportManager.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/ViewportManager.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/ViewportManager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/ViewportManager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/ViewportManager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/ViewportManager.cpp.o
 .PHONY : src/presentation/ViewportManager.cpp.o
 
 src/presentation/ViewportManager.i: src/presentation/ViewportManager.cpp.i
@@ -3165,6 +3447,9 @@ src/presentation/ViewportManager.i: src/presentation/ViewportManager.cpp.i
 src/presentation/ViewportManager.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/ViewportManager.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/ViewportManager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/ViewportManager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/ViewportManager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/ViewportManager.cpp.i
 .PHONY : src/presentation/ViewportManager.cpp.i
 
 src/presentation/ViewportManager.s: src/presentation/ViewportManager.cpp.s
@@ -3174,6 +3459,9 @@ src/presentation/ViewportManager.s: src/presentation/ViewportManager.cpp.s
 src/presentation/ViewportManager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/ViewportManager.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/ViewportManager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/ViewportManager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/ViewportManager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/ViewportManager.cpp.s
 .PHONY : src/presentation/ViewportManager.cpp.s
 
 src/presentation/VoiceChart.o: src/presentation/VoiceChart.cpp.o
@@ -3183,6 +3471,9 @@ src/presentation/VoiceChart.o: src/presentation/VoiceChart.cpp.o
 src/presentation/VoiceChart.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/VoiceChart.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/VoiceChart.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/VoiceChart.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/VoiceChart.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/VoiceChart.cpp.o
 .PHONY : src/presentation/VoiceChart.cpp.o
 
 src/presentation/VoiceChart.i: src/presentation/VoiceChart.cpp.i
@@ -3192,6 +3483,9 @@ src/presentation/VoiceChart.i: src/presentation/VoiceChart.cpp.i
 src/presentation/VoiceChart.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/VoiceChart.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/VoiceChart.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/VoiceChart.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/VoiceChart.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/VoiceChart.cpp.i
 .PHONY : src/presentation/VoiceChart.cpp.i
 
 src/presentation/VoiceChart.s: src/presentation/VoiceChart.cpp.s
@@ -3201,7 +3495,442 @@ src/presentation/VoiceChart.s: src/presentation/VoiceChart.cpp.s
 src/presentation/VoiceChart.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/VoiceChart.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/VoiceChart.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/VoiceChart.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/VoiceChart.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/VoiceChart.cpp.s
 .PHONY : src/presentation/VoiceChart.cpp.s
+
+src/presentation/grid/AdaptiveGridExpansionManager.o: src/presentation/grid/AdaptiveGridExpansionManager.cpp.o
+.PHONY : src/presentation/grid/AdaptiveGridExpansionManager.o
+
+# target to build an object file
+src/presentation/grid/AdaptiveGridExpansionManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/grid/AdaptiveGridExpansionManager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/grid/AdaptiveGridExpansionManager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/grid/AdaptiveGridExpansionManager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/grid/AdaptiveGridExpansionManager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/grid/AdaptiveGridExpansionManager.cpp.o
+.PHONY : src/presentation/grid/AdaptiveGridExpansionManager.cpp.o
+
+src/presentation/grid/AdaptiveGridExpansionManager.i: src/presentation/grid/AdaptiveGridExpansionManager.cpp.i
+.PHONY : src/presentation/grid/AdaptiveGridExpansionManager.i
+
+# target to preprocess a source file
+src/presentation/grid/AdaptiveGridExpansionManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/grid/AdaptiveGridExpansionManager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/grid/AdaptiveGridExpansionManager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/grid/AdaptiveGridExpansionManager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/grid/AdaptiveGridExpansionManager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/grid/AdaptiveGridExpansionManager.cpp.i
+.PHONY : src/presentation/grid/AdaptiveGridExpansionManager.cpp.i
+
+src/presentation/grid/AdaptiveGridExpansionManager.s: src/presentation/grid/AdaptiveGridExpansionManager.cpp.s
+.PHONY : src/presentation/grid/AdaptiveGridExpansionManager.s
+
+# target to generate assembly for a file
+src/presentation/grid/AdaptiveGridExpansionManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/grid/AdaptiveGridExpansionManager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/grid/AdaptiveGridExpansionManager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/grid/AdaptiveGridExpansionManager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/grid/AdaptiveGridExpansionManager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/grid/AdaptiveGridExpansionManager.cpp.s
+.PHONY : src/presentation/grid/AdaptiveGridExpansionManager.cpp.s
+
+src/presentation/grid/BatchedGridRenderer.o: src/presentation/grid/BatchedGridRenderer.cpp.o
+.PHONY : src/presentation/grid/BatchedGridRenderer.o
+
+# target to build an object file
+src/presentation/grid/BatchedGridRenderer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/grid/BatchedGridRenderer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/grid/BatchedGridRenderer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/grid/BatchedGridRenderer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/grid/BatchedGridRenderer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/grid/BatchedGridRenderer.cpp.o
+.PHONY : src/presentation/grid/BatchedGridRenderer.cpp.o
+
+src/presentation/grid/BatchedGridRenderer.i: src/presentation/grid/BatchedGridRenderer.cpp.i
+.PHONY : src/presentation/grid/BatchedGridRenderer.i
+
+# target to preprocess a source file
+src/presentation/grid/BatchedGridRenderer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/grid/BatchedGridRenderer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/grid/BatchedGridRenderer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/grid/BatchedGridRenderer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/grid/BatchedGridRenderer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/grid/BatchedGridRenderer.cpp.i
+.PHONY : src/presentation/grid/BatchedGridRenderer.cpp.i
+
+src/presentation/grid/BatchedGridRenderer.s: src/presentation/grid/BatchedGridRenderer.cpp.s
+.PHONY : src/presentation/grid/BatchedGridRenderer.s
+
+# target to generate assembly for a file
+src/presentation/grid/BatchedGridRenderer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/grid/BatchedGridRenderer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/grid/BatchedGridRenderer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/grid/BatchedGridRenderer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/grid/BatchedGridRenderer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/grid/BatchedGridRenderer.cpp.s
+.PHONY : src/presentation/grid/BatchedGridRenderer.cpp.s
+
+src/presentation/grid/CoordinateTransformer.o: src/presentation/grid/CoordinateTransformer.cpp.o
+.PHONY : src/presentation/grid/CoordinateTransformer.o
+
+# target to build an object file
+src/presentation/grid/CoordinateTransformer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/grid/CoordinateTransformer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/grid/CoordinateTransformer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/grid/CoordinateTransformer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/grid/CoordinateTransformer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/grid/CoordinateTransformer.cpp.o
+.PHONY : src/presentation/grid/CoordinateTransformer.cpp.o
+
+src/presentation/grid/CoordinateTransformer.i: src/presentation/grid/CoordinateTransformer.cpp.i
+.PHONY : src/presentation/grid/CoordinateTransformer.i
+
+# target to preprocess a source file
+src/presentation/grid/CoordinateTransformer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/grid/CoordinateTransformer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/grid/CoordinateTransformer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/grid/CoordinateTransformer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/grid/CoordinateTransformer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/grid/CoordinateTransformer.cpp.i
+.PHONY : src/presentation/grid/CoordinateTransformer.cpp.i
+
+src/presentation/grid/CoordinateTransformer.s: src/presentation/grid/CoordinateTransformer.cpp.s
+.PHONY : src/presentation/grid/CoordinateTransformer.s
+
+# target to generate assembly for a file
+src/presentation/grid/CoordinateTransformer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/grid/CoordinateTransformer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/grid/CoordinateTransformer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/grid/CoordinateTransformer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/grid/CoordinateTransformer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/grid/CoordinateTransformer.cpp.s
+.PHONY : src/presentation/grid/CoordinateTransformer.cpp.s
+
+src/presentation/grid/DefaultGridModel.o: src/presentation/grid/DefaultGridModel.cpp.o
+.PHONY : src/presentation/grid/DefaultGridModel.o
+
+# target to build an object file
+src/presentation/grid/DefaultGridModel.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/grid/DefaultGridModel.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/grid/DefaultGridModel.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/grid/DefaultGridModel.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/grid/DefaultGridModel.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/grid/DefaultGridModel.cpp.o
+.PHONY : src/presentation/grid/DefaultGridModel.cpp.o
+
+src/presentation/grid/DefaultGridModel.i: src/presentation/grid/DefaultGridModel.cpp.i
+.PHONY : src/presentation/grid/DefaultGridModel.i
+
+# target to preprocess a source file
+src/presentation/grid/DefaultGridModel.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/grid/DefaultGridModel.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/grid/DefaultGridModel.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/grid/DefaultGridModel.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/grid/DefaultGridModel.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/grid/DefaultGridModel.cpp.i
+.PHONY : src/presentation/grid/DefaultGridModel.cpp.i
+
+src/presentation/grid/DefaultGridModel.s: src/presentation/grid/DefaultGridModel.cpp.s
+.PHONY : src/presentation/grid/DefaultGridModel.s
+
+# target to generate assembly for a file
+src/presentation/grid/DefaultGridModel.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/grid/DefaultGridModel.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/grid/DefaultGridModel.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/grid/DefaultGridModel.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/grid/DefaultGridModel.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/grid/DefaultGridModel.cpp.s
+.PHONY : src/presentation/grid/DefaultGridModel.cpp.s
+
+src/presentation/grid/GridManager.o: src/presentation/grid/GridManager.cpp.o
+.PHONY : src/presentation/grid/GridManager.o
+
+# target to build an object file
+src/presentation/grid/GridManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/grid/GridManager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/grid/GridManager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/grid/GridManager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/grid/GridManager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/grid/GridManager.cpp.o
+.PHONY : src/presentation/grid/GridManager.cpp.o
+
+src/presentation/grid/GridManager.i: src/presentation/grid/GridManager.cpp.i
+.PHONY : src/presentation/grid/GridManager.i
+
+# target to preprocess a source file
+src/presentation/grid/GridManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/grid/GridManager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/grid/GridManager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/grid/GridManager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/grid/GridManager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/grid/GridManager.cpp.i
+.PHONY : src/presentation/grid/GridManager.cpp.i
+
+src/presentation/grid/GridManager.s: src/presentation/grid/GridManager.cpp.s
+.PHONY : src/presentation/grid/GridManager.s
+
+# target to generate assembly for a file
+src/presentation/grid/GridManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/grid/GridManager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/grid/GridManager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/grid/GridManager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/grid/GridManager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/grid/GridManager.cpp.s
+.PHONY : src/presentation/grid/GridManager.cpp.s
+
+src/presentation/grid/GridMemoryManager.o: src/presentation/grid/GridMemoryManager.cpp.o
+.PHONY : src/presentation/grid/GridMemoryManager.o
+
+# target to build an object file
+src/presentation/grid/GridMemoryManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/grid/GridMemoryManager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/grid/GridMemoryManager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/grid/GridMemoryManager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/grid/GridMemoryManager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/grid/GridMemoryManager.cpp.o
+.PHONY : src/presentation/grid/GridMemoryManager.cpp.o
+
+src/presentation/grid/GridMemoryManager.i: src/presentation/grid/GridMemoryManager.cpp.i
+.PHONY : src/presentation/grid/GridMemoryManager.i
+
+# target to preprocess a source file
+src/presentation/grid/GridMemoryManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/grid/GridMemoryManager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/grid/GridMemoryManager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/grid/GridMemoryManager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/grid/GridMemoryManager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/grid/GridMemoryManager.cpp.i
+.PHONY : src/presentation/grid/GridMemoryManager.cpp.i
+
+src/presentation/grid/GridMemoryManager.s: src/presentation/grid/GridMemoryManager.cpp.s
+.PHONY : src/presentation/grid/GridMemoryManager.s
+
+# target to generate assembly for a file
+src/presentation/grid/GridMemoryManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/grid/GridMemoryManager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/grid/GridMemoryManager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/grid/GridMemoryManager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/grid/GridMemoryManager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/grid/GridMemoryManager.cpp.s
+.PHONY : src/presentation/grid/GridMemoryManager.cpp.s
+
+src/presentation/grid/NoteGridAdapter.o: src/presentation/grid/NoteGridAdapter.cpp.o
+.PHONY : src/presentation/grid/NoteGridAdapter.o
+
+# target to build an object file
+src/presentation/grid/NoteGridAdapter.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/grid/NoteGridAdapter.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/grid/NoteGridAdapter.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/grid/NoteGridAdapter.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/grid/NoteGridAdapter.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/grid/NoteGridAdapter.cpp.o
+.PHONY : src/presentation/grid/NoteGridAdapter.cpp.o
+
+src/presentation/grid/NoteGridAdapter.i: src/presentation/grid/NoteGridAdapter.cpp.i
+.PHONY : src/presentation/grid/NoteGridAdapter.i
+
+# target to preprocess a source file
+src/presentation/grid/NoteGridAdapter.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/grid/NoteGridAdapter.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/grid/NoteGridAdapter.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/grid/NoteGridAdapter.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/grid/NoteGridAdapter.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/grid/NoteGridAdapter.cpp.i
+.PHONY : src/presentation/grid/NoteGridAdapter.cpp.i
+
+src/presentation/grid/NoteGridAdapter.s: src/presentation/grid/NoteGridAdapter.cpp.s
+.PHONY : src/presentation/grid/NoteGridAdapter.s
+
+# target to generate assembly for a file
+src/presentation/grid/NoteGridAdapter.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/grid/NoteGridAdapter.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/grid/NoteGridAdapter.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/grid/NoteGridAdapter.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/grid/NoteGridAdapter.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/grid/NoteGridAdapter.cpp.s
+.PHONY : src/presentation/grid/NoteGridAdapter.cpp.s
+
+src/presentation/grid/QtBatchedGridRenderer.o: src/presentation/grid/QtBatchedGridRenderer.cpp.o
+.PHONY : src/presentation/grid/QtBatchedGridRenderer.o
+
+# target to build an object file
+src/presentation/grid/QtBatchedGridRenderer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/grid/QtBatchedGridRenderer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/grid/QtBatchedGridRenderer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/grid/QtBatchedGridRenderer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/grid/QtBatchedGridRenderer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/grid/QtBatchedGridRenderer.cpp.o
+.PHONY : src/presentation/grid/QtBatchedGridRenderer.cpp.o
+
+src/presentation/grid/QtBatchedGridRenderer.i: src/presentation/grid/QtBatchedGridRenderer.cpp.i
+.PHONY : src/presentation/grid/QtBatchedGridRenderer.i
+
+# target to preprocess a source file
+src/presentation/grid/QtBatchedGridRenderer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/grid/QtBatchedGridRenderer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/grid/QtBatchedGridRenderer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/grid/QtBatchedGridRenderer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/grid/QtBatchedGridRenderer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/grid/QtBatchedGridRenderer.cpp.i
+.PHONY : src/presentation/grid/QtBatchedGridRenderer.cpp.i
+
+src/presentation/grid/QtBatchedGridRenderer.s: src/presentation/grid/QtBatchedGridRenderer.cpp.s
+.PHONY : src/presentation/grid/QtBatchedGridRenderer.s
+
+# target to generate assembly for a file
+src/presentation/grid/QtBatchedGridRenderer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/grid/QtBatchedGridRenderer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/grid/QtBatchedGridRenderer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/grid/QtBatchedGridRenderer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/grid/QtBatchedGridRenderer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/grid/QtBatchedGridRenderer.cpp.s
+.PHONY : src/presentation/grid/QtBatchedGridRenderer.cpp.s
+
+src/presentation/grid/ScoreViewAdapter.o: src/presentation/grid/ScoreViewAdapter.cpp.o
+.PHONY : src/presentation/grid/ScoreViewAdapter.o
+
+# target to build an object file
+src/presentation/grid/ScoreViewAdapter.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/grid/ScoreViewAdapter.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/grid/ScoreViewAdapter.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/grid/ScoreViewAdapter.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/grid/ScoreViewAdapter.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/grid/ScoreViewAdapter.cpp.o
+.PHONY : src/presentation/grid/ScoreViewAdapter.cpp.o
+
+src/presentation/grid/ScoreViewAdapter.i: src/presentation/grid/ScoreViewAdapter.cpp.i
+.PHONY : src/presentation/grid/ScoreViewAdapter.i
+
+# target to preprocess a source file
+src/presentation/grid/ScoreViewAdapter.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/grid/ScoreViewAdapter.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/grid/ScoreViewAdapter.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/grid/ScoreViewAdapter.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/grid/ScoreViewAdapter.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/grid/ScoreViewAdapter.cpp.i
+.PHONY : src/presentation/grid/ScoreViewAdapter.cpp.i
+
+src/presentation/grid/ScoreViewAdapter.s: src/presentation/grid/ScoreViewAdapter.cpp.s
+.PHONY : src/presentation/grid/ScoreViewAdapter.s
+
+# target to generate assembly for a file
+src/presentation/grid/ScoreViewAdapter.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/grid/ScoreViewAdapter.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/grid/ScoreViewAdapter.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/grid/ScoreViewAdapter.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/grid/ScoreViewAdapter.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/grid/ScoreViewAdapter.cpp.s
+.PHONY : src/presentation/grid/ScoreViewAdapter.cpp.s
+
+src/presentation/grid/SpatialIndex.o: src/presentation/grid/SpatialIndex.cpp.o
+.PHONY : src/presentation/grid/SpatialIndex.o
+
+# target to build an object file
+src/presentation/grid/SpatialIndex.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/grid/SpatialIndex.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/grid/SpatialIndex.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/grid/SpatialIndex.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/grid/SpatialIndex.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/grid/SpatialIndex.cpp.o
+.PHONY : src/presentation/grid/SpatialIndex.cpp.o
+
+src/presentation/grid/SpatialIndex.i: src/presentation/grid/SpatialIndex.cpp.i
+.PHONY : src/presentation/grid/SpatialIndex.i
+
+# target to preprocess a source file
+src/presentation/grid/SpatialIndex.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/grid/SpatialIndex.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/grid/SpatialIndex.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/grid/SpatialIndex.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/grid/SpatialIndex.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/grid/SpatialIndex.cpp.i
+.PHONY : src/presentation/grid/SpatialIndex.cpp.i
+
+src/presentation/grid/SpatialIndex.s: src/presentation/grid/SpatialIndex.cpp.s
+.PHONY : src/presentation/grid/SpatialIndex.s
+
+# target to generate assembly for a file
+src/presentation/grid/SpatialIndex.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/grid/SpatialIndex.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/grid/SpatialIndex.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/grid/SpatialIndex.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/grid/SpatialIndex.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/grid/SpatialIndex.cpp.s
+.PHONY : src/presentation/grid/SpatialIndex.cpp.s
+
+src/presentation/grid/ViewportLayoutManager.o: src/presentation/grid/ViewportLayoutManager.cpp.o
+.PHONY : src/presentation/grid/ViewportLayoutManager.o
+
+# target to build an object file
+src/presentation/grid/ViewportLayoutManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/grid/ViewportLayoutManager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/grid/ViewportLayoutManager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/grid/ViewportLayoutManager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/grid/ViewportLayoutManager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/grid/ViewportLayoutManager.cpp.o
+.PHONY : src/presentation/grid/ViewportLayoutManager.cpp.o
+
+src/presentation/grid/ViewportLayoutManager.i: src/presentation/grid/ViewportLayoutManager.cpp.i
+.PHONY : src/presentation/grid/ViewportLayoutManager.i
+
+# target to preprocess a source file
+src/presentation/grid/ViewportLayoutManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/grid/ViewportLayoutManager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/grid/ViewportLayoutManager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/grid/ViewportLayoutManager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/grid/ViewportLayoutManager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/grid/ViewportLayoutManager.cpp.i
+.PHONY : src/presentation/grid/ViewportLayoutManager.cpp.i
+
+src/presentation/grid/ViewportLayoutManager.s: src/presentation/grid/ViewportLayoutManager.cpp.s
+.PHONY : src/presentation/grid/ViewportLayoutManager.s
+
+# target to generate assembly for a file
+src/presentation/grid/ViewportLayoutManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/grid/ViewportLayoutManager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/grid/ViewportLayoutManager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/grid/ViewportLayoutManager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/grid/ViewportLayoutManager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/grid/ViewportLayoutManager.cpp.s
+.PHONY : src/presentation/grid/ViewportLayoutManager.cpp.s
+
+src/presentation/grid/ViewportManagerAdapter.o: src/presentation/grid/ViewportManagerAdapter.cpp.o
+.PHONY : src/presentation/grid/ViewportManagerAdapter.o
+
+# target to build an object file
+src/presentation/grid/ViewportManagerAdapter.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/grid/ViewportManagerAdapter.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/grid/ViewportManagerAdapter.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/grid/ViewportManagerAdapter.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/grid/ViewportManagerAdapter.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/grid/ViewportManagerAdapter.cpp.o
+.PHONY : src/presentation/grid/ViewportManagerAdapter.cpp.o
+
+src/presentation/grid/ViewportManagerAdapter.i: src/presentation/grid/ViewportManagerAdapter.cpp.i
+.PHONY : src/presentation/grid/ViewportManagerAdapter.i
+
+# target to preprocess a source file
+src/presentation/grid/ViewportManagerAdapter.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/grid/ViewportManagerAdapter.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/grid/ViewportManagerAdapter.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/grid/ViewportManagerAdapter.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/grid/ViewportManagerAdapter.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/grid/ViewportManagerAdapter.cpp.i
+.PHONY : src/presentation/grid/ViewportManagerAdapter.cpp.i
+
+src/presentation/grid/ViewportManagerAdapter.s: src/presentation/grid/ViewportManagerAdapter.cpp.s
+.PHONY : src/presentation/grid/ViewportManagerAdapter.s
+
+# target to generate assembly for a file
+src/presentation/grid/ViewportManagerAdapter.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/grid/ViewportManagerAdapter.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/grid/ViewportManagerAdapter.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/grid/ViewportManagerAdapter.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/grid/ViewportManagerAdapter.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/grid/ViewportManagerAdapter.cpp.s
+.PHONY : src/presentation/grid/ViewportManagerAdapter.cpp.s
 
 src/presentation/main_gui.o: src/presentation/main_gui.cpp.o
 .PHONY : src/presentation/main_gui.o
@@ -3258,6 +3987,9 @@ src/presentation/viewmodels/ScoreViewModel.o: src/presentation/viewmodels/ScoreV
 src/presentation/viewmodels/ScoreViewModel.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/viewmodels/ScoreViewModel.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/viewmodels/ScoreViewModel.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/viewmodels/ScoreViewModel.cpp.o
 .PHONY : src/presentation/viewmodels/ScoreViewModel.cpp.o
 
 src/presentation/viewmodels/ScoreViewModel.i: src/presentation/viewmodels/ScoreViewModel.cpp.i
@@ -3267,6 +3999,9 @@ src/presentation/viewmodels/ScoreViewModel.i: src/presentation/viewmodels/ScoreV
 src/presentation/viewmodels/ScoreViewModel.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/viewmodels/ScoreViewModel.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/viewmodels/ScoreViewModel.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/viewmodels/ScoreViewModel.cpp.i
 .PHONY : src/presentation/viewmodels/ScoreViewModel.cpp.i
 
 src/presentation/viewmodels/ScoreViewModel.s: src/presentation/viewmodels/ScoreViewModel.cpp.s
@@ -3276,6 +4011,9 @@ src/presentation/viewmodels/ScoreViewModel.s: src/presentation/viewmodels/ScoreV
 src/presentation/viewmodels/ScoreViewModel.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicTrainerGUI.dir/build.make CMakeFiles/MusicTrainerGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestGUI.dir/build.make CMakeFiles/TestGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/src/presentation/viewmodels/ScoreViewModel.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/src/presentation/viewmodels/ScoreViewModel.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/src/presentation/viewmodels/ScoreViewModel.cpp.s
 .PHONY : src/presentation/viewmodels/ScoreViewModel.cpp.s
 
 src/utils/DebugUtils.o: src/utils/DebugUtils.cpp.o
@@ -3542,6 +4280,87 @@ tests/crossdomain/CrossDomainValidatorTests.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.s
 .PHONY : tests/crossdomain/CrossDomainValidatorTests.cpp.s
 
+tests/grid/GridAdapterTests.o: tests/grid/GridAdapterTests.cpp.o
+.PHONY : tests/grid/GridAdapterTests.o
+
+# target to build an object file
+tests/grid/GridAdapterTests.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/grid/GridAdapterTests.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/tests/grid/GridAdapterTests.cpp.o
+.PHONY : tests/grid/GridAdapterTests.cpp.o
+
+tests/grid/GridAdapterTests.i: tests/grid/GridAdapterTests.cpp.i
+.PHONY : tests/grid/GridAdapterTests.i
+
+# target to preprocess a source file
+tests/grid/GridAdapterTests.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/grid/GridAdapterTests.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/tests/grid/GridAdapterTests.cpp.i
+.PHONY : tests/grid/GridAdapterTests.cpp.i
+
+tests/grid/GridAdapterTests.s: tests/grid/GridAdapterTests.cpp.s
+.PHONY : tests/grid/GridAdapterTests.s
+
+# target to generate assembly for a file
+tests/grid/GridAdapterTests.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/grid/GridAdapterTests.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/tests/grid/GridAdapterTests.cpp.s
+.PHONY : tests/grid/GridAdapterTests.cpp.s
+
+tests/grid/GridPerformanceBenchmark.o: tests/grid/GridPerformanceBenchmark.cpp.o
+.PHONY : tests/grid/GridPerformanceBenchmark.o
+
+# target to build an object file
+tests/grid/GridPerformanceBenchmark.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/grid/GridPerformanceBenchmark.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/tests/grid/GridPerformanceBenchmark.cpp.o
+.PHONY : tests/grid/GridPerformanceBenchmark.cpp.o
+
+tests/grid/GridPerformanceBenchmark.i: tests/grid/GridPerformanceBenchmark.cpp.i
+.PHONY : tests/grid/GridPerformanceBenchmark.i
+
+# target to preprocess a source file
+tests/grid/GridPerformanceBenchmark.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/grid/GridPerformanceBenchmark.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/tests/grid/GridPerformanceBenchmark.cpp.i
+.PHONY : tests/grid/GridPerformanceBenchmark.cpp.i
+
+tests/grid/GridPerformanceBenchmark.s: tests/grid/GridPerformanceBenchmark.cpp.s
+.PHONY : tests/grid/GridPerformanceBenchmark.s
+
+# target to generate assembly for a file
+tests/grid/GridPerformanceBenchmark.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/grid/GridPerformanceBenchmark.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/tests/grid/GridPerformanceBenchmark.cpp.s
+.PHONY : tests/grid/GridPerformanceBenchmark.cpp.s
+
+tests/grid/GridSystemTests.o: tests/grid/GridSystemTests.cpp.o
+.PHONY : tests/grid/GridSystemTests.o
+
+# target to build an object file
+tests/grid/GridSystemTests.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/grid/GridSystemTests.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/tests/grid/GridSystemTests.cpp.o
+.PHONY : tests/grid/GridSystemTests.cpp.o
+
+tests/grid/GridSystemTests.i: tests/grid/GridSystemTests.cpp.i
+.PHONY : tests/grid/GridSystemTests.i
+
+# target to preprocess a source file
+tests/grid/GridSystemTests.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/grid/GridSystemTests.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/tests/grid/GridSystemTests.cpp.i
+.PHONY : tests/grid/GridSystemTests.cpp.i
+
+tests/grid/GridSystemTests.s: tests/grid/GridSystemTests.cpp.s
+.PHONY : tests/grid/GridSystemTests.s
+
+# target to generate assembly for a file
+tests/grid/GridSystemTests.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSuite.dir/build.make CMakeFiles/TestSuite.dir/tests/grid/GridSystemTests.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/tests/grid/GridSystemTests.cpp.s
+.PHONY : tests/grid/GridSystemTests.cpp.s
+
 tests/integration/SystemIntegrationTests.o: tests/integration/SystemIntegrationTests.cpp.o
 .PHONY : tests/integration/SystemIntegrationTests.o
 
@@ -3586,6 +4405,9 @@ tests/main.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/main.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/main.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/tests/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/tests/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/tests/main.cpp.o
 .PHONY : tests/main.cpp.o
 
 tests/main.i: tests/main.cpp.i
@@ -3605,6 +4427,9 @@ tests/main.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/main.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/main.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/tests/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/tests/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/tests/main.cpp.i
 .PHONY : tests/main.cpp.i
 
 tests/main.s: tests/main.cpp.s
@@ -3624,6 +4449,9 @@ tests/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PerformanceMonitoringTests.dir/build.make CMakeFiles/PerformanceMonitoringTests.dir/tests/main.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CrossDomainValidatorTests.dir/build.make CMakeFiles/CrossDomainValidatorTests.dir/tests/main.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/StateSynchronizationManagerTests.dir/build.make CMakeFiles/StateSynchronizationManagerTests.dir/tests/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridSystemTests.dir/build.make CMakeFiles/GridSystemTests.dir/tests/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridAdapterTests.dir/build.make CMakeFiles/GridAdapterTests.dir/tests/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GridPerformanceBenchmark.dir/build.make CMakeFiles/GridPerformanceBenchmark.dir/tests/main.cpp.s
 .PHONY : tests/main.cpp.s
 
 tests/plugins/PluginSystemTests.o: tests/plugins/PluginSystemTests.cpp.o
@@ -3744,6 +4572,12 @@ help:
 	@echo "... ExperimentalSubmit"
 	@echo "... ExperimentalTest"
 	@echo "... ExperimentalUpdate"
+	@echo "... GridAdapterTests_autogen"
+	@echo "... GridAdapterTests_autogen_timestamp_deps"
+	@echo "... GridPerformanceBenchmark_autogen"
+	@echo "... GridPerformanceBenchmark_autogen_timestamp_deps"
+	@echo "... GridSystemTests_autogen"
+	@echo "... GridSystemTests_autogen_timestamp_deps"
 	@echo "... MidiSystemTests_autogen"
 	@echo "... MidiSystemTests_autogen_timestamp_deps"
 	@echo "... MusicTrainerGUI_autogen"
@@ -3810,6 +4644,9 @@ help:
 	@echo "... CrossDomainValidatorTests"
 	@echo "... ErrorHandlingTests"
 	@echo "... ExerciseGenerationTests"
+	@echo "... GridAdapterTests"
+	@echo "... GridPerformanceBenchmark"
+	@echo "... GridSystemTests"
 	@echo "... MidiSystemTests"
 	@echo "... MusicTrainerGUI"
 	@echo "... MusicTrainerLib"
@@ -3845,6 +4682,15 @@ help:
 	@echo "... ExerciseGenerationTests_autogen/mocs_compilation.o"
 	@echo "... ExerciseGenerationTests_autogen/mocs_compilation.i"
 	@echo "... ExerciseGenerationTests_autogen/mocs_compilation.s"
+	@echo "... GridAdapterTests_autogen/mocs_compilation.o"
+	@echo "... GridAdapterTests_autogen/mocs_compilation.i"
+	@echo "... GridAdapterTests_autogen/mocs_compilation.s"
+	@echo "... GridPerformanceBenchmark_autogen/mocs_compilation.o"
+	@echo "... GridPerformanceBenchmark_autogen/mocs_compilation.i"
+	@echo "... GridPerformanceBenchmark_autogen/mocs_compilation.s"
+	@echo "... GridSystemTests_autogen/mocs_compilation.o"
+	@echo "... GridSystemTests_autogen/mocs_compilation.i"
+	@echo "... GridSystemTests_autogen/mocs_compilation.s"
 	@echo "... MidiSystemTests_autogen/mocs_compilation.o"
 	@echo "... MidiSystemTests_autogen/mocs_compilation.i"
 	@echo "... MidiSystemTests_autogen/mocs_compilation.s"
@@ -4022,6 +4868,42 @@ help:
 	@echo "... src/presentation/VoiceChart.o"
 	@echo "... src/presentation/VoiceChart.i"
 	@echo "... src/presentation/VoiceChart.s"
+	@echo "... src/presentation/grid/AdaptiveGridExpansionManager.o"
+	@echo "... src/presentation/grid/AdaptiveGridExpansionManager.i"
+	@echo "... src/presentation/grid/AdaptiveGridExpansionManager.s"
+	@echo "... src/presentation/grid/BatchedGridRenderer.o"
+	@echo "... src/presentation/grid/BatchedGridRenderer.i"
+	@echo "... src/presentation/grid/BatchedGridRenderer.s"
+	@echo "... src/presentation/grid/CoordinateTransformer.o"
+	@echo "... src/presentation/grid/CoordinateTransformer.i"
+	@echo "... src/presentation/grid/CoordinateTransformer.s"
+	@echo "... src/presentation/grid/DefaultGridModel.o"
+	@echo "... src/presentation/grid/DefaultGridModel.i"
+	@echo "... src/presentation/grid/DefaultGridModel.s"
+	@echo "... src/presentation/grid/GridManager.o"
+	@echo "... src/presentation/grid/GridManager.i"
+	@echo "... src/presentation/grid/GridManager.s"
+	@echo "... src/presentation/grid/GridMemoryManager.o"
+	@echo "... src/presentation/grid/GridMemoryManager.i"
+	@echo "... src/presentation/grid/GridMemoryManager.s"
+	@echo "... src/presentation/grid/NoteGridAdapter.o"
+	@echo "... src/presentation/grid/NoteGridAdapter.i"
+	@echo "... src/presentation/grid/NoteGridAdapter.s"
+	@echo "... src/presentation/grid/QtBatchedGridRenderer.o"
+	@echo "... src/presentation/grid/QtBatchedGridRenderer.i"
+	@echo "... src/presentation/grid/QtBatchedGridRenderer.s"
+	@echo "... src/presentation/grid/ScoreViewAdapter.o"
+	@echo "... src/presentation/grid/ScoreViewAdapter.i"
+	@echo "... src/presentation/grid/ScoreViewAdapter.s"
+	@echo "... src/presentation/grid/SpatialIndex.o"
+	@echo "... src/presentation/grid/SpatialIndex.i"
+	@echo "... src/presentation/grid/SpatialIndex.s"
+	@echo "... src/presentation/grid/ViewportLayoutManager.o"
+	@echo "... src/presentation/grid/ViewportLayoutManager.i"
+	@echo "... src/presentation/grid/ViewportLayoutManager.s"
+	@echo "... src/presentation/grid/ViewportManagerAdapter.o"
+	@echo "... src/presentation/grid/ViewportManagerAdapter.i"
+	@echo "... src/presentation/grid/ViewportManagerAdapter.s"
 	@echo "... src/presentation/main_gui.o"
 	@echo "... src/presentation/main_gui.i"
 	@echo "... src/presentation/main_gui.s"
@@ -4061,6 +4943,15 @@ help:
 	@echo "... tests/crossdomain/CrossDomainValidatorTests.o"
 	@echo "... tests/crossdomain/CrossDomainValidatorTests.i"
 	@echo "... tests/crossdomain/CrossDomainValidatorTests.s"
+	@echo "... tests/grid/GridAdapterTests.o"
+	@echo "... tests/grid/GridAdapterTests.i"
+	@echo "... tests/grid/GridAdapterTests.s"
+	@echo "... tests/grid/GridPerformanceBenchmark.o"
+	@echo "... tests/grid/GridPerformanceBenchmark.i"
+	@echo "... tests/grid/GridPerformanceBenchmark.s"
+	@echo "... tests/grid/GridSystemTests.o"
+	@echo "... tests/grid/GridSystemTests.i"
+	@echo "... tests/grid/GridSystemTests.s"
 	@echo "... tests/integration/SystemIntegrationTests.o"
 	@echo "... tests/integration/SystemIntegrationTests.i"
 	@echo "... tests/integration/SystemIntegrationTests.s"

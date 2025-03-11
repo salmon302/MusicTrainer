@@ -14,6 +14,9 @@
 /home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles/PerformanceMonitoringTests.dir
 /home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles/CrossDomainValidatorTests.dir
 /home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles/StateSynchronizationManagerTests.dir
+/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles/GridSystemTests.dir
+/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles/GridAdapterTests.dir
+/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles/GridPerformanceBenchmark.dir
 /home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles/test.dir
 /home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles/edit_cache.dir
 /home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles/rebuild_cache.dir
@@ -53,6 +56,12 @@
 /home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles/CrossDomainValidatorTests_autogen.dir
 /home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles/StateSynchronizationManagerTests_autogen_timestamp_deps.dir
 /home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles/StateSynchronizationManagerTests_autogen.dir
+/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles/GridSystemTests_autogen_timestamp_deps.dir
+/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles/GridSystemTests_autogen.dir
+/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles/GridAdapterTests_autogen_timestamp_deps.dir
+/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles/GridAdapterTests_autogen.dir
+/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles/GridPerformanceBenchmark_autogen_timestamp_deps.dir
+/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles/GridPerformanceBenchmark_autogen.dir
 /home/seth-n/Documents/GitHub/MusicTrainer/_deps/googletest-build/CMakeFiles/test.dir
 /home/seth-n/Documents/GitHub/MusicTrainer/_deps/googletest-build/CMakeFiles/edit_cache.dir
 /home/seth-n/Documents/GitHub/MusicTrainer/_deps/googletest-build/CMakeFiles/rebuild_cache.dir

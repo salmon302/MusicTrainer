@@ -68,9 +68,9 @@ include CMakeFiles/ExerciseGenerationTests_autogen_timestamp_deps.dir/progress.m
 
 CMakeFiles/ExerciseGenerationTests_autogen_timestamp_deps: /usr/lib/qt6/libexec/uic
 CMakeFiles/ExerciseGenerationTests_autogen_timestamp_deps: /usr/lib/qt6/libexec/moc
+CMakeFiles/ExerciseGenerationTests_autogen_timestamp_deps: _deps/rtmidi-build/librtmidi.so.6.0.0
 CMakeFiles/ExerciseGenerationTests_autogen_timestamp_deps: lib/libgtest.so.1.13.0
 CMakeFiles/ExerciseGenerationTests_autogen_timestamp_deps: lib/libgtest_main.so.1.13.0
-CMakeFiles/ExerciseGenerationTests_autogen_timestamp_deps: _deps/rtmidi-build/librtmidi.so.6.0.0
 CMakeFiles/ExerciseGenerationTests_autogen_timestamp_deps: libMusicTrainerLib.a
 
 ExerciseGenerationTests_autogen_timestamp_deps: CMakeFiles/ExerciseGenerationTests_autogen_timestamp_deps

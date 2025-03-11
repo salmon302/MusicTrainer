@@ -53,7 +53,7 @@ public:
      */
     void clearRuleViolations();
 
-signals:
+Q_SIGNALS:
     /**
      * @brief Emitted when the user requests solution checking
      */
@@ -71,7 +71,7 @@ signals:
      */
     void exerciseChanged(const QString& exerciseType);
 
-private slots:
+private Q_SLOTS:
     void onCheckSolutionClicked();
     void onHintClicked();
     void onRuleViolationSelected(int index);

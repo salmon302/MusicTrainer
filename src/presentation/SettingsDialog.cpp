@@ -419,7 +419,7 @@ void SettingsDialog::onThemeChanged(int index)
     }
     
     // Emit a signal to notify that the theme has changed
-    emit themeChanged(index);
+    Q_EMIT themeChanged(index);
 }
 
 void SettingsDialog::onRuleSetSelectionChanged()
@@ -507,7 +507,7 @@ void SettingsDialog::onRuleToggled(bool checked)
     item->setCheckState(checked ? Qt::Checked : Qt::Unchecked);
     
     // Emit a signal to notify that rules have changed
-    emit rulesChanged();
+    Q_EMIT rulesChanged();
 }
 
 void SettingsDialog::saveSettings()

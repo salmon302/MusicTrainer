@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -DRTMIDI_DO_NOT_ENSURE_UNIQUE_PORTNAMES
 
-CXX_INCLUDES = -I/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/MusicTrainerV3_autogen/include -I/home/seth-n/Documents/GitHub/MusicTrainer/include
+CXX_INCLUDES = -I/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/MusicTrainerV3_autogen/include -I/home/seth-n/Documents/GitHub/MusicTrainer/include -I/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake
 
 CXX_FLAGS =  -fPIC -pthread -pthread -std=c++17
 

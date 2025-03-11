@@ -290,7 +290,7 @@ void ExerciseBrowser::onSelectExerciseClicked()
     }
     
     // Emit the signal with the selected exercise
-    emit exerciseSelected(m_selectedExercise);
+    Q_EMIT exerciseSelected(m_selectedExercise);
     
     // Show a confirmation message
     QMessageBox::information(this, tr("Exercise Selected"),

@@ -311,9 +311,105 @@
 			null
 		],
 		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/grid/AdaptiveGridExpansionManager.h",
+			"MU",
+			"ISZRHQQRPX/moc_AdaptiveGridExpansionManager.cpp",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/grid/BatchedGridRenderer.h",
+			"MU",
+			"ISZRHQQRPX/moc_BatchedGridRenderer.cpp",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/grid/CoordinateTransformer.h",
+			"MU",
+			"ISZRHQQRPX/moc_CoordinateTransformer.cpp",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/grid/DefaultGridModel.h",
+			"MU",
+			"ISZRHQQRPX/moc_DefaultGridModel.cpp",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/grid/GridManager.h",
+			"MU",
+			"ISZRHQQRPX/moc_GridManager.cpp",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/grid/GridMemoryManager.h",
+			"MU",
+			"ISZRHQQRPX/moc_GridMemoryManager.cpp",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/grid/IGridModel.h",
+			"MU",
+			"ISZRHQQRPX/moc_IGridModel.cpp",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/grid/IGridRenderer.h",
+			"MU",
+			"ISZRHQQRPX/moc_IGridRenderer.cpp",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/grid/IViewportController.h",
+			"MU",
+			"ISZRHQQRPX/moc_IViewportController.cpp",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/grid/NoteGridAdapter.h",
+			"MU",
+			"ISZRHQQRPX/moc_NoteGridAdapter.cpp",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/grid/QtBatchedGridRenderer.h",
+			"MU",
+			"ISZRHQQRPX/moc_QtBatchedGridRenderer.cpp",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/grid/ScoreViewAdapter.h",
+			"MU",
+			"ISZRHQQRPX/moc_ScoreViewAdapter.cpp",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/grid/SpatialIndex.h",
+			"MU",
+			"ISZRHQQRPX/moc_SpatialIndex.cpp",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/grid/ViewportLayoutManager.h",
+			"MU",
+			"ISZRHQQRPX/moc_ViewportLayoutManager.cpp",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/grid/ViewportManagerAdapter.h",
+			"MU",
+			"ISZRHQQRPX/moc_ViewportManagerAdapter.cpp",
+			null
+		],
+		[
 			"/home/seth-n/Documents/GitHub/MusicTrainer/include/presentation/viewmodels/ScoreViewModel.h",
 			"MU",
 			"CNFTXHMAZD/moc_ScoreViewModel.cpp",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/QtBatchedGridRenderer.h",
+			"MU",
+			"DGB4OVXGTF/moc_QtBatchedGridRenderer.cpp",
 			null
 		]
 	],
@@ -341,6 +437,7 @@
 	"MOC_INCLUDES" : 
 	[
 		"/home/seth-n/Documents/GitHub/MusicTrainer/include",
+		"/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake",
 		"/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/_deps/rtmidi-src",
 		"/usr/include/x86_64-linux-gnu/qt6/QtCore",
 		"/usr/include/x86_64-linux-gnu/qt6",
@@ -452,6 +549,66 @@
 		],
 		[
 			"/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/VoiceChart.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/AdaptiveGridExpansionManager.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/BatchedGridRenderer.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/CoordinateTransformer.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/DefaultGridModel.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/GridManager.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/GridMemoryManager.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/NoteGridAdapter.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/QtBatchedGridRenderer.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/ScoreViewAdapter.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/SpatialIndex.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/ViewportLayoutManager.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/ViewportManagerAdapter.cpp",
 			"MU",
 			null
 		],

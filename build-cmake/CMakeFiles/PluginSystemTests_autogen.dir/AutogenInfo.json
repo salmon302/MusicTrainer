@@ -241,6 +241,7 @@
 	"MOC_INCLUDES" : 
 	[
 		"/home/seth-n/Documents/GitHub/MusicTrainer/include",
+		"/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake",
 		"/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/_deps/rtmidi-src",
 		"/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/_deps/googletest-src/googletest/include",
 		"/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/_deps/googletest-src/googletest",

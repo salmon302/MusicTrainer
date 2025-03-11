@@ -18,6 +18,7 @@
 #define __FLT32_MIN_EXP__ (-125)
 #define __cpp_static_assert 201411L
 #define __BFLT16_MIN_10_EXP__ (-37)
+#define QT_GUI_LIB 1
 #define __ORDER_LITTLE_ENDIAN__ 1234
 #define __WCHAR_MAX__ 0x7fffffff
 #define __GCC_HAVE_SYNC_COMPARE_AND_SWAP_2 1
@@ -40,6 +41,7 @@
 #define __cpp_variable_templates 201304L
 #define __FLT32X_MAX_EXP__ 1024
 #define __GCC_HAVE_SYNC_COMPARE_AND_SWAP_1 1
+#define QT_OPENGL_LIB 1
 #define __FLT32_HAS_DENORM__ 1
 #define __UINT_FAST8_MAX__ 0xff
 #define __cpp_rvalue_reference 200610L
@@ -60,6 +62,7 @@
 #define __BFLT16_MAX_10_EXP__ 38
 #define __BFLT16_MAX_EXP__ 128
 #define __LDBL_IS_IEC_60559__ 1
+#define QT_NO_DEBUG 1
 #define __FLT64X_HAS_QUIET_NAN__ 1
 #define __UINT_LEAST8_MAX__ 0xff
 #define __GCC_ATOMIC_BOOL_LOCK_FREE 2
@@ -111,6 +114,7 @@
 #define __INT_WIDTH__ 32
 #define __STDC_IEC_559__ 1
 #define __STDC_ISO_10646__ 201706L
+#define QT_CHARTS_LIB 1
 #define __DECIMAL_DIG__ 21
 #define __STDC_IEC_559_COMPLEX__ 1
 #define __FLT64_EPSILON__ 2.22044604925031308084726333618164062e-16F64
@@ -152,6 +156,7 @@
 #define __STRICT_ANSI__ 1
 #define __MMX_WITH_SSE__ 1
 #define __LDBL_HAS_DENORM__ 1
+#define QT_WIDGETS_LIB 1
 #define __SEG_GS 1
 #define __BFLT16_EPSILON__ 7.81250000000000000000000000000000000e-3BF16
 #define __cplusplus 201703L
@@ -214,6 +219,7 @@
 #define __FLT_DIG__ 6
 #define __NO_INLINE__ 1
 #define __DEC_EVAL_METHOD__ 2
+#define QT_NO_KEYWORDS 1
 #define __FLT_MANT_DIG__ 24
 #define __LDBL_DECIMAL_DIG__ 21
 #define __VERSION__ "13.3.0"
@@ -238,6 +244,7 @@
 #define __ORDER_PDP_ENDIAN__ 3412
 #define __DEC128_MIN_EXP__ (-6142)
 #define __DEC128_MAX__ 9.999999999999999999999999999999999E6144DL
+#define QT_OPENGLWIDGETS_LIB 1
 #define __INT_FAST32_TYPE__ long int
 #define __UINT_LEAST16_TYPE__ short unsigned int
 #define __DEC128_MAX_EXP__ 6145
@@ -353,6 +360,7 @@
 #define __ORDER_BIG_ENDIAN__ 4321
 #define __DBL_MANT_DIG__ 53
 #define __cpp_inheriting_constructors 201511L
+#define QT_CORE_LIB 1
 #define __SIZEOF_FLOAT128__ 16
 #define __BFLT16_MANT_DIG__ 8
 #define __DEC64_MIN__ 1E-383DD

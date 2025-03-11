@@ -24,6 +24,10 @@ class Score;
 class Note;
 }
 
+namespace MusicTrainer::presentation::grid {
+class ScoreViewAdapter;
+}
+
 namespace MusicTrainer::presentation {
 
 class NoteGrid;
@@ -52,12 +56,16 @@ public:
     MusicTrainer::music::Duration convertToMusicalDuration(double numericDuration);
     void expandGrid(GridDirection direction, int amount);
 
-signals:
+    // Add getter methods
+    NoteGrid* getNoteGrid() const { return m_noteGrid.get(); }
+    ViewportManager* getViewportManager() const { return m_viewportManager.get(); }
+
+Q_SIGNALS:
     void noteSelected(int position, int voiceIndex);
     void viewportExpanded(const QRectF& newBounds);
     void noteAdded(int pitch, double duration, int position = 0);
 
-public slots:
+public Q_SLOTS:
     void onScoreChanged();
     void onVoiceAdded(const MusicTrainer::music::Voice& voice);
     void onNoteAdded(const MusicTrainer::music::Note& note);
@@ -90,6 +98,9 @@ private:
     std::unique_ptr<NoteGrid> m_noteGrid;
     std::unique_ptr<ViewportManager> m_viewportManager;
     std::shared_ptr<MusicTrainer::music::Score> m_score;
+    
+    // New adapter for the grid architecture
+    std::unique_ptr<grid::ScoreViewAdapter> m_gridAdapter;
     
     bool m_isSelecting = false;
     QPoint m_lastMousePos;

@@ -29,7 +29,7 @@ public:
     int getVoiceCount() const;
     bool isDirty() const;
 
-signals:
+Q_SIGNALS:
     void scoreChanged();
     void noteAdded(int voiceIndex, const music::Note& note);
     void noteRemoved(int voiceIndex, int position);

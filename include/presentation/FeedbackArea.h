@@ -30,10 +30,10 @@ public:
     void addValidationMessage(const QString& message, bool isError);
     void clearFeedback();
 
-signals:
+Q_SIGNALS:
     void feedbackItemSelected(int position, int voiceIndex);
 
-private slots:
+private Q_SLOTS:
     void onTabChanged(int index);
     void onVoiceAnalysisItemClicked(int row, int column);
     void onValidationMessageClicked(QListWidgetItem* item);

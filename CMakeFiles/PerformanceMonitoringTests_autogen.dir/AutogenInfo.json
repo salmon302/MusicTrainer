@@ -233,6 +233,7 @@
 	"MOC_INCLUDES" : 
 	[
 		"/home/seth-n/Documents/GitHub/MusicTrainer/include",
+		"/home/seth-n/Documents/GitHub/MusicTrainer",
 		"/home/seth-n/Documents/GitHub/MusicTrainer/_deps/rtmidi-src",
 		"/home/seth-n/Documents/GitHub/MusicTrainer/_deps/googletest-src/googletest/include",
 		"/home/seth-n/Documents/GitHub/MusicTrainer/_deps/googletest-src/googletest",

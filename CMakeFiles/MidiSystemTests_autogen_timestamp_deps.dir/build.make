@@ -68,9 +68,9 @@ include CMakeFiles/MidiSystemTests_autogen_timestamp_deps.dir/progress.make
 
 CMakeFiles/MidiSystemTests_autogen_timestamp_deps: /usr/lib/qt6/libexec/uic
 CMakeFiles/MidiSystemTests_autogen_timestamp_deps: /usr/lib/qt6/libexec/moc
+CMakeFiles/MidiSystemTests_autogen_timestamp_deps: _deps/rtmidi-build/librtmidi.so.6.0.0
 CMakeFiles/MidiSystemTests_autogen_timestamp_deps: lib/libgtest.so.1.13.0
 CMakeFiles/MidiSystemTests_autogen_timestamp_deps: lib/libgtest_main.so.1.13.0
-CMakeFiles/MidiSystemTests_autogen_timestamp_deps: _deps/rtmidi-build/librtmidi.so.6.0.0
 CMakeFiles/MidiSystemTests_autogen_timestamp_deps: libMusicTrainerLib.a
 
 MidiSystemTests_autogen_timestamp_deps: CMakeFiles/MidiSystemTests_autogen_timestamp_deps

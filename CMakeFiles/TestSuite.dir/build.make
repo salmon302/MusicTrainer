@@ -279,6 +279,48 @@ CMakeFiles/TestSuite.dir/tests/statesync/StateSynchronizationManagerTests.cpp.s:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestSuite.dir/tests/statesync/StateSynchronizationManagerTests.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/tests/statesync/StateSynchronizationManagerTests.cpp -o CMakeFiles/TestSuite.dir/tests/statesync/StateSynchronizationManagerTests.cpp.s
 
+CMakeFiles/TestSuite.dir/tests/grid/GridSystemTests.cpp.o: CMakeFiles/TestSuite.dir/flags.make
+CMakeFiles/TestSuite.dir/tests/grid/GridSystemTests.cpp.o: tests/grid/GridSystemTests.cpp
+CMakeFiles/TestSuite.dir/tests/grid/GridSystemTests.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/TestSuite.dir/tests/grid/GridSystemTests.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/tests/grid/GridSystemTests.cpp.o -MF CMakeFiles/TestSuite.dir/tests/grid/GridSystemTests.cpp.o.d -o CMakeFiles/TestSuite.dir/tests/grid/GridSystemTests.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/tests/grid/GridSystemTests.cpp
+
+CMakeFiles/TestSuite.dir/tests/grid/GridSystemTests.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestSuite.dir/tests/grid/GridSystemTests.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/tests/grid/GridSystemTests.cpp > CMakeFiles/TestSuite.dir/tests/grid/GridSystemTests.cpp.i
+
+CMakeFiles/TestSuite.dir/tests/grid/GridSystemTests.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestSuite.dir/tests/grid/GridSystemTests.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/tests/grid/GridSystemTests.cpp -o CMakeFiles/TestSuite.dir/tests/grid/GridSystemTests.cpp.s
+
+CMakeFiles/TestSuite.dir/tests/grid/GridAdapterTests.cpp.o: CMakeFiles/TestSuite.dir/flags.make
+CMakeFiles/TestSuite.dir/tests/grid/GridAdapterTests.cpp.o: tests/grid/GridAdapterTests.cpp
+CMakeFiles/TestSuite.dir/tests/grid/GridAdapterTests.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/TestSuite.dir/tests/grid/GridAdapterTests.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/tests/grid/GridAdapterTests.cpp.o -MF CMakeFiles/TestSuite.dir/tests/grid/GridAdapterTests.cpp.o.d -o CMakeFiles/TestSuite.dir/tests/grid/GridAdapterTests.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/tests/grid/GridAdapterTests.cpp
+
+CMakeFiles/TestSuite.dir/tests/grid/GridAdapterTests.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestSuite.dir/tests/grid/GridAdapterTests.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/tests/grid/GridAdapterTests.cpp > CMakeFiles/TestSuite.dir/tests/grid/GridAdapterTests.cpp.i
+
+CMakeFiles/TestSuite.dir/tests/grid/GridAdapterTests.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestSuite.dir/tests/grid/GridAdapterTests.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/tests/grid/GridAdapterTests.cpp -o CMakeFiles/TestSuite.dir/tests/grid/GridAdapterTests.cpp.s
+
+CMakeFiles/TestSuite.dir/tests/grid/GridPerformanceBenchmark.cpp.o: CMakeFiles/TestSuite.dir/flags.make
+CMakeFiles/TestSuite.dir/tests/grid/GridPerformanceBenchmark.cpp.o: tests/grid/GridPerformanceBenchmark.cpp
+CMakeFiles/TestSuite.dir/tests/grid/GridPerformanceBenchmark.cpp.o: CMakeFiles/TestSuite.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/TestSuite.dir/tests/grid/GridPerformanceBenchmark.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestSuite.dir/tests/grid/GridPerformanceBenchmark.cpp.o -MF CMakeFiles/TestSuite.dir/tests/grid/GridPerformanceBenchmark.cpp.o.d -o CMakeFiles/TestSuite.dir/tests/grid/GridPerformanceBenchmark.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/tests/grid/GridPerformanceBenchmark.cpp
+
+CMakeFiles/TestSuite.dir/tests/grid/GridPerformanceBenchmark.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestSuite.dir/tests/grid/GridPerformanceBenchmark.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/tests/grid/GridPerformanceBenchmark.cpp > CMakeFiles/TestSuite.dir/tests/grid/GridPerformanceBenchmark.cpp.i
+
+CMakeFiles/TestSuite.dir/tests/grid/GridPerformanceBenchmark.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestSuite.dir/tests/grid/GridPerformanceBenchmark.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/tests/grid/GridPerformanceBenchmark.cpp -o CMakeFiles/TestSuite.dir/tests/grid/GridPerformanceBenchmark.cpp.s
+
 # Object files for target TestSuite
 TestSuite_OBJECTS = \
 "CMakeFiles/TestSuite.dir/TestSuite_autogen/mocs_compilation.cpp.o" \
@@ -295,7 +337,10 @@ TestSuite_OBJECTS = \
 "CMakeFiles/TestSuite.dir/tests/plugins/PluginSystemTests.cpp.o" \
 "CMakeFiles/TestSuite.dir/tests/plugins/TestPlugin.cpp.o" \
 "CMakeFiles/TestSuite.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.o" \
-"CMakeFiles/TestSuite.dir/tests/statesync/StateSynchronizationManagerTests.cpp.o"
+"CMakeFiles/TestSuite.dir/tests/statesync/StateSynchronizationManagerTests.cpp.o" \
+"CMakeFiles/TestSuite.dir/tests/grid/GridSystemTests.cpp.o" \
+"CMakeFiles/TestSuite.dir/tests/grid/GridAdapterTests.cpp.o" \
+"CMakeFiles/TestSuite.dir/tests/grid/GridPerformanceBenchmark.cpp.o"
 
 # External object files for target TestSuite
 TestSuite_EXTERNAL_OBJECTS =
@@ -315,6 +360,9 @@ bin/TestSuite: CMakeFiles/TestSuite.dir/tests/plugins/PluginSystemTests.cpp.o
 bin/TestSuite: CMakeFiles/TestSuite.dir/tests/plugins/TestPlugin.cpp.o
 bin/TestSuite: CMakeFiles/TestSuite.dir/tests/crossdomain/CrossDomainValidatorTests.cpp.o
 bin/TestSuite: CMakeFiles/TestSuite.dir/tests/statesync/StateSynchronizationManagerTests.cpp.o
+bin/TestSuite: CMakeFiles/TestSuite.dir/tests/grid/GridSystemTests.cpp.o
+bin/TestSuite: CMakeFiles/TestSuite.dir/tests/grid/GridAdapterTests.cpp.o
+bin/TestSuite: CMakeFiles/TestSuite.dir/tests/grid/GridPerformanceBenchmark.cpp.o
 bin/TestSuite: CMakeFiles/TestSuite.dir/build.make
 bin/TestSuite: lib/libgtest_main.so.1.13.0
 bin/TestSuite: libMusicTrainerLib.a
@@ -322,7 +370,7 @@ bin/TestSuite: _deps/rtmidi-build/librtmidi.so.6.0.0
 bin/TestSuite: /usr/lib/x86_64-linux-gnu/libasound.so
 bin/TestSuite: lib/libgtest.so.1.13.0
 bin/TestSuite: CMakeFiles/TestSuite.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable bin/TestSuite"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Linking CXX executable bin/TestSuite"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/TestSuite.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

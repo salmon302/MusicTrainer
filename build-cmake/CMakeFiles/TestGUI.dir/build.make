@@ -97,10 +97,178 @@ CMakeFiles/TestGUI.dir/src/presentation/test_gui.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestGUI.dir/src/presentation/test_gui.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/test_gui.cpp -o CMakeFiles/TestGUI.dir/src/presentation/test_gui.cpp.s
 
+CMakeFiles/TestGUI.dir/src/presentation/grid/SpatialIndex.cpp.o: CMakeFiles/TestGUI.dir/flags.make
+CMakeFiles/TestGUI.dir/src/presentation/grid/SpatialIndex.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/SpatialIndex.cpp
+CMakeFiles/TestGUI.dir/src/presentation/grid/SpatialIndex.cpp.o: CMakeFiles/TestGUI.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/TestGUI.dir/src/presentation/grid/SpatialIndex.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestGUI.dir/src/presentation/grid/SpatialIndex.cpp.o -MF CMakeFiles/TestGUI.dir/src/presentation/grid/SpatialIndex.cpp.o.d -o CMakeFiles/TestGUI.dir/src/presentation/grid/SpatialIndex.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/SpatialIndex.cpp
+
+CMakeFiles/TestGUI.dir/src/presentation/grid/SpatialIndex.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestGUI.dir/src/presentation/grid/SpatialIndex.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/SpatialIndex.cpp > CMakeFiles/TestGUI.dir/src/presentation/grid/SpatialIndex.cpp.i
+
+CMakeFiles/TestGUI.dir/src/presentation/grid/SpatialIndex.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestGUI.dir/src/presentation/grid/SpatialIndex.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/SpatialIndex.cpp -o CMakeFiles/TestGUI.dir/src/presentation/grid/SpatialIndex.cpp.s
+
+CMakeFiles/TestGUI.dir/src/presentation/grid/BatchedGridRenderer.cpp.o: CMakeFiles/TestGUI.dir/flags.make
+CMakeFiles/TestGUI.dir/src/presentation/grid/BatchedGridRenderer.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/BatchedGridRenderer.cpp
+CMakeFiles/TestGUI.dir/src/presentation/grid/BatchedGridRenderer.cpp.o: CMakeFiles/TestGUI.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/TestGUI.dir/src/presentation/grid/BatchedGridRenderer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestGUI.dir/src/presentation/grid/BatchedGridRenderer.cpp.o -MF CMakeFiles/TestGUI.dir/src/presentation/grid/BatchedGridRenderer.cpp.o.d -o CMakeFiles/TestGUI.dir/src/presentation/grid/BatchedGridRenderer.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/BatchedGridRenderer.cpp
+
+CMakeFiles/TestGUI.dir/src/presentation/grid/BatchedGridRenderer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestGUI.dir/src/presentation/grid/BatchedGridRenderer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/BatchedGridRenderer.cpp > CMakeFiles/TestGUI.dir/src/presentation/grid/BatchedGridRenderer.cpp.i
+
+CMakeFiles/TestGUI.dir/src/presentation/grid/BatchedGridRenderer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestGUI.dir/src/presentation/grid/BatchedGridRenderer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/BatchedGridRenderer.cpp -o CMakeFiles/TestGUI.dir/src/presentation/grid/BatchedGridRenderer.cpp.s
+
+CMakeFiles/TestGUI.dir/src/presentation/grid/QtBatchedGridRenderer.cpp.o: CMakeFiles/TestGUI.dir/flags.make
+CMakeFiles/TestGUI.dir/src/presentation/grid/QtBatchedGridRenderer.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/QtBatchedGridRenderer.cpp
+CMakeFiles/TestGUI.dir/src/presentation/grid/QtBatchedGridRenderer.cpp.o: CMakeFiles/TestGUI.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/TestGUI.dir/src/presentation/grid/QtBatchedGridRenderer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestGUI.dir/src/presentation/grid/QtBatchedGridRenderer.cpp.o -MF CMakeFiles/TestGUI.dir/src/presentation/grid/QtBatchedGridRenderer.cpp.o.d -o CMakeFiles/TestGUI.dir/src/presentation/grid/QtBatchedGridRenderer.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/QtBatchedGridRenderer.cpp
+
+CMakeFiles/TestGUI.dir/src/presentation/grid/QtBatchedGridRenderer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestGUI.dir/src/presentation/grid/QtBatchedGridRenderer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/QtBatchedGridRenderer.cpp > CMakeFiles/TestGUI.dir/src/presentation/grid/QtBatchedGridRenderer.cpp.i
+
+CMakeFiles/TestGUI.dir/src/presentation/grid/QtBatchedGridRenderer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestGUI.dir/src/presentation/grid/QtBatchedGridRenderer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/QtBatchedGridRenderer.cpp -o CMakeFiles/TestGUI.dir/src/presentation/grid/QtBatchedGridRenderer.cpp.s
+
+CMakeFiles/TestGUI.dir/src/presentation/grid/CoordinateTransformer.cpp.o: CMakeFiles/TestGUI.dir/flags.make
+CMakeFiles/TestGUI.dir/src/presentation/grid/CoordinateTransformer.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/CoordinateTransformer.cpp
+CMakeFiles/TestGUI.dir/src/presentation/grid/CoordinateTransformer.cpp.o: CMakeFiles/TestGUI.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/TestGUI.dir/src/presentation/grid/CoordinateTransformer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestGUI.dir/src/presentation/grid/CoordinateTransformer.cpp.o -MF CMakeFiles/TestGUI.dir/src/presentation/grid/CoordinateTransformer.cpp.o.d -o CMakeFiles/TestGUI.dir/src/presentation/grid/CoordinateTransformer.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/CoordinateTransformer.cpp
+
+CMakeFiles/TestGUI.dir/src/presentation/grid/CoordinateTransformer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestGUI.dir/src/presentation/grid/CoordinateTransformer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/CoordinateTransformer.cpp > CMakeFiles/TestGUI.dir/src/presentation/grid/CoordinateTransformer.cpp.i
+
+CMakeFiles/TestGUI.dir/src/presentation/grid/CoordinateTransformer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestGUI.dir/src/presentation/grid/CoordinateTransformer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/CoordinateTransformer.cpp -o CMakeFiles/TestGUI.dir/src/presentation/grid/CoordinateTransformer.cpp.s
+
+CMakeFiles/TestGUI.dir/src/presentation/grid/ViewportLayoutManager.cpp.o: CMakeFiles/TestGUI.dir/flags.make
+CMakeFiles/TestGUI.dir/src/presentation/grid/ViewportLayoutManager.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/ViewportLayoutManager.cpp
+CMakeFiles/TestGUI.dir/src/presentation/grid/ViewportLayoutManager.cpp.o: CMakeFiles/TestGUI.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/TestGUI.dir/src/presentation/grid/ViewportLayoutManager.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestGUI.dir/src/presentation/grid/ViewportLayoutManager.cpp.o -MF CMakeFiles/TestGUI.dir/src/presentation/grid/ViewportLayoutManager.cpp.o.d -o CMakeFiles/TestGUI.dir/src/presentation/grid/ViewportLayoutManager.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/ViewportLayoutManager.cpp
+
+CMakeFiles/TestGUI.dir/src/presentation/grid/ViewportLayoutManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestGUI.dir/src/presentation/grid/ViewportLayoutManager.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/ViewportLayoutManager.cpp > CMakeFiles/TestGUI.dir/src/presentation/grid/ViewportLayoutManager.cpp.i
+
+CMakeFiles/TestGUI.dir/src/presentation/grid/ViewportLayoutManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestGUI.dir/src/presentation/grid/ViewportLayoutManager.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/ViewportLayoutManager.cpp -o CMakeFiles/TestGUI.dir/src/presentation/grid/ViewportLayoutManager.cpp.s
+
+CMakeFiles/TestGUI.dir/src/presentation/grid/AdaptiveGridExpansionManager.cpp.o: CMakeFiles/TestGUI.dir/flags.make
+CMakeFiles/TestGUI.dir/src/presentation/grid/AdaptiveGridExpansionManager.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/AdaptiveGridExpansionManager.cpp
+CMakeFiles/TestGUI.dir/src/presentation/grid/AdaptiveGridExpansionManager.cpp.o: CMakeFiles/TestGUI.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/TestGUI.dir/src/presentation/grid/AdaptiveGridExpansionManager.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestGUI.dir/src/presentation/grid/AdaptiveGridExpansionManager.cpp.o -MF CMakeFiles/TestGUI.dir/src/presentation/grid/AdaptiveGridExpansionManager.cpp.o.d -o CMakeFiles/TestGUI.dir/src/presentation/grid/AdaptiveGridExpansionManager.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/AdaptiveGridExpansionManager.cpp
+
+CMakeFiles/TestGUI.dir/src/presentation/grid/AdaptiveGridExpansionManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestGUI.dir/src/presentation/grid/AdaptiveGridExpansionManager.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/AdaptiveGridExpansionManager.cpp > CMakeFiles/TestGUI.dir/src/presentation/grid/AdaptiveGridExpansionManager.cpp.i
+
+CMakeFiles/TestGUI.dir/src/presentation/grid/AdaptiveGridExpansionManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestGUI.dir/src/presentation/grid/AdaptiveGridExpansionManager.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/AdaptiveGridExpansionManager.cpp -o CMakeFiles/TestGUI.dir/src/presentation/grid/AdaptiveGridExpansionManager.cpp.s
+
+CMakeFiles/TestGUI.dir/src/presentation/grid/DefaultGridModel.cpp.o: CMakeFiles/TestGUI.dir/flags.make
+CMakeFiles/TestGUI.dir/src/presentation/grid/DefaultGridModel.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/DefaultGridModel.cpp
+CMakeFiles/TestGUI.dir/src/presentation/grid/DefaultGridModel.cpp.o: CMakeFiles/TestGUI.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/TestGUI.dir/src/presentation/grid/DefaultGridModel.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestGUI.dir/src/presentation/grid/DefaultGridModel.cpp.o -MF CMakeFiles/TestGUI.dir/src/presentation/grid/DefaultGridModel.cpp.o.d -o CMakeFiles/TestGUI.dir/src/presentation/grid/DefaultGridModel.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/DefaultGridModel.cpp
+
+CMakeFiles/TestGUI.dir/src/presentation/grid/DefaultGridModel.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestGUI.dir/src/presentation/grid/DefaultGridModel.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/DefaultGridModel.cpp > CMakeFiles/TestGUI.dir/src/presentation/grid/DefaultGridModel.cpp.i
+
+CMakeFiles/TestGUI.dir/src/presentation/grid/DefaultGridModel.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestGUI.dir/src/presentation/grid/DefaultGridModel.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/DefaultGridModel.cpp -o CMakeFiles/TestGUI.dir/src/presentation/grid/DefaultGridModel.cpp.s
+
+CMakeFiles/TestGUI.dir/src/presentation/grid/GridManager.cpp.o: CMakeFiles/TestGUI.dir/flags.make
+CMakeFiles/TestGUI.dir/src/presentation/grid/GridManager.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/GridManager.cpp
+CMakeFiles/TestGUI.dir/src/presentation/grid/GridManager.cpp.o: CMakeFiles/TestGUI.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/TestGUI.dir/src/presentation/grid/GridManager.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestGUI.dir/src/presentation/grid/GridManager.cpp.o -MF CMakeFiles/TestGUI.dir/src/presentation/grid/GridManager.cpp.o.d -o CMakeFiles/TestGUI.dir/src/presentation/grid/GridManager.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/GridManager.cpp
+
+CMakeFiles/TestGUI.dir/src/presentation/grid/GridManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestGUI.dir/src/presentation/grid/GridManager.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/GridManager.cpp > CMakeFiles/TestGUI.dir/src/presentation/grid/GridManager.cpp.i
+
+CMakeFiles/TestGUI.dir/src/presentation/grid/GridManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestGUI.dir/src/presentation/grid/GridManager.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/GridManager.cpp -o CMakeFiles/TestGUI.dir/src/presentation/grid/GridManager.cpp.s
+
+CMakeFiles/TestGUI.dir/src/presentation/grid/GridMemoryManager.cpp.o: CMakeFiles/TestGUI.dir/flags.make
+CMakeFiles/TestGUI.dir/src/presentation/grid/GridMemoryManager.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/GridMemoryManager.cpp
+CMakeFiles/TestGUI.dir/src/presentation/grid/GridMemoryManager.cpp.o: CMakeFiles/TestGUI.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/TestGUI.dir/src/presentation/grid/GridMemoryManager.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestGUI.dir/src/presentation/grid/GridMemoryManager.cpp.o -MF CMakeFiles/TestGUI.dir/src/presentation/grid/GridMemoryManager.cpp.o.d -o CMakeFiles/TestGUI.dir/src/presentation/grid/GridMemoryManager.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/GridMemoryManager.cpp
+
+CMakeFiles/TestGUI.dir/src/presentation/grid/GridMemoryManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestGUI.dir/src/presentation/grid/GridMemoryManager.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/GridMemoryManager.cpp > CMakeFiles/TestGUI.dir/src/presentation/grid/GridMemoryManager.cpp.i
+
+CMakeFiles/TestGUI.dir/src/presentation/grid/GridMemoryManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestGUI.dir/src/presentation/grid/GridMemoryManager.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/GridMemoryManager.cpp -o CMakeFiles/TestGUI.dir/src/presentation/grid/GridMemoryManager.cpp.s
+
+CMakeFiles/TestGUI.dir/src/presentation/grid/NoteGridAdapter.cpp.o: CMakeFiles/TestGUI.dir/flags.make
+CMakeFiles/TestGUI.dir/src/presentation/grid/NoteGridAdapter.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/NoteGridAdapter.cpp
+CMakeFiles/TestGUI.dir/src/presentation/grid/NoteGridAdapter.cpp.o: CMakeFiles/TestGUI.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/TestGUI.dir/src/presentation/grid/NoteGridAdapter.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestGUI.dir/src/presentation/grid/NoteGridAdapter.cpp.o -MF CMakeFiles/TestGUI.dir/src/presentation/grid/NoteGridAdapter.cpp.o.d -o CMakeFiles/TestGUI.dir/src/presentation/grid/NoteGridAdapter.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/NoteGridAdapter.cpp
+
+CMakeFiles/TestGUI.dir/src/presentation/grid/NoteGridAdapter.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestGUI.dir/src/presentation/grid/NoteGridAdapter.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/NoteGridAdapter.cpp > CMakeFiles/TestGUI.dir/src/presentation/grid/NoteGridAdapter.cpp.i
+
+CMakeFiles/TestGUI.dir/src/presentation/grid/NoteGridAdapter.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestGUI.dir/src/presentation/grid/NoteGridAdapter.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/NoteGridAdapter.cpp -o CMakeFiles/TestGUI.dir/src/presentation/grid/NoteGridAdapter.cpp.s
+
+CMakeFiles/TestGUI.dir/src/presentation/grid/ViewportManagerAdapter.cpp.o: CMakeFiles/TestGUI.dir/flags.make
+CMakeFiles/TestGUI.dir/src/presentation/grid/ViewportManagerAdapter.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/ViewportManagerAdapter.cpp
+CMakeFiles/TestGUI.dir/src/presentation/grid/ViewportManagerAdapter.cpp.o: CMakeFiles/TestGUI.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/TestGUI.dir/src/presentation/grid/ViewportManagerAdapter.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestGUI.dir/src/presentation/grid/ViewportManagerAdapter.cpp.o -MF CMakeFiles/TestGUI.dir/src/presentation/grid/ViewportManagerAdapter.cpp.o.d -o CMakeFiles/TestGUI.dir/src/presentation/grid/ViewportManagerAdapter.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/ViewportManagerAdapter.cpp
+
+CMakeFiles/TestGUI.dir/src/presentation/grid/ViewportManagerAdapter.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestGUI.dir/src/presentation/grid/ViewportManagerAdapter.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/ViewportManagerAdapter.cpp > CMakeFiles/TestGUI.dir/src/presentation/grid/ViewportManagerAdapter.cpp.i
+
+CMakeFiles/TestGUI.dir/src/presentation/grid/ViewportManagerAdapter.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestGUI.dir/src/presentation/grid/ViewportManagerAdapter.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/ViewportManagerAdapter.cpp -o CMakeFiles/TestGUI.dir/src/presentation/grid/ViewportManagerAdapter.cpp.s
+
+CMakeFiles/TestGUI.dir/src/presentation/grid/ScoreViewAdapter.cpp.o: CMakeFiles/TestGUI.dir/flags.make
+CMakeFiles/TestGUI.dir/src/presentation/grid/ScoreViewAdapter.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/ScoreViewAdapter.cpp
+CMakeFiles/TestGUI.dir/src/presentation/grid/ScoreViewAdapter.cpp.o: CMakeFiles/TestGUI.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/TestGUI.dir/src/presentation/grid/ScoreViewAdapter.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestGUI.dir/src/presentation/grid/ScoreViewAdapter.cpp.o -MF CMakeFiles/TestGUI.dir/src/presentation/grid/ScoreViewAdapter.cpp.o.d -o CMakeFiles/TestGUI.dir/src/presentation/grid/ScoreViewAdapter.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/ScoreViewAdapter.cpp
+
+CMakeFiles/TestGUI.dir/src/presentation/grid/ScoreViewAdapter.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestGUI.dir/src/presentation/grid/ScoreViewAdapter.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/ScoreViewAdapter.cpp > CMakeFiles/TestGUI.dir/src/presentation/grid/ScoreViewAdapter.cpp.i
+
+CMakeFiles/TestGUI.dir/src/presentation/grid/ScoreViewAdapter.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestGUI.dir/src/presentation/grid/ScoreViewAdapter.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/grid/ScoreViewAdapter.cpp -o CMakeFiles/TestGUI.dir/src/presentation/grid/ScoreViewAdapter.cpp.s
+
 CMakeFiles/TestGUI.dir/src/presentation/MainWindow.cpp.o: CMakeFiles/TestGUI.dir/flags.make
 CMakeFiles/TestGUI.dir/src/presentation/MainWindow.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/MainWindow.cpp
 CMakeFiles/TestGUI.dir/src/presentation/MainWindow.cpp.o: CMakeFiles/TestGUI.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/TestGUI.dir/src/presentation/MainWindow.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/TestGUI.dir/src/presentation/MainWindow.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestGUI.dir/src/presentation/MainWindow.cpp.o -MF CMakeFiles/TestGUI.dir/src/presentation/MainWindow.cpp.o.d -o CMakeFiles/TestGUI.dir/src/presentation/MainWindow.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/MainWindow.cpp
 
 CMakeFiles/TestGUI.dir/src/presentation/MainWindow.cpp.i: cmake_force
@@ -114,7 +282,7 @@ CMakeFiles/TestGUI.dir/src/presentation/MainWindow.cpp.s: cmake_force
 CMakeFiles/TestGUI.dir/src/presentation/ScoreView.cpp.o: CMakeFiles/TestGUI.dir/flags.make
 CMakeFiles/TestGUI.dir/src/presentation/ScoreView.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ScoreView.cpp
 CMakeFiles/TestGUI.dir/src/presentation/ScoreView.cpp.o: CMakeFiles/TestGUI.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/TestGUI.dir/src/presentation/ScoreView.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/TestGUI.dir/src/presentation/ScoreView.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestGUI.dir/src/presentation/ScoreView.cpp.o -MF CMakeFiles/TestGUI.dir/src/presentation/ScoreView.cpp.o.d -o CMakeFiles/TestGUI.dir/src/presentation/ScoreView.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ScoreView.cpp
 
 CMakeFiles/TestGUI.dir/src/presentation/ScoreView.cpp.i: cmake_force
@@ -128,7 +296,7 @@ CMakeFiles/TestGUI.dir/src/presentation/ScoreView.cpp.s: cmake_force
 CMakeFiles/TestGUI.dir/src/presentation/ViewportManager.cpp.o: CMakeFiles/TestGUI.dir/flags.make
 CMakeFiles/TestGUI.dir/src/presentation/ViewportManager.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ViewportManager.cpp
 CMakeFiles/TestGUI.dir/src/presentation/ViewportManager.cpp.o: CMakeFiles/TestGUI.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/TestGUI.dir/src/presentation/ViewportManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/TestGUI.dir/src/presentation/ViewportManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestGUI.dir/src/presentation/ViewportManager.cpp.o -MF CMakeFiles/TestGUI.dir/src/presentation/ViewportManager.cpp.o.d -o CMakeFiles/TestGUI.dir/src/presentation/ViewportManager.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ViewportManager.cpp
 
 CMakeFiles/TestGUI.dir/src/presentation/ViewportManager.cpp.i: cmake_force
@@ -142,7 +310,7 @@ CMakeFiles/TestGUI.dir/src/presentation/ViewportManager.cpp.s: cmake_force
 CMakeFiles/TestGUI.dir/src/presentation/NoteGrid.cpp.o: CMakeFiles/TestGUI.dir/flags.make
 CMakeFiles/TestGUI.dir/src/presentation/NoteGrid.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/NoteGrid.cpp
 CMakeFiles/TestGUI.dir/src/presentation/NoteGrid.cpp.o: CMakeFiles/TestGUI.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/TestGUI.dir/src/presentation/NoteGrid.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/TestGUI.dir/src/presentation/NoteGrid.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestGUI.dir/src/presentation/NoteGrid.cpp.o -MF CMakeFiles/TestGUI.dir/src/presentation/NoteGrid.cpp.o.d -o CMakeFiles/TestGUI.dir/src/presentation/NoteGrid.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/NoteGrid.cpp
 
 CMakeFiles/TestGUI.dir/src/presentation/NoteGrid.cpp.i: cmake_force
@@ -156,7 +324,7 @@ CMakeFiles/TestGUI.dir/src/presentation/NoteGrid.cpp.s: cmake_force
 CMakeFiles/TestGUI.dir/src/presentation/GridCell.cpp.o: CMakeFiles/TestGUI.dir/flags.make
 CMakeFiles/TestGUI.dir/src/presentation/GridCell.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/GridCell.cpp
 CMakeFiles/TestGUI.dir/src/presentation/GridCell.cpp.o: CMakeFiles/TestGUI.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/TestGUI.dir/src/presentation/GridCell.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/TestGUI.dir/src/presentation/GridCell.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestGUI.dir/src/presentation/GridCell.cpp.o -MF CMakeFiles/TestGUI.dir/src/presentation/GridCell.cpp.o.d -o CMakeFiles/TestGUI.dir/src/presentation/GridCell.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/GridCell.cpp
 
 CMakeFiles/TestGUI.dir/src/presentation/GridCell.cpp.i: cmake_force
@@ -170,7 +338,7 @@ CMakeFiles/TestGUI.dir/src/presentation/GridCell.cpp.s: cmake_force
 CMakeFiles/TestGUI.dir/src/presentation/TransportControls.cpp.o: CMakeFiles/TestGUI.dir/flags.make
 CMakeFiles/TestGUI.dir/src/presentation/TransportControls.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/TransportControls.cpp
 CMakeFiles/TestGUI.dir/src/presentation/TransportControls.cpp.o: CMakeFiles/TestGUI.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/TestGUI.dir/src/presentation/TransportControls.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/TestGUI.dir/src/presentation/TransportControls.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestGUI.dir/src/presentation/TransportControls.cpp.o -MF CMakeFiles/TestGUI.dir/src/presentation/TransportControls.cpp.o.d -o CMakeFiles/TestGUI.dir/src/presentation/TransportControls.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/TransportControls.cpp
 
 CMakeFiles/TestGUI.dir/src/presentation/TransportControls.cpp.i: cmake_force
@@ -184,7 +352,7 @@ CMakeFiles/TestGUI.dir/src/presentation/TransportControls.cpp.s: cmake_force
 CMakeFiles/TestGUI.dir/src/presentation/ExercisePanel.cpp.o: CMakeFiles/TestGUI.dir/flags.make
 CMakeFiles/TestGUI.dir/src/presentation/ExercisePanel.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ExercisePanel.cpp
 CMakeFiles/TestGUI.dir/src/presentation/ExercisePanel.cpp.o: CMakeFiles/TestGUI.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/TestGUI.dir/src/presentation/ExercisePanel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/TestGUI.dir/src/presentation/ExercisePanel.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestGUI.dir/src/presentation/ExercisePanel.cpp.o -MF CMakeFiles/TestGUI.dir/src/presentation/ExercisePanel.cpp.o.d -o CMakeFiles/TestGUI.dir/src/presentation/ExercisePanel.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ExercisePanel.cpp
 
 CMakeFiles/TestGUI.dir/src/presentation/ExercisePanel.cpp.i: cmake_force
@@ -198,7 +366,7 @@ CMakeFiles/TestGUI.dir/src/presentation/ExercisePanel.cpp.s: cmake_force
 CMakeFiles/TestGUI.dir/src/presentation/FeedbackArea.cpp.o: CMakeFiles/TestGUI.dir/flags.make
 CMakeFiles/TestGUI.dir/src/presentation/FeedbackArea.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/FeedbackArea.cpp
 CMakeFiles/TestGUI.dir/src/presentation/FeedbackArea.cpp.o: CMakeFiles/TestGUI.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/TestGUI.dir/src/presentation/FeedbackArea.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/TestGUI.dir/src/presentation/FeedbackArea.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestGUI.dir/src/presentation/FeedbackArea.cpp.o -MF CMakeFiles/TestGUI.dir/src/presentation/FeedbackArea.cpp.o.d -o CMakeFiles/TestGUI.dir/src/presentation/FeedbackArea.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/FeedbackArea.cpp
 
 CMakeFiles/TestGUI.dir/src/presentation/FeedbackArea.cpp.i: cmake_force
@@ -212,7 +380,7 @@ CMakeFiles/TestGUI.dir/src/presentation/FeedbackArea.cpp.s: cmake_force
 CMakeFiles/TestGUI.dir/src/presentation/ExerciseBrowser.cpp.o: CMakeFiles/TestGUI.dir/flags.make
 CMakeFiles/TestGUI.dir/src/presentation/ExerciseBrowser.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ExerciseBrowser.cpp
 CMakeFiles/TestGUI.dir/src/presentation/ExerciseBrowser.cpp.o: CMakeFiles/TestGUI.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/TestGUI.dir/src/presentation/ExerciseBrowser.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/TestGUI.dir/src/presentation/ExerciseBrowser.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestGUI.dir/src/presentation/ExerciseBrowser.cpp.o -MF CMakeFiles/TestGUI.dir/src/presentation/ExerciseBrowser.cpp.o.d -o CMakeFiles/TestGUI.dir/src/presentation/ExerciseBrowser.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/ExerciseBrowser.cpp
 
 CMakeFiles/TestGUI.dir/src/presentation/ExerciseBrowser.cpp.i: cmake_force
@@ -226,7 +394,7 @@ CMakeFiles/TestGUI.dir/src/presentation/ExerciseBrowser.cpp.s: cmake_force
 CMakeFiles/TestGUI.dir/src/presentation/SettingsDialog.cpp.o: CMakeFiles/TestGUI.dir/flags.make
 CMakeFiles/TestGUI.dir/src/presentation/SettingsDialog.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/SettingsDialog.cpp
 CMakeFiles/TestGUI.dir/src/presentation/SettingsDialog.cpp.o: CMakeFiles/TestGUI.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/TestGUI.dir/src/presentation/SettingsDialog.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/TestGUI.dir/src/presentation/SettingsDialog.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestGUI.dir/src/presentation/SettingsDialog.cpp.o -MF CMakeFiles/TestGUI.dir/src/presentation/SettingsDialog.cpp.o.d -o CMakeFiles/TestGUI.dir/src/presentation/SettingsDialog.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/SettingsDialog.cpp
 
 CMakeFiles/TestGUI.dir/src/presentation/SettingsDialog.cpp.i: cmake_force
@@ -240,7 +408,7 @@ CMakeFiles/TestGUI.dir/src/presentation/SettingsDialog.cpp.s: cmake_force
 CMakeFiles/TestGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.o: CMakeFiles/TestGUI.dir/flags.make
 CMakeFiles/TestGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/viewmodels/ScoreViewModel.cpp
 CMakeFiles/TestGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.o: CMakeFiles/TestGUI.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/TestGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/TestGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.o -MF CMakeFiles/TestGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.o.d -o CMakeFiles/TestGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/viewmodels/ScoreViewModel.cpp
 
 CMakeFiles/TestGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.i: cmake_force
@@ -254,7 +422,7 @@ CMakeFiles/TestGUI.dir/src/presentation/viewmodels/ScoreViewModel.cpp.s: cmake_f
 CMakeFiles/TestGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.o: CMakeFiles/TestGUI.dir/flags.make
 CMakeFiles/TestGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/analysis/VoiceAnalyzer.cpp
 CMakeFiles/TestGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.o: CMakeFiles/TestGUI.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/TestGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/TestGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.o -MF CMakeFiles/TestGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.o.d -o CMakeFiles/TestGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/domain/analysis/VoiceAnalyzer.cpp
 
 CMakeFiles/TestGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.i: cmake_force
@@ -268,7 +436,7 @@ CMakeFiles/TestGUI.dir/src/domain/analysis/VoiceAnalyzer.cpp.s: cmake_force
 CMakeFiles/TestGUI.dir/src/presentation/VoiceChart.cpp.o: CMakeFiles/TestGUI.dir/flags.make
 CMakeFiles/TestGUI.dir/src/presentation/VoiceChart.cpp.o: /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/VoiceChart.cpp
 CMakeFiles/TestGUI.dir/src/presentation/VoiceChart.cpp.o: CMakeFiles/TestGUI.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/TestGUI.dir/src/presentation/VoiceChart.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/TestGUI.dir/src/presentation/VoiceChart.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestGUI.dir/src/presentation/VoiceChart.cpp.o -MF CMakeFiles/TestGUI.dir/src/presentation/VoiceChart.cpp.o.d -o CMakeFiles/TestGUI.dir/src/presentation/VoiceChart.cpp.o -c /home/seth-n/Documents/GitHub/MusicTrainer/src/presentation/VoiceChart.cpp
 
 CMakeFiles/TestGUI.dir/src/presentation/VoiceChart.cpp.i: cmake_force
@@ -283,6 +451,18 @@ CMakeFiles/TestGUI.dir/src/presentation/VoiceChart.cpp.s: cmake_force
 TestGUI_OBJECTS = \
 "CMakeFiles/TestGUI.dir/TestGUI_autogen/mocs_compilation.cpp.o" \
 "CMakeFiles/TestGUI.dir/src/presentation/test_gui.cpp.o" \
+"CMakeFiles/TestGUI.dir/src/presentation/grid/SpatialIndex.cpp.o" \
+"CMakeFiles/TestGUI.dir/src/presentation/grid/BatchedGridRenderer.cpp.o" \
+"CMakeFiles/TestGUI.dir/src/presentation/grid/QtBatchedGridRenderer.cpp.o" \
+"CMakeFiles/TestGUI.dir/src/presentation/grid/CoordinateTransformer.cpp.o" \
+"CMakeFiles/TestGUI.dir/src/presentation/grid/ViewportLayoutManager.cpp.o" \
+"CMakeFiles/TestGUI.dir/src/presentation/grid/AdaptiveGridExpansionManager.cpp.o" \
+"CMakeFiles/TestGUI.dir/src/presentation/grid/DefaultGridModel.cpp.o" \
+"CMakeFiles/TestGUI.dir/src/presentation/grid/GridManager.cpp.o" \
+"CMakeFiles/TestGUI.dir/src/presentation/grid/GridMemoryManager.cpp.o" \
+"CMakeFiles/TestGUI.dir/src/presentation/grid/NoteGridAdapter.cpp.o" \
+"CMakeFiles/TestGUI.dir/src/presentation/grid/ViewportManagerAdapter.cpp.o" \
+"CMakeFiles/TestGUI.dir/src/presentation/grid/ScoreViewAdapter.cpp.o" \
 "CMakeFiles/TestGUI.dir/src/presentation/MainWindow.cpp.o" \
 "CMakeFiles/TestGUI.dir/src/presentation/ScoreView.cpp.o" \
 "CMakeFiles/TestGUI.dir/src/presentation/ViewportManager.cpp.o" \
@@ -302,6 +482,18 @@ TestGUI_EXTERNAL_OBJECTS =
 
 bin/TestGUI: CMakeFiles/TestGUI.dir/TestGUI_autogen/mocs_compilation.cpp.o
 bin/TestGUI: CMakeFiles/TestGUI.dir/src/presentation/test_gui.cpp.o
+bin/TestGUI: CMakeFiles/TestGUI.dir/src/presentation/grid/SpatialIndex.cpp.o
+bin/TestGUI: CMakeFiles/TestGUI.dir/src/presentation/grid/BatchedGridRenderer.cpp.o
+bin/TestGUI: CMakeFiles/TestGUI.dir/src/presentation/grid/QtBatchedGridRenderer.cpp.o
+bin/TestGUI: CMakeFiles/TestGUI.dir/src/presentation/grid/CoordinateTransformer.cpp.o
+bin/TestGUI: CMakeFiles/TestGUI.dir/src/presentation/grid/ViewportLayoutManager.cpp.o
+bin/TestGUI: CMakeFiles/TestGUI.dir/src/presentation/grid/AdaptiveGridExpansionManager.cpp.o
+bin/TestGUI: CMakeFiles/TestGUI.dir/src/presentation/grid/DefaultGridModel.cpp.o
+bin/TestGUI: CMakeFiles/TestGUI.dir/src/presentation/grid/GridManager.cpp.o
+bin/TestGUI: CMakeFiles/TestGUI.dir/src/presentation/grid/GridMemoryManager.cpp.o
+bin/TestGUI: CMakeFiles/TestGUI.dir/src/presentation/grid/NoteGridAdapter.cpp.o
+bin/TestGUI: CMakeFiles/TestGUI.dir/src/presentation/grid/ViewportManagerAdapter.cpp.o
+bin/TestGUI: CMakeFiles/TestGUI.dir/src/presentation/grid/ScoreViewAdapter.cpp.o
 bin/TestGUI: CMakeFiles/TestGUI.dir/src/presentation/MainWindow.cpp.o
 bin/TestGUI: CMakeFiles/TestGUI.dir/src/presentation/ScoreView.cpp.o
 bin/TestGUI: CMakeFiles/TestGUI.dir/src/presentation/ViewportManager.cpp.o
@@ -328,7 +520,7 @@ bin/TestGUI: /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.4.2
 bin/TestGUI: /usr/lib/x86_64-linux-gnu/libGLX.so
 bin/TestGUI: /usr/lib/x86_64-linux-gnu/libOpenGL.so
 bin/TestGUI: CMakeFiles/TestGUI.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable bin/TestGUI"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Linking CXX executable bin/TestGUI"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/TestGUI.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

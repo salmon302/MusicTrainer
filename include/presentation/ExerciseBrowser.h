@@ -39,14 +39,14 @@ public:
      */
     void setExerciseRepository(std::shared_ptr<domain::exercises::ExerciseRepository> repository);
 
-signals:
+Q_SIGNALS:
     /**
      * @brief Signal emitted when an exercise is selected
      * @param exercise The selected exercise
      */
     void exerciseSelected(std::shared_ptr<domain::exercises::Exercise> exercise);
 
-private slots:
+private Q_SLOTS:
     void onDifficultyChanged(int index);
     void onCategoryChanged(int index);
     void onExerciseSelected(QListWidgetItem* item);

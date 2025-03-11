@@ -29,7 +29,7 @@ public:
     explicit SettingsDialog(std::shared_ptr<ports::MidiAdapter> midiAdapter, QWidget* parent = nullptr);
     ~SettingsDialog() override;
 
-signals:
+Q_SIGNALS:
     /**
      * @brief Signal emitted when rule settings are changed
      *
@@ -48,7 +48,7 @@ signals:
      */
     void themeChanged(int index);
 
-private slots:
+private Q_SLOTS:
     void onMidiInputDeviceChanged(int index);
     void onMidiOutputDeviceChanged(int index);
     void onRefreshMidiDevicesClicked();

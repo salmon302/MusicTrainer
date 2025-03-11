@@ -130,7 +130,6 @@
 #define __MMX__ 1
 #define __FLT_HAS_DENORM__ 1
 #define __SIZEOF_LONG_DOUBLE__ 16
-#define gtest_main_EXPORTS 1
 #define __BIGGEST_ALIGNMENT__ 16
 #define __STDC_UTF_16__ 1
 #define __FLT64_MAX_10_EXP__ 308
@@ -148,7 +147,6 @@
 #define __DEC32_MIN_EXP__ (-94)
 #define __INTPTR_WIDTH__ 64
 #define __UINT_LEAST32_MAX__ 0xffffffffU
-#define GTEST_CREATE_SHARED_LIBRARY 1
 #define __FLT32X_HAS_DENORM__ 1
 #define __INT_FAST16_TYPE__ long int
 #define __STRICT_ANSI__ 1

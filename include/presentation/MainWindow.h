@@ -46,7 +46,7 @@ public:
     explicit MainWindow(std::shared_ptr<ports::MidiAdapter> midiAdapter, QWidget *parent = nullptr);
     ~MainWindow() override;
 
-private slots:
+private Q_SLOTS:
     void onExerciseBrowserRequested();
     void onSettingsDialogRequested();
     void onAboutDialogRequested();

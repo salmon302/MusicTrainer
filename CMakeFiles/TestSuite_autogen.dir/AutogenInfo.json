@@ -241,6 +241,7 @@
 	"MOC_INCLUDES" : 
 	[
 		"/home/seth-n/Documents/GitHub/MusicTrainer/include",
+		"/home/seth-n/Documents/GitHub/MusicTrainer",
 		"/home/seth-n/Documents/GitHub/MusicTrainer/_deps/rtmidi-src",
 		"/home/seth-n/Documents/GitHub/MusicTrainer/_deps/googletest-src/googletest/include",
 		"/home/seth-n/Documents/GitHub/MusicTrainer/_deps/googletest-src/googletest",
@@ -332,6 +333,21 @@
 		],
 		[
 			"/home/seth-n/Documents/GitHub/MusicTrainer/tests/crossdomain/CrossDomainValidatorTests.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/tests/grid/GridAdapterTests.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/tests/grid/GridPerformanceBenchmark.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/seth-n/Documents/GitHub/MusicTrainer/tests/grid/GridSystemTests.cpp",
 			"MU",
 			null
 		],

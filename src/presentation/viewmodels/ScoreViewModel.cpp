@@ -45,7 +45,7 @@ void ScoreViewModel::setScore(std::shared_ptr<Score> score)
     }
     
     // Notify that the score has changed
-    emit scoreChanged();
+    Q_EMIT scoreChanged();
 }
 
 std::shared_ptr<Score> ScoreViewModel::getScore() const
@@ -74,7 +74,7 @@ void ScoreViewModel::addNote(int voiceIndex, int pitch, double duration, int pos
         if (voice) {
             voice->addNote(notePitch, duration, position);
             m_isDirty = true;
-            emit noteAdded(voiceIndex, note);
+            Q_EMIT noteAdded(voiceIndex, note);
         }
     } catch (const std::exception& e) {
         qWarning("Failed to add note: %s", e.what());
@@ -92,7 +92,7 @@ void ScoreViewModel::removeNote(int voiceIndex, int position)
         if (auto voice = m_score->getVoice(voiceIndex)) {
             voice->removeNote(position);
             m_isDirty = true;
-            emit noteRemoved(voiceIndex, position);
+            Q_EMIT noteRemoved(voiceIndex, position);
         }
     } catch (const std::exception& e) {
         qWarning("Failed to remove note: %s", e.what());
@@ -112,7 +112,7 @@ void ScoreViewModel::addVoice()
             m_isDirty = true;
             // Get the newly added voice to emit signal
             if (auto* addedVoice = m_score->getVoice(getVoiceCount() - 1)) {
-                emit voiceAdded(*addedVoice);
+                Q_EMIT voiceAdded(*addedVoice);
             }
         }
     } catch (const std::exception& e) {
@@ -133,7 +133,7 @@ void ScoreViewModel::removeVoice(int voiceIndex)
         m_isDirty = true;
         
         // Emit signal that a voice was removed
-        emit voiceRemoved(voiceIndex);
+        Q_EMIT voiceRemoved(voiceIndex);
     } catch (const std::exception& e) {
         // Handle exceptions from domain model
         qWarning("Failed to remove voice: %s", e.what());

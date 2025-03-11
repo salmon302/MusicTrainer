@@ -218,7 +218,7 @@ void FeedbackArea::onVoiceAnalysisItemClicked(int row, int column)
 {
     // When a cell in the voice analysis is clicked, emit a signal to highlight that voice
     if (row >= 0 && row < m_voiceAnalysisTable->rowCount()) {
-        emit feedbackItemSelected(0, row);
+        Q_EMIT feedbackItemSelected(0, row);
     }
 }
 

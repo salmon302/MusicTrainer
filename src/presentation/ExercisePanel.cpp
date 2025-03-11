@@ -100,13 +100,13 @@ void ExercisePanel::clearRuleViolations()
 
 void ExercisePanel::onCheckSolutionClicked()
 {
-    emit checkSolutionRequested();
+    Q_EMIT checkSolutionRequested();
 }
 
 void ExercisePanel::onHintClicked()
 {
     // For now, always request a medium level hint (level 1)
-    emit hintRequested(1);
+    Q_EMIT hintRequested(1);
 }
 
 void ExercisePanel::onRuleViolationSelected(int index)

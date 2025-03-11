@@ -14,6 +14,9 @@
 /home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles/PerformanceMonitoringTests.dir
 /home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles/CrossDomainValidatorTests.dir
 /home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles/StateSynchronizationManagerTests.dir
+/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles/GridSystemTests.dir
+/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles/GridAdapterTests.dir
+/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles/GridPerformanceBenchmark.dir
 /home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles/test.dir
 /home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles/edit_cache.dir
 /home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles/rebuild_cache.dir
@@ -53,6 +56,12 @@
 /home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles/CrossDomainValidatorTests_autogen.dir
 /home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles/StateSynchronizationManagerTests_autogen_timestamp_deps.dir
 /home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles/StateSynchronizationManagerTests_autogen.dir
+/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles/GridSystemTests_autogen_timestamp_deps.dir
+/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles/GridSystemTests_autogen.dir
+/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles/GridAdapterTests_autogen_timestamp_deps.dir
+/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles/GridAdapterTests_autogen.dir
+/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles/GridPerformanceBenchmark_autogen_timestamp_deps.dir
+/home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/CMakeFiles/GridPerformanceBenchmark_autogen.dir
 /home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/_deps/googletest-build/CMakeFiles/test.dir
 /home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/_deps/googletest-build/CMakeFiles/edit_cache.dir
 /home/seth-n/Documents/GitHub/MusicTrainer/build-cmake/_deps/googletest-build/CMakeFiles/rebuild_cache.dir

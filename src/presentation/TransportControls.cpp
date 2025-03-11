@@ -131,7 +131,7 @@ void TransportControls::onPlayClicked()
     m_stopButton->setEnabled(true);
     m_recordButton->setEnabled(false);
     
-    emit playbackStarted();
+    Q_EMIT playbackStarted();
 }
 
 void TransportControls::onStopClicked()
@@ -142,7 +142,7 @@ void TransportControls::onStopClicked()
     m_stopButton->setEnabled(false);
     m_recordButton->setEnabled(true);
     
-    emit playbackStopped();
+    Q_EMIT playbackStopped();
 }
 
 void TransportControls::onRecordClicked()
@@ -153,26 +153,26 @@ void TransportControls::onRecordClicked()
     m_stopButton->setEnabled(true);
     m_recordButton->setEnabled(false);
     
-    emit recordingStarted();
+    Q_EMIT recordingStarted();
 }
 
 void TransportControls::onTempoChanged(int bpm)
 {
     m_currentTempo = bpm;
-    emit tempoChanged(bpm);
+    Q_EMIT tempoChanged(bpm);
 }
 
 void TransportControls::onMetronomeToggled(bool checked)
 {
     m_metronomeEnabled = checked;
-    emit metronomeToggled(checked);
+    Q_EMIT metronomeToggled(checked);
 }
 
 void TransportControls::onDeviceSelectionChanged(int index)
 {
     if (index >= 0) {
         m_selectedDeviceIndex = index;
-        emit midiDeviceSelected(index);
+        Q_EMIT midiDeviceSelected(index);
     }
 }
 

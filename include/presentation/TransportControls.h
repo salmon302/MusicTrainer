@@ -28,7 +28,7 @@ public:
     explicit TransportControls(std::shared_ptr<ports::MidiAdapter> midiAdapter, QWidget* parent = nullptr);
     ~TransportControls() override;
 
-signals:
+Q_SIGNALS:
     /**
      * @brief Emitted when playback should start
      */
@@ -62,7 +62,7 @@ signals:
      */
     void midiDeviceSelected(int portIndex);
 
-private slots:
+private Q_SLOTS:
     void onPlayClicked();
     void onStopClicked();
     void onRecordClicked();

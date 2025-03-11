@@ -2,6 +2,7 @@
 #include "presentation/ViewportManager.h"
 #include "presentation/NoteGrid.h"
 #include "presentation/QtTypeRegistration.h"
+#include "presentation/grid/ScoreViewAdapter.h"
 #include "domain/music/Note.h"
 #include "domain/music/Score.h"
 #include "domain/music/Pitch.h"
@@ -65,6 +66,10 @@ ScoreView::ScoreView(QWidget *parent)
     // Initialize viewport last to ensure all components are ready
     QTimer::singleShot(0, this, [this]() {
         initializeViewport();
+        
+        // Initialize the grid adapter after the viewport is set up
+        m_gridAdapter = std::make_unique<grid::ScoreViewAdapter>(this);
+        m_gridAdapter->initialize();
     });
 }
 
@@ -127,6 +132,12 @@ void ScoreView::resizeEvent(QResizeEvent *event)
         // Update viewport manager with new scale
         m_viewportManager->updateZoomLevel(scaleFactor);
         
+        // Update the new grid architecture if available
+        if (m_gridAdapter) {
+            m_gridAdapter->handleViewportResize(availableRect.width(), availableRect.height());
+            m_gridAdapter->handleZoomChange(scaleFactor);
+        }
+        
         // Center the view on the content
         centerOn(QPointF(dimensions.endPosition * GRID_UNIT / 2.0,
                         (dimensions.minPitch + pitchRange / 2.0) * NOTE_HEIGHT));
@@ -154,6 +165,11 @@ void ScoreView::scrollContentsBy(int dx, int dy)
     // Update viewport manager with new scroll position
     m_viewportManager->updateScrollPosition(scrollPos);
     
+    // Update the new grid architecture if available
+    if (m_gridAdapter) {
+        m_gridAdapter->handleViewportScroll(scrollPos.x(), scrollPos.y());
+    }
+    
     // Re-enable updates
     setUpdatesEnabled(true);
     
@@ -168,25 +184,45 @@ void ScoreView::mousePressEvent(QMouseEvent *event)
         return;
     }
     
-    // Convert screen coordinates to musical space
-    QPointF musicalPoint = m_viewportManager->mapToMusicalSpace(event->pos(), this);
+    // Get musical coordinates from both old and new systems
+    QPointF musicalPoint;
+    if (m_gridAdapter) {
+        // Use new adapter system if available
+        musicalPoint = m_gridAdapter->mapToMusicalSpace(event->pos());
+    } else {
+        // Fallback to traditional viewport manager
+        musicalPoint = m_viewportManager->mapToMusicalSpace(event->pos(), this);
+    }
+    
     int position = qFloor(musicalPoint.x());
     int pitch = qFloor(musicalPoint.y());
     
     // Check if clicked on an expansion button
     if (event->button() == Qt::LeftButton) {
-        if (m_topExpandButton && m_topExpandButton->contains(m_topExpandButton->mapFromScene(mapToScene(event->pos())))) {
+        QPointF scenePos = mapToScene(event->pos());
+        
+        // Check expansion buttons using scene coordinates for consistency
+        if (m_topExpandButton && m_topExpandButton->contains(m_topExpandButton->mapFromScene(scenePos))) {
             expandGrid(GridDirection::Up, 12);
+            if (m_gridAdapter) {
+                m_gridAdapter->handleGridExpansion(grid::GridDirection::Up, 12);
+            }
             event->accept();
             return;
         }
-        if (m_bottomExpandButton && m_bottomExpandButton->contains(m_bottomExpandButton->mapFromScene(mapToScene(event->pos())))) {
+        if (m_bottomExpandButton && m_bottomExpandButton->contains(m_bottomExpandButton->mapFromScene(scenePos))) {
             expandGrid(GridDirection::Down, 12);
+            if (m_gridAdapter) {
+                m_gridAdapter->handleGridExpansion(grid::GridDirection::Down, 12);
+            }
             event->accept();
             return;
         }
-        if (m_rightExpandButton && m_rightExpandButton->contains(m_rightExpandButton->mapFromScene(mapToScene(event->pos())))) {
+        if (m_rightExpandButton && m_rightExpandButton->contains(m_rightExpandButton->mapFromScene(scenePos))) {
             expandGrid(GridDirection::Right, 4);
+            if (m_gridAdapter) {
+                m_gridAdapter->handleGridExpansion(grid::GridDirection::Right, 4);
+            }
             event->accept();
             return;
         }
@@ -200,6 +236,9 @@ void ScoreView::mousePressEvent(QMouseEvent *event)
             m_isSelecting = true;
             m_lastMousePos = event->pos();
             m_noteGrid->showNotePreview(position, pitch, m_currentNoteDuration);
+            if (m_gridAdapter) {
+                m_gridAdapter->showNotePreview(position, pitch, m_currentNoteDuration);
+            }
         }
         event->accept();
         return;
@@ -284,7 +323,7 @@ void ScoreView::mouseReleaseEvent(QMouseEvent *event)
                          << "Quantized position:" << quantizedPosition;
                 
                 // Emit signal with the note position and current duration
-                emit noteAdded(pitch, m_currentNoteDuration, position);
+                Q_EMIT noteAdded(pitch, m_currentNoteDuration, position);
             }
         }
     }
@@ -306,6 +345,12 @@ void ScoreView::wheelEvent(QWheelEvent *event)
         if (m_viewportManager) {
             float currentZoom = transform().m11(); // Get actual zoom
             m_viewportManager->updateZoomLevel(currentZoom);
+            
+            // Update the new grid architecture if available
+            if (m_gridAdapter) {
+                m_gridAdapter->handleZoomChange(currentZoom);
+            }
+            
             updateGridVisuals();
         }
         
@@ -318,10 +363,17 @@ void ScoreView::wheelEvent(QWheelEvent *event)
 
 void ScoreView::onScoreChanged()
 {
+    // Update the traditional note grid
     m_noteGrid->clear();
     if (m_score) {
         m_noteGrid->updateFromScore(m_score);
     }
+    
+    // Also update the new grid architecture if available
+    if (m_gridAdapter) {
+        m_gridAdapter->updateFromScore(m_score);
+    }
+    
     updateGridVisuals();
 }
 
@@ -368,8 +420,13 @@ void ScoreView::expandGrid(GridDirection direction, int amount)
     // Expand grid in requested direction
     m_viewportManager->expandGrid(direction, amount);
     
+    // Update the new grid architecture if available
+    if (m_gridAdapter) {
+        m_gridAdapter->handleViewportResize(viewport()->width(), viewport()->height());
+    }
+    
     // Notify listeners about expansion
-    emit viewportExpanded(m_viewportManager->getViewportBounds());
+    Q_EMIT viewportExpanded(m_viewportManager->getViewportBounds());
     
     // Update grid visuals
     updateGridVisuals();
@@ -584,7 +641,7 @@ void ScoreView::checkViewportExpansion()
     // Apply expansion if needed
     if (needsExpansion) {
         m_viewportManager->setViewportBounds(newBounds);
-        emit viewportExpanded(newBounds);
+        Q_EMIT viewportExpanded(newBounds);
         updateGridVisuals();
     }
 }
@@ -910,9 +967,16 @@ void ScoreView::handleNoteAdded(int pitch, double duration, int position)
     }
     lastNoteTime.restart();
     
-    // Update visual representation
+    // Create a note object
     MusicTrainer::music::Note note(notePitch, duration, position);
+    
+    // Update traditional grid
     m_noteGrid->addNote(note, 0, position);
+    
+    // Update the new grid architecture if available
+    if (m_gridAdapter) {
+        m_gridAdapter->handleNoteAdded(pitch, duration, position);
+    }
     
     // Update only the affected region
     QRectF updateRect(
