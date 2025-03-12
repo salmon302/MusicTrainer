@@ -2,79 +2,59 @@
 #include "domain/music/Score.h"
 #include "domain/music/Voice.h"
 #include "domain/music/Interval.h"
-#include "domain/music/Pitch.h"
-#include <iostream>
+#include <sstream>
 
-namespace MusicTrainer {
-namespace music {
-namespace rules {
+namespace MusicTrainer::music::rules {
 
-std::unique_ptr<ParallelFifthsRule> ParallelFifthsRule::create() {
-    return std::unique_ptr<ParallelFifthsRule>(new ParallelFifthsRule());
+ParallelFifthsRule* ParallelFifthsRule::clone() const {
+    return new ParallelFifthsRule(*this);
 }
 
-bool ParallelFifthsRule::evaluate(const Score& score) {
-    return evaluateIncremental(score, 0, score.getMeasureCount());
-}
-
-bool ParallelFifthsRule::evaluateIncremental(
-    const Score& score,
-    size_t startMeasure,
-    size_t endMeasure) const {
+bool ParallelFifthsRule::evaluate(const music::Score& score) {
+    if (!isEnabled()) return true;
     
-    clearViolationDescription();
+    m_violationDescription.clear();
     
-    size_t voiceCount = score.getVoiceCount();
-    if (voiceCount < 2) {
-        return true; // No parallel fifths possible with less than 2 voices
-    }
-
+    if (score.getVoiceCount() < 2) return true;
+    
     // Check each pair of voices
-    for (size_t i = 0; i < voiceCount - 1; ++i) {
-        for (size_t j = i + 1; j < voiceCount; ++j) {
-            const Voice* voice1 = score.getVoice(i);
-            const Voice* voice2 = score.getVoice(j);
-            if (!voice1 || !voice2) continue;
-
-            // Get notes in the measure range
-            auto notes1 = voice1->getNotesInRange(startMeasure, endMeasure);
-            auto notes2 = voice2->getNotesInRange(startMeasure, endMeasure);
-
-            // Skip if either voice has no notes
-            if (notes1.empty() || notes2.empty()) continue;
-
-            // Check for parallel fifths between consecutive notes
-            for (size_t k = 0; k < std::min(notes1.size(), notes2.size()) - 1; ++k) {
-                // Skip if either pair of notes doesn't overlap in time
-                if (notes1[k].getPosition() != notes2[k].getPosition() ||
-                    notes1[k+1].getPosition() != notes2[k+1].getPosition()) {
-                    continue;
-                }
-
+    for (size_t i = 0; i < score.getVoiceCount() - 1; ++i) {
+        for (size_t j = i + 1; j < score.getVoiceCount(); ++j) {
+            const Voice& voice1 = score.getVoice(i);
+            const Voice& voice2 = score.getVoice(j);
+            
+            // Need at least 2 notes to check for parallel motion
+            if (voice1.getNoteCount() < 2 || voice2.getNoteCount() < 2) continue;
+            
+            // Check consecutive notes for parallel fifths
+            for (size_t noteIndex = 1; noteIndex < std::min(voice1.getNoteCount(), voice2.getNoteCount()); ++noteIndex) {
+                const Note& prev1 = voice1.getNote(noteIndex - 1);
+                const Note& curr1 = voice1.getNote(noteIndex);
+                const Note& prev2 = voice2.getNote(noteIndex - 1);
+                const Note& curr2 = voice2.getNote(noteIndex);
+                
+                // Skip if any note is a rest
+                if (prev1.isRest() || curr1.isRest() || prev2.isRest() || curr2.isRest()) continue;
+                
                 // Calculate intervals
-                Interval curr = Interval::fromPitches(notes1[k].getPitch(), notes2[k].getPitch());
-                Interval next = Interval::fromPitches(notes1[k+1].getPitch(), notes2[k+1].getPitch());
-
-                // Debug output
-                std::cout << "Checking intervals between voices " << i << " and " << j << ":" << std::endl;
-                std::cout << "  Current interval: " << curr.toString()
-                          << " (Notes: " << notes1[k].getPitch().toString() 
-                          << ", " << notes2[k].getPitch().toString() << ")" << std::endl;
-                std::cout << "  Next interval: " << next.toString()
-                          << " (Notes: " << notes1[k+1].getPitch().toString() 
-                          << ", " << notes2[k+1].getPitch().toString() << ")" << std::endl;
-
-                // Check for parallel perfect fifths
-                if (curr.getNumber() == Interval::Number::Fifth &&
-                    next.getNumber() == Interval::Number::Fifth &&
-                    curr.getQuality() == Interval::Quality::Perfect &&
-                    next.getQuality() == Interval::Quality::Perfect) {
+                int prevInterval = std::abs(prev2.getMidiPitch() - prev1.getMidiPitch()) % 12;
+                int currInterval = std::abs(curr2.getMidiPitch() - curr1.getMidiPitch()) % 12;
+                
+                // Check for parallel fifths (perfect fifth = 7 semitones)
+                if (prevInterval == 7 && currInterval == 7) {
+                    // Verify it's parallel motion (both voices moving in same direction)
+                    int voice1Motion = curr1.getMidiPitch() - prev1.getMidiPitch();
+                    int voice2Motion = curr2.getMidiPitch() - prev2.getMidiPitch();
                     
-                    std::string desc = "Parallel perfect fifths found between voices " + 
-                                     std::to_string(i) + " and " + std::to_string(j) +
-                                     " at measure " + std::to_string(startMeasure + k);
-                    setViolationDescription(desc);
-                    return false;
+                    if ((voice1Motion > 0 && voice2Motion > 0) || 
+                        (voice1Motion < 0 && voice2Motion < 0)) {
+                        std::stringstream ss;
+                        ss << "Parallel fifths between voice " << i + 1
+                           << " and voice " << j + 1
+                           << " at position " << noteIndex + 1;
+                        m_violationDescription = ss.str();
+                        return false;
+                    }
                 }
             }
         }
@@ -84,15 +64,11 @@ bool ParallelFifthsRule::evaluateIncremental(
 }
 
 std::string ParallelFifthsRule::getViolationDescription() const {
-    return violationDescription;
+    return m_violationDescription;
 }
 
 std::string ParallelFifthsRule::getName() const {
-    return "Parallel Fifths Rule";
-}
-
-std::unique_ptr<Rule> ParallelFifthsRule::clone() const {
-    return create();
+    return "ParallelFifthsRule";
 }
 
 } // namespace rules

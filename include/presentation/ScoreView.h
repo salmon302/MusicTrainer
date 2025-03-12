@@ -12,6 +12,8 @@
 #include "presentation/GridTypes.h"
 #include "domain/music/Duration.h"
 #include "domain/music/Voice.h"
+#include "domain/events/GuiStateEvent.h"
+#include "domain/events/EventBus.h"
 
 QT_BEGIN_NAMESPACE
 class QResizeEvent;
@@ -36,7 +38,7 @@ class ViewportManager;
 class ScoreView : public QGraphicsView {
     Q_OBJECT
 public:
-    explicit ScoreView(QWidget* parent = nullptr);
+    explicit ScoreView(std::shared_ptr<music::events::EventBus> eventBus, QWidget* parent = nullptr);
     ~ScoreView() override;
     
     // Constants for grid sizing
@@ -91,6 +93,7 @@ protected:
 private:
     void initializeViewport();
     void updateGridVisuals();
+    void publishViewportState();
     
     class ScoreViewImpl;
     std::unique_ptr<ScoreViewImpl> m_impl;
@@ -98,6 +101,7 @@ private:
     std::unique_ptr<NoteGrid> m_noteGrid;
     std::unique_ptr<ViewportManager> m_viewportManager;
     std::shared_ptr<MusicTrainer::music::Score> m_score;
+    std::shared_ptr<music::events::EventBus> m_eventBus;
     
     // New adapter for the grid architecture
     std::unique_ptr<grid::ScoreViewAdapter> m_gridAdapter;

@@ -1,1 +1,0 @@
-/usr/bin/c++ -fPIC  -fPIC -pthread -pthread -Wall -shared -Wl,-soname,librtmidi.so.6 -o librtmidi.so.6.0.0 CMakeFiles/rtmidi.dir/rtmidi_autogen/mocs_compilation.cpp.o CMakeFiles/rtmidi.dir/RtMidi.cpp.o CMakeFiles/rtmidi.dir/rtmidi_c.cpp.o  -ljack -lpthread /usr/lib/x86_64-linux-gnu/libasound.so 

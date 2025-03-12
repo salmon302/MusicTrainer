@@ -5,12 +5,13 @@
 #include "presentation/FeedbackArea.h"
 #include "presentation/ExerciseBrowser.h"
 #include "presentation/SettingsDialog.h"
-#include "adapters/InMemoryExerciseRepository.h"
+#include "domain/adapters/InMemoryExerciseRepository.h"
 #include "domain/exercises/Exercise.h"
 #include "domain/rules/ValidationPipeline.h"
 #include "domain/music/Score.h"
 #include "domain/music/Voice.h"
 #include "domain/ports/MidiAdapter.h"
+#include "domain/state/SettingsState.h"
 #include <QVBoxLayout>
 #include <QMenuBar>
 #include <QMessageBox>
@@ -26,65 +27,57 @@ MainWindow::MainWindow(std::shared_ptr<ports::MidiAdapter> midiAdapter, QWidget 
     : QMainWindow(parent)
     , m_midiAdapter(midiAdapter)
 {
-    // Create a shared_ptr from the unique_ptr returned by Score::create()
-    auto scorePtr = MusicTrainer::music::Score::create();
-    m_score = std::shared_ptr<MusicTrainer::music::Score>(scorePtr.release());
+    // Initialize state management first
+    initializeStateManagement();
     
-    // Initialize exercise repository
-    m_exerciseRepository = adapters::InMemoryExerciseRepository::create();
-    
-    // Initialize validation pipeline
-    m_validationPipeline = music::rules::ValidationPipeline::create();
-    
-    setWindowTitle(tr("MusicTrainer"));
-    resize(1024, 768);
-
-    // Create central widget and layout
+    // Create central widget
     auto* centralWidget = new QWidget(this);
     setCentralWidget(centralWidget);
-
-    // Initialize score view as central widget
-    m_scoreView = new ScoreView(this);
-    centralWidget->setLayout(new QVBoxLayout);
-    centralWidget->layout()->addWidget(m_scoreView);
-
-    // Initialize dock widget contents before setting up dock widgets
-    m_transportControls = new TransportControls(m_midiAdapter, this);
-    m_exercisePanel = new ExercisePanel(this);
-    m_feedbackArea = new FeedbackArea(this);
-
-    // Set up dockable widgets after initializing their contents
+    
+    // Create main layout
+    auto* mainLayout = new QVBoxLayout(centralWidget);
+    
+    // Create score view with event bus
+    m_scoreView = new ScoreView(m_eventBus, this);
+    mainLayout->addWidget(m_scoreView);
+    
+    // Create and setup dock widgets
     setupDockWidgets();
-
-    // Set up menus and status bar
-    setupMenus();
+    
+    // Create status bar
     setupStatusBar();
 
-    // Pass the score to the view
-    m_scoreView->setScore(m_score);
+    // Create transport controls with event bus
+    m_transportControls = new TransportControls(m_midiAdapter, m_eventBus, this);
+    m_transportDock = new QDockWidget(tr("Transport"), this);
+    m_transportDock->setWidget(m_transportControls);
+    addDockWidget(Qt::TopDockWidgetArea, m_transportDock);
 
-    // Create a default voice if none exists yet
-    if (m_score && m_score->getVoiceCount() == 0) {
-        // Use the factory method instead of make_unique with private constructor
-        auto timeSignature = MusicTrainer::music::Voice::TimeSignature::commonTime();
-        auto voice = MusicTrainer::music::Voice::create(timeSignature);
-        m_score->addVoice(std::move(voice));
-    }
+    // Create and connect exercise panel
+    m_exercisePanel = new ExercisePanel(this);
+    m_exerciseDock = new QDockWidget(tr("Exercise"), this);
+    m_exerciseDock->setWidget(m_exercisePanel);
+    addDockWidget(Qt::RightDockWidgetArea, m_exerciseDock);
 
-    // Show warning if MIDI is not available
-    if (!m_midiAdapter) {
-        QMessageBox::warning(this, tr("MIDI Unavailable"),
-            tr("MIDI functionality is not available. The application will run in limited mode.\n\n"
-               "Please check your MIDI configuration and ensure you have ALSA or JACK installed."));
-    }
+    // Create and connect feedback area
+    m_feedbackArea = new FeedbackArea(this);
+    m_feedbackDock = new QDockWidget(tr("Feedback"), this);
+    m_feedbackDock->setWidget(m_feedbackArea);
+    addDockWidget(Qt::BottomDockWidgetArea, m_feedbackDock);
 
-    // Connect signals/slots
+    // Connect signals
     connectSignals();
-
-    // Load window state from settings
+    
+    // Restore window state if available
     QSettings settings;
-    restoreGeometry(settings.value("mainWindowGeometry").toByteArray());
-    restoreState(settings.value("mainWindowState").toByteArray());
+    if (settings.contains("mainWindowGeometry")) {
+        restoreGeometry(settings.value("mainWindowGeometry").toByteArray());
+    }
+    if (settings.contains("mainWindowState")) {
+        restoreState(settings.value("mainWindowState").toByteArray());
+    }
+    
+    setMinimumSize(800, 600);
 }
 
 MainWindow::~MainWindow()
@@ -93,6 +86,11 @@ MainWindow::~MainWindow()
     QSettings settings;
     settings.setValue("mainWindowGeometry", saveGeometry());
     settings.setValue("mainWindowState", saveState());
+
+    // Stop state management
+    if (m_stateCoordinator) {
+        m_stateCoordinator->stop();
+    }
 }
 
 void MainWindow::setupMenus()
@@ -193,18 +191,31 @@ void MainWindow::setupMenus()
 
 void MainWindow::connectSignals()
 {
-    // Connect transport controls to score view
-    if (m_transportControls && m_scoreView) {
-        connect(m_transportControls, &TransportControls::playbackStarted,
-                m_scoreView, [this]() {
-                    // Handle playback start
-                });
-                
-        connect(m_transportControls, &TransportControls::playbackStopped,
-                m_scoreView, [this]() {
-                    // Handle playback stop
-                });
-    }
+    // Connect GUI state change handlers
+    m_stateCoordinator->subscribeToState<music::events::GuiStateEvent::ViewportState>(
+        music::events::GuiStateEvent::StateType::VIEWPORT_CHANGE,
+        [this](const auto& state) { onViewportChanged(state); }
+    );
+
+    m_stateCoordinator->subscribeToState<music::events::GuiStateEvent::ScoreDisplayState>(
+        music::events::GuiStateEvent::StateType::SCORE_DISPLAY_CHANGE,
+        [this](const auto& state) { onScoreDisplayChanged(state); }
+    );
+
+    m_stateCoordinator->subscribeToState<music::events::GuiStateEvent::SelectionState>(
+        music::events::GuiStateEvent::StateType::SELECTION_CHANGE,
+        [this](const auto& state) { onSelectionChanged(state); }
+    );
+
+    m_stateCoordinator->subscribeToState<music::events::GuiStateEvent::PlaybackState>(
+        music::events::GuiStateEvent::StateType::PLAYBACK_STATE_CHANGE,
+        [this](const auto& state) { onPlaybackStateChanged(state); }
+    );
+
+    m_stateCoordinator->subscribeToState<music::events::GuiStateEvent::MidiDeviceState>(
+        music::events::GuiStateEvent::StateType::MIDI_DEVICE_CHANGE,
+        [this](const auto& state) { onMidiDeviceChanged(state); }
+    );
 
     // Connect exercise panel signals
     if (m_exercisePanel && m_scoreView) {
@@ -249,6 +260,69 @@ void MainWindow::connectSignals()
                     
                     QMessageBox::information(this, tr("Hint"), hint);
                 });
+    }
+
+    // Connect transport control signals if available
+    if (m_transportControls && m_midiAdapter) {
+        // Implementation will be added in the MIDI integration phase
+    }
+
+    // Connect to settings state changes
+    auto& settings = state::SettingsState::instance();
+    connect(&settings, &state::SettingsState::midiSettingsChanged,
+            this, &MainWindow::onMidiSettingsChanged);
+    connect(&settings, &state::SettingsState::audioSettingsChanged,
+            this, &MainWindow::onAudioSettingsChanged);
+    connect(&settings, &state::SettingsState::uiSettingsChanged,
+            this, &MainWindow::onUiSettingsChanged);
+    connect(&settings, &state::SettingsState::ruleSettingsChanged,
+            this, &MainWindow::onRuleSettingsChanged);
+}
+
+// Implement the state change handlers
+void MainWindow::onViewportChanged(const music::events::GuiStateEvent::ViewportState& state) {
+    if (m_scoreView) {
+        m_scoreView->setViewportPosition(state.x, state.y);
+        m_scoreView->setZoomLevel(state.zoomLevel);
+    }
+}
+
+void MainWindow::onScoreDisplayChanged(const music::events::GuiStateEvent::ScoreDisplayState& state) {
+    if (m_scoreView) {
+        m_scoreView->setShowMeasureNumbers(state.showMeasureNumbers);
+        m_scoreView->setShowKeySignature(state.showKeySignature);
+        m_scoreView->setShowVoiceLabels(state.showVoiceLabels);
+        m_scoreView->setFontSize(state.fontSize);
+    }
+}
+
+void MainWindow::onSelectionChanged(const music::events::GuiStateEvent::SelectionState& state) {
+    if (m_scoreView) {
+        m_scoreView->setSelectedVoice(state.voiceIndex);
+        m_scoreView->setSelectedMeasure(state.measureIndex);
+        m_scoreView->setSelectedNote(state.noteIndex);
+    }
+}
+
+void MainWindow::onPlaybackStateChanged(const music::events::GuiStateEvent::PlaybackState& state) {
+    if (m_transportControls) {
+        m_transportControls->setPlaybackState(state.isPlaying);
+        m_transportControls->setRecordingState(state.isRecording);
+        m_transportControls->setTempo(state.tempo);
+        m_transportControls->setMetronomeEnabled(state.metronomeEnabled);
+    }
+}
+
+void MainWindow::onMidiDeviceChanged(const music::events::GuiStateEvent::MidiDeviceState& state) {
+    if (m_midiAdapter) {
+        if (state.inputDeviceIndex >= 0) {
+            m_midiAdapter->setInputDevice(state.inputDeviceIndex);
+        }
+        if (state.outputDeviceIndex >= 0) {
+            m_midiAdapter->setOutputDevice(state.outputDeviceIndex);
+        }
+        m_midiAdapter->setMidiThrough(state.midiThrough);
+        m_midiAdapter->setLatency(state.latency);
     }
 }
 
@@ -445,6 +519,124 @@ void MainWindow::validateExercise()
     // Update the feedback area with the score
     if (m_score) {
         m_feedbackArea->updateWithScore(*m_score);
+    }
+}
+
+void MainWindow::initializeStateManagement()
+{
+    m_eventBus = music::events::EventBus::create();
+    m_stateCoordinator = GuiStateCoordinator::create(m_eventBus);
+
+    // Start the event bus and state coordinator
+    m_eventBus->start();
+    m_stateCoordinator->start();
+}
+
+void MainWindow::loadSettings() {
+    auto& settings = state::SettingsState::instance();
+    
+    // Apply UI settings
+    if (m_scoreView) {
+        m_scoreView->setShowMeasureNumbers(settings.getShowMeasureNumbers());
+        m_scoreView->setShowKeySignature(settings.getShowKeySignature());
+        m_scoreView->setShowVoiceLabels(settings.getShowVoiceLabels());
+        m_scoreView->setFontSize(settings.getFontSize());
+    }
+    
+    // Apply MIDI settings
+    if (m_midiAdapter) {
+        // Set MIDI devices
+        QString inputDevice = settings.getMidiInputDevice();
+        QString outputDevice = settings.getMidiOutputDevice();
+        
+        if (!inputDevice.isEmpty()) {
+            // Find and set input device
+            const auto inputs = m_midiAdapter->getAvailableInputs();
+            for (size_t i = 0; i < inputs.size(); ++i) {
+                if (QString::fromStdString(inputs[i]) == inputDevice) {
+                    m_midiAdapter->setInputDevice(i);
+                    break;
+                }
+            }
+        }
+        
+        if (!outputDevice.isEmpty()) {
+            // Find and set output device
+            const auto outputs = m_midiAdapter->getAvailableOutputs();
+            for (size_t i = 0; i < outputs.size(); ++i) {
+                if (QString::fromStdString(outputs[i]) == outputDevice) {
+                    m_midiAdapter->setOutputDevice(i);
+                    break;
+                }
+            }
+        }
+        
+        m_midiAdapter->setMidiThrough(settings.getMidiThrough());
+        m_midiAdapter->setLatency(settings.getMidiLatency());
+    }
+    
+    // Apply audio settings to transport controls
+    if (m_transportControls) {
+        m_transportControls->setMetronomeEnabled(settings.getMetronomeEnabled());
+        m_transportControls->setMetronomeVolume(settings.getMetronomeVolume());
+    }
+}
+
+void MainWindow::onMidiSettingsChanged() {
+    if (!m_midiAdapter) return;
+    
+    auto& settings = state::SettingsState::instance();
+    
+    // Update MIDI adapter settings
+    QString inputDevice = settings.getMidiInputDevice();
+    QString outputDevice = settings.getMidiOutputDevice();
+    
+    if (!inputDevice.isEmpty()) {
+        const auto inputs = m_midiAdapter->getAvailableInputs();
+        for (size_t i = 0; i < inputs.size(); ++i) {
+            if (QString::fromStdString(inputs[i]) == inputDevice) {
+                m_midiAdapter->setInputDevice(i);
+                break;
+            }
+        }
+    }
+    
+    if (!outputDevice.isEmpty()) {
+        const auto outputs = m_midiAdapter->getAvailableOutputs();
+        for (size_t i = 0; i < outputs.size(); ++i) {
+            if (QString::fromStdString(outputs[i]) == outputDevice) {
+                m_midiAdapter->setOutputDevice(i);
+                break;
+            }
+        }
+    }
+    
+    m_midiAdapter->setMidiThrough(settings.getMidiThrough());
+    m_midiAdapter->setLatency(settings.getMidiLatency());
+}
+
+void MainWindow::onAudioSettingsChanged() {
+    if (!m_transportControls) return;
+    
+    auto& settings = state::SettingsState::instance();
+    m_transportControls->setMetronomeEnabled(settings.getMetronomeEnabled());
+    m_transportControls->setMetronomeVolume(settings.getMetronomeVolume());
+}
+
+void MainWindow::onUiSettingsChanged() {
+    if (!m_scoreView) return;
+    
+    auto& settings = state::SettingsState::instance();
+    m_scoreView->setShowMeasureNumbers(settings.getShowMeasureNumbers());
+    m_scoreView->setShowKeySignature(settings.getShowKeySignature());
+    m_scoreView->setShowVoiceLabels(settings.getShowVoiceLabels());
+    m_scoreView->setFontSize(settings.getFontSize());
+}
+
+void MainWindow::onRuleSettingsChanged() {
+    // Update the validation pipeline with new rule settings
+    if (m_validationPipeline) {
+        m_validationPipeline->updateRules();
     }
 }
 

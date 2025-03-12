@@ -4,6 +4,7 @@
 #include "domain/music/Interval.h"
 #include "domain/music/Pitch.h"
 #include <iostream>
+#include <sstream>
 
 namespace MusicTrainer {
 namespace music {
@@ -62,26 +63,25 @@ bool ParallelOctavesRule::evaluateIncremental(
                 Interval curr = Interval::fromPitches(notes1[k].getPitch(), notes2[k].getPitch());
                 Interval next = Interval::fromPitches(notes1[k+1].getPitch(), notes2[k+1].getPitch());
 
-                // Debug output
-                std::cout << "Checking intervals between voices " << i << " and " << j << ":" << std::endl;
-                std::cout << "  Current interval: " << curr.toString()
-                          << " (Notes: " << notes1[k].getPitch().toString() 
-                          << ", " << notes2[k].getPitch().toString() << ")" << std::endl;
-                std::cout << "  Next interval: " << next.toString()
-                          << " (Notes: " << notes1[k+1].getPitch().toString() 
-                          << ", " << notes2[k+1].getPitch().toString() << ")" << std::endl;
-
-                // Check for parallel octaves
+                // Check for parallel octaves (both intervals must be perfect octaves)
                 if (curr.getNumber() == Interval::Number::Octave &&
                     next.getNumber() == Interval::Number::Octave &&
                     curr.getQuality() == Interval::Quality::Perfect &&
                     next.getQuality() == Interval::Quality::Perfect) {
                     
-                    std::string desc = "Parallel octaves found between voices " + 
-                                     std::to_string(i) + " and " + std::to_string(j) +
-                                     " at measure " + std::to_string(startMeasure + k);
-                    setViolationDescription(desc);
-                    return false;
+                    // Check if motion is parallel (both voices moving in same direction)
+                    int voice1Motion = notes1[k+1].getPitch().getMidiNote() - notes1[k].getPitch().getMidiNote();
+                    int voice2Motion = notes2[k+1].getPitch().getMidiNote() - notes2[k].getPitch().getMidiNote();
+                    
+                    if ((voice1Motion > 0 && voice2Motion > 0) || 
+                        (voice1Motion < 0 && voice2Motion < 0)) {
+                        std::stringstream ss;
+                        ss << "Parallel octaves found between voices " << i + 1
+                           << " and " << j + 1
+                           << " at measure " << startMeasure + k;
+                        setViolationDescription(ss.str());
+                        return false;
+                    }
                 }
             }
         }

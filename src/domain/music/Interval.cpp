@@ -193,5 +193,87 @@ bool Interval::operator<(const Interval& other) const {
     return m_semitones < other.m_semitones;
 }
 
+bool Interval::isDissonant(int semitones) {
+    semitones = std::abs(semitones) % 12;
+    // Seconds, sevenths, and tritone are dissonant
+    return (semitones == 1 || semitones == 2 ||    // Seconds
+            semitones == 6 ||                      // Tritone
+            semitones == 10 || semitones == 11);    // Sevenths
+}
+
+bool Interval::isConsonant(int semitones) {
+    semitones = std::abs(semitones) % 12;
+    // Perfect consonances: unison, fifth, octave
+    if (semitones == 0 || semitones == 7) return true;
+    
+    // Imperfect consonances: thirds and sixths
+    if (semitones == 3 || semitones == 4 ||    // Thirds
+        semitones == 8 || semitones == 9)      // Sixths
+        return true;
+    
+    return false;
+}
+
+bool Interval::isStepwise(int semitones) {
+    semitones = std::abs(semitones);
+    return semitones == 1 || semitones == 2;  // Half step or whole step
+}
+
+std::string Interval::getIntervalName(int semitones) {
+    semitones = std::abs(semitones) % 12;
+    switch (semitones) {
+        case 0: return "unison/octave";
+        case 1: return "minor second";
+        case 2: return "major second";
+        case 3: return "minor third";
+        case 4: return "major third";
+        case 5: return "perfect fourth";
+        case 6: return "tritone";
+        case 7: return "perfect fifth";
+        case 8: return "minor sixth";
+        case 9: return "major sixth";
+        case 10: return "minor seventh";
+        case 11: return "major seventh";
+        default: return "unknown interval";
+    }
+}
+
+int Interval::getIntervalInSemitones(const Pitch& p1, const Pitch& p2) {
+    return p2.getMidiPitch() - p1.getMidiPitch();
+}
+
+bool Interval::isValidMelodicInterval(int semitones) {
+    semitones = std::abs(semitones);
+    
+    // Valid intervals:
+    // - Stepwise motion (1-2 semitones)
+    // - Minor/major thirds (3-4 semitones)
+    // - Perfect fourth (5 semitones)
+    // - Perfect fifth (7 semitones)
+    // - Minor/major sixth (8-9 semitones)
+    // - Octave (12 semitones)
+    
+    switch (semitones) {
+        case 1: case 2:  // Steps
+        case 3: case 4:  // Thirds
+        case 5:          // Fourth
+        case 7:          // Fifth
+        case 8: case 9:  // Sixths
+        case 12:         // Octave
+            return true;
+        default:
+            return false;
+    }
+}
+
+bool Interval::isDiminishedInterval(int semitones) {
+    semitones = std::abs(semitones) % 12;
+    
+    // Diminished intervals:
+    // - Diminished fifth (6 semitones)
+    // - Diminished octave (11 semitones)
+    return semitones == 6 || semitones == 11;
+}
+
 } // namespace music
 } // namespace MusicTrainer

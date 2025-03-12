@@ -1,20 +1,19 @@
 #pragma once
 
 #include <QWidget>
-#include <QPushButton>
-#include <QSlider>
-#include <QSpinBox>
-#include <QComboBox>
-#include <QCheckBox>
 #include <memory>
+#include "domain/ports/MidiAdapter.h"
+#include "domain/events/GuiStateEvent.h"
+#include "domain/events/EventBus.h"
 
-namespace MusicTrainer {
+class QPushButton;
+class QSlider;
+class QSpinBox;
+class QComboBox;
+class QCheckBox;
+class QLabel;
 
-namespace ports {
-class MidiAdapter;
-}
-
-namespace presentation {
+namespace MusicTrainer::presentation {
 
 /**
  * @brief Control panel for transport and MIDI settings
@@ -25,8 +24,19 @@ class TransportControls : public QWidget {
     Q_OBJECT
 
 public:
-    explicit TransportControls(std::shared_ptr<ports::MidiAdapter> midiAdapter, QWidget* parent = nullptr);
+    explicit TransportControls(std::shared_ptr<ports::MidiAdapter> midiAdapter,
+                             std::shared_ptr<music::events::EventBus> eventBus = nullptr,
+                             QWidget* parent = nullptr);
     ~TransportControls() override;
+
+    // State setters
+    void setPlaybackState(bool isPlaying);
+    void setRecordingState(bool isRecording);
+    void setTempo(int tempo);
+    void setMetronomeEnabled(bool enabled);
+
+    // Device management
+    void refreshDeviceList();
 
 Q_SIGNALS:
     /**
@@ -62,23 +72,35 @@ Q_SIGNALS:
      */
     void midiDeviceSelected(int portIndex);
 
+    /**
+     * @brief Emitted when a MIDI error occurs
+     * @param error Error message
+     */
+    void midiError(const QString& error);
+
 private Q_SLOTS:
     void onPlayClicked();
     void onStopClicked();
     void onRecordClicked();
-    void onTempoChanged(int bpm);
+    void onTempoChanged(int value);
     void onMetronomeToggled(bool checked);
-    void onDeviceSelectionChanged(int index);
-    void refreshDeviceList();
+    void onDeviceChanged(int index);
+    void onRefreshDevicesClicked();
+    void onMidiThroughToggled(bool enabled);
+    void onLatencyChanged(int value);
 
 private:
     void setupUi();
-    void setupConnections();
+    void connectSignals();
+    void updatePlaybackState();
+    void publishStateChange();
+    void handleMidiError(const std::string& error);
 
-    // MIDI service
+    // Dependencies
     std::shared_ptr<ports::MidiAdapter> m_midiAdapter;
+    std::shared_ptr<music::events::EventBus> m_eventBus;
 
-    // UI components
+    // UI Components
     QPushButton* m_playButton{nullptr};
     QPushButton* m_stopButton{nullptr};
     QPushButton* m_recordButton{nullptr};
@@ -87,14 +109,15 @@ private:
     QCheckBox* m_metronomeCheckBox{nullptr};
     QComboBox* m_deviceComboBox{nullptr};
     QPushButton* m_refreshDevicesButton{nullptr};
+    QCheckBox* m_midiThroughCheckBox{nullptr};
+    QSpinBox* m_latencySpinBox{nullptr};
+    QLabel* m_statusLabel{nullptr};
 
     // State
     bool m_isPlaying{false};
     bool m_isRecording{false};
-    int m_currentTempo{120};
-    bool m_metronomeEnabled{true};
-    int m_selectedDeviceIndex{-1};
+    int m_tempo{120};
+    bool m_metronomeEnabled{false};
 };
 
-} // namespace presentation
-} // namespace MusicTrainer
+} // namespace MusicTrainer::presentation

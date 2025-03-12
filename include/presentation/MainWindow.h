@@ -6,6 +6,8 @@
 #include "domain/exercises/Exercise.h"
 #include "domain/exercises/ExerciseRepository.h"
 #include "domain/rules/ValidationPipeline.h"
+#include "domain/events/EventBus.h"
+#include "presentation/GuiStateCoordinator.h"
 
 // Forward declarations
 class QDockWidget;
@@ -50,18 +52,36 @@ private Q_SLOTS:
     void onExerciseBrowserRequested();
     void onSettingsDialogRequested();
     void onAboutDialogRequested();
+    void onViewportChanged(const music::events::GuiStateEvent::ViewportState& state);
+    void onScoreDisplayChanged(const music::events::GuiStateEvent::ScoreDisplayState& state);
+    void onSelectionChanged(const music::events::GuiStateEvent::SelectionState& state);
+    void onPlaybackStateChanged(const music::events::GuiStateEvent::PlaybackState& state);
+    void onMidiDeviceChanged(const music::events::GuiStateEvent::MidiDeviceState& state);
+
+    // Settings state change handlers
+    void onMidiSettingsChanged();
+    void onAudioSettingsChanged();
+    void onUiSettingsChanged();
+    void onRuleSettingsChanged();
 
 private:
     void setupMenus();
     void connectSignals();
     void setupDockWidgets();
     void setupStatusBar();
+    void initializeStateManagement();
+    void loadSettings();
 
+    // Core components
     std::shared_ptr<ports::MidiAdapter> m_midiAdapter;
     std::shared_ptr<MusicTrainer::music::Score> m_score; // Fully qualified namespace
     std::shared_ptr<domain::exercises::ExerciseRepository> m_exerciseRepository;
     std::shared_ptr<domain::exercises::Exercise> m_currentExercise;
     std::unique_ptr<music::rules::ValidationPipeline> m_validationPipeline;
+
+    // Event and state management
+    std::shared_ptr<music::events::EventBus> m_eventBus;
+    std::shared_ptr<GuiStateCoordinator> m_stateCoordinator;
 
     // UI Components
     ScoreView* m_scoreView{nullptr};

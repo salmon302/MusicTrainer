@@ -153,7 +153,12 @@ set(LIB_SOURCES
 	src/domain/plugins/PluginManager.cpp
 	src/domain/crossdomain/CrossDomainValidator.cpp
 	src/domain/statesync/StateSynchronizationManager.cpp
-	src/utils/DebugUtils.cpp)
+	src/utils/DebugUtils.cpp
+    src/domain/events/GuiStateEvent.cpp
+    src/domain/events/GuiStateHandler.cpp
+    src/presentation/GuiStateCoordinator.cpp
+    src/domain/rules/MelodicIntervalRule.cpp 
+    src/domain/rules/DissonancePreparationRule.cpp)
 
 
 # Header files
@@ -192,7 +197,10 @@ set(HEADERS
 	include/adapters/RtMidiAdapter.h
 	include/domain/plugins/PluginInterface.h
 	include/domain/plugins/PluginManager.h
-	include/utils/DebugUtils.h)
+	include/utils/DebugUtils.h
+    include/domain/events/GuiStateEvent.h
+    include/domain/events/GuiStateHandler.h
+    include/presentation/GuiStateCoordinator.h)
 
 # Grid implementation sources with proper Qt MOC handling
 set(GRID_HEADERS
@@ -327,7 +335,7 @@ include_directories(${PROJECT_SOURCE_DIR}/include)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 # Main library target (not executable)
-add_library(MusicTrainerLib STATIC ${LIB_SOURCES} ${HEADERS})
+add_library(MusicTrainerLib STATIC ${LIB_SOURCES} ${HEADERS} ${STATE_MANAGEMENT_SOURCES})
 target_link_libraries(MusicTrainerLib PRIVATE rtmidi ${ALSA_LIBRARIES})
 
 # Main executable

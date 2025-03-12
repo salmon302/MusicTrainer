@@ -33,9 +33,10 @@ public:
 };
 
 // Main implementation
-ScoreView::ScoreView(QWidget *parent)
+ScoreView::ScoreView(std::shared_ptr<music::events::EventBus> eventBus, QWidget *parent)
     : QGraphicsView(parent)
     , m_impl(std::make_unique<ScoreViewImpl>())
+    , m_eventBus(std::move(eventBus))
 {
     // Register Qt types for signal/slot system
     ::registerQtTypes();
@@ -145,36 +146,28 @@ void ScoreView::resizeEvent(QResizeEvent *event)
         // Update visuals
         updateGridVisuals();
     }
+    
+    // Update viewport manager with new size
+    if (m_viewportManager) {
+        m_viewportManager->updateViewSize(event->size());
+        publishViewportState();
+    }
+    
+    updateGridVisuals();
 }
 
 void ScoreView::scrollContentsBy(int dx, int dy)
 {
-    if (dx == 0 && dy == 0) return;  // Skip no-op scrolls
-    
-    // Call base implementation first
     QGraphicsView::scrollContentsBy(dx, dy);
     
-    if (!m_viewportManager) return;
-
-    // Convert scroll position to scene coordinates
-    QPointF scrollPos = mapToScene(QPoint(0, 0));
-    
-    // Disable updates during scroll
-    setUpdatesEnabled(false);
-    
-    // Update viewport manager with new scroll position
+    // Update viewport manager
+    QPointF scrollPos = QPointF(horizontalScrollBar()->value(), verticalScrollBar()->value());
     m_viewportManager->updateScrollPosition(scrollPos);
     
-    // Update the new grid architecture if available
-    if (m_gridAdapter) {
-        m_gridAdapter->handleViewportScroll(scrollPos.x(), scrollPos.y());
-    }
+    // Publish new viewport state
+    publishViewportState();
     
-    // Re-enable updates
-    setUpdatesEnabled(true);
-    
-    // Request a single update
-    viewport()->update();
+    updateGridVisuals();
 }
 
 void ScoreView::mousePressEvent(QMouseEvent *event)
@@ -355,6 +348,41 @@ void ScoreView::wheelEvent(QWheelEvent *event)
         }
         
         setTransformationAnchor(oldAnchor);
+        event->accept();
+    } else {
+        QGraphicsView::wheelEvent(event);
+    }
+    
+    if (event->modifiers() & Qt::ControlModifier) {
+        // Handle zoom
+        QPoint numDegrees = event->angleDelta() / 8;
+        
+        if (!numDegrees.isNull()) {
+            QPointF oldPos = mapToScene(event->position().toPoint());
+            
+            // Calculate zoom factor
+            double zoomFactor = pow(1.2, numDegrees.y() / 60.0);
+            auto currentScale = transform().m11();
+            auto newScale = currentScale * zoomFactor;
+            
+            // Limit zoom range
+            if (newScale >= 0.1 && newScale <= 10.0) {
+                scale(zoomFactor, zoomFactor);
+                
+                // Update viewport manager
+                m_viewportManager->updateZoomLevel(newScale);
+                
+                // Adjust view to maintain mouse position
+                QPointF newPos = mapToScene(event->position().toPoint());
+                QPointF delta = newPos - oldPos;
+                horizontalScrollBar()->setValue(horizontalScrollBar()->value() + delta.x());
+                verticalScrollBar()->setValue(verticalScrollBar()->value() + delta.y());
+                
+                // Publish new viewport state
+                publishViewportState();
+            }
+        }
+        
         event->accept();
     } else {
         QGraphicsView::wheelEvent(event);
@@ -1127,6 +1155,34 @@ void ScoreView::setShowVoiceLabels(bool show)
     
     m_showVoiceLabels = show;
     updateGridVisuals();
+}
+
+void ScoreView::publishViewportState()
+{
+    if (!m_eventBus || !m_viewportManager) return;
+    
+    // Get current viewport state
+    const auto& state = m_viewportManager->getViewportState();
+    
+    // Create viewport state event
+    music::events::GuiStateEvent::ViewportState viewportState{
+        static_cast<float>(state.scrollPosition.x()),
+        static_cast<float>(state.scrollPosition.y()),
+        state.zoomLevel,
+        static_cast<float>(state.visibleArea.x()),
+        static_cast<float>(state.visibleArea.y()),
+        static_cast<float>(state.visibleArea.width()),
+        static_cast<float>(state.visibleArea.height())
+    };
+    
+    // Create and publish the event
+    auto event = music::events::GuiStateEvent::create(
+        music::events::GuiStateEvent::StateType::VIEWPORT_CHANGE,
+        viewportState,
+        "ScoreView"
+    );
+    
+    m_eventBus->publishAsync(std::move(event));
 }
 
 } // namespace MusicTrainer::presentation

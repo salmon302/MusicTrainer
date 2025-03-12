@@ -1,34 +1,33 @@
-#ifndef MUSICTRAINERV3_RULE_H
-#define MUSICTRAINERV3_RULE_H
+#pragma once
 
+#include "domain/music/Score.h"
+#include "RuleSettings.h"
 #include <string>
-#include <memory>
 
-namespace MusicTrainer {
-namespace music {
-class Score;
-
-namespace rules {
+namespace MusicTrainer::music::rules {
 
 class Rule {
 public:
     virtual ~Rule() = default;
     
-    // Evaluate if the rule is satisfied for the given score
-    virtual bool evaluate(const Score& score) = 0;
-    
-    // Get a description of why the rule failed (if it did)
+    virtual Rule* clone() const = 0;
+    virtual bool evaluate(const music::Score& score) = 0;
     virtual std::string getViolationDescription() const = 0;
-    
-    // Get the name of the rule
     virtual std::string getName() const = 0;
     
-    // Create a copy of the rule
-    virtual std::unique_ptr<Rule> clone() const = 0;
+    // Enable/disable the rule
+    void setEnabled(bool enabled) { 
+        RuleSettings::instance().setRuleEnabled(getName(), enabled); 
+    }
+    
+    bool isEnabled() const { 
+        return RuleSettings::instance().isRuleEnabled(getName()); 
+    }
+
+protected:
+    Rule() = default;
+    Rule(const Rule&) = default;
+    Rule& operator=(const Rule&) = default;
 };
 
-} // namespace rules
-} // namespace music
-} // namespace MusicTrainer
-
-#endif // MUSICTRAINERV3_RULE_H
+} // namespace MusicTrainer::music::rules

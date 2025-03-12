@@ -1,5 +1,6 @@
 #include "presentation/SettingsDialog.h"
 #include "domain/ports/MidiAdapter.h"
+#include "domain/state/SettingsState.h"
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QGroupBox>
@@ -331,6 +332,11 @@ void SettingsDialog::onMidiInputDeviceChanged(int index)
         QMessageBox::warning(this, tr("MIDI Connection Error"),
             tr("Failed to open MIDI connection to %1. Please check your MIDI setup.").arg(deviceName));
     }
+    
+    if (!m_midiAdapter || index < 0) return;
+    
+    QString device = m_midiInputDeviceComboBox->itemText(index);
+    state::SettingsState::instance().setMidiInputDevice(device);
 }
 
 void SettingsDialog::onMidiOutputDeviceChanged(int index)
@@ -355,6 +361,11 @@ void SettingsDialog::onMidiOutputDeviceChanged(int index)
         QMessageBox::warning(this, tr("MIDI Connection Error"),
             tr("Failed to open MIDI connection to %1. Please check your MIDI setup.").arg(deviceName));
     }
+    
+    if (!m_midiAdapter || index < 0) return;
+    
+    QString device = m_midiOutputDeviceComboBox->itemText(index);
+    state::SettingsState::instance().setMidiOutputDevice(device);
 }
 
 void SettingsDialog::onRefreshMidiDevicesClicked()
@@ -364,16 +375,10 @@ void SettingsDialog::onRefreshMidiDevicesClicked()
 
 void SettingsDialog::onThemeChanged(int index)
 {
+    state::SettingsState::instance().setTheme(index);
     QString themeName = m_themeComboBox->itemText(index);
-    qDebug() << "Selected theme:" << themeName;
     
     // Apply the theme immediately
-    QSettings settings;
-    settings.beginGroup("UI");
-    settings.setValue("Theme", index);
-    settings.endGroup();
-    
-    // Apply the theme to the application
     if (themeName == tr("Light")) {
         qApp->setStyle("fusion");
         QPalette lightPalette;
@@ -398,19 +403,19 @@ void SettingsDialog::onThemeChanged(int index)
     } else if (themeName == tr("High Contrast")) {
         qApp->setStyle("fusion");
         QPalette contrastPalette;
-        contrastPalette.setColor(QPalette::Window, Qt::black);
-        contrastPalette.setColor(QPalette::WindowText, Qt::white);
-        contrastPalette.setColor(QPalette::Base, Qt::black);
-        contrastPalette.setColor(QPalette::AlternateBase, Qt::black);
+        contrastPalette.setColor(QPalette::Window, Qt::white);
+        contrastPalette.setColor(QPalette::WindowText, Qt::black);
+        contrastPalette.setColor(QPalette::Base, Qt::white);
+        contrastPalette.setColor(QPalette::AlternateBase, Qt::white);
         contrastPalette.setColor(QPalette::ToolTipBase, Qt::white);
-        contrastPalette.setColor(QPalette::ToolTipText, Qt::white);
-        contrastPalette.setColor(QPalette::Text, Qt::white);
-        contrastPalette.setColor(QPalette::Button, Qt::black);
-        contrastPalette.setColor(QPalette::ButtonText, Qt::white);
-        contrastPalette.setColor(QPalette::BrightText, Qt::white);
-        contrastPalette.setColor(QPalette::Link, QColor(255, 255, 0));
-        contrastPalette.setColor(QPalette::Highlight, QColor(255, 255, 0));
-        contrastPalette.setColor(QPalette::HighlightedText, Qt::black);
+        contrastPalette.setColor(QPalette::ToolTipText, Qt::black);
+        contrastPalette.setColor(QPalette::Text, Qt::black);
+        contrastPalette.setColor(QPalette::Button, Qt::white);
+        contrastPalette.setColor(QPalette::ButtonText, Qt::black);
+        contrastPalette.setColor(QPalette::BrightText, Qt::black);
+        contrastPalette.setColor(QPalette::Link, Qt::blue);
+        contrastPalette.setColor(QPalette::Highlight, Qt::blue);
+        contrastPalette.setColor(QPalette::HighlightedText, Qt::white);
         qApp->setPalette(contrastPalette);
     } else {
         // System Default
@@ -508,6 +513,13 @@ void SettingsDialog::onRuleToggled(bool checked)
     
     // Emit a signal to notify that rules have changed
     Q_EMIT rulesChanged();
+    
+    auto* item = m_rulesListWidget->currentItem();
+    if (!item) return;
+    
+    QString ruleName = item->text();
+    state::SettingsState::instance().setRuleEnabled(ruleName, checked);
+    item->setCheckState(checked ? Qt::Checked : Qt::Unchecked);
 }
 
 void SettingsDialog::saveSettings()
@@ -554,76 +566,54 @@ void SettingsDialog::saveSettings()
 
 void SettingsDialog::loadSettings()
 {
-    QSettings settings;
+    auto& settings = state::SettingsState::instance();
     
     // MIDI settings
-    settings.beginGroup("MIDI");
-    QString inputDevice = settings.value("InputDevice").toString();
-    QString outputDevice = settings.value("OutputDevice").toString();
-    bool enableThrough = settings.value("EnableThrough", false).toBool();
-    int latency = settings.value("Latency", 10).toInt();
-    settings.endGroup();
-    
-    // Find and select the saved devices in the combo boxes
-    int inputIndex = m_midiInputDeviceComboBox->findText(inputDevice);
+    int inputIndex = m_midiInputDeviceComboBox->findText(settings.getMidiInputDevice());
     if (inputIndex >= 0) {
         m_midiInputDeviceComboBox->setCurrentIndex(inputIndex);
     }
     
-    int outputIndex = m_midiOutputDeviceComboBox->findText(outputDevice);
+    int outputIndex = m_midiOutputDeviceComboBox->findText(settings.getMidiOutputDevice());
     if (outputIndex >= 0) {
         m_midiOutputDeviceComboBox->setCurrentIndex(outputIndex);
     }
     
-    m_enableMidiThroughCheckBox->setChecked(enableThrough);
-    m_midiLatencySpinBox->setValue(latency);
+    m_enableMidiThroughCheckBox->setChecked(settings.getMidiThrough());
+    m_midiLatencySpinBox->setValue(settings.getMidiLatency());
     
     // Audio settings
-    settings.beginGroup("Audio");
-    bool enableMetronome = settings.value("EnableMetronome", true).toBool();
-    int metronomeVolume = settings.value("MetronomeVolume", 80).toInt();
-    bool enableSoundEffects = settings.value("EnableSoundEffects", true).toBool();
-    int soundEffectsVolume = settings.value("SoundEffectsVolume", 80).toInt();
-    settings.endGroup();
-    
-    m_enableMetronomeCheckBox->setChecked(enableMetronome);
-    m_metronomeVolumeSlider->setValue(metronomeVolume);
-    m_enableSoundEffectsCheckBox->setChecked(enableSoundEffects);
-    m_soundEffectsVolumeSlider->setValue(soundEffectsVolume);
+    m_enableMetronomeCheckBox->setChecked(settings.getMetronomeEnabled());
+    m_metronomeVolumeSlider->setValue(settings.getMetronomeVolume());
+    m_enableSoundEffectsCheckBox->setChecked(settings.getSoundEffectsEnabled());
+    m_soundEffectsVolumeSlider->setValue(settings.getSoundEffectsVolume());
     
     // UI settings
-    settings.beginGroup("UI");
-    int theme = settings.value("Theme", 0).toInt();
-    bool showMeasureNumbers = settings.value("ShowMeasureNumbers", true).toBool();
-    bool showKeySignature = settings.value("ShowKeySignature", true).toBool();
-    bool showVoiceLabels = settings.value("ShowVoiceLabels", true).toBool();
-    int fontSize = settings.value("FontSize", 12).toInt();
-    settings.endGroup();
+    m_themeComboBox->setCurrentIndex(settings.getTheme());
+    m_showMeasureNumbersCheckBox->setChecked(settings.getShowMeasureNumbers());
+    m_showKeySignatureCheckBox->setChecked(settings.getShowKeySignature());
+    m_showVoiceLabelsCheckBox->setChecked(settings.getShowVoiceLabels());
+    m_fontSizeSpinBox->setValue(settings.getFontSize());
     
-    m_themeComboBox->setCurrentIndex(theme);
-    m_showMeasureNumbersCheckBox->setChecked(showMeasureNumbers);
-    m_showKeySignatureCheckBox->setChecked(showKeySignature);
-    m_showVoiceLabelsCheckBox->setChecked(showVoiceLabels);
-    m_fontSizeSpinBox->setValue(fontSize);
-    
-    // Rule settings
-    settings.beginGroup("Rules");
-    
-    // Apply saved rule states to the current rule set
-    for (int i = 0; i < m_rulesListWidget->count(); ++i) {
-        QListWidgetItem* item = m_rulesListWidget->item(i);
-        if (item) {
-            QString ruleName = item->text();
-            bool enabled = settings.value(ruleName, true).toBool(); // Default to enabled
-            item->setCheckState(enabled ? Qt::Checked : Qt::Unchecked);
-        }
-    }
-    settings.endGroup();
+    // Rules are loaded when rule sets are populated
 }
 
 void SettingsDialog::onSaveClicked()
 {
-    saveSettings();
+    auto& settings = state::SettingsState::instance();
+    
+    // Save all current values
+    settings.setMidiThrough(m_enableMidiThroughCheckBox->isChecked());
+    settings.setMidiLatency(m_midiLatencySpinBox->value());
+    settings.setMetronomeEnabled(m_enableMetronomeCheckBox->isChecked());
+    settings.setMetronomeVolume(m_metronomeVolumeSlider->value());
+    settings.setSoundEffectsEnabled(m_enableSoundEffectsCheckBox->isChecked());
+    settings.setSoundEffectsVolume(m_soundEffectsVolumeSlider->value());
+    settings.setShowMeasureNumbers(m_showMeasureNumbersCheckBox->isChecked());
+    settings.setShowKeySignature(m_showKeySignatureCheckBox->isChecked());
+    settings.setShowVoiceLabels(m_showVoiceLabelsCheckBox->isChecked());
+    settings.setFontSize(m_fontSizeSpinBox->value());
+    
     accept();
 }
 
@@ -643,25 +633,8 @@ void SettingsDialog::onRestoreDefaultsClicked()
         return;
     }
     
-    // Reset MIDI settings
-    m_enableMidiThroughCheckBox->setChecked(false);
-    m_midiLatencySpinBox->setValue(10);
-    
-    // Reset audio settings
-    m_enableMetronomeCheckBox->setChecked(true);
-    m_metronomeVolumeSlider->setValue(80);
-    m_enableSoundEffectsCheckBox->setChecked(true);
-    m_soundEffectsVolumeSlider->setValue(80);
-    
-    // Reset UI settings
-    m_themeComboBox->setCurrentIndex(0);
-    m_showMeasureNumbersCheckBox->setChecked(true);
-    m_showKeySignatureCheckBox->setChecked(true);
-    m_showVoiceLabelsCheckBox->setChecked(true);
-    m_fontSizeSpinBox->setValue(12);
-    
-    // Reset rule settings
-    populateRuleSets();
+    state::SettingsState::instance().restoreDefaults();
+    loadSettings();
 }
 
 } // namespace presentation

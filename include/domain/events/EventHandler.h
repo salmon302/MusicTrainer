@@ -1,17 +1,16 @@
 #pragma once
 
-#include "Event.h"
-#include <string>
+#include "domain/events/Event.h"
+#include <memory>
 
-namespace music::events {
+namespace MusicTrainer::music::events {
 
 class EventHandler {
-
 public:
-	virtual ~EventHandler() = default;
-	virtual void handle(const Event& event) = 0;
-	virtual bool canHandle(const std::string& eventType) const = 0;
-	virtual int getPriority() const { return 0; }  // Default priority
+    virtual ~EventHandler() = default;
+    
+    // Handle an incoming event
+    virtual void handleEvent(const Event& event) = 0;
 };
 
-} // namespace music::events
+} // namespace MusicTrainer::music::events

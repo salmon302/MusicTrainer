@@ -1,1 +1,0 @@
-/usr/bin/c++ -fPIC  -fPIC -pthread -pthread -g -shared -Wl,-soname,libgmock_main.so.1.13.0 -o ../../../lib/libgmock_main.so.1.13.0 CMakeFiles/gmock_main.dir/gmock_main_autogen/mocs_compilation.cpp.o CMakeFiles/gmock_main.dir/src/gmock_main.cc.o  -Wl,-rpath,/home/seth-n/Documents/GitHub/MusicTrainer/lib: ../../../lib/libgmock.so.1.13.0 ../../../lib/libgtest.so.1.13.0 

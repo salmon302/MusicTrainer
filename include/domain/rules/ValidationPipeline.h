@@ -94,6 +94,7 @@ public:
     void addRule(std::unique_ptr<Rule> rule, std::vector<std::string> dependencies = {}, int priority = 0);
     void compileRules();
     void clearRuleCache();
+    void updateRules(); // New method for rule updates
     
     // Validation
     // Lock ordering for validation methods:

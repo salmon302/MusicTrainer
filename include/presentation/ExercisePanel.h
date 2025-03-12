@@ -1,19 +1,14 @@
 #pragma once
 
 #include <QWidget>
+#include "domain/rules/Rule.h"
 #include <QTextEdit>
 #include <QListWidget>
 #include <QProgressBar>
 #include <QPushButton>
 #include <memory>
 
-namespace MusicTrainer {
-
-namespace music::rules {
-class Rule;
-}
-
-namespace presentation {
+namespace MusicTrainer::presentation {
 
 /**
  * @brief Panel for displaying exercise information and validation results
@@ -30,7 +25,7 @@ public:
 
     /**
      * @brief Set the exercise description
-     * @param description Text description of the exercise
+     * @param description HTML formatted text description of the exercise
      */
     void setExerciseDescription(const QString& description);
 
@@ -43,8 +38,8 @@ public:
     /**
      * @brief Add a rule violation to the list
      * @param message Description of the violation
-     * @param rule The rule that was violated
-     * @param severity Severity level (0-2: info, warning, error)
+     * @param rule The rule that was violated (can be null)
+     * @param severity Severity level (0: info, 1: warning, 2: error)
      */
     void addRuleViolation(const QString& message, const music::rules::Rule* rule, int severity);
 
@@ -61,13 +56,13 @@ Q_SIGNALS:
 
     /**
      * @brief Emitted when the user requests a hint
-     * @param level Hint level (0-2: minimal, medium, detailed)
+     * @param level Hint level (0: minimal, 1: medium, 2: detailed)
      */
     void hintRequested(int level);
 
     /**
-     * @brief Emitted when the exercise type changes
-     * @param exerciseType The new exercise type
+     * @brief Emitted when the exercise type or description changes
+     * @param exerciseType The new exercise type/description
      */
     void exerciseChanged(const QString& exerciseType);
 
@@ -96,5 +91,4 @@ private:
     std::vector<RuleViolation> m_violations;
 };
 
-} // namespace presentation
-} // namespace MusicTrainer
+} // namespace MusicTrainer::presentation

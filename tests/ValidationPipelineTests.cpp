@@ -415,3 +415,144 @@ TEST(ValidationPipelineTest, TracksPerformanceMetrics) {
 	EXPECT_TRUE(hasWarning);  // VoiceLeadingRule should generate WARNING
 }
 
+TEST(ValidationPipelineTest, MelodicIntervalRuleTest) {
+    auto pipeline = ValidationPipeline::create();
+    auto score = std::make_unique<Score>();
+    
+    // Add a melodic interval rule
+    auto melodicRule = std::make_unique<MelodicIntervalRule>();
+    pipeline->addRule(std::move(melodicRule));
+    pipeline->compileRules();
+    
+    // Add two voices
+    score->addVoice();
+    auto& voice = score->getVoice(0);
+    
+    // Test valid stepwise motion
+    voice.addNote(60, 1.0); // Middle C
+    voice.addNote(62, 1.0); // D
+    EXPECT_TRUE(pipeline->validate(*score));
+    
+    // Test invalid large leap
+    voice.addNote(76, 1.0); // E5 - octave plus major third
+    EXPECT_FALSE(pipeline->validate(*score));
+    
+    // Test invalid diminished fifth
+    score = std::make_unique<Score>();
+    score->addVoice();
+    auto& voice2 = score->getVoice(0);
+    voice2.addNote(60, 1.0); // C
+    voice2.addNote(66, 1.0); // F#
+    EXPECT_FALSE(pipeline->validate(*score));
+}
+
+TEST(ValidationPipelineTest, DissonancePreparationRuleTest) {
+    auto pipeline = ValidationPipeline::create();
+    auto score = std::make_unique<Score>();
+    
+    // Add the dissonance preparation rule
+    auto dissonanceRule = std::make_unique<DissonancePreparationRule>();
+    pipeline->addRule(std::move(dissonanceRule));
+    pipeline->compileRules();
+    
+    // Add two voices
+    score->addVoice();
+    score->addVoice();
+    auto& voice1 = score->getVoice(0);
+    auto& voice2 = score->getVoice(1);
+    
+    // Test valid preparation of dissonance
+    voice1.addNote(60, 1.0); // C
+    voice1.addNote(62, 1.0); // D
+    voice1.addNote(60, 1.0); // C
+    
+    voice2.addNote(64, 1.0); // E
+    voice2.addNote(65, 1.0); // F
+    voice2.addNote(64, 1.0); // E
+    
+    EXPECT_TRUE(pipeline->validate(*score));
+    
+    // Test invalid unprepared dissonance
+    score = std::make_unique<Score>();
+    score->addVoice();
+    score->addVoice();
+    auto& voice3 = score->getVoice(0);
+    auto& voice4 = score->getVoice(1);
+    
+    voice3.addNote(60, 1.0); // C
+    voice3.addNote(61, 1.0); // C# - forms dissonant interval
+    
+    voice4.addNote(64, 1.0); // E
+    voice4.addNote(64, 1.0); // E
+    
+    EXPECT_FALSE(pipeline->validate(*score));
+}
+
+TEST(RuleSettingsTest, ManagesRuleStates) {
+    auto& settings = RuleSettings::instance();
+    settings.resetToDefaults();
+    
+    // Check default states
+    EXPECT_TRUE(settings.isRuleEnabled("ParallelFifthsRule"));
+    EXPECT_TRUE(settings.isRuleEnabled("MelodicIntervalRule"));
+    EXPECT_TRUE(settings.isRuleEnabled("DissonancePreparationRule"));
+    
+    // Test disabling rules
+    settings.setRuleEnabled("MelodicIntervalRule", false);
+    EXPECT_FALSE(settings.isRuleEnabled("MelodicIntervalRule"));
+    EXPECT_TRUE(settings.isRuleEnabled("ParallelFifthsRule")); // Other rules unaffected
+    
+    // Test re-enabling rules
+    settings.setRuleEnabled("MelodicIntervalRule", true);
+    EXPECT_TRUE(settings.isRuleEnabled("MelodicIntervalRule"));
+    
+    // Test unknown rule (should default to enabled)
+    EXPECT_TRUE(settings.isRuleEnabled("UnknownRule"));
+}
+
+TEST(RuleSettingsTest, IntegratesWithValidationPipeline) {
+    auto pipeline = ValidationPipeline::create();
+    auto score = std::make_unique<Score>();
+    
+    // Add voices for testing
+    score->addVoice();
+    score->addVoice();
+    auto& voice1 = score->getVoice(0);
+    auto& voice2 = score->getVoice(1);
+    
+    // Add notes that create parallel fifths
+    voice1.addNote(60, 1.0); // C4
+    voice1.addNote(62, 1.0); // D4
+    
+    voice2.addNote(53, 1.0); // F3
+    voice2.addNote(55, 1.0); // G3
+    
+    // Add rules
+    auto fifthsRule = std::make_unique<ParallelFifthsRule>();
+    auto melodicRule = std::make_unique<MelodicIntervalRule>();
+    
+    pipeline->addRule(std::move(fifthsRule));
+    pipeline->addRule(std::move(melodicRule));
+    pipeline->compileRules();
+    
+    // Test with all rules enabled
+    RuleSettings::instance().resetToDefaults();
+    bool result = pipeline->validate(*score);
+    EXPECT_FALSE(result); // Should fail due to parallel fifths
+    
+    // Test with parallel fifths rule disabled
+    RuleSettings::instance().setRuleEnabled("ParallelFifthsRule", false);
+    result = pipeline->validate(*score);
+    EXPECT_TRUE(result); // Should pass now
+    
+    // Add invalid melodic interval
+    voice1.addNote(76, 1.0); // E5 - large leap
+    result = pipeline->validate(*score);
+    EXPECT_FALSE(result); // Should fail due to melodic rule
+    
+    // Disable melodic rule too
+    RuleSettings::instance().setRuleEnabled("MelodicIntervalRule", false);
+    result = pipeline->validate(*score);
+    EXPECT_TRUE(result); // Should pass with both rules disabled
+}
+

@@ -44,6 +44,23 @@ public:
     bool operator!=(const Interval& other) const;
     bool operator<(const Interval& other) const;
 
+    // Utility functions for interval validation
+    static bool isDissonant(int semitones);
+    static bool isConsonant(int semitones);
+    static bool isStepwise(int semitones);
+
+    // Helper method to get common interval names
+    static std::string getIntervalName(int semitones);
+    
+    // Get interval between two pitches
+    static int getIntervalInSemitones(const Pitch& p1, const Pitch& p2);
+
+    // Helper method for checking valid melodic intervals
+    static bool isValidMelodicInterval(int semitones);
+    
+    // Check if an interval is diminished
+    static bool isDiminishedInterval(int semitones);
+
 private:
     Interval(Quality quality, Number number, int semitones);
     

@@ -7,7 +7,7 @@
 #include <memory>
 #include <atomic>
 
-namespace music::events {
+namespace MusicTrainer::music::events {
 
 class Event {
 public:
@@ -59,6 +59,6 @@ public:
     std::unique_ptr<Event> clone() const override { return std::make_unique<EmptyEvent>(); }
 };
 
-} // namespace music::events
+} // namespace MusicTrainer::music::events
 
 

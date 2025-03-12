@@ -392,6 +392,26 @@ void ValidationPipeline::clearViolations() {
     metrics.violationsCount = 0;
 }
 
+void ValidationPipeline::updateRules() {
+    // Lock for thread safety while updating rules
+    std::unique_lock<std::shared_mutex> lock(rulesMutex);
+    
+    // Update each rule's enabled state based on settings
+    for (auto& metadata : rules) {
+        if (!metadata.rule) continue;
+        
+        const QString ruleName = QString::fromStdString(metadata.rule->getName());
+        bool enabled = MusicTrainer::state::SettingsState::instance().getRuleEnabled(ruleName);
+        metadata.rule->setEnabled(enabled);
+    }
+    
+    // Clear the cache since rule states have changed
+    clearRuleCache();
+    
+    // Recompile rules to update evaluation order
+    compileRules();
+}
+
 } // namespace rules
 } // namespace music
 } // namespace MusicTrainer

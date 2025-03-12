@@ -12,6 +12,8 @@
 #include "presentation/TransportControls.h"
 #include "presentation/FeedbackArea.h"
 #include "adapters/RtMidiAdapter.h"
+#include "domain/events/EventBus.h"
+#include "domain/events/GuiStateEvent.h"
 
 using namespace MusicTrainer::presentation;
 
@@ -30,8 +32,12 @@ public:
         // Create a shared_ptr that is compatible with MusicTrainer::ports::MidiAdapter interface
         auto midiAdapter = std::shared_ptr<MusicTrainer::ports::MidiAdapter>(rtMidiAdapter.release());
         
-        // Initialize transport controls with the MIDI adapter
-        m_transportControls = new TransportControls(midiAdapter, this);
+        // Create event bus
+        auto eventBus = MusicTrainer::music::events::EventBus::create();
+        eventBus->start();
+        
+        // Initialize transport controls with MIDI adapter and event bus
+        m_transportControls = new TransportControls(midiAdapter, eventBus, this);
         m_layout->addWidget(m_transportControls);
         
         resize(800, 600);

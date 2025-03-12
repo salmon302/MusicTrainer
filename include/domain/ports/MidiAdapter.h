@@ -27,6 +27,17 @@ public:
     // Methods for getting available MIDI devices
     virtual std::vector<std::string> getAvailableInputs() const = 0;
     virtual std::vector<std::string> getAvailableOutputs() const = 0;
+    
+    // New methods for device selection
+    virtual bool setInputDevice(int index) = 0;
+    virtual bool setOutputDevice(int index) = 0;
+    virtual void setMidiThrough(bool enabled) = 0;
+    virtual void setLatency(int latencyMs) = 0;
+    
+    virtual int getCurrentInputDevice() const = 0;
+    virtual int getCurrentOutputDevice() const = 0;
+    virtual bool getMidiThrough() const = 0;
+    virtual int getLatency() const = 0;
 };
 
 }
