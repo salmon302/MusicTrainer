@@ -6,179 +6,167 @@
 ```cpp
 // Core state components
 struct SystemState {
-	// Score state
-	struct ScoreState {
-		std::shared_ptr<const Score> currentScore;
-		std::vector<ScoreEvent> eventHistory;
-		ValidationState validationState;
-	};
-	
-	// Viewport state
-	struct ViewportState {
-		Rectangle visibleArea;
-		float zoomLevel;
-		std::vector<VoiceId> visibleVoices;
-		Position currentPosition;
-		bool isPlaying;
-		float tempo;
-	};
-	
-	// Exercise state
-	struct ExerciseState {
-		ExerciseId currentExercise;
-		std::vector<Solution> attempts;
-		ProgressMetrics progress;
-		ValidationState validation;
-	};
+    // Score state
+    struct ScoreState {
+        std::shared_ptr<const Score> currentScore;
+        std::vector<ScoreEvent> eventHistory;
+        ValidationState validationState;
+    };
+    
+    // Viewport state
+    struct ViewportState {
+        Rectangle visibleArea;
+        float zoomLevel;
+        bool preserveOctaveExpansion;
+        QPointF scrollPosition;
+        int pitchBase;
+    };
+    
+    // Exercise state
+    struct ExerciseState {
+        ExerciseId currentExercise;
+        std::vector<Solution> attempts;
+        ProgressMetrics progress;
+        ValidationState validation;
+    };
 };
 ```
 
-### 1.2 Thread Safety
+### 1.2 GUI State Integration
+
+#### Component States
 ```cpp
-// State guards
-struct StateGuards {
-	std::shared_mutex scoreGuard;     // Read-write lock for score
-	std::shared_mutex ruleSetGuard;   // Read-write lock for ruleset
-	std::mutex listenerGuard;         // Mutex for listener management
+// Display state
+struct ScoreDisplayState {
+    bool showMeasureNumbers;
+    bool showKeySignature;
+    bool showVoiceLabels;
+    int fontSize;
 };
 
-// Concurrent access
-class ConcurrentStateAccess {
-	// Lock-free operations where possible
-	std::atomic<StateVersion> stateVersion;
-	LockFreeQueue<StateEvent> eventQueue;
-	
-	// Reader-writer patterns
-	ReaderWriterLock stateLock;
-	void acquireReadLock();
-	void acquireWriteLock();
+// Selection state
+struct SelectionState {
+    int voiceIndex;
+    int measureIndex;
+    int noteIndex;
+};
+
+// Playback state
+struct PlaybackState {
+    bool isPlaying;
+    bool isRecording;
+    int tempo;
+    bool metronomeEnabled;
+};
+
+// MIDI device state
+struct MidiDeviceState {
+    int inputDeviceIndex;
+    int outputDeviceIndex;
+    bool midiThrough;
+    int latency;
 };
 ```
 
-## 2. State Management Patterns
+### 1.3 State Management Patterns
 
-### 2.1 Command Pattern
+#### Event-Based State Updates
+- State changes are propagated through the GuiStateEvent system
+- Events include source tracking for debugging and validation
+- State transitions are atomic and versioned
+- Update coalescing for performance optimization
+
+#### State Validation and Recovery
 ```cpp
-// Command interface
-class StateCommand {
-	virtual void execute() = 0;
-	virtual void undo() = 0;
-	virtual void redo() = 0;
-	virtual bool isReversible() const = 0;
-};
-
-// State manager
 class StateManager {
-	std::stack<StateCommand*> undoStack;
-	std::stack<StateCommand*> redoStack;
-	
-	void executeCommand(StateCommand* cmd);
-	void undoLastCommand();
-	void redoLastCommand();
+    // Validation
+    bool validateState() const;
+    void enforceStateConstraints();
+    
+    // Recovery
+    void createStateBackup();
+    bool restoreFromBackup();
+    void recoverFromInvalidState();
+    
+    // State persistence
+    void saveState();
+    bool loadState();
+    void emitStateChanges();
 };
 ```
 
-### 2.2 Event Sourcing
-```cpp
-// Event store
-class EventStore {
-	std::vector<StateEvent> events;
-	std::vector<StateSnapshot> snapshots;
-	
-	void appendEvent(const StateEvent& event);
-	void createSnapshot();
-	StateSnapshot reconstructState(size_t version);
-};
+## 2. Integration Architecture
+
+### 2.1 Component Integration
+- GuiStateCoordinator acts as central state manager
+- Components subscribe to relevant state changes
+- State updates are published through EventBus
+- State recovery mechanisms handle invalid states
+
+### 2.2 State Flow Pattern
+```
+[Component] -> GuiStateEvent -> EventBus -> GuiStateHandler
+                                           -> Update State
+                                           -> Notify Subscribers
+                                           -> Persist Changes
 ```
 
-## 3. Critical Operations
+### 2.3 Error Handling
+- State validation before updates
+- Automatic state recovery on validation failure
+- Backup/restore mechanisms for critical state changes
+- Error propagation through event system
 
-### 3.1 Atomic Operations
-```cpp
-// Transaction management
-class StateTransaction {
-	// Atomic operations
-	class AtomicOperation {
-		void begin();
-		void commit();
-		void rollback();
-	};
-	
-	// State validation
-	bool validateTransition(const StateTransition& transition);
-	void ensureConsistency();
-};
-```
+## 3. Implementation Guidelines
 
-### 3.2 Error Recovery
-```cpp
-// Error handling
-class StateRecovery {
-	// Recovery strategies
-	void handleStateError(const StateError& error);
-	void restoreFromSnapshot(const StateSnapshot& snapshot);
-	void replayEvents(const EventRange& range);
-	
-	// Resource cleanup
-	void cleanupResources();
-	void releaseStaleHandles();
-};
-```
+### 3.1 Adding New State Types
+1. Define state structure in GuiStateEvent
+2. Add state type to StateType enum
+3. Update StateVariant with new type
+4. Implement validation in StateManager
+5. Add persistence methods
+6. Update documentation
 
-## 4. Testing Strategy
+### 3.2 State Update Best Practices
+1. Use GuiStateCoordinator for all state changes
+2. Implement proper validation
+3. Include source identification
+4. Handle recovery scenarios
+5. Update through event system
+6. Coalesce rapid updates
 
-### 4.1 Unit Tests
-```cpp
-// Thread safety tests
-class ThreadSafetyTests {
-	void testConcurrentAccess();
-	void testStateTransitions();
-	void testLockContention();
-};
+### 3.3 Error Recovery Process
+1. State validation failure detected
+2. Attempt automatic recovery
+3. Restore from backup if needed
+4. Notify components of state change
+5. Log recovery details
+6. Update UI accordingly
 
-// State consistency tests
-class ConsistencyTests {
-	void testAtomicOperations();
-	void testEventOrdering();
-	void testStateRecovery();
-};
-```
+## 4. Performance Considerations
 
-### 4.2 Performance Tests
-```cpp
-// Performance benchmarks
-class PerformanceTests {
-	void measureStateOperations();
-	void testScalability();
-	void analyzeMemoryUsage();
-	void validateConcurrency();
-};
-```
+### 4.1 Update Coalescing
+- Batch rapid state changes
+- Debounce viewport updates
+- Optimize event processing
+- Cache frequently accessed states
 
-## 5. Integration Points
+### 4.2 Memory Management
+- Use shared pointers for large states
+- Clear old state history
+- Implement state compression
+- Manage backup cleanup
 
-### 5.1 Plugin Integration
-- Plugin state isolation
-- State sharing mechanisms
-- Version compatibility
-- State migration
+## 5. Testing and Validation
 
-### 5.2 UI Integration
-- View model synchronization
-- Real-time updates
-- State change notifications
-- Error handling
+### 5.1 State Tests
+- Validate state transitions
+- Test recovery mechanisms
+- Verify persistence
+- Check concurrency handling
 
-## 6. Implementation Priorities
-
-### 6.1 High Priority
-1. Thread safety improvements
-2. Command pattern implementation
-3. Event sourcing foundation
-4. State consistency guarantees
-
-### 6.2 Medium Priority
-1. Performance optimizations
-2. Plugin state isolation
-3. Advanced recovery mechanisms
-4. Comprehensive testing suite
+### 5.2 Integration Tests
+- Component interaction validation
+- Event propagation verification
+- Error handling scenarios
+- Performance benchmarks

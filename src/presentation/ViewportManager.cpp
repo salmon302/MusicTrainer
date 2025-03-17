@@ -2,6 +2,7 @@
 #include "presentation/NoteGrid.h"
 #include "presentation/ScoreView.h"
 #include "presentation/GridConstants.h"
+#include "domain/state/SettingsState.h"
 #include <QtWidgets/QGraphicsView>
 #include <QtMath>
 #include <optional>
@@ -13,11 +14,25 @@ using namespace GridConstants;
 
 ViewportManager::ViewportManager(NoteGrid* grid)
     : m_grid(grid)
-    , m_currentState{QRectF(0, 60, 48, 12), 1.0f, QPointF()}  // Initialize with C4-C5 range
     , m_viewSize(0, 0)
     , m_verticalTriggerRatio(0.1f)
     , m_horizontalTriggerRatio(0.2f)
 {
+    loadDefaultState();
+    loadPersistedState();
+}
+
+ViewportManager::~ViewportManager() = default;
+
+void ViewportManager::loadDefaultState() {
+    // Initialize with C4-C5 range
+    m_currentState = ViewportState{
+        QRectF(0, 60, 48, 12),  // visibleArea
+        1.0f,                    // zoomLevel
+        QPointF(),              // scrollPosition
+        false                   // preserveOctaveExpansion
+    };
+    
     // Set initial dimensions to lock C4-C5 octave
     if (m_grid) {
         auto dimensions = m_grid->getDimensions();
@@ -27,7 +42,34 @@ ViewportManager::ViewportManager(NoteGrid* grid)
     }
 }
 
-ViewportManager::~ViewportManager() = default;
+void ViewportManager::loadPersistedState() {
+    const auto& settings = state::SettingsState::instance();
+    
+    ViewportState newState = m_currentState;
+    newState.zoomLevel = settings.getViewportZoom();
+    newState.preserveOctaveExpansion = settings.getViewportPreserveOctaveExpansion();
+    newState.scrollPosition = settings.getViewportScrollPosition();
+    
+    // Only update if grid exists
+    if (m_grid) {
+        // Validate and apply the state
+        newState = validateState(newState);
+        updateViewportState(newState);
+        
+        // Update viewport visually if scene exists
+        if (auto scene = m_grid->getScene()) {
+            scene->update();
+        }
+    }
+}
+
+void ViewportManager::savePersistedState() {
+    auto& settings = state::SettingsState::instance();
+    
+    settings.setViewportZoom(m_currentState.zoomLevel);
+    settings.setViewportPreserveOctaveExpansion(m_currentState.preserveOctaveExpansion);
+    settings.setViewportScrollPosition(m_currentState.scrollPosition);
+}
 
 ViewportManager::ViewportState ViewportManager::validateState(const ViewportState& state) const
 {
@@ -39,13 +81,13 @@ ViewportManager::ViewportState ViewportManager::validateState(const ViewportStat
     // Handle height based on multi-octave mode
     if (!validated.preserveOctaveExpansion) {
         // In single-octave mode, enforce exactly one octave height
-        validated.visibleArea.setHeight(getOctaveRange());
+        validated.visibleArea.setHeight(12); // One octave
     } else {
         // In multi-octave mode, preserve the expanded height but ensure it's a multiple of octaves
         int currentHeight = qRound(validated.visibleArea.height());
-        if (currentHeight % getOctaveRange() != 0) {
-            int octaves = (currentHeight / getOctaveRange()) + 1;
-            validated.visibleArea.setHeight(octaves * getOctaveRange());
+        if (currentHeight % 12 != 0) {
+            int octaves = (currentHeight / 12) + 1;
+            validated.visibleArea.setHeight(octaves * 12);
         }
     }
     
@@ -55,21 +97,62 @@ ViewportManager::ViewportState ViewportManager::validateState(const ViewportStat
     } else if (validated.visibleArea.bottom() > 127) {
         validated.visibleArea.moveBottom(127);
     }
-    
-    // Ensure scroll position matches validated bounds
+
+    // Clamp scroll position to valid range
     validated.scrollPosition = QPointF(
-        validated.visibleArea.x() * GridConstants::GRID_UNIT,
-        qBound(0.0, validated.visibleArea.y(), 115.0) * GridConstants::NOTE_HEIGHT
+        qBound(0.0, validated.scrollPosition.x(), 
+            (dimensions.endPosition - validated.visibleArea.width()) * GridConstants::GRID_UNIT),
+        qBound(0.0, validated.scrollPosition.y(), 
+            (dimensions.maxPitch - validated.visibleArea.height()) * GridConstants::NOTE_HEIGHT)
     );
 
     // Ensure zoom level is reasonable
     validated.zoomLevel = qBound(0.1f, validated.zoomLevel, 10.0f);
+
+    // If state was invalid, save the corrected state
+    if (validated != state) {
+        qDebug() << "Viewport state was invalid, corrected:" 
+                 << "zoom:" << validated.zoomLevel
+                 << "scroll:" << validated.scrollPosition
+                 << "area:" << validated.visibleArea;
+        const_cast<ViewportManager*>(this)->savePersistedState();
+    }
     
     return validated;
 }
 
+void ViewportManager::recoverFromInvalidState()
+{
+    // Load defaults first
+    loadDefaultState();
+    
+    // Try to load persisted state
+    const auto& settings = state::SettingsState::instance();
+    ViewportState recoveredState = m_currentState;
+    
+    try {
+        recoveredState.zoomLevel = settings.getViewportZoom();
+        recoveredState.preserveOctaveExpansion = settings.getViewportPreserveOctaveExpansion();
+        recoveredState.scrollPosition = settings.getViewportScrollPosition();
+        
+        // Validate and apply the recovered state
+        recoveredState = validateState(recoveredState);
+        updateViewportState(recoveredState);
+        
+    } catch (const std::exception& e) {
+        qWarning() << "Failed to recover viewport state:" << e.what();
+        // Keep default state if recovery fails
+    }
+    
+    // Update viewport visually
+    if (m_grid && m_grid->getScene()) {
+        m_grid->getScene()->update();
+    }
+}
+
 bool ViewportManager::updateViewportState(const ViewportState& newState)
 {
+    bool changed = false;
     // Only update if there's a meaningful change
     if (qFuzzyCompare(newState.scrollPosition.x(), m_currentState.scrollPosition.x()) &&
         qFuzzyCompare(newState.scrollPosition.y(), m_currentState.scrollPosition.y()) &&
@@ -96,6 +179,9 @@ bool ViewportManager::updateViewportState(const ViewportState& newState)
     
     // Only update grid dimensions if explicitly requested via setViewportBounds
     // This prevents note placement from affecting the viewport
+    if (changed) {
+        savePersistedState();
+    }
     return false;  // Don't trigger expansion during state updates
 }
 
@@ -403,6 +489,7 @@ void ViewportManager::collapseGrid(GridDirection direction)
             newDimensions.minPitch * GridConstants::NOTE_HEIGHT
         );
     }
+    updateViewportState(m_currentState);
 }
 
 bool ViewportManager::canCollapse(GridDirection direction) const

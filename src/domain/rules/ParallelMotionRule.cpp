@@ -19,16 +19,16 @@ bool ParallelMotionRule::evaluate(const Score& score) {
     if (score.getVoiceCount() < 2) return true;
     
     // Compare each pair of voices
-    for (size_t i = 0; i < score.getVoiceCount() - 1; ++i) {
-        for (size_t j = i + 1; j < score.getVoiceCount(); ++j) {
-            const Voice& voice1 = score.getVoice(i);
-            const Voice& voice2 = score.getVoice(j);
+    for (::std::size_t i = 0; i < score.getVoiceCount() - 1; ++i) {
+        for (::std::size_t j = i + 1; j < score.getVoiceCount(); ++j) {
+            const Voice& voice1 = *score.getVoice(i);
+            const Voice& voice2 = *score.getVoice(j);
             
             // Need at least 2 notes to check for parallel motion
             if (voice1.getNoteCount() < 2 || voice2.getNoteCount() < 2) continue;
             
             // Check consecutive notes
-            for (size_t pos = 0; pos < voice1.getNoteCount() - 1; ++pos) {
+            for (::std::size_t pos = 0; pos < voice1.getNoteCount() - 1; ++pos) {
                 if (pos + 1 >= voice2.getNoteCount()) break;
                 
                 const Note& note1First = voice1.getNote(pos);
@@ -40,8 +40,8 @@ bool ParallelMotionRule::evaluate(const Score& score) {
                 if (note1First.isRest() || note1Second.isRest() || 
                     note2First.isRest() || note2Second.isRest()) continue;
                 
-                int interval1 = std::abs(note2First.getMidiPitch() - note1First.getMidiPitch()) % 12;
-                int interval2 = std::abs(note2Second.getMidiPitch() - note1Second.getMidiPitch()) % 12;
+                int interval1 = ::std::abs(note2First.getMidiPitch() - note1First.getMidiPitch()) % 12;
+                int interval2 = ::std::abs(note2Second.getMidiPitch() - note1Second.getMidiPitch()) % 12;
                 
                 // Check for parallel fifths or octaves
                 if ((interval1 == 7 && interval2 == 7) || // Perfect fifths
@@ -53,7 +53,7 @@ bool ParallelMotionRule::evaluate(const Score& score) {
                     
                     if ((voice1Motion > 0 && voice2Motion > 0) || 
                         (voice1Motion < 0 && voice2Motion < 0)) {
-                        std::stringstream ss;
+                        ::std::stringstream ss;
                         ss << "Parallel " << (interval1 == 7 ? "fifths" : "octaves")
                            << " between voice " << i + 1 << " and voice " << j + 1
                            << " at position " << pos + 1;
@@ -68,10 +68,12 @@ bool ParallelMotionRule::evaluate(const Score& score) {
     return true;
 }
 
-std::string ParallelMotionRule::getViolationDescription() const {
+::std::string ParallelMotionRule::getViolationDescription() const {
     return m_violationDescription;
 }
 
-std::string ParallelMotionRule::getName() const {
+::std::string ParallelMotionRule::getName() const {
     return "ParallelMotionRule";
 }
+
+} // namespace MusicTrainer::music::rules

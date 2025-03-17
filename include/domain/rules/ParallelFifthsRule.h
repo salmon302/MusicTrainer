@@ -1,44 +1,44 @@
-#ifndef MUSICTRAINERV3_PARALLELFIFTHSRULE_H
-#define MUSICTRAINERV3_PARALLELFIFTHSRULE_H
+#ifndef MUSICTRAINER_PARALLELFIFTHSRULE_H
+#define MUSICTRAINER_PARALLELFIFTHSRULE_H
 
-#include "IncrementalRule.h"
+#include "domain/rules/Rule.h"
+#include "domain/rules/IncrementalRule.h"
+#include "domain/music/Score.h"
 #include <string>
 #include <memory>
 
-namespace MusicTrainer {
-namespace music {
-class Score;
+using Score = MusicTrainer::music::Score;
 
-namespace rules {
+namespace MusicTrainer::music::rules {
 
-class ParallelFifthsRule : public IncrementalRule {
+/**
+ * @brief Rule that checks for parallel fifths between voices
+ */
+class ParallelFifthsRule final : public IncrementalRule {
 public:
-    static std::unique_ptr<ParallelFifthsRule> create();
+    static ::std::unique_ptr<ParallelFifthsRule> create();
     
+    ~ParallelFifthsRule() override;
+
+    ::std::unique_ptr<Rule> clone() const override;
     bool evaluate(const Score& score) override;
-    bool evaluateIncremental(const Score& score, size_t startMeasure, size_t endMeasure) const override;
-    std::string getViolationDescription() const override;
-    std::string getName() const override;
-    std::unique_ptr<Rule> clone() const override;
+    ::std::string getViolationDescription() const override;
+    ::std::string getName() const override;
+    bool evaluateIncremental(const Score& score, ::std::size_t startMeasure, ::std::size_t endMeasure) const override;
+
+protected:
+    ParallelFifthsRule();
+    explicit ParallelFifthsRule(const ::std::string& initialViolation);
+    
+    void clearViolationDescription() const { m_violationDescription.clear(); }
+    void setViolationDescription(const ::std::string& desc) const { m_violationDescription = desc; }
 
 private:
-    ParallelFifthsRule() = default;
-    
-    void setViolationDescription(const std::string& desc) const {
-        violationDescription = desc;
-    }
-    
-    void clearViolationDescription() const {
-        violationDescription.clear();
-    }
-    
-    mutable std::string violationDescription;
+    mutable ::std::string m_violationDescription;
 };
 
-} // namespace rules
-} // namespace music
-} // namespace MusicTrainer
+} // namespace MusicTrainer::music::rules
 
-#endif // MUSICTRAINERV3_PARALLELFIFTHSRULE_H
+#endif // MUSICTRAINER_PARALLELFIFTHSRULE_H
 
 

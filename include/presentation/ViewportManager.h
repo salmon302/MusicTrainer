@@ -54,6 +54,10 @@ public:
     void setLoadingBoundaries(const LoadingBoundaries& boundaries);
     void compactUnusedRegions();
 
+    // State persistence
+    void loadPersistedState();
+    void savePersistedState();
+
     // Coordinate transformation
     QPointF mapToMusicalSpace(const QPointF& screenPoint, const QGraphicsView* view) const;
     QPointF mapFromMusicalSpace(const QPointF& musicalPoint, const QGraphicsView* view) const;
@@ -71,6 +75,8 @@ private:
     LoadingBoundaries m_loadingBoundaries;
     float m_verticalTriggerRatio;
     float m_horizontalTriggerRatio;
+
+    void loadDefaultState();
 };
 
 } // namespace MusicTrainer::presentation

@@ -265,4 +265,80 @@ TEST_F(SystemIntegrationTest, ComprehensivePerformanceValidation) {
     EXPECT_GT(successRate, 0.9);  // Expect at least 90% success rate
 }
 
+TEST_F(SystemIntegrationTest, ComprehensiveCrossDomainValidation) {
+    // Create test score with specific constraints
+    auto timeSignature = Voice::TimeSignature(4, Duration::createQuarter());
+    auto score = Score::create(timeSignature);
+    auto voice1 = Voice::create(timeSignature);
+    auto voice2 = Voice::create(timeSignature);
+
+    // Add notes that will test multiple validation domains
+    voice1->addNote(60, 1.0); // Middle C
+    voice1->addNote(64, 1.0); // E
+    voice1->addNote(67, 1.0); // G
+
+    voice2->addNote(55, 1.0); // G below middle C
+    voice2->addNote(59, 1.0); // B
+    voice2->addNote(62, 1.0); // D
+
+    score->addVoice(std::move(voice1));
+    score->addVoice(std::move(voice2));
+
+    // Test 1: Validate initial state
+    bool isValid = validationPipeline->validate(*score);
+    EXPECT_TRUE(isValid);
+
+    // Test 2: Save and validate persistence
+    repository->save("cross_domain_test", *score);
+    auto loadedScore = repository->load("cross_domain_test");
+    ASSERT_TRUE(loadedScore != nullptr);
+    EXPECT_TRUE(validationPipeline->validate(*loadedScore));
+
+    // Test 3: Concurrent validation and state management
+    std::vector<std::thread> threads;
+    std::atomic<int> validationCount{0};
+    
+    for (int i = 0; i < 4; i++) {
+        threads.emplace_back([this, &score, &validationCount]() {
+            try {
+                if (validationPipeline->validate(*score)) {
+                    validationCount.fetch_add(1, std::memory_order_relaxed);
+                }
+            } catch (const std::exception& e) {
+                std::cerr << "Validation error: " << e.what() << std::endl;
+            }
+        });
+    }
+
+    for (auto& thread : threads) {
+        if (thread.joinable()) {
+            thread.join();
+        }
+    }
+
+    EXPECT_EQ(validationCount.load(std::memory_order_acquire), 4);
+
+    // Test 4: Cross-domain rule interactions
+    auto voice3 = Voice::create(timeSignature);
+    voice3->addNote(72, 1.0); // High C
+    voice3->addNote(76, 1.0); // High E
+    voice3->addNote(79, 1.0); // High G
+    score->addVoice(std::move(voice3));
+
+    // This should trigger validation across multiple domains
+    isValid = validationPipeline->validate(*score);
+    auto violations = validationPipeline->getViolations();
+    
+    // Log violations for debugging
+    for (const auto& violation : violations) {
+        std::cout << "Violation: " << violation << std::endl;
+    }
+
+    // Get performance metrics
+    const auto& metrics = validationPipeline->getMetrics();
+    EXPECT_GT(metrics.totalExecutionTime, 0);
+    EXPECT_GT(metrics.cacheMisses, 0);
+    EXPECT_GE(metrics.cacheHitRate, 0.0);
+}
+
 } // namespace

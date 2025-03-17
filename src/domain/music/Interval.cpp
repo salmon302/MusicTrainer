@@ -239,7 +239,7 @@ std::string Interval::getIntervalName(int semitones) {
 }
 
 int Interval::getIntervalInSemitones(const Pitch& p1, const Pitch& p2) {
-    return p2.getMidiPitch() - p1.getMidiPitch();
+    return p2.getMidiNote() - p1.getMidiNote();
 }
 
 bool Interval::isValidMelodicInterval(int semitones) {

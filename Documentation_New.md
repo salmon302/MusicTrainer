@@ -16,28 +16,29 @@
 ## 3. Core Systems
 - [MIDI System](MIDISystem.md)
 - [State Management](StateManagement.md)
+- [State Management Implementation](StateManagementImplementation.md)
+- [Error Handling Guide](ErrorHandlingGuide.md)
+- [Error Handling Implementation](ErrorHandlingImplementationGuide.md)
+- [Domain Integration Guide](DomainIntegrationGuide.md)
 - [Performance Analysis](PerformanceAnalysis.md)
 - [Testing Strategy](TestingStrategy.md)
 
 ## 4. Domain-Specific Analysis
-### 4.1 Music Theory
 - [Music Theory Integration](MusicTheoryIntegrationAnalysis.md)
-- [Species Counterpoint](Species%20counterpoint.md)
-- [Rule Plugin System](RulePluginAnalysis.md)
-
-### 4.2 Exercise System
-- [Exercise Progression](ExerciseProgressionAnalysis.md)
+- [Exercise Generation](ExerciseProgressionAnalysis.md)
+- [Rule System](RulePluginAnalysis.md)
 - [Solution Engine](SolutionEngineAnalysis.md)
 - [Cross-Domain Validation](CrossDomainValidationAnalysis.md)
 
 ## 5. User Interface
-- [Viewport Summary](ViewportSummary.md)
-- [Viewport Score Interface](ViewportScoreInterface.md)
-- [Viewport MIDI Integration](ViewportMIDISpec.md)
+- [GUI Development Plan](GUIDevelopmentPlan.md)
+- [Viewport Integration](ViewportScoreInterface.md)
+- [GUI Integration Patterns](GuiIntegrationPatterns.md)
 
 ## 6. Build & Configuration
 - [Build Configuration](BuildConfiguration.md)
-- [Task Tracking](TaskTracking.md)
+- [Plugin System](PluginSystemAnalysis.md)
+- [Profiling Infrastructure](ProfilingInfrastructureAnalysis.md)
 
 ## Document Organization
 
@@ -51,10 +52,12 @@ The documentation is organized into logical sections:
 
 3. Core Systems
    - Consolidated documentation for key system components:
-	 - MIDI processing and integration
-	 - State management and persistence
-	 - Performance optimization
-	 - Testing strategy and infrastructure
+     * MIDI processing and integration
+     * State management implementation
+     * Error handling and recovery
+     * Component integration patterns
+     * Performance optimization
+     * Testing strategy and infrastructure
 
 4. Domain-Specific Analysis
    - Detailed analysis of music theory and exercise systems
@@ -68,7 +71,7 @@ The documentation is organized into logical sections:
 
 6. Build & Configuration
    - Build system setup
-   - Project management
-   - Task tracking
+   - Plugin architecture
+   - Performance profiling
 
-Each document focuses on its specific concern while maintaining cross-references to related documents. The new organization reduces redundancy and provides clearer separation of concerns.
+Each document focuses on its specific concern while maintaining cross-references to related documents. The organization reduces redundancy and provides clearer separation of concerns.

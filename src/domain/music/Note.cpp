@@ -9,10 +9,11 @@ public:
     Pitch pitch;
     double duration;
     int position;
+    bool rest;
 
-    NoteImpl() : duration(0), position(0) {}
+    NoteImpl() : duration(0), position(0), rest(false) {}
     NoteImpl(const Pitch& p, double d, int pos) 
-        : pitch(p), duration(d), position(pos) {}
+        : pitch(p), duration(d), position(pos), rest(false) {}
 };
 
 Note::Note() : m_impl(std::make_unique<NoteImpl>()) {}
@@ -50,6 +51,10 @@ int Note::getPosition() const {
 
 void Note::setPosition(int pos) {
     m_impl->position = pos;
+}
+
+bool Note::isRest() const {
+    return m_impl->rest;
 }
 
 } // namespace music

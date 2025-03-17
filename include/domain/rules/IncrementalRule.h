@@ -2,22 +2,17 @@
 #define MUSICTRAINERV3_INCREMENTALRULE_H
 
 #include "Rule.h"
+#include <cstddef>
 
-namespace MusicTrainer {
-namespace music {
-class Score;
-
-namespace rules {
+namespace MusicTrainer::music::rules {
 
 class IncrementalRule : public Rule {
 public:
-    virtual ~IncrementalRule() = default;
+    ~IncrementalRule() override = default;
     // Evaluate rule for a specific measure range
-    virtual bool evaluateIncremental(const Score& score, size_t startMeasure, size_t endMeasure) const = 0;
+    virtual bool evaluateIncremental(const MusicTrainer::music::Score& score, ::std::size_t startMeasure, ::std::size_t endMeasure) const = 0;
 };
 
-} // namespace rules
-} // namespace music
-} // namespace MusicTrainer
+} // namespace MusicTrainer::music::rules
 
 #endif // MUSICTRAINERV3_INCREMENTALRULE_H

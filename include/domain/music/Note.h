@@ -21,6 +21,7 @@ public:
     double getDuration() const;
     int getPosition() const;
     void setPosition(int pos);
+    bool isRest() const;
 
 private:
     class NoteImpl;

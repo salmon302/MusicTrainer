@@ -62,6 +62,11 @@ public:
     NoteGrid* getNoteGrid() const { return m_noteGrid.get(); }
     ViewportManager* getViewportManager() const { return m_viewportManager.get(); }
 
+    // Viewport methods
+    void setViewportPosition(float x, float y);
+    void setZoomLevel(float zoom);
+    void setFontSize(int size);
+
 Q_SIGNALS:
     void noteSelected(int position, int voiceIndex);
     void viewportExpanded(const QRectF& newBounds);
@@ -94,17 +99,32 @@ private:
     void initializeViewport();
     void updateGridVisuals();
     void publishViewportState();
+    void publishDisplayState();
+    void recoverDisplayState();
     
+    // Update optimization
+    void scheduleUpdate();
+    void processScheduledUpdate();
+    void cancelScheduledUpdate();
+    bool isUpdateNeeded() const;
+    
+    // Implementation
     class ScoreViewImpl;
     std::unique_ptr<ScoreViewImpl> m_impl;
     
+    // Components
     std::unique_ptr<NoteGrid> m_noteGrid;
     std::unique_ptr<ViewportManager> m_viewportManager;
     std::shared_ptr<MusicTrainer::music::Score> m_score;
     std::shared_ptr<music::events::EventBus> m_eventBus;
+    std::shared_ptr<GuiStateCoordinator> m_stateCoordinator;
     
-    // New adapter for the grid architecture
-    std::unique_ptr<grid::ScoreViewAdapter> m_gridAdapter;
+    // Update coalescing
+    QTimer* m_updateTimer{nullptr};
+    bool m_updateScheduled{false};
+    bool m_updatePending{false};
+    QElapsedTimer m_lastUpdateTime;
+    static constexpr int UPDATE_INTERVAL_MS = 16;  // ~60 FPS max
     
     bool m_isSelecting = false;
     QPoint m_lastMousePos;
@@ -140,6 +160,7 @@ private:
     bool m_showMeasureNumbers{true};
     bool m_showKeySignature{true};
     bool m_showVoiceLabels{true};
+    int m_fontSize{12};
 };
 
 } // namespace MusicTrainer::presentation

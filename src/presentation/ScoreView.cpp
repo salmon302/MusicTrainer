@@ -72,9 +72,21 @@ ScoreView::ScoreView(std::shared_ptr<music::events::EventBus> eventBus, QWidget 
         m_gridAdapter = std::make_unique<grid::ScoreViewAdapter>(this);
         m_gridAdapter->initialize();
     });
+
+    // Initialize update timer
+    m_updateTimer = new QTimer(this);
+    m_updateTimer->setSingleShot(true);
+    connect(m_updateTimer, &QTimer::timeout, this, &ScoreView::processScheduledUpdate);
+    m_lastUpdateTime.start();
 }
 
-ScoreView::~ScoreView() = default;
+ScoreView::~ScoreView()
+{
+    // Save viewport state before destruction
+    if (m_viewportManager) {
+        m_viewportManager->savePersistedState();
+    }
+}
 
 void ScoreView::setScore(std::shared_ptr<MusicTrainer::music::Score> score)
 {
@@ -164,10 +176,8 @@ void ScoreView::scrollContentsBy(int dx, int dy)
     QPointF scrollPos = QPointF(horizontalScrollBar()->value(), verticalScrollBar()->value());
     m_viewportManager->updateScrollPosition(scrollPos);
     
-    // Publish new viewport state
-    publishViewportState();
-    
-    updateGridVisuals();
+    // Schedule coalesced update instead of immediate update
+    scheduleUpdate();
 }
 
 void ScoreView::mousePressEvent(QMouseEvent *event)
@@ -270,6 +280,10 @@ void ScoreView::mouseMoveEvent(QMouseEvent *event)
     else if (m_isSelecting) {
         // Show preview at quantized position with current duration
         m_noteGrid->showNotePreview(position, pitch, m_currentNoteDuration);
+    }
+
+    if (m_isDragging || m_isSelecting) {
+        scheduleUpdate();  // Schedule update for preview changes
     }
     
     m_lastMousePos = event->pos();
@@ -387,6 +401,8 @@ void ScoreView::wheelEvent(QWheelEvent *event)
     } else {
         QGraphicsView::wheelEvent(event);
     }
+
+    scheduleUpdate();  // Schedule update instead of immediate
 }
 
 void ScoreView::onScoreChanged()
@@ -676,49 +692,14 @@ void ScoreView::checkViewportExpansion()
 
 void ScoreView::initializeViewport()
 {
-    // Set fixed dimensions for one octave starting at middle C
-    int minPitch = 60;    // C4 (middle C)
-    int pitchRange = 12;  // Force exactly one octave
+    if (!m_grid || !m_viewportManager) {
+        return;
+    }
+
+    // Calculate initial viewport bounds
+    QRectF initialBounds = calculateInitialViewportBounds();
     
-    int startPosition = 0;
-    int endPosition = 48; // 12 measures in 4/4 time
-    
-    // Add small margin for octave labels (C4, etc.)
-    float labelMargin = 25.0f;
-    
-    // Set initial grid dimensions
-    NoteGrid::GridDimensions dimensions{
-        minPitch,              // C4
-        minPitch + pitchRange, // C5
-        startPosition,         // Start at beginning
-        endPosition           // 12 measures
-    };
-    m_noteGrid->setDimensions(dimensions);
-    
-    // Calculate available viewport height (accounting for duration toolbar)
-    QRect viewportRect = viewport()->rect();
-    int availableHeight = viewportRect.height();
-    
-    // Calculate scene rect to exactly match the current octave plus margins
-    // Include additional space for expansion buttons and labels
-    float topMargin = 30.0f;     // Space for measure numbers and top expansion button
-    float bottomMargin = 15.0f;  // Space for bottom expansion button
-    
-    scene()->setSceneRect(
-        -labelMargin,  // Space for labels
-        dimensions.minPitch * NOTE_HEIGHT - topMargin,  // Space above for labels and buttons
-        endPosition * GRID_UNIT + 2 * labelMargin,  // Grid width plus margins
-        (pitchRange + 1) * NOTE_HEIGHT + topMargin + bottomMargin  // One octave plus space for buttons and labels
-    );
-    
-    // Set initial viewport bounds in musical space
-    QRectF initialBounds(
-        startPosition,
-        dimensions.minPitch,
-        endPosition - startPosition,
-        pitchRange  // Force one octave height
-    );
-    
+    // Update viewport manager with initial bounds
     m_viewportManager->setViewportBounds(initialBounds);
     m_viewportManager->updateViewSize(size());
     
@@ -741,13 +722,8 @@ void ScoreView::initializeViewport()
     // Apply scale
     scale(scaleFactor, scaleFactor);
     
-    // Center on the grid, accounting for the top margin
-    centerOn(QPointF(endPosition * GRID_UNIT / 2.0,
-                    (dimensions.minPitch + pitchRange / 2.0) * NOTE_HEIGHT));
-    
-    // Update viewport manager
-    m_viewportManager->updateZoomLevel(scaleFactor);
-    updateGridVisuals();
+    // Load any persisted state
+    m_viewportManager->loadPersistedState();
 }
 
 void ScoreView::updateGridVisuals()
@@ -784,101 +760,74 @@ void ScoreView::updateGridVisuals()
         );
     }
     
-    // Update viewport manager with visible area but don't reset dimensions
-    // Pass false for resetDimensions to maintain the expanded state
+    // Update viewport manager with visible area
     m_viewportManager->setViewportBounds(musicalBounds);
     
     // Only update the grid for the visible area plus a small buffer
     QRectF updateRect = viewportSceneRect.adjusted(-GRID_UNIT, -NOTE_HEIGHT, GRID_UNIT, NOTE_HEIGHT);
     m_noteGrid->updateGrid(updateRect);
-    
+
+    // Clear existing visual elements
+    QList<QGraphicsItem*> items = scene()->items();
+    for (auto* item : items) {
+        QString itemType = item->data(0).toString();
+        if (itemType == "measure_number" || 
+            itemType == "key_signature" || 
+            itemType == "voice_label") {
+            scene()->removeItem(item);
+            delete item;
+        }
+    }
+
     // Add measure numbers if enabled
     if (m_showMeasureNumbers) {
-        // Clear any existing measure numbers
-        QList<QGraphicsItem*> items = scene()->items();
-        for (auto* item : items) {
-            if (item->data(0).toString() == "measure_number") {
-                scene()->removeItem(item);
-                delete item;
-            }
-        }
-        
-        // Calculate visible measure range
-        int startMeasure = static_cast<int>(musicalBounds.left()) / 4; // Assuming 4/4 time signature
+        int startMeasure = static_cast<int>(musicalBounds.left()) / 4;
         int endMeasure = static_cast<int>(musicalBounds.right()) / 4 + 1;
         
-        // Add measure numbers
         for (int measure = startMeasure; measure <= endMeasure; ++measure) {
             if (measure < 0) continue;
             
-            // Calculate position for measure number (start of measure)
-            qreal xPos = measure * 4 * GRID_UNIT; // 4 beats per measure in 4/4
-            qreal yPos = viewportSceneRect.top() - 20; // Above the staff
+            qreal xPos = measure * 4 * GRID_UNIT;
+            qreal yPos = viewportSceneRect.top() - 20;
             
-            // Create text item for measure number
-            auto* textItem = new QGraphicsTextItem(QString::number(measure + 1)); // 1-based measure numbers
+            auto* textItem = new QGraphicsTextItem(QString::number(measure + 1));
+            textItem->setFont(QFont("Arial", m_fontSize));
+            textItem->setDefaultTextColor(Qt::black);
             textItem->setPos(xPos, yPos);
-            textItem->setData(0, "measure_number"); // Tag for later identification
+            textItem->setData(0, "measure_number");
             scene()->addItem(textItem);
         }
     }
     
     // Add key signature if enabled
     if (m_showKeySignature && m_score) {
-        // Clear any existing key signature
-        QList<QGraphicsItem*> items = scene()->items();
-        for (auto* item : items) {
-            if (item->data(0).toString() == "key_signature") {
-                scene()->removeItem(item);
-                delete item;
-            }
-        }
-        
-        // Add key signature at the left side of the viewport
         qreal xPos = viewportSceneRect.left() + 10;
         qreal yPos = viewportSceneRect.top() + 10;
         
-        // For now, just show a placeholder text
-        // In a complete implementation, we would render actual key signature symbols
-        auto* textItem = new QGraphicsTextItem("C Major"); // Placeholder
+        auto* textItem = new QGraphicsTextItem(tr("C Major")); // Placeholder
+        textItem->setFont(QFont("Arial", m_fontSize));
+        textItem->setDefaultTextColor(Qt::black);
         textItem->setPos(xPos, yPos);
-        textItem->setData(0, "key_signature"); // Tag for later identification
+        textItem->setData(0, "key_signature");
         scene()->addItem(textItem);
     }
     
     // Add voice labels if enabled
     if (m_showVoiceLabels && m_score) {
-        // Clear any existing voice labels
-        QList<QGraphicsItem*> items = scene()->items();
-        for (auto* item : items) {
-            if (item->data(0).toString() == "voice_label") {
-                scene()->removeItem(item);
-                delete item;
-            }
-        }
-        
-        // Add voice labels at the left side of the viewport
         for (size_t i = 0; i < m_score->getVoiceCount(); ++i) {
             if (auto* voice = m_score->getVoice(i)) {
-                // Calculate position for voice label
                 qreal xPos = viewportSceneRect.left() + 10;
-                
-                // Get the average pitch for this voice to position the label
-                int avgPitch = dimensions.minPitch + (dimensions.maxPitch - dimensions.minPitch) / 2;
-                if (!voice->getAllNotes().empty()) {  // Fixed: Use getAllNotes().empty() instead of getNoteCount()
-                    // In a complete implementation, we would calculate the average pitch
-                    // For now, just use a placeholder
-                    avgPitch = 60 + static_cast<int>(i) * 12; // Middle C + offset for each voice
-                }
+                int avgPitch = dimensions.minPitch + 
+                    ((dimensions.maxPitch - dimensions.minPitch) / m_score->getVoiceCount()) * i;
                 
                 qreal yPos = avgPitch * NOTE_HEIGHT;
                 
-                // Create text item for voice label
-                auto* textItem = new QGraphicsTextItem(QString("Voice %1").arg(i + 1));
+                auto* textItem = new QGraphicsTextItem(tr("Voice %1").arg(i + 1));
+                textItem->setFont(QFont("Arial", m_fontSize));
                 textItem->setPos(xPos, yPos);
-                textItem->setData(0, "voice_label"); // Tag for later identification
+                textItem->setData(0, "voice_label");
                 
-                // Set color based on voice index
+                // Set color based on voice index for better visual distinction
                 QColor voiceColor;
                 switch (i % 4) {
                     case 0: voiceColor = Qt::blue; break;
@@ -1169,13 +1118,9 @@ void ScoreView::publishViewportState()
         static_cast<float>(state.scrollPosition.x()),
         static_cast<float>(state.scrollPosition.y()),
         state.zoomLevel,
-        static_cast<float>(state.visibleArea.x()),
-        static_cast<float>(state.visibleArea.y()),
-        static_cast<float>(state.visibleArea.width()),
-        static_cast<float>(state.visibleArea.height())
+        state.preserveOctaveExpansion
     };
     
-    // Create and publish the event
     auto event = music::events::GuiStateEvent::create(
         music::events::GuiStateEvent::StateType::VIEWPORT_CHANGE,
         viewportState,
@@ -1183,6 +1128,136 @@ void ScoreView::publishViewportState()
     );
     
     m_eventBus->publishAsync(std::move(event));
+
+    // Also publish display state when viewport changes to ensure consistency
+    publishDisplayState();
+}
+
+void ScoreView::publishDisplayState()
+{
+    if (!m_eventBus) return;
+
+    music::events::GuiStateEvent::ScoreDisplayState displayState{
+        m_showMeasureNumbers,
+        m_showKeySignature,
+        m_showVoiceLabels,
+        m_fontSize
+    };
+
+    auto event = music::events::GuiStateEvent::create(
+        music::events::GuiStateEvent::StateType::SCORE_DISPLAY_CHANGE,
+        displayState,
+        "ScoreView"
+    );
+    
+    m_eventBus->publishAsync(std::move(event));
+}
+
+void ScoreView::recoverDisplayState()
+{
+    if (!m_stateCoordinator) return;
+
+    try {
+        // Try to get last known display state
+        auto lastState = m_stateCoordinator->getLastState<music::events::GuiStateEvent::ScoreDisplayState>(
+            music::events::GuiStateEvent::StateType::SCORE_DISPLAY_CHANGE
+        );
+
+        if (lastState) {
+            setShowMeasureNumbers(lastState->showMeasureNumbers);
+            setShowKeySignature(lastState->showKeySignature);
+            setShowVoiceLabels(lastState->showVoiceLabels);
+            setFontSize(lastState->fontSize);
+        } else {
+            // Load from settings if no state in coordinator
+            const auto& settings = state::SettingsState::instance();
+            setShowMeasureNumbers(settings.getShowMeasureNumbers());
+            setShowKeySignature(settings.getShowKeySignature());
+            setShowVoiceLabels(settings.getShowVoiceLabels());
+            setFontSize(settings.getFontSize());
+        }
+    } catch (const std::exception& e) {
+        qWarning() << "Failed to recover display state:" << e.what();
+        // Keep default values if recovery fails
+    }
+
+    // Update the grid with recovered state
+    updateGridVisuals();
+}
+
+// Add update coalescing methods
+void ScoreView::scheduleUpdate()
+{
+    if (!m_updateScheduled) {
+        m_updateScheduled = true;
+        
+        // If enough time has passed since last update, process immediately
+        if (m_lastUpdateTime.elapsed() >= UPDATE_INTERVAL_MS) {
+            processScheduledUpdate();
+        } else {
+            // Otherwise schedule for later
+            if (!m_updateTimer->isActive()) {
+                m_updateTimer->start(UPDATE_INTERVAL_MS - m_lastUpdateTime.elapsed());
+            }
+            m_updatePending = true;
+        }
+    }
+}
+
+void ScoreView::processScheduledUpdate()
+{
+    if (!m_updateScheduled) return;
+
+    m_updateScheduled = false;
+    m_updatePending = false;
+    m_lastUpdateTime.restart();
+
+    // Perform the actual update
+    if (isUpdateNeeded()) {
+        updateGridVisuals();
+        publishViewportState();
+    }
+}
+
+void ScoreView::cancelScheduledUpdate()
+{
+    m_updateScheduled = false;
+    m_updatePending = false;
+    if (m_updateTimer->isActive()) {
+        m_updateTimer->stop();
+    }
+}
+
+bool ScoreView::isUpdateNeeded() const
+{
+    // Check if viewport is visible
+    if (!isVisible() || !viewport()->isVisible()) {
+        return false;
+    }
+
+    // Always update if we have pending visual changes
+    if (m_updatePending) {
+        return true;
+    }
+
+    // Check if viewport state has changed
+    if (m_viewportManager) {
+        const auto& currentState = m_viewportManager->getViewportState();
+        auto lastState = m_stateCoordinator->getLastState<music::events::GuiStateEvent::ViewportState>(
+            music::events::GuiStateEvent::StateType::VIEWPORT_CHANGE
+        );
+
+        if (lastState) {
+            // Compare relevant state values
+            if (qAbs(lastState->x - currentState.scrollPosition.x()) > 1.0f ||
+                qAbs(lastState->y - currentState.scrollPosition.y()) > 1.0f ||
+                qAbs(lastState->zoomLevel - currentState.zoomLevel) > 0.01f) {
+                return true;
+            }
+        }
+    }
+
+    return false;
 }
 
 } // namespace MusicTrainer::presentation
