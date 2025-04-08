@@ -169,12 +169,28 @@ int SettingsState::getFontSize() const {
 }
 
 // Rule Settings
+bool SettingsState::getRuleEnabled(const ::std::string& ruleName) const {
+    return getRuleEnabled(QString::fromStdString(ruleName));
+}
+
 bool SettingsState::getRuleEnabled(const QString& ruleName) const {
     QSettings settings;
     settings.beginGroup("Rules");
     bool enabled = settings.value(ruleName, true).toBool();
     settings.endGroup();
     return enabled;
+}
+
+void SettingsState::setRuleEnabled(const ::std::string& ruleName, bool enabled) {
+    setRuleEnabled(QString::fromStdString(ruleName), enabled);
+}
+
+void SettingsState::setRuleEnabled(const QString& ruleName, bool enabled) {
+    QSettings settings;
+    settings.beginGroup("Rules");
+    settings.setValue(ruleName, enabled);
+    settings.endGroup();
+    Q_EMIT ruleSettingsChanged();
 }
 
 // Viewport Settings 

@@ -1,7 +1,7 @@
 #include "domain/events/GuiStateHandler.h"
 #include <algorithm>
 
-namespace music::events {
+namespace MusicTrainer::music::events {
 
 std::shared_ptr<GuiStateHandler> GuiStateHandler::create() {
     return std::shared_ptr<GuiStateHandler>(new GuiStateHandler());
@@ -61,9 +61,9 @@ std::optional<T> GuiStateHandler::getLastState(GuiStateEvent::StateType type) co
 }
 
 void GuiStateHandler::clearState() {
-    std::unique_lock lock(mutex);
-    lastStates.clear();
-    subscribers.clear();
+    std::unique_lock<std::mutex> lock(m_mutex);
+    m_lastStates.clear();
+    m_subscribers.clear();
 }
 
 // Explicit template instantiations for the types we support
@@ -82,4 +82,4 @@ GuiStateHandler::getLastState<GuiStateEvent::PlaybackState>(GuiStateEvent::State
 template std::optional<GuiStateEvent::MidiDeviceState> 
 GuiStateHandler::getLastState<GuiStateEvent::MidiDeviceState>(GuiStateEvent::StateType) const;
 
-} // namespace music::events
+} // namespace MusicTrainer::music::events

@@ -96,8 +96,8 @@ bool ParallelOctavesRule::evaluateIncremental(
     return "Parallel Octaves Rule";
 }
 
-::std::unique_ptr<Rule> ParallelOctavesRule::clone() const {
-    return ::std::unique_ptr<Rule>(new ParallelOctavesRule(violationDescription));
+Rule* ParallelOctavesRule::clone() const {
+    return new ParallelOctavesRule(violationDescription);
 }
 
 } // namespace MusicTrainer::music::rules

@@ -11,16 +11,18 @@
 namespace music::statesync {
 
 class StateSynchronizationManager {
-    events::EventBus& eventBus;
+    MusicTrainer::music::events::EventBus& eventBus;
 
 public:
-    StateSynchronizationManager(events::EventBus& eventBus) : eventBus(eventBus) {}
+    StateSynchronizationManager(MusicTrainer::music::events::EventBus& eventBus) 
+        : eventBus(eventBus) {}
     
     void synchronize(const MusicTrainer::music::Score& score) {
         try {
             auto snapshot = score.createSnapshot();
-            auto event = std::make_unique<events::ScoreUpdatedEvent>(snapshot, score.getVersion());
-            eventBus.publish(std::move(event));
+            auto event = std::make_unique<music::events::ScoreUpdatedEvent>(
+                snapshot, score.getVersion());
+            eventBus.publishAsync(std::move(event));
         } catch (const std::exception& e) {
             // Handle synchronization errors
             std::cerr << "State synchronization failed: " << e.what() << std::endl;

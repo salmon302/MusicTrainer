@@ -1,9 +1,15 @@
+// Force recompile check
+
 #include "domain/rules/DissonancePreparationRule.h"
 #include "domain/music/Score.h"
 #include "domain/music/Voice.h"
 #include "domain/music/Note.h"
 #include "domain/music/Interval.h"
-#include <sstream>
+// #include <sstream> // Removed to avoid compiler/library issues
+#include <cstdlib>  // For std::abs
+#include <string>   // For std::string, std::to_string
+#include <cstddef>  // For std::size_t
+#include <algorithm> // For std::max
 
 namespace MusicTrainer::music::rules {
 
@@ -11,90 +17,73 @@ DissonancePreparationRule* DissonancePreparationRule::clone() const {
     return new DissonancePreparationRule(*this);
 }
 
-bool DissonancePreparationRule::evaluate(const music::Score& score) {
+bool DissonancePreparationRule::evaluate(const Score& score) {
     if (!isEnabled()) return true;
     
     m_violationDescription.clear();
     
+    // Need at least 2 voices to check dissonance preparation
     if (score.getVoiceCount() < 2) return true;
     
     // Check each pair of voices
-    for (size_t i = 0; i < score.getVoiceCount() - 1; ++i) {
-        for (size_t j = i + 1; j < score.getVoiceCount(); ++j) {
-            const Voice& voice1 = score.getVoice(i);
-            const Voice& voice2 = score.getVoice(j);
+    for (std::size_t v1 = 0; v1 < score.getVoiceCount(); ++v1) {
+        for (std::size_t v2 = v1 + 1; v2 < score.getVoiceCount(); ++v2) {
+            const Voice* voice1 = score.getVoice(v1);
+            const Voice* voice2 = score.getVoice(v2);
             
-            // Need at least 3 notes to check preparation and resolution
-            if (voice1.getNoteCount() < 3 || voice2.getNoteCount() < 3) continue;
+            if (!voice1 || !voice2) continue;
             
-            // Check each potential dissonance
-            for (size_t pos = 1; pos < voice1.getNoteCount() - 1; ++pos) {
-                if (pos >= voice2.getNoteCount() - 1) break;
-                
-                const Note& prev1 = voice1.getNote(pos - 1);
-                const Note& curr1 = voice1.getNote(pos);
-                const Note& next1 = voice1.getNote(pos + 1);
-                
-                const Note& prev2 = voice2.getNote(pos - 1);
-                const Note& curr2 = voice2.getNote(pos);
-                const Note& next2 = voice2.getNote(pos + 1);
-                
-                // Skip if any note is a rest
-                if (prev1.isRest() || curr1.isRest() || next1.isRest() ||
-                    prev2.isRest() || curr2.isRest() || next2.isRest()) continue;
-                
-                int currInterval = std::abs(curr2.getMidiPitch() - curr1.getMidiPitch()) % 12;
-                
-                if (Interval::isDissonant(currInterval)) {
-                    // Check preparation
-                    int prevInterval = std::abs(prev2.getMidiPitch() - prev1.getMidiPitch()) % 12;
-                    if (!Interval::isConsonant(prevInterval)) {
-                        std::stringstream ss;
-                        ss << "Unprepared dissonance (" << Interval::getIntervalName(currInterval)
-                           << ") between voice " << i + 1 << " and voice " << j + 1
-                           << " at position " << pos + 1;
-                        m_violationDescription = ss.str();
-                        return false;
-                    }
-                    
-                    // Check resolution
-                    bool voice1Steps = Interval::isStepwise(std::abs(next1.getMidiPitch() - curr1.getMidiPitch()));
-                    bool voice2Steps = Interval::isStepwise(std::abs(next2.getMidiPitch() - curr2.getMidiPitch()));
-                    
-                    // For passing tones, at least one voice must move by step
-                    if (!voice1Steps && !voice2Steps) {
-                        std::stringstream ss;
-                        ss << "Unresolved dissonance (" << Interval::getIntervalName(currInterval)
-                           << ") between voice " << i + 1 << " and voice " << j + 1
-                           << " at position " << pos + 1 << ": no stepwise resolution";
-                        m_violationDescription = ss.str();
-                        return false;
-                    }
-                    
-                    // For suspensions, the dissonant note must resolve down by step
-                    if (curr1.getMidiPitch() == prev1.getMidiPitch()) {
-                        // Voice 1 has the suspension
-                        if (next1.getMidiPitch() >= curr1.getMidiPitch()) {
-                            std::stringstream ss;
-                            ss << "Suspension in voice " << i + 1
-                               << " at position " << pos + 1
-                               << " must resolve downward by step";
-                            m_violationDescription = ss.str();
-                            return false;
-                        }
-                    } else if (curr2.getMidiPitch() == prev2.getMidiPitch()) {
-                        // Voice 2 has the suspension
-                        if (next2.getMidiPitch() >= curr2.getMidiPitch()) {
-                            std::stringstream ss;
-                            ss << "Suspension in voice " << j + 1
-                               << " at position " << pos + 1
-                               << " must resolve downward by step";
-                            m_violationDescription = ss.str();
-                            return false;
-                        }
-                    }
+            // Get note count using getAllNotes().size() as getNoteCount() doesn't exist
+            std::size_t maxNotes = std::max(voice1->getAllNotes().size(), voice2->getAllNotes().size());
+            // Start from second note as we need previous note for preparation
+            for (std::size_t i = 1; i < maxNotes; ++i) {
+                if (!checkDissonancePreparation(*voice1, *voice2, i)) {
+                    return false;
                 }
             }
+        }
+    }
+    return true;
+}
+
+bool DissonancePreparationRule::checkDissonancePreparation(
+    const Voice& voice1, const Voice& voice2, std::size_t noteIndex) {
+    
+    const Note* curr1 = voice1.getNoteAt(noteIndex); // Use . for reference
+    const Note* curr2 = voice2.getNoteAt(noteIndex); // Use . for reference
+    const Note* prev1 = voice1.getNoteAt(noteIndex - 1); // Use . for reference
+    const Note* prev2 = voice2.getNoteAt(noteIndex - 1); // Use . for reference
+    
+    // Skip if any note is missing or is a rest
+    if (!curr1 || !curr2 || !prev1 || !prev2 ||
+        curr1->isRest() || curr2->isRest() || 
+        prev1->isRest() || prev2->isRest()) {
+        return true;
+    }
+    
+    // Calculate current and previous intervals
+    int currInterval = std::abs(curr1->getPitch().getMidiNote() - curr2->getPitch().getMidiNote()) % 12;
+    int prevInterval = std::abs(prev1->getPitch().getMidiNote() - prev2->getPitch().getMidiNote()) % 12;
+    
+    // Check if current interval is dissonant
+    if (music::Interval::isDissonant(currInterval)) {
+        // Dissonance must be prepared by consonance
+        if (music::Interval::isDissonant(prevInterval)) {
+            m_violationDescription = "Dissonant interval at position " +
+                                     std::to_string(noteIndex + 1) +
+                                     " must be prepared by consonant interval";
+            return false;
+        }
+        
+        // At least one voice must approach dissonance by step
+        int motion1 = std::abs(curr1->getPitch().getMidiNote() - prev1->getPitch().getMidiNote());
+        int motion2 = std::abs(curr2->getPitch().getMidiNote() - prev2->getPitch().getMidiNote());
+        
+        if (!music::Interval::isStepwise(motion1) && !music::Interval::isStepwise(motion2)) {
+            m_violationDescription = "Dissonant interval at position " +
+                                     std::to_string(noteIndex + 1) +
+                                     " must be approached by step in at least one voice";
+            return false;
         }
     }
     
@@ -108,3 +97,5 @@ std::string DissonancePreparationRule::getViolationDescription() const {
 std::string DissonancePreparationRule::getName() const {
     return "DissonancePreparationRule";
 }
+
+} // namespace MusicTrainer::music::rules

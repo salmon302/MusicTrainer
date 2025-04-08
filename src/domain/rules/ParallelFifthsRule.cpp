@@ -16,39 +16,38 @@
 
 namespace MusicTrainer::music::rules {
 
-using Score = ::MusicTrainer::music::Score;
-using Voice = ::MusicTrainer::music::Voice;
-using Note = ::MusicTrainer::music::Note;
-using Pitch = ::MusicTrainer::music::Pitch;
+bool isParallelMotion(int motion1, int motion2) {
+    return (motion1 > 0 && motion2 > 0) || (motion1 < 0 && motion2 < 0);
+}
 
-namespace {
-    bool isParallelMotion(int motion1, int motion2) {
-        return (motion1 > 0 && motion2 > 0) || (motion1 < 0 && motion2 < 0);
+bool ParallelFifthsRule::evaluate(const ::MusicTrainer::music::Score& score) {
+return evaluateIncremental(score, 0, score.getMeasureCount());
+}
+class ConcreteParallelFifthsRule : public ParallelFifthsRule {
+public:
+    ConcreteParallelFifthsRule(const ParallelFifthsRule& other) : ParallelFifthsRule(other.getViolationDescription()) {}
+    bool evaluate(const ::MusicTrainer::music::Score& score) override { return evaluateIncremental(score, 0, score.getMeasureCount()); }
+    ::std::string getViolationDescription() const override { return ParallelFifthsRule::getViolationDescription(); }
+    ::std::string getName() const override { return "Parallel Fifths Rule"; }
+    bool evaluateIncremental(const ::MusicTrainer::music::Score& score, ::std::size_t startMeasure, ::std::size_t endMeasure) const override { 
+        return ParallelFifthsRule::evaluateIncremental(score, startMeasure, endMeasure); 
     }
-}
+};
 
-bool ParallelFifthsRule::evaluate(const Score& score) {
-    return evaluateIncremental(score, 0, score.getMeasureCount());
-}
-
-::std::unique_ptr<ParallelFifthsRule> ParallelFifthsRule::create() {
-    return ::std::unique_ptr<ParallelFifthsRule>(new ParallelFifthsRule());
-}
-
-ParallelFifthsRule::ParallelFifthsRule() 
-    : m_violationDescription() 
+ParallelFifthsRule::ParallelFifthsRule()
+    : m_violationDescription()
 {
 }
 
-ParallelFifthsRule::ParallelFifthsRule(const ::std::string& initialViolation) 
-    : m_violationDescription(initialViolation) 
+ParallelFifthsRule::ParallelFifthsRule(const ::std::string& initialViolation)
+    : m_violationDescription(initialViolation)
 {
 }
 
 ParallelFifthsRule::~ParallelFifthsRule() = default;
 
-::std::unique_ptr<Rule> ParallelFifthsRule::clone() const {
-    return ::std::unique_ptr<Rule>(new ParallelFifthsRule(m_violationDescription));
+Rule* ParallelFifthsRule::clone() const {
+    return new ConcreteParallelFifthsRule(*this);
 }
 
 ::std::string ParallelFifthsRule::getViolationDescription() const {
@@ -60,9 +59,9 @@ ParallelFifthsRule::~ParallelFifthsRule() = default;
 }
 
 bool ParallelFifthsRule::evaluateIncremental(
-    const Score& score,
-    ::std::size_t startMeasure, 
-    ::std::size_t endMeasure) const 
+    const ::MusicTrainer::music::Score& score,
+    ::std::size_t startMeasure,
+    ::std::size_t endMeasure) const
 {
     if (!isEnabled()) {
         return true;
@@ -110,22 +109,22 @@ bool ParallelFifthsRule::evaluateIncremental(
                 }
 
                 // Calculate intervals between voices
-                int interval1 = ::std::abs(note2First.getPitch().getMidiNote() - 
+                int interval1 = ::std::abs(note2First.getPitch().getMidiNote() -
                                        note1First.getPitch().getMidiNote()) % 12;
-                int interval2 = ::std::abs(note2Second.getPitch().getMidiNote() - 
+                int interval2 = ::std::abs(note2Second.getPitch().getMidiNote() -
                                        note1Second.getPitch().getMidiNote()) % 12;
 
                 // Check for consecutive perfect fifths (interval of 7 semitones)
                 if (interval1 == 7 && interval2 == 7) {
                     // Check if motion is parallel
-                    int voice1Motion = note1Second.getPitch().getMidiNote() - 
+                    int voice1Motion = note1Second.getPitch().getMidiNote() -
                                      note1First.getPitch().getMidiNote();
-                    int voice2Motion = note2Second.getPitch().getMidiNote() - 
+                    int voice2Motion = note2Second.getPitch().getMidiNote() -
                                      note2First.getPitch().getMidiNote();
 
                     if (isParallelMotion(voice1Motion, voice2Motion)) {
                         ::std::stringstream ss;
-                        ss << "Parallel fifths between voice " << i + 1 
+                        ss << "Parallel fifths between voice " << i + 1
                            << " and voice " << j + 1
                            << " at measure " << startMeasure + k;
                         setViolationDescription(ss.str());

@@ -7,6 +7,7 @@
 #include <vector>
 #include <mutex>
 #include <optional>
+#include <memory>
 
 namespace MusicTrainer::music::events {
 
@@ -20,7 +21,8 @@ namespace MusicTrainer::music::events {
  * Thread safety is ensured through proper synchronization of state access
  * and subscription management.
  */
-class GuiStateHandler : public EventHandler {
+class GuiStateHandler : public EventHandler, 
+                       public std::enable_shared_from_this<GuiStateHandler> {
 public:
     /**
      * @brief Creates a new GuiStateHandler instance
@@ -74,9 +76,11 @@ public:
      */
     void clearState();
 
-private:
+protected:
+    // Protected constructor allows make_shared to work
     GuiStateHandler() = default;
 
+private:
     /**
      * @brief Notify all subscribers of a state change
      * 

@@ -1,6 +1,6 @@
 #include "domain/events/GuiStateEvent.h"
 #include <sstream>
-#include <visit.hpp>
+#include <variant>
 
 namespace MusicTrainer::music::events {
 
@@ -9,6 +9,7 @@ std::unique_ptr<GuiStateEvent> GuiStateEvent::create(
     const StateVariant& state,
     const std::string& source
 ) {
+    // Use private constructor through unique_ptr construction
     return std::unique_ptr<GuiStateEvent>(new GuiStateEvent(type, state, source));
 }
 
@@ -66,7 +67,7 @@ std::string GuiStateEvent::getDescription() const {
 }
 
 std::unique_ptr<Event> GuiStateEvent::clone() const {
-    return std::make_unique<GuiStateEvent>(m_stateType, m_state, m_source);
+    return std::unique_ptr<Event>(new GuiStateEvent(m_stateType, m_state, m_source));
 }
 
 } // namespace MusicTrainer::music::events

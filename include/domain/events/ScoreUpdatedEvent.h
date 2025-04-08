@@ -10,7 +10,7 @@
 
 namespace music::events {
 
-class ScoreUpdatedEvent : public Event {
+class ScoreUpdatedEvent : public MusicTrainer::music::events::Event {
 public:
     ScoreUpdatedEvent(const MusicTrainer::music::Score::ScoreSnapshot& snapshot, uint64_t version)
         : version_(version)
@@ -63,7 +63,7 @@ public:
         return "Score updated to version " + std::to_string(version_.load(std::memory_order_acquire));
     }
     
-    std::unique_ptr<Event> clone() const override {
+    std::unique_ptr<MusicTrainer::music::events::Event> clone() const override {
         return std::make_unique<ScoreUpdatedEvent>(snapshot_, version_.load(std::memory_order_acquire));
     }
 

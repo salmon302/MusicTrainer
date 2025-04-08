@@ -1,14 +1,31 @@
 cmake_minimum_required(VERSION 3.24)
+
+# Set Clang as the C++ compiler
+set(CMAKE_CXX_COMPILER "clang++")
+
 project(MusicTrainerV3)
 
-	# Set C++17 as required and ensure proper compiler flags
+# Set C++17 as required and ensure proper compiler flags
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+# Find Threads package early to ensure it's available for Qt and RtMidi
+find_package(Threads REQUIRED)
+
 # Add compiler-specific flags
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -pthread")
+    # Ensure pthread is also used for linking, crucial for gtest
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pthread")
+    
+    # If using Clang, explicitly tell it to use libc++ instead of libstdc++
+    if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
+        # Add libc++ flags also to linker flags
+        set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -stdlib=libc++ -lc++abi -lc++")
+        set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -stdlib=libc++ -lc++abi -lc++")
+    endif()
 endif()
 
 # Add a global compile definition to fix RtMidi namespace conflicts
@@ -336,7 +353,17 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 # Main library target (not executable)
 add_library(MusicTrainerLib STATIC ${LIB_SOURCES} ${HEADERS} ${STATE_MANAGEMENT_SOURCES})
-target_link_libraries(MusicTrainerLib PRIVATE rtmidi ${ALSA_LIBRARIES})
+target_link_libraries(MusicTrainerLib PRIVATE 
+    rtmidi 
+    ${ALSA_LIBRARIES}
+    Qt${QT_VERSION_MAJOR}::Core 
+    Qt${QT_VERSION_MAJOR}::Widgets
+)
+set_target_properties(MusicTrainerLib PROPERTIES
+    AUTOMOC ON
+    AUTORCC ON
+    AUTOUIC ON
+)
 
 # Main executable
 add_executable(${PROJECT_NAME} src/main.cpp)
@@ -415,8 +442,9 @@ target_include_directories(TestSuite PRIVATE
 )
 
 target_link_libraries(TestSuite PRIVATE 
-    gtest 
-    gtest_main 
+    GTest::gtest_main # Use imported target
+    # gtest # Replaced by GTest::gtest_main
+    # gtest_main # Replaced by GTest::gtest_main
     MusicTrainerLib 
     rtmidi 
     ${ALSA_LIBRARIES}
@@ -526,8 +554,3 @@ enable_testing()
 set_tests_properties(${TEST_TARGETS} PROPERTIES
 	TIMEOUT 30
 	ENVIRONMENT "GTEST_FILTER=*")
-
-
-
-
-

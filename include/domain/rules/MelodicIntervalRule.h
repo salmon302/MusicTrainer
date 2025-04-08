@@ -17,10 +17,11 @@ class MelodicIntervalRule : public Rule {
 public:
     MelodicIntervalRule* clone() const override;
     bool evaluate(const music::Score& score) override;
-    std::string getViolationDescription() const override;
-    std::string getName() const override;
+    ::std::string getViolationDescription() const override;
+    ::std::string getName() const override;
 
 private:
-    std::string m_violationDescription;
+    ::std::string m_violationDescription;
     bool checkMelodicInterval(const Voice& voice, size_t noteIndex);
 };
+}

@@ -7,24 +7,21 @@
 #include <string>
 #include <memory>
 
-using Score = MusicTrainer::music::Score;
-
 namespace MusicTrainer::music::rules {
 
 /**
  * @brief Rule that checks for parallel fifths between voices
  */
-class ParallelFifthsRule final : public IncrementalRule {
+class ParallelFifthsRule : public IncrementalRule { // NOTE: A concrete derived class (e.g., ConcreteParallelFifthsRule) is required for instantiation.
 public:
     static ::std::unique_ptr<ParallelFifthsRule> create();
     
     ~ParallelFifthsRule() override;
-
-    ::std::unique_ptr<Rule> clone() const override;
-    bool evaluate(const Score& score) override;
+    Rule* clone() const override;
+    bool evaluate(const ::MusicTrainer::music::Score& score) override;
     ::std::string getViolationDescription() const override;
     ::std::string getName() const override;
-    bool evaluateIncremental(const Score& score, ::std::size_t startMeasure, ::std::size_t endMeasure) const override;
+    bool evaluateIncremental(const ::MusicTrainer::music::Score& score, ::std::size_t startMeasure, ::std::size_t endMeasure) const override;
 
 protected:
     ParallelFifthsRule();

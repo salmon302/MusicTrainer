@@ -119,7 +119,7 @@ private:
 	std::atomic<uint64_t> version{0};
 	
 	// Lock-free history tracking
-	adapters::LockFreeEventQueue<std::unique_ptr<events::Event>, 1024> historyQueue;
+	adapters::LockFreeEventQueue<std::unique_ptr<MusicTrainer::music::events::Event>, 1024> historyQueue;
 	std::vector<double> accuracyHistory;  // Protected by version
 	std::vector<double> completionTimes;  // Protected by version
 	std::atomic<size_t> exerciseAttempts{0};

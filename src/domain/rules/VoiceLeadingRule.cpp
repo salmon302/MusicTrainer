@@ -104,8 +104,8 @@ std::string VoiceLeadingRule::getName() const {
     return "Voice Leading Rule";
 }
 
-std::unique_ptr<Rule> VoiceLeadingRule::clone() const {
-    return std::unique_ptr<Rule>(new VoiceLeadingRule(violationDescription));
+Rule* VoiceLeadingRule::clone() const {
+    return new VoiceLeadingRule(violationDescription);
 }
 
 } // namespace rules

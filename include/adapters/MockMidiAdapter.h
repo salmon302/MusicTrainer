@@ -42,6 +42,41 @@ public:
 	std::vector<std::string> getAvailableInputs() const override;
 	std::vector<std::string> getAvailableOutputs() const override;
 	
+	// Add missing MidiAdapter interface implementations
+	bool setInputDevice(int index) override {
+		currentInputDevice.store(index, std::memory_order_release);
+		return true; // Mock always succeeds
+	}
+	
+	bool setOutputDevice(int index) override {
+		currentOutputDevice.store(index, std::memory_order_release);
+		return true; // Mock always succeeds
+	}
+	
+	void setMidiThrough(bool enabled) override {
+		midiThrough.store(enabled, std::memory_order_release);
+	}
+	
+	void setLatency(int latencyMs) override {
+		latencyMilliseconds.store(latencyMs, std::memory_order_release);
+	}
+	
+	int getCurrentInputDevice() const override {
+		return currentInputDevice.load(std::memory_order_acquire);
+	}
+	
+	int getCurrentOutputDevice() const override {
+		return currentOutputDevice.load(std::memory_order_acquire);
+	}
+	
+	bool getMidiThrough() const override {
+		return midiThrough.load(std::memory_order_acquire);
+	}
+	
+	int getLatency() const override {
+		return latencyMilliseconds.load(std::memory_order_acquire);
+	}
+	
 	void setSimulateErrors(bool simulate) { simulateErrors.store(simulate, std::memory_order_release); }
 	void clearEvents() { 
 	    std::lock_guard<std::mutex> lock(queueMutex);
@@ -53,6 +88,11 @@ private:
 	
 	std::atomic<bool> isRunning{false};
 	std::atomic<bool> simulateErrors{false};
+	std::atomic<int> currentInputDevice{-1};
+	std::atomic<int> currentOutputDevice{-1};
+	std::atomic<bool> midiThrough{false};
+	std::atomic<int> latencyMilliseconds{0};
+	
 	std::deque<ports::MidiEvent> eventQueue;
 	std::mutex queueMutex;
 	std::condition_variable eventsAvailable;

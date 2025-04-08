@@ -2,6 +2,8 @@
 
 #include "domain/events/GuiStateEvent.h"
 #include "domain/events/EventBus.h"
+#include "domain/events/GuiStateHandler.h" // Add missing include
+#include "domain/errors/DomainErrors.h" // Add missing include
 #include <memory>
 #include <functional>
 #include <optional>

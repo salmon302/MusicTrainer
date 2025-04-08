@@ -1,8 +1,10 @@
 #include "domain/rules/ValidationPipeline.h"
+#include "domain/state/SettingsState.h"
 #include <algorithm>
 #include <future>
 #include <iostream>
 #include <shared_mutex>
+#include <QString>
 
 // Using the global namespace qualifier for std
 namespace MusicTrainer {
@@ -399,8 +401,8 @@ void ValidationPipeline::updateRules() {
     for (auto& metadata : rules) {
         if (!metadata.rule) continue;
         
-        const QString ruleName = QString::fromStdString(metadata.rule->getName());
-        bool enabled = MusicTrainer::state::SettingsState::instance().getRuleEnabled(ruleName);
+        ::std::string ruleName = metadata.rule->getName();
+        bool enabled = ::MusicTrainer::state::SettingsState::instance().getRuleEnabled(ruleName);
         metadata.rule->setEnabled(enabled);
     }
     

@@ -19,7 +19,9 @@ public:
     bool evaluateIncremental(const Score& score, size_t startMeasure, size_t endMeasure) const override;
     std::string getViolationDescription() const override;
     std::string getName() const override;
-    std::unique_ptr<Rule> clone() const override;
+    Rule* clone() const override;
+    
+    ~VoiceLeadingRule() override;
     
 private:
     // Default constructor

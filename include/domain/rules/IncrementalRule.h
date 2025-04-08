@@ -10,7 +10,7 @@ class IncrementalRule : public Rule {
 public:
     ~IncrementalRule() override = default;
     // Evaluate rule for a specific measure range
-    virtual bool evaluateIncremental(const MusicTrainer::music::Score& score, ::std::size_t startMeasure, ::std::size_t endMeasure) const = 0;
+    virtual bool evaluateIncremental(const ::MusicTrainer::music::Score& score, ::std::size_t startMeasure, ::std::size_t endMeasure) const = 0;
 };
 
 } // namespace MusicTrainer::music::rules

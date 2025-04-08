@@ -5,6 +5,7 @@
 #include <QVariant>
 #include <memory>
 #include <QPointF>
+#include <string>
 
 namespace MusicTrainer::state {
 
@@ -37,7 +38,8 @@ public:
     int getFontSize() const;
 
     // Rule Settings
-    bool getRuleEnabled(const QString& ruleName) const;
+    bool getRuleEnabled(const std::string& ruleName) const;
+    bool getRuleEnabled(const QString& ruleName) const; // Overload for Qt compatibility
 
     // Viewport Settings
     float getViewportZoom() const;
@@ -66,7 +68,8 @@ public Q_SLOTS:
     void setFontSize(int size);
 
     // Rule Settings
-    void setRuleEnabled(const QString& ruleName, bool enabled);
+    void setRuleEnabled(const std::string& ruleName, bool enabled);
+    void setRuleEnabled(const QString& ruleName, bool enabled); // Overload for Qt compatibility
 
     // Viewport Settings
     void setViewportZoom(float zoom);

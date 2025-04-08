@@ -5,13 +5,13 @@ namespace MusicTrainer::presentation {
 
 std::shared_ptr<GuiStateCoordinator> GuiStateCoordinator::create(std::shared_ptr<music::events::EventBus> eventBus) {
     if (!eventBus) {
-        throw music::errors::InvalidArgumentError("EventBus cannot be null");
+        throw ValidationError("EventBus cannot be null");
     }
     return std::shared_ptr<GuiStateCoordinator>(new GuiStateCoordinator(eventBus));
 }
 
 GuiStateCoordinator::GuiStateCoordinator(std::shared_ptr<music::events::EventBus> eventBus)
-    : m_eventBus(eventBus)
+    : m_eventBus(std::move(eventBus))
     , m_stateHandler(music::events::GuiStateHandler::create())
 {
 }
@@ -58,7 +58,7 @@ template<typename T>
 void GuiStateCoordinator::subscribeToState(music::events::GuiStateEvent::StateType type,
                                          std::function<void(const T&)> callback) {
     if (!callback) {
-        throw music::errors::InvalidArgumentError("Callback cannot be null");
+        throw ValidationError("Callback cannot be null");
     }
     
     auto wrappedCallback = [callback](const music::events::GuiStateEvent::StateVariant& state) {

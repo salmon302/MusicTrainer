@@ -3,6 +3,7 @@
 #include "domain/events/Event.h"
 #include <string>
 #include <variant>
+#include <chrono>
 
 namespace MusicTrainer::music::events {
 
@@ -135,12 +136,35 @@ public:
      */
     std::unique_ptr<Event> clone() const override;
 
+    /**
+     * @brief Gets the type of the event
+     * @return std::string The event type
+     */
+    std::string getType() const override { return "GuiStateEvent"; }
+    
+    /**
+     * @brief Applies the event to the target score
+     * @param target The target score
+     */
+    void apply(MusicTrainer::music::Score& target) const override {
+        // GUI state events don't modify the score directly
+    }
+    
+    /**
+     * @brief Gets the timestamp of the event
+     * @return std::chrono::system_clock::time_point The event timestamp
+     */
+    std::chrono::system_clock::time_point getTimestamp() const override {
+        return m_timestamp;
+    }
+
 private:
     GuiStateEvent(StateType type, const StateVariant& state, const std::string& source);
 
     StateType m_stateType;    ///< Type of state change
     StateVariant m_state;     ///< New state value
     std::string m_source;     ///< Source of the change
+    std::chrono::system_clock::time_point m_timestamp{std::chrono::system_clock::now()};
 };
 
 } // namespace MusicTrainer::music::events

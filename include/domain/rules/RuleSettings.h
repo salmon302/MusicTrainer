@@ -24,3 +24,5 @@ private:
     
     ::std::unordered_map<::std::string, bool> m_ruleStates;
 };
+
+} // namespace MusicTrainer::music::rules

@@ -102,7 +102,12 @@ ports::MidiPortMetrics MockMidiAdapter::getMetrics() const {
 	result.errorCount = metrics.errorCount;
 	result.recoveredErrors = metrics.recoveredErrors;
 	result.maxLatencyUs = metrics.maxLatencyUs;
-	result.lastEventTime = std::chrono::system_clock::time_point(std::chrono::nanoseconds(metrics.lastEventTime.load()));
+	// Construct time_point correctly by adding duration to epoch and casting
+	   auto ns_count_since_epoch = metrics.lastEventTime.load(std::memory_order_acquire);
+	   std::chrono::nanoseconds duration_since_epoch(ns_count_since_epoch);
+	   auto precise_time_point = std::chrono::system_clock::time_point() + duration_since_epoch;
+	   // Cast to the required duration type of system_clock::time_point
+	   result.lastEventTime = std::chrono::time_point_cast<std::chrono::system_clock::duration>(precise_time_point);
 	return result;
 }
 

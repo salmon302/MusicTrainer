@@ -8,18 +8,26 @@
 #include <unordered_map>
 #include <memory>
 
-namespace music::events {
+namespace MusicTrainer::music::events {
 
 class NoteEventHandler : public EventHandler {
 public:
     static std::shared_ptr<NoteEventHandler> create();
     
-    void handle(const Event& event) override;
-    bool canHandle(const std::string& eventType) const override;
+    // Implement pure virtual method from EventHandler
+    void handleEvent(const Event& event) override;
+    
+    // Override default handler methods
+    bool canHandle(const Event& event) const override {
+        return dynamic_cast<const NoteAddedEvent*>(&event) != nullptr;
+    }
+    
     int getPriority() const override { return 10; }
     
+    // Note-specific methods
     std::vector<const NoteAddedEvent*> getRecentNotes(std::chrono::milliseconds window) const;
     std::vector<const NoteAddedEvent*> getCorrelatedNotes(const std::string& correlationId) const;
+    
     void clear() {
         noteHistory.clear();
         correlatedNotes.clear();
@@ -32,5 +40,5 @@ private:
     std::unordered_map<std::string, std::vector<const NoteAddedEvent*>> correlatedNotes;
 };
 
-} // namespace music::events
+} // namespace MusicTrainer::music::events
 

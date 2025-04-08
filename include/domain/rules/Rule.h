@@ -6,12 +6,19 @@
 
 namespace MusicTrainer::music::rules {
 
+// Forward declare Score class to avoid namespace issues
+namespace MusicTrainer {
+namespace music {
+class Score;
+}
+}
+
 class Rule {
 public:
     virtual ~Rule() = default;
     
     virtual Rule* clone() const = 0;
-    virtual bool evaluate(const MusicTrainer::music::Score& score) = 0;
+    virtual bool evaluate(const ::MusicTrainer::music::Score& score) = 0;
     virtual ::std::string getViolationDescription() const = 0;
     virtual ::std::string getName() const = 0;
     

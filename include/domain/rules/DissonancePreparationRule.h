@@ -20,9 +20,15 @@ public:
     std::string getName() const override;
 
 private:
+    // Member variable to store violation details
     std::string m_violationDescription;
-    bool isDissonant(int interval) const;
-    bool isConsonant(int interval) const;
-    bool isStepwiseMotion(int interval) const;
-    std::string getIntervalName(int interval) const;
+
+    // Helper function defined in the .cpp file to check dissonance at a specific index
+    bool checkDissonancePreparation(const Voice& voice1, const Voice& voice2, std::size_t noteIndex);
+
+    // Removed unused private helper declarations (functionality provided by music::Interval)
+    // bool isDissonant(int interval) const;
+    // bool isConsonant(int interval) const;
+    // bool isStepwiseMotion(int interval) const;
+    // std::string getIntervalName(int interval) const;
 };

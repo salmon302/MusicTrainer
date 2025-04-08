@@ -33,6 +33,63 @@ public:
     std::vector<std::string> getAvailableInputs() const override;
     std::vector<std::string> getAvailableOutputs() const override;
     
+    // Implementation of device configuration methods from MidiAdapter interface
+    bool setInputDevice(int index) override {
+        if (index < 0 || static_cast<size_t>(index) >= midiIn->getPortCount()) {
+            return false;
+        }
+        try {
+            if (isOpen()) {
+                midiIn->closePort();
+            }
+            midiIn->openPort(index);
+            currentInputDevice.store(index, std::memory_order_release);
+            return true;
+        } catch (RtMidiError& error) {
+            return false;
+        }
+    }
+    
+    bool setOutputDevice(int index) override {
+        if (index < 0 || static_cast<size_t>(index) >= midiOut->getPortCount()) {
+            return false;
+        }
+        try {
+            if (isOpen()) {
+                midiOut->closePort();
+            }
+            midiOut->openPort(index);
+            currentOutputDevice.store(index, std::memory_order_release);
+            return true;
+        } catch (RtMidiError& error) {
+            return false;
+        }
+    }
+    
+    void setMidiThrough(bool enabled) override {
+        midiThrough.store(enabled, std::memory_order_release);
+    }
+    
+    void setLatency(int latencyMs) override {
+        latencyMilliseconds.store(latencyMs, std::memory_order_release);
+    }
+    
+    int getCurrentInputDevice() const override {
+        return currentInputDevice.load(std::memory_order_acquire);
+    }
+    
+    int getCurrentOutputDevice() const override {
+        return currentOutputDevice.load(std::memory_order_acquire);
+    }
+    
+    bool getMidiThrough() const override {
+        return midiThrough.load(std::memory_order_acquire);
+    }
+    
+    int getLatency() const override {
+        return latencyMilliseconds.load(std::memory_order_acquire);
+    }
+    
     ~RtMidiAdapter() override;
 
 private:
@@ -43,6 +100,12 @@ private:
     std::unique_ptr<RtMidiOut> midiOut;
     size_t portNumber;
     std::atomic<bool> isRunning{false};
+    
+    // Device configuration state
+    std::atomic<int> currentInputDevice{-1};
+    std::atomic<int> currentOutputDevice{-1};
+    std::atomic<bool> midiThrough{false};
+    std::atomic<int> latencyMilliseconds{0};
     
     // Event processing
     LockFreeEventQueue<ports::MidiEvent, 1024> eventQueue;

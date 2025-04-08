@@ -31,7 +31,7 @@ public:
     // Factory methods
     static Interval fromSemitones(int semitones);
     static Interval fromQualityAndNumber(Quality quality, Number number);
-    static Interval fromPitches(const MusicTrainer::music::Pitch& lower, const MusicTrainer::music::Pitch& higher);
+    static Interval fromPitches(const Pitch& lower, const Pitch& higher);
 
     // Getters
     Quality getQuality() const { return m_quality; }
