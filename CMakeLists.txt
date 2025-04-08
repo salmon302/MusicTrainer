@@ -1,556 +1,103 @@
-cmake_minimum_required(VERSION 3.24)
+# Minimum CMake version required
+cmake_minimum_required(VERSION 3.16)
 
-# Set Clang as the C++ compiler
-set(CMAKE_CXX_COMPILER "clang++")
+# Project definition
+project(MusicTrainer VERSION 4.0 LANGUAGES CXX)
 
-project(MusicTrainerV3)
-
-# Set C++17 as required and ensure proper compiler flags
+# Set C++ standard to C++17
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_CXX_EXTENSIONS OFF) # Prefer standard C++ over compiler extensions
 
-# Find Threads package early to ensure it's available for Qt and RtMidi
-find_package(Threads REQUIRED)
+# --- Qt6 Setup ---
+# Find the Qt6 package and specify required components
+find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets Multimedia)
+# Add other components like Concurrent, Network, Test if needed later
 
-# Add compiler-specific flags
-if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -pthread")
-    # Ensure pthread is also used for linking, crucial for gtest
-    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pthread")
-    
-    # If using Clang, explicitly tell it to use libc++ instead of libstdc++
-    if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
-        # Add libc++ flags also to linker flags
-        set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -stdlib=libc++ -lc++abi -lc++")
-        set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -stdlib=libc++ -lc++abi -lc++")
-    endif()
-endif()
-
-# Add a global compile definition to fix RtMidi namespace conflicts
-# These need to be set before any targets are defined
-add_definitions(-DRTMIDI_DO_NOT_ENSURE_UNIQUE_PORTNAMES)
-
-# Add Qt6 support with proper configuration
+# Enable automatic handling of Qt's meta-object compiler, resource compiler, and UI compiler
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-# Explicitly set Qt version
-set(QT_VERSION_MAJOR 6)
-
-# Find Qt packages - with explicit paths if needed
-# If you have installed Qt in a non-standard location, you can set Qt6_DIR here
-# set(Qt6_DIR "/path/to/your/Qt/6.x.x/gcc_64/lib/cmake/Qt6")
-
-find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Widgets Charts)
-
-# Check if Qt6 was found and configure accordingly
-if(Qt${QT_VERSION_MAJOR}_FOUND)
-    message(STATUS "Qt${QT_VERSION_MAJOR} found. Building GUI applications.")
-else()
-    message(WARNING "Qt${QT_VERSION_MAJOR} not found. GUI applications will not be built.")
-endif()
-
-# Linux-specific configuration
-if(UNIX AND NOT APPLE)
-	# ALSA is required for Linux
-	find_package(ALSA REQUIRED)
-	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
-	
-	# JACK is optional
-	find_package(PkgConfig QUIET)
-	if(PKG_CONFIG_FOUND)
-		pkg_check_modules(JACK jack)
-	endif()
-	
-	# Configure RtMidi based on available backends
-	set(RTMIDI_API_ALSA ON CACHE BOOL "Enable ALSA API" FORCE)
-	if(JACK_FOUND)
-		set(RTMIDI_API_JACK ON CACHE BOOL "Enable JACK API" FORCE)
-	else()
-		set(RTMIDI_API_JACK OFF CACHE BOOL "Disable JACK API" FORCE)
-		add_definitions(-DRTMIDI_NO_JACK)
-	endif()
-endif()
-
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
-
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-
-# Add Google Test
+# --- Other Dependencies ---
+# Include FetchContent module to handle dependencies
 include(FetchContent)
+
+# Declare Google Test dependency
 FetchContent_Declare(
-	googletest
-	URL https://github.com/google/googletest/archive/refs/tags/v1.13.0.zip
+  googletest
+  URL https://github.com/google/googletest/archive/refs/tags/v1.14.0.zip # Specify a stable version
+  # Or use GIT_REPOSITORY and GIT_TAG
+  # GIT_REPOSITORY https://github.com/google/googletest.git
+  # GIT_TAG        release-1.14.0
 )
+
+# Make Google Test available (downloads and prepares build)
+# Set QUIET to avoid excessive output during configuration
+# Set SYSTEM to treat GTest headers as system headers (suppress warnings)
+# Set EXCLUDE_FROM_ALL to not build gtest targets by default unless needed by tests
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE) # Needed on Windows sometimes
 FetchContent_MakeAvailable(googletest)
 
-# Add RtMidi with Linux-specific options
+# Declare nlohmann/json dependency (header-only)
 FetchContent_Declare(
-	rtmidi
-	URL https://github.com/thestk/rtmidi/archive/refs/tags/5.0.0.zip
+  nlohmann_json
+  GIT_REPOSITORY https://github.com/nlohmann/json.git
+  GIT_TAG v3.11.3 # Specify a stable version
+  GIT_SHALLOW TRUE
 )
+# Make nlohmann_json available (just sets variables for include path)
+FetchContent_MakeAvailable(nlohmann_json)
+
+
+# Declare RtMidi dependency
+FetchContent_Declare(
+  rtmidi
+  GIT_REPOSITORY https://github.com/thestk/rtmidi.git
+  GIT_TAG master # Or specify a release tag like 6.0.0
+  GIT_SHALLOW TRUE # Fetch only the specified tag/branch history
+)
+# Make RtMidi available (downloads and prepares build)
+# You might need to set RTMIDI_API_XXX options here if needed, e.g.,
+# set(RTMIDI_API_ALSA ON CACHE BOOL "" FORCE) # Example for Linux ALSA
 FetchContent_MakeAvailable(rtmidi)
 
-# Configure RtMidi to avoid deprecated function warnings being treated as errors
-if(TARGET rtmidi)
-    target_compile_options(rtmidi PRIVATE -Wno-deprecated-declarations -Wno-error=deprecated-declarations)
-endif()
 
-# Apply patch to RtMidi if patch file exists
-#if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/patches/rtmidi_fix.patch")
-#    message(STATUS "Applying rt-midi fix patch...")
-#    # Modify to apply patch with the correct path to RtMidi.cpp
-#    execute_process(
-#        COMMAND patch -p0 -i "${CMAKE_CURRENT_SOURCE_DIR}/patches/rtmidi_fix.patch"
-#        WORKING_DIRECTORY ${rtmidi_SOURCE_DIR}
-#        RESULT_VARIABLE patch_result
-#        ERROR_VARIABLE patch_error
-#        OUTPUT_VARIABLE patch_output
-#    )
-#    if(NOT patch_result EQUAL 0)
-#        message(STATUS "Patch output: ${patch_output}")
-#        message(STATUS "Patch error: ${patch_error}")
-#        message(STATUS "Trying alternative patch location...")
-#        # Try to find the file and patch it directly
-#        file(GLOB_RECURSE rtmidi_files ${rtmidi_SOURCE_DIR}/RtMidi.cpp)
-#        if(rtmidi_files)
-#            list(GET rtmidi_files 0 rtmidi_file)
-#            get_filename_component(rtmidi_dir ${rtmidi_file} DIRECTORY)
-#            execute_process(
-#                COMMAND patch -p0 -i "${CMAKE_CURRENT_SOURCE_DIR}/patches/rtmidi_fix.patch"
-#                WORKING_DIRECTORY ${rtmidi_dir}
-#                RESULT_VARIABLE patch_result
-#            )
-#            if(NOT patch_result EQUAL 0)
-#                message(WARNING "Failed to apply rt-midi patch, continuing without the patch")
-#            endif()
-#        else()
-#            message(WARNING "RtMidi.cpp not found, continuing without the patch")
-#        endif()
-#    endif()
-#endif()
+# --- Subdirectories ---
+# Add the source code directory
+add_subdirectory(src)
 
-# Library sources (excluding main.cpp and test-only files)
-set(LIB_SOURCES
-	src/domain/monitoring/PerformanceMonitor.cpp
+# Add the tests directory (optionally enable testing)
+enable_testing() # Basic CTest enablement
+add_subdirectory(tests)
 
-	src/domain/errors/DefaultErrorHandlers.cpp
-	src/domain/errors/ErrorHandler.cpp
-	src/domain/errors/ErrorLogger.cpp
-	src/domain/errors/RecoveryStrategy.cpp
-
-	src/domain/music/Pitch.cpp
-	src/domain/music/Duration.cpp
-	src/domain/music/Interval.cpp
-	src/domain/music/Voice.cpp
-	src/domain/music/Score.cpp
-	src/domain/music/Note.cpp
-	src/domain/music/MelodicTemplate.cpp
-	src/domain/rules/ParallelFifthsRule.cpp
-	src/domain/rules/ParallelOctavesRule.cpp
-	src/domain/rules/VoiceLeadingRule.cpp
-	src/domain/rules/ValidationPipeline.cpp
-	src/domain/events/NoteAddedEvent.cpp
-	src/domain/events/EventStore.cpp
-	src/domain/events/EventBus.cpp
-	src/domain/events/NoteEventHandler.cpp
-	src/domain/events/Snapshot.cpp
-	src/domain/exercises/Exercise.cpp
-	src/adapters/InMemoryScoreRepository.cpp
-	src/adapters/InMemoryExerciseRepository.cpp
-	src/adapters/MockMidiAdapter.cpp
-	src/adapters/TemplateBasedExerciseGenerator.cpp
-	src/adapters/EventSourcedRepository.cpp
-	src/adapters/CachingScoreRepository.cpp
-	src/adapters/RtMidiAdapter.cpp
-	src/domain/progression/ProgressionSystem.cpp
-	src/domain/plugins/PluginManager.cpp
-	src/domain/crossdomain/CrossDomainValidator.cpp
-	src/domain/statesync/StateSynchronizationManager.cpp
-	src/utils/DebugUtils.cpp
-    src/domain/events/GuiStateEvent.cpp
-    src/domain/events/GuiStateHandler.cpp
-    src/presentation/GuiStateCoordinator.cpp
-    src/domain/rules/MelodicIntervalRule.cpp 
-    src/domain/rules/DissonancePreparationRule.cpp)
-
-
-# Header files
-set(HEADERS
-	include/domain/monitoring/PerformanceMonitor.h
-	include/domain/errors/ErrorBase.h
-	include/domain/errors/DomainErrors.h
-	include/domain/errors/ErrorHandler.h
-	include/domain/errors/DefaultErrorHandlers.h
-	include/domain/errors/ErrorLogger.h
-	include/domain/errors/RecoveryStrategy.h
-	include/domain/music/Pitch.h
-	include/domain/music/Duration.h
-	include/domain/music/Interval.h
-	include/domain/music/Voice.h
-	include/domain/music/Score.h
-	include/domain/music/MelodicTemplate.h
-	include/domain/rules/Rule.h
-	include/domain/rules/ParallelFifthsRule.h
-	include/domain/rules/ParallelOctavesRule.h
-	include/domain/rules/VoiceLeadingRule.h
-	include/domain/rules/ValidationPipeline.h
-	include/domain/events/Event.h
-	include/domain/events/NoteAddedEvent.h
-	include/domain/events/EventStore.h
-	include/domain/events/EventBus.h
-	include/domain/events/NoteEventHandler.h
-	include/domain/events/Snapshot.h
-	include/domain/ports/ScoreRepository.h
-	include/domain/ports/MidiPort.h
-	include/domain/ports/ExercisePort.h
-	include/adapters/InMemoryScoreRepository.h
-	include/adapters/MockMidiAdapter.h
-	include/adapters/LockFreeEventQueue.h
-	include/adapters/TemplateBasedExerciseGenerator.h
-	include/adapters/RtMidiAdapter.h
-	include/domain/plugins/PluginInterface.h
-	include/domain/plugins/PluginManager.h
-	include/utils/DebugUtils.h
-    include/domain/events/GuiStateEvent.h
-    include/domain/events/GuiStateHandler.h
-    include/presentation/GuiStateCoordinator.h)
-
-# Grid implementation sources with proper Qt MOC handling
-set(GRID_HEADERS
-    include/presentation/grid/IGridModel.h
-    include/presentation/grid/IGridRenderer.h
-    include/presentation/grid/IViewportController.h
-    include/presentation/grid/SpatialIndex.h
-    include/presentation/grid/BatchedGridRenderer.h
-    include/presentation/grid/QtBatchedGridRenderer.h
-    include/presentation/grid/GridMemoryManager.h
-    include/presentation/grid/CoordinateTransformer.h
-    include/presentation/grid/ViewportLayoutManager.h
-    include/presentation/grid/AdaptiveGridExpansionManager.h
-    include/presentation/grid/NoteGridAdapter.h
-    include/presentation/grid/ViewportManagerAdapter.h
-    include/presentation/grid/ScoreViewAdapter.h
-    include/presentation/grid/GridManager.h
-    include/presentation/grid/DefaultGridModel.h
+# --- Application Executable ---
+add_executable(MusicTrainerApp
+    src/main.cpp
+    src/ui/MainWindow.h # Headers with Q_OBJECT need to be listed for AUTOMOC
+    src/ui/MainWindow.cpp
+    src/ui/ScoreViewportWidget.h # Headers with Q_OBJECT need to be listed for AUTOMOC
+    src/ui/ScoreViewportWidget.cpp
+    # Add other application-specific source files here
 )
 
-set(GRID_SOURCES
-    src/presentation/grid/SpatialIndex.cpp
-    src/presentation/grid/BatchedGridRenderer.cpp
-    src/presentation/grid/QtBatchedGridRenderer.cpp
-    src/presentation/grid/CoordinateTransformer.cpp
-    src/presentation/grid/ViewportLayoutManager.cpp
-    src/presentation/grid/AdaptiveGridExpansionManager.cpp
-    src/presentation/grid/DefaultGridModel.cpp
-    src/presentation/grid/GridManager.cpp
-    src/presentation/grid/GridMemoryManager.cpp
-    src/presentation/grid/NoteGridAdapter.cpp
-    src/presentation/grid/ViewportManagerAdapter.cpp
-    src/presentation/grid/ScoreViewAdapter.cpp
+# Link the application against the core library and Qt modules
+target_link_libraries(MusicTrainerApp
+    PRIVATE
+        MusicTrainer_Core # Link against our core library
+        Qt::Core
+        Qt::Gui
+        Qt::Widgets
+        Qt::Multimedia # Needed for MIDI support in Qt potentially
 )
 
-# GUI sources including grid components
-set(GUI_SOURCES
-    ${GRID_SOURCES}
-    src/presentation/MainWindow.cpp
-    src/presentation/ScoreView.cpp
-    src/presentation/ViewportManager.cpp
-    src/presentation/NoteGrid.cpp
-    src/presentation/GridCell.cpp
-    src/presentation/TransportControls.cpp
-    src/presentation/ExercisePanel.cpp
-    src/presentation/FeedbackArea.cpp
-    src/presentation/ExerciseBrowser.cpp
-    src/presentation/SettingsDialog.cpp
-    src/presentation/viewmodels/ScoreViewModel.cpp
-    src/domain/analysis/VoiceAnalyzer.cpp
-    src/presentation/VoiceChart.cpp
-)
+# --- Optional: Global Settings ---
+# Example: Set output directories
+# set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+# set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+# set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
-# GUI headers including grid components
-set(GUI_HEADERS
-    ${GRID_HEADERS}
-    include/presentation/MainWindow.h
-    include/presentation/ScoreView.h
-    include/presentation/ViewportManager.h
-    include/presentation/NoteGrid.h
-    include/presentation/GridCell.h
-    include/presentation/TransportControls.h
-    include/presentation/ExercisePanel.h
-    include/presentation/FeedbackArea.h
-    include/presentation/ExerciseBrowser.h
-    include/presentation/SettingsDialog.h
-    include/presentation/viewmodels/ScoreViewModel.h
-    include/domain/analysis/VoiceAnalyzer.h
-    include/presentation/VoiceChart.h
-    include/domain/exercises/Exercise.h
-    include/domain/exercises/ExerciseRepository.h
-    include/adapters/InMemoryExerciseRepository.h
-)
-
-# Test-only sources
-set(TEST_SOURCES
-    tests/ValidationPipelineTests.cpp
-    tests/ExerciseGenerationTests.cpp
-    tests/MidiSystemTests.cpp
-    tests/RepositoryTests.cpp
-    tests/ProgressionSystemTests.cpp
-    tests/ErrorHandlingTests.cpp
-    tests/PerformanceMonitoringTests.cpp
-    tests/integration/SystemIntegrationTests.cpp
-    tests/plugins/PluginSystemTests.cpp
-    tests/plugins/TestPlugin.cpp
-    tests/crossdomain/CrossDomainValidatorTests.cpp
-    tests/statesync/StateSynchronizationManagerTests.cpp
-    tests/grid/GridSystemTests.cpp
-    tests/grid/GridAdapterTests.cpp
-    tests/grid/GridPerformanceBenchmark.cpp
-)
-
-set(MUSICTRAINERGUI_SOURCES
-    src/presentation/MainWindow.cpp
-    src/presentation/ScoreView.cpp
-    src/presentation/ViewportManager.cpp
-    src/presentation/NoteGrid.cpp
-    src/presentation/GridCell.cpp
-    src/presentation/TransportControls.cpp
-    src/presentation/ExercisePanel.cpp
-    src/presentation/FeedbackArea.cpp
-    src/presentation/ExerciseBrowser.cpp
-    src/presentation/SettingsDialog.cpp
-    src/presentation/viewmodels/ScoreViewModel.cpp
-    src/domain/analysis/VoiceAnalyzer.cpp
-    src/presentation/VoiceChart.cpp
-)
-
-set(MUSICTRAINERGUI_HEADERS
-    include/presentation/MainWindow.h
-    include/presentation/ScoreView.h
-    include/presentation/ViewportManager.h
-    include/presentation/NoteGrid.h
-    include/presentation/GridCell.h
-    include/presentation/TransportControls.h
-    include/presentation/ExercisePanel.h
-    include/presentation/FeedbackArea.h
-    include/presentation/ExerciseBrowser.h
-    include/presentation/SettingsDialog.h
-    include/presentation/viewmodels/ScoreViewModel.h
-    include/presentation/VoiceChart.h
-    include/domain/analysis/VoiceAnalyzer.h
-    include/domain/exercises/Exercise.h
-    include/domain/exercises/ExerciseRepository.h
-    include/adapters/InMemoryExerciseRepository.h
-)
-
-# Include directories
-include_directories(${PROJECT_SOURCE_DIR}/include)
-# Add moc output directory for grid components
-include_directories(${CMAKE_CURRENT_BINARY_DIR})
-
-# Main library target (not executable)
-add_library(MusicTrainerLib STATIC ${LIB_SOURCES} ${HEADERS} ${STATE_MANAGEMENT_SOURCES})
-target_link_libraries(MusicTrainerLib PRIVATE 
-    rtmidi 
-    ${ALSA_LIBRARIES}
-    Qt${QT_VERSION_MAJOR}::Core 
-    Qt${QT_VERSION_MAJOR}::Widgets
-)
-set_target_properties(MusicTrainerLib PROPERTIES
-    AUTOMOC ON
-    AUTORCC ON
-    AUTOUIC ON
-)
-
-# Main executable
-add_executable(${PROJECT_NAME} src/main.cpp)
-target_link_libraries(${PROJECT_NAME} PRIVATE MusicTrainerLib)
-
-# Check if Qt is available and create GUI applications
-if(Qt${QT_VERSION_MAJOR}_FOUND)
-    # Add the full GUI application
-    add_executable(MusicTrainerGUI 
-        src/presentation/main_gui.cpp 
-        ${GUI_SOURCES} 
-        ${GUI_HEADERS}
-    )
-    
-    target_link_libraries(MusicTrainerGUI PRIVATE 
-        MusicTrainerLib 
-        Qt${QT_VERSION_MAJOR}::Core 
-        Qt${QT_VERSION_MAJOR}::Widgets 
-        Qt${QT_VERSION_MAJOR}::Charts 
-        rtmidi 
-        ${ALSA_LIBRARIES}
-    )
-    
-    target_include_directories(MusicTrainerGUI PRIVATE
-        ${PROJECT_SOURCE_DIR}/include
-        ${CMAKE_CURRENT_BINARY_DIR}
-    )
-    
-    set_target_properties(MusicTrainerGUI PROPERTIES
-        AUTOMOC ON
-        WIN32_EXECUTABLE TRUE
-        MACOSX_BUNDLE TRUE
-    )
-    
-    # Add the test GUI application - use the same headers as MusicTrainerGUI
-    add_executable(TestGUI src/presentation/test_gui.cpp ${GUI_SOURCES} ${GUI_HEADERS})
-    target_link_libraries(TestGUI PRIVATE 
-        MusicTrainerLib 
-        Qt${QT_VERSION_MAJOR}::Core 
-        Qt${QT_VERSION_MAJOR}::Widgets 
-        Qt${QT_VERSION_MAJOR}::Charts 
-        rtmidi 
-        ${ALSA_LIBRARIES}
-    )
-    target_include_directories(TestGUI PRIVATE
-        ${PROJECT_SOURCE_DIR}/include
-        ${CMAKE_CURRENT_BINARY_DIR}  # Add this line to include moc output
-    )
-    set_target_properties(TestGUI PROPERTIES
-        WIN32_EXECUTABLE FALSE
-        MACOSX_BUNDLE FALSE
-    )
-endif()
-
-# Add main test suite with proper Qt MOC handling
-add_executable(TestSuite
-    tests/main.cpp
-    tests/TestSuite.cpp
-    ${TEST_SOURCES}
-    ${GUI_SOURCES}
-    ${GUI_HEADERS}  # Add headers for MOC processing
-    ${GRID_SOURCES}
-    ${GRID_HEADERS}  # Add grid headers for MOC processing
-)
-
-set_target_properties(TestSuite PROPERTIES
-    AUTOMOC ON  # Enable Qt MOC
-    AUTOUIC ON  # Enable Qt UIC
-    AUTORCC ON  # Enable Qt RCC
-)
-
-target_include_directories(TestSuite PRIVATE 
-    ${PROJECT_SOURCE_DIR}/include
-    ${Qt${QT_VERSION_MAJOR}_INCLUDE_DIRS}
-    ${CMAKE_CURRENT_BINARY_DIR}  # Add this to find generated moc files
-)
-
-target_link_libraries(TestSuite PRIVATE 
-    GTest::gtest_main # Use imported target
-    # gtest # Replaced by GTest::gtest_main
-    # gtest_main # Replaced by GTest::gtest_main
-    MusicTrainerLib 
-    rtmidi 
-    ${ALSA_LIBRARIES}
-    Qt${QT_VERSION_MAJOR}::Core
-    Qt${QT_VERSION_MAJOR}::Widgets
-    Qt${QT_VERSION_MAJOR}::Charts
-)
-
-target_compile_definitions(TestSuite PRIVATE 
-    TESTING
-    QT_NO_KEYWORDS  # Add this to avoid conflicts between Qt and gtest macros
-)
-
-# Define test targets
-set(TEST_TARGETS
-	ValidationPipelineTests
-	ExerciseGenerationTests
-	MidiSystemTests
-	RepositoryTests
-	ProgressionSystemTests
-	SystemIntegrationTests
-	PluginSystemTests
-	ErrorHandlingTests
-	PerformanceMonitoringTests
-	CrossDomainValidatorTests
-	StateSynchronizationManagerTests
-    GridSystemTests
-    GridAdapterTests
-    GridPerformanceBenchmark)
-
-# Configure test executables
-foreach(TEST_TARGET ${TEST_TARGETS})
-    if(${TEST_TARGET} STREQUAL "SystemIntegrationTests")
-        add_executable(${TEST_TARGET} 
-            tests/main.cpp
-            tests/integration/${TEST_TARGET}.cpp)
-    elseif(${TEST_TARGET} STREQUAL "PluginSystemTests")
-        add_executable(${TEST_TARGET} 
-            tests/main.cpp
-            tests/plugins/${TEST_TARGET}.cpp 
-            tests/plugins/TestPlugin.cpp)
-    elseif(${TEST_TARGET} STREQUAL "CrossDomainValidatorTests")
-        add_executable(${TEST_TARGET} 
-            tests/main.cpp
-            tests/crossdomain/${TEST_TARGET}.cpp)
-    elseif(${TEST_TARGET} STREQUAL "StateSynchronizationManagerTests")
-        add_executable(${TEST_TARGET} 
-            tests/main.cpp
-            tests/statesync/${TEST_TARGET}.cpp)
-    elseif(${TEST_TARGET} STREQUAL "GridSystemTests" OR ${TEST_TARGET} STREQUAL "GridAdapterTests" OR ${TEST_TARGET} STREQUAL "GridPerformanceBenchmark")
-        message(STATUS "Configuring ${TEST_TARGET} with Qt support")
-        add_executable(${TEST_TARGET}
-            tests/main.cpp
-            tests/grid/${TEST_TARGET}.cpp
-            ${GUI_SOURCES}
-            ${GUI_HEADERS})  # Add GUI_HEADERS for MOC processing
-        
-        set_target_properties(${TEST_TARGET} PROPERTIES
-            AUTOMOC ON  # Enable Qt MOC
-            AUTOUIC ON  # Enable Qt UIC
-            AUTORCC ON  # Enable Qt RCC
-        )
-    else()
-        add_executable(${TEST_TARGET} 
-            tests/main.cpp
-            tests/${TEST_TARGET}.cpp)
-    endif()
-    
-    # Only set include directories for non-grid test targets since we set them explicitly for grid tests
-    if(NOT (${TEST_TARGET} STREQUAL "GridSystemTests" OR ${TEST_TARGET} STREQUAL "GridAdapterTests" OR ${TEST_TARGET} STREQUAL "GridPerformanceBenchmark"))
-        target_include_directories(${TEST_TARGET} PRIVATE ${PROJECT_SOURCE_DIR}/include)
-    endif()
-    target_compile_definitions(${TEST_TARGET} PRIVATE TESTING)
-    
-    if(${TEST_TARGET} STREQUAL "GridSystemTests" OR ${TEST_TARGET} STREQUAL "GridAdapterTests" OR ${TEST_TARGET} STREQUAL "GridPerformanceBenchmark")
-        target_include_directories(${TEST_TARGET} PRIVATE
-            ${PROJECT_SOURCE_DIR}/include
-            ${CMAKE_CURRENT_BINARY_DIR}  # Add this to find generated moc files
-        )
-        
-        target_link_libraries(${TEST_TARGET} PRIVATE
-            gtest
-            gtest_main
-            MusicTrainerLib
-            rtmidi
-            ${ALSA_LIBRARIES}
-            Qt${QT_VERSION_MAJOR}::Core
-            Qt${QT_VERSION_MAJOR}::Widgets
-            Qt${QT_VERSION_MAJOR}::Charts)
-    else()
-        target_link_libraries(${TEST_TARGET} PRIVATE gtest gtest_main MusicTrainerLib rtmidi ${ALSA_LIBRARIES})
-    endif()
-    
-    add_test(NAME ${TEST_TARGET}
-             COMMAND ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${TEST_TARGET}
-             WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
-endforeach()
-
-if(CLEAR_CACHE)
-	 add_definitions(-DCLEAR_CACHE)
-endif()
-
-# Enable testing
-enable_testing()
-
-# Set test properties for timeout and environment
-set_tests_properties(${TEST_TARGETS} PROPERTIES
-	TIMEOUT 30
-	ENVIRONMENT "GTEST_FILTER=*")
+# Message for configuration status
+message(STATUS "Project Name: ${PROJECT_NAME}")
+message(STATUS "C++ Standard: ${CMAKE_CXX_STANDARD}")
+message(STATUS "Build Type: ${CMAKE_BUILD_TYPE}") # Often set via -D CMAKE_BUILD_TYPE=Release/Debug

@@ -1,0 +1,17 @@
+{
+  "id": "default_check",
+  "name": "Default Checks",
+  "description": "A basic set of rules including parallel fifth prevention.",
+  "rules": [
+    {
+      "ruleId": "ParallelFifths",
+      "enabled": true,
+      "params": {}
+    },
+    {
+      "ruleId": "ParallelOctaves",
+      "enabled": true,
+      "params": {}
+    }
+  ]
+}
