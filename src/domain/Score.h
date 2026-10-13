@@ -40,6 +40,8 @@ public:
         std::string name; // Optional name (e.g., "Soprano", "CF")
         std::vector<Note> notes; // Notes sorted by start time
 
+        // Default constructor (required for nlohmann::json deserialization).
+        Voice() = default;
         explicit Voice(int v_id, std::string v_name = "") : id(v_id), name(std::move(v_name)) {}
 
         // TODO: Add methods for efficient note lookup within the voice if needed
@@ -195,8 +197,41 @@ public:
 
     // TODO: Add methods for calculating total duration, etc.
 
+    // nlohmann JSON (de)serialization free functions need access to the private
+    // members above, so they are declared as friends.
+    friend void to_json(json& j, const Score& s);
+    friend void from_json(const json& j, Score& s);
+
 }; // class Score
 
+// --- JSON Serialization for Score::Voice (free functions for ADL) ---
+// These must be free functions (not members) so that nlohmann::json can find
+// them via argument-dependent lookup when (de)serializing vectors of voices.
+inline void to_json(json& j, const Score::Voice& v) {
+    j = json{
+        {"id", v.id},
+        {"name", v.name},
+        {"notes", v.notes} // Uses Note's to_json
+    };
+}
+
+inline void from_json(const json& j, Score::Voice& v) {
+    if (!j.is_object() || !j.contains("id") || !j.contains("notes")) {
+        throw json::type_error::create(302, "JSON object for Voice must contain id and notes", j);
+    }
+    try {
+        v.id = j.at("id").get<int>();
+        v.name = j.value("name", ""); // Optional name
+        v.notes = j.at("notes").get<std::vector<Note>>(); // Uses Note's from_json
+
+        // Ensure notes are sorted after loading (in case JSON wasn't sorted)
+        std::sort(v.notes.begin(), v.notes.end());
+    } catch (const json::type_error& e) {
+        throw json::type_error::create(302, std::string("Type error parsing Voice JSON: ") + e.what(), j);
+    } catch (const std::exception& e) {
+        throw json::other_error::create(501, std::string("Validation error creating Voice from JSON: ") + e.what(), j);
+    }
+}
 
 // --- JSON Serialization for Score ---
 

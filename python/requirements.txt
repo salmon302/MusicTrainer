@@ -1,0 +1,4 @@
+# Runtime dependency for the PyQt6 frontend.
+# The C++ core bindings (musictrainer_core) are built separately via CMake with
+# -DMUSICTRAINER_BUILD_PYTHON_BINDINGS=ON and must be on the Python path.
+PyQt6

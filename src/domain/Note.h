@@ -30,6 +30,10 @@ private:
     int voiceId; // Identifier for the voice this note belongs to
 
 public:
+    // Default constructor (required for nlohmann::json deserialization of
+    // vectors/notes; members are assigned by from_json afterwards).
+    Note() = default;
+
     // Constructor with validation
     Note(const Pitch& p, const Position& start, double duration, int vel, int voice)
         : pitch(p), startTime(start), durationBeats(0.0), velocity(0), voiceId(voice) // Initialize members

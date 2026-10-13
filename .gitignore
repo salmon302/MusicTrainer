@@ -1,0 +1,57 @@
+# Build directories
+build/
+build-*/
+out/
+cmake-build-*/
+
+# Qt / MOC / RCC / UIC generated artifacts
+moc_*.cpp
+qrc_*.cpp
+ui_*.h
+*.user
+*.user.*
+
+# Compilers / linkers / MSVC
+*.o
+*.obj
+*.exe
+*.dll
+*.lib
+*.exp
+*.pdb
+*.ilk
+*.suo
+*.sdf
+*.VC.db
+*.opendb
+*.ipch
+.vs/
+
+# Dependency / package managers
+vcpkg_installed/
+vcpkg/build/
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Logs / temp
+*.log
+tmp/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+# Compiled pybind11 extension (built into python/src/musictrainer by CMake)
+python/src/musictrainer/musictrainer_core.*

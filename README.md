@@ -20,8 +20,16 @@ MusicTrainer is an application designed to help users improve their music theory
 
 ### Optional Dependencies
 
-- Qt 6.0 or Qt 5.15 (for GUI application)
+- Qt 6.0 or Qt 5.15 — **only** for the legacy C++/Qt GUI application
+  (`MusicTrainerApp`). The core library and tests build without Qt.
 - JACK audio connection kit (for additional MIDI functionality)
+- Python 3.9+ and PyQt6 — for the **PyQt frontend** (see below). Building the
+  Python bindings also requires pybind11, which CMake fetches automatically.
+
+> **Frontend direction:** the GUI is being migrated from C++/Qt ("Qt proper") to
+> **PyQt** on top of the Qt-free C++ core. The PyQt frontend lives in
+> [`python/`](python/) and is described in
+> [`docs/current/PyQtMigration.md`](docs/current/PyQtMigration.md).
 
 ## Building the Application
 
@@ -78,15 +86,33 @@ cmake --build .
 
 ## Running the Application
 
-Once built, you can find the executables in the `build/bin` directory:
+### Legacy C++/Qt GUI (`MusicTrainerApp`)
 
-- `MusicTrainerV3`: The main command-line application
-- `MusicTrainerGUI`: The full graphical user interface (if Qt is available)
-- `TestGUI`: A simpler test GUI for demonstration (if Qt is available)
+Once built, you can find the executable in the `build/bin` directory (the GUI
+requires Qt 5.15/6 to be built; otherwise only the test suite is built):
+
+- `MusicTrainerApp`: The full graphical user interface (built only when Qt6 is found)
+
+This target is being superseded by the PyQt frontend (below).
+
+### PyQt Frontend (Python)
+
+The PyQt6 GUI reuses the Qt-free C++ core through the `musictrainer_core`
+pybind11 module:
+
+```bash
+cmake -S . -B build -DMUSICTRAINER_BUILD_PYTHON_BINDINGS=ON
+cmake --build build --target musictrainer_core
+cd python
+python -m pip install -e .
+python -m musictrainer
+```
+
+See [`python/README.md`](python/README.md) for full details.
 
 ## Getting Started
 
-1. Start by running the main GUI application: `./build/bin/MusicTrainerGUI`
+1. Start by running the main GUI application: `./build/bin/MusicTrainerApp`
 2. Create a new exercise or open an existing one from the File menu
 3. Use the transport controls at the bottom to play or record
 4. Add notes by clicking on the score view

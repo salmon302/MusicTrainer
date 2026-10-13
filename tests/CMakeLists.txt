@@ -6,17 +6,25 @@ include(GoogleTest)
 
 # List test source files
 set(TEST_SOURCES
+    # Domain tests
     domain/Position_test.cpp
     domain/Pitch_test.cpp
     domain/Note_test.cpp
     domain/TimeSignature_test.cpp
     domain/KeySignature_test.cpp
     domain/Score_test.cpp
+    domain/ScoreJson_test.cpp # JSON (de)serialization round-trip
 
     # Rules tests
     rules/ParallelFifthsRule_test.cpp
-    rules/ParallelOctavesRule_test.cpp # Added new rule test
-    # Add other rule test files here
+    rules/ParallelOctavesRule_test.cpp
+
+    # Command / undo-redo tests
+    commands/AddNoteCommand_test.cpp
+    commands/DeleteNoteCommand_test.cpp
+    commands/ResizeNoteCommand_test.cpp
+    commands/MoveNotesCommand_test.cpp
+    commands/CommandHistory_test.cpp
 )
 
 # Add the test executable

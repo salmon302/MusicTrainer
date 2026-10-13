@@ -41,10 +41,20 @@ target_sources(MusicTrainer_Core
 
 # Link dependencies (if any needed internally)
 target_link_libraries(MusicTrainer_Core
+    # nlohmann/json is used in the public domain headers (e.g. Score.h), so it
+    # must be a PUBLIC dependency so that consumers of this library (tests, UI)
+    # can find the header too.
+    PUBLIC
+        nlohmann_json::nlohmann_json
     PRIVATE
         # Link against RtMidi fetched in the parent scope
         rtmidi
         # Qt::Core is linked by the final application executable, not the core library
 )
+
+# On Windows, RtMidi's WinMM backend requires the winmm system library.
+if(WIN32)
+    target_link_libraries(MusicTrainer_Core PRIVATE winmm)
+endif()
 
 message(STATUS "Configuring MusicTrainer_Core library (STATIC)")

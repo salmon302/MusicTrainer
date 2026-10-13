@@ -16,6 +16,9 @@
    - [State Synchronization](design/StateSynchronization.md)
    - [MIDI System](design/MIDISystem.md)
 
+4. Frontend Migration
+   - [PyQt Migration Plan](PyQtMigration.md) — moving the GUI from C++/Qt to PyQt over the Qt-free C++ core
+
 ## Current Focus
 1. Error Handling Implementation
    - Exception handling patterns

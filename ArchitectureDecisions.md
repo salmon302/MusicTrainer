@@ -109,3 +109,21 @@
 	- (+) Confidence in changes
 	- (-) More complex test setup
 	- (-) Longer test execution time
+
+## ADR-011: PyQt Frontend over C++/Qt
+- **Status**: Accepted
+- **Context**: The GUI currently uses C++/Qt6 ("Qt proper") via `src/ui/` and
+  `src/main.cpp`, while the domain, rules, MIDI, IO, and command layers form a
+  Qt-free C++ core (`MusicTrainer_Core`). Maintaining a C++/Qt UI couples the
+  entire build to a Qt toolchain and slows UI iteration.
+- **Decision**: Migrate the GUI to **PyQt** (Python binding of Qt). The Qt-free C++
+  core is preserved unchanged and exposed to Python through a **pybind11** module
+  (`musictrainer_core`). The PyQt frontend (`python/src/musictrainer/`) drives the
+  core; it does not reimplement music logic.
+- **Consequences**:
+	- (+) UI iterates without recompiling C++ or a full Qt toolchain
+	- (+) Core (MIDI latency, lock-free queues, rule validation) reused as-is and still C++-tested
+	- (+) Smaller Qt-coupled C++ surface; core/tests build Qt-free on CI
+	- (-) Adds a Python/pybind11 build step and a second language boundary
+	- (-) Some C++ features (polymorphic rule plugins, MIDI input callbacks) need explicit binding work
+	- (-) Legacy C++/Qt UI retained temporarily until the PyQt frontend is feature-complete
